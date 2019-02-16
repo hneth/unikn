@@ -2,7 +2,7 @@
 % Please edit documentation in R/colors.R
 \name{plot_pal}
 \alias{plot_pal}
-\title{Plot a color palette.}
+\title{Plot information on a color palette.}
 \usage{
 plot_pal(pal = pal_unikn)
 }
@@ -11,7 +11,7 @@ plot_pal(pal = pal_unikn)
 Default: \code{pal = \link{pal_unikn}}.}
 }
 \description{
-\code{plot_pal} plots (information on) a color palette \code{pal}.
+\code{plot_pal} plots information on a color palette \code{pal}.
 }
 \examples{
 plot_pal()  # plots default color palette 
@@ -28,8 +28,9 @@ plot_pal(yarrr::piratepal(palette = "google"))
 \seealso{
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color scales: \code{\link{col_n_sq}},
-  \code{\link{col_n}}, \code{\link{col_which}},
-  \code{\link{pal_unikn_ppt}}, \code{\link{pal_unikn}}
+Other color palettes: \code{\link{pal_n_sq}},
+  \code{\link{pal_n}}, \code{\link{pal_peach}},
+  \code{\link{pal_seeblau}}, \code{\link{pal_unikn_ppt}},
+  \code{\link{pal_unikn}}, \code{\link{pal_which}}
 }
-\concept{color scales}
+\concept{color palettes}

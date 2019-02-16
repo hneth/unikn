@@ -3,13 +3,13 @@
 \docType{data}
 \name{pal_unikn_ppt}
 \alias{pal_unikn_ppt}
-\title{uni.kn color scale (ppt version).}
+\title{uni.kn secondary color palette (ppt version).}
 \format{An object of class \code{data.frame} with 1 rows and 10 columns.}
 \usage{
 pal_unikn_ppt
 }
 \description{
-\code{pal_unikn_ppt} provides an uni.kn color scale 
+\code{pal_unikn_ppt} provides an alternative uni.kn color palette  
 as a data frame containing 10 colors.
 }
 \details{
@@ -26,11 +26,13 @@ pal_unikn_ppt[[1]]  # color
 
 }
 \seealso{
-\code{\link{pal_unikn}} for the default uni.kn color palette.
+\code{\link{pal_unikn}} for the default uni.kn color palette; 
+\code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
 
-Other color scales: \code{\link{col_n_sq}},
-  \code{\link{col_n}}, \code{\link{col_which}},
-  \code{\link{pal_unikn}}, \code{\link{plot_pal}}
+Other color palettes: \code{\link{pal_n_sq}},
+  \code{\link{pal_n}}, \code{\link{pal_peach}},
+  \code{\link{pal_seeblau}}, \code{\link{pal_unikn}},
+  \code{\link{pal_which}}, \code{\link{plot_pal}}
 }
-\concept{color scales}
+\concept{color palettes}
 \keyword{datasets}

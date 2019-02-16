@@ -3,17 +3,17 @@
 \docType{data}
 \name{pal_unikn}
 \alias{pal_unikn}
-\title{uni.kn default color scale.}
+\title{uni.kn default color palette.}
 \format{An object of class \code{data.frame} with 1 rows and 10 columns.}
 \usage{
 pal_unikn
 }
 \description{
-\code{pal_unikn} provides an uni.kn color scale 
+\code{pal_unikn} provides the default uni.kn color palette  
 as a data frame containing 10 colors.
 }
 \details{
-This is the default (web/sRGB) scale.
+This is the primary (web/sRGB) scale.
 
 See https://www.uni-konstanz.de for details.
 }
@@ -25,11 +25,13 @@ pal_unikn[[1]]  # color
 
 }
 \seealso{
-\code{\link{pal_unikn_ppt}} for a ppt version.
+\code{\link{pal_unikn_ppt}} for an alternative (ppt) version; 
+\code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
 
-Other color scales: \code{\link{col_n_sq}},
-  \code{\link{col_n}}, \code{\link{col_which}},
-  \code{\link{pal_unikn_ppt}}, \code{\link{plot_pal}}
+Other color palettes: \code{\link{pal_n_sq}},
+  \code{\link{pal_n}}, \code{\link{pal_peach}},
+  \code{\link{pal_seeblau}}, \code{\link{pal_unikn_ppt}},
+  \code{\link{pal_which}}, \code{\link{plot_pal}}
 }
-\concept{color scales}
+\concept{color palettes}
 \keyword{datasets}
