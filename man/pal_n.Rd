@@ -18,9 +18,11 @@ Default: \code{pal = \link{pal_unikn}}.}
 \code{pal_n} returns \code{n} dedicated colors of a known color palette \code{pal}.
 }
 \examples{
-pal_n()    # all default colors
+pal_n()                   # all colors of default color palette
+pal_n(n = 4)              # 4 colors of default color palette
+pal_n(pal = pal_seeblau)  # all colors of another color palette
 
-# Default palette pal:
+# Default pal:
 pal_n(1)   # n = 1 color of default color pal
 pal_n(2)
 pal_n(4)
@@ -28,7 +30,7 @@ pal_n(6)
 pal_n(8)
 pal_n(10)  # n = 10 colors of default color pal
 
-pal_n(11)  # return maximal number of colors
+pal_n(99)  # returns maximal number of colors
 
 # Other palettes pal:
 pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))
@@ -42,7 +44,8 @@ pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 
 Other color palettes: \code{\link{pal_n_sq}},
   \code{\link{pal_peach}}, \code{\link{pal_seeblau}},
-  \code{\link{pal_unikn_ppt}}, \code{\link{pal_unikn}},
+  \code{\link{pal_unikn_ppt}},
+  \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
   \code{\link{pal_which}}, \code{\link{plot_pal}}
 }
 \concept{color palettes}

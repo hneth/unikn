@@ -31,7 +31,8 @@ pal_unikn[[1]]  # color
 Other color palettes: \code{\link{pal_n_sq}},
   \code{\link{pal_n}}, \code{\link{pal_peach}},
   \code{\link{pal_seeblau}}, \code{\link{pal_unikn_ppt}},
-  \code{\link{pal_which}}, \code{\link{plot_pal}}
+  \code{\link{pal_unikn_pref}}, \code{\link{pal_which}},
+  \code{\link{plot_pal}}
 }
 \concept{color palettes}
 \keyword{datasets}

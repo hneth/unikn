@@ -19,7 +19,7 @@ See https://www.uni-konstanz.de for details.
 pal_seeblau
 dim(pal_seeblau)  # 1 5
 pal_seeblau[3]    # preferred (named) color
-pal_seeblau[[3]]  # preferred color "seeblau"
+pal_seeblau[[3]]  # preferred color "seeblau3" = "#59C7EB"
 
 }
 \seealso{
@@ -28,7 +28,8 @@ pal_seeblau[[3]]  # preferred color "seeblau"
 
 Other color palettes: \code{\link{pal_n_sq}},
   \code{\link{pal_n}}, \code{\link{pal_peach}},
-  \code{\link{pal_unikn_ppt}}, \code{\link{pal_unikn}},
+  \code{\link{pal_unikn_ppt}},
+  \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
   \code{\link{pal_which}}, \code{\link{plot_pal}}
 }
 \concept{color palettes}

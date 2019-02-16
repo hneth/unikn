@@ -31,6 +31,7 @@ plot_pal(yarrr::piratepal(palette = "google"))
 Other color palettes: \code{\link{pal_n_sq}},
   \code{\link{pal_n}}, \code{\link{pal_peach}},
   \code{\link{pal_seeblau}}, \code{\link{pal_unikn_ppt}},
-  \code{\link{pal_unikn}}, \code{\link{pal_which}}
+  \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
+  \code{\link{pal_which}}
 }
 \concept{color palettes}
