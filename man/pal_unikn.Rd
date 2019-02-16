@@ -26,11 +26,14 @@ pal_unikn[[1]]  # color
 }
 \seealso{
 \code{\link{pal_unikn_ppt}} for an alternative (ppt) version; 
+\code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+\code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
 
 Other color palettes: \code{\link{pal_n_sq}},
   \code{\link{pal_n}}, \code{\link{pal_peach}},
-  \code{\link{pal_seeblau}}, \code{\link{pal_unikn_ppt}},
+  \code{\link{pal_seeblau}}, \code{\link{pal_unikn_plus}},
+  \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_which}},
   \code{\link{plot_pal}}
 }
