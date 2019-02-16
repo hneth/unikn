@@ -5,7 +5,7 @@ unikn
 
 <!-- uni.kn logo and link: -->
 <!-- ![](./inst/pix/logo.svg) -->
-<a href="https://www.uni.kn/"> <img src = "./inst/pix/logo.svg" alt = "uni.kn" style = "width: 300px; float: right; border:25;"/> </a>
+<a href="https://www.uni.kn/"> <img src = "./inst/pix/logo_min.png" alt = "uni.kn" style = "width: 300px; float: right; border:30;"/> </a>
 
 The `unikn` package provides some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design in R.
 
