@@ -20,7 +20,7 @@ The current development version can be installed from its [GitHub](https://githu
 # install.packages('devtools')
 devtools::install_github('hneth/unikn')
 
-library(unikn)  # loads the package
+library(unikn)  # load package
 ```
 
 Colors
@@ -40,7 +40,7 @@ pal_unikn      # 10 default colors (web/sRGB)
 plot_pal(pal = pal_unikn)
 ```
 
-<img src = "./inst/pix/pal_unikn.png" alt = "pal_unikn" style = "width: 800px; border:10;"/>
+<img src = "./inst/pix/pal_unikn.png" width = "800px" align = "left" alt = "pal_unikn" style = "width: 800px; border:10;"/>
 
 ### Additional color palettes
 
