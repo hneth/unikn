@@ -161,7 +161,7 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 #' pal_seeblau
 #' dim(pal_seeblau)  # 1 5
 #' pal_seeblau[3]    # preferred (named) color
-#' pal_seeblau[[3]]  # preferred color "seeblau"
+#' pal_seeblau[[3]]  # preferred color "seeblau3" = "#59C7EB"
 #'
 #' @family color palettes
 #'
@@ -318,12 +318,37 @@ peach <- pal_peach[4]  # == peach.4 of pal_peach
 
 ##   (+) Scale of all preferred colors: ------
 
+# Documentation: 
+
+#' uni.kn preferred colors in a color palette.
+#'
+#' \code{pal_unikn_pref} provides an additional uni.kn color palette  
+#' that collects the preferred color of each palette 
+#' as a data frame containing X colors.
+#'
+#' See https://www.uni-konstanz.de for details.
+#'
+#' @examples
+#' pal_unikn_pref
+#' dim(pal_unikn_pref)  # 1 X (2)
+#' pal_unikn_pref[1]    # preferred (named) color
+#' pal_unikn_pref[[1]]  # preferred color value: #59C7EB"
+#' pal_unikn_pref["seeblau"]  # preferred color by name
+#' 
+#' @family color palettes
+#'
+#' @seealso
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
+
+# Definition: 
+
 pal_unikn_pref <- data.frame(  #  element: 
-  "seeblau" = pal_seeblau[3],  #  1. seeblau
-  "peach"   = pal_peach[4],    #  2. peach
+  "seeblau" = pal_seeblau[[3]],  #  1. seeblau
+  "peach"   = pal_peach[[4]],    #  2. peach
   stringsAsFactors = FALSE)
-
-
 
 
 ## (B) Functions: ------
@@ -627,9 +652,9 @@ plot_pal <- function(pal = pal_unikn) {
   df <- data.frame(n = n, name = name)
   
   ggplot2::ggplot(df, aes(x = n)) +
-    geom_tile(aes(y = 1, fill = n)) + 
-    geom_point(aes(y = 2, col = n), pch = 16, size = (50/length(pal))) + 
-    geom_text(aes(y = 3, label = name)) + 
+    geom_tile(aes( y = 1, fill = n)) + 
+    geom_point(aes(y = 2, col = n), pch = 16, size = (100/length(pal))) +
+    geom_text(aes( y = 3, label = name), angle = 45, adj = 0, col = grey(.33, 1)) + 
     # geom_text(aes(y = 2, label = pal)) +   
     scale_x_continuous(breaks = 1:length(pal)) + 
     scale_y_continuous(limits = c(0, 4)) +
@@ -642,7 +667,9 @@ plot_pal <- function(pal = pal_unikn) {
           axis.text.y = element_blank(), 
           axis.title.y = element_blank(), 
           legend.position = "none", 
+          plot.title = element_text(family = "Arial", face = "bold"), 
           panel.grid.minor = element_blank(), 
+          panel.grid.major.x = element_line(linetype = 2), 
           panel.grid.major.y = element_blank())
   
 }
