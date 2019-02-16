@@ -56,6 +56,8 @@ pal_unikn <- data.frame(                                 #  element:
 #'
 #' @seealso
 #' \code{\link{pal_unikn_ppt}} for an alternative (ppt) version; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
 #'
 #' @export
@@ -115,6 +117,8 @@ pal_unikn_ppt <- data.frame(                             #  element:
 #'
 #' @seealso
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
 #'
 #' @export
@@ -167,6 +171,8 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 #'
 #' @seealso
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
 #'
 #' @export
@@ -217,6 +223,8 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 #'
 #' @seealso
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
 #'
 #' @export
@@ -315,8 +323,57 @@ peach <- pal_peach[4]  # == peach.4 of pal_peach
 # EFDC60	 239 220  96	 C10 | M8  | Y72 | K0		        Stagnierend
 # D01556	 208  21  86	 C11 | M99 | Y44 | K3		        Sehr schlecht
 
+## (B) Other combinations: -------- 
 
-##   (+) Scale of all preferred colors: ------
+## (1) pal_unikn_plus: Combination of pal_seeblau and pal_unikn (11): ------ 
+
+# Documentation: 
+
+#' uni.kn 11 colors in a color palette.
+#'
+#' \code{pal_unikn_plus} combines the 5 blue colors 
+#' from color palette \code{\link{pal_seeblau}} 
+#' with the 6 non-blue colors of \code{\link{pal_unikn}} 
+#' to a palette containing 11 color values. 
+#' 
+#' Adding seeblau5 (i.e., \code{pal_seeblau[1]}) to 
+#' the default color palette \code{\link{pal_unikn}} 
+#' also puts \code{white} at the central (middle) 
+#' position of a palette with 11 values:
+#' 
+#' \code{pal_unikn_plus[[6]]} is \code{white} or \code{"#FFFFFF"}.  
+#'
+#' This is useful when creating color gradients. 
+#'
+#' See https://www.uni-konstanz.de for details.
+#'
+#' @examples
+#' pal_unikn_plus
+#' dim(pal_unikn_plus)         # 1 11
+#' pal_unikn_plus[1]           # seeblau5 (new)
+#' pal_unikn_plus[[1]]         # darker blue color value: "#008ECE"
+#' pal_unikn_plus["seeblau5"]  # seeblau5 color value by name
+#' 
+#' # Note:
+#' pal_unikn_plus[6] # "white" or "#FFFFFF" as central of 11 colors
+#' 
+#' @family color palettes
+#'
+#' @seealso
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_seeblau}} for the uni.kn seeblau color palette; 
+#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
+
+# Definition: 
+
+pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
+
+# Check: 
+# pal_unikn_plus
+
+## (2) pal_unikn_pref: Scale of all X preferred colors: ------
 
 # Documentation: 
 
@@ -713,15 +770,20 @@ plot_pal <- function(pal = pal_unikn) {
 # rgb2hsv(r = col_rgb[1], g = col_rgb[2], b = col_rgb[3]) 
 
 
+
 ## ToDo: ------
 
 # (1) unikn: 
-#   - define additional color palettes.
-#   - function to get n (good) colors
-#   - function to get a box in seeblau (or other color)
-#   - fonts?
+#   - define the additional color palettes.
+#   - split color_palettes and color_functions (into separate files). 
 
 # (2) any color pal: 
-# - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
+#   - split color_palettes and color_functions (into separate files). 
+#   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
+#   - improve function pal_n to get n (good) colors (and consider integrating it into palettes)
+
+# (3) Other elements:
+#   - add a function to get a box in seeblau (or other color)
+#   - fonts?
 
 ## eof. ----------
