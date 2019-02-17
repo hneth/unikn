@@ -98,12 +98,21 @@ pal_n(n = 4, pal = pal_seeblau)
 Note
 ----
 
-We aim for an authentic representation of a highly-specified corporate design. While very rigid specifications may be appropriate for novices, they can also cause frustration in experts. Hence, we occasionally allow ourselves some liberties, mostly by imposing fewer restrictions. Examples include:
+The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. We do not hold any copyrights on the design elements, but make some of them available to users of R (e.g., for creating scientific visualizations).
 
--   We use the term "color", rather than "colour".
+We aim for an authentic representation of a highly-specified corporate design. While very rigid specifications may help to maintain consistency and coherence, they can also cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we occasionally allow ourselves some liberties, mostly by imposing fewer restrictions. Examples include:
+
+-   More flexible combinations of color palettes.
+-   Using the term "color", rather than "colour".
 
 References
 ----------
+
+Copyrights of design elements:
+
+-   © 2015 Universität Konstanz, Version 1.6, 21. September 2015, [-uni-konstanz.de](https://www.uni-konstanz.de)
+
+-   Strichpunkt GmbH, [-strichpunkt-design.de](https://www.strichpunkt-design.de/)
 
 Color definitions are based on the following sources:
 
@@ -112,6 +121,6 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-02-16 by [hn](https://neth.de).\]
+\[Updated 2019-02-17 by [hn](https://neth.de).\]
 
 <!-- eof. -->
