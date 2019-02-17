@@ -24,7 +24,7 @@ position of a palette with 11 values:
 
 This is useful when creating color gradients.
 
-See https://www.uni-konstanz.de for details.
+See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
 pal_unikn_plus
@@ -42,9 +42,11 @@ pal_unikn_plus[6] # "white" or "#FFFFFF" as central of 11 colors
 \code{\link{pal_seeblau}} for the uni.kn seeblau color palette; 
 \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
 
-Other color palettes: \code{\link{pal_n_sq}},
-  \code{\link{pal_n}}, \code{\link{pal_peach}},
-  \code{\link{pal_seeblau}}, \code{\link{pal_unikn_ppt}},
+Other color palettes: \code{\link{pal_grau}},
+  \code{\link{pal_n_sq}}, \code{\link{pal_n}},
+  \code{\link{pal_peach}}, \code{\link{pal_petrol}},
+  \code{\link{pal_seeblau}}, \code{\link{pal_seegruen}},
+  \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
   \code{\link{pal_which}}, \code{\link{plot_pal}}
 }

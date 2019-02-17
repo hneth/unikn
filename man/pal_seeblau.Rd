@@ -9,16 +9,16 @@
 pal_seeblau
 }
 \description{
-\code{pal_seeblau} provides an additional uni.kn color palette  
-as a data frame containing 5 colors.
+\code{pal_seeblau} provides an additional uni.kn color palette 
+as a data frame containing 5 colors (shades of blue/seeblau).
 }
 \details{
-See https://www.uni-konstanz.de for details.
+See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
 pal_seeblau
 dim(pal_seeblau)  # 1 5
-pal_seeblau[3]    # preferred (named) color
+pal_seeblau[3]    # preferred (named) color "seeblau3" 
 pal_seeblau[[3]]  # preferred color "seeblau3" = "#59C7EB"
 
 }
@@ -28,9 +28,10 @@ pal_seeblau[[3]]  # preferred color "seeblau3" = "#59C7EB"
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
 
-Other color palettes: \code{\link{pal_n_sq}},
-  \code{\link{pal_n}}, \code{\link{pal_peach}},
-  \code{\link{pal_unikn_plus}},
+Other color palettes: \code{\link{pal_grau}},
+  \code{\link{pal_n_sq}}, \code{\link{pal_n}},
+  \code{\link{pal_peach}}, \code{\link{pal_petrol}},
+  \code{\link{pal_seegruen}}, \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
   \code{\link{pal_which}}, \code{\link{plot_pal}}

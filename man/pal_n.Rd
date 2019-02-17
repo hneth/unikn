@@ -42,9 +42,10 @@ pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 \code{\link{pal_which}} for specific colors of a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color palettes: \code{\link{pal_n_sq}},
-  \code{\link{pal_peach}}, \code{\link{pal_seeblau}},
-  \code{\link{pal_unikn_plus}},
+Other color palettes: \code{\link{pal_grau}},
+  \code{\link{pal_n_sq}}, \code{\link{pal_peach}},
+  \code{\link{pal_petrol}}, \code{\link{pal_seeblau}},
+  \code{\link{pal_seegruen}}, \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
   \code{\link{pal_which}}, \code{\link{plot_pal}}

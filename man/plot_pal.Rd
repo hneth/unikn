@@ -15,22 +15,29 @@ Default: \code{pal = \link{pal_unikn}}.}
 }
 \examples{
 plot_pal()  # plots default color palette 
+plot_pal(pal = pal_unikn_plus) 
+
+## Not run: 
 
 # RColorBrewer palettes: 
-plot_pal(RColorBrewer::brewer.pal(n = 5, name = "Set1"))
+plot_pal(RColorBrewer::brewer.pal(n = "all", name = "Set1"))
 plot_pal(RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 
 # yarrr palettes: 
 plot_pal(yarrr::piratepal(palette = "appletv"))
 plot_pal(yarrr::piratepal(palette = "google"))
 
+## End(Not run)
+
 }
 \seealso{
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color palettes: \code{\link{pal_n_sq}},
-  \code{\link{pal_n}}, \code{\link{pal_peach}},
-  \code{\link{pal_seeblau}}, \code{\link{pal_unikn_plus}},
+Other color palettes: \code{\link{pal_grau}},
+  \code{\link{pal_n_sq}}, \code{\link{pal_n}},
+  \code{\link{pal_peach}}, \code{\link{pal_petrol}},
+  \code{\link{pal_seeblau}}, \code{\link{pal_seegruen}},
+  \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
   \code{\link{pal_which}}

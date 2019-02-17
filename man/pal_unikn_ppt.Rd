@@ -16,7 +16,7 @@ as a data frame containing 10 colors.
 This is a secondary (ppt) variant with more muted colors.
 
 See \code{\link{pal_unikn}} for the primary/default (web/sRGB) scale 
-and https://www.uni-konstanz.de for details.
+and \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
 pal_unikn_ppt
@@ -31,9 +31,11 @@ pal_unikn_ppt[[1]]  # color
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
 
-Other color palettes: \code{\link{pal_n_sq}},
-  \code{\link{pal_n}}, \code{\link{pal_peach}},
-  \code{\link{pal_seeblau}}, \code{\link{pal_unikn_plus}},
+Other color palettes: \code{\link{pal_grau}},
+  \code{\link{pal_n_sq}}, \code{\link{pal_n}},
+  \code{\link{pal_peach}}, \code{\link{pal_petrol}},
+  \code{\link{pal_seeblau}}, \code{\link{pal_seegruen}},
+  \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
   \code{\link{pal_which}}, \code{\link{plot_pal}}
 }
