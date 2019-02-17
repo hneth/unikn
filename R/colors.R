@@ -4,7 +4,7 @@
 
 ## Define colors and color palettes. 
 
-## (A) Colors: ------ 
+## Colors: ------ 
 
 ## Sources for color definitions: 
 ## https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/ 
@@ -12,9 +12,10 @@
 
 ## Color palettes: ------
 
-## (1) Basic color palettes: -----
 
-##   (a) unikn default (web/sRGB) palette: ---- 
+# (A) Basic color palettes: -----
+
+#   (1) unikn default (web/sRGB) palette: ---- 
 
 # Definition: 
 
@@ -73,7 +74,7 @@ pal_unikn <- pal_unikn[c(4:1, 10:5)] # seeblau (2 as default) > white (5) > grey
 ## names(pal_unikn)
 
 
-##   (b) unikn alternative (ppt) palette: ---- 
+#   (2) unikn alternative (ppt) palette: ---- 
 
 # Definition:
 
@@ -134,14 +135,15 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 # names(pal_unikn_ppt)
 
 
-## (2) Additional unikn color palettes: -----
+
+# (B) Additional unikn color palettes: -----
 
 ## Source: Excel file provided at
 ## https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/ 
 
-##   (a) seeblau: ---- 
+# (1) seeblau: ----- 
 
-# Table (from Excel file): 
+#   (a) Table (from Excel file): ---- 
 
 #    HEX:	   RGB:	         CMYK:		                      Comment:
 # 1. CCEEF9	 204 238 249	 20% von C82 | M3  | Y0 | K0		Seeblau 20% Corporate Design
@@ -151,7 +153,7 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 # 5. 008ECE	   0 142 206	         C82 | M23 | Y0 | K0		Seeblau Dunkel *neu*
 
 
-# Documentation: 
+#   (b) Documentation: ---- 
 
 #' uni.kn seeblau color palette.
 #'
@@ -176,7 +178,7 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 #'
 #' @export
 
-# Definition:
+#   (c) Definition: ---- 
 
 pal_seeblau <- data.frame(                               #  element: 
   "seeblau1" = rgb(204, 238, 249, maxColorValue = 255),  #  1. seeblau1 (non-transparent)
@@ -186,14 +188,39 @@ pal_seeblau <- data.frame(                               #  element:
   "seeblau5" = rgb(  0, 142, 206, maxColorValue = 255),  #  5. seeblau5 (non-transparent): neu
   stringsAsFactors = FALSE)
 
-# Corresponding preferred color:
+#   (d) Preferred color: ---- 
+
+#' uni.kn color seeblau. 
+#' 
+#' \code{seeblau} provides the preferred color of \code{\link{pal_seeblau}} 
+#' as an atomic data frame and is defined as 
+#' \code{\link{pal_seeblau}[3]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' seeblau  # "seeblau3" OR "#59C7EB"
+#' all.equal(seeblau, pal_seeblau[3])  # TRUE
+#' 
+#' @family colors
+#'
+#' @seealso
+#' \code{\link{pal_seeblau}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
 
 seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn 
 
+## Check:
+# seeblau
 
-##   (b) peach: ----
+# (2) peach: -----
 
-# Table (from Excel file): 
+#   (a) Table (from Excel file): ---- 
 
 #    HEX:	   RGB:	         CMYK:		              Comment:
 # 1. FEE2DD	 254 226 221	 C0 | M16 | Y11 | K0		
@@ -203,7 +230,7 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 # 5. FF8E7B	 255 142 123	 C0 | M56 | Y46 | K0		
 
 
-# Documentation: 
+#   (b) Documentation: ----  
 
 #' uni.kn peach color palette.
 #'
@@ -228,7 +255,7 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 #'
 #' @export
 
-# Definition: 
+#   (c) Definition: ----  
 
 pal_peach <- data.frame(                               #  Element: 
   "peach1" = rgb(254, 226, 221, maxColorValue = 255),  #  1. 
@@ -238,14 +265,39 @@ pal_peach <- data.frame(                               #  Element:
   "peach5" = rgb(255, 142, 123, maxColorValue = 255),  #  5. 
   stringsAsFactors = FALSE)
 
-# Corresponding preferred color:
+#   (d) Preferred color: ---- 
+
+#' uni.kn color peach.  
+#' 
+#' \code{peach} provides the preferred color of \code{\link{pal_peach}} 
+#' as an atomic data frame and is defined as 
+#' \code{\link{pal_peach}[4]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' peach  # "peach4" OR "#FEA090"
+#' all.equal(peach, pal_peach[4])  # TRUE
+#' 
+#' @family colors
+#'
+#' @seealso
+#' \code{\link{pal_peach}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
 
 peach <- pal_peach[4]  # == peach.4 of pal_peach 
 
+## Check:
+# peach
 
-##   (c) grau: ---- 
+# (3) grau: ----- 
 
-# Table (from Excel file): 
+#   (a) Table (from Excel file): ----  
 
 #    HEX:	   RGB:	          CMYK:		             Comment:
 # 1. E1E2E5	 225 226 229	  C0 | M0 | Y0 | K10
@@ -254,7 +306,7 @@ peach <- pal_peach[4]  # == peach.4 of pal_peach
 # 4. 73787E	 115 120 126	  C0 | M0 | Y0 | K60
 # 5. 4D5054	  77  80  84	  C0 | M0 | Y0 | K80
 
-# Documentation: 
+#   (b) Documentation: ---- 
 
 #' uni.kn grau color palette.
 #'
@@ -279,7 +331,7 @@ peach <- pal_peach[4]  # == peach.4 of pal_peach
 #'
 #' @export
 
-# Definition:
+#   (c) Definition: ---- 
 
 pal_grau <- data.frame(                               #  element: 
   "grau1" = rgb(225, 226, 229, maxColorValue = 255),  #  1. grau1 (non-transparent)
@@ -289,14 +341,39 @@ pal_grau <- data.frame(                               #  element:
   "grau5" = rgb( 77,  80,  84, maxColorValue = 255),  #  5. grau5 (non-transparent)
   stringsAsFactors = FALSE)
 
-# Corresponding preferred color:
+#   (d) Preferred color: ---- 
+
+#' uni.kn color grau.   
+#' 
+#' \code{grau} provides the preferred color of \code{\link{pal_grau}} 
+#' as an atomic data frame and is defined as 
+#' \code{\link{pal_grau}[3]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' grau  # "grau3" OR "#9AA0A7"
+#' all.equal(grau, pal_grau[3])  # TRUE
+#' 
+#' @family colors
+#'
+#' @seealso
+#' \code{\link{pal_grau}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
 
 grau <- pal_grau[3]  # == grau.3 of pal_grau: "grau3" OR "#9AA0A7"
 
+## Check:
+# grau
 
-##   (d) petrol: ----
+# (4) petrol: -----
 
-# Table (from Excel file): 
+#   (a) Table (from Excel file): ----  
 
 #    HEX:	   RGB:	          CMYK:		              Comment:
 # 1. 9CC6CF	 156 198 207	  C44 | M10 | Y18 | K0		
@@ -305,7 +382,7 @@ grau <- pal_grau[3]  # == grau.3 of pal_grau: "grau3" OR "#9AA0A7"
 # 4. 077187	   7 113 135	  C85 | M36 | Y34 | K17	 preferred color: "petrol"
 # 5. 035F72	   3  95 114	  C89 | M44 | Y38 | K26	
 
-# Documentation: 
+#   (b) Documentation: ----  
 
 #' uni.kn petrol color palette.
 #'
@@ -332,7 +409,7 @@ grau <- pal_grau[3]  # == grau.3 of pal_grau: "grau3" OR "#9AA0A7"
 #'
 #' @export
 
-# Definition:
+#   (c) Definition: ---- 
 
 pal_petrol <- data.frame(                               #  element: 
   "petrol1" = rgb(156, 198, 207, maxColorValue = 255),  #  1. petrol1 (non-transparent)
@@ -342,14 +419,39 @@ pal_petrol <- data.frame(                               #  element:
   "petrol5" = rgb(  3,  95, 114, maxColorValue = 255),  #  5. petrol5 (non-transparent)
   stringsAsFactors = FALSE)
 
-# Corresponding preferred color:
+#   (d) Preferred color: ---- 
+
+#' uni.kn color petrol. 
+#' 
+#' \code{petrol} provides the preferred color of \code{\link{pal_petrol}} 
+#' as an atomic data frame and is defined as 
+#' \code{\link{pal_petrol}[4]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' petrol  # "petrol" OR "#077187"
+#' all.equal(petrol, pal_petrol[4])  # TRUE
+#' 
+#' @family colors
+#'
+#' @seealso
+#' \code{\link{pal_petrol}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
 
 petrol <- pal_petrol[4]  # == petrol.4 of pal_petrol: "petrol4" OR "#077187"
 
+## Check:
+# petrol
 
-##   (e) seegruen: ----
+# (5) seegruen: -----
 
-# Table (from Excel file): 
+#   (a) Table (from Excel file): ----  
 
 #    HEX:	   RGB:	         CMYK:		              Comment:
 # 1. 85D1CC	 113 209 204	 C50 | M0  | Y25 | K0		
@@ -358,7 +460,7 @@ petrol <- pal_petrol[4]  # == petrol.4 of pal_petrol: "petrol4" OR "#077187"
 # 4. 0A9086	  10 144 134	 C81 | M20 | Y51 | K4		 preferred color: "seegruen"
 # 5. 067E79	   6 126 121	 C84 | M27 | Y52 | K13		
 
-# Documentation: 
+#   (b) Documentation: ----  
 
 #' uni.kn seegruen color palette.
 #'
@@ -383,7 +485,7 @@ petrol <- pal_petrol[4]  # == petrol.4 of pal_petrol: "petrol4" OR "#077187"
 #'
 #' @export
 
-# Definition:
+#   (c) Definition: ---- 
 
 pal_seegruen <- data.frame(                               #  element: 
   "seegruen1" = rgb(113, 209, 204, maxColorValue = 255),  #  1. seegruen1 (non-transparent)
@@ -393,17 +495,39 @@ pal_seegruen <- data.frame(                               #  element:
   "seegruen5" = rgb(  6, 126, 121, maxColorValue = 255),  #  5. seegruen5 (non-transparent)
   stringsAsFactors = FALSE)
 
-# Corresponding preferred color:
+#   (d) Preferred color: ---- 
 
-seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#077187"
+#' uni.kn color seegruen.
+#' 
+#' \code{seegruen} provides the preferred color of \code{\link{pal_seegruen}} 
+#' as an atomic data frame and is defined as 
+#' \code{\link{pal_seegruen}[4]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' seegruen  # "seegruen4" OR "#0A9086"
+#' all.equal(seegruen, pal_seegruen[4])  # TRUE
+#'
+#' @family colors
+#'
+#' @seealso
+#' \code{\link{pal_seegruen}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
 
+seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#0A9086"
 
-# +++ here now +++ 
+## Check: 
+# seegruen
 
+# (6) karpfenblau: -----
 
-##   (f) karpfenblau: ----
-
-# Table (from Excel file): 
+#   (a) Table (from Excel file): ----  
 
 #    HEX:	   RGB:	          CMYK:		               Comment:
 # 1. B4BCD6	 180 188 214	  C34 | M23 | Y8  | K0		
@@ -412,10 +536,77 @@ seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#0
 # 4. 3E5496	  62  84 150	  C86 | M69 | Y10 | K1	 preferred color: "karpfenblau"
 # 5. 324376	  50  67 118	  C92 |  77 | Y26 | K11		
 
+#   (b) Documentation: ----  
 
-##   (g) pinky: ----
+#' uni.kn karpfenblau color palette.
+#'
+#' \code{pal_karpfenblau} provides an additional uni.kn color palette  
+#' as a data frame containing 5 colors (shades of blue carp). 
+#'
+#' See \url{https://www.uni-konstanz.de} for details. 
+#'
+#' @examples
+#' pal_karpfenblau
+#' dim(pal_karpfenblau)  # 1 5
+#' pal_karpfenblau[4]    # preferred (named) color "karpfenblau4"
+#' pal_karpfenblau[[4]]  # preferred color "karpfenblau4" OR "#3E5496"
+#'
+#' @family color palettes
+#'
+#' @seealso
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
 
-# Table (from Excel file): 
+#   (c) Definition: ---- 
+
+pal_karpfenblau <- data.frame(                               #  element: 
+  "karpfenblau1" = rgb(180, 188, 214, maxColorValue = 255),  #  1. karpfenblau1 (non-transparent)
+  "karpfenblau2" = rgb(130, 144, 187, maxColorValue = 255),  #  2. karpfenblau2 (non-transparent)
+  "karpfenblau3" = rgb( 88, 107, 164, maxColorValue = 255),  #  3. karpfenblau3 (non-transparent)
+  "karpfenblau4" = rgb( 62,  84, 150, maxColorValue = 255),  #  4. karpfenblau4 (non-transparent): preferred color: "karpfenblau"
+  "karpfenblau5" = rgb( 50,  67, 118, maxColorValue = 255),  #  5. karpfenblau5 (non-transparent)
+  stringsAsFactors = FALSE)
+
+#   (d) Preferred color: ---- 
+
+#' uni.kn color karpfenblau.  
+#' 
+#' \code{karpfenblau} provides the preferred color of \code{\link{pal_karpfenblau}} 
+#' as an atomic data frame and is defined as 
+#' \code{\link{pal_karpfenblau}[4]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' karpfenblau  # "karpfenblau4" OR "#3E5496"
+#' all.equal(karpfenblau, pal_karpfenblau[4])  # TRUE
+#' 
+#' @family colors
+#'
+#' @seealso
+#' \code{\link{pal_karpfenblau}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
+
+karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfenblau4" OR "#3E5496"
+
+## Check:
+# karpfenblau
+
+
+# +++ here now +++ 
+
+# (7) pinky: -----
+
+#   (a) Table (from Excel file): ----  
 
 #    HEX:	    RGB:	        CMYK:		                Comment:
 # 1. F3BFCB	  243 191 203	  C2  | M33 | Y11 | K0		
@@ -424,9 +615,9 @@ seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#0
 # 4. E0607E	  224 96 126	  C7  | M74 | Y31 | K0		preferred color: "pinky"
 # 5. CA4A68	  202 74 104	  C16 | M81 | Y40 | K5		
 
-##   (h) Bordeaux: ----
+# (8) Bordeaux: -----
 
-# Table (from Excel file): 
+#   (a) Table (from Excel file): ----  
 
 #    HEX:	   RGB:	          CMYK:		               Comment:
 # 1. D2A6B4	 210 166 180	  C18 | M40 | Y19 | K1		
@@ -435,9 +626,9 @@ seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#0
 # 4. 8E2043	 142  32  67	  C29 | M95 | Y47 | K32		preferred color: "Bordeaux"
 # 5. 771434	 119  20  52	  C32 | M99 | Y52 | K45		
 
-##   (i) Ampeltöne: ----
+# (9) Ampeltöne: -----
 
-# Table (from Excel file): 
+#   (a) Table (from Excel file): ----  
 
 #    HEX:	   RGB:	         CMYK:		              Comment:
 # 1. 7CCA89	 124 202 137	 C55 | M0  | Y58 | K0		Sehr gut
@@ -445,11 +636,12 @@ seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#0
 # 3. D01556	 208  21  86	 C11 | M99 | Y44 | K3		Sehr schlecht
 
 
-## (B) Other combinations: -------- 
 
-## (1) pal_unikn_plus: Combination of pal_seeblau and pal_unikn (11): ------ 
+# (C) Other combinations: -------- 
 
-# Documentation: 
+# (1) pal_unikn_plus: Combination of pal_seeblau and pal_unikn (11): ------ 
+
+#   (a) Documentation: ----  
 
 #' uni.kn 11 colors in a color palette.
 #'
@@ -488,16 +680,16 @@ seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#0
 #'
 #' @export
 
-# Definition: 
+#   (b) Definition: ----  
 
 pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 
 # Check: 
 # pal_unikn_plus
 
-## (2) pal_unikn_pref: Scale of all X preferred colors: ------
+# (2) pal_unikn_pref: Scale of all X preferred colors: ------
 
-# Documentation: 
+#   (a) Documentation: ----  
 
 #' uni.kn preferred colors in a color palette.
 #'
@@ -522,21 +714,22 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 #'
 #' @export
 
-# Definition: 
+#   (b) Definition: ----  
 
-pal_unikn_pref <- data.frame(      #  Element: 
-  "seeblau"  = pal_seeblau[[3]],   #  1. seeblau
-  "peach"    = pal_peach[[4]],     #  2. peach
-  "grau"     = pal_grau[[3]],      #  3. grau 
-  "petrol"   = pal_petrol[[4]],    #  4. petrol 
-  "seegruen" = pal_seegruen[[4]],  #  5. seegruen 
+pal_unikn_pref <- data.frame(            # Element: 
+  "seeblau"     = pal_seeblau[[3]],      # 1. seeblau
+  "peach"       = pal_peach[[4]],        # 2. peach
+  "grau"        = pal_grau[[3]],         # 3. grau 
+  "petrol"      = pal_petrol[[4]],       # 4. petrol 
+  "seegruen"    = pal_seegruen[[4]],     # 5. seegruen 
+  "karpfenblau" = pal_karpfenblau[[4]],  # 6. karpfenblau
   stringsAsFactors = FALSE)
 
 
 ## (B) Functions: ------
 
 
-## pal_which: Get some [which] specific colors of a palette [pal]: ------ 
+# pal_which: Get some [which] specific colors of a palette [pal]: ------ 
 
 #' Get specific colors of a color palette.
 #'
@@ -589,7 +782,7 @@ pal_which <- function(which = "all", pal = pal_unikn){
 
 
 
-## pal_n: Function to get [n] (specific, suitable) colors of a known palette [pal]: ------ 
+# pal_n: Function to get [n] (specific, suitable) colors of a known palette [pal]: ------ 
 
 #' Get n dedicated colors of a known color palette.
 #'
@@ -661,6 +854,8 @@ pal_n <- function(n = "all", pal = pal_unikn){
   out <- NA    # initialize
   
   # Select colors based on current pal and n: 
+  
+  # (A) Basic color palettes: 
   if (isTRUE(all.equal(pal, pal_unikn))) {  # (1) pal == pal_unikn:
     
     # message("Get n specific colors of pal_unikn:")
@@ -696,7 +891,8 @@ pal_n <- function(n = "all", pal = pal_unikn){
            out <- pal  # all 11 colors of pal_unikn_plus
     )
     
-  } else if (isTRUE(all.equal(pal, pal_seeblau))) {  # (a) pal == pal_seeblau:
+    # (B) Additional color palettes:      
+  } else if (isTRUE(all.equal(pal, pal_seeblau))) {  # (1) pal_seeblau:
     
     # message("Get n specific colors of pal_seeblau:")
     
@@ -708,7 +904,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
            out <- pal  # all 5 colors of pal_seeblau
     )
     
-  } else if (isTRUE(all.equal(pal, pal_peach))) {  # (b) pal == pal_peach:
+  } else if (isTRUE(all.equal(pal, pal_peach))) {  # (2) pal_peach:
     
     # message("Get n specific colors of pal_peach:")
     
@@ -720,7 +916,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
            out <- pal  # all 5 colors of pal_peach
     )
     
-  } else if (isTRUE(all.equal(pal, pal_grau))) {  # (c) pal == pal_grau:
+  } else if (isTRUE(all.equal(pal, pal_grau))) {  # (3) pal_grau:
     
     # message("Get n specific colors of pal_grau:")
     
@@ -732,7 +928,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
            out <- pal  # all 5 colors of pal_grau
     )
     
-  } else if (isTRUE(all.equal(pal, pal_petrol))) {  # (d) pal == pal_petrol:
+  } else if (isTRUE(all.equal(pal, pal_petrol))) {  # (4) pal_petrol:
     
     # message("Get n specific colors of pal_petrol:")
     
@@ -744,7 +940,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
            out <- pal  # all 5 colors of pal_petrol 
     )
     
-  } else if (isTRUE(all.equal(pal, pal_seegruen))) {  # (e) pal == pal_seegruen:
+  } else if (isTRUE(all.equal(pal, pal_seegruen))) {  # (5) pal_seegruen:
     
     # message("Get n specific colors of pal_seegruen:")
     
@@ -754,6 +950,18 @@ pal_n <- function(n = "all", pal = pal_unikn){
            out <- pal[c("seegruen5", "seegruen3", "seegruen1")],  # 3   
            out <- pal[c("seegruen5", "seegruen4", "seegruen2", "seegruen1")],  # 4              
            out <- pal  # all 5 colors of pal_seegruen 
+    )
+    
+  } else if (isTRUE(all.equal(pal, pal_karpfenblau))) {  # (6) pal_karpfenblau:
+    
+    # message("Get n specific colors of pal_karpfenblau:")
+    
+    switch(n,
+           out <- pal[c("karpfenblau4")],  # 1 preferred color
+           out <- pal[c("karpfenblau4", "karpfenblau2")],  # 2
+           out <- pal[c("karpfenblau5", "karpfenblau3", "karpfenblau1")],  # 3   
+           out <- pal[c("karpfenblau5", "karpfenblau4", "karpfenblau2", "karpfenblau1")],  # 4              
+           out <- pal  # all 5 colors of pal_karpfenblau 
     )
     
   } else {  # (+) any other pal:
@@ -788,7 +996,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
 
 
 
-## pal_n_sq: Get n^2 (n x n) specific colors of a palette [pal]: ------ 
+# pal_n_sq: Get n^2 (n x n) specific colors of a palette [pal]: ------ 
 
 #' Get n^2 dedicated colors of a color palette.
 #'
@@ -818,8 +1026,10 @@ pal_n <- function(n = "all", pal = pal_unikn){
 #' @family color palettes
 #'
 #' @seealso
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette; 
-#' \code{\link{pal_which}} for specific colors of a color palette; 
+#' \code{\link{plot_pal}} to plot color palettes; 
+#' \code{\link{col_scale}} to create color scales (gradients);  
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{pal_which}} to get specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #'
 #' @export
@@ -874,9 +1084,9 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 # pal_n_sq(4) # 11 colors = maximum of (n + 1) colors.
 
 
-## plot_pal: Plot information on a given color palette [pal]: ------ 
+# plot_pal: Plot information on a given color palette [pal]: ------ 
 
-#' Plot information on a color palette.
+#' Plot a color palette.
 #'
 #' \code{plot_pal} plots information on a color palette \code{pal}.
 #'
@@ -901,19 +1111,14 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #'
 #' @family color palettes
 #'
-#' @seealso
+#' @seealso 
+#' \code{\link{col_scale}} to create color scales (gradients);  
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{pal_which}} to get specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #'
 #' @import ggplot2
-#' @importFrom ggplot2 ggplot
-#' @importFrom ggplot2 aes
-#' @importFrom ggplot2 element_blank
-#' @importFrom ggplot2 theme
-#' 
 #' @import grDevices 
-#' @importFrom grDevices col2rgb
-#' @importFrom grDevices grey
-#' @importFrom grDevices rgb
 #'
 #' @export
 
@@ -966,8 +1171,6 @@ plot_pal <- function(pal = pal_unikn) {
 # plot_pal(yarrr::piratepal(palette = "appletv"))
 # plot_pal(yarrr::piratepal(palette = "google"))
 
-
-
 ## ToDo: Provide additional info on a color palette: ------ 
 
 # ## (1) Values:
@@ -993,6 +1196,122 @@ plot_pal <- function(pal = pal_unikn) {
 # 
 # rgb2hsv(r = col_rgb[1], g = col_rgb[2], b = col_rgb[3]) 
 
+## Color gradients: -------- 
+
+## Test: Using colorRampPalette:
+
+## Examples: 
+# col_gradient <- colorRampPalette(colors = c("firebrick", "gold", "forestgreen", "steelblue"))
+# col_gradient <- colorRampPalette(colors = pal_unikn_plus)
+# 
+# col_gradient <- colorRampPalette(colors = c(seeblau, peach))  # 2 individual colors
+# col_gradient <- colorRampPalette(colors = c(pal_seeblau[2], pal_karpfenblau[5]))  # 2 colors from palettes
+# col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_petrol))  # 2 palettes
+# 
+# col_gradient <- colorRampPalette(colors = c(seeblau, grau, peach))  # 3 colors
+# col_gradient <- colorRampPalette(colors = c(pal_seeblau[4], pal_grau[2], pal_peach[5]))  # 3 colors from palettes
+# col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_grau, pal_peach))  # 3 palettes
+
+## Demo: 
+# n <- 20
+# col_gradient(n)
+# plot(rep(1, n), col = (col_gradient(n)), pch = 19, cex = 3)
+# plot(rep(1, n), col = (col_gradient(n)), pch = 15, cex = 3)
+
+## Use example code to create a function col_scale:
+
+
+# col_scale: Provide a color gradient based on given colors or color palettes: -------- 
+
+#' Provide a color gradient scale.
+#'
+#' \code{col_scale} provides a color gradient 
+#' based on a sequence of input colors or color palettes 
+#' defined by \code{col}.
+#' 
+#' \code{col_scale} uses \code{grDevices::colorRampPalette} to  
+#' provide a function that takes an integer argument 
+#' (the required number of colors) to  
+#' return a character vector of (rgb) colors 
+#' interpolating color sequence provided by \code{col}.
+#' 
+#' @param col A list of colors or color palettes. 
+#' Default: \code{col = \link{pal_unikn}}. 
+#' 
+#' @param ... Additional parameters 
+#' (passed to \code{grDevices::colorRampPalette}). 
+#'
+#' @examples
+#' # Gradients over 1 color palette:
+#' col_scale()(5)  # 5 colors of default scale pal_unikn
+#' col_scale(pal_petrol)(10)  # 10 colors of pal_petrol
+#' 
+#' # Gradients over 2 colors:
+#' col_scale(c(seeblau, peach))(10)
+#' col_scale(c(seegruen, petrol))(10)
+#' 
+#' # Gradients over 2 color palettes:
+#' col_scale(c(pal_seeblau, pal_peach))(10)
+#' col_scale(c(pal_seeblau, pal_karpfenblau))(10)
+#' 
+#' # Gradients over 3+ colors:
+#' col_scale(c(seeblau, grau, seegruen, peach))(10) 
+#' 
+#' # Gradients over 3+ color palettes:
+#' col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
+#' 
+#' # Extending exiting color palettes: 
+#' plot_pal(col_scale()(20))
+#' plot_pal(col_scale(pal_seeblau)(10))
+#' 
+#' # Combining colors to create new palettes:
+#' plot_pal(col_scale(c(pal_seeblau[5], "gold"))(10))
+#' plot_pal(col_scale(c(seeblau, grau, petrol))(10))
+#' plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))
+#'  
+#' # Combining color palettes into new palettes:
+#' plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10)) 
+#' plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10)) 
+#'
+#' @family color palettes
+#'
+#' @seealso
+#' \code{\link{plot_pal}} to plot color palettes; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{pal_which}} to get specific colors of a color palette; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette. 
+#'
+#' @import grDevices 
+#'
+#' @export
+
+col_scale <- function(col = pal_unikn, ...){
+  
+  out_gradient <- colorRampPalette(colors = col, ...)
+  
+  return(out_gradient)
+  
+}
+
+## Check:
+
+# # Gradients over 1 color palette:
+# col_scale()(5)  # 5 colors of default scale pal_unikn
+# col_scale(pal_petrol)(12)  # 12 colors of pal_petrol
+# 
+# # Gradients over 2 colors:
+# col_scale(c(seeblau, peach))(10)
+# col_scale(c(seegruen, petrol))(10)
+# 
+# # Gradients over 2 color palettes:
+# col_scale(c(pal_seeblau, pal_peach))(10)
+# col_scale(c(pal_seeblau, pal_karpfenblau))(10)
+# 
+# # Gradients over 3+ colors:
+# col_scale(c(seeblau, grau, seegruen, peach))(10)
+# 
+# # Gradients over 3+ color palettes:
+# col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
 
 
 ## ToDo: ------
