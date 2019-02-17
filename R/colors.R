@@ -156,15 +156,15 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 
 #' uni.kn seeblau color palette.
 #'
-#' \code{pal_seeblau} provides an additional uni.kn color palette  
-#' as a data frame containing 5 colors.
+#' \code{pal_seeblau} provides an additional uni.kn color palette 
+#' as a data frame containing 5 colors (shades of blue/seeblau). 
 #'
 #' See https://www.uni-konstanz.de for details.
 #'
 #' @examples
 #' pal_seeblau
 #' dim(pal_seeblau)  # 1 5
-#' pal_seeblau[3]    # preferred (named) color
+#' pal_seeblau[3]    # preferred (named) color "seeblau3" 
 #' pal_seeblau[[3]]  # preferred color "seeblau3" = "#59C7EB"
 #'
 #' @family color palettes
@@ -209,15 +209,15 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 #' uni.kn peach color palette.
 #'
 #' \code{pal_peach} provides an additional uni.kn color palette  
-#' as a data frame containing 5 colors.
+#' as a data frame containing 5 colors (shades of peach). 
 #'
 #' See https://www.uni-konstanz.de for details.
 #'
 #' @examples
 #' pal_peach
 #' dim(pal_peach)  # 1 5
-#' pal_peach[4]    # preferred (named) color
-#' pal_peach[[4]]  # preferred color "peach"
+#' pal_peach[4]    # preferred (named) color "peach4" 
+#' pal_peach[[4]]  # preferred color "peach4" OR "#FEA090"
 #'
 #' @family color palettes
 #'
@@ -254,6 +254,45 @@ peach <- pal_peach[4]  # == peach.4 of pal_peach
 # 9AA0A7	 154 160 167	  C0 | M0 | Y0 | K40   preferred color: "grau" 
 # 73787E	 115 120 126	  C0 | M0 | Y0 | K60
 # 4D5054	  77  80  84	  C0 | M0 | Y0 | K80
+
+# Documentation: 
+
+#' uni.kn grau color palette.
+#'
+#' \code{pal_grau} provides an additional uni.kn color palette  
+#' as a data frame containing 5 colors (shades of grey). 
+#'
+#' See https://www.uni-konstanz.de for details.
+#'
+#' @examples
+#' pal_grau
+#' dim(pal_grau)  # 1 5
+#' pal_grau[3]    # preferred (named) color "grau3"
+#' pal_grau[[3]]  # preferred color "grau3" OR "#9AA0A7"
+#'
+#' @family color palettes
+#'
+#' @seealso
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
+
+# Definition:
+
+pal_grau <- data.frame(                               #  element: 
+  "grau1" = rgb(225, 226, 229, maxColorValue = 255),  #  1. grau1 (non-transparent)
+  "grau2" = rgb(184, 188, 193, maxColorValue = 255),  #  2. grau2 (non-transparent)
+  "grau3" = rgb(154, 160, 167, maxColorValue = 255),  #  3. grau3 (non-transparent): preferred color: "grau"
+  "grau4" = rgb(115, 120, 126, maxColorValue = 255),  #  4. grau4 (non-transparent)
+  "grau5" = rgb( 77,  80,  84, maxColorValue = 255),  #  5. grau5 (non-transparent)
+  stringsAsFactors = FALSE)
+
+# Corresponding preferred color:
+
+grau <- pal_grau[3]  # == grau.3 of pal_grau: "grau3" OR "#9AA0A7"
 
 
 ##   (d) petrol: ----
@@ -405,6 +444,7 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 pal_unikn_pref <- data.frame(  #  element: 
   "seeblau" = pal_seeblau[[3]],  #  1. seeblau
   "peach"   = pal_peach[[4]],    #  2. peach
+  "grau"    = pal_grau[[3]],     #  3. grau 
   stringsAsFactors = FALSE)
 
 
@@ -541,7 +581,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
     # message("Get n specific colors of pal_unikn:")
     
     switch(n,
-           out <- pal[c("seeblau3")],  # 1
+           out <- pal[c("seeblau3")],  # 1 preferred color
            out <- pal[c("seeblau4", "seeblau2")],  # 2
            out <- pal[c("seeblau4", "seeblau2", "white")],  # 3   
            out <- pal[c("seeblau4", "seeblau2", "white", "black")],  # 4
@@ -558,7 +598,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
     # message("Get n specific colors of pal_unikn_plus:")
     
     switch(n,
-           out <- pal[c("seeblau3")],  # 1
+           out <- pal[c("seeblau3")],  # 1 preferred color
            out <- pal[c("seeblau4", "seeblau2")],  # 2
            out <- pal[c("seeblau4", "seeblau2", "white")],  # 3   
            out <- pal[c("seeblau4", "seeblau2", "white", "black")],  # 4
@@ -571,16 +611,40 @@ pal_n <- function(n = "all", pal = pal_unikn){
            out <- pal  # all 11 colors of pal_unikn_plus
     )
     
-  } else if (isTRUE(all.equal(pal, pal_seeblau))) {  # (3) pal == pal_seeblau:
+  } else if (isTRUE(all.equal(pal, pal_seeblau))) {  # (a) pal == pal_seeblau:
     
     # message("Get n specific colors of pal_seeblau:")
     
     switch(n,
-           out <- pal[c("seeblau3")],  # 1
+           out <- pal[c("seeblau3")],  # 1 preferred color
            out <- pal[c("seeblau4", "seeblau2")],  # 2
            out <- pal[c("seeblau5", "seeblau3", "seeblau1")],  # 3   
            out <- pal[c("seeblau4", "seeblau3", "seeblau2", "seeblau1")],  # 4              
            out <- pal  # all 5 colors of pal_seeblau
+    )
+    
+  } else if (isTRUE(all.equal(pal, pal_peach))) {  # (b) pal == pal_peach:
+    
+    # message("Get n specific colors of pal_peach:")
+    
+    switch(n,
+           out <- pal[c("peach4")],  # 1 preferred color
+           out <- pal[c("peach4", "peach2")],  # 2
+           out <- pal[c("peach5", "peach3", "peach1")],  # 3   
+           out <- pal[c("peach5", "peach4", "peach2", "peach1")],  # 4              
+           out <- pal  # all 5 colors of pal_peach
+    )
+    
+  } else if (isTRUE(all.equal(pal, pal_grau))) {  # (c) pal == pal_grau:
+    
+    # message("Get n specific colors of pal_grau:")
+    
+    switch(n,
+           out <- pal[c("grau3")],  # 1 preferred color 
+           out <- pal[c("grau4", "grau2")],  # 2
+           out <- pal[c("grau5", "grau3", "grau1")],  # 3   
+           out <- pal[c("grau5", "grau4", "grau2", "grau1")],  # 4              
+           out <- pal  # all 5 colors of pal_grau
     )
     
   } else {  # (+) any other pal:
