@@ -30,7 +30,7 @@ pal_n(6)
 pal_n(8)
 pal_n(10)  # n = 10 colors of default color pal
 
-pal_n(99)  # returns maximal number of colors
+pal_n(99)  # returns maximal number of colors: pal_unikn_plus (11)
 
 # Other palettes pal:
 pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))

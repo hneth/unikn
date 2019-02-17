@@ -18,11 +18,19 @@ Default: \code{pal = \link{pal_unikn}}.}
 \code{pal_n_sq} returns \code{n^2} dedicated colors of a color palette \code{pal} 
 (up to a maximum of \code{n + 1} colors).
 }
+\details{
+Note that \code{pal_n_sq} was created for \code{pal = \link{pal_unikn}} 
+for small values of \code{n} (\code{n = 1, 2, 3}) and 
+returns the 11 colors of \code{\link{pal_unikn_plus}} for any \code{n > 3}.
+
+Use the more specialized function \code{\link{pal_n}} for choosing 
+\code{n} dedicated colors of a known color palette.
+}
 \examples{
-pal_n_sq(1)
-pal_n_sq(2)
-pal_n_sq(3) #  9 colors
-pal_n_sq(4) # 11 colors = maximum of (n + 1) colors.
+pal_n_sq(1) #  1 color: seeblau3
+pal_n_sq(2) #  4 colors
+pal_n_sq(3) #  9 colors (5: white)
+pal_n_sq(4) # 11 colors of pal_unikn_plus (6: white)
 
 }
 \seealso{
