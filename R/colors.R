@@ -1,5 +1,5 @@
 ## colors.R | unikn
-## hn | 2019 02 16
+## hn | 2019 02 17
 ## ---------------
 
 ## Define colors and color palettes. 
@@ -490,7 +490,7 @@ pal_which <- function(which = "all", pal = pal_unikn){
 #' pal_n(8)
 #' pal_n(10)  # n = 10 colors of default color pal
 #' 
-#' pal_n(99)  # returns maximal number of colors
+#' pal_n(99)  # returns maximal number of colors: pal_unikn_plus (11)
 #' 
 #' # Other palettes pal:
 #' pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))
@@ -514,11 +514,22 @@ pal_n <- function(n = "all", pal = pal_unikn){
   stopifnot(is.numeric(n))
   stopifnot(n > 0)
   
-  if (n > length(pal)){
+  if (n > length(pal)){  # n exceeds numbers of available colors in pal: 
     
-    message(paste0("n exceeds n of colors in pal: Using maximum n = ", length(pal)))
-    
-    n <- length(pal)
+    # Special case: Switch to longer pal_unikn_plus when (pal == pal_unikn): 
+    if (isTRUE(all.equal(pal, pal_unikn))) { 
+      
+      message(paste0("n exceeds the 10 of colors in pal_unikn: \nUsing pal_unikn_plus with n = ", length(pal_unikn_plus), " instead."))
+      
+      pal <- pal_unikn_plus
+      n <- length(pal)
+      
+    } else {  # (+) any other pal:
+      
+      message(paste0("n exceeds n of colors in pal: Using maximum n = ", length(pal)))
+      n <- length(pal)
+      
+    }
     
   }
   
@@ -538,11 +549,29 @@ pal_n <- function(n = "all", pal = pal_unikn){
            out <- pal[c("seeblau4", "seeblau3", "seeblau1", "white", "seegrau3", "black")],  # 6
            out <- pal[c("seeblau4", "seeblau3", "seeblau1", "white", "seegrau2", "seegrau4", "black")],  # 7
            out <- pal[c("seeblau4", "seeblau3", "seeblau2", "seeblau1", "white", "seegrau2", "seegrau4", "black")],  # 8
-           out <- pal[c("seeblau4", "seeblau3", "seeblau2", "seeblau1", "white", "seegrau1", "seegrau2", "seegrau3", "black")],   # 9
+           out <- pal[c("seeblau4", "seeblau3", "seeblau2", "seeblau1", "white", "seegrau1", "seegrau2", "seegrau3", "black")],  # 9
            out <- pal  # all 10 colors of pal_unikn
     )
     
-  } else if (isTRUE(all.equal(pal, pal_seeblau))) {  # (2) pal == pal_seeblau:
+  } else if (isTRUE(all.equal(pal, pal_unikn_plus))) {  # (2) pal == pal_unikn_plus:
+    
+    # message("Get n specific colors of pal_unikn_plus:")
+    
+    switch(n,
+           out <- pal[c("seeblau3")],  # 1
+           out <- pal[c("seeblau4", "seeblau2")],  # 2
+           out <- pal[c("seeblau4", "seeblau2", "white")],  # 3   
+           out <- pal[c("seeblau4", "seeblau2", "white", "black")],  # 4
+           out <- pal[c("seeblau4", "seeblau2", "white", "seegrau3", "black")],  # 5
+           out <- pal[c("seeblau4", "seeblau3", "seeblau1", "white", "seegrau3", "black")],  # 6
+           out <- pal[c("seeblau4", "seeblau3", "seeblau1", "white", "seegrau2", "seegrau4", "black")],  # 7
+           out <- pal[c("seeblau4", "seeblau3", "seeblau2", "seeblau1", "white", "seegrau2", "seegrau4", "black")],  # 8
+           out <- pal[c("seeblau4", "seeblau3", "seeblau2", "seeblau1", "white", "seegrau1", "seegrau2", "seegrau3", "black")],  # 9
+           out <- pal[c("seeblau5", "seeblau4", "seeblau3", "seeblau2", "seeblau1", "white", "seegrau1", "seegrau2", "seegrau3", "black")],  # 10
+           out <- pal  # all 11 colors of pal_unikn_plus
+    )
+    
+  } else if (isTRUE(all.equal(pal, pal_seeblau))) {  # (3) pal == pal_seeblau:
     
     # message("Get n specific colors of pal_seeblau:")
     
@@ -558,7 +587,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
     
     message("Unknown pal: Returning the first n colors:")
     
-    out <- pal_which(which = 1:n, pal = pal)  # first n colors
+    out <- pal_which(which = 1:n, pal = pal)  # first n colors of pal
     
   }
   
@@ -593,6 +622,13 @@ pal_n <- function(n = "all", pal = pal_unikn){
 #' \code{pal_n_sq} returns \code{n^2} dedicated colors of a color palette \code{pal} 
 #' (up to a maximum of \code{n + 1} colors). 
 #' 
+#' Note that \code{pal_n_sq} was created for \code{pal = \link{pal_unikn}} 
+#' for small values of \code{n} (\code{n = 1, 2, 3}) and 
+#' returns the 11 colors of \code{\link{pal_unikn_plus}} for any \code{n > 3}. 
+#' 
+#' Use the more specialized function \code{\link{pal_n}} for choosing 
+#' \code{n} dedicated colors of a known color palette. 
+#' 
 #' @param n A number specifying the desired number colors of pal (as a number) 
 #' or the character string \code{"all"} (to get all colors of \code{pal}). 
 #' Default: \code{n = "all"}. 
@@ -601,10 +637,10 @@ pal_n <- function(n = "all", pal = pal_unikn){
 #' Default: \code{pal = \link{pal_unikn}}. 
 #'
 #' @examples
-#' pal_n_sq(1)
-#' pal_n_sq(2)
-#' pal_n_sq(3) #  9 colors
-#' pal_n_sq(4) # 11 colors = maximum of (n + 1) colors.
+#' pal_n_sq(1) #  1 color: seeblau3
+#' pal_n_sq(2) #  4 colors
+#' pal_n_sq(3) #  9 colors (5: white)
+#' pal_n_sq(4) # 11 colors of pal_unikn_plus (6: white)
 #' 
 #' @family color palettes
 #'
@@ -628,21 +664,31 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
   
   if (n == 1) {
     
-    out <- pal[2] #  1 color: seeblau3
+    out <- pal[2]  #  1 preferred color: seeblau3
     
   } else if (n == 2) {
     
-    out <- pal[c(1, 3, 5, 10)]   #  4 colors: seeblau4, seeblau2, white, black
+    out <- pal[c(1, 3, 5, 10)]  #  4 colors: seeblau4, seeblau2, white, black
     
   } else if (n == 3) {
     
-    out <- pal[-7] #  9 colors: seeblau > white > black
+    out <- pal[-7]  #  9 colors: seeblau > white > black
     
-  } else {
+  } else { # n > 3: 9+ colors: 
     
-    out <- pal[c(1:2, 2:10)]   # 11 colors: seeblau (seeblau.3: 2x) > white (6 = mid) > black (11) [default]
+    if (isTRUE(all.equal(pal, pal_unikn))) {
+      
+      # out <- pal[c(1:2, 2:10)]   # 11 colors: seeblau (seeblau.3: 2x) > white (6 = mid) > black (11) [default]  
+      
+      out <- pal_unikn_plus        # 11 colors: seeblau.5 > white (6 = mid) > black (11)  
+      
+    } else { # any other pal:
+      
+      out <- pal
+      
+    }
     
-  }
+  } # if (n == etc.)
   
   return(out)
   
@@ -666,14 +712,19 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #'
 #' @examples
 #' plot_pal()  # plots default color palette 
+#' plot_pal(pal = pal_unikn_plus) 
+#' 
+#' ## Not run: 
 #' 
 #' # RColorBrewer palettes: 
-#' plot_pal(RColorBrewer::brewer.pal(n = 5, name = "Set1"))
+#' plot_pal(RColorBrewer::brewer.pal(n = "all", name = "Set1"))
 #' plot_pal(RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 #' 
 #' # yarrr palettes: 
 #' plot_pal(yarrr::piratepal(palette = "appletv"))
 #' plot_pal(yarrr::piratepal(palette = "google"))
+#' 
+#' ## End(Not run)
 #'
 #' @family color palettes
 #'
@@ -777,13 +828,15 @@ plot_pal <- function(pal = pal_unikn) {
 #   - define the additional color palettes.
 #   - split color_palettes and color_functions (into separate files). 
 
-# (2) any color pal: 
+# (2) Any color pal: 
 #   - split color_palettes and color_functions (into separate files). 
 #   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
 #   - improve function pal_n to get n (good) colors (and consider integrating it into palettes)
+#   - provide color gradient function(s) (to return an arbitrary number of colors)
 
 # (3) Other elements:
 #   - add a function to get a box in seeblau (or other color)
+#   - provide complete ggplot theme(s)
 #   - fonts?
 
 ## eof. ----------
