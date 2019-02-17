@@ -4,7 +4,7 @@
 \name{pal_unikn_pref}
 \alias{pal_unikn_pref}
 \title{uni.kn preferred colors in a color palette.}
-\format{An object of class \code{data.frame} with 1 rows and 5 columns.}
+\format{An object of class \code{data.frame} with 1 rows and 6 columns.}
 \usage{
 pal_unikn_pref
 }
@@ -28,7 +28,8 @@ pal_unikn_pref["seeblau"]  # preferred color by name
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
 \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
 
-Other color palettes: \code{\link{pal_grau}},
+Other color palettes: \code{\link{col_scale}},
+  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
   \code{\link{pal_n_sq}}, \code{\link{pal_n}},
   \code{\link{pal_peach}}, \code{\link{pal_petrol}},
   \code{\link{pal_seeblau}}, \code{\link{pal_seegruen}},

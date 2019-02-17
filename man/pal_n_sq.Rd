@@ -34,11 +34,14 @@ pal_n_sq(4) # 11 colors of pal_unikn_plus (6: white)
 
 }
 \seealso{
-\code{\link{pal_n}} for \code{n} dedicated colors of a known color palette; 
-\code{\link{pal_which}} for specific colors of a color palette; 
+\code{\link{plot_pal}} to plot color palettes; 
+\code{\link{col_scale}} to create color scales (gradients);  
+\code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+\code{\link{pal_which}} to get specific colors of a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color palettes: \code{\link{pal_grau}},
+Other color palettes: \code{\link{col_scale}},
+  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
   \code{\link{pal_n}}, \code{\link{pal_peach}},
   \code{\link{pal_petrol}}, \code{\link{pal_seeblau}},
   \code{\link{pal_seegruen}}, \code{\link{pal_unikn_plus}},
