@@ -27,7 +27,7 @@ interpolating color sequence provided by \code{col}.
 }
 \examples{
 ## Creating color gradients: ---- 
-# Gradients over 1 color palette:
+# Gradients extending 1 color palette:
 col_scale()(5)  # 5 colors of default scale pal_unikn
 col_scale(pal_petrol)(10)  # 10 colors of pal_petrol
 
@@ -45,13 +45,16 @@ col_scale(c(seeblau, grau, seegruen, peach))(10)
 # Gradients over 3+ color palettes:
 col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
 
-## Creating and plotting gradients: ---- 
+## Extending palettes and plotting gradients: ---- 
+
 # Extending exiting color palettes: 
 plot_pal(col_scale()(20))
 plot_pal(col_scale(pal_seeblau)(10))
 
 # Combining 2+ colors to create new palettes:
-plot_pal(col_scale(c(seeblau, petrol))(10))
+plot_pal(col_scale(c(seeblau, petrol))(8))
+plot_pal(col_scale(c(seeblau, pinky))(8)) 
+plot_pal(col_scale(c(Bordeaux, petrol))(8)) 
 plot_pal(col_scale(c(pal_seeblau[5], "gold"))(10))
 plot_pal(col_scale(c(seeblau, grau, petrol))(10))
 plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))
@@ -59,6 +62,10 @@ plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))
 # Combining 2+ color palettes into new palettes:
 plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))  
 plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10)) 
+plot_pal(col_scale(c(rev(pal_karpfenblau), pal_Bordeaux))(10)) 
+plot_pal(col_scale(c(rev(pal_karpfenblau), pal_pinky))(10))
+plot_pal(col_scale(c(rev(pal_seegruen), pal_pinky))(10))
+plot_pal(col_scale(c(rev(pal_petrol), pal_Bordeaux))(10)) 
 
 }
 \seealso{
@@ -67,10 +74,11 @@ plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10))
 \code{\link{pal_which}} to get specific colors of a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color palettes: \code{\link{pal_grau}},
-  \code{\link{pal_karpfenblau}}, \code{\link{pal_n_sq}},
-  \code{\link{pal_n}}, \code{\link{pal_peach}},
-  \code{\link{pal_petrol}}, \code{\link{pal_seeblau}},
+Other color palettes: \code{\link{pal_Bordeaux}},
+  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
+  \code{\link{pal_n_sq}}, \code{\link{pal_n}},
+  \code{\link{pal_peach}}, \code{\link{pal_petrol}},
+  \code{\link{pal_pinky}}, \code{\link{pal_seeblau}},
   \code{\link{pal_seegruen}}, \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},

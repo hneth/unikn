@@ -4,7 +4,7 @@
 \name{pal_unikn_pref}
 \alias{pal_unikn_pref}
 \title{uni.kn preferred colors in a color palette.}
-\format{An object of class \code{data.frame} with 1 rows and 6 columns.}
+\format{An object of class \code{data.frame} with 1 rows and 8 columns.}
 \usage{
 pal_unikn_pref
 }
@@ -23,15 +23,20 @@ pal_unikn_pref[1]    # preferred (named) color
 pal_unikn_pref[[1]]  # preferred color value: #59C7EB"
 pal_unikn_pref["seeblau"]  # preferred color by name
 
+# Plotting palette:
+plot_pal(pal_unikn_pref)
+
 }
 \seealso{
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
-\code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
+\code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+\code{\link{col_scale}} to extend color palettes (by creating gradients).
 
 Other color palettes: \code{\link{col_scale}},
-  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
-  \code{\link{pal_n_sq}}, \code{\link{pal_n}},
-  \code{\link{pal_peach}}, \code{\link{pal_petrol}},
+  \code{\link{pal_Bordeaux}}, \code{\link{pal_grau}},
+  \code{\link{pal_karpfenblau}}, \code{\link{pal_n_sq}},
+  \code{\link{pal_n}}, \code{\link{pal_peach}},
+  \code{\link{pal_petrol}}, \code{\link{pal_pinky}},
   \code{\link{pal_seeblau}}, \code{\link{pal_seegruen}},
   \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}}, \code{\link{pal_unikn}},

@@ -26,11 +26,12 @@ all.equal(seegruen, pal_seegruen[4])  # TRUE
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
 \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-\code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
+\code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette.
 
-Other colors: \code{\link{grau}},
+Other colors: \code{\link{Bordeaux}}, \code{\link{grau}},
   \code{\link{karpfenblau}}, \code{\link{peach}},
-  \code{\link{petrol}}, \code{\link{seeblau}}
+  \code{\link{petrol}}, \code{\link{pinky}},
+  \code{\link{seeblau}}
 }
 \concept{colors}
 \keyword{datasets}

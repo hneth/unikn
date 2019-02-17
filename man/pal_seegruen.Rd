@@ -21,17 +21,23 @@ dim(pal_seegruen)  # 1 5
 pal_seegruen[4]    # preferred (named) color "seegruen4"
 pal_seegruen[[4]]  # preferred color "seegruen4" OR "#0A9086"
 
+# Plotting palette:
+plot_pal(pal_seegruen)
+
 }
 \seealso{
+\code{\link{pal_petrol}} for an alternative green uni.kn color palette;  
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
 \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-\code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
+\code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+\code{\link{col_scale}} to extend color palettes (by creating gradients).
 
 Other color palettes: \code{\link{col_scale}},
-  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
-  \code{\link{pal_n_sq}}, \code{\link{pal_n}},
-  \code{\link{pal_peach}}, \code{\link{pal_petrol}},
+  \code{\link{pal_Bordeaux}}, \code{\link{pal_grau}},
+  \code{\link{pal_karpfenblau}}, \code{\link{pal_n_sq}},
+  \code{\link{pal_n}}, \code{\link{pal_peach}},
+  \code{\link{pal_petrol}}, \code{\link{pal_pinky}},
   \code{\link{pal_seeblau}}, \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},

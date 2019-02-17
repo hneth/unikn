@@ -41,9 +41,10 @@ pal_n_sq(4) # 11 colors of pal_unikn_plus (6: white)
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color palettes: \code{\link{col_scale}},
-  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
-  \code{\link{pal_n}}, \code{\link{pal_peach}},
-  \code{\link{pal_petrol}}, \code{\link{pal_seeblau}},
+  \code{\link{pal_Bordeaux}}, \code{\link{pal_grau}},
+  \code{\link{pal_karpfenblau}}, \code{\link{pal_n}},
+  \code{\link{pal_peach}}, \code{\link{pal_petrol}},
+  \code{\link{pal_pinky}}, \code{\link{pal_seeblau}},
   \code{\link{pal_seegruen}}, \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},

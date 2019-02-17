@@ -33,6 +33,9 @@ pal_unikn_plus[1]           # seeblau5 (new)
 pal_unikn_plus[[1]]         # darker blue color value: "#008ECE"
 pal_unikn_plus["seeblau5"]  # seeblau5 color value by name
 
+# Plotting palette:
+plot_pal(pal_unikn_plus)
+
 # Note:
 pal_unikn_plus[6] # "white" or "#FFFFFF" as central of 11 colors
 
@@ -40,12 +43,14 @@ pal_unikn_plus[6] # "white" or "#FFFFFF" as central of 11 colors
 \seealso{
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
 \code{\link{pal_seeblau}} for the uni.kn seeblau color palette; 
-\code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
+\code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+\code{\link{col_scale}} to extend color palettes (by creating gradients).
 
 Other color palettes: \code{\link{col_scale}},
-  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
-  \code{\link{pal_n_sq}}, \code{\link{pal_n}},
-  \code{\link{pal_peach}}, \code{\link{pal_petrol}},
+  \code{\link{pal_Bordeaux}}, \code{\link{pal_grau}},
+  \code{\link{pal_karpfenblau}}, \code{\link{pal_n_sq}},
+  \code{\link{pal_n}}, \code{\link{pal_peach}},
+  \code{\link{pal_petrol}}, \code{\link{pal_pinky}},
   \code{\link{pal_seeblau}}, \code{\link{pal_seegruen}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
