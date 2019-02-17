@@ -726,6 +726,7 @@ pal_unikn_pref <- data.frame(            # Element:
   stringsAsFactors = FALSE)
 
 
+
 ## (B) Functions: ------
 
 
@@ -1086,6 +1087,8 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 
 # plot_pal: Plot information on a given color palette [pal]: ------ 
 
+# Documentation: ---- 
+
 #' Plot a color palette.
 #'
 #' \code{plot_pal} plots information on a color palette \code{pal}.
@@ -1121,6 +1124,8 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #' @import grDevices 
 #'
 #' @export
+
+# Definition: ---- 
 
 plot_pal <- function(pal = pal_unikn) {
   
@@ -1220,8 +1225,9 @@ plot_pal <- function(pal = pal_unikn) {
 
 ## Use example code to create a function col_scale:
 
-
 # col_scale: Provide a color gradient based on given colors or color palettes: -------- 
+
+# Documentation: ---- 
 
 #' Provide a color gradient scale.
 #'
@@ -1242,6 +1248,7 @@ plot_pal <- function(pal = pal_unikn) {
 #' (passed to \code{grDevices::colorRampPalette}). 
 #'
 #' @examples
+#' ## Creating color gradients: ---- 
 #' # Gradients over 1 color palette:
 #' col_scale()(5)  # 5 colors of default scale pal_unikn
 #' col_scale(pal_petrol)(10)  # 10 colors of pal_petrol
@@ -1260,17 +1267,19 @@ plot_pal <- function(pal = pal_unikn) {
 #' # Gradients over 3+ color palettes:
 #' col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
 #' 
+#' ## Creating and plotting gradients: ---- 
 #' # Extending exiting color palettes: 
 #' plot_pal(col_scale()(20))
 #' plot_pal(col_scale(pal_seeblau)(10))
 #' 
-#' # Combining colors to create new palettes:
+#' # Combining 2+ colors to create new palettes:
+#' plot_pal(col_scale(c(seeblau, petrol))(10))
 #' plot_pal(col_scale(c(pal_seeblau[5], "gold"))(10))
 #' plot_pal(col_scale(c(seeblau, grau, petrol))(10))
 #' plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))
 #'  
-#' # Combining color palettes into new palettes:
-#' plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10)) 
+#' # Combining 2+ color palettes into new palettes:
+#' plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))  
 #' plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10)) 
 #'
 #' @family color palettes
@@ -1284,6 +1293,8 @@ plot_pal <- function(pal = pal_unikn) {
 #' @import grDevices 
 #'
 #' @export
+
+# Definition: ---- 
 
 col_scale <- function(col = pal_unikn, ...){
   
@@ -1312,6 +1323,7 @@ col_scale <- function(col = pal_unikn, ...){
 # 
 # # Gradients over 3+ color palettes:
 # col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
+
 
 
 ## ToDo: ------

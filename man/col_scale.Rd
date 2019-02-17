@@ -26,6 +26,7 @@ return a character vector of (rgb) colors
 interpolating color sequence provided by \code{col}.
 }
 \examples{
+## Creating color gradients: ---- 
 # Gradients over 1 color palette:
 col_scale()(5)  # 5 colors of default scale pal_unikn
 col_scale(pal_petrol)(10)  # 10 colors of pal_petrol
@@ -44,17 +45,19 @@ col_scale(c(seeblau, grau, seegruen, peach))(10)
 # Gradients over 3+ color palettes:
 col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
 
+## Creating and plotting gradients: ---- 
 # Extending exiting color palettes: 
 plot_pal(col_scale()(20))
 plot_pal(col_scale(pal_seeblau)(10))
 
-# Combining colors to create new palettes:
+# Combining 2+ colors to create new palettes:
+plot_pal(col_scale(c(seeblau, petrol))(10))
 plot_pal(col_scale(c(pal_seeblau[5], "gold"))(10))
 plot_pal(col_scale(c(seeblau, grau, petrol))(10))
 plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))
  
-# Combining color palettes into new palettes:
-plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10)) 
+# Combining 2+ color palettes into new palettes:
+plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))  
 plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10)) 
 
 }
