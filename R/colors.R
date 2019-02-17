@@ -51,6 +51,9 @@ pal_unikn <- data.frame(                                 #  element:
 #' dim(pal_unikn)  # 1 10
 #' pal_unikn[1]    # named color
 #' pal_unikn[[1]]  # color
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_unikn)
 #'
 #' @family color palettes
 #'
@@ -58,7 +61,8 @@ pal_unikn <- data.frame(                                 #  element:
 #' \code{\link{pal_unikn_ppt}} for an alternative (ppt) version; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
 #' @export
 
@@ -112,6 +116,9 @@ pal_unikn_ppt <- data.frame(                             #  element:
 #' dim(pal_unikn_ppt)  # 1 10
 #' pal_unikn_ppt[1]    # named color
 #' pal_unikn_ppt[[1]]  # color
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_unikn_ppt)
 #'
 #' @family color palettes
 #'
@@ -119,7 +126,8 @@ pal_unikn_ppt <- data.frame(                             #  element:
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
 #' @export
 
@@ -167,14 +175,19 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 #' dim(pal_seeblau)  # 1 5
 #' pal_seeblau[3]    # preferred (named) color "seeblau3" 
 #' pal_seeblau[[3]]  # preferred color "seeblau3" = "#59C7EB"
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_seeblau)
 #'
 #' @family color palettes
 #'
-#' @seealso
+#' @seealso 
+#' \code{\link{pal_karpfenblau}} for an alternative blue uni.kn color palette;  
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
 #' @export
 
@@ -209,7 +222,7 @@ pal_seeblau <- data.frame(                               #  element:
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
 #' @export
 
@@ -244,14 +257,19 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 #' dim(pal_peach)  # 1 5
 #' pal_peach[4]    # preferred (named) color "peach4" 
 #' pal_peach[[4]]  # preferred color "peach4" OR "#FEA090"
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_peach)
 #'
 #' @family color palettes
 #'
 #' @seealso
+#' \code{\link{pal_pinky}} and \code{\link{pal_Bordeaux}} for alternative redish uni.kn color palettes;  
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
 #' @export
 
@@ -286,7 +304,7 @@ pal_peach <- data.frame(                               #  Element:
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
 #' @export
 
@@ -320,6 +338,9 @@ peach <- pal_peach[4]  # == peach.4 of pal_peach
 #' dim(pal_grau)  # 1 5
 #' pal_grau[3]    # preferred (named) color "grau3"
 #' pal_grau[[3]]  # preferred color "grau3" OR "#9AA0A7"
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_grau)
 #'
 #' @family color palettes
 #'
@@ -327,7 +348,8 @@ peach <- pal_peach[4]  # == peach.4 of pal_peach
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
 #' @export
 
@@ -362,7 +384,7 @@ pal_grau <- data.frame(                               #  element:
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
 #' @export
 
@@ -398,14 +420,19 @@ grau <- pal_grau[3]  # == grau.3 of pal_grau: "grau3" OR "#9AA0A7"
 #' dim(pal_petrol)  # 1 5
 #' pal_petrol[4]    # preferred (named) color "petrol4"
 #' pal_petrol[[4]]  # preferred color "petrol4" OR "#077187"
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_petrol)
 #'
 #' @family color palettes
 #'
 #' @seealso
+#' \code{\link{pal_seegruen}} for an alternative green/grue uni.kn color palette;  
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
 #' @export
 
@@ -440,7 +467,7 @@ pal_petrol <- data.frame(                               #  element:
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
 #' @export
 
@@ -474,14 +501,19 @@ petrol <- pal_petrol[4]  # == petrol.4 of pal_petrol: "petrol4" OR "#077187"
 #' dim(pal_seegruen)  # 1 5
 #' pal_seegruen[4]    # preferred (named) color "seegruen4"
 #' pal_seegruen[[4]]  # preferred color "seegruen4" OR "#0A9086"
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_seegruen)
 #'
 #' @family color palettes
 #'
-#' @seealso
+#' @seealso 
+#' \code{\link{pal_petrol}} for an alternative green uni.kn color palette;  
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
 #' @export
 
@@ -516,7 +548,7 @@ pal_seegruen <- data.frame(                               #  element:
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
 #' @export
 
@@ -550,14 +582,19 @@ seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#0
 #' dim(pal_karpfenblau)  # 1 5
 #' pal_karpfenblau[4]    # preferred (named) color "karpfenblau4"
 #' pal_karpfenblau[[4]]  # preferred color "karpfenblau4" OR "#3E5496"
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_karpfenblau)
 #'
 #' @family color palettes
 #'
 #' @seealso
+#' \code{\link{pal_seeblau}} for the default seeblau uni.kn color palette;  
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
 #' @export
 
@@ -592,7 +629,7 @@ pal_karpfenblau <- data.frame(                               #  element:
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
 #' @export
 
@@ -601,8 +638,6 @@ karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfe
 ## Check:
 # karpfenblau
 
-
-# +++ here now +++ 
 
 # (7) pinky: -----
 
@@ -615,6 +650,81 @@ karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfe
 # 4. E0607E	  224 96 126	  C7  | M74 | Y31 | K0		preferred color: "pinky"
 # 5. CA4A68	  202 74 104	  C16 | M81 | Y40 | K5		
 
+#   (b) Documentation: ----  
+
+#' uni.kn pinky color palette.
+#'
+#' \code{pal_pinky} provides an additional uni.kn color palette  
+#' as a data frame containing 5 colors (shades of pink). 
+#'
+#' See \url{https://www.uni-konstanz.de} for details. 
+#'
+#' @examples
+#' pal_pinky
+#' dim(pal_pinky)  # 1 5
+#' pal_pinky[4]    # preferred (named) color "pinky4"
+#' pal_pinky[[4]]  # preferred color "pinky4" OR "#E0607E"
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_pinky)
+#'
+#' @family color palettes
+#'
+#' @seealso
+#' \code{\link{pal_peach}} and \code{\link{pal_Bordeaux}} for alternative redish uni.kn color palettes; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
+#'
+#' @export
+
+#   (c) Definition: ---- 
+
+pal_pinky <- data.frame(                               #  Element: 
+  "pinky1" = rgb(243, 191, 203, maxColorValue = 255),  #  1. pinky1 (non-transparent)
+  "pinky2" = rgb(236, 160, 178, maxColorValue = 255),  #  2. pinky2 (non-transparent)
+  "pinky3" = rgb(230, 128, 152, maxColorValue = 255),  #  3. pinky3 (non-transparent)
+  "pinky4" = rgb(224,  96, 126, maxColorValue = 255),  #  4. pinky4 (non-transparent): preferred color: "pinky"
+  "pinky5" = rgb(202,  74, 104, maxColorValue = 255),  #  5. pinky5 (non-transparent)
+  stringsAsFactors = FALSE)
+
+#   (d) Preferred color: ---- 
+
+#' uni.kn color pinky.   
+#' 
+#' \code{pinky} provides the preferred color of \code{\link{pal_pinky}} 
+#' as an atomic data frame and is defined as 
+#' \code{\link{pal_pinky}[4]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' pinky  # "pinky4" OR "#E0607E"
+#' all.equal(pinky, pal_pinky[4])  # TRUE
+#' 
+#' @family colors
+#'
+#' @seealso
+#' \code{\link{pal_pinky}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
+#'
+#' @export
+
+pinky <- pal_pinky[4]  # == pinky4 of pal_pinky: "pinky4" OR "#E0607E"
+
+## Check:
+# pinky
+
+
+# +++ here now +++ 
+
+
 # (8) Bordeaux: -----
 
 #   (a) Table (from Excel file): ----  
@@ -625,6 +735,78 @@ karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfe
 # 3. A54D69	 165  77 105	  C29 | M77 | Y35 | K17		
 # 4. 8E2043	 142  32  67	  C29 | M95 | Y47 | K32		preferred color: "Bordeaux"
 # 5. 771434	 119  20  52	  C32 | M99 | Y52 | K45		
+
+#   (b) Documentation: ----  
+
+#' uni.kn Bordeaux color palette.
+#'
+#' \code{pal_Bordeaux} provides an additional uni.kn color palette  
+#' as a data frame containing 5 colors (shades of Bordeaux). 
+#'
+#' See \url{https://www.uni-konstanz.de} for details. 
+#'
+#' @examples
+#' pal_Bordeaux
+#' dim(pal_Bordeaux)  # 1 5
+#' pal_Bordeaux[4]    # preferred (named) color "Bordeaux4"
+#' pal_Bordeaux[[4]]  # preferred color "Bordeaux4" OR "#8E2043"
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_Bordeaux)
+#'
+#' @family color palettes
+#'
+#' @seealso
+#' \code{\link{pal_peach}} and \code{\link{pal_pinky}} for alternative redish uni.kn color palettes;  
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
+#'
+#' @export
+
+#   (c) Definition: ---- 
+
+pal_Bordeaux <- data.frame(                               #  Element: 
+  "Bordeaux1" = rgb(210, 166, 180, maxColorValue = 255),  #  1. Bordeaux1 (non-transparent)
+  "Bordeaux2" = rgb(188, 122, 143, maxColorValue = 255),  #  2. Bordeaux2 (non-transparent)
+  "Bordeaux3" = rgb(165,  77, 105, maxColorValue = 255),  #  3. Bordeaux3 (non-transparent)
+  "Bordeaux4" = rgb(142,  32,  67, maxColorValue = 255),  #  4. Bordeaux4 (non-transparent): preferred color: "Bordeaux"
+  "Bordeaux5" = rgb(119,  20,  52, maxColorValue = 255),  #  5. Bordeaux5 (non-transparent)
+  stringsAsFactors = FALSE)
+
+#   (d) Preferred color: ---- 
+
+#' uni.kn color Bordeaux.    
+#' 
+#' \code{Bordeaux} provides the preferred color of \code{\link{pal_Bordeaux}} 
+#' as an atomic data frame and is defined as 
+#' \code{\link{pal_Bordeaux}[4]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' Bordeaux  # "Bordeaux4" OR "#8E2043"
+#' all.equal(Bordeaux, pal_Bordeaux[4])  # TRUE
+#' 
+#' @family colors
+#'
+#' @seealso
+#' \code{\link{pal_Bordeaux}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
+#'
+#' @export
+
+Bordeaux <- pal_Bordeaux[4]  # == Bordeaux4 of pal_Bordeaux: "Bordeaux4" OR "#8E2043"
+
+## Check:
+# Bordeaux
+
 
 # (9) Ampeltöne: -----
 
@@ -668,6 +850,9 @@ karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfe
 #' pal_unikn_plus[[1]]         # darker blue color value: "#008ECE"
 #' pal_unikn_plus["seeblau5"]  # seeblau5 color value by name
 #' 
+#' # Plotting palette:
+#' plot_pal(pal_unikn_plus)
+#' 
 #' # Note:
 #' pal_unikn_plus[6] # "white" or "#FFFFFF" as central of 11 colors
 #' 
@@ -676,7 +861,8 @@ karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfe
 #' @seealso
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_seeblau}} for the uni.kn seeblau color palette; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients).  
 #'
 #' @export
 
@@ -706,11 +892,15 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 #' pal_unikn_pref[[1]]  # preferred color value: #59C7EB"
 #' pal_unikn_pref["seeblau"]  # preferred color by name
 #' 
+#' # Plotting palette:
+#' plot_pal(pal_unikn_pref)
+#' 
 #' @family color palettes
 #'
 #' @seealso
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette. 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
 #' @export
 
@@ -723,12 +913,11 @@ pal_unikn_pref <- data.frame(            # Element:
   "petrol"      = pal_petrol[[4]],       # 4. petrol 
   "seegruen"    = pal_seegruen[[4]],     # 5. seegruen 
   "karpfenblau" = pal_karpfenblau[[4]],  # 6. karpfenblau
+  "pinky"       = pal_pinky[[4]],        # 7. pinky 
+  "Bordeaux"    = pal_Bordeaux[[4]],     # 8. Bordeaux
   stringsAsFactors = FALSE)
 
-
-
 ## (B) Functions: ------
-
 
 # pal_which: Get some [which] specific colors of a palette [pal]: ------ 
 
@@ -754,7 +943,8 @@ pal_unikn_pref <- data.frame(            # Element:
 #'
 #' @seealso
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{pal_n}} for \code{n} dedicated colors of a known color palette.
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
 #'
 #' @export
@@ -965,6 +1155,30 @@ pal_n <- function(n = "all", pal = pal_unikn){
            out <- pal  # all 5 colors of pal_karpfenblau 
     )
     
+  } else if (isTRUE(all.equal(pal, pal_pinky))) {  # (7) pal_pinky:
+    
+    # message("Get n specific colors of pal_pinky:")
+    
+    switch(n,
+           out <- pal[c("pinky4")],  # 1 preferred color
+           out <- pal[c("pinky4", "pinky2")],  # 2
+           out <- pal[c("pinky5", "pinky3", "pinky1")],  # 3   
+           out <- pal[c("pinky5", "pinky4", "pinky2", "pinky1")],  # 4              
+           out <- pal  # all 5 colors of pal_pinky 
+    )
+    
+  } else if (isTRUE(all.equal(pal, pal_Bordeaux))) {  # (8) pal_Bordeaux:
+    
+    # message("Get n specific colors of pal_Bordeaux:")
+    
+    switch(n,
+           out <- pal[c("Bordeaux4")],  # 1 preferred color
+           out <- pal[c("Bordeaux4", "Bordeaux2")],  # 2
+           out <- pal[c("Bordeaux5", "Bordeaux3", "Bordeaux1")],  # 3   
+           out <- pal[c("Bordeaux5", "Bordeaux4", "Bordeaux2", "Bordeaux1")],  # 4              
+           out <- pal  # all 5 colors of pal_Bordeaux 
+    )
+    
   } else {  # (+) any other pal:
     
     message("Unknown pal: Returning the first n colors:")
@@ -1115,7 +1329,7 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #' @family color palettes
 #'
 #' @seealso 
-#' \code{\link{col_scale}} to create color scales (gradients);  
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients);  
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
 #' \code{\link{pal_which}} to get specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
@@ -1249,7 +1463,7 @@ plot_pal <- function(pal = pal_unikn) {
 #'
 #' @examples
 #' ## Creating color gradients: ---- 
-#' # Gradients over 1 color palette:
+#' # Gradients extending 1 color palette:
 #' col_scale()(5)  # 5 colors of default scale pal_unikn
 #' col_scale(pal_petrol)(10)  # 10 colors of pal_petrol
 #' 
@@ -1267,13 +1481,16 @@ plot_pal <- function(pal = pal_unikn) {
 #' # Gradients over 3+ color palettes:
 #' col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
 #' 
-#' ## Creating and plotting gradients: ---- 
+#' ## Extending palettes and plotting gradients: ---- 
+#' 
 #' # Extending exiting color palettes: 
 #' plot_pal(col_scale()(20))
 #' plot_pal(col_scale(pal_seeblau)(10))
 #' 
 #' # Combining 2+ colors to create new palettes:
-#' plot_pal(col_scale(c(seeblau, petrol))(10))
+#' plot_pal(col_scale(c(seeblau, petrol))(8))
+#' plot_pal(col_scale(c(seeblau, pinky))(8)) 
+#' plot_pal(col_scale(c(Bordeaux, petrol))(8)) 
 #' plot_pal(col_scale(c(pal_seeblau[5], "gold"))(10))
 #' plot_pal(col_scale(c(seeblau, grau, petrol))(10))
 #' plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))
@@ -1281,7 +1498,11 @@ plot_pal <- function(pal = pal_unikn) {
 #' # Combining 2+ color palettes into new palettes:
 #' plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))  
 #' plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10)) 
-#'
+#' plot_pal(col_scale(c(rev(pal_karpfenblau), pal_Bordeaux))(10)) 
+#' plot_pal(col_scale(c(rev(pal_karpfenblau), pal_pinky))(10))
+#' plot_pal(col_scale(c(rev(pal_seegruen), pal_pinky))(10))
+#' plot_pal(col_scale(c(rev(pal_petrol), pal_Bordeaux))(10)) 
+#' 
 #' @family color palettes
 #'
 #' @seealso
@@ -1325,7 +1546,6 @@ col_scale <- function(col = pal_unikn, ...){
 # col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
 
 
-
 ## ToDo: ------
 
 # (1) unikn: 
@@ -1337,6 +1557,10 @@ col_scale <- function(col = pal_unikn, ...){
 #   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
 #   - improve function pal_n to get n (good) colors (and consider integrating it into palettes)
 #   - provide color gradient function(s) (to return an arbitrary number of colors)
+#   - Additional color palettes: 
+#      - pal_unikn_pair for pairwise colors!
+#      - pal_unikn_light for light uni.kn colors
+#      - pal_unikn_dark for dark uni.kn colors
 
 # (3) Other elements:
 #   - add a function to get a box in seeblau (or other color)
