@@ -415,7 +415,7 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #'
 #' @examples
 #' plot_pal()  # plots default color palette 
-#' plot_pal(pal = pal_unikn_plus) 
+#' plot_pal(pal_unikn_plus) 
 #' 
 #' ## Not run: 
 #' 
@@ -475,10 +475,10 @@ plot_pal <- function(pal = pal_unikn) {
           axis.text.y = element_blank(), 
           axis.title.y = element_blank(), 
           legend.position = "none", 
-          plot.title = element_text(family = "Arial", face = "bold"), 
+          plot.title = element_text(family = "sans", face = "bold"), 
           panel.grid.minor = element_blank(), 
-          panel.grid.major.x = element_line(linetype = 2), 
-          panel.grid.major.y = element_blank())
+          panel.grid.major.x = element_line(linetype = 1, size = .25), 
+          panel.grid.major.y = element_line(linetype = 1, size = .25))
   
 }
 
@@ -533,13 +533,15 @@ plot_pal <- function(pal = pal_unikn) {
 # 
 # col_gradient <- colorRampPalette(colors = c(seeblau, grau, peach))  # 3 colors
 # col_gradient <- colorRampPalette(colors = c(pal_seeblau[4], pal_grau[2], pal_peach[5]))  # 3 colors from palettes
-# col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_grau, pal_peach))  # 3 palettes
+col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_grau, pal_peach))  # 3 palettes
 
-## Demo: 
-# n <- 20
+# ## Demo: 
+# n <- 10
 # col_gradient(n)
-# plot(rep(1, n), col = (col_gradient(n)), pch = 19, cex = 3)
+# plot(rep(1, n), col = (col_gradient(n)), pch = 19, cex = 10)
+# 
 # plot(rep(1, n), col = (col_gradient(n)), pch = 15, cex = 3)
+# text(x = 10, y = 1.2, labels = col_gradient(n)[10])
 
 ## Use example code to create a function col_scale:
 
