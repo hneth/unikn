@@ -676,10 +676,12 @@ col_scale <- function(col = pal_unikn, ...){
 #   - improve function pal_n to get n (good) colors (and consider integrating it into palettes)
 #   - provide color gradient function(s) (to return an arbitrary number of colors)
 
-# (+) Other elements:
-#   - add a function to get a box in seeblau (or other color)
-#   - provide complete ggplot theme(s)
+# (+) Additional elements:
+#   - add a function to get a boX in seeblau (or another fill color)
+#   - ggplot_addon: provide complete ggplot theme(s)
+#   - text elements: heading and underline (with seeblau color defaults)
 #   - fonts?
-#   - Create logo: Merken-Box in seeblau with letter "R"
+#   - logo: Merken-boX or hexagon in seeblau with letter "R"
+
 
 ## eof. ----------
