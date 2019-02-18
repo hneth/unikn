@@ -20,7 +20,8 @@ Suggests:
     rmarkdown,
     knitr,
     roxygen2
-Collate: 'colors.R'
+Collate: 'color_definitions.R'
+         'color_functions.R'
 Encoding: UTF-8
 LazyData: true
 License: none
