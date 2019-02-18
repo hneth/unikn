@@ -21,7 +21,7 @@ See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
 pal_unikn_pref
-dim(pal_unikn_pref)  # 1 X (2)
+dim(pal_unikn_pref)  # 1 9
 pal_unikn_pref[1]    # preferred (named) color
 pal_unikn_pref[[1]]  # preferred color value: #59C7EB"
 pal_unikn_pref["seeblau"]  # preferred color by name
@@ -41,7 +41,10 @@ Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_n}}, \code{\link{pal_peach}},
   \code{\link{pal_petrol}}, \code{\link{pal_pinky}},
   \code{\link{pal_seeblau}}, \code{\link{pal_seegruen}},
-  \code{\link{pal_signal}}, \code{\link{pal_unikn_plus}},
+  \code{\link{pal_signal}}, \code{\link{pal_unikn_dark}},
+  \code{\link{pal_unikn_light}},
+  \code{\link{pal_unikn_pair}},
+  \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}}, \code{\link{pal_unikn}},
   \code{\link{pal_which}}, \code{\link{plot_pal}}
 }
