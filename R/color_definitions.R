@@ -1001,26 +1001,28 @@ pal_unikn_pref <- data.frame(            # Element:
   "signal"      = pal_signal[[2]],       # 9. (alert) signal
   stringsAsFactors = FALSE)
 
+## Check:
+# pal_unikn_pref
+# plot_pal(pal_unikn_pref)
+
 
 ## ToDo: ------
 
-# (1) unikn: 
-#   - define the additional color palettes.
-#   - split color_palettes and color_functions (into separate files). 
-
-# (2) Any color pal: 
-#   - split color_palettes and color_functions (into separate files). 
-#   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
-#   - improve function pal_n to get n (good) colors (and consider integrating it into palettes)
-#   - provide color gradient function(s) (to return an arbitrary number of colors)
-#   - Additional color palettes: 
+# (1) Color definitions: 
+#   - Define additional color palettes: 
 #      - pal_unikn_pair for pairwise colors!
 #      - pal_unikn_light for light uni.kn colors
 #      - pal_unikn_dark for dark uni.kn colors
 
-# (3) Other elements:
+# (2) ad Functions: 
+#   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
+#   - improve function pal_n to get n (good) colors (and consider integrating it into palettes)
+#   - provide color gradient function(s) (to return an arbitrary number of colors)
+
+# (+) Other elements:
 #   - add a function to get a box in seeblau (or other color)
 #   - provide complete ggplot theme(s)
 #   - fonts?
+#   - logo: Box in seeblau with letter "R"
 
 ## eof. ----------

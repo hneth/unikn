@@ -7,7 +7,10 @@
 
 ## Functions: ------
 
+
 # pal_which: Get some [which] specific colors of a palette [pal]: ------ 
+
+# - Documentation: ---- 
 
 #' Get specific colors of a color palette.
 #'
@@ -37,6 +40,8 @@
 #'
 #' @export
 
+# - Definition: ---- 
+
 pal_which <- function(which = "all", pal = pal_unikn){
   
   # handle inputs:
@@ -61,7 +66,10 @@ pal_which <- function(which = "all", pal = pal_unikn){
 
 
 
+
 # pal_n: Function to get [n] (specific, suitable) colors of a known palette [pal]: ------ 
+
+# - Documentation: ---- 
 
 #' Get n dedicated colors of a known color palette.
 #'
@@ -101,6 +109,8 @@ pal_which <- function(which = "all", pal = pal_unikn){
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #'
 #' @export
+
+# - Definition: ---- 
 
 pal_n <- function(n = "all", pal = pal_unikn){
   
@@ -298,7 +308,10 @@ pal_n <- function(n = "all", pal = pal_unikn){
 
 
 
+
 # pal_n_sq: Get n^2 (n x n) specific colors of a palette [pal]: ------ 
+
+# - Documentation: ---- 
 
 #' Get n^2 dedicated colors of a color palette.
 #'
@@ -335,6 +348,8 @@ pal_n <- function(n = "all", pal = pal_unikn){
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #'
 #' @export
+
+# - Definition: ---- 
 
 pal_n_sq <- function(n = "all", pal = pal_unikn){
   
@@ -386,9 +401,10 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 # pal_n_sq(4) # 11 colors = maximum of (n + 1) colors.
 
 
+
 # plot_pal: Plot information on a given color palette [pal]: ------ 
 
-# Documentation: ---- 
+# - Documentation: ---- 
 
 #' Plot a color palette.
 #'
@@ -426,7 +442,7 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #'
 #' @export
 
-# Definition: ---- 
+# - Definition: ---- 
 
 plot_pal <- function(pal = pal_unikn) {
   
@@ -477,7 +493,7 @@ plot_pal <- function(pal = pal_unikn) {
 # plot_pal(yarrr::piratepal(palette = "appletv"))
 # plot_pal(yarrr::piratepal(palette = "google"))
 
-## ToDo: Provide additional info on a color palette: ------ 
+# ToDo: Provide additional info on a color palette: ------ 
 
 # ## (1) Values:
 # RColorBrewer::brewer.pal(n = 5, name = "Greens")
@@ -501,6 +517,7 @@ plot_pal <- function(pal = pal_unikn) {
 # col_rgb
 # 
 # rgb2hsv(r = col_rgb[1], g = col_rgb[2], b = col_rgb[3]) 
+
 
 ## Color gradients: -------- 
 
@@ -526,9 +543,10 @@ plot_pal <- function(pal = pal_unikn) {
 
 ## Use example code to create a function col_scale:
 
+
 # col_scale: Provide a color gradient based on given colors or color palettes: -------- 
 
-# Documentation: ---- 
+# - Documentation: ---- 
 
 #' Provide a color gradient scale.
 #'
@@ -618,7 +636,7 @@ plot_pal <- function(pal = pal_unikn) {
 #'
 #' @export
 
-# Definition: ---- 
+# - Definition: ---- 
 
 col_scale <- function(col = pal_unikn, ...){
   
@@ -650,25 +668,18 @@ col_scale <- function(col = pal_unikn, ...){
 
 
 
+
 ## ToDo: ------
 
-# (1) unikn: 
-#   - define the additional color palettes.
-#   - split color_palettes and color_functions (into separate files). 
-
-# (2) Any color pal: 
-#   - split color_palettes and color_functions (into separate files). 
+# (1) Functions: 
 #   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
 #   - improve function pal_n to get n (good) colors (and consider integrating it into palettes)
 #   - provide color gradient function(s) (to return an arbitrary number of colors)
-#   - Additional color palettes: 
-#      - pal_unikn_pair for pairwise colors!
-#      - pal_unikn_light for light uni.kn colors
-#      - pal_unikn_dark for dark uni.kn colors
 
-# (3) Other elements:
+# (+) Other elements:
 #   - add a function to get a box in seeblau (or other color)
 #   - provide complete ggplot theme(s)
 #   - fonts?
+#   - Create logo: Merken-Box in seeblau with letter "R"
 
 ## eof. ----------
