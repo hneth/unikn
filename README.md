@@ -14,7 +14,7 @@ Motivation
 <a href="https://www.uni.kn/"> <img src = "./inst/pix/logo_min.png" alt = "uni.kn" width = "300px" align = "right" style = "width: 300px; float: right; border:30;"/> </a>
 
 <!-- unikn CD: -->
-In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. Its key component is the consistent use of a `seeblau` color and a corresponding color palette that blends various shades of `seeblau` with black-and-white colors and text elements. See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.
+In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. Its key component is the consistent use of a `seeblau` color and a corresponding color palette that blends various shades of `seeblau` with black-and-white colors and text elements. (See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.)
 
 <!-- Goals of unikn pgk: -->
 The `unikn` package aims to facilitate the use of some design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications should be simple and straightforward, we also allow some flexibility for expert users (e.g., for the creation of scientific visualizations).
@@ -40,29 +40,29 @@ A distinctive and recognizable color scheme is the most obvious element of the [
 
 Basic color palettes are specified according to the **Corporate Design Manual** [(pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf):
 
-1.  Default color palette (`pal_unikn`):
+-   Primary and default color palette (`pal_unikn`):
 
 ``` r
-# Default color palette:
+# Default color palette: ----- 
 pal_unikn  # 10 default colors (web/sRGB)
 
-# Plot color palette:
-plot_pal(pal = pal_unikn)
+# Plot color palette: ----- 
+plot_pal(pal_unikn)
 ```
 
 <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/>
 
-1.  Secondary color palette (`pal_unikn_ppt`): An alternative color palette with more muted colors (intended for PowerPoint presentations) is provided as `pal_unikn_ppt`.
+-   Secondary color palette (`pal_unikn_ppt`): An alternative color palette with more muted colors (intended for PowerPoint presentations) is provided as `pal_unikn_ppt`.
 
 ### Extension
 
 Adding the darkest seeblau color (from `pal_seeblau[5]`) to the front of `pal_unikn` places `white` into the middle of a symmetrical color palette `pal_unikn_plus` (with 11 colors):
 
 ``` r
-# Extended unikn color palette: 
+# Extended unikn color palette: ----- 
 pal_unikn_plus  # 11 colors (white in middle)
 
-# Plot color palette:
+# Plot color palette: ----- 
 plot_pal(pal_unikn_plus)
 ```
 
@@ -70,9 +70,11 @@ plot_pal(pal_unikn_plus)
 
 ### Additional color palettes
 
-The following additional color palettes are defined in an Excel file on [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) and provided here by the following color palettes:
+The following dedicated color palettes are defined in an Excel file on [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) and provided here by the following color palettes:
 
 ``` r
+# 8 mono-tone palettes: ----- 
+# Name:          Nr:           Tone:          
 pal_seeblau      # 5 shades of seeblau
 pal_peach        # 5           peach
 pal_grau         # 5           grau
@@ -81,21 +83,32 @@ pal_seegruen     # 5           seegruen
 pal_karpfenblau  # 5           karpfenblau
 pal_pinky        # 5           pink
 pal_Bordeaux     # 5           Bordeaux
+
+# 1 signal (Ampel) palette: ----- 
 pal_signal       # 3           Ampel
 ```
 
 Each color palette contains a preferred color.[1] All preferred colors are contained in a corresponding color palette `pal_unikn_pref`:
 
 ``` r
-# Using preferred colors:
+# Using preferred colors: ----- 
 pal_unikn_pref             # color palette of preferred colors
 pal_unikn_pref[1]          # preferred (named) color 1
 pal_unikn_pref[[1]]        # color value 1: #59C7EB"
 pal_unikn_pref["seeblau"]  # preferred color by name
-
-# Plot color palette:
-plot_pal(pal_unikn_plus)
 ```
+
+Additional pre-defined color palettes include:
+
+``` r
+# Plot additional color palettes: ----- 
+plot_pal(pal_unikn_pref)   # palette of  9 preferred colors
+plot_pal(pal_unikn_light)  # palette of  8 light colors (in 4 pairs)
+plot_pal(pal_unikn_dark)   # palette of  8 dark colors (in 4 pairs)
+plot_pal(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
+```
+
+More flexible and complex color palettes can be created by using the `col_scale()` function.
 
 Functions
 ---------
@@ -105,6 +118,7 @@ Functions
 The `plot_pal()` function provides a quick overview over the contents of a color palette and allows comparisons between color palettes:
 
 ``` r
+# Plot a color palette: ----- 
 plot_pal(pal_unikn_pref)
 ```
 
@@ -115,7 +129,7 @@ plot_pal(pal_unikn_pref)
 When only a subset of a color palette are needed, the `pal_n()` function provides a reasonable subset of a known color palette:
 
 ``` r
-# From pal_unikn (default):
+# From pal_unikn (default): ----- 
 pal_n(n = 2)
 #>   seeblau4 seeblau2
 #> 1  #00A9E0  #A6E1F4
@@ -123,7 +137,7 @@ pal_n(n = 4)
 #>   seeblau4 seeblau2   white   black
 #> 1  #00A9E0  #A6E1F4 #FFFFFF #000000
 
-# From pal_seeblau:
+# From pal_seeblau: ----- 
 pal_n(n = 1, pal = pal_seeblau)
 #>   seeblau3
 #> 1  #59C7EB
@@ -139,6 +153,7 @@ The `col_scale()` function provides color gradients based on given colors or col
 1.  Extending existing color palettes (to arbitrary lengths):
 
 ``` r
+# Extending color palettes: ----- 
 plot_pal(col_scale()(20))
 plot_pal(col_scale(pal_seeblau)(10))
 plot_pal(col_scale(pal_Bordeaux)(10))
@@ -155,7 +170,7 @@ plot_pal(col_scale(pal_Bordeaux)(10))
 New color palettes of arbitrary length can be created by combining colors (from `unikn` or base R) and the desired resolution of the color gradient (as an integer argument):
 
 ``` r
-# Combining colors:
+# Combining colors: ----- 
 plot_pal(col_scale(c(seeblau, "white", pinky))(10)) 
 plot_pal(col_scale(c(signal, petrol))(10))  
 plot_pal(col_scale(c(Bordeaux, "white", petrol))(10)) 
@@ -173,7 +188,7 @@ plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))
 For best results, consider combining existing color palettes and individual colors into new color palettes:
 
 ``` r
-# Combining color palettes (and colors):
+# Combining color palettes (and colors): ----- 
 plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
 plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
 plot_pal(col_scale(c(rev(pal_petrol),  "white", pal_Bordeaux))(11))

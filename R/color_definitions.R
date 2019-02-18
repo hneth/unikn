@@ -1144,7 +1144,7 @@ pal_unikn_pair <- data.frame(
   pal_Bordeaux[c(4, 2)],
   pal_pinky[c(4, 2)],
   pal_peach[c(4, 2)],
-  pal_grau[c(3, 1)],
+  pal_grau[c(2, 1)],
   stringsAsFactors = FALSE)
 
 ## Check:
