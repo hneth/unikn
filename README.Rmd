@@ -197,20 +197,20 @@ plot_pal(col_scale(c(rev(pal_petrol),  "white", pal_Bordeaux))(11))
 
 ## Note
 
-The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. We do not hold any copyrights on the design elements, but make some of them available to users of R (e.g., for creating scientific visualizations). 
+The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. While we make some graphical elements available to R users (e.g., for creating scientific visualizations), all copyrights remain with the original copyright holders. 
 
-We aim for an authentic representation of a highly-specified corporate design. While very rigid specifications help to maintain consistency and coherence, they also cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we occasionally allow ourselves some liberties, mostly by imposing fewer restrictions. Examples include: 
+We strive for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we enable some liberties, mostly by imposing fewer restrictions. Examples include: 
 
-- Allowing finer gradients and flexible combinations of color palettes (via `col_scale`); 
-- Providing a designated `signal` color (from `pal_signal`); 
-- Using the spelling "color", rather than "colour". 
+- allowing finer color gradients and flexible combinations of color palettes (via `col_scale`); 
+- providing a designated `signal` color (from `pal_signal`); 
+- using the spelling "color" (rather than "colour")  throughout the `unikn` package. 
 
 
 ## References
 
-Copyrights to all design elements:
+The copyrights to all design elements remain with their original creators:
 
-- © 2015 Universität Konstanz, Version 1.6, 21. September 2015, [-uni-konstanz.de](https://www.uni-konstanz.de)
+- Universität Konstanz, © 2015, Version 1.6, 21. September 2015, [-uni-konstanz.de](https://www.uni-konstanz.de)
 
 - Strichpunkt GmbH, [-strichpunkt-design.de](https://www.strichpunkt-design.de/)
 
