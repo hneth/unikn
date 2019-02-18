@@ -1,5 +1,5 @@
 ## colors.R | unikn
-## hn | 2019 02 17
+## hn | 2019 02 18
 ## ---------------
 
 ## Define colors and color palettes. 
@@ -808,7 +808,7 @@ Bordeaux <- pal_Bordeaux[4]  # == Bordeaux4 of pal_Bordeaux: "Bordeaux4" OR "#8E
 # Bordeaux
 
 
-# (9) Ampeltöne: -----
+# (9) Ampeltöne: pal_signal -----
 
 #   (a) Table (from Excel file): ----  
 
@@ -817,6 +817,89 @@ Bordeaux <- pal_Bordeaux[4]  # == Bordeaux4 of pal_Bordeaux: "Bordeaux4" OR "#8E
 # 2. EFDC60	 239 220  96	 C10 | M8  | Y72 | K0		Stagnierend
 # 3. D01556	 208  21  86	 C11 | M99 | Y44 | K3		Sehr schlecht
 
+#   (b) Documentation: ----  
+
+#' uni.kn signal (Ampel) color palette.
+#'
+#' \code{pal_signal} provides an additional uni.kn color palette  
+#' as a data frame containing 3 colors (Ampel colors). 
+#'
+#' The colors are arranged as in a traffic-light ("Ampel"): 
+#' \enumerate{
+#' \item top: red or "bad"
+#' \item mid: yellow or "alert"
+#' \item bot: green or "good"
+#' }
+#'
+#' See \url{https://www.uni-konstanz.de} for details. 
+#'
+#' @examples
+#' pal_signal
+#' dim(pal_signal)  # 1 3
+#' pal_signal[2]    # (named) color "signal2"
+#' pal_signal[[2]]  # color "signal2" OR "#EFDC60"
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_signal)
+#'
+#' @family color palettes
+#'
+#' @seealso
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
+#'
+#' @export
+
+#   (c) Definition: ---- 
+
+pal_signal <- data.frame(                               #  Element: 
+  "signal1" = rgb(208,  21,  86, maxColorValue = 255),  #  3. signal1: top = bad   (non-transparent)
+  "signal2" = rgb(239, 220,  96, maxColorValue = 255),  #  2. signal2: mid = alert (non-transparent)
+  "signal3" = rgb(124, 202, 137, maxColorValue = 255),  #  1. signal3: bot = good  (non-transparent)
+  stringsAsFactors = FALSE)
+
+#   (d) NO Preferred color: ---- 
+
+# Note: As the Ampel palette specification does NOT identify a preferred color,  
+#       using "signal" as a dedicated color is NOT part of the official definition. 
+
+#' uni.kn color signal.    
+#' 
+#' \code{signal} provides the alert color of \code{\link{pal_signal}} 
+#' as an atomic data frame and is defined as 
+#' \code{\link{pal_signal}[2]}. 
+#' 
+#' The official specification of \code{\link{pal_signal}} 
+#' does not identify a preferred color. 
+#' We provide \code{\link{pal_signal}[2]} as a dedicated color 
+#' as it is well-suited for creating color gradients 
+#' (see \code{\link{col_scale}}). 
+#'  
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' signal  # "signal2" OR "#EFDC60"
+#' all.equal(signal, pal_signal[2])  # TRUE
+#' 
+#' @family colors
+#'
+#' @seealso
+#' \code{\link{pal_signal}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
+#'
+#' @export
+
+signal <- pal_signal[2]  # == signal2 of pal_signal: "signal2" OR "#EFDC60"
+
+## Check:
+# signal
 
 
 # (C) Other combinations: -------- 
@@ -915,6 +998,7 @@ pal_unikn_pref <- data.frame(            # Element:
   "karpfenblau" = pal_karpfenblau[[4]],  # 6. karpfenblau
   "pinky"       = pal_pinky[[4]],        # 7. pinky 
   "Bordeaux"    = pal_Bordeaux[[4]],     # 8. Bordeaux
+  "signal"      = pal_signal[[2]],       # 9. (alert) signal
   stringsAsFactors = FALSE)
 
 ## (B) Functions: ------
@@ -1455,6 +1539,9 @@ plot_pal <- function(pal = pal_unikn) {
 #' return a character vector of (rgb) colors 
 #' interpolating color sequence provided by \code{col}.
 #' 
+#' For best results, consider combining existing color palettes 
+#' with base color "white" (see Examples).
+#' 
 #' @param col A list of colors or color palettes. 
 #' Default: \code{col = \link{pal_unikn}}. 
 #' 
@@ -1462,46 +1549,59 @@ plot_pal <- function(pal = pal_unikn) {
 #' (passed to \code{grDevices::colorRampPalette}). 
 #'
 #' @examples
-#' ## Creating color gradients: ---- 
+#' ## Creating color gradients: ------ 
+#' 
 #' # Gradients extending 1 color palette:
 #' col_scale()(5)  # 5 colors of default scale pal_unikn
 #' col_scale(pal_petrol)(10)  # 10 colors of pal_petrol
 #' 
-#' # Gradients over 2 colors:
+#' # Gradients over 2+ colors:
 #' col_scale(c(seeblau, peach))(10)
-#' col_scale(c(seegruen, petrol))(10)
+#' col_scale(c(signal, petrol))(10)  
+#' col_scale(c(seeblau, "white", pinky))(10)
+#' col_scale(c(karpfenblau, seeblau, "gold"))(10)  # "gold" shines brighter than signal
 #' 
-#' # Gradients over 2 color palettes:
+#' # Gradients over 2+ color palettes:
 #' col_scale(c(pal_seeblau, pal_peach))(10)
 #' col_scale(c(pal_seeblau, pal_karpfenblau))(10)
-#' 
-#' # Gradients over 3+ colors:
-#' col_scale(c(seeblau, grau, seegruen, peach))(10) 
-#' 
-#' # Gradients over 3+ color palettes:
 #' col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
 #' 
-#' ## Extending palettes and plotting gradients: ---- 
+#' # Gradients over 3+ color palettes and colors:
+#' col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11)
+#' col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11)
+#' col_scale(c(rev(pal_karpfenblau), "white", pal_Bordeaux))(11) 
 #' 
-#' # Extending exiting color palettes: 
+#' ## Creating and plotting color gradients: ------ 
+#' 
+#' # (1) Extending color palettes: ----
 #' plot_pal(col_scale()(20))
 #' plot_pal(col_scale(pal_seeblau)(10))
+#' plot_pal(col_scale(pal_Bordeaux)(10))
+#'
+#' # (2) Combining colors or palettes: ---- 
 #' 
 #' # Combining 2+ colors to create new palettes:
-#' plot_pal(col_scale(c(seeblau, petrol))(8))
-#' plot_pal(col_scale(c(seeblau, pinky))(8)) 
-#' plot_pal(col_scale(c(Bordeaux, petrol))(8)) 
-#' plot_pal(col_scale(c(pal_seeblau[5], "gold"))(10))
-#' plot_pal(col_scale(c(seeblau, grau, petrol))(10))
-#' plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))
+#' plot_pal(col_scale(c(seeblau, signal))(10))
+#' plot_pal(col_scale(c(signal, petrol))(10))  
+#' plot_pal(col_scale(c(seeblau, "white", pinky))(10)) 
+#' plot_pal(col_scale(c(karpfenblau, seeblau, "white"))(10))  
+#' plot_pal(col_scale(c(Bordeaux, "white", petrol))(10)) 
+#' plot_pal(col_scale(c(seeblau, "white", petrol))(10))
+#' plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))  # "gold" shines brighter than signal
 #'  
 #' # Combining 2+ color palettes into new palettes:
 #' plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))  
 #' plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10)) 
 #' plot_pal(col_scale(c(rev(pal_karpfenblau), pal_Bordeaux))(10)) 
-#' plot_pal(col_scale(c(rev(pal_karpfenblau), pal_pinky))(10))
 #' plot_pal(col_scale(c(rev(pal_seegruen), pal_pinky))(10))
 #' plot_pal(col_scale(c(rev(pal_petrol), pal_Bordeaux))(10)) 
+#' 
+#' # Combining 2 palettes and mid-color "white" to new palettes:
+#' plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
+#' plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
+#' plot_pal(col_scale(c(rev(pal_karpfenblau), "white", pal_Bordeaux))(11)) 
+#' plot_pal(col_scale(c(rev(pal_seegruen), "white", pal_peach))(11))
+#' plot_pal(col_scale(c(rev(pal_petrol), "white", pal_Bordeaux))(11))
 #' 
 #' @family color palettes
 #'
