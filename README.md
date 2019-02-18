@@ -20,7 +20,7 @@ The current development version can be installed from its [GitHub](https://githu
 # install.packages('devtools')
 devtools::install_github('hneth/unikn')
 
-library(unikn)  # load package
+library(unikn)  # loads package
 ```
 
 Colors
@@ -28,57 +28,86 @@ Colors
 
 A distinctive and recognizable color scheme is the most obvious element of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design.
 
-### Basic color palette
+### Basic color palettes
 
 Basic color palettes are specified according to the **Corporate Design Manual** [(pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf):
 
+1.  Default color palette (`pal_unikn`):
+
 ``` r
 # Default color palette:
-pal_unikn      # 10 default colors (web/sRGB)
+pal_unikn  # 10 default colors (web/sRGB)
 
-# Plot a color palette:
+# Plot color palette:
 plot_pal(pal = pal_unikn)
 ```
 
-<img src = "./inst/pix/pal_unikn.png" width = "800px" align = "left" alt = "pal_unikn" style = "width: 800px; border:10;"/>
+<img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/>
+
+1.  Secondary color palette (`pal_unikn_ppt`): An alternative color palette with more muted colors (intended for PowerPoint presentations) is provided as `pal_unikn_ppt`.
+
+### Extension
+
+Adding the darkest seeblau color (from `pal_seeblau[5]`) to the front of `pal_unikn` places `white` into the middle of a symmetrical color palette `pal_unikn_plus` (with 11 colors):
+
+``` r
+# Extended unikn color palette: 
+pal_unikn_plus  # 11 colors (white in middle)
+
+# Plot color palette:
+plot_pal(pal_unikn_plus)
+```
+
+<img src = "./inst/pix/README-pal_unikn_plus-1.png" align = "center" alt = "pal_unikn_plus" style = "border:10;"/>
 
 ### Additional color palettes
 
-Additional colors are defined in an Excel file on [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
+The following additional color palettes are defined in an Excel file on [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) and provided here by the following color palettes:
 
 ``` r
-pal_seeblau
-#>   seeblau1 seeblau2 seeblau3 seeblau4 seeblau5
-#> 1  #CCEEF9  #A6E1F4  #59C7EB  #00A9E0  #008ECE
-pal_peach
-#>    peach1  peach2  peach3  peach4  peach5
-#> 1 #FEE2DD #FECFC7 #FFB8AC #FEA090 #FF8E7B
-# etc.
+pal_seeblau      # 5 shades of seeblau
+pal_peach        # 5           peach
+pal_grau         # 5           grau
+pal_petrol       # 5           petrol
+pal_seegruen     # 5           seegruen 
+pal_karpfenblau  # 5           karpfenblau
+pal_pinky        # 5           pink
+pal_Bordeaux     # 5           Bordeaux
+pal_signal       # 3           Ampel
 ```
 
-Using all preferred colors:
+Each color palette contains a preferred color.[1] All preferred colors are contained in a corresponding color palette `pal_unikn_pref`:
 
 ``` r
 # Using preferred colors:
 pal_unikn_pref             # color palette of preferred colors
-#>   seeblau   peach
-#> 1 #59C7EB #FEA090
 pal_unikn_pref[1]          # preferred (named) color 1
-#>   seeblau
-#> 1 #59C7EB
 pal_unikn_pref[[1]]        # color value 1: #59C7EB"
-#> [1] "#59C7EB"
 pal_unikn_pref["seeblau"]  # preferred color by name
-#>   seeblau
-#> 1 #59C7EB
+
+# Plot color palette:
+plot_pal(pal_unikn_plus)
 ```
 
-### Subsets of a color palette
+Functions
+---------
 
-When only a subset of a color palette are needed, the function `pal_n` provides a reasonable subset of a known color palette:
+### Plotting color palettes
+
+The `plot_pal()` function provides a quick overview over the contents of a color palette and allows comparisons between color palettes:
 
 ``` r
-# From pal_unikn:
+plot_pal(pal_unikn_pref)
+```
+
+<img src = "./inst/pix/README-plot_pal-1.png" align = "center" alt = "pal_unikn_pref" style = "border:10;"/>
+
+### Partial color palettes
+
+When only a subset of a color palette are needed, the `pal_n()` function provides a reasonable subset of a known color palette:
+
+``` r
+# From pal_unikn (default):
 pal_n(n = 2)
 #>   seeblau4 seeblau2
 #> 1  #00A9E0  #A6E1F4
@@ -95,20 +124,74 @@ pal_n(n = 4, pal = pal_seeblau)
 #> 1  #00A9E0  #59C7EB  #A6E1F4  #CCEEF9
 ```
 
+### Extending and creating new color palettes
+
+The `col_scale()` function provides color gradients based on given colors or color palettes. This serves 2 main functions:
+
+1.  Extending existing color palettes (to arbitrary lengths):
+
+``` r
+plot_pal(col_scale()(20))
+plot_pal(col_scale(pal_seeblau)(10))
+plot_pal(col_scale(pal_Bordeaux)(10))
+```
+
+<img src = "./inst/pix/README-col_scale_1-1.png" align = "center" alt = "col_scale" style = "border:10;"/>
+
+<img src = "./inst/pix/README-col_scale_1-2.png" align = "center" alt = "pal_seeblau" style = "border:10;"/>
+
+<img src = "./inst/pix/README-col_scale_1-3.png" align = "center" alt = "pal_Bordeaux" style = "border:10;"/>
+
+1.  Combining colors to create new color palettes:
+
+New color palettes of arbitrary length can be created by combining colors (from `unikn` or base R) and the desired resolution of the color gradient (as an integer argument):
+
+``` r
+# Combining colors:
+plot_pal(col_scale(c(seeblau, "white", pinky))(10)) 
+plot_pal(col_scale(c(signal, petrol))(10))  
+plot_pal(col_scale(c(Bordeaux, "white", petrol))(10)) 
+plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10)) 
+```
+
+<img src = "./inst/pix/README-col_scale_2-1.png" align = "center" alt = "col_scale: seeblau white pinky" style = "border:10;"/>
+
+<img src = "./inst/pix/README-col_scale_2-2.png" align = "center" alt = "col_scale: signal petrol" style = "border:10;"/>
+
+<img src = "./inst/pix/README-col_scale_2-3.png" align = "center" alt = "col_scale: Bordeaux white petrol" style = "border:10;"/>
+
+<img src = "./inst/pix/README-col_scale_2-4.png" align = "center" alt = "col_scale: karpfenblau seeblau gold" style = "border:10;"/>
+
+For best results, consider combining existing color palettes and individual colors into new color palettes:
+
+``` r
+# Combining color palettes (and colors):
+plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
+plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
+plot_pal(col_scale(c(rev(pal_petrol),  "white", pal_Bordeaux))(11))
+```
+
+<img src = "./inst/pix/README-col_scale_3-1.png" align = "center" alt = "col_scale: pal_seeblau white pal_pinky" style = "border:10;"/>
+
+<img src = "./inst/pix/README-col_scale_3-2.png" align = "center" alt = "col_scale: pal_seeblau white pal_petrol" style = "border:10;"/>
+
+<img src = "./inst/pix/README-col_scale_3-3.png" align = "center" alt = "col_scale: pal_petrol white pal_Bordeaux" style = "border:10;"/>
+
 Note
 ----
 
 The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. We do not hold any copyrights on the design elements, but make some of them available to users of R (e.g., for creating scientific visualizations).
 
-We aim for an authentic representation of a highly-specified corporate design. While very rigid specifications may help to maintain consistency and coherence, they can also cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we occasionally allow ourselves some liberties, mostly by imposing fewer restrictions. Examples include:
+We aim for an authentic representation of a highly-specified corporate design. While very rigid specifications help to maintain consistency and coherence, they also cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we occasionally allow ourselves some liberties, mostly by imposing fewer restrictions. Examples include:
 
--   More flexible combinations of color palettes.
--   Using the term "color", rather than "colour".
+-   Allowing finer gradients and flexible combinations of color palettes (via `col_scale`);
+-   Providing a designated `signal` color (from `pal_signal`);
+-   Using the spelling "color", rather than "colour".
 
 References
 ----------
 
-Copyrights of design elements:
+Copyrights to all design elements:
 
 -   © 2015 Universität Konstanz, Version 1.6, 21. September 2015, [-uni-konstanz.de](https://www.uni-konstanz.de)
 
@@ -121,6 +204,8 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-02-17 by [hn](https://neth.de).\]
+\[Updated 2019-02-18 by [hn](https://neth.de).\]
 
 <!-- eof. -->
+
+[1] Whereas the official definition does not identify a preferred color for the Ampel color palette (`pal_signal`), we provide its alert color (i.e., `pal_signal[2]`) as a designated color `signal`.
