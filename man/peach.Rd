@@ -31,7 +31,7 @@ all.equal(peach, pal_peach[4])  # TRUE
 Other colors: \code{\link{Bordeaux}}, \code{\link{grau}},
   \code{\link{karpfenblau}}, \code{\link{petrol}},
   \code{\link{pinky}}, \code{\link{seeblau}},
-  \code{\link{seegruen}}
+  \code{\link{seegruen}}, \code{\link{signal}}
 }
 \concept{colors}
 \keyword{datasets}

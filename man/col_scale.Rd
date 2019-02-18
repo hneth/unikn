@@ -24,48 +24,64 @@ provide a function that takes an integer argument
 (the required number of colors) to  
 return a character vector of (rgb) colors 
 interpolating color sequence provided by \code{col}.
+
+For best results, consider combining existing color palettes 
+with base color "white" (see Examples).
 }
 \examples{
-## Creating color gradients: ---- 
+## Creating color gradients: ------ 
+
 # Gradients extending 1 color palette:
 col_scale()(5)  # 5 colors of default scale pal_unikn
 col_scale(pal_petrol)(10)  # 10 colors of pal_petrol
 
-# Gradients over 2 colors:
+# Gradients over 2+ colors:
 col_scale(c(seeblau, peach))(10)
-col_scale(c(seegruen, petrol))(10)
+col_scale(c(signal, petrol))(10)  
+col_scale(c(seeblau, "white", pinky))(10)
+col_scale(c(karpfenblau, seeblau, "gold"))(10)  # "gold" shines brighter than signal
 
-# Gradients over 2 color palettes:
+# Gradients over 2+ color palettes:
 col_scale(c(pal_seeblau, pal_peach))(10)
 col_scale(c(pal_seeblau, pal_karpfenblau))(10)
-
-# Gradients over 3+ colors:
-col_scale(c(seeblau, grau, seegruen, peach))(10) 
-
-# Gradients over 3+ color palettes:
 col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
 
-## Extending palettes and plotting gradients: ---- 
+# Gradients over 3+ color palettes and colors:
+col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11)
+col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11)
+col_scale(c(rev(pal_karpfenblau), "white", pal_Bordeaux))(11) 
 
-# Extending exiting color palettes: 
+## Creating and plotting color gradients: ------ 
+
+# (1) Extending color palettes: ----
 plot_pal(col_scale()(20))
 plot_pal(col_scale(pal_seeblau)(10))
+plot_pal(col_scale(pal_Bordeaux)(10))
+
+# (2) Combining colors or palettes: ---- 
 
 # Combining 2+ colors to create new palettes:
-plot_pal(col_scale(c(seeblau, petrol))(8))
-plot_pal(col_scale(c(seeblau, pinky))(8)) 
-plot_pal(col_scale(c(Bordeaux, petrol))(8)) 
-plot_pal(col_scale(c(pal_seeblau[5], "gold"))(10))
-plot_pal(col_scale(c(seeblau, grau, petrol))(10))
-plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))
+plot_pal(col_scale(c(seeblau, signal))(10))
+plot_pal(col_scale(c(signal, petrol))(10))  
+plot_pal(col_scale(c(seeblau, "white", pinky))(10)) 
+plot_pal(col_scale(c(karpfenblau, seeblau, "white"))(10))  
+plot_pal(col_scale(c(Bordeaux, "white", petrol))(10)) 
+plot_pal(col_scale(c(seeblau, "white", petrol))(10))
+plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))  # "gold" shines brighter than signal
  
 # Combining 2+ color palettes into new palettes:
 plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))  
 plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10)) 
 plot_pal(col_scale(c(rev(pal_karpfenblau), pal_Bordeaux))(10)) 
-plot_pal(col_scale(c(rev(pal_karpfenblau), pal_pinky))(10))
 plot_pal(col_scale(c(rev(pal_seegruen), pal_pinky))(10))
 plot_pal(col_scale(c(rev(pal_petrol), pal_Bordeaux))(10)) 
+
+# Combining 2 palettes and mid-color "white" to new palettes:
+plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
+plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
+plot_pal(col_scale(c(rev(pal_karpfenblau), "white", pal_Bordeaux))(11)) 
+plot_pal(col_scale(c(rev(pal_seegruen), "white", pal_peach))(11))
+plot_pal(col_scale(c(rev(pal_petrol), "white", pal_Bordeaux))(11))
 
 }
 \seealso{
@@ -79,7 +95,8 @@ Other color palettes: \code{\link{pal_Bordeaux}},
   \code{\link{pal_n_sq}}, \code{\link{pal_n}},
   \code{\link{pal_peach}}, \code{\link{pal_petrol}},
   \code{\link{pal_pinky}}, \code{\link{pal_seeblau}},
-  \code{\link{pal_seegruen}}, \code{\link{pal_unikn_plus}},
+  \code{\link{pal_seegruen}}, \code{\link{pal_signal}},
+  \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
   \code{\link{pal_which}}, \code{\link{plot_pal}}
