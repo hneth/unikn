@@ -13,6 +13,7 @@
 ## Color palettes: ------
 
 
+
 # (A) Basic color palettes: -----
 
 #   (1) unikn default (web/sRGB) palette: ---- 
@@ -144,12 +145,13 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 
 
 
+
 # (B) Additional unikn color palettes: -----
 
 ## Source: Excel file provided at
 ## https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/ 
 
-# (1) seeblau: ----- 
+#  (1) seeblau: ----- 
 
 #   (a) Table (from Excel file): ---- 
 
@@ -231,7 +233,7 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 ## Check:
 # seeblau
 
-# (2) peach: -----
+#  (2) peach: -----
 
 #   (a) Table (from Excel file): ---- 
 
@@ -313,7 +315,7 @@ peach <- pal_peach[4]  # == peach.4 of pal_peach
 ## Check:
 # peach
 
-# (3) grau: ----- 
+#  (3) grau: ----- 
 
 #   (a) Table (from Excel file): ----  
 
@@ -393,7 +395,7 @@ grau <- pal_grau[3]  # == grau.3 of pal_grau: "grau3" OR "#9AA0A7"
 ## Check:
 # grau
 
-# (4) petrol: -----
+#  (4) petrol: -----
 
 #   (a) Table (from Excel file): ----  
 
@@ -476,7 +478,7 @@ petrol <- pal_petrol[4]  # == petrol.4 of pal_petrol: "petrol4" OR "#077187"
 ## Check:
 # petrol
 
-# (5) seegruen: -----
+#  (5) seegruen: -----
 
 #   (a) Table (from Excel file): ----  
 
@@ -557,7 +559,7 @@ seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#0
 ## Check: 
 # seegruen
 
-# (6) karpfenblau: -----
+#  (6) karpfenblau: -----
 
 #   (a) Table (from Excel file): ----  
 
@@ -639,7 +641,7 @@ karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfe
 # karpfenblau
 
 
-# (7) pinky: -----
+#  (7) pinky: -----
 
 #   (a) Table (from Excel file): ----  
 
@@ -725,7 +727,7 @@ pinky <- pal_pinky[4]  # == pinky4 of pal_pinky: "pinky4" OR "#E0607E"
 # +++ here now +++ 
 
 
-# (8) Bordeaux: -----
+#  (8) Bordeaux: -----
 
 #   (a) Table (from Excel file): ----  
 
@@ -808,7 +810,7 @@ Bordeaux <- pal_Bordeaux[4]  # == Bordeaux4 of pal_Bordeaux: "Bordeaux4" OR "#8E
 # Bordeaux
 
 
-# (9) Ampeltöne: pal_signal -----
+#  (9) Ampeltöne: pal_signal -----
 
 #   (a) Table (from Excel file): ----  
 
@@ -902,9 +904,10 @@ signal <- pal_signal[2]  # == signal2 of pal_signal: "signal2" OR "#EFDC60"
 # signal
 
 
+
 # (C) Other combinations: -------- 
 
-# (1) pal_unikn_plus: Combination of pal_seeblau and pal_unikn (11): ------ 
+#  (1) pal_unikn_plus: Combination of pal_seeblau and pal_unikn (11): ------ 
 
 #   (a) Documentation: ----  
 
@@ -956,7 +959,7 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 # Check: 
 # pal_unikn_plus
 
-# (2) pal_unikn_pref: Scale of all 9 (or 8 + 1) preferred colors: ------
+#  (2) pal_unikn_pref: Scale of all 9 (or 8 + 1) preferred colors: ------
 
 #   (a) Documentation: ----  
 
@@ -973,7 +976,7 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 #'
 #' @examples
 #' pal_unikn_pref
-#' dim(pal_unikn_pref)  # 1 X (2)
+#' dim(pal_unikn_pref)  # 1 9
 #' pal_unikn_pref[1]    # preferred (named) color
 #' pal_unikn_pref[[1]]  # preferred color value: #59C7EB"
 #' pal_unikn_pref["seeblau"]  # preferred color by name
@@ -1007,6 +1010,146 @@ pal_unikn_pref <- data.frame(            # Element:
 ## Check:
 # pal_unikn_pref
 # plot_pal(pal_unikn_pref)
+
+#  (3) pal_unikn_light: Scale of 8 light colors (in 4 pairs) from other palettes: ------ 
+
+#   (a) Documentation: ----  
+
+#' uni.kn light colors in a color palette.
+#'
+#' \code{pal_unikn_light} provides an additional uni.kn color palette  
+#' that collects 2 light colors of 4 color palettes  
+#' as a data frame containing 8 colors (in 4 pairs). 
+#' 
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' pal_unikn_light
+#' dim(pal_unikn_light)  # 1 8 
+#' pal_unikn_light[1]    # color "seeblau3" by position
+#' pal_unikn_light[[1]]  # color value by position: #59C7EB"
+#' pal_unikn_light["seeblau3"]  # color value by name
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_unikn_light)
+#' 
+#' @family color palettes
+#'
+#' @seealso
+#' \code{\link{pal_unikn_dark}} for a darker uni.kn color palette; 
+#' \code{\link{pal_unikn_pair}} for a pairwise uni.kn color palette; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
+#'
+#' @export
+
+#   (b) Definition: ----  
+
+pal_unikn_light <- data.frame(
+  pal_seeblau[c(3, 1)],
+  pal_seegruen[c(3, 1)],
+  pal_peach[c(3, 1)],
+  pal_grau[c(2, 1)],
+  stringsAsFactors = FALSE)
+
+## Check:
+# pal_unikn_light
+# plot_pal(pal_unikn_light)
+
+#  (4) pal_unikn_dark: Scale of 8 dark colors (in 4 pairs) from other palettes: ------ 
+
+#   (a) Documentation: ----  
+
+#' uni.kn dark colors in a color palette.
+#'
+#' \code{pal_unikn_dark} provides an additional uni.kn color palette  
+#' that collects 2 dark colors of 4 color palettes  
+#' as a data frame containing 8 colors (in 4 pairs). 
+#' 
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' pal_unikn_dark
+#' dim(pal_unikn_dark)  # 1 8 
+#' pal_unikn_dark[1]    # color "karpfenblau5" by position
+#' pal_unikn_dark[[1]]  # color value by position: #324376"
+#' pal_unikn_dark["karpfenblau5"]  # color value by name
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_unikn_dark)
+#' 
+#' @family color palettes
+#'
+#' @seealso
+#' \code{\link{pal_unikn_light}} for a lighter uni.kn color palette; 
+#' \code{\link{pal_unikn_pair}} for a pairwise uni.kn color palette; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
+#'
+#' @export
+
+#   (b) Definition: ----  
+
+pal_unikn_dark <- data.frame(
+  pal_karpfenblau[c(5, 3)],
+  pal_petrol[c(5, 3)],
+  pal_Bordeaux[c(5, 3)],
+  pal_pinky[c(5, 3)],
+  stringsAsFactors = FALSE)
+
+## Check:
+# pal_unikn_dark
+# plot_pal(pal_unikn_dark)
+
+
+#  (5) pal_unikn_pair: Scale of 16 paired colors (in 8 pairs) from other palettes: ------ 
+
+#   (a) Documentation: ----  
+
+#' uni.kn pairwise colors in a color palette.
+#'
+#' \code{pal_unikn_pair} provides an additional uni.kn color palette  
+#' that collects 16 paired colors of 8 color palettes  
+#' as a data frame containing 16 colors (in 8 pairs). 
+#' 
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' pal_unikn_pair
+#' dim(pal_unikn_pair)  # 1 16
+#' pal_unikn_pair[1]    # color "karpfenblau4" by position
+#' pal_unikn_pair[[1]]  # color value by position: #3E5496"
+#' pal_unikn_pair["karpfenblau4"]  # color value by name
+#' 
+#' # Plotting palette:
+#' plot_pal(pal_unikn_pair)
+#' 
+#' @family color palettes
+#'
+#' @seealso
+#' \code{\link{pal_unikn_light}} for a lighter uni.kn color palette; 
+#' \code{\link{pal_unikn_dark}} for a darker uni.kn color palette; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
+#'
+#' @export
+
+#   (b) Definition: ----  
+
+pal_unikn_pair <- data.frame(
+  pal_karpfenblau[c(4, 2)],
+  pal_seeblau[c(5, 3)],
+  pal_petrol[c(4, 2)],
+  pal_seegruen[c(4, 2)],
+  pal_Bordeaux[c(4, 2)],
+  pal_pinky[c(4, 2)],
+  pal_peach[c(4, 2)],
+  pal_grau[c(3, 1)],
+  stringsAsFactors = FALSE)
+
+## Check:
+# pal_unikn_pair
+# plot_pal(pal_unikn_pair)
 
 
 ## ToDo: ------
