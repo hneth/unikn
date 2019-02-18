@@ -419,10 +419,18 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #' 
 #' ## Not run: 
 #' 
+#' # Plotting palettes from other packages: ------ 
+#' 
 #' # RColorBrewer palettes: 
 #' plot_pal(RColorBrewer::brewer.pal(n = "all", name = "Set1"))
 #' plot_pal(RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 #' 
+#' # viridisLite palettes: 
+#' plot_pal(viridisLite::viridis(20))
+#' plot_pal(viridisLite::inferno(25)) 
+#' plot_pal(viridisLite::magma(25))
+#' plot_pal(viridisLite::plasma(25))
+#'   
 #' # yarrr palettes: 
 #' plot_pal(yarrr::piratepal(palette = "appletv"))
 #' plot_pal(yarrr::piratepal(palette = "google"))
