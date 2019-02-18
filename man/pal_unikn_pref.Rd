@@ -11,9 +11,12 @@ pal_unikn_pref
 \description{
 \code{pal_unikn_pref} provides an additional uni.kn color palette  
 that collects the preferred color of each palette 
-as a data frame containing X colors.
+as a data frame containing 9 (or 8 + 1) colors.
 }
 \details{
+Note that the color \code{\link{signal}} is not identified 
+as a preferred color according to the official color definition.
+
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{

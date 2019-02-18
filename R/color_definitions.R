@@ -956,7 +956,7 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 # Check: 
 # pal_unikn_plus
 
-# (2) pal_unikn_pref: Scale of all X preferred colors: ------
+# (2) pal_unikn_pref: Scale of all 9 (or 8 + 1) preferred colors: ------
 
 #   (a) Documentation: ----  
 
@@ -964,7 +964,10 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 #'
 #' \code{pal_unikn_pref} provides an additional uni.kn color palette  
 #' that collects the preferred color of each palette 
-#' as a data frame containing X colors.
+#' as a data frame containing 9 (or 8 + 1) colors. 
+#' 
+#' Note that the color \code{\link{signal}} is not identified 
+#' as a preferred color according to the official color definition.
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
@@ -990,15 +993,15 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 #   (b) Definition: ----  
 
 pal_unikn_pref <- data.frame(            # Element: 
-  "seeblau"     = pal_seeblau[[3]],      # 1. seeblau
-  "peach"       = pal_peach[[4]],        # 2. peach
-  "grau"        = pal_grau[[3]],         # 3. grau 
-  "petrol"      = pal_petrol[[4]],       # 4. petrol 
-  "seegruen"    = pal_seegruen[[4]],     # 5. seegruen 
-  "karpfenblau" = pal_karpfenblau[[4]],  # 6. karpfenblau
-  "pinky"       = pal_pinky[[4]],        # 7. pinky 
-  "Bordeaux"    = pal_Bordeaux[[4]],     # 8. Bordeaux
-  "signal"      = pal_signal[[2]],       # 9. (alert) signal
+  "seeblau"     = pal_seeblau[[3]],      #  1. seeblau
+  "peach"       = pal_peach[[4]],        #  2. peach
+  "grau"        = pal_grau[[3]],         #  3. grau 
+  "petrol"      = pal_petrol[[4]],       #  4. petrol 
+  "seegruen"    = pal_seegruen[[4]],     #  5. seegruen 
+  "karpfenblau" = pal_karpfenblau[[4]],  #  6. karpfenblau
+  "pinky"       = pal_pinky[[4]],        #  7. pinky 
+  "Bordeaux"    = pal_Bordeaux[[4]],     #  8. Bordeaux
+  "signal"      = pal_signal[[2]],       # (9.) (alert) signal
   stringsAsFactors = FALSE)
 
 ## Check:
