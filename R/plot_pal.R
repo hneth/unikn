@@ -34,6 +34,14 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
          # lwd = box.lwd,
          # ...  # TODO: ... does not work?!
     )
+         
+    # symbols(x = box_x, y = box_y, rectangles = cbind(xlen, ylen), 
+    #         add = TRUE, 
+    #         inches = FALSE,  # use unit on x axis. 
+    #         fg = col_brd,  # line color. 
+    #         bg = col_fill  # filling.
+    #      )
+
   }
   
   ## For circles:  -----
@@ -51,7 +59,7 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
 
 ## plot_col: Plot a vector of colors as circles or rectangles: -------
 
-plot_col <- function(x,  # a vector of colors to be plotted. 
+plot_col <- function(x,  # a *vector* of colors to be plotted. 
                      ypos = 1,  # position on y axis. 
                      shape = "rect",
                      xlen = 1, ylen = 1, 
@@ -90,25 +98,37 @@ plot_col <- function(x,  # a vector of colors to be plotted.
   add <- cumsum(rep(distance, sum(pos_x < mid)))  # values to be added to the first half. 
   sub <- add * (-1)  # values to be subtracted from the second half. 
   pos_x <- pos_x + if(len_x %% 2 == 0) c(rev(sub), add) else  # for even numbers no center position needed.
-                          c(rev(sub), mid, add)  # include the middle for uneven numbers. 
+                          c(rev(sub), 0, add)  # include the middle for uneven numbers. 
   
   ## 3. Plot all shapes: --------------------------------------
-  col_pos <- cbind(color = unlist(x), pos_x = pos_x)  # data to be plotted. 
+  # col_pos <- cbind(color = unlist(x), pos_x = pos_x)  # data to be plotted. 
   
-  apply(col_pos, MAR = 1, function(colors) {
+  #apply(col_pos, MAR = 1, function(colors) {
+  
+  ypos <- rep(ypos, length.out = len_x)  # length out ypos to the length of x. 
+  xlen <- rep(xlen, length.out = len_x)
+  ylen <- rep(ylen, length.out = len_x)
 
-    plot_shape(box_x = as.numeric(colors["pos_x"]),  # x positions of the shapes. 
-               box_y = ypos,  # position in y dimension (given). 
-               xlen = xlen, ylen = ylen,  # length of the axes. 
-               col_fill = colors["color"],  # filling color. 
-               shape = shape  # shape parameter. 
-               )
-    }
-  )
+  ## Plotting:
+  plot_shape(box_x = pos_x,  # x positions of the shapes. 
+             box_y = ypos,  # position in y dimension (given). 
+             xlen = xlen, ylen = ylen,  # length of the axes. 
+             col_fill = unlist(x),  # filling color. 
+             shape = shape,  # shape parameter. 
+             ...
+             )
+    #}
+ # )
   # TODO: Is there a quicker (vectorized) way?
   ## Vectorize in previous function? (i.e., sapply over vectors of input values?)
   
 }
+
+
+
+## TODO: 
+## 1. Plotting multiple shapes (rectangles) for comparison; add numbers. 
+## 2. Plot detailed color palettes, including names, hex and rgb. 
 
 
 ## Original function using ggplot: --------------------------
