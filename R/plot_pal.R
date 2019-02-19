@@ -6,23 +6,6 @@
 
 
 
-## plot_ellipsis: Plot an ellipsis: ------
-
-# plot_ellipsis <- function() {
-#   
-#   phi <- 3  # angle of major axis with x axis phi or tau
-#   
-#   t <- seq(0, 2 * pi, 0.01)  # sequence to be plotted. 
-#   x <- box_x + xlen/2 * cos(t) * cos(phi) - ylen/2 * sin(t) * sin(phi)  # x values. 
-#   y <- box_y + xlen/2 * cos(t) * cos(phi) + ylen/2 * sin(t) * cos(phi)  # y values. 
-#   
-#   polygon(x, y, col = col_fill,
-#           border = col_brd)  # plot the circle (or ellipsis) as line. 
-# }
-
-
-
-
 ## plot_shape: Plot a shape in a certain color: ------
 
 plot_shape <- function(box_x, box_y,  # midpoint of the rectangle. 
@@ -33,15 +16,15 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
                        ...
                        ) {
   
-  ## Robustify inputs: 
+  ## Robustify inputs: -----
   
   ## TODO!
   
   
-  ## 
+  ## Prepare inpust for vectorized solution? -----
   
   
-  ## For rectangular shape:
+  ## For rectangular shape: -----
   if (shape == "rect") {
     
     rect(xleft  = (box_x - xlen/2), ybottom = (box_y - ylen/2),
@@ -53,21 +36,16 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
     )
   }
   
-  ## For circles (actually ellipsis):
+  ## For circles:  -----
   if (shape == "circle") {
     
     symbols(x = box_x, y = box_y, circles = xlen/2,  # only uses xlen! 
-            add = TRUE, inches = FALSE,
-            fg = col_brd, bg = col_fill)
+            add = TRUE, 
+            inches = FALSE,  # use unit on x axis. 
+            fg = col_brd,  # line color. 
+            bg = col_fill  # filling.
+            )
   } 
-  
-  if (shape == "ellipsis") {
-    
-    # TODO?
-    
-  }
-  
-
   
 }
 
@@ -101,10 +79,6 @@ plot_col <- function(x,  # a vector of colors to be plotted.
   
   # Define sizes for circles:
   # TODO: For now assume fixed ylim = 2.
-  
-  if (shape == "circle") {
-    xlen <- xlen *  2 / len_x
-  }
   
   ## Plot all shapes:
   col_pos <- cbind(color = unlist(x), pos_x = pos_x)  # data to be plotted. 
