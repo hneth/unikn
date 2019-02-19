@@ -27,20 +27,20 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
   ## For rectangular shape: -----
   if (shape == "rect") {
     
-    rect(xleft  = (box_x - xlen/2), ybottom = (box_y - ylen/2),
-         xright = (box_x + xlen/2), ytop    = (box_y + ylen/2),
-         col = unlist(col_fill),
-         border = col_brd
-         # lwd = box.lwd,
-         # ...  # TODO: ... does not work?!
-    )
+    # rect(xleft  = (box_x - xlen/2), ybottom = (box_y - ylen/2),
+    #      xright = (box_x + xlen/2), ytop    = (box_y + ylen/2),
+    #      col = unlist(col_fill),
+    #      border = col_brd
+    #      # lwd = box.lwd,
+    #      # ...  # TODO: ... does not work?!
+    # )
          
-    # symbols(x = box_x, y = box_y, rectangles = cbind(xlen, ylen), 
-    #         add = TRUE, 
-    #         inches = FALSE,  # use unit on x axis. 
-    #         fg = col_brd,  # line color. 
-    #         bg = col_fill  # filling.
-    #      )
+    symbols(x = box_x, y = box_y, rectangles = cbind(xlen, ylen),
+            add = TRUE,
+            inches = FALSE,  # use unit on x axis.
+            fg = col_brd,  # line color.
+            bg = col_fill  # filling.
+         )
 
   }
   
@@ -56,6 +56,9 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
   } 
   
 }
+
+## TODO: Even use function below?  It may be computationally more 
+## efficient to only use the function above in a higher level function.
 
 ## plot_col: Plot a vector of colors as circles or rectangles: -------
 
@@ -79,7 +82,15 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
   
   ## Should a new plot be created? 
   if (plot.new) {
-    plot(x = 0, type = "n", xlim = c(0, len_x), ylim = c(0, 2))  # create empty plot.
+    
+    if (distance > 0) {
+      xlim <- c(0 - distance * len_x, len_x * (1 + distance))
+    } else {
+      xlim <- c(0, len_x)
+    }
+    
+    
+    plot(x = 0, type = "n", xlim = xlim, ylim = c(0, 2))  # create empty plot.
   } else {
     
     ## Check, whether a graphic device is available: 
