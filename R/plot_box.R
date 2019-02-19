@@ -1,200 +1,172 @@
 ## plot_box.R | unikn
-## hn  |  uni.kn |  2019 02 18
+## hn  |  uni.kn |  2019 02 19
 ## ---------------------------
 
 ## Plot blue box etc.
 
-## plot_cbox: ---------- 
 
-plot_cbox <- function(x,  y,   # coordinates of box CENTER (x and y)
-                      lx, ly,   # lengths of box (width and height)
-                      
-                      # Text labels:
-                      lbl     = NA,       # main label (in middle)
-                      lbl_top = NA,       # title (at top)
-                      lbl_bot = NA,       # caption (at bottom)
-                      
-                      # Color options:
-                      col_fill = "steelblue3",  # default fill color
-                      col_brd = "black",       # default border color
-                      col_txt = "white",       # default label color
-                      
-                      ## Shading options:
-                      # density = NULL,  # density of shading lines (per in)
-                      # angle = 45,      # angle of shading lines
-                      ## Inputs: freq, text and color:
-                      # cur_freq = freq,   # current freq
-                      # lbl_txt = txt,     # current txt
-                      # col_pal = pal,     # current color palette
-                      
-                      ## Other graphical parameters:
-                      # lty = 1,
-                      # lwd = 1,
-                      # cex = 1,
-                      # font = 1
-                      ... 
+## plot_box: ---------- 
+
+## - Documentation: ---- 
+
+#' \code{plot_box} generates a box with an "X" in its top-right corner 
+#' and places 1 or more text strings (of a character vector \code{lbls}) 
+#' in the box.
+#' 
+#' \code{plot_box} uses the base graphics system \code{graphics::}. 
+#' 
+#' @param lbls A character vector specifying the text label(s)  
+#' to be written. If \code{lbls} contains multiple character strings, 
+#' each one is placed on a new line. 
+#' Default: \code{lbls = NA}. 
+#' 
+#' @param col_lbl The color(s) of the text label(s).
+#' Default: \code{col_lbl = "white"}. 
+#' 
+#' @param col_bg The color(s) to fill the box with. 
+#' Default: \code{col_bg = seeblau}.
+#' 
+#' @param cex A numeric character expansion factor, which is  
+#' multiplied by \code{par("cex")} to yield the final character size. 
+#' Default: \code{cex = 2}.
+#' 
+#' @param font The font to be used. 
+#' Default: \code{font = 2} (bold).
+#' 
+#' 
+#' @examples
+#' plot_box(lbls = "A heading appears here.")
+#' plot_box(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
+#' 
+#' plot_box(lbls = "The darkest shade of seeblau.", col_bg = pal_seeblau[[5]], cex = 1.5)
+#' 
+#' # Note: As a vector of character strings for lbls is converted into separate lines of text,
+#' #       the following examples yield identical results:
+#' plot_box(lbls = c("The 1st line of text.", "A 2nd and longer line of text.", "The 3rd line of text."))
+#' plot_box(lbls = "The 1st line of text.\nA 2nd and longer line of text.\nThe 3rd line of text.")
+#' 
+#' # Box logos:
+#' plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 13)
+#' plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 3.5)
+#' 
+#'         
+#' @import graphics 
+#'                          
+#' @export 
+
+## - Definition: ----
+
+plot_box <- function(lbls = NA,  # character vector of labels to place (as lines of text)  
+                     col_lbl = "white",              # text color
+                     col_bg = as.character(seeblau), # box color
+                     cex = 2, 
+                     font = 2
 ) {
   
-  ## (0) Parameters (currently fixed):
+  ## Preamble: ----- 
   
-  # Compute box coordinates:
-  x_left <- (x - lx/2)
-  x_right <- x_left + lx
-  y_bot <- (y - ly/2)
-  y_top <- y_bot + ly
+  ## Record graphical parameters (par):
+  opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
+  on.exit(par(opar)) # restore original settings
   
-  # Text position:  
-  y_prop <- (2/3) #  - cex/100)  # proportion of text start (on y-axis)
-  y_left_dist <- .05  # distance of text from left box border
+  ## Plotting area: ----- 
   
-  ## (1) Plot rectangle:
+  ## Margins: 
+  par(mar = c(0, 0, 0, 0) + 0.1)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
+  par(oma = c(0, 0, 0, 0) + 0.1)  # outer margins; default: par("oma") = 0 0 0 0.
+  
+  ## Plot empty canvas:
+  # plot(0, 0, type = "n", xlim = c(0,1), ylim = c(0,1), 
+  #      bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
+  plot.new()
+  
+  
+  ## WAS: Calling riskyr helper function plot_cbox: -----
+  # 
+  # plot_cbox(.5, .5, 1, 1, # box coordinates and dimension
+  #           lty = 0,  # no border line
+  #           col_fill = col_bg, 
+  #           lbl = lbl, 
+  #           family = "sans", 
+  #           font = font, 
+  #           adj = 0, 
+  #           cex = cur_cex)
+  
+  ## Plot box: -----
+  
+  # Draw rectangle:
+  x_left <- 0
+  y_bot  <- 0
+  x_right <- 1
+  y_top   <- 1
   
   rect(xleft = x_left, ybottom = y_bot, xright = x_right, ytop = y_top,
-       col = col_fill,
-       border = col_brd,
+       col = col_bg, 
+       lty = 0,  # ensure absence of border line (a)
+       lwd = NA  # ensure absence of border line (b)
+       # border = col_brd,
        # density = density,
        # angle = angle,
-       # lty = lty,
        # lwd = lwd
-       ...  # etc. 
+       # ...  # etc. 
   )
   
-  ## (2) Plot X (in top right corner):
+  ## Mark X (in top right corner): ----- 
   p1 <- .85
   p2 <- .95
   
   segments(x0 = c(p1, p1), y0 = c(p1, p2), 
            x1 = c(p2, p2), y1 = c(p2, p1),
-           col = "white", lty = 1, lwd = 1)
+           col = "white", lty = 1, lwd = 1.41)
   
-  ## (3) Print optional text labels:
+  ## Text labels: -----
   
-  if (!is.na(lbl)) {
-    
-    text(x = y_left_dist, 
-         y = y_prop * (y_top - y_bot),
-         labels = paste0(lbl),
-         pos = 4,    # NULL: center (default), 1: below, 3: above
-         # xpd = TRUE,  # NA: plotting clipped to device region; T: figure region; F: plot region
-         col = col_txt,
-         # cex = cex,
-         # font = font
-         ... # etc.
-    )
-    
-  }
+  # Interpret inputs:
+  cur_font <- graphics::par('font')
+  cur_cex <- graphics::par('cex') * cex  # character expansion factor to use
   
-  # if (!is.na(lbl_top)) {
-  #   
-  #   text(x = x, y = y_top,
-  #        labels = paste0(lbl_top),
-  #        pos = 3,       # NULL: center (default), 1: below, 3: above
-  #        # xpd = TRUE,  # NA: plotting clipped to device region; T: figure region; F: plot region
-  #        col = col_txt,
-  #        # cex = cex,
-  #        # font = font
-  #        ... # etc.
-  #        )
-  #   
-  # }
-  # 
-  # if (!is.na(lbl_bot)) {
-  #   
-  #   text(x = x, y = y_bot,
-  #        labels = paste0(lbl_bot),
-  #        pos = 1,       # NULL: center (default), 1: below, 3: above
-  #        # xpd = TRUE,  # NA: plotting clipped to device region; T: figure region; F: plot region
-  #        col = col_txt,
-  #        # cex = cex,
-  #        # font = font
-  #        ... # etc.
-  #        )
-  # }
+  # Measure dimensions of text elements:
+  char_width <- graphics::strwidth(s = "n", cex = cur_cex, font = font)     # width of "n" 
+  # text_height <- graphics::strheight(s = lbls, cex = cur_cex, font = font)  # text height(s)
+  # text_width  <- graphics::strwidth(s = lbls, cex = cur_cex, font = font)   # text width(s)
   
-}
-
-# ## Check:
-# # plot(NULL, xlim = c(0,1), ylim = c(0,1), ylab = "", xlab = "")
-# 
-# ## Record graphical parameters (par):
-# opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
-# on.exit(par(opar))
-# 
-# # Plot area:
-# par(mar = c(0, 0, 0, 0) + 0.1)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
-# par(oma = c(0, 0, 0, 0) + 0.1)  # outer margins; default: par("oma") = 0 0 0 0.
-# 
-# ## Plot empty canvas:
-# plot(0, 0, type = "n", xlim = c(0,1), ylim = c(0,1), 
-#      bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
-# 
-# # plot.new()
-# 
-# plot_cbox(.5, .5, 1, 1, # box coordinates and dimension
-#          lty = 0,  # no border line
-#          lbl = "The first line of text.\nA second and longer line of text.\nThird line of text.", 
-#          family = "sans", font = 2, adj = 0, cex = 1.5)
-# 
-# # Exit:
-# par(opar)
-
-## Older code (exploring options): ---- 
-# plot_cbox(.5, .5, 1, 1, lwd = 0)  # default color, no text labels
-# plot_cbox(.5, .5, 1, 1, col_fill = "blue", density = 15)  # with diagonal lines
-# plot_cbox(.5, .5, 1, 1, lbl = "Label", lbl_top = "Title:", lbl_bot = "Caption.")  # add text labels
-# 
-# plot_cbox(.5, .5, 1, 1, lbl = "Label", lbl_top = "Title:", lbl_bot = "Caption.",
-#           cex = .75, font = 2,                                # text options
-#           col_fill = "gold", col_brd = "steelblue", lwd = 4)  # color options
-# 
-# plot_cbox(.5, .5, 1, 1, lbl = "Label", lbl_top = "Title:", lbl_bot = "Caption.",
-#           cex = .75, font = 2, col_txt = "forestgreen",   # text options
-#           col_fill = "firebrick", col_brd = "firebrick",  # color options
-#           lwd = 2, density = 15)                          # line options
-
-
-## Called by a new function:
-
-## plot_box: ---------- 
-
-plot_box <- function(lbl = "", cex = 2, fill = seeblau) {
+  # Combine all lbls into 1:
+  all_lbls <- paste(lbls, sep = "", collapse = "\n") # put each label into a new line
+  lbls_height <- round(graphics::strheight(s = all_lbls, units = "figure", cex = cur_cex, font = font), 4) # height of all_lbls
+  lbls_width <- round(graphics::strwidth(s = all_lbls, units = "figure", cex = cur_cex, font = font), 4)   # width of all_lbls
   
-  ## Record graphical parameters (par):
-  opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
-  on.exit(par(opar))
+  # print(paste0("all_lbls = '", all_lbls, "', width = ", lbls_width, ", height = ", lbls_height)) # debugging
   
-  # Plot area:
-  par(mar = c(0, 0, 0, 0) + 0.1)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
-  par(oma = c(0, 0, 0, 0) + 0.1)  # outer margins; default: par("oma") = 0 0 0 0.
+  # Draw text lbls:
+  y_up  <- 0  # constant shift upwards in y direction
+  lbl_x <- .02
+  lbl_y <- ((.50 * .80) + y_up)  # reserve 20% on top (for "X" area)
   
-  ## Plot empty canvas:
-  plot(0, 0, type = "n", xlim = c(0,1), ylim = c(0,1), 
-       bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
+  graphics::text(x = lbl_x, y = lbl_y, labels = all_lbls, 
+                 col = col_lbl, cex = cur_cex, font = font, adj = c(.0, .5))
   
-  # plot.new()
-  
-  plot_cbox(.5, .5, 1, 1, # box coordinates and dimension
-            lty = 0,  # no border line
-            col_fill = as.character(fill), 
-            lbl = lbl, 
-            family = "sans", font = 2, adj = 0, 
-            cex = cex)
-  
-  # Exit:
-  par(opar)
+  ## Exit: ----- 
+  on.exit(par(opar)) # restore original settings
+  invisible() # restores par(opar)
   
 }
 
 ## Check:
-# plot_box(lbl = "This is only a test.")
-# plot_box(lbl = "The darkest shade of seeblau.", fill = pal_seeblau[5], cex = 1.6)
-# plot_box(lbl = "The first line of text.\nA second and longer line of text.\nThe third line of text.", cex = 1.5)
-
-# plot_box(lbl = "R", cex = 15)  # ToDo: Move text downward (by cex/100)
+# plot_box(lbls = "A heading appears here.")
+# plot_box(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
+# 
+# plot_box(lbls = "The darkest shade of seeblau.", col_bg = pal_seeblau[[5]], cex = 1.5)
+# 
+# # Note: As a vector of character strings for lbls is converted into separate lines of text,
+# #       the following examples yield identical results:
+# plot_box(lbls = c("The 1st line of text.", "A 2nd and longer line of text.", "The 3rd line of text."))
+# plot_box(lbls = "The 1st line of text.\nA 2nd and longer line of text.\nThe 3rd line of text.")
+# 
+# # Box logos:
+# plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 13)
+# plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 3.5)
 
 ## +++ here now +++
-
-# plot_box(lbl = "R\nunikn::", cex = 5, fill = pal_seeblau[4]) 
 
 
 ## ToDo: ------
