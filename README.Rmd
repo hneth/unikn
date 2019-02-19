@@ -18,7 +18,7 @@ library(unikn)  # load package
 
 <!-- unikn logo and link: -->
 <a href = "https://github.com/hneth/unikn/">
-<img src = "./inst/pix/box_unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
+<img src = "./inst/pix/box_unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
 </a>
 
 The `unikn` package enables the use some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design 
@@ -142,6 +142,70 @@ plot_pal(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
 
 More flexible and complex color palettes can be created by using the `col_scale()` function. 
 
+
+### Using color palettes
+
+Using color palettes currently requires using `unlist` or calling another function:
+
+```{r unlist_pal, eval = FALSE}
+is.list(pal_unikn)  # TRUE
+typeof(pal_unikn)   # "list"
+
+unlist(pal_unikn)  # returns a named vector
+typeof(unlist(pal_unikn)) # "character"
+
+unlist(pal_unikn)["seeblau3"]  # call by name
+unlist(pal_unikn)[2]  # call by index
+
+barplot(rep(6:3, 4), col = colorRampPalette(pal_unikn_plus)(5))
+```
+
+Examples for using color palettes in graphs: 
+
+```{r use_pal_demo_barplot, eval = FALSE}
+# Using color palettes:
+barplot(1/sqrt(1:11),  col = unlist(pal_unikn_plus))
+barplot(1/sqrt(10:25), col = unlist(pal_unikn_pair))
+
+# Using n colors of a palette:
+barplot(1/sqrt(1:4), col = as.character(pal_n(n = 5, pal = pal_seegruen)))
+
+# Scatterplot:
+plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = 1))   # 0 transparency
+plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = .33)) # +transparency
+```
+
+Visualizing data with `image`:
+
+```{r use_pal_demo_image, eval = FALSE, fig.width = 4, fig.height = 4}
+# Random images:
+set.seed(1)
+n <- 20
+m <- matrix(rnorm(n*n), ncol = n, nrow = n)
+image(m, col = unlist(pal_seeblau))
+image(m, col = unlist(pal_peach))
+image(m, col = unlist(pal_seegruen))
+image(m, col = unlist(pal_petrol))
+image(m, col = unlist(pal_pinky))
+image(m, col = unlist(pal_Bordeaux))
+
+# Geometric images:
+x <- y <- seq(-4 * pi, 4 * pi, len = 30)
+r <- sqrt(outer(x^2, y^2, "+"))
+image(z = cos(r^2) * exp(-r/6), col = gray((0:32)/32))
+image(z, axes = FALSE, main = "Math is hot...", xlab = expression(cos(r^2) * e^{-r/6}))
+
+# pal_seeblau:
+x <- y <- seq(-4 * pi, 4 * pi, len = 150)
+r <- sqrt(outer(x^2, y^2, "+"))
+image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_seegruen))(10), main = "Shades of seeblau/seegruen", axes = FALSE)
+# contour(z, add = TRUE, drawlabels = FALSE)
+
+x <- y <- seq(-4 * pi, 4 * pi, len = 50)
+r <- sqrt(outer(x^2, y^2, "+"))
+image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, rev(pal_peach)))(10), main = "Shades of seeblau/peach", axes = FALSE)
+# contour(z, add = TRUE, drawlabels = FALSE)
+```
 
 ## Functions
 
