@@ -55,7 +55,7 @@ plot_col <- function(x,  # a vector of colors to be plotted.
                      ypos = 1,  # position on y axis. 
                      shape = "rect",
                      xlen = 1, ylen = 1, 
-                     dist = 0,  # distance of shapes (to be taken from size). 
+                     distance = 0,  # distance of shapes (to be taken from size). 
                      plot.new = TRUE,  # TODO: Set to false once done! 
                      ...
                      ) {
@@ -81,17 +81,15 @@ plot_col <- function(x,  # a vector of colors to be plotted.
   }
   
   ## 2. Calculate paramters: ---------------------------------
-  # Control distance: 
-  xlen <- xlen - dist
-  ylen <- ylen - dist
-  
+
   # Define positions of shape centers:
   pos_x <- 1:len_x - 0.5
   # TODO: Allow for overlap (maybe using positions?). 
+  mid <- mean(pos_x)  # get midpoint. 
+  add <- cumsum(rep(distance, sum(pos_x < mid)))
+  sub <- add * (-1)
   
-  
-  # Define sizes for circles:
-  # TODO: For now assume fixed ylim = 2.
+  pos_x <- pos_x + c(rev(add), 0, sub)  # change the distances. 
   
   ## Plot all shapes:
   col_pos <- cbind(color = unlist(x), pos_x = pos_x)  # data to be plotted. 
