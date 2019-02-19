@@ -55,10 +55,13 @@ plot_col <- function(x,  # a vector of colors to be plotted.
                      ypos = 1,  # position on y axis. 
                      shape = "rect",
                      xlen = 1, ylen = 1, 
-                     plot.new = TRUE,
+                     dist = 0,  # distance of shapes (to be taken from size). 
+                     plot.new = TRUE,  # TODO: Set to false once done! 
                      ...
                      ) {
   
+  
+  ## 1. Control inputs: -------------------------------------
   
   ## Robustify parameters:
   # TODO!
@@ -69,12 +72,22 @@ plot_col <- function(x,  # a vector of colors to be plotted.
   ## Should a new plot be created? 
   if (plot.new) {
     plot(x = 0, type = "n", xlim = c(0, len_x), ylim = c(0, 2))  # create empty plot.
+  } else {
+    
+    ## Check, whether a graphic device is available: 
+    if (dev.cur() == 1) {
+      stop("No graphic device to be plotted on.  Please open a plot or set plot.new to 'TRUE'.")
+    }
   }
   
+  ## 2. Calculate paramters: ---------------------------------
+  # Control distance: 
+  xlen <- xlen - dist
+  ylen <- ylen - dist
   
   # Define positions of shape centers:
-  # TODO: Allow for overlap! 
   pos_x <- 1:len_x - 0.5
+  # TODO: Allow for overlap (maybe using positions?). 
   
   
   # Define sizes for circles:
@@ -94,7 +107,6 @@ plot_col <- function(x,  # a vector of colors to be plotted.
     }
   )
   # TODO: Is there a quicker (vectorized) way?
-  
   ## Vectorize in previous function? (i.e., sapply over vectors of input values?)
   
   
