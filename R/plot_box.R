@@ -72,8 +72,11 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
   ## Plotting area: ----- 
   
   ## Margins: 
-  par(mar = c(0, 0, 0, 0) + 0.1)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
-  par(oma = c(0, 0, 0, 0) + 0.1)  # outer margins; default: par("oma") = 0 0 0 0.
+  mar_all <- .00  # lines
+  oma_all <- 1.5  # lines
+  
+  par(mar = c(0, 0, 0, 0) + mar_all)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
+  par(oma = c(0, 0, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
   
   ## Plot empty canvas:
   # plot(0, 0, type = "n", xlim = c(0,1), ylim = c(0,1), 
@@ -163,10 +166,8 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
 # plot_box(lbls = "The 1st line of text.\nA 2nd and longer line of text.\nThe 3rd line of text.")
 # 
 # # Box logos:
-# plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 13)
-# plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 3.5)
-
-## +++ here now +++
+# plot_box(lbls = "R", col_bg = pal_seeblau[[4]], cex = 10)
+# plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[5]], cex = 2.5)
 
 
 ## ToDo: ------
