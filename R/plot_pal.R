@@ -6,39 +6,65 @@
 
 
 
+## plot_ellipsis: Plot an ellipsis: ------
+
+# plot_ellipsis <- function() {
+#   
+#   phi <- 3  # angle of major axis with x axis phi or tau
+#   
+#   t <- seq(0, 2 * pi, 0.01)  # sequence to be plotted. 
+#   x <- box_x + xlen/2 * cos(t) * cos(phi) - ylen/2 * sin(t) * sin(phi)  # x values. 
+#   y <- box_y + xlen/2 * cos(t) * cos(phi) + ylen/2 * sin(t) * cos(phi)  # y values. 
+#   
+#   polygon(x, y, col = col_fill,
+#           border = col_brd)  # plot the circle (or ellipsis) as line. 
+# }
+
+
+
+
 ## plot_shape: Plot a shape in a certain color: ------
 
 plot_shape <- function(box_x, box_y,  # midpoint of the rectangle. 
                        col_fill,  # color for filling. 
+                       col_brd = NA,
                        xlen = 1, ylen = 1,  # height of the axis lengths. 
-                       shape = "rect"  # shape parameter. 
+                       shape = "rect",  # shape parameter. 
+                       ...
                        ) {
   
-  ## Robustify inputs:
+  ## Robustify inputs: 
+  
+  ## TODO!
+  
+  
+  ## 
+  
   
   ## For rectangular shape:
   if (shape == "rect") {
     
     rect(xleft  = (box_x - xlen/2), ybottom = (box_y - ylen/2),
          xright = (box_x + xlen/2), ytop    = (box_y + ylen/2),
-         col = unlist(col_fill)
-         # border = col_brd,
+         col = unlist(col_fill),
+         border = col_brd
          # lwd = box.lwd,
-         #...
+         # ...  # TODO: ... does not work?!
     )
   }
   
   ## For circles (actually ellipsis):
   if (shape == "circle") {
     
-    phi <- pi/4 # angle of major axis with x axis phi or tau
+    symbols(x = box_x, y = box_y, circles = xlen/2,  # only uses xlen! 
+            add = TRUE, inches = FALSE,
+            fg = col_brd, bg = col_fill)
+  } 
+  
+  if (shape == "ellipsis") {
     
-    t <- seq(0, 2 * pi, 0.01)  # sequence to be plotted. 
-    x <- box_x + xlen * cos(t) * cos(phi) - ylen * sin(t) * sin(phi)  # x values. 
-    y <- box_y + xlen * cos(t) * cos(phi) + ylen * sin(t) * cos(phi)  # y values. 
-    polygon(x, y, col = col_fill)  # plot the circle (or ellipsis) as line. 
+    # TODO?
     
-    ## TODO: Visible shape of circle is subject to scaling of the plot! 
   }
   
 
@@ -49,26 +75,53 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
 
 plot_col <- function(x,  # a vector of colors to be plotted. 
                      ypos = 1,  # position on y axis. 
-                     plot.new = TRUE) {
+                     shape = "rect",
+                     xlen = 1, ylen = 1, 
+                     plot.new = TRUE,
+                     ...
+                     ) {
+  
+  
+  ## Robustify parameters:
+  # TODO!
+  
+  ## Get key parameters:
+  len_x <- length(x)
   
   ## Should a new plot be created? 
   if (plot.new) {
-    plot(x = length(x), type = "n", xlim = c(0, length(x)), ylim = c(0, 2))  # create empty plot.
+    plot(x = 0, type = "n", xlim = c(0, len_x), ylim = c(0, 2))  # create empty plot.
   }
   
   
-  # Define positions of centers:
+  # Define positions of shape centers:
   # TODO: Allow for overlap! 
+  pos_x <- 1:len_x - 0.5
   
-  pos_x <- 1:length(x)
   
+  # Define sizes for circles:
+  # TODO: For now assume fixed ylim = 2.
+  
+  if (shape == "circle") {
+    xlen <- xlen *  2 / len_x
+  }
+  
+  ## Plot all shapes:
   col_pos <- cbind(color = unlist(x), pos_x = pos_x)  # data to be plotted. 
   
   apply(col_pos, MAR = 1, function(colors) {
-    print(colors["pos_x"])
-    plot_shape(box_x = colors["pos_x"], box_y = ypos)
+
+    plot_shape(box_x = as.numeric(colors["pos_x"]),  # x positions of the shapes. 
+               box_y = ypos,  # position in y dimension (given). 
+               xlen = xlen, ylen = ylen,  # length of the axes. 
+               col_fill = colors["color"],  # filling color. 
+               shape = shape  # shape parameter. 
+               )
     }
-        )
+  )
+  # TODO: Is there a quicker (vectorized) way?
+  
+  ## Vectorize in previous function? (i.e., sapply over vectors of input values?)
   
   
 }
