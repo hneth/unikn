@@ -9,14 +9,15 @@
 ## plot_shape: Plot a shape in a certain color: ------
 
 plot_shape <- function(box_x, box_y,  # midpoint of the rectangle. 
-                       col_fill, xlen = 1, ylen = 1, shape = "rect") {
+                       col_fill,  # color for filling. 
+                       xlen = 1, ylen = 1,  # height of the axis lengths. 
+                       shape = "rect"  # shape parameter. 
+                       ) {
   
   ## Robustify inputs:
   
-  
   ## For rectangular shape:
-  if (shape = "rect") {
-    
+  if (shape == "rect") {
     
     rect(xleft  = (box_x - xlen/2), ybottom = (box_y - ylen/2),
          xright = (box_x + xlen/2), ytop    = (box_y + ylen/2),
@@ -24,11 +25,11 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
          # border = col_brd,
          # lwd = box.lwd,
          #...
-         )
+    )
   }
   
   ## For circles (actually ellipsis):
-  if (shape = "circle") {
+  if (shape == "circle") {
     
     phi <- pi/4 # angle of major axis with x axis phi or tau
     
@@ -37,17 +38,17 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
     y <- box_y + xlen * cos(t) * cos(phi) + ylen * sin(t) * cos(phi)  # y values. 
     polygon(x, y, col = col_fill)  # plot the circle (or ellipsis) as line. 
     
-    
-    ## TODO: Shape of circel is subject to scaling of the plot! 
-    
+    ## TODO: Visible shape of circle is subject to scaling of the plot! 
   }
   
+
   
 }
 
 ## plot_col: Plot a vector of colors as circles or rectangles: -------
 
 plot_col <- function(x,  # a vector of colors to be plotted. 
+                     ypos = 1,  # position on y axis. 
                      plot.new = TRUE) {
   
   ## Should a new plot be created? 
@@ -56,6 +57,18 @@ plot_col <- function(x,  # a vector of colors to be plotted.
   }
   
   
+  # Define positions of centers:
+  # TODO: Allow for overlap! 
+  
+  pos_x <- 1:length(x)
+  
+  col_pos <- cbind(color = unlist(x), pos_x = pos_x)  # data to be plotted. 
+  
+  apply(col_pos, MAR = 1, function(colors) {
+    print(colors["pos_x"])
+    plot_shape(box_x = colors["pos_x"], box_y = ypos)
+    }
+        )
   
   
 }
