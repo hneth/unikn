@@ -1,12 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
-<!-- unikn logo and link: -->
-<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/box_unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/> </a>
-
 unikn
 =====
 
-The `unikn` package facilitates the use of some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design for users of [R](https://www.r-project.org/).
+<!-- unikn logo and link: -->
+<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/box_unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/> </a>
+
+The `unikn` package enables the use some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design for users of [R](https://www.r-project.org/). For instance, it provides a range of beautiful color palettes for scientific visualizations that are consistent with [corporate design specifications](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/).
 
 Motivation
 ----------
