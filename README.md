@@ -1,9 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
+<!-- unikn logo and link: -->
+<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/box_unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/> </a>
+
 unikn
 =====
 
-<!-- unikn logo and link: -->
 The `unikn` package facilitates the use of some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design for users of [R](https://www.r-project.org/).
 
 Motivation
@@ -11,7 +13,7 @@ Motivation
 
 <!-- uni.kn logo and link: -->
 <!-- ![](./inst/pix/logo.svg) -->
-<a href="https://www.uni.kn/"> <img src = "./inst/pix/logo_min.png" alt = "uni.kn" width = "300px" align = "right" style = "width: 300px; float: right; border:30;"/> </a>
+<a href = "https://www.uni.kn/"> <img src = "./inst/pix/logo_min.png" alt = "uni.kn" width = "300px" align = "right" style = "width: 300px; float: right; border:30;"/> </a>
 
 <!-- unikn CD: -->
 In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. Its key component is the consistent use of a `seeblau` color and a corresponding color palette that blends various shades of `seeblau` with black-and-white colors and text elements. (See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.)
@@ -227,7 +229,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-02-18 by [hn](https://neth.de).\]
+\[Updated 2019-02-19 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 

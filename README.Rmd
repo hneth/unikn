@@ -14,18 +14,22 @@ knitr::opts_chunk$set(
 library(unikn)  # load package
 ```
 
+<!-- unikn logo and link: -->
+<a href = "https://github.com/hneth/unikn/">
+<img src = "./inst/pix/box_unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
+</a>
+
 # unikn
 
-<!-- unikn logo and link: -->  
-
-The `unikn` package facilitates the use of some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design for users of [R](https://www.r-project.org/). 
+The `unikn` package facilitates the use of some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design 
+for users of [R](https://www.r-project.org/). 
 
 
 ## Motivation
 
 <!-- uni.kn logo and link: -->  
 <!-- ![](./inst/pix/logo.svg) --> 
-<a href="https://www.uni.kn/">
+<a href = "https://www.uni.kn/">
 <img src = "./inst/pix/logo_min.png" alt = "uni.kn" width = "300px" align = "right" style = "width: 300px; float: right; border:30;"/>
 </a>
 
