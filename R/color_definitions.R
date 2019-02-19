@@ -12,8 +12,6 @@
 
 ## Color palettes: ------
 
-
-
 # (A) Basic color palettes: -----
 
 #   (1) unikn default (web/sRGB) palette: ---- 
@@ -156,9 +154,9 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 #   (a) Table (from Excel file): ---- 
 
 #    HEX:	   RGB:	         CMYK:		                      Comment:
-# 1. CCEEF9	 204 238 249	 20% von C82 | M3  | Y0 | K0		Seeblau 20% Corporate Design
-# 2. A6E1F4	 166 225 244	 35% von C82 | M3  | Y0 | K0		Seeblau 35% Corporate Design
-# 3. 59C7EB	  89 199 235	 65% von C82 | M3  | Y0 | K0		Seeblau 65% Corporate Design: preferred color: "seeblau"
+# 1. CCEEF9	 204 238 249	 20% von C82 | M3  | Y0 | K0		Seeblau  20% Corporate Design
+# 2. A6E1F4	 166 225 244	 35% von C82 | M3  | Y0 | K0		Seeblau  35% Corporate Design
+# 3. 59C7EB	  89 199 235	 65% von C82 | M3  | Y0 | K0		Seeblau  65% Corporate Design: preferred color: "seeblau"
 # 4. 00A9E0	   0 169 224	         C82 | M3  | Y0 | K0		Seeblau 100% Corporate Design
 # 5. 008ECE	   0 142 206	         C82 | M23 | Y0 | K0		Seeblau Dunkel *neu*
 
@@ -196,12 +194,13 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 #   (c) Definition: ---- 
 
 pal_seeblau <- data.frame(                               #  element: 
-  "seeblau1" = rgb(204, 238, 249, maxColorValue = 255),  #  1. seeblau1 (non-transparent)
-  "seeblau2" = rgb(166, 225, 244, maxColorValue = 255),  #  2. seeblau2 (non-transparent)
-  "seeblau3" = rgb( 89, 199, 235, maxColorValue = 255),  #  3. seeblau3 (non-transparent): preferred color: "seeblau"
-  "seeblau4" = rgb(  0, 169, 224, maxColorValue = 255),  #  4. seeblau4 (non-transparent)
+  "seeblau1" = rgb(204, 238, 249, maxColorValue = 255),  #  1. seeblau1 (non-transparent):  20%
+  "seeblau2" = rgb(166, 225, 244, maxColorValue = 255),  #  2. seeblau2 (non-transparent):  35%
+  "seeblau3" = rgb( 89, 199, 235, maxColorValue = 255),  #  3. seeblau3 (non-transparent):  65%: preferred color: "seeblau"
+  "seeblau4" = rgb(  0, 169, 224, maxColorValue = 255),  #  4. seeblau4 (non-transparent): 100%
   "seeblau5" = rgb(  0, 142, 206, maxColorValue = 255),  #  5. seeblau5 (non-transparent): neu
   stringsAsFactors = FALSE)
+
 
 #   (d) Preferred color: ---- 
 
