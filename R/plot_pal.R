@@ -80,18 +80,19 @@ plot_col <- function(x,  # a vector of colors to be plotted.
     }
   }
   
-  ## 2. Calculate paramters: ---------------------------------
+  ## 2. Calculate position parameters: ------------------------
 
   # Define positions of shape centers:
   pos_x <- 1:len_x - 0.5
-  # TODO: Allow for overlap (maybe using positions?). 
+  
+  # change the distances:
   mid <- mean(pos_x)  # get midpoint. 
-  add <- cumsum(rep(distance, sum(pos_x < mid)))
-  sub <- add * (-1)
+  add <- cumsum(rep(distance, sum(pos_x < mid)))  # values to be added to the first half. 
+  sub <- add * (-1)  # values to be subtracted from the second half. 
+  pos_x <- pos_x + if(len_x %% 2 == 0) c(rev(sub), add) else  # for even numbers no center position needed.
+                          c(rev(sub), mid, add)  # include the middle for uneven numbers. 
   
-  pos_x <- pos_x + c(rev(add), 0, sub)  # change the distances. 
-  
-  ## Plot all shapes:
+  ## 3. Plot all shapes: --------------------------------------
   col_pos <- cbind(color = unlist(x), pos_x = pos_x)  # data to be plotted. 
   
   apply(col_pos, MAR = 1, function(colors) {
@@ -106,7 +107,6 @@ plot_col <- function(x,  # a vector of colors to be plotted.
   )
   # TODO: Is there a quicker (vectorized) way?
   ## Vectorize in previous function? (i.e., sapply over vectors of input values?)
-  
   
 }
 
