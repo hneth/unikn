@@ -16,9 +16,9 @@ library(unikn)  # load package
 
 # unikn
 
-<!-- unikn logo and link: -->
+<!-- unikn pkg logo and link: -->
 <a href = "https://github.com/hneth/unikn/">
-<img src = "./inst/pix/box_unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
+<img src = "./inst/pix/box_unikn.png" alt = "unikn::" align = "right" width = "120px" style = "width: 120px; float: right; border:10;"/>
 </a>
 
 The `unikn` package enables the use some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design 
@@ -31,21 +31,28 @@ For instance, it provides a range of beautiful color palettes for scientific vis
 <!-- uni.kn logo and link: -->  
 <!-- ![](./inst/pix/logo.svg) --> 
 <a href = "https://www.uni.kn/">
-<img src = "./inst/pix/logo_min.png" alt = "uni.kn" width = "300px" align = "right" style = "width: 300px; float: right; border:30;"/>
+<img src = "./inst/pix/logo_min.png" alt = "uni.kn" width = "280px" align = "left" style = "width: 280px; float: left; border:10;"/>
 </a>
 
 <!-- unikn CD: --> 
 
 In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. 
-Its key component is the consistent use of a `seeblau` color and a corresponding color palette that blends various shades of `seeblau` with black-and-white colors and text elements. 
-(See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the 
+Its key component is the consistent use of a `seeblau` color and a corresponding color palette that blends various shades of `seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the 
 [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.) 
 
 <!-- Goals of unikn pgk: --> 
 
 The `unikn` package aims to facilitate the use of some design elements for users of [R](https://www.r-project.org/). 
 While the correct use of default specifications should be simple and straightforward, 
-we also allow some flexibility for expert users (e.g., for the creation of scientific visualizations).
+we also allow some flexibility for expert users (e.g., for the creation of scientific visualizations). 
+
+<!-- Overview: --> 
+
+The package contains 3 main types of objects:
+
+1. Colors, color palettes, and related functions
+2. Text commands (for highlighting, underlining strings of text)
+3. Graphical functions and themes (for plotting boxes and scientific visualizations)
 
 ## Installation
 
@@ -142,72 +149,7 @@ plot_pal(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
 
 More flexible and complex color palettes can be created by using the `col_scale()` function. 
 
-
-### Using color palettes
-
-Using color palettes currently requires using `unlist` or calling another function:
-
-```{r unlist_pal, eval = FALSE}
-is.list(pal_unikn)  # TRUE
-typeof(pal_unikn)   # "list"
-
-unlist(pal_unikn)  # returns a named vector
-typeof(unlist(pal_unikn)) # "character"
-
-unlist(pal_unikn)["seeblau3"]  # call by name
-unlist(pal_unikn)[2]  # call by index
-
-barplot(rep(6:3, 4), col = colorRampPalette(pal_unikn_plus)(5))
-```
-
-Examples for using color palettes in graphs: 
-
-```{r use_pal_demo_barplot, eval = FALSE}
-# Using color palettes:
-barplot(1/sqrt(1:11),  col = unlist(pal_unikn_plus))
-barplot(1/sqrt(10:25), col = unlist(pal_unikn_pair))
-
-# Using n colors of a palette:
-barplot(1/sqrt(1:4), col = as.character(pal_n(n = 5, pal = pal_seegruen)))
-
-# Scatterplot:
-plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = 1))   # 0 transparency
-plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = .33)) # +transparency
-```
-
-Visualizing data with `image`:
-
-```{r use_pal_demo_image, eval = FALSE, fig.width = 4, fig.height = 4}
-# Random images:
-set.seed(1)
-n <- 20
-m <- matrix(rnorm(n*n), ncol = n, nrow = n)
-image(m, col = unlist(pal_seeblau))
-image(m, col = unlist(pal_peach))
-image(m, col = unlist(pal_seegruen))
-image(m, col = unlist(pal_petrol))
-image(m, col = unlist(pal_pinky))
-image(m, col = unlist(pal_Bordeaux))
-
-# Geometric images:
-x <- y <- seq(-4 * pi, 4 * pi, len = 30)
-r <- sqrt(outer(x^2, y^2, "+"))
-image(z = cos(r^2) * exp(-r/6), col = gray((0:32)/32))
-image(z, axes = FALSE, main = "Math is hot...", xlab = expression(cos(r^2) * e^{-r/6}))
-
-# pal_seeblau:
-x <- y <- seq(-4 * pi, 4 * pi, len = 150)
-r <- sqrt(outer(x^2, y^2, "+"))
-image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_seegruen))(10), main = "Shades of seeblau/seegruen", axes = FALSE)
-# contour(z, add = TRUE, drawlabels = FALSE)
-
-x <- y <- seq(-4 * pi, 4 * pi, len = 50)
-r <- sqrt(outer(x^2, y^2, "+"))
-image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, rev(pal_peach)))(10), main = "Shades of seeblau/peach", axes = FALSE)
-# contour(z, add = TRUE, drawlabels = FALSE)
-```
-
-## Functions
+## Color-related functions
 
 ### Plotting color palettes
 
@@ -234,7 +176,7 @@ pal_n(n = 1, pal = pal_seeblau)
 pal_n(n = 4, pal = pal_seeblau)
 ```
 
-### Extending and creating new color palettes
+### Extending and creating color palettes
 
 The `col_scale()` function provides color gradients based on given colors or color palettes. 
 This serves 2 main functions: 
@@ -292,7 +234,127 @@ plot_pal(col_scale(c(rev(pal_petrol),  "white", pal_Bordeaux))(11))
 
 <img src = "./inst/pix/README-col_scale_3-3.png" align = "center" alt = "col_scale: pal_petrol white pal_Bordeaux" style = "border:10;"/>
 
-## Note
+
+## Using color palettes
+
+Using color palettes (currently) requires using `unlist` or calling another function:
+
+```{r unlist_pal, eval = FALSE}
+is.list(pal_unikn)  # TRUE
+typeof(pal_unikn)   # "list"
+
+unlist(pal_unikn)  # returns a named vector
+typeof(unlist(pal_unikn)) # "character"
+
+unlist(pal_unikn)["seeblau3"]  # call by name
+unlist(pal_unikn)[2]  # call by index
+
+barplot(rep(6:3, 4), col = colorRampPalette(pal_unikn_plus)(5))
+```
+
+
+### ToDo <img src = "./inst/pix/todo.png" alt = "ToDo" align = "right" width = "120px" style = "width: 120px; float: right; border:10;"/>
+
+1. Create a main `seecol` function that operates on all color palettes and provides the following functionality:
+
+- plot an overview over all available color palettes (like `display.brewer.all`); 
+- plot detailed info on any specific (or a random) color palette (like `plot_pal`); 
+- return `n` dedicated colors of a specific palette (like `pal_n`); 
+- allows extending or combining colors and color palettes (like `col_scale`); 
+- allows adding transparency, etc. (like `piratepal`). 
+
+2. Provide more convenient color objects:
+
+- provide preferred colors (e.g., `Seeblau`, `Peach`) as atomic named vectors (of type character), to be referrable by name and number).
+- provide all color palettes as named vectors (rather than lists): `seeblau`, `peach`, etc. 
+
+
+### Demos
+
+Examples for using color palettes in graphs: 
+
+```{r use_pal_demo_barplot, eval = FALSE}
+# Using color palettes:
+barplot(1/sqrt(1:11),  col = unlist(pal_unikn_plus))
+barplot(1/sqrt(10:25), col = unlist(pal_unikn_pair))
+
+# Using n colors of a palette:
+barplot(1/sqrt(1:4), col = as.character(pal_n(n = 5, pal = pal_seegruen)))
+
+# Scatterplot:
+plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = 1))   # 0 transparency
+plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = .33)) # +transparency
+```
+
+Visualizing data with `image`:
+
+```{r use_pal_demo_image, eval = FALSE, fig.width = 4, fig.height = 4}
+# Random images:
+set.seed(1)
+n <- 20
+m <- matrix(rnorm(n*n), ncol = n, nrow = n)
+image(m, col = unlist(pal_seeblau))
+image(m, col = unlist(pal_peach))
+image(m, col = unlist(pal_seegruen))
+image(m, col = unlist(pal_petrol))
+image(m, col = unlist(pal_pinky))
+image(m, col = unlist(pal_Bordeaux))
+
+# Geometric images:
+x <- y <- seq(-4 * pi, 4 * pi, len = 30)
+r <- sqrt(outer(x^2, y^2, "+"))
+image(z = cos(r^2) * exp(-r/6), col = gray((0:32)/32))
+image(z, axes = FALSE, main = "Math is hot...", xlab = expression(cos(r^2) * e^{-r/6}))
+
+# pal_seeblau:
+x <- y <- seq(-4 * pi, 4 * pi, len = 150)
+r <- sqrt(outer(x^2, y^2, "+"))
+image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_seegruen))(10), main = "Shades of seeblau/seegruen", axes = FALSE)
+# contour(z, add = TRUE, drawlabels = FALSE)
+
+x <- y <- seq(-4 * pi, 4 * pi, len = 50)
+r <- sqrt(outer(x^2, y^2, "+"))
+image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, rev(pal_peach)))(10), main = "Shades of seeblau/peach", axes = FALSE)
+# contour(z, add = TRUE, drawlabels = FALSE)
+```
+
+
+## Text
+
+Note that we lack the official fonts and only imitate the specifications (in Arial, sans serif). 
+Like all other templates, our renderings are subject to constraints and limitations. 
+However, the `unikn` package helps to prevent common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line titles) and can be modified and improved by expert users. 
+Overall, we hope that our functions will be useful for plotting graphical elements (e.g., boxes, logos, etc.) and achieving a uniform look when styling visualizations.
+
+
+### ToDo <img src = "./inst/pix/todo.png" alt = "ToDo" align = "right" width = "120px" style = "width: 120px; float: right; border:10;"/>
+
+Identify key functions: 
+
+- `mark` (Markieren)
+- `line` (Anstreichen)
+- `post` (Merken)
+
+For `mark` and `line`: Versions that allow to arrange multiple character strings with fixed spacing and sensible default colors:
+
+- `head` for arranging headings (sensible defaults, warn in case of step functions)
+
+<!-- Demo of text functions: -->
+
+### Examples
+
+Highlighting text: 
+
+<img src = "./inst/pix/highlight_text.png" alt = "highlight"       width = "400px" style = "width: 400px; border:0;"/>
+<img src = "./inst/pix/messy_plot.png"     alt = "messy highlight" width = "400px" style = "width: 400px; border:0;"/>
+
+
+## Graphical themes
+
+- `ggplot` theme (using `unikn` color palettes and text elements)
+
+
+## Copyrights 
 
 The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. While we make some graphical elements available to R users (e.g., for creating scientific visualizations), all copyrights remain with the original copyright holders. 
 
