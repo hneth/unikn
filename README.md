@@ -294,7 +294,7 @@ image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, rev(pal_pe
 Text
 ----
 
-Note that we lack the official fonts and only imitate the specifications (in Arial, sans serif). Like all other templates, our renderings are subject to constraints and limitations. However, the `unikn` package helps to prevent common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line titles) and can be modified and improved by expert users. Overall, we hope that our functions will be useful for plotting graphical elements (e.g., boxes, logos, etc.) and achieving a uniform look when styling visualizations.
+Like all other templates, our renderings are subject to constraints and limitations. As a standard installation of R lacks the official "Theinhardt" fonts, we can only mimic the design specifications (in Arial, sans serif). Nevertheless, the `unikn` package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line titles) and can be customized and improved by expert users. Overall, we hope that the following functions will be useful for plotting graphical elements (e.g., boxes, logos, etc.) and achieving a uniform look when styling visualizations.
 
 ### ToDo <img src = "./inst/pix/todo.png" alt = "ToDo" align = "right" width = "120px" style = "width: 120px; float: right; border:10;"/>
 
@@ -324,6 +324,10 @@ Key text functions include:
 -   Boxing text with `post`:
 
 <img src = "./inst/pix/box_R.png"       alt = "R" width = "150px" style = "width: 150px; border:10;"/> <img src = "./inst/pix/todo_pinky4.png" alt = "ToDo" width = "150px" style = "width: 150px; border:10;"/> <img src = "./inst/pix/box_unikn.png"   alt = "unikn::" width = "150px" style = "width: 150px; border:10;"/>
+
+Note that text is rendered graphically and does not scale. Hence, to preserve the crisp look of the original, boxes should be viewed in the desired size (in R) and then displayed without further scaling:
+
+<img src = "./inst/pix/hn_petrol4.png"  alt = "hn" width = "250px" style = "width: 250px; border:10;"/>
 
 Graphical themes
 ----------------
