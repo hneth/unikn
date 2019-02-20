@@ -1,5 +1,5 @@
 ## plot_box.R | unikn
-## hn  |  uni.kn |  2019 02 19
+## hn  |  uni.kn |  2019 02 20
 ## ---------------------------
 
 ## Plot blue box etc.
@@ -172,9 +172,9 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
 # plot_box(lbls = "The 1st line of text.\nA 2nd and longer line of text.\nThe 3rd line of text.")
 # 
 # # Box logos:
-# plot_box(lbls = "R", col_bg = pal_seeblau[[4]], cex = 10)
+# plot_box(lbls = "R", col_bg = pal_seeblau[[3]], cex = 10)
 # plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
-
+# plot_box(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
 
 ## ToDo: ------
 
