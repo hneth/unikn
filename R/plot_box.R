@@ -1,5 +1,5 @@
 ## plot_box.R | unikn
-## hn  |  uni.kn |  2019 02 19
+## hn  |  uni.kn |  2019 02 20
 ## ---------------------------
 
 ## Plot blue box etc.
@@ -33,6 +33,10 @@
 #' @param font The font to be used. 
 #' Default: \code{font = 2} (bold).
 #' 
+#' @family text functions
+#' 
+#' @seealso
+#' \code{\link{highlight}} to mark text with a colored box  
 #' 
 #' @examples
 #' plot_box(lbls = "A heading appears here.")
@@ -46,8 +50,8 @@
 #' plot_box(lbls = "The 1st line of text.\nA 2nd and longer line of text.\nThe 3rd line of text.")
 #' 
 #' # Box logos:
-#' plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 13)
-#' plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 3.5)
+#' plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10)
+#' plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
 #' 
 #'         
 #' @import graphics 
@@ -71,12 +75,14 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
   
   ## Plotting area: ----- 
   
-  ## Margins: 
-  mar_all <- .00  # lines
-  oma_all <- 1.5  # lines
-  
+  ## Margins (in lines): 
+  mar_all <- 0  # all inner
+  oma_all <- 0  # all outer
+  oma_l   <- 0  # left
+    
   par(mar = c(0, 0, 0, 0) + mar_all)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
-  par(oma = c(0, 0, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
+  par(oma = c(0, oma_l, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
+  # par(omd = c(0, 0, 1, 1))
   
   ## Plot empty canvas:
   # plot(0, 0, type = "n", xlim = c(0,1), ylim = c(0,1), 
@@ -166,9 +172,9 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
 # plot_box(lbls = "The 1st line of text.\nA 2nd and longer line of text.\nThe 3rd line of text.")
 # 
 # # Box logos:
-# plot_box(lbls = "R", col_bg = pal_seeblau[[4]], cex = 10)
-# plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[5]], cex = 2.5)
-
+# plot_box(lbls = "R", col_bg = pal_seeblau[[3]], cex = 10)
+# plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
+# plot_box(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
 
 ## ToDo: ------
 

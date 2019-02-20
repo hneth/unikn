@@ -43,8 +43,15 @@ plot_box(lbls = c("The 1st line of text.", "A 2nd and longer line of text.", "Th
 plot_box(lbls = "The 1st line of text.\\nA 2nd and longer line of text.\\nThe 3rd line of text.")
 
 # Box logos:
-plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 13)
-plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 3.5)
+plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10)
+plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
 
         
 }
+\seealso{
+\code{\link{highlight}} to mark text with a colored box
+
+Other text functions: \code{\link{box_text}},
+  \code{\link{mark}}
+}
+\concept{text functions}

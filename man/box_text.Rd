@@ -6,9 +6,9 @@
 onto a plot and places a colored box behind
 each label to highlight it (i.e., make it stand out from the background).}
 \usage{
-box_text(x, y, lbls = NA, col_lbl = NULL, col_bg = NA,
-  col_bg_brd = NA, adj = NULL, pos = NULL, offset = 0.5,
-  padding = c(0.5, 0.5), cex = 1, font = 2)
+box_text(x, y, lbls = NA, col_lbl = "black", col_bg = NA,
+  col_bg_brd = NA, adj = NULL, pos = 4, offset = 0,
+  padding = c(0.2, 0.8), cex = 2, font = 2)
 }
 \arguments{
 \item{x}{A numeric vector of x-coordinates at which the 
@@ -21,36 +21,42 @@ text labels in \code{lbls} should be written.}
 \item{lbls}{A character vector specifying the text labels 
 to be written.}
 
-\item{col_lbl}{The color(s) of the text label(s).}
+\item{col_lbl}{The color(s) of the text label(s). 
+Default: \code{col_lbl = "black"}.}
 
-\item{col_bg}{The color(s) to fill or shade the rectangle(s) with. 
-The default \code{col_bg = NA} implies no fill 
-(i.e., draws transparent rectangles).}
+\item{col_bg}{The color(s) to highlight or fill the rectangle(s) with. 
+Default: \code{col_bg = NA} (transparent rectangles).}
 
 \item{col_bg_brd}{The color(s) for rectangle border(s). 
-The default \code{NA} omits borders.}
+Default: \code{col_bg_brd = NA} (no borders).}
 
-\item{adj}{One or two adjustment values in \code{[0, 1]} which specify 
-the x (and optionally y) adjustment of the labels.}
+\item{adj}{Adjustment of label position, 
+1 or 2 adjustment values in \code{[0, 1]} which specify 
+the x (and optionally y) adjustment of the labels. 
+Default: \code{adj = NULL}.}
 
-\item{pos}{A position specifier for the text. If specified this overrides
+\item{pos}{A position specifier for the text. If specified, this overrides
 any \code{adj} value given. Values of 1, 2, 3 and 4, respectively indicate
 positions below, to the left of, above and to the right of the specified
-coordinates.}
+coordinates. 
+Default: \code{pos = 4} (right).}
 
 \item{offset}{When \code{pos} is specified, this value sets the offset of
-the label from the specified coordinate in fractions of a character width.}
+the label from the specified coordinate in fractions of a character width. 
+Default: \code{offset = NULL}.}
 
 \item{padding}{A factor used for the padding of the box around
-the text. Padding is specified in fractions of a character width. If a
-vector of length 2 is specified then 2 different factors are used for the
-padding in x- and y-direction.}
+the text (in fractions of a character width). 
+If a vector of length 2 is specified then 2 different factors 
+are used for padding in the x- and y-direction, respectively. 
+Default: \code{padding = c(.20, .80)}.}
 
-\item{cex}{A numeric character expansion factor, which is
-multiplied by \code{par("cex")} to yield the final character size.}
+\item{cex}{A numeric character expansion factor, 
+multiplied by \code{par("cex")} to yield the character size. 
+Default: \code{cex = 2}.}
 
 \item{font}{The font to be used. 
-Default: \code{font = 2} (bold).}
+Default: \code{font = 2} (i.e., bold).}
 }
 \value{
 Returns the coordinates of the background rectangle(s). 
@@ -62,19 +68,34 @@ If only one label is placed, its coordinates are returned as a vector.
 \code{box_text} uses the base graphics system \code{graphics::}.
 }
 \examples{
-## Create some noisy background:
-plot(x = runif(500), y = runif(500), type = "p", pch = 16, cex = 3, col = grey(.33, .10))
+## Example 1: Simple highlights
+plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1))
+box_text(x = 0, y = .9, lbls = "Something to notice", col_bg = unlist(seeblau))
+box_text(x = 0, y = .7, lbls = "Highlighting text is really simple", cex = 1.5, col_bg = "gold")
+box_text(x = 0, y = .6, lbls = "and strikingly effective", cex = 1.5, col_bg = pal_seeblau[[1]])
 
-## Adjust cex, font and adj:
-box_text(x = .01, y = .95, lbls = "What a messy plot",
-         col_bg = "skyblue1", adj = c(0, 0), padding = c(.25, .75), cex = 1.8)
+## Example 2: Messy plot
+n <- 20
+set.seed(1)
+plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), axes = F, xlab = "", ylab = "")
 
-## Vector of 2 lbls, using argument 'pos' to position right of coordinates:
-box_text(x = c(.15, .60), y = c(.10, .50),
-         lbls = c("Some highlighted text here.", "Something else here."),
-         col_bg = c("skyblue2", "gold"), pos = 4, padding = c(.25, 1))
-   
+# Adjust cex, font and adj:
+box_text(x = .05, y = .90, lbls = "What a messy plot",
+         col_bg = seeblau[[1]], adj = c(0, 0), padding = c(.25, .85), cex = 2)
+
+# Vector of 2 lbls, using argument 'pos' to position right of coordinates:
+box_text(x = c(.30, .60), y = c(.20, .40),
+         lbls = c("Note something here", "Some highlighting here"),
+         col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
+
+}
+\seealso{
+\code{\link{highlight}} (reduced version) to mark text with a colored box
+
+Other text functions: \code{\link{mark}},
+  \code{\link{plot_box}}
 }
 \author{
 Adapted from code by Ian Kopacka.
 }
+\concept{text functions}
