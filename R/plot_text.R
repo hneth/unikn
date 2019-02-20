@@ -1,9 +1,8 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 02 19
+## hn  |  uni.kn |  2019 02 20
 ## ---------------------------
 
-## Plot text with formatting elements (highlighting or underlining).
-
+## Plot text with formatting elements (marking/highlighting or underlining).
 
 ## box_text: Add text with a colored background box to a plot: ------
 
@@ -225,15 +224,16 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
 
 ## Reduced version (with fewer arguments):
 
-## highlight: Place and highlight text on plot: ------ 
+
+## (1) mark: Highlight text on a plot: -------- 
 
 ## - Documentation: ---- 
 
-#' \code{highlight} places 1 or more text strings (of a character vector \code{lbls}) 
+#' \code{mark} places 1 or more text strings (of a character vector \code{lbls}) 
 #' onto a plot and places a colored box behind
-#' each label to highlight it (i.e., make it stand out from the background).
+#' each label to mark or highlight it (i.e., make it stand out from the background).
 #' 
-#' \code{highlight} uses the base graphics system \code{graphics::}. 
+#' \code{mark} uses the base graphics system \code{graphics::}. 
 #' 
 #' @param x A numeric vector of x-coordinates at which the 
 #' text labels in \code{lbls} should be written. 
@@ -263,12 +263,12 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
 #' ## Example 1: Simple highlights
 #' plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
 #' 
-#' highlight(x = 0, y = .9, lbls = "Something to notice")
-#' highlight(x = 0, y = c(.7, .6), 
-#'           lbls = c("Highlighting text is simple", "but strikingly effective"), 
-#'           cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
-#' highlight(x = .5, y = c(.4, .3), lbls = c("It is also flexible", "but should be handled with care"), cex = 1.2, 
-#'           col_lbl = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
+#' mark(x = 0, y = .9, lbls = "Please note")
+#' mark(x = 0, y = c(.6, .5),
+#'      lbls = c("Highlighting text is simple", "but strikingly effective"),
+#'      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
+#' mark(x = .4, y = c(.3, .2), lbls = c("It is also flexible", "but to be handled with care"), cex = 1.2,
+#'      col_lbl = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
 #' 
 #' ## Example 2: Messy plot
 #' n <- 20
@@ -276,13 +276,13 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
 #' plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), axes = F, xlab = "", ylab = "")
 #' 
 #' # Only 1 label:
-#' highlight(x = .05, y = .90, lbls = "What a messy plot")
+#' mark(x = .05, y = .85, lbls = "What a messy plot")
 #' 
 #' # 2 labels at once:
-#' highlight(x = c(.30, .60), y = c(.20, .40),
-#'           lbls = c("Note something here", "Some highlighting here"),
-#'           col_bg = c(pal_seeblau[[2]], "gold"), cex = 1.2)
-#'           
+#' mark(x = c(.35, .55), y = c(.15, .40),
+#'      lbls = c("Note something here", "More highlighting here"),
+#'      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
+#'            
 #' @family text functions
 #' 
 #' @seealso
@@ -294,7 +294,7 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
 
 ## - Definition: ---- 
 
-highlight <- function(x, y, lbls = NA,                             # coordinates and labels of text element(s) 
+mark <- function(x, y, lbls = NA,                             # coordinates and labels of text element(s) 
                       col_lbl = "black", col_bg = unlist(seeblau), # color(s)
                       cex = 2, font = 2                            # text size and font
 ){
@@ -310,12 +310,12 @@ highlight <- function(x, y, lbls = NA,                             # coordinates
 # ## Example 1: Simple highlights
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
 # 
-# highlight(x = 0, y = .9, lbls = "Something to notice")
-# highlight(x = 0, y = c(.7, .6), 
-#           lbls = c("Highlighting text is simple", "but strikingly effective"), 
-#           cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
-# highlight(x = .5, y = c(.4, .3), lbls = c("It is also flexible", "but should be handled with care"), cex = 1.2, 
-#           col_lbl = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
+# mark(x = 0, y = .9, lbls = "Please note")
+# mark(x = 0, y = c(.6, .5),
+#      lbls = c("Highlighting text is simple", "but strikingly effective"),
+#      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
+# mark(x = .4, y = c(.3, .2), lbls = c("It is also flexible", "but to be handled with care"), cex = 1.2,
+#      col_lbl = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
 # 
 # ## Example 2: Messy plot
 # n <- 20
@@ -323,13 +323,22 @@ highlight <- function(x, y, lbls = NA,                             # coordinates
 # plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), axes = F, xlab = "", ylab = "")
 # 
 # # Only 1 label:
-# highlight(x = .05, y = .90, lbls = "What a messy plot")
+# mark(x = .05, y = .85, lbls = "What a messy plot")
 # 
 # # 2 labels at once:
-# highlight(x = c(.30, .60), y = c(.20, .40),
-#           lbls = c("Note something here", "Some highlighting here"),
-#           col_bg = c(pal_seeblau[[2]], "gold"), cex = 1.2)
+# mark(x = c(.35, .55), y = c(.15, .40),
+#      lbls = c("Note something here", "More highlighting here"),
+#      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
 
+
+
+## (2) line: Underline text on a plot: -------- 
+
+## (3) post: Plot a post-it note with text: -------- 
+
+## Use the plot_box function.
+
+## (4) head: Arrange headings (according to specifications): -------- 
 
 ## ToDo: ------
 
