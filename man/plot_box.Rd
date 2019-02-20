@@ -7,7 +7,8 @@ and places 1 or more text strings (of a character vector \code{lbls})
 in the box.}
 \usage{
 plot_box(lbls = NA, col_lbl = "white",
-  col_bg = as.character(seeblau), cex = 2, font = 2)
+  col_bg = as.character(seeblau), cex = 2, font = 2, lbl_x = 0.02,
+  lbl_y = 0.65)
 }
 \arguments{
 \item{lbls}{A character vector specifying the text label(s)
@@ -27,6 +28,16 @@ Default: \code{cex = 2}.}
 
 \item{font}{The font to be used. 
 Default: \code{font = 2} (bold).}
+
+\item{lbl_x}{A fraction in \code{[0, 1]} that determines the 
+x-value of the left edge of text in \code{lbls}. 
+Default: \code{lbl_x = .02} (i.e. 2% from left border).}
+
+\item{lbl_y}{A fraction in \code{[0, 1]} that determines the 
+y-value of the top line of text in \code{lbls}. 
+(To keep the height of the top "x" empty, 
+a maximum value of 1 corresponds to 80% of the box height.) 
+Default: \code{lbl_y = .65} (i.e. .65 * 80% = 52% of box height).}
 }
 \description{
 \code{plot_box} uses the base graphics system \code{graphics::}.
@@ -43,8 +54,9 @@ plot_box(lbls = c("The 1st line of text.", "A 2nd and longer line of text.", "Th
 plot_box(lbls = "The 1st line of text.\\nA 2nd and longer line of text.\\nThe 3rd line of text.")
 
 # Box logos:
-plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10)
 plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
+plot_box(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
+plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 
         
 }
