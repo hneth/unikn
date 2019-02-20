@@ -231,16 +231,95 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
 # - Definition: ---- 
 
 plot_text <- function(x, y, lbls = NA,               # coordinates and labels of text element(s) 
-                      col_lbl = "black", col_bg = NA, col_bg_brd = NA,         # colors
+                      col_lbl = NA, col_bg = NA, col_bg_brd = NA,         # colors
                       adj = NULL, pos = 4, offset = 0, padding = c(.20, .80),  # positions 
-                      cex = 2, font = 2                                        # text size and font
+                      cex = 2, font = 2,                                       # text size and font
+                      box = FALSE, mark = FALSE, line = FALSE, txt = TRUE      # Boolean flags
 ){
   
-  ## Coordinates: ----
+  ## Sensible defaults (for robustness): ----
+  
+  # col_lbl: 
+  if (is.na(col_lbl) && box) { col_lbl <- "white"}
+  if (is.na(col_lbl) && txt) { col_lbl <- "black"} 
+  
+  # col_bg: 
+  if (is.na(col_bg) && box)  { col_bg <- pal_seeblau[[3]]}
+  if (is.na(col_bg) && mark) { col_bg <- pal_seeblau[[3]]}
+  if (is.na(col_bg) && line) { col_bg <- pal_seeblau[[4]]}  
+
+  
+  ## Plot box (if desired): ----
+  
+  # 1. box: plot blue box (with "x"): ---- 
+  
+  # box <- FALSE  # 4debugging
+  
+  # +++ here now +++ 
+  
+  if (box) {
+    
+    ## Preamble: ----- 
+    
+    ## Record graphical parameters (par):
+    opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
+    on.exit(par(opar)) # restore original settings
+    
+    
+    ## Plotting area: ----- 
+    
+    ## Margins (in lines): 
+    mar_all <- 0  # all inner
+    oma_all <- 0  # all outer
+    oma_l   <- 0  # left
+    
+    par(mar = c(0, 0, 0, 0) + mar_all)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
+    par(oma = c(0, oma_l, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
+    # par(omd = c(0, 0, 1, 1))
+    
+    ## Plot empty canvas:
+    ## Plot empty canvas:
+    # plot(0, 0, type = "n", xlim = c(0,1), ylim = c(0,1), 
+    #      bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
+    plot.new()
+    
+    # Box parameters:
+    x_left <- 0
+    y_bot  <- 0
+    x_right <- 1
+    y_top   <- 1
+    
+    # Draw rectangle:
+    rect(xleft = x_left, ybottom = y_bot, xright = x_right, ytop = y_top,
+         col = col_bg, 
+         lty = 0,  # ensure absence of border line (a)
+         lwd = NA  # ensure absence of border line (b)
+         # border = col_brd,
+         # density = density,
+         # angle = angle,
+         # lwd = lwd
+         # ...  # etc. 
+    )
+    
+    ## Mark X (in top right corner): ----- 
+    
+    # X parameters: 
+    p1 <- .85
+    p2 <- .95
+    
+    # Draw segments:
+    segments(x0 = c(p1, p1), y0 = c(p1, p2), 
+             x1 = c(p2, p2), y1 = c(p2, p1),
+             col = "white", lty = 1, lwd = 1.41)
+    
+  } # if (box) etc.
+  
+  
+  ## Compute x and y coordinates: ----
   
   if (missing(y)) {y <- x}  # use x as y if no y provided
   
-  # Recycle coords if necessary:
+  # Recycle coords (if necessary):
   if (length(x) != length(y)){
     lx <- length(x)
     ly <- length(y)
@@ -251,16 +330,18 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
     }
   }
   
-  ## Text labels: ----
+  ## Compute parameters of text labels: ----
   
-  # Interpret inputs:
-  cur_font <- graphics::par('font')
-  cur_cex <- graphics::par('cex') * cex  # character expansion factor to use
+  ## Interpret inputs:
+  # cur_font <- graphics::par('font')
+  cur_cex <-  (cex * graphics::par('cex'))  # character expansion factor to use
+  # print(cur_cex)  # 4debugging
   
   # Measure dimensions of text elements:
-  char_width  <- graphics::strwidth(s = "n", cex = cur_cex, font = font)    # width of letter "n" 
+  char_width  <- graphics::strwidth(s = "n", cex = cur_cex, font = font)    # width of lowercase "n" 
   text_height <- graphics::strheight(s = lbls, cex = cur_cex, font = font)  # text height(s)
   text_width  <- graphics::strwidth(s = lbls, cex = cur_cex, font = font)   # text width(s)
+  # print(text_width)  # 4debugging
   
   # Is 'adj' of length 1 or 2?
   if (!is.null(adj)){
@@ -305,9 +386,16 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
   rect_width  <- (text_width  + (2 * padding[1] * char_width))
   rect_height <- (text_height + (2 * padding[2] * char_width))
   
-  mark <- FALSE  # debugging
   
-  if (mark == TRUE) {
+  ## Plot text (optionally with mark or line): ------ 
+  
+  
+  
+  # 2. mark: highlight background: ---- 
+  
+  # mark <- FALSE  # 4debugging
+  
+  if (mark) {
     
     # Draw rectangle(s):
     graphics::rect(xleft   = (x_mid - rect_width/2),
@@ -317,11 +405,13 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
                    col     = col_bg, 
                    border  = col_bg_brd)
     
-  }
+  } # if (mark) etc.
   
-  line <- TRUE  # debugging
+  # 3. line: underline text: ---- 
   
-  if (line == TRUE) {  
+  # line <- FALSE  # 4debugging
+  
+  if (line) {  
     
     # Line parameters:
     cex_l <- 2    # constant scaling factor for line width
@@ -339,13 +429,24 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
                        lend = 1  # line end style: 0: round (default), 1: butt, 2: square. 
     )
     
-  }
+  } # if (line) etc.
   
-  # Draw text lbl(s):
-  graphics::text(x = x_mid, y = y_mid, labels = lbls, col = col_lbl, 
-                 cex = cur_cex, font = font, adj = c(.5, .5))
   
-  # Return value(s):
+  # 4. txt: Plot text lbls: ---- 
+  
+  # txt <- TRUE  # 4debugging
+  
+  if (txt) { 
+    
+    # Draw text lbl(s):
+    graphics::text(x = x_mid, y = y_mid, labels = lbls, col = col_lbl, 
+                   cex = cur_cex, font = font, adj = c(.5, .5))
+    
+  } # if (txt) etc.
+  
+  
+  # Return value(s): ----
+  
   if (length(x_mid) == 1){  # Coordinates of 1 rectangle: 
     invisible(c(x_mid - rect_width/2, x_mid + rect_width/2, y_mid - rect_height/2,
                 y_mid + rect_height/2))
@@ -356,33 +457,45 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
   
 } # plot_text end.
 
-## +++ here now +++ 
 
 # ## Check: 
-
-# ## Example 1: Underlining text 
-
+# 
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
 # 
-# plot_text(x = 0, y = .9, lbls = "Related matters", col_bg = pal_seeblau[[4]])
-# 
-# plot_text(x = 0, y = .6, lbls = "Underlining text can be straightforward", cex = 1.2, col_bg = pal_seeblau[[4]])
-# plot_text(x = 0, y = .5, lbls = "and strikingly effective", cex = 1.2, col_bg = pal_seeblau[[4]])
-# 
-# plot_text(x = .55, y = .1, lbls = "Please handle with care", cex = 1.0, col_lbl = "black", col_bg = pal_signal[[1]])
+# ## Multiple font values:
+# plot_text(x = 0, y = c(.4, .2), lbls = c("m", "m"), font = c(1, 2), col_bg = "green2")  
+# # => seems to work (but fonts do not seem to suffer in size?)
+#
+# ## Multiple cex values:
+# plot_text(x = 0, y = c(.8, .6), lbls = c("m", "m"), cex = c(1, 5), col_bg = "red1")     
+# # => FAILS to work: ERROR: changing font size with cex is not supported!!!
 
-# ## Example 2: Messy plot 
+## Example: Plot box
+
+# plot_text(x = 0.02, y = c(.5, .4), lbls = c("ToDo", "Something else here"), box = TRUE)
+
+
+# ## Example 1: Underlining text 
+# 
+# plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
+# 
+# plot_text(x = 0, y = .9, lbls = "Related matters", line = TRUE, col_bg = pal_seeblau[[4]])
+# plot_text(x = 0, y = .6, lbls = "Underlining text can be straightforward", line = TRUE, cex = 1.2, col_bg = pal_seeblau[[4]])
+# plot_text(x = 0, y = .5, lbls = "and strikingly effective", line = TRUE, cex = 1.2, col_bg = pal_seeblau[[4]])
+# plot_text(x = .55, y = .1, lbls = "Please handle with care", line = TRUE, cex = 1.0, col_lbl = "black", col_bg = pal_signal[[1]])
+
+# ## Example 2: Marking text in messy plot
 # n <- 20
 # set.seed(1)
 # plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), axes = F, xlab = "", ylab = "")
 # 
 # # Adjust cex, font and adj:
-# plot_text(x = .05, y = .90, lbls = "What a messy plot",
+# plot_text(x = .05, y = .90, lbls = "What a messy plot", mark = TRUE,
 #          col_bg = seeblau[[1]], adj = c(0, 0), padding = c(.25, .85), cex = 2)
 # 
 # # Vector of 2 lbls, using argument 'pos' to position right of coordinates:
-# plot_text(x = c(.30, .60), y = c(.20, .40),
-#          lbls = c("Note something here", "Some highlighting here"),
+# plot_text(x = c(.30, .62), y = c(.20, .42), mark = TRUE,
+#          lbls = c("Note something here", "More highlighting here"),
 #          col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
 
 
