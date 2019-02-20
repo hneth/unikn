@@ -343,11 +343,24 @@ For `mark` and `line`: Versions that allow to arrange multiple character strings
 
 ### Examples
 
-Highlighting text: 
+Key text functions include: 
+
+- Highlighting text with `mark`:
 
 <img src = "./inst/pix/highlight_text.png" alt = "highlight"       width = "400px" style = "width: 400px; border:0;"/>
 <img src = "./inst/pix/messy_plot.png"     alt = "messy highlight" width = "400px" style = "width: 400px; border:0;"/>
 
+
+- Underlining text with `line`: 
+
+<img src = "./inst/pix/line_matters.png"   alt = "underline" width = "400px" style = "width: 400px; border:0;"/>
+
+
+- Boxing text with `post`:  
+
+<img src = "./inst/pix/box_R.png"       alt = "R" width = "150px" style = "width: 150px; border:10;"/>
+<img src = "./inst/pix/todo_pinky4.png" alt = "ToDo" width = "150px" style = "width: 150px; border:10;"/>
+<img src = "./inst/pix/box_unikn.png"   alt = "unikn::" width = "150px" style = "width: 150px; border:10;"/> 
 
 ## Graphical themes
 
