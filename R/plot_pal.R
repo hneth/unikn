@@ -158,6 +158,8 @@ yarrr::piratepal()
 
 op <- par(no.readonly = TRUE)  # get original plotting settings.
 
+
+## Overview function: ------ 
 palettes <- apropos("pal_")  # get all unikn palettes.
 
 pal_ls <- sapply(palettes, get)
@@ -203,6 +205,51 @@ text(x = seq(0.5, max_len - 0.5, by = 1), y = -1, labels = 1:max_len, pos = 3, x
 
 par(op)
 
+
+
+
+
+## Detail view: 
+pal_nm <- palettes[1]
+pal <- pal_ls[[pal_nm]]
+
+
+distance <- 0  # set distance. 
+
+max_len <- length(pal)
+
+## TODO: Enter xlength of boxes into calculation of xlim. 
+if (distance > 0) {
+  xlim <- c(0 - distance * max_len, max_len * (1 + distance))
+} else {
+  xlim <- c(0, max_len)
+}
+
+plot(x = 0, type = "n", xlim = xlim, ylim = c(-1, 2),
+     # xaxt = "n", yaxt = "n",  # hide axes.
+     xlab = "", ylab = "", main = paste("See palette", gsub("pal_", "", pal_nm)),
+     bty = "n"
+)  # create empty plot.
+
+plot_col(x = pal, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = "grey", lwd = 1)
+plot_col(x = pal, ypos = 1.2, plot.new = FALSE, xlen = 0.5, shape = "circle")
+
+## Text elements:
+txt_pos <- seq(0.5, length(pal) - 0.5)
+
+## Color names:
+text(x = txt_pos, y = 1.6, labels = names(pal), pos = 1, srt = 45, xpd = TRUE)
+## Color indices:
+text(x = txt_pos, y = -0.1, labels = 1:length(pal), pos = 3, xpd = TRUE,
+     cex = 1)
+## Hex values:
+## TODO: In if-statement. 
+text(x = txt_pos, y = -0.3, labels = pal, pos = 3, xpd = TRUE,
+     cex = 1)
+
+text(x = matrix(rep(txt_pos, 3), nrow = 3, byrow = TRUE), 
+     y = matrix(rep(c(-0.5, -0.75, -1.0), length(txt_pos)), nrow = 3), labels = col2rgb(pal), pos = 3, xpd = TRUE,
+     cex = 1)
 
 
 
