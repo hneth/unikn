@@ -144,13 +144,16 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
 
 
 
-## TODO: 
-## 1. Plotting multiple shapes (rectangles) for comparison; add numbers. 
-## 2. Plot detailed color palettes, including names, hex and rgb. 
+
 
 
 ## see_pal should work like the following: ------------
 yarrr::piratepal()
+
+
+## TODO: 
+## 1. Plotting multiple shapes (rectangles) for comparison; add numbers. 
+## 2. Plot detailed color palettes, including names, hex and rgb. 
 
 
 op <- par(no.readonly = TRUE)  # get original plotting settings.
@@ -180,7 +183,7 @@ pal_mat <- cbind(pal_ls, 1:length(pal_ls))
 
 
 ## Set margins:
-par(mar = c(1, 6, 3, 0))
+par(mar = c(3, 6, 3, 1))
 
 plot(x = 0, type = "n", xlim = xlim, ylim = c(0, ylim),
      xaxt = "n", yaxt = "n",  # hide axes.
@@ -194,6 +197,9 @@ apply(pal_mat, MAR = 1, FUN = function(row) {
   })
 
 text(x = -1, y = 1:length(pal_ls), labels = gsub("pal_", "", palettes[is_pal]), pos = 2, xpd = TRUE)
+text(x = seq(0.5, max_len - 0.5, by = 1), y = -1, labels = 1:max_len, pos = 3, xpd = TRUE,
+     cex = 0.7)
+
 
 par(op)
 
