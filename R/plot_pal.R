@@ -8,7 +8,7 @@
 
 ## plot_shape: Plot a shape in a certain color: ------
 
-plot_shape <- function(box_x, box_y,  # midpoint of the rectangle. 
+plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle. 
                        col_fill,  # color for filling. 
                        col_brd = NA,
                        xlen = 1, ylen = 1,  # height of the axis lengths. 
@@ -22,6 +22,13 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
   
   
   ## Prepare inpust for vectorized solution? -----
+  len_max <- max(c(length(pos_y), length(pos_x)))  # get length of longer position vector. 
+  
+  # Recycle all vectors to length of longest vector:
+  pos_x <- rep(pos_x, length.out = len_max)
+  pos_y <- rep(pos_y, length.out = len_max)
+  xlen <- rep(xlen, length.out = len_max)
+  ylen <- rep(ylen, length.out = len_max)
   
   
   ## For rectangular shape: -----
@@ -35,7 +42,7 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
     #      # ...  # TODO: ... does not work?!
     # )
          
-    symbols(x = box_x, y = box_y, rectangles = cbind(xlen, ylen),
+    symbols(x = pos_x, y = pos_y, rectangles = cbind(xlen, ylen),
             add = TRUE,
             inches = FALSE,  # use unit on x axis.
             fg = col_brd,  # line color.
@@ -47,7 +54,7 @@ plot_shape <- function(box_x, box_y,  # midpoint of the rectangle.
   ## For circles:  -----
   if (shape == "circle") {
     
-    symbols(x = box_x, y = box_y, circles = xlen/2,  # only uses xlen! 
+    symbols(x = pos_x, y = pos_y, circles = xlen/2,  # only uses xlen! 
             add = TRUE, 
             inches = FALSE,  # use unit on x axis. 
             fg = col_brd,  # line color. 
@@ -121,8 +128,8 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
   ylen <- rep(ylen, length.out = len_x)
 
   ## Plotting:
-  plot_shape(box_x = pos_x,  # x positions of the shapes. 
-             box_y = ypos,  # position in y dimension (given). 
+  plot_shape(pos_x = pos_x,  # x positions of the shapes. 
+             pos_y = ypos,  # position in y dimension (given). 
              xlen = xlen, ylen = ylen,  # length of the axes. 
              col_fill = unlist(x),  # filling color. 
              shape = shape,  # shape parameter. 
@@ -140,6 +147,57 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
 ## TODO: 
 ## 1. Plotting multiple shapes (rectangles) for comparison; add numbers. 
 ## 2. Plot detailed color palettes, including names, hex and rgb. 
+
+
+## see_pal should work like the following: ------------
+yarrr::piratepal()
+
+
+op <- par(no.readonly = TRUE)  # get original plotting settings.
+
+palettes <- apropos("pal_")  # get all unikn palettes.
+
+pal_ls <- sapply(palettes, get)
+is_pal <- unlist(lapply(pal_ls, FUN = typeof) == "list")
+pal_ls <- pal_ls[is_pal]
+
+distance <- 0  # set distance. 
+
+
+max_len <- max(unlist(lapply(pal_ls, FUN = length)))
+
+## TODO: Enter xlength of boxes into calculation of xlim. 
+if (distance > 0) {
+  xlim <- c(0 - distance * max_len, max_len * (1 + distance))
+} else {
+  xlim <- c(0, max_len)
+}
+
+ylim <- length(pal_ls)  # determine ylim. 
+
+## Bind to index:
+pal_mat <- cbind(pal_ls, 1:length(pal_ls))
+
+
+## Set margins:
+par(mar = c(1, 6, 3, 0))
+
+plot(x = 0, type = "n", xlim = xlim, ylim = c(0, ylim),
+     xaxt = "n", yaxt = "n",  # hide axes.
+     xlab = "", ylab = "", main = "See all KN palettes",
+     bty = "n"
+     )  # create empty plot.
+
+apply(pal_mat, MAR = 1, FUN = function(row) {
+  print(row[[2]])
+  plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = 0.8, col_brd = "grey", lwd = 1)
+  })
+
+text(x = -1, y = 1:length(pal_ls), labels = gsub("pal_", "", palettes[is_pal]), pos = 2, xpd = TRUE)
+
+par(op)
+
+
 
 
 ## Original function using ggplot: --------------------------
