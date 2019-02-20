@@ -52,6 +52,6 @@ plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
 \code{\link{highlight}} to mark text with a colored box
 
 Other text functions: \code{\link{box_text}},
-  \code{\link{highlight}}
+  \code{\link{mark}}
 }
 \concept{text functions}

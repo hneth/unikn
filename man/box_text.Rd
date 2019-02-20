@@ -92,7 +92,7 @@ box_text(x = c(.30, .60), y = c(.20, .40),
 \seealso{
 \code{\link{highlight}} (reduced version) to mark text with a colored box
 
-Other text functions: \code{\link{highlight}},
+Other text functions: \code{\link{mark}},
   \code{\link{plot_box}}
 }
 \author{
