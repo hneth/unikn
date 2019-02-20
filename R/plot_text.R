@@ -4,12 +4,14 @@
 
 ## Plot text with formatting elements (marking/highlighting or underlining).
 
-## box_text: Add text with a colored background box to a plot: ------
+## [A]: Full versions (with abundant options): -------- 
+
+# (1) box_text: Add text with a colored background box to a plot: ------
 
 ## Adapted from Ian Kopacka's solution to a question at: 
 ## https://stackoverflow.com/questions/45366243/text-labels-with-background-colour-in-r
 
-## - Documentation: ---- 
+# - Documentation: ---- 
 
 #' \code{box_text} places 1 or more text strings (of a character vector \code{lbls}) 
 #' onto a plot and places a colored box behind
@@ -101,7 +103,7 @@
 #'                          
 #'                          
 
-## - Definition: ---- 
+# - Definition: ---- 
 
 box_text <- function(x, y, lbls = NA,               # coordinates and labels of text element(s) 
                      col_lbl = "black", col_bg = NA, col_bg_brd = NA,         # colors
@@ -131,7 +133,7 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
   cur_cex <- graphics::par('cex') * cex  # character expansion factor to use
   
   # Measure dimensions of text elements:
-  char_width <- graphics::strwidth(s = "n", cex = cur_cex, font = font)     # width of "n" 
+  char_width  <- graphics::strwidth(s = "n", cex = cur_cex, font = font)    # width of letter "n" 
   text_height <- graphics::strheight(s = lbls, cex = cur_cex, font = font)  # text height(s)
   text_width  <- graphics::strwidth(s = lbls, cex = cur_cex, font = font)   # text width(s)
   
@@ -174,17 +176,19 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
   x_mid <- x + (-adj[1] + 1/2) * text_width  + offset_vec[1]
   y_mid <- y + (-adj[2] + 1/2) * text_height + offset_vec[2]
   
-  # Draw rectangle(s):
+  # Compute dimensions of rectangle(s):  
   rect_width  <- (text_width  + (2 * padding[1] * char_width))
   rect_height <- (text_height + (2 * padding[2] * char_width))
-  graphics::rect(xleft   = x_mid - rect_width/2,
-                 ybottom = y_mid - rect_height/2,
-                 xright  = x_mid + rect_width/2,
-                 ytop    = y_mid + rect_height/2,
+  
+  # Draw rectangle(s):
+  graphics::rect(xleft   = (x_mid - rect_width/2),
+                 ybottom = (y_mid - rect_height/2),
+                 xright  = (x_mid + rect_width/2),
+                 ytop    = (y_mid + rect_height/2),
                  col     = col_bg, 
                  border  = col_bg_brd)
   
-  # Draw text lbls:
+  # Draw text lbl(s):
   graphics::text(x = x_mid, y = y_mid, labels = lbls, col = col_lbl, 
                  cex = cur_cex, font = font, adj = c(.5, .5))
   
@@ -199,8 +203,8 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
   
 } # box_text end.
 
-### Check: 
-
+# ## Check: 
+#
 # ## Example 1: Simple highlights 
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1))
 # box_text(x = 0, y = .9, lbls = "Something to notice", col_bg = unlist(seeblau))
@@ -222,12 +226,172 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
 #          col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
 
 
-## Reduced version (with fewer arguments):
+# (2) plot_text: Enhanced version of box_text (also supporting underlining): ------ 
+
+# - Definition: ---- 
+
+plot_text <- function(x, y, lbls = NA,               # coordinates and labels of text element(s) 
+                      col_lbl = "black", col_bg = NA, col_bg_brd = NA,         # colors
+                      adj = NULL, pos = 4, offset = 0, padding = c(.20, .80),  # positions 
+                      cex = 2, font = 2                                        # text size and font
+){
+  
+  ## Coordinates: ----
+  
+  if (missing(y)) {y <- x}  # use x as y if no y provided
+  
+  # Recycle coords if necessary:
+  if (length(x) != length(y)){
+    lx <- length(x)
+    ly <- length(y)
+    if (lx > ly){
+      y <- rep(y, ceiling(lx/ly))[1:lx]
+    } else {
+      x <- rep(x, ceiling(ly/lx))[1:ly]
+    }
+  }
+  
+  ## Text labels: ----
+  
+  # Interpret inputs:
+  cur_font <- graphics::par('font')
+  cur_cex <- graphics::par('cex') * cex  # character expansion factor to use
+  
+  # Measure dimensions of text elements:
+  char_width  <- graphics::strwidth(s = "n", cex = cur_cex, font = font)    # width of letter "n" 
+  text_height <- graphics::strheight(s = lbls, cex = cur_cex, font = font)  # text height(s)
+  text_width  <- graphics::strwidth(s = lbls, cex = cur_cex, font = font)   # text width(s)
+  
+  # Is 'adj' of length 1 or 2?
+  if (!is.null(adj)){
+    if (length(adj == 1)){
+      adj <- c(adj[1], 0.5)
+    }
+  } else {
+    adj <- c(0.5, 0.5)
+  }
+  
+  # Is 'pos' specified?
+  if (!is.null(pos)){
+    if (pos == 1){
+      adj <- c(0.5, 1)
+      offset_vec <- c(0, -offset * char_width)
+    } else if (pos == 2){
+      adj <- c(1, 0.5)
+      offset_vec <- c(-offset * char_width, 0)
+    } else if (pos == 3){
+      adj <- c(0.5, 0)
+      offset_vec <- c(0, offset * char_width)
+    } else if (pos == 4){
+      adj <- c(0, 0.5)
+      offset_vec <- c(offset * char_width, 0)
+    } else {
+      stop('Invalid argument pos')
+    }
+  } else {
+    offset_vec <- c(0, 0)
+  }
+  
+  # Padding for boxes:
+  if (length(padding) == 1){ # only 1 value provided: 
+    padding <- c(padding[1], padding[1])
+  }
+  
+  # Compute midpoints of text(s):
+  x_mid <- x + (-adj[1] + 1/2) * text_width  + offset_vec[1]
+  y_mid <- y + (-adj[2] + 1/2) * text_height + offset_vec[2]
+  
+  # Compute dimensions of rectangle(s):  
+  rect_width  <- (text_width  + (2 * padding[1] * char_width))
+  rect_height <- (text_height + (2 * padding[2] * char_width))
+  
+  mark <- FALSE  # debugging
+  
+  if (mark == TRUE) {
+    
+    # Draw rectangle(s):
+    graphics::rect(xleft   = (x_mid - rect_width/2),
+                   ybottom = (y_mid - rect_height/2),
+                   xright  = (x_mid + rect_width/2),
+                   ytop    = (y_mid + rect_height/2),
+                   col     = col_bg, 
+                   border  = col_bg_brd)
+    
+  }
+  
+  line <- TRUE  # debugging
+  
+  if (line == TRUE) {  
+    
+    # Line parameters:
+    cex_l <- 2    # constant scaling factor for line width
+    y_dn  <- (.5 * padding[2] * char_width)  # (.5 of rectangle border on bottom)
+    y_dn  <- .015 # fixed distance from text
+    
+    # Draw line(s):
+    graphics::segments(x0  = (x_mid - text_width/2),
+                       y0  = ((y_mid - text_height/2) - y_dn),
+                       x1  = (x_mid + text_width/2),
+                       y1  = ((y_mid - text_height/2) - y_dn),
+                       col = col_bg,
+                       lty = 1,
+                       lwd = (cex_l * par("lwd")),
+                       lend = 1  # line end style: 0: round (default), 1: butt, 2: square. 
+    )
+    
+  }
+  
+  # Draw text lbl(s):
+  graphics::text(x = x_mid, y = y_mid, labels = lbls, col = col_lbl, 
+                 cex = cur_cex, font = font, adj = c(.5, .5))
+  
+  # Return value(s):
+  if (length(x_mid) == 1){  # Coordinates of 1 rectangle: 
+    invisible(c(x_mid - rect_width/2, x_mid + rect_width/2, y_mid - rect_height/2,
+                y_mid + rect_height/2))
+  } else {  # Coordinates of rectangles:
+    invisible(cbind(x_mid - rect_width/2, x_mid + rect_width/2, y_mid - rect_height/2,
+                    y_mid + rect_height/2))
+  }
+  
+} # plot_text end.
+
+## +++ here now +++ 
+
+# ## Check: 
+
+# ## Example 1: Underlining text 
+
+# plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
+# 
+# plot_text(x = 0, y = .9, lbls = "Related matters", col_bg = pal_seeblau[[4]])
+# 
+# plot_text(x = 0, y = .6, lbls = "Underlining text can be straightforward", cex = 1.2, col_bg = pal_seeblau[[4]])
+# plot_text(x = 0, y = .5, lbls = "and strikingly effective", cex = 1.2, col_bg = pal_seeblau[[4]])
+# 
+# plot_text(x = .55, y = .1, lbls = "Please handle with care", cex = 1.0, col_lbl = "black", col_bg = pal_signal[[1]])
+
+# ## Example 2: Messy plot 
+# n <- 20
+# set.seed(1)
+# plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), axes = F, xlab = "", ylab = "")
+# 
+# # Adjust cex, font and adj:
+# plot_text(x = .05, y = .90, lbls = "What a messy plot",
+#          col_bg = seeblau[[1]], adj = c(0, 0), padding = c(.25, .85), cex = 2)
+# 
+# # Vector of 2 lbls, using argument 'pos' to position right of coordinates:
+# plot_text(x = c(.30, .60), y = c(.20, .40),
+#          lbls = c("Note something here", "Some highlighting here"),
+#          col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
 
 
-## (1) mark: Highlight text on a plot: -------- 
+## [B]: Reduced versions (with fewer options and sensible defaults): -------- 
 
-## - Documentation: ---- 
+
+# (1) mark: Highlight text on a plot: ------ 
+
+# - Documentation: ---- 
 
 #' \code{mark} places 1 or more text strings (of a character vector \code{lbls}) 
 #' onto a plot and places a colored box behind
@@ -292,11 +456,11 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
 #'                          
 #' @export 
 
-## - Definition: ---- 
+# - Definition: ---- 
 
 mark <- function(x, y, lbls = NA,                             # coordinates and labels of text element(s) 
-                      col_lbl = "black", col_bg = unlist(seeblau), # color(s)
-                      cex = 2, font = 2                            # text size and font
+                 col_lbl = "black", col_bg = unlist(seeblau), # color(s)
+                 cex = 2, font = 2                            # text size and font
 ){
   
   # Pass on (to richer box_text function):
@@ -332,13 +496,14 @@ mark <- function(x, y, lbls = NA,                             # coordinates and 
 
 
 
-## (2) line: Underline text on a plot: -------- 
+# (2) line: Underline text on a plot: ------ 
 
-## (3) post: Plot a post-it note with text: -------- 
+# (3) post: Plot a post-it note with text: ------ 
 
 ## Use the plot_box function.
 
-## (4) head: Arrange headings (according to specifications): -------- 
+# (4) head: Arrange headings (according to specifications): ------ 
+
 
 ## ToDo: ------
 
