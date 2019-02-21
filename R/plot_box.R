@@ -1,5 +1,5 @@
 ## plot_box.R | unikn
-## hn  |  uni.kn |  2019 02 20
+## hn  |  uni.kn |  2019 02 21
 ## ---------------------------
 
 ## Plot blue box etc.
@@ -80,6 +80,8 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
                      lbl_y = .65  # fraction in [0, 1] that determines y-value of top line of text (max. of 1 corresponds to 80% of box) 
 ) {
   
+  ## (1) Plot a box (as a new plot): -----
+  
   ## Preamble: ----- 
   
   ## Record graphical parameters (par):
@@ -92,29 +94,15 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
   mar_all <- 0  # all inner
   oma_all <- 0  # all outer
   oma_l   <- 0  # left
-    
+  
   par(mar = c(0, 0, 0, 0) + mar_all)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
   par(oma = c(0, oma_l, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
   # par(omd = c(0, 0, 1, 1))
   
-  ## Plot empty canvas:
+  ## Plot empty canvas: 
   # plot(0, 0, type = "n", xlim = c(0,1), ylim = c(0,1), 
   #      bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
   plot.new()
-  
-  
-  ## WAS: Calling riskyr helper function plot_cbox: -----
-  # 
-  # plot_cbox(.5, .5, 1, 1, # box coordinates and dimension
-  #           lty = 0,  # no border line
-  #           col_fill = col_bg, 
-  #           lbl = lbl, 
-  #           family = "sans", 
-  #           font = font, 
-  #           adj = 0, 
-  #           cex = cur_cex)
-  
-  ## Plot box: -----
   
   # Box parameters:
   x_left <- 0
@@ -134,10 +122,10 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
        # ...  # etc. 
   )
   
-  ## Mark X (in top right corner): ----- 
+  ## Plot an "x" (in top right corner): ----- 
   
-  # X parameters: 
-  p1 <- .85
+  # Parameters of "x" (coordinates): 
+  p1 <- .85  # (fractions of 1)
   p2 <- .95
   
   # Draw segments:
@@ -145,7 +133,8 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
            x1 = c(p2, p2), y1 = c(p2, p1),
            col = "white", lty = 1, lwd = 1.41)
   
-  ## Text labels: -----
+  
+  ## (2) Add text labels (to existing plot): -----
   
   ## Interpret inputs:
   # cur_font <- graphics::par('font')
@@ -175,7 +164,8 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
   graphics::text(x = lbl_x, y = lbl_y_scaled, labels = all_lbls, 
                  col = col_lbl, cex = cur_cex, font = font, adj = c(0, 1))
   
-  ## Exit: ----- 
+  ## (3) Exit: ----- 
+  
   on.exit(par(opar)) # restore original settings
   invisible() # restores par(opar)
   
@@ -198,28 +188,260 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
 # plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 #
 # # Box with contact details:
-# plot_box(lbls = c("Dr. Hansjörg Neth", " ",
+# plot_box(lbls = c("Dr. B. F. Skinner", " ",
 #                   "Department of Psychology",
-#                   "Office D507",
-#                   "Tel.: +49 7531 88-2972",
-#                   "Fax: +49 7531 88-5288",
-#                   "h.neth@uni-konstanz.de"),
-#          lbl_x = .03, lbl_y = .73, 
+#                   "Office F101",
+#                   "Tel.: +49 7531 88-0815",
+#                   "Fax: +49 7531 88-0816",
+#                   "b.skin@uni-konstanz.de"),
+#          lbl_x = .03, lbl_y = .73,
 #          font = 1, cex = 1.0, col_bg = pal_Bordeaux[[4]])
 
+## plot_box_exp: Expert/experimental version that plots ONLY a colored box with "x" (but NO text): -----
 
-## ToDo:
-# - do not combine labels into 1, to allow using a different fonts (and colors) for different character strings:
-#   Instead: Use coordinates for 1st line and place subsequent lines based on text heights (of each string).
+## Note that plot_box_exp is an experimental function, intended for expert users.
+
+# - Definition: ----
+
+plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
+                         ## Expert uses: 
+                         # - Parameters for box:
+                         box_dim = c(0, 0, 1, 1),  # Box dimensions: As c(xleft, ybottom, xright, ytop), as in rect() function 
+                         # - Parameters for "x": 
+                         x_col = "white",
+                         x_cex = .10,   # size of "x" (as an expansion factor)
+                         x_dis = .025,  # distance of "x" from box border (as a fraction of box size)
+                         x_lwd = 1.2,   # lwd of "x" segements
+                         # - Other stuff:
+                         grid = FALSE  # 4debugging
+) {
+  
+  ## (0) Interpret inputs: -----
+  
+  # Box parameters:
+  # box_dim <- c(0, 0, 1, 1) # xleft ybottom xright ytop (as in rect)
+  
+  box_left  <- box_dim[1]
+  box_bot   <- box_dim[2]
+  box_right <- box_dim[3]
+  box_top   <- box_dim[4]
+  
+  box_width  <- (box_right - box_left)
+  box_height <- (box_top - box_bot)
+  
+  # "x" parameters: 
+  x_dis <- x_dis * min(box_width, box_height)  # scale x_dis with box size 
+  
+  ## (1) Create a new plot: -----
+  
+  ## Preamble: ----- 
+  
+  ## Record graphical parameters (par):
+  opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
+  on.exit(par(opar)) # restore original settings
+  
+  ## Plotting area: ----- 
+  
+  ## Margins (in lines): 
+  mar_all <- 0  # all inner
+  oma_all <- 0  # all outer
+  oma_l   <- 0  # left
+  
+  par(mar = c(0, 0, 0, 0) + mar_all)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
+  par(oma = c(0, oma_l, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
+  # par(omd = c(0, 0, 1, 1))
+  
+  ## Plot empty canvas: 
+  ## (a) Original: 
+  # plot.new()
+  
+  ## (b) Box fills entire canvas: 
+  # plot(0, 0, type = "n", xlim = c(box_left, box_right), ylim = c(box_bot, box_top), 
+  #      bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
+  
+  # (c) Canvas begins at origin (0, 0), even when box_left or box_right are larger:
+  x_min <- min(0, box_left)
+  x_max <- box_right
+  y_min <- min(0, box_bot)
+  y_max <- box_top
+  
+  plot(0, 0, type = "n", xlim = c(x_min, x_max), ylim = c(y_min, y_max), 
+       bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
+  
+  
+  ## Draw a grid of plot points:
+  
+  # grid <- TRUE  # 4debugging
+  
+  if (grid) {
+    
+    points(0, 0, pch = 1, col = grey(.01, .50), cex = 2)  # mark origin
+    
+    ## Plot grid of points:
+    grid_x <- rep(seq(x_min, x_max, by = 1), times = length(seq(y_min, y_max, by = 1)))  # x/horizontal
+    grid_y <- rep(seq(y_min, y_max, by = 1), each =  length(seq(x_min, x_max, by = 1)))  # y/vertical
+    points(grid_x, grid_y, pch = 3, col = grey(.66, .50), cex = 3/4)                     # plot grid points
+    
+  }
+  
+  ## Determine plot aspect ratio (for scaling purposes):
+  plot_xy <- dev.size("in")            # use EITHER par("pin") OR dev.size("in")
+  plot_ratio <- plot_xy[1]/plot_xy[2]  # current aspect ratio
+  scale_x <- 1/plot_ratio              # multiplicative correction factor (for x-widths)
+  # print(scale_x)  # 4debugging
+  
+  
+  ## (2) Plot a colored box (using rect): ----- 
+  
+  # Draw rectangle:
+  rect(xleft = box_left, ybottom = box_bot, xright = box_right, ytop = box_top,
+       col = col, 
+       lty = 0,  # ensure absence of border line (a)
+       lwd = NA  # ensure absence of border line (b)
+       # border = col_brd,
+       # density = density,
+       # angle = angle,
+       # lwd = lwd
+       # ...  # etc. 
+  )
+  
+  ## (3) Plot an "x" (in top right corner): ----- 
+  
+  ## (a) If box is a square: 
+  
+  # # Parameters of "x" (coordinates): 
+  # p1 <- .85  # (fractions of 1)
+  # p2 <- .95
+  # 
+  # # Draw segments:
+  # segments(x0 = c(p1, p1), y0 = c(p1, p2), 
+  #          x1 = c(p2, p2), y1 = c(p2, p1),
+  #          col = "white", lty = 1, lwd = 1.41)
+  
+  ## (b) For any box dimension: 
+  
+  # Size of "x":
+  
+  # Parameters:
+  # x_cex <- .10
+  # x_dis <- .04
+  
+  ## Size of "x": 
+  # x_corr   <- (box_width/box_height) # correction factor for reducing length of diagonal (when x_cex = 1).
+  # x_size   <- (x_cex * min(box_width, box_height)) - (2 * x_dis)
+  # x_height <- (x_size * 1)
+  # x_width  <- (x_size * scale_x) * (box_width/box_height)  # scaled TWICE!
+  # x_width  <- (x_size * scale_x)  # scaled once!
+  
+  # x_height <- (x_cex * box_height) -  (2 * x_dis)     # account for x_dis (as a constant size)
+  # x_height <- (x_cex * (box_height)) - (2 * x_dis * box_height)     # account for x_dis (as a fraction of box_height)
+  x_height <- (x_cex * box_height)  # -  (2 * x_dis)  # independent of x_dis
+  
+  x_width  <- (x_height * scale_x)  # scaled height!
+  
+  # Distance of "x" from border: 
+  dist_top   <- (x_dis * 1)
+  # dist_right <- (x_dis * scale_x) * (box_width/box_height)  # scaled TWICE!
+  # dist_right <- (x_dis * scale_x)  # scaled once!
+  
+  dist_right <- (dist_top * scale_x)  # scaled dist_top!
+  
+  # Parameters of "x" endpoints: 
+  x0_a <- (box_right - dist_right - x_width)
+  y0_a <- (box_top - dist_top - x_height)
+  x1_a <- (box_right - dist_right)
+  y1_a <- (box_top - dist_top)
+  
+  # Draw segments:
+  # # (a) "/"  
+  # segments(x0 = x0_a, y0 = y0_a, 
+  #          x1 = x1_a, y1 = y1_a,
+  #          col = x_col, lty = 1, lwd = 1.41)
+  # 
+  # # (b) "\"
+  # segments(x0 = x0_a, y0 = y1_a, 
+  #          x1 = x1_a, y1 = y0_a,
+  #          col = x_col, lty = 1, lwd = 1.41)
+  
+  # (c) Entire "x" at once:
+  segments(x0 = c(x0_a, x0_a), y0 = c(y0_a, y1_a), 
+           x1 = c(x1_a, x1_a), y1 = c(y1_a, y0_a),
+           col = x_col, lty = 1, lwd = x_lwd)
+  
+  
+  ## (3) Exit: ----- 
+  
+  on.exit(par(opar)) # restore original settings
+  invisible() # restores par(opar)
+  
+}
+
+## Check:
+
+# ## Basic uses: ---- 
+# # plot_box_exp(col = unlist(Bordeaux))
+# plot_box_exp(col = unlist(karpfenblau))
+# 
+# ## Expert uses: ---- 
+# 
+# # Assuming a square canvas: 
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_cex = .10)  # square box in upper right corner
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_cex = 1)    # square box (in upper right) with max "x"
+# 
+# # Test calls:
+# # Assuming non-square canvases: 
+# plot_box_exp(box_dim = c(5, 5, 15, 10), x_cex = 1, grid = TRUE)  # box wider than high (in upper right) with max "x"
+# plot_box_exp(box_dim = c(5, 5, 10, 15), x_cex = 1, grid = TRUE)  # box higher than wide (in upper right) with max "x"
+# # Note: "x" appears orthogonal when grid is evenly spaced (i.e., dimensions of display device match plotting region). 
+# 
+# # Assuming a square canvas: 
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 0, x_col = "red3", x_cex = 1)
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 0, x_col = "red3", x_cex = 1, x_lwd = 3)
+# 
+# # Varying x_dis: 
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 0/4, x_col = "red3", x_cex = 1, x_lwd = 3, grid = TRUE)
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 1/4, x_col = "red3", x_cex = 1, x_lwd = 3, grid = TRUE)
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 1/2, x_col = "red3", x_cex = 1, x_lwd = 3, grid = TRUE)
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 1/1, x_col = "red3", x_cex = 1, x_lwd = 3, grid = TRUE)
+
+
+
+## box: Simple version of plot_box_exp function: ------ 
+
+box <- function(col = unlist(seeblau)) {
+  
+  # Call expert function (with sensible defaults):
+  plot_box_exp(col = col)
+  
+}
+
+## Check:
+# box()
+# box(col = unlist(seegruen))
+
+# +++ here now +++
+
+## ToDo: 
+# Adopt a more modular approach: 
+# 1 - Plot a colored box without text (as full expert vs. naive user function).
+# 2 - Plot text into an existing box with a dedicated plot_text function.
+# 3 - Do NOT combine labels into 1, to allow using a different fonts (and colors) for different character strings:
+#     Instead: Use coordinates for 1st line and place subsequent lines based on text heights (of each string).
 
 # plot_box(lbls = c("Plakativ und sachlich", "Hier steht etwas, das ich mir merken muss."), font = c(2, 1))  # fails to work (as labels are combined into 1)
 # plot_box(lbls = c("Plakativ und sachlich", "Hier steht etwas, das ich mir merken muss."), cex = c(1, 2)) # fails to work (as cex are not applied)
 
+## plot_txt: Plot lines of text (into an existing plot): -------- 
 
 
-## plot_txt: Plot lines of text. -------- 
 
+## Test: Testbed for code above: ------ 
 
+# # Aspect ratio of current plot:
+# plot_xy <- par("pin")                # use par("pin") OR dev.size("in")
+# plot_ratio <- plot_xy[1]/plot_xy[2]  # current aspect ratio
+# scale_x <- 1/plot_ratio              # multiplicative correction factor (for x-widths)
+# scale_x
 
 ## ToDo: ------
 

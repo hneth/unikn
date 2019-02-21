@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 02 20
+## hn  |  uni.kn |  2019 02 21
 ## ---------------------------
 
 ## Plot text with formatting elements (marking/highlighting or underlining).
@@ -228,6 +228,15 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
 
 # (2) plot_text: Enhanced version of box_text (also supporting underlining): ------ 
 
+# plot_text: Uber function that can do many kinds of things:
+
+# - plot boxes (to a new plotting device, resetting margins): use a DIFFERENT function!
+# - plot text to (existing) plots
+# - measure character strings to mark and underline them
+
+# Note: Distinguish between functions that generate NEW plots (like plot_box, box, ...)
+#       and functions that add objects (like text) to existing plots!
+
 # - Definition: ---- 
 
 plot_text <- function(x, y, lbls = NA,               # coordinates and labels of text element(s) 
@@ -259,13 +268,15 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
   
   if (box) {
     
+    ## Plot a box (as a new plot): -----
+    
     ## Preamble: ----- 
     
     ## Record graphical parameters (par):
     opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
     on.exit(par(opar)) # restore original settings
     
-    
+  
     ## Plotting area: ----- 
     
     ## Margins (in lines): 
@@ -301,10 +312,10 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
          # ...  # etc. 
     )
     
-    ## Mark X (in top right corner): ----- 
+    ## Plot an "x" (in top right corner): ----- 
     
-    # X parameters: 
-    p1 <- .85
+    # Parameters of "x" (coordinates): 
+    p1 <- .85  # (fractions of 1)
     p2 <- .95
     
     # Draw segments:
@@ -616,6 +627,47 @@ mark <- function(x, y, lbls = NA,                             # coordinates and 
 ## Use the plot_box function.
 
 # (4) head: Arrange headings (according to specifications): ------ 
+
+
+## Test: Testbed for code snippets (used above) ------
+
+## 1. Is there an open plot? Does already some plot exist? ----- 
+
+# # See 
+# dev.list() # for a list of current devices
+# dev.cur() # evaluates to 1 if null device (no plot).
+# 
+# # A solution: 
+# if (dev.cur() == 1) {
+#   "NO plot exists"  # no graphics device open (null device)
+# } else {
+#   "A plot exists"
+# }  
+  
+
+# ## 2. Are cex and strwidth functions vectorized? -----  
+# plot.new()
+# # cex vectors:
+# text(x = 0, y = c(.8, .5, .2), labels = c("A", "B", "C"), cex = c(1, 2, 3))
+# text(x = 0, y = c(.2, .5, .8), labels = c("A", "B", "C"), cex = c(1, 2, 3))
+# 
+# # font vectors:
+# text(x = .2, y = c(.8, .5, .2), labels = c("A", "B", "C"), font = c(1, 2, 4))
+# 
+# # cex & font vectors:
+# text(x = .4, y = c(.8, .5, .2), labels = c("A", "B", "C"), cex = c(1, 2, 3), font = c(1, 2, 4))
+# 
+# # strwidth:
+# strwidth(s = "x", cex = c(1, 2, 3))  # only returns 1st value
+# strwidth(s = "x", cex = c(1))
+# strwidth(s = "x", cex = c(2))
+# strwidth(s = "x", cex = c(3))
+# 
+# # To get char width values for multiple cex :
+# cex_vals <- c(1, 2, 3)
+# char_width <- strwidth(s = "x", cex = 1) # get for cex = 1
+# char_cex <- char_width * cex_vals        # multiply with cex_vals
+# char_cex
 
 
 ## ToDo: ------
