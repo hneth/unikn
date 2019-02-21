@@ -28,6 +28,8 @@ The package contains 3 main types of objects:
 2.  Text commands (for highlighting, underlining strings of text)
 3.  Graphical functions and themes (for plotting boxes and scientific visualizations)
 
+Please use responsibly!
+
 Installation
 ------------
 
@@ -325,7 +327,7 @@ Key text functions include:
 
 <img src = "./inst/pix/box_R.png"       alt = "R" width = "150px" style = "width: 150px; border:10;"/> <img src = "./inst/pix/todo_pinky4.png" alt = "ToDo" width = "150px" style = "width: 150px; border:10;"/> <img src = "./inst/pix/box_unikn.png"   alt = "unikn::" width = "150px" style = "width: 150px; border:10;"/>
 
-Note that text is rendered graphically and does not scale. Hence, to preserve the crisp look of the original, boxes should be viewed in the desired size (in R) and then displayed without further scaling:
+Note that text is rendered graphically and does not scale when merely re-sizing bitmap images. Hence, to preserve the crisp look of the original plots, plots should be generated and viewed in the desired size (in R) and displayed without further scaling (in other media):[2]
 
 <img src = "./inst/pix/hn_petrol4.png"  alt = "hn" width = "250px" style = "width: 250px; border:10;"/>
 
@@ -361,8 +363,10 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-02-20 by [hn](https://neth.de).\]
+\[Updated 2019-02-21 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 
 [1] Whereas the official definition does not identify a preferred color for the Ampel color palette (`pal_signal`), we provide its alert color (i.e., `pal_signal[2]`) as a designated color `signal`.
+
+[2] Depending on the designated output format, scaling down (to smaller image sizes) is possible, whereas scaling up (to bigger image sizes) incurs loss of image quality.

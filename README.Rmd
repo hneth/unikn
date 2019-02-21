@@ -43,8 +43,7 @@ Its key component is the consistent use of a `seeblau` color and a corresponding
 <!-- Goals of unikn pgk: --> 
 
 The `unikn` package aims to facilitate the use of some design elements for users of [R](https://www.r-project.org/). 
-While the correct use of default specifications should be simple and straightforward, 
-we also allow some flexibility for expert users (e.g., for the creation of scientific visualizations). 
+While the correct use of default specifications should be simple and straightforward, we also allow some flexibility for expert users (e.g., for the creation of scientific visualizations). 
 
 <!-- Overview: --> 
 
@@ -53,6 +52,8 @@ The package contains 3 main types of objects:
 1. Colors, color palettes, and related functions
 2. Text commands (for highlighting, underlining strings of text)
 3. Graphical functions and themes (for plotting boxes and scientific visualizations)
+
+Please use responsibly! 
 
 ## Installation
 
@@ -360,10 +361,12 @@ Key text functions include:
 <img src = "./inst/pix/todo_pinky4.png" alt = "ToDo" width = "150px" style = "width: 150px; border:10;"/>
 <img src = "./inst/pix/box_unikn.png"   alt = "unikn::" width = "150px" style = "width: 150px; border:10;"/>
 
-Note that text is rendered graphically and does not scale. Hence, to preserve the crisp look of the original, boxes should be viewed in the desired size (in R) and then displayed without further scaling:
+Note that text is rendered graphically and does not scale when merely re-sizing bitmap images. 
+Hence, to preserve the crisp look of the original plots, plots should be generated and viewed in the desired size (in R) and displayed without further scaling (in other media):[^2] 
 
 <img src = "./inst/pix/hn_petrol4.png"  alt = "hn" width = "250px" style = "width: 250px; border:10;"/> 
 
+[^2]: Depending on the designated output format, scaling down (to smaller image sizes) is possible, whereas scaling up (to bigger image sizes) incurs loss of image quality. 
 
 
 
