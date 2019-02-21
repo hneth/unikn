@@ -46,7 +46,7 @@
 #' @family text functions
 #' 
 #' @seealso
-#' \code{\link{highlight}} to mark text with a colored box  
+#' \code{\link{mark}} to mark text with a colored box  
 #' 
 #' @examples
 #' plot_box(lbls = "A heading appears here.")
@@ -187,15 +187,15 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
 # plot_box(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
 # plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 #
-# # Box with contact details:
+## Box with address/contact details:
 # plot_box(lbls = c("Dr. B. F. Skinner", " ",
 #                   "Department of Psychology",
 #                   "Office F101",
 #                   "Tel.: +49 7531 88-0815",
-#                   "Fax: +49 7531 88-0816",
+#                   "Fax: +49 7531 88-0810",
 #                   "b.skin@uni-konstanz.de"),
 #          lbl_x = .03, lbl_y = .73,
-#          font = 1, cex = 1.0, col_bg = pal_Bordeaux[[4]])
+#          font = 1, cex = 1.0, col_bg = pal_petrol[[4]])
 
 ## plot_box_exp: Expert/experimental version that plots ONLY a colored box with "x" (but NO text): -----
 
@@ -207,13 +207,17 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
                          ## Expert uses: 
                          # - Parameters for box:
                          box_dim = c(0, 0, 1, 1),  # Box dimensions: As c(xleft, ybottom, xright, ytop), as in rect() function 
+                         lty =  0,   #  Default: lty =  0: ensure absence of border line (a)
+                         lwd = NA,   #  Default: lwd = NA: ensure absence of border line (b)
                          # - Parameters for "x": 
                          x_col = "white",
                          x_cex = .10,   # size of "x" (as an expansion factor)
                          x_dis = .025,  # distance of "x" from box border (as a fraction of box size)
                          x_lwd = 1.2,   # lwd of "x" segements
                          # - Other stuff:
-                         grid = FALSE  # 4debugging
+                         cross = TRUE,  # plot "x" (in top-right corner)  
+                         grid = FALSE,  # 4debugging
+                         ...  # etc. (passed to rect, not segments)
 ) {
   
   ## (0) Interpret inputs: -----
@@ -296,78 +300,80 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
   # Draw rectangle:
   rect(xleft = box_left, ybottom = box_bot, xright = box_right, ytop = box_top,
        col = col, 
-       lty = 0,  # ensure absence of border line (a)
-       lwd = NA  # ensure absence of border line (b)
+       lty = lty,  #  Default: lty =  0: ensure absence of border line (a)
+       lwd = lwd,  #  Default: lwd = NA: ensure absence of border line (b)
        # border = col_brd,
        # density = density,
        # angle = angle,
-       # lwd = lwd
-       # ...  # etc. 
+       ...  # etc. 
   )
   
   ## (3) Plot an "x" (in top right corner): ----- 
   
-  ## (a) If box is a square: 
-  
-  # # Parameters of "x" (coordinates): 
-  # p1 <- .85  # (fractions of 1)
-  # p2 <- .95
-  # 
-  # # Draw segments:
-  # segments(x0 = c(p1, p1), y0 = c(p1, p2), 
-  #          x1 = c(p2, p2), y1 = c(p2, p1),
-  #          col = "white", lty = 1, lwd = 1.41)
-  
-  ## (b) For any box dimension: 
-  
-  # Size of "x":
-  
-  # Parameters:
-  # x_cex <- .10
-  # x_dis <- .04
-  
-  ## Size of "x": 
-  # x_corr   <- (box_width/box_height) # correction factor for reducing length of diagonal (when x_cex = 1).
-  # x_size   <- (x_cex * min(box_width, box_height)) - (2 * x_dis)
-  # x_height <- (x_size * 1)
-  # x_width  <- (x_size * scale_x) * (box_width/box_height)  # scaled TWICE!
-  # x_width  <- (x_size * scale_x)  # scaled once!
-  
-  # x_height <- (x_cex * box_height) -  (2 * x_dis)     # account for x_dis (as a constant size)
-  # x_height <- (x_cex * (box_height)) - (2 * x_dis * box_height)     # account for x_dis (as a fraction of box_height)
-  x_height <- (x_cex * box_height)  # -  (2 * x_dis)  # independent of x_dis
-  
-  x_width  <- (x_height * scale_x)  # scaled height!
-  
-  # Distance of "x" from border: 
-  dist_top   <- (x_dis * 1)
-  # dist_right <- (x_dis * scale_x) * (box_width/box_height)  # scaled TWICE!
-  # dist_right <- (x_dis * scale_x)  # scaled once!
-  
-  dist_right <- (dist_top * scale_x)  # scaled dist_top!
-  
-  # Parameters of "x" endpoints: 
-  x0_a <- (box_right - dist_right - x_width)
-  y0_a <- (box_top - dist_top - x_height)
-  x1_a <- (box_right - dist_right)
-  y1_a <- (box_top - dist_top)
-  
-  # Draw segments:
-  # # (a) "/"  
-  # segments(x0 = x0_a, y0 = y0_a, 
-  #          x1 = x1_a, y1 = y1_a,
-  #          col = x_col, lty = 1, lwd = 1.41)
-  # 
-  # # (b) "\"
-  # segments(x0 = x0_a, y0 = y1_a, 
-  #          x1 = x1_a, y1 = y0_a,
-  #          col = x_col, lty = 1, lwd = 1.41)
-  
-  # (c) Entire "x" at once:
-  segments(x0 = c(x0_a, x0_a), y0 = c(y0_a, y1_a), 
-           x1 = c(x1_a, x1_a), y1 = c(y1_a, y0_a),
-           col = x_col, lty = 1, lwd = x_lwd)
-  
+  if (cross) {
+    
+    ## (a) If box is a square: 
+    
+    # # Parameters of "x" (coordinates): 
+    # p1 <- .85  # (fractions of 1)
+    # p2 <- .95
+    # 
+    # # Draw segments:
+    # segments(x0 = c(p1, p1), y0 = c(p1, p2), 
+    #          x1 = c(p2, p2), y1 = c(p2, p1),
+    #          col = "white", lty = 1, lwd = 1.41)
+    
+    ## (b) For any box dimension: 
+    
+    # Size of "x":
+    
+    # Parameters:
+    # x_cex <- .10
+    # x_dis <- .04
+    
+    ## Size of "x": 
+    # x_corr   <- (box_width/box_height) # correction factor for reducing length of diagonal (when x_cex = 1).
+    # x_size   <- (x_cex * min(box_width, box_height)) - (2 * x_dis)
+    # x_height <- (x_size * 1)
+    # x_width  <- (x_size * scale_x) * (box_width/box_height)  # scaled TWICE!
+    # x_width  <- (x_size * scale_x)  # scaled once!
+    
+    # x_height <- (x_cex * box_height) -  (2 * x_dis)     # account for x_dis (as a constant size)
+    # x_height <- (x_cex * (box_height)) - (2 * x_dis * box_height)     # account for x_dis (as a fraction of box_height)
+    x_height <- (x_cex * box_height)  # -  (2 * x_dis)  # independent of x_dis
+    
+    x_width  <- (x_height * scale_x)  # scaled height!
+    
+    # Distance of "x" from border: 
+    dist_top   <- (x_dis * 1)
+    # dist_right <- (x_dis * scale_x) * (box_width/box_height)  # scaled TWICE!
+    # dist_right <- (x_dis * scale_x)  # scaled once!
+    
+    dist_right <- (dist_top * scale_x)  # scaled dist_top!
+    
+    # Parameters of "x" endpoints: 
+    x0_a <- (box_right - dist_right - x_width)
+    y0_a <- (box_top - dist_top - x_height)
+    x1_a <- (box_right - dist_right)
+    y1_a <- (box_top - dist_top)
+    
+    # Draw segments:
+    # # (a) "/"  
+    # segments(x0 = x0_a, y0 = y0_a, 
+    #          x1 = x1_a, y1 = y1_a,
+    #          col = x_col, lty = 1, lwd = 1.41)
+    # 
+    # # (b) "\"
+    # segments(x0 = x0_a, y0 = y1_a, 
+    #          x1 = x1_a, y1 = y0_a,
+    #          col = x_col, lty = 1, lwd = 1.41)
+    
+    # (c) Entire "x" at once:
+    segments(x0 = c(x0_a, x0_a), y0 = c(y0_a, y1_a), 
+             x1 = c(x1_a, x1_a), y1 = c(y1_a, y0_a),
+             col = x_col, lty = 1, lwd = x_lwd)
+    
+  } # if (cross) etc. 
   
   ## (3) Exit: ----- 
   
@@ -385,13 +391,13 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 # ## Expert uses: ---- 
 # 
 # # Assuming a square canvas: 
-# plot_box_exp(box_dim = c(5, 5, 10, 10), x_cex = .10)  # square box in upper right corner
-# plot_box_exp(box_dim = c(5, 5, 10, 10), x_cex = 1)    # square box (in upper right) with max "x"
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_cex = .10, grid = TRUE)  # square box in upper right corner
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_cex = 1, grid = TRUE)    # square box (in upper right) with max "x"
 # 
 # # Test calls:
 # # Assuming non-square canvases: 
-# plot_box_exp(box_dim = c(5, 5, 15, 10), x_cex = 1, grid = TRUE)  # box wider than high (in upper right) with max "x"
-# plot_box_exp(box_dim = c(5, 5, 10, 15), x_cex = 1, grid = TRUE)  # box higher than wide (in upper right) with max "x"
+# plot_box_exp(box_dim = c(5, 5, 15, 10), x_cex = 1, x_dis = 0, grid = TRUE)  # box wider than high (in upper right) with max "x"
+# plot_box_exp(box_dim = c(5, 5, 10, 15), x_cex = 1, x_dis = 0, grid = TRUE)  # box higher than wide (in upper right) with max "x"
 # # Note: "x" appears orthogonal when grid is evenly spaced (i.e., dimensions of display device match plotting region). 
 # 
 # # Assuming a square canvas: 
@@ -405,19 +411,46 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 # plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 1/1, x_col = "red3", x_cex = 1, x_lwd = 3, grid = TRUE)
 
 
+## xbox: Plot a colored box with "x" (a simple version of plot_box_exp): ------ 
 
-## box: Simple version of plot_box_exp function: ------ 
-
-box <- function(col = unlist(seeblau)) {
+xbox <- function(col = unlist(seeblau)#, 
+                 # ...  # etc. 
+) {
   
   # Call expert function (with sensible defaults):
-  plot_box_exp(col = col)
+  plot_box_exp(col = col#, 
+               # ...  # etc.
+  )
   
 }
 
 ## Check:
-# box()
-# box(col = unlist(seegruen))
+# xbox()
+# xbox(col = unlist(seegruen))
+# xbox(col = unlist(Bordeaux))
+
+
+## frame: Plot a colored frame without "x": (a simple version of plot_box_exp): ------ 
+
+frame <- function(col = NA,
+                  border = grey(.33, 1),
+                  lwd = 1.5){
+  
+  # Call expert function (with sensible defaults):
+  plot_box_exp(col = col,
+               border = border,
+               lty = 1,
+               lwd = lwd,
+               cross = FALSE
+               # ...  # etc.
+  )
+  
+}
+
+
+## Check:
+# frame()  # default
+# frame(col = unlist(pal_seeblau[[1]]), lwd = 0)  # simple variant
 
 # +++ here now +++
 

@@ -61,7 +61,7 @@ plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
         
 }
 \seealso{
-\code{\link{highlight}} to mark text with a colored box
+\code{\link{mark}} to mark text with a colored box
 
 Other text functions: \code{\link{box_text}},
   \code{\link{mark}}

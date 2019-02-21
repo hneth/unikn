@@ -97,7 +97,7 @@
 #' @family text functions
 #' 
 #' @seealso
-#' \code{\link{highlight}} (reduced version) to mark text with a colored box  
+#' \code{\link{mark}} (reduced version) to mark text with a colored box  
 #'                 
 #' @import graphics 
 #'                          
@@ -239,105 +239,76 @@ box_text <- function(x, y, lbls = NA,               # coordinates and labels of 
 
 # - Definition: ---- 
 
-plot_text <- function(x, y, lbls = NA,               # coordinates and labels of text element(s) 
-                      col_lbl = NA, col_bg = NA, col_bg_brd = NA,         # colors
-                      adj = NULL, pos = 4, offset = 0, padding = c(.20, .80),  # positions 
+plot_text <- function(x = 0, y = .5,      # coordinates of text lbls 
+                      lbls = NA,          # labels of text element(s) 
+                      col = NA,           # col of lbls 
+                      # bg parameters:
+                      xbox = FALSE, frame = FALSE,  # flags to create new plot
+                      col_bg = NA,                  # col of bg (box or frame) 
+                      col_border = grey(.33, 1),    # col of bg border (frame)
+                      lwd_bg = 1.5,                 # lwd of bg (frame)
+                      # text parameters:
                       cex = 2, font = 2,                                       # text size and font
-                      box = FALSE, mark = FALSE, line = FALSE, txt = TRUE      # Boolean flags
+                      adj = NULL, pos = 4, offset = 0, padding = c(.20, .80),  # positions 
+                      mark = FALSE, line = FALSE,                              # flags for text decoration
+                      # other stuff: 
+                      ...  # etc.
 ){
   
   ## Sensible defaults (for robustness): ----
   
-  # col_lbl: 
-  if (is.na(col_lbl) && box) { col_lbl <- "white"}
-  if (is.na(col_lbl) && txt) { col_lbl <- "black"} 
+  # col (of lbls): 
+  if ( is.na(col) && xbox) {col <- "white"}
+  if ( is.na(col) && any(!is.na(lbls)) ) { col <- "black"} 
   
   # col_bg: 
-  if (is.na(col_bg) && box)  { col_bg <- pal_seeblau[[3]]}
+  if (is.na(col_bg) && xbox) { col_bg <- pal_seeblau[[3]]}
   if (is.na(col_bg) && mark) { col_bg <- pal_seeblau[[3]]}
   if (is.na(col_bg) && line) { col_bg <- pal_seeblau[[4]]}  
-
   
-  ## Plot box (if desired): ----
   
-  # 1. box: plot blue box (with "x"): ---- 
+  ## Generate a new plot (if desired or needed): ----
   
-  # box <- FALSE  # 4debugging
-  
-  # +++ here now +++ 
-  
-  if (box) {
+  if (xbox) { # plot xbox:
     
-    ## Plot a box (as a new plot): -----
+    # message("Plotting desired xbox...") 
+    xbox(col = col_bg)    
     
-    ## Preamble: ----- 
+  } else if (frame) {  # plot frame:
     
-    ## Record graphical parameters (par):
-    opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
-    on.exit(par(opar)) # restore original settings
+    # message("Plotting desired frame...") 
+    frame(col = col_bg, border = col_border, lwd = lwd_bg)
     
-  
-    ## Plotting area: ----- 
+  } else if (dev.cur() == 1) {  # no graphics device open (null device)
     
-    ## Margins (in lines): 
-    mar_all <- 0  # all inner
-    oma_all <- 0  # all outer
-    oma_l   <- 0  # left
+    message("No existing plot: Plotting default frame...")  
+    frame(col = col_bg, border = col_border, lwd = lwd_bg)
     
-    par(mar = c(0, 0, 0, 0) + mar_all)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
-    par(oma = c(0, oma_l, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
-    # par(omd = c(0, 0, 1, 1))
+  } else {  # graphics device open:
     
-    ## Plot empty canvas:
-    ## Plot empty canvas:
-    # plot(0, 0, type = "n", xlim = c(0,1), ylim = c(0,1), 
-    #      bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
-    plot.new()
+    # message("A plot exists: Adding to existing plot...")
     
-    # Box parameters:
-    x_left <- 0
-    y_bot  <- 0
-    x_right <- 1
-    y_top   <- 1
-    
-    # Draw rectangle:
-    rect(xleft = x_left, ybottom = y_bot, xright = x_right, ytop = y_top,
-         col = col_bg, 
-         lty = 0,  # ensure absence of border line (a)
-         lwd = NA  # ensure absence of border line (b)
-         # border = col_brd,
-         # density = density,
-         # angle = angle,
-         # lwd = lwd
-         # ...  # etc. 
-    )
-    
-    ## Plot an "x" (in top right corner): ----- 
-    
-    # Parameters of "x" (coordinates): 
-    p1 <- .85  # (fractions of 1)
-    p2 <- .95
-    
-    # Draw segments:
-    segments(x0 = c(p1, p1), y0 = c(p1, p2), 
-             x1 = c(p2, p2), y1 = c(p2, p1),
-             col = "white", lty = 1, lwd = 1.41)
-    
-  } # if (box) etc.
+  }  # if (box) etc.
   
   
   ## Compute x and y coordinates: ----
   
   if (missing(y)) {y <- x}  # use x as y if no y provided
   
-  # Recycle coords (if necessary):
+  # Recycle coordinates (if necessary):
   if (length(x) != length(y)){
+    
     lx <- length(x)
     ly <- length(y)
+    
     if (lx > ly){
+      
       y <- rep(y, ceiling(lx/ly))[1:lx]
+      
     } else {
+      
       x <- rep(x, ceiling(ly/lx))[1:ly]
+      
     }
   }
   
@@ -345,22 +316,40 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
   
   ## Interpret inputs:
   # cur_font <- graphics::par('font')
-  cur_cex <-  (cex * graphics::par('cex'))  # character expansion factor to use
+  
+  # print(cex)  # 4debugging    
+  cur_cex <-  (cex * graphics::par('cex'))  # character expansion factor(s) to use
   # print(cur_cex)  # 4debugging
   
-  # Measure dimensions of text elements:
-  char_width  <- graphics::strwidth(s = "n", cex = cur_cex, font = font)    # width of lowercase "n" 
-  text_height <- graphics::strheight(s = lbls, cex = cur_cex, font = font)  # text height(s)
-  text_width  <- graphics::strwidth(s = lbls, cex = cur_cex, font = font)   # text width(s)
+  # cur_cex <- c(1, 2, 4)
+  
+  # Measure key character dimensions (for cex = 1 only): 
+  key_char <- "l"  # key character [see p. 25 of CD Manual]:
+  key_width  <-  strwidth(s = key_char, cex = 1, font = font)  # get width  of "l" for cex = 1 (only)
+  key_height <- strheight(s = key_char, cex = 1, font = font)  # get height of "l" for cex = 1 (only)
+  
+  # Scale by vector of cur_cex values: 
+  char_width <- key_width * cur_cex  # multiply (single) width of key_char with (vec of) cur_cex
+  # print(char_width)   # 4debugging
+  char_height <- key_height * cur_cex  # multiply (single) height of key_char with (vec of) cur_cex
+  # print(char_height)  # 4debugging
+  
+  # Measure dimensions of lbls (for cex = 1 only): 
+  lbls_width  <-  graphics::strwidth(s = lbls, cex = 1, font = font)  # width(s) of lbls for cex = 1 (only)
+  lbls_height <- graphics::strheight(s = lbls, cex = 1, font = font)  # height(s) of lbls for cex = 1 (only)
+  # print(lbls_width)  # 4debugging
+  
+  text_width  <-  lbls_width * cur_cex  # multiply widths of lbls with (vec of) cur_cex
+  text_height <- lbls_height * cur_cex  # multiply heights of lbls with (vec of) cur_cex
   # print(text_width)  # 4debugging
   
   # Is 'adj' of length 1 or 2?
   if (!is.null(adj)){
     if (length(adj == 1)){
-      adj <- c(adj[1], 0.5)
+      adj <- c(adj[1], .5)
     }
   } else {
-    adj <- c(0.5, 0.5)
+    adj <- c(.5, .5)
   }
   
   # Is 'pos' specified?
@@ -385,9 +374,17 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
   }
   
   # Padding for boxes:
-  if (length(padding) == 1){ # only 1 value provided: 
+  if (length(padding) == 1){  # only 1 value provided: 
     padding <- c(padding[1], padding[1])
   }
+  # print(padding)  # 4debugging
+  
+  # Using default paddings (based on character sizes) [see p. 25 of CD Manual]:
+  pad_l_r <-  char_width  # padding on left and right: width of "l" 
+  pad_t_b <- (char_height * 1.5)/2  # padding on top and bottom: 1.5 x height of "l" (1/2 on either side).
+  
+  # print(pad_l_r)  # 4debugging
+  # print(pad_t_b)  # 4debugging
   
   # Compute midpoints of text(s):
   x_mid <- x + (-adj[1] + 1/2) * text_width  + offset_vec[1]
@@ -397,10 +394,13 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
   rect_width  <- (text_width  + (2 * padding[1] * char_width))
   rect_height <- (text_height + (2 * padding[2] * char_width))
   
+  # Using default paddings (based on character sizes) [see p. 25 of CD Manual]:
+  rect_width  <- (text_width  + (1 * pad_l_r)) 
+  rect_height <- (text_height + (1 * pad_t_b))
+  
+  ## +++ here now +++
   
   ## Plot text (optionally with mark or line): ------ 
-  
-  
   
   # 2. mark: highlight background: ---- 
   
@@ -414,7 +414,7 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
                    xright  = (x_mid + rect_width/2),
                    ytop    = (y_mid + rect_height/2),
                    col     = col_bg, 
-                   border  = col_bg_brd)
+                   border  = col_border)
     
   } # if (mark) etc.
   
@@ -445,12 +445,12 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
   
   # 4. txt: Plot text lbls: ---- 
   
-  # txt <- TRUE  # 4debugging
+  txt <- TRUE  # 4debugging
   
   if (txt) { 
     
     # Draw text lbl(s):
-    graphics::text(x = x_mid, y = y_mid, labels = lbls, col = col_lbl, 
+    graphics::text(x = x_mid, y = y_mid, labels = lbls, col = col, 
                    cex = cur_cex, font = font, adj = c(.5, .5))
     
   } # if (txt) etc.
@@ -468,8 +468,13 @@ plot_text <- function(x, y, lbls = NA,               # coordinates and labels of
   
 } # plot_text end.
 
-
 # ## Check: 
+
+# plot_text(x = .2, y = c(.9, .7, .45, .15), 
+#           lbls = c("alle", "alle", "alle", "alle"), cex = c(1, 2, 3, 4), font = c(2, 1, 2, 2),  
+#           frame = TRUE, mark = TRUE)
+
+
 # 
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
 # 
@@ -643,9 +648,9 @@ mark <- function(x, y, lbls = NA,                             # coordinates and 
 # } else {
 #   "A plot exists"
 # }  
-  
 
-# ## 2. Are cex and strwidth functions vectorized? -----  
+
+## 2. Are cex and strwidth functions vectorized? -----  
 # plot.new()
 # # cex vectors:
 # text(x = 0, y = c(.8, .5, .2), labels = c("A", "B", "C"), cex = c(1, 2, 3))
@@ -664,10 +669,17 @@ mark <- function(x, y, lbls = NA,                             # coordinates and 
 # strwidth(s = "x", cex = c(3))
 # 
 # # To get char width values for multiple cex :
-# cex_vals <- c(1, 2, 3)
-# char_width <- strwidth(s = "x", cex = 1) # get for cex = 1
-# char_cex <- char_width * cex_vals        # multiply with cex_vals
-# char_cex
+# cex_vals <- c(1, 2, 4)
+# key_char <- "l"
+# char_width <- strwidth(s = key_char, cex = 1) # get width of "l" for cex = 1 (only)
+# char_height <- strheight(s = key_char, cex = 1) # get height of "l" for cex = 1 (only)
+# 
+# char_widths <- char_width * cex_vals  # multiply (single) width of key_char with (vec of) cex_vals
+# char_widths
+# 
+# char_heights <- char_height * cex_vals  # multiply (single) height of key_char with (vec of) cex_vals
+# char_widths
+
 
 
 ## ToDo: ------
