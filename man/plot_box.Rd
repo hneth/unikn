@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_box.R
 \name{plot_box}
 \alias{plot_box}
-\title{\code{plot_box} generates a box with an "X" in its top-right corner 
-and places 1 or more text strings (of a character vector \code{lbls}) 
-in the box.}
+\title{Plot a box (with color and text, and top x).}
 \usage{
 plot_box(lbls = NA, col_lbl = "white",
   col_bg = as.character(seeblau), cex = 2, font = 2, lbl_x = 0.02,
@@ -31,15 +29,20 @@ Default: \code{font = 2} (bold).}
 
 \item{lbl_x}{A fraction in \code{[0, 1]} that determines the 
 x-value of the left edge of text in \code{lbls}. 
-Default: \code{lbl_x = .02} (i.e. 2% from left border).}
+Default: \code{lbl_x = .02} (i.e., 2\% from the left border).}
 
 \item{lbl_y}{A fraction in \code{[0, 1]} that determines the 
-y-value of the top line of text in \code{lbls}. 
-(To keep the height of the top "x" empty, 
-a maximum value of 1 corresponds to 80% of the box height.) 
-Default: \code{lbl_y = .65} (i.e. .65 * 80% = 52% of box height).}
+y-value of the top line of text in \code{lbls}.  
+To safe-guard the space to the left of the top cross, 
+a maximum value of 1 corresponds to 80\% of the box height.) 
+Default: \code{lbl_y = .65} (i.e., 65\% x 80\% = 52\% of box height).}
 }
 \description{
+\code{plot_box} generates a box with a cross (x) in its top-right corner 
+and places 1 or more text strings (of a character vector \code{lbls}) 
+in the box.
+}
+\details{
 \code{plot_box} uses the base graphics system \code{graphics::}.
 }
 \examples{
@@ -58,10 +61,9 @@ plot_box(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
 plot_box(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
 plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 
-        
 }
 \seealso{
-\code{\link{mark}} to mark text with a colored box
+\code{\link{mark}} to mark text with a colored box.
 
 Other text functions: \code{\link{box_text}},
   \code{\link{mark}}
