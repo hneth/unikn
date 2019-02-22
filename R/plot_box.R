@@ -1,5 +1,5 @@
 ## plot_box.R | unikn
-## hn  |  uni.kn |  2019 02 21
+## hn  |  uni.kn |  2019 02 22
 ## ---------------------------
 
 ## Plot blue box etc.
@@ -7,11 +7,13 @@
 
 ## plot_box: ---------- 
 
-## - Documentation: ---- 
+# - Documentation: ---- 
 
-#' \code{plot_box} generates a box with an "X" in its top-right corner 
+#' Plot a box (with color and text, and top x). 
+#' 
+#' \code{plot_box} generates a box with a cross (x) in its top-right corner 
 #' and places 1 or more text strings (of a character vector \code{lbls}) 
-#' in the box.
+#' in the box. 
 #' 
 #' \code{plot_box} uses the base graphics system \code{graphics::}. 
 #' 
@@ -35,18 +37,18 @@
 #' 
 #' @param lbl_x  A fraction in \code{[0, 1]} that determines the 
 #' x-value of the left edge of text in \code{lbls}. 
-#' Default: \code{lbl_x = .02} (i.e. 2% from left border). 
+#' Default: \code{lbl_x = .02} (i.e., 2\% from the left border). 
 #' 
 #' @param lbl_y  A fraction in \code{[0, 1]} that determines the 
-#' y-value of the top line of text in \code{lbls}. 
-#' (To keep the height of the top "x" empty, 
-#' a maximum value of 1 corresponds to 80% of the box height.) 
-#' Default: \code{lbl_y = .65} (i.e. .65 * 80% = 52% of box height). 
+#' y-value of the top line of text in \code{lbls}.  
+#' To safe-guard the space to the left of the top cross, 
+#' a maximum value of 1 corresponds to 80\% of the box height.) 
+#' Default: \code{lbl_y = .65} (i.e., 65\% x 80\% = 52\% of box height). 
 #' 
 #' @family text functions
 #' 
 #' @seealso
-#' \code{\link{mark}} to mark text with a colored box  
+#' \code{\link{mark}} to mark text with a colored box. 
 #' 
 #' @examples
 #' plot_box(lbls = "A heading appears here.")
@@ -64,12 +66,11 @@
 #' plot_box(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
 #' plot_box(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 #'
-#'         
 #' @import graphics 
 #'                          
 #' @export 
 
-## - Definition: ----
+# - Definition: ----
 
 plot_box <- function(lbls = NA,  # character vector of labels to place (as lines of text)  
                      col_lbl = "white",              # text color
@@ -111,15 +112,15 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
   y_top   <- 1
   
   # Draw rectangle:
-  rect(xleft = x_left, ybottom = y_bot, xright = x_right, ytop = y_top,
-       col = col_bg, 
-       lty = 0,  # ensure absence of border line (a)
-       lwd = NA  # ensure absence of border line (b)
-       # border = col_brd,
-       # density = density,
-       # angle = angle,
-       # lwd = lwd
-       # ...  # etc. 
+  graphics::rect(xleft = x_left, ybottom = y_bot, xright = x_right, ytop = y_top,
+                 col = col_bg, 
+                 lty = 0,  # ensure absence of border line (a)
+                 lwd = NA  # ensure absence of border line (b)
+                 # border = col_brd,
+                 # density = density,
+                 # angle = angle,
+                 # lwd = lwd
+                 # ...  # etc. 
   )
   
   ## Plot an "x" (in top right corner): ----- 
@@ -129,9 +130,9 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
   p2 <- .95
   
   # Draw segments:
-  segments(x0 = c(p1, p1), y0 = c(p1, p2), 
-           x1 = c(p2, p2), y1 = c(p2, p1),
-           col = "white", lty = 1, lwd = 1.41)
+  graphics::segments(x0 = c(p1, p1), y0 = c(p1, p2), 
+                     x1 = c(p2, p2), y1 = c(p2, p1),
+                     col = "white", lty = 1, lwd = 1.41)
   
   
   ## (2) Add text labels (to existing plot): -----
@@ -169,7 +170,7 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
   on.exit(par(opar)) # restore original settings
   invisible() # restores par(opar)
   
-}
+} # plot_box end.
 
 ## Check:
 # plot_box(lbls = "A heading appears here.")
@@ -217,7 +218,7 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
                          # - Other stuff:
                          cross = TRUE,  # plot "x" (in top-right corner)  
                          grid = FALSE,  # 4debugging
-                         ...  # etc. (passed to rect, not segments)
+                         ...  # etc. (passed to rect, not to segments)
 ) {
   
   ## (0) Interpret inputs: -----
@@ -279,7 +280,7 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
   
   if (grid) {
     
-    points(0, 0, pch = 1, col = grey(.01, .50), cex = 2)  # mark origin
+    points(0, 0, pch = 1, col = grey(.01, .50), cex = 2)  # mark origin 0
     
     ## Plot grid of points:
     grid_x <- rep(seq(x_min, x_max, by = 1), times = length(seq(y_min, y_max, by = 1)))  # x/horizontal
@@ -380,7 +381,7 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
   on.exit(par(opar)) # restore original settings
   invisible() # restores par(opar)
   
-}
+} # plot_box_exp end. 
 
 ## Check:
 
@@ -413,28 +414,101 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 
 ## xbox: Plot a colored box with "x" (a simple version of plot_box_exp): ------ 
 
-xbox <- function(col = unlist(seeblau)#, 
+# - Documentation: ---- 
+
+#' Plot a box (with x). 
+#' 
+#' \code{xbox} plots a box with a cross (x) in its top-right corner. 
+#' 
+#' @param col The color to fill the box with (i.e., its background color).  
+#' Default: \code{col = unlist(seeblau)}. 
+#' 
+#' @param dim The x- and y-dimensions of the box. 
+#' Default: \code{dim = c(1, 1)} (i.e., a unit square). 
+#' 
+#' @family plot functions
+#' 
+#' @seealso
+#' \code{\link{frame}} to plot a frame. 
+#' 
+#' @examples
+#' xbox()  # default box
+#'
+#' @import graphics 
+#'                          
+#' @export 
+
+# - Definition: ---- 
+
+xbox <- function(col = unlist(seeblau),
+                 dim = c(1, 1)  # dimension: Default: dim = c(1, 1) (i.e., unit square).
                  # ...  # etc. 
 ) {
   
+  # Dimensions:
+  if (length(dim) == 1){  # only 1 value provided: 
+    dim <- c(dim[1], dim[1])  # use as square
+  }
+  
   # Call expert function (with sensible defaults):
-  plot_box_exp(col = col#, 
+  plot_box_exp(col = col,
+               box_dim = c(0, 0, dim[1], dim[2]) 
                # ...  # etc.
   )
   
-}
+} # xbox end. 
 
 ## Check:
-# xbox()
+# xbox()  # default xbox
+
+## Simple variants:
 # xbox(col = unlist(seegruen))
 # xbox(col = unlist(Bordeaux))
-
+# xbox(dim = c(2, 1)) # 2:1 dimension (twice as wide than high)
 
 ## frame: Plot a colored frame without "x": (a simple version of plot_box_exp): ------ 
 
+# - Documentation: ---- 
+
+#' Plot a frame (or slide). 
+#' 
+#' \code{frame} plots an empty frame or slide.  
+#' 
+#' @param col The color to fill the frame with (i.e., its background color).  
+#' Default: \code{col = NA} (i.e., system default for transparency). 
+#' 
+#' @param dim The x- and y-dimensions of the frame. 
+#' Default: \code{dim = c(4/3, 1)} (i.e., unit height, 4/3 wider than high). 
+#' 
+#' @param border The color of the border. 
+#' Default: \code{border = grey(.33, 1)}.
+#' 
+#' @param lwd The line width of the border. 
+#' Default: \code{lwd = 1.5}.
+#' 
+#' @family plot functions
+#' 
+#' @seealso
+#' \code{\link{xbox}} to plot a box. 
+#' 
+#' @examples
+#' frame()  # default frame
+#'
+#' @import graphics 
+#'                          
+#' @export 
+
+# - Definition: ---- 
+
 frame <- function(col = NA,
+                  dim = c(4/3, 1),  # dimension: Default: dim = c(4/3, 1) (i.e., unit height, 4/3 wider than high).
                   border = grey(.33, 1),
                   lwd = 1.5){
+  
+  # Dimensions:
+  if (length(dim) == 1){  # only 1 value provided: 
+    dim <- c(dim[1], dim[1])  # use as square
+  }
   
   # Call expert function (with sensible defaults):
   plot_box_exp(col = col,
@@ -445,14 +519,18 @@ frame <- function(col = NA,
                # ...  # etc.
   )
   
-}
-
+} # frame end.
 
 ## Check:
-# frame()  # default
-# frame(col = unlist(pal_seeblau[[1]]), lwd = 0)  # simple variant
+# frame()  # default frame
+
+## Simple variants:
+# frame(col = unlist(pal_seeblau[[1]]), lwd = 0)  
+# frame(dim = c(18:9)) # larger and 2:1 wider than high
+
 
 # +++ here now +++
+
 
 ## ToDo: 
 # Adopt a more modular approach: 
