@@ -348,26 +348,26 @@ plot_text <- function(x = 0, y = .5,      # coordinates of text lbls
     if (length(adj == 1)){
       adj <- c(adj[1], .5)
     }
-  } else {
-    adj <- c(.5, .5)
+  } else { # `adj` is NULL: 
+    adj <- c(.5, .5) # default: center 
   }
   
   # Is 'pos' specified?
   if (!is.null(pos)){
     if (pos == 1){
-      adj <- c(0.5, 1)
+      adj <- c(.5, 1)
       offset_vec <- c(0, -offset * char_width)
     } else if (pos == 2){
-      adj <- c(1, 0.5)
+      adj <- c(1, .5)
       offset_vec <- c(-offset * char_width, 0)
     } else if (pos == 3){
-      adj <- c(0.5, 0)
+      adj <- c(.5, 0)
       offset_vec <- c(0, offset * char_width)
     } else if (pos == 4){
-      adj <- c(0, 0.5)
+      adj <- c(0, .5)
       offset_vec <- c(offset * char_width, 0)
     } else {
-      stop('Invalid argument pos')
+      stop("Invalid pos argument")
     }
   } else {
     offset_vec <- c(0, 0)
