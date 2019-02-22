@@ -4,7 +4,7 @@ unikn
 =====
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/box_unikn.png" alt = "unikn::" align = "right" width = "120px" style = "width: 120px; float: right; border:10;"/> </a>
+<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/box_unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/> </a>
 
 The `unikn` package enables the use some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design for users of [R](https://www.r-project.org/). For instance, it provides a range of beautiful color palettes for scientific visualizations that are consistent with [corporate design specifications](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/).
 
@@ -18,17 +18,18 @@ Motivation
 <!-- unikn CD: -->
 In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. Its key component is the consistent use of a `seeblau` color and a corresponding color palette that blends various shades of `seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.)
 
-<!-- Goals of unikn pgk: -->
-The `unikn` package aims to facilitate the use of some design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications should be simple and straightforward, we also allow some flexibility for expert users (e.g., for the creation of scientific visualizations).
+<!-- Goals of the unikn pgk: -->
+The `unikn` package aims to facilitate the use of some design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications should be simple and straightforward, we also allow some flexibility for expert users (e.g., for creators of scientific visualizations).
 
 <!-- Overview: -->
-The package contains 3 main types of objects:
+The package currently provides 4 types of objects or functions:
 
 1.  Colors, color palettes, and related functions
-2.  Text commands (for highlighting, underlining strings of text)
-3.  Graphical functions and themes (for plotting boxes and scientific visualizations)
+2.  Plotting styled graphical objects (e.g., boxes and frames)
+3.  Plotting styled text elements (e.g.,, highlighting and underlining)
+4.  Graphical support (e.g., commands and themes for creating scientific visualizations)
 
-Please use responsibly!
+Additional elements are added as they become available. Please use responsibly!
 
 Installation
 ------------
@@ -375,7 +376,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-02-21 by [hn](https://neth.de).\]
+\[Updated 2019-02-22 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 
