@@ -94,10 +94,9 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
   ## Margins (in lines): 
   mar_all <- 0  # all inner
   oma_all <- 0  # all outer
-  oma_l   <- 0  # left
   
   par(mar = c(0, 0, 0, 0) + mar_all)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
-  par(oma = c(0, oma_l, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
+  par(oma = c(0, 0, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
   # par(omd = c(0, 0, 1, 1))
   
   ## Plot empty canvas: 
@@ -198,7 +197,8 @@ plot_box <- function(lbls = NA,  # character vector of labels to place (as lines
 #          lbl_x = .03, lbl_y = .73,
 #          font = 1, cex = 1.0, col_bg = pal_petrol[[4]])
 
-## plot_box_exp: Expert/experimental version that plots ONLY a colored box with "x" (but NO text): -----
+
+## plot_box_exp: Enhanced (expert/experimental) version that plots ONLY a colored box with "x" (but NO text): -----
 
 ## Note that plot_box_exp is an experimental function, intended for expert users.
 
@@ -216,7 +216,9 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
                          x_dis = .025,  # distance of "x" from box border (as a fraction of box size)
                          x_lwd = 1.2,   # lwd of "x" segements
                          # - Other stuff:
-                         cross = TRUE,  # plot "x" (in top-right corner)  
+                         cross = TRUE,  # plot "x" (in top-right corner)
+                         mar_all = NA,  # option to reset all mar values (in nr. of line units)
+                         oma_all = NA,  # option to reset all oma values (in nr. of line units)
                          grid = FALSE,  # 4debugging
                          ...  # etc. (passed to rect, not to segments)
 ) {
@@ -241,20 +243,19 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
   
   ## Preamble: ----- 
   
-  ## Record graphical parameters (par):
-  opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
-  on.exit(par(opar)) # restore original settings
-  
   ## Plotting area: ----- 
   
-  ## Margins (in lines): 
-  mar_all <- 0  # all inner
-  oma_all <- 0  # all outer
-  oma_l   <- 0  # left
+  # Record graphical parameters (par):
+  opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
+  # on.exit(par(opar))               # restore upon exit
   
-  par(mar = c(0, 0, 0, 0) + mar_all)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
-  par(oma = c(0, oma_l, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
-  # par(omd = c(0, 0, 1, 1))
+  if (!is.na(mar_all)) {  # reset all mar values:
+    par(mar = c(0, 0, 0, 0) + mar_all)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.  
+  }  
+  
+  if (!is.na(oma_all)) {  # reset all oma values:
+    par(oma = c(0, 0, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.    
+  }
   
   ## Plot empty canvas: 
   ## (a) Original: 
@@ -377,7 +378,7 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
   
   ## (3) Exit: ----- 
   
-  on.exit(par(opar)) # restore original settings
+  # on.exit(par(opar)) # restore original settings
   invisible() # restores par(opar)
   
 } # plot_box_exp end. 
@@ -385,14 +386,13 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 ## Check:
 
 # ## Basic uses: ---- 
-# # plot_box_exp(col = unlist(Bordeaux))
+# plot_box_exp(col = unlist(Bordeaux))
 # plot_box_exp(col = unlist(karpfenblau))
 # 
 # ## Expert uses: ---- 
 # 
 # # Assuming a square canvas: 
 # plot_box_exp(box_dim = c(5, 5, 10, 10), x_cex = .10, grid = TRUE)  # square box in upper right corner
-# plot_box_exp(box_dim = c(5, 5, 10, 10), x_cex = 1, grid = TRUE)    # square box (in upper right) with max "x"
 # 
 # # Test calls:
 # # Assuming non-square canvases: 
@@ -401,8 +401,7 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 # # Note: "x" appears orthogonal when grid is evenly spaced (i.e., dimensions of display device match plotting region). 
 # 
 # # Assuming a square canvas: 
-# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 0, x_col = "red3", x_cex = 1)
-# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 0, x_col = "red3", x_cex = 1, x_lwd = 3)
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_cex = 1, x_dis = 0, x_col = "red3", x_lwd = 2, grid = TRUE) # square box (in upper right) with max "x"
 # 
 # # Varying x_dis: 
 # plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 0/4, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
@@ -451,7 +450,9 @@ xbox <- function(col = unlist(seeblau),
   
   # Call expert function (with sensible defaults):
   plot_box_exp(col = col,
-               box_dim = c(0, 0, dim[1], dim[2]) 
+               box_dim = c(0, 0, dim[1], dim[2]),
+               mar_all = 0,
+               oma_all = 0
                # ...  # etc.
   )
   
@@ -514,7 +515,9 @@ frame <- function(col = NA,
                border = border,
                lty = 1,
                lwd = lwd,
-               cross = FALSE
+               cross = FALSE,
+               mar_all = 0,
+               oma_all = 0
                # ...  # etc.
   )
   
