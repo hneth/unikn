@@ -172,8 +172,8 @@ seepal <- function(pal = "all",  # which palette to output?
   op <- par(no.readonly = TRUE)  # save original plotting settings.
   
   # Robustify inputs: 
-  if (!(is.null(hex) & is.logical(hex))) stop("Please specify a valid value for 'hex'.")
-  if (!(is.null(rgb) & is.logical(rgb))) stop("Please specify a valid value for 'rgb'.")
+  if (!(is.null(hex) | is.logical(hex))) stop("Please specify a valid value for 'hex'.")
+  if (!(is.null(rgb) | is.logical(rgb))) stop("Please specify a valid value for 'rgb'.")
   
   
   ## 1. Overview function: ------
@@ -253,6 +253,8 @@ seepal <- function(pal = "all",  # which palette to output?
       } else {  # if only a list of 1 is specified:
       
       # 2. Detail view: ------------
+        
+        ## Preps: 
         pal <- unlist(pal)  # TODO: This essentially changes the length of the color vector.  FInd better solution!
         
         ## Set margins:
@@ -263,6 +265,11 @@ seepal <- function(pal = "all",  # which palette to output?
              xlab = "", ylab = "", main = paste("See palette", gsub("pal_", "", pal_nm)),
              bty = "n"
         )  # create empty plot.
+        
+        ## Determine whether to display hex values:
+        if (is.null(hex)) {
+          hex <- ifelse(strwidth("#XXXXXX") * max_num > xlim[2], FALSE, TRUE)
+        }
         
         plot_col(x = pal, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = "grey", lwd = 1)
         plot_col(x = pal, ypos = 1.2, plot.new = FALSE, xlen = 0.5, shape = "circle")
@@ -276,15 +283,20 @@ seepal <- function(pal = "all",  # which palette to output?
         text(x = txt_pos, y = -0.1, labels = paste0("[", 1:length(pal), "]"), pos = 3, xpd = TRUE,
              cex = 1)
         ## Hex values:
-        ## TODO: In if-statement.
-        text(x = c(-0.1, txt_pos), y = -0.3, labels = c("Hex", pal), pos = 3, xpd = TRUE,
-             cex = 1)
+        if ( hex ) {
+          text(x = c(-0.1, txt_pos), y = -0.3, labels = c("Hex", pal), pos = 3, xpd = TRUE,
+               cex = 1)
+        }
         
-        text(x = matrix(rep(c(-0.1, txt_pos), 3), nrow = 3, byrow = TRUE),
-             y = matrix(rep(c(-0.5, -0.75, -1.0), length(txt_pos) + 1), nrow = 3),
-             labels = cbind(c("R", "G", "B"), col2rgb(pal)),
-             pos = 3, xpd = TRUE,
-             cex = 1)
+        ## RGB values:
+        if ( rgb ) {
+          text(x = matrix(rep(c(-0.1, txt_pos), 3), nrow = 3, byrow = TRUE),
+               y = matrix(rep(c(-0.5, -0.75, -1.0), length(txt_pos) + 1), nrow = 3),
+               labels = cbind(c("R", "G", "B"), col2rgb(pal)),
+               pos = 3, xpd = TRUE,
+               cex = 1)
+        }
+        
     }
     
   
@@ -299,8 +311,10 @@ seepal <- function(pal = "all",  # which palette to output?
 a <- seepal(pal = "all")  # return all palettes.
 a
 
-b <- seepal(pal = list(pal_unikn_pair))  # return one palette
+b <- seepal(pal = list(pal_unikn_pair))  # return one long palette (hex not displayed by default.)
 b
+
+c <- seepal(pal = list(pal_Bordeaux), hex = TRUE)
 
 
 
