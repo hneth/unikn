@@ -726,17 +726,17 @@ plot_text <- function(x = 0, y = .5,      # coordinates of text lbls
 #           mar_all = NA, oma_all = NA
 # )
 
-lbl_2 <- rep("l Hier noch eine durch zwei Mal `l` begrenzte Zeile l", 6)
-plot_text(x = 0, 
-          y = .90, # y = c(.77, .7, .55, .45, .25, .1),
-          lbls = lbl_2, cex = c(1, 1, 2, 2, 3, 3), font = c(2, 1, 2, 1, 2, 1),
-          col_bg = c(unlist(seeblau), "gold"), lwd_bg = 0,
-          pos = NULL, adj = c(0, .5), offset = c(99, 99), 
-          # pos = 4, adj = c(1, 1), offset = c(0, 0), 
-          padding = 1, # OR: c(.5, .5), 
-          frame = TRUE, mark = TRUE, grid = TRUE, 
-          mar_all = NA, oma_all = NA
-)
+# lbl_2 <- rep("l Hier noch eine durch zwei Mal `l` begrenzte Zeile l", 6)
+# plot_text(x = 0, 
+#           y = .90, # y = c(.77, .7, .55, .45, .25, .1),
+#           lbls = lbl_2, cex = c(1, 1, 2, 2, 3, 3), font = c(2, 1, 2, 1, 2, 1),
+#           col_bg = c(unlist(seeblau), "gold"), lwd_bg = 0,
+#           pos = NULL, adj = c(0, .5), offset = c(99, 99), 
+#           # pos = 4, adj = c(1, 1), offset = c(0, 0), 
+#           padding = 1, # OR: c(.5, .5), 
+#           frame = TRUE, mark = TRUE, grid = TRUE, 
+#           mar_all = NA, oma_all = NA
+# )
 
 ## ToDo: ##  
 # - Allow setting consistent mar and oma values for key plotting inputs
