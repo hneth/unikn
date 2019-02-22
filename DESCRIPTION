@@ -22,6 +22,7 @@ Suggests:
     roxygen2
 Collate: 'color_definitions.R'
          'color_functions.R'
+         'plot_util.R'
          'plot_box.R'
          'plot_text.R'         
 Encoding: UTF-8
