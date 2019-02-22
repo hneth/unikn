@@ -280,12 +280,11 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
   
   if (grid) {
     
-    points(0, 0, pch = 1, col = grey(.01, .50), cex = 2)  # mark origin 0
+    # grid() # default grid
     
-    ## Plot grid of points:
-    grid_x <- rep(seq(x_min, x_max, by = 1), times = length(seq(y_min, y_max, by = 1)))  # x/horizontal
-    grid_y <- rep(seq(y_min, y_max, by = 1), each =  length(seq(x_min, x_max, by = 1)))  # y/vertical
-    points(grid_x, grid_y, pch = 3, col = grey(.66, .50), cex = 3/4)                     # plot grid points
+    ## Call utility function:
+    plot_grid(x_min = x_min, x_max = x_max, 
+              y_min = y_min, y_max = y_max)
     
   }
   
@@ -406,10 +405,10 @@ plot_box_exp <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 # plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 0, x_col = "red3", x_cex = 1, x_lwd = 3)
 # 
 # # Varying x_dis: 
-# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 0/4, x_col = "red3", x_cex = 1, x_lwd = 3, grid = TRUE)
-# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 1/4, x_col = "red3", x_cex = 1, x_lwd = 3, grid = TRUE)
-# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 1/2, x_col = "red3", x_cex = 1, x_lwd = 3, grid = TRUE)
-# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 1/1, x_col = "red3", x_cex = 1, x_lwd = 3, grid = TRUE)
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 0/4, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 1/4, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 1/2, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
+# plot_box_exp(box_dim = c(5, 5, 10, 10), x_dis = 1/1, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
 
 
 ## xbox: Plot a colored box with "x" (a simple version of plot_box_exp): ------ 
