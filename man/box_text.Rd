@@ -93,7 +93,7 @@ box_text(x = c(.30, .60), y = c(.20, .40),
 \code{\link{mark}} (reduced version) to mark text with a colored box
 
 Other text functions: \code{\link{mark}},
-  \code{\link{plot_box_x_text}}
+  \code{\link{plot_box_txt}}
 }
 \author{
 Adapted from code by Ian Kopacka.

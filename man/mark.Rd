@@ -65,6 +65,6 @@ mark(x = c(.35, .55), y = c(.15, .40),
 \code{\link{plot_box}} to plot text in a colored box
 
 Other text functions: \code{\link{box_text}},
-  \code{\link{plot_box_x_text}}
+  \code{\link{plot_box_txt}}
 }
 \concept{text functions}
