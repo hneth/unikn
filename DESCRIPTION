@@ -24,6 +24,7 @@ Collate: 'color_definitions.R'
          'color_functions.R'
          'plot_util.R'
          'plot_box.R'
+         'plot_box_calls.R'
          'plot_text.R'
          'plot_text_calls.R'    
 Encoding: UTF-8
