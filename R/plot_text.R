@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 02 22
+## hn  |  uni.kn |  2019 02 23
 ## ---------------------------
 
 ## Plot text with formatting elements (marking/highlighting or underlining).
@@ -115,7 +115,7 @@ box_text <- function(x, y, lbls = NA,             # coordinates and labels of te
   
   if (missing(y)) {y <- x}  # use x as y if no y provided
   
-  # Recycle coords if necessary:
+  # Recycle coordinates (if necessary): 
   if (length(x) != length(y)){
     lx <- length(x)
     ly <- length(y)
@@ -245,8 +245,10 @@ box_text <- function(x, y, lbls = NA,             # coordinates and labels of te
 
 # - Definition: ---- 
 
-plot_text <- function(x = 0, y = .5,      # coordinates of text lbls 
-                      lbls = NA,          # labels of text element(s) 
+plot_text <- function(lbls = NA,           # labels of text element(s) 
+                      x = 0, y = .55,      # coordinates of text lbls 
+                      
+                      y_layout = "even", # "even", "flush", or 1 numeric value (y-space between subsequent labels)
                       
                       # Text parameters:
                       col = NA,                                                  # col of text lbls 
@@ -256,10 +258,10 @@ plot_text <- function(x = 0, y = .5,      # coordinates of text lbls
                       
                       # Text decorations:
                       mark = FALSE,                 # flag for mark / highlighting / rectangular box function 
-                      col_bg = NA,                  # col of bg of text (NOT box/frame)
-                      col_bg_border = grey(.50, 1), # col of border of text bg (NOT box/frame)
-                      lty_bg = 1,                   # lty of text bg (NOT frame):  0: ensure absence of border line (a) 
-                      lwd_bg = 1,                   # lwd of text bg (NOT frame): NA: ensure absence of border line (b)
+                      col_bg = NA,                  # col of bg of text (mark and line, NOT box/frame)
+                      col_bg_border = grey(.50, 1), # col of border of text bg (mark and line, NOT box/frame)
+                      lty_bg = 1,                   # lty of text bg (mark and line):  0: ensure absence of border line (a) 
+                      lwd_bg = 1,                   # lwd of text bg (mark and line): NA: ensure absence of border line (b)
                       
                       line = FALSE,   # flag for underlining function 
                       cex_lwd = 2,    # if line: scaling factor for line width
@@ -468,52 +470,49 @@ plot_text <- function(x = 0, y = .5,      # coordinates of text lbls
   ## Compute text positions (AFTER all measurements are known): ------
   
   # (a) x and y coordinates: 
-  if (missing(y)) {y <- x}   # use x as y if no y provided
-  if (missing(y)) {y <- .5}  # use default: y = .5
+  # if (missing(y)) {y <- x}   # use x as y if no y provided
+  y_def <- .55  # default y
+  if (missing(y)) {y <- y_def}  # use default
+  if (is.null(y)) {y <- y_def}  # use default
+  if (is.na(y))   {y <- y_def}  # use default
+  
+  # Parameter shortcuts:
+  N_lbls <- length(lbls)
+  y_top <- y[1]       # highest y coordinate
+  y_bot_free <- .15   # amount of space free of text at bottom (in % of available y_range/y_top)
+  y_bot <- (y_bot_free * abs(y_top - 0))  # lowest y coordinate (border width = 10% of y_range/y_top)
   
   # If more lbls than y coordinates: 
-  N_lbls <- length(lbls)
   if (N_lbls > length(y)) {  
     
-    message("More items in lbls than y-coordinates: Using automatic spacing...")
+    # message("More lbls than y-values: Automatic label layout...")
+    message(paste0("N_lbls > N(y): Automatic ", as.character(y_layout), " label layout..."))
     
     if (mark) { 
-    
-      # (a) Adjust y by rect_height sequence: 
       
-      # print(rect_height)  # 4 debugging 
-      cum_rect_height <- cumsum(c(0, rect_height))[1:N_lbls]  # start with 0, drop final cumsum
-
-      print(cum_rect_height)  # 4 debugging 
+      # (a) Adjust y by rect_height (NOT text_height) sequence: 
+      # print(paste0("rect_height", 1:N_lbls, " = ", rect_height))  # 4debugging
       
-      #   +++ here now +++  #
-            
-      ## Correction: Sometimes, rectangles may increase or decrease in size (depending on cex and font values): 
-      # rect_height_diff <- abs(rect_height[2:N_lbls] - rect_height[1:(N_lbls - 1)])  # difference of next to current rectangle
-      # cum_rect_height  <- (cum_rect_height + c(0, rect_height_diff))  # start with 0
+      y <- layout_y(y_top = y_top, y_bot = y_bot, height_seq = rect_height, # !
+                    layout_type = y_layout)
       
-      y <- (y - cum_rect_height)
+    } else {  # NOT mark: line or only txt 
       
-    } else {
+      # (b) Adjust y by text_height (NOT rect_height) sequence: 
+      # print(paste0("text_height", 1:N_lbls, " = ", text_height))  # 4debugging
       
-      # (b) Adjust y by text_height sequence: 
-      
-      # print(text_height)  # 4 debugging 
-      cum_text_height <- cumsum(c(0, text_height))[1:N_lbls]  # Start with 0, drop final cumsum
-      
-      line_distance_constant <- (3 * .025)  # fixed line distance constant
-      line_distance_constant <- y/(N_lbls + 1) # even spacing from y to bottom (y = 0).
-      
-      line_distance_addends  <- c(0, rep(line_distance_constant, (N_lbls - 1)))  # start with 0, N_lbls values overall
-      line_distance_cumsum   <- cumsum(line_distance_addends) 
-  
-      y <- (y - cum_text_height - line_distance_cumsum)
+      y <- layout_y(y_top = y_top, y_bot = y_bot, height_seq = text_height, # !
+                    layout_type = y_layout)
       
     }
     
-    # print(y)  # 4debugging
+    # print(paste0("y", 1:N_lbls, " = ", y))  # 4debugging
     
-  } 
+  } else {
+    
+    message("N(y) >= N_lbls: Using given y for label layout...")
+    
+  }
   
   # Recycle coordinates (if necessary): 
   if (length(x) != length(y)){   
@@ -592,8 +591,8 @@ plot_text <- function(x = 0, y = .5,      # coordinates of text lbls
   
   # (d) Compute the midpoints of text(s): 
   
-  x_mid <- x + (-adj[1] + 1/2) * text_width  + offset_vec[1]
-  y_mid <- y + (-adj[2] + 1/2) * text_height + offset_vec[2]
+  x_mid <- x + (.5 - adj[1]) * text_width  + offset_vec[1]
+  y_mid <- y + (.5 - adj[2]) * text_height + offset_vec[2]
   
   
   ## Plot stuff: ------ 
@@ -716,27 +715,47 @@ plot_text <- function(x = 0, y = .5,      # coordinates of text lbls
 
 # ## Check: 
 
-# lbl_1 <- c("Titelzeile", "Alle meine steilen Zeilen", "Ausgefeilte Zeilen", "Wichtig mitzuteilen!", "LOL", "etc.")
-# plot_text(x = .05, y = c(.65, .50, .4, .3, .2, .1),
-#           lbls = lbl_1, cex = c(1, 1, 1.5, 1.5, 2, 2), font = c(2, 1, 2, 1, 2, 1),
-#           col_bg = c(unlist(seeblau), "gold"), lwd_bg = NA,
-#           # pos = NULL, adj = c(0, .5),  offset = c(99, 99),
-#           pos = 4, adj = c(1, 1), offset = c(0, 0),
-#           xbox = TRUE, mark = FALSE, grid = TRUE,
-#           mar_all = NA, oma_all = NA
-# )
+lbl_1 <- c("Titelzeile", "Alle meine steilen Zeilen", "Ausgefeilte Zeilen", "Wichtig mitzuteilen!", "LOL", "etc.")
+lbl_1 <- c("Erste Zeile", "Zweite Zeile", "Dritte Zeile", "Vierte Zeile", "Ziemlich ausgefeilte Zeilen", "Wichtig mitzuteilen!")
+plot_text(x = .05, 
+          y = NA, # y = c(.65, .50, .4, .3, .2, .1),
+          lbls = lbl_1, 
+          y_layout = "even",  # "even", "flush", OR fixed value (e.g., .05) 
+          cex = c(1, 1, 2, 2, 3, 3), 
+          font = c(2, 1, 2, 1, 2, 1),
+          col_bg = c(unlist(seeblau), "gold"), lwd_bg = NA,
+          pos = NULL, adj = c(0, .5),  offset = 999,
+          # pos = 4, adj = c(1, 1), offset = 0,
+          xbox = TRUE, mark = FALSE, grid = TRUE,
+          mar_all = NA, oma_all = NA
+)
 
 # lbl_2 <- rep("l Hier noch eine durch zwei Mal `l` begrenzte Zeile l", 6)
 # plot_text(x = 0, 
 #           y = .90, # y = c(.77, .7, .55, .45, .25, .1),
 #           lbls = lbl_2, cex = c(1, 1, 2, 2, 3, 3), font = c(2, 1, 2, 1, 2, 1),
 #           col_bg = c(unlist(seeblau), "gold"), lwd_bg = 0,
-#           pos = NULL, adj = c(0, .5), offset = c(99, 99), 
-#           # pos = 4, adj = c(1, 1), offset = c(0, 0), 
+#           pos = NULL, adj = c(0, .5), offset = 999, 
+#           # pos = 4, adj = c(1, 1), offset = 0, 
 #           padding = 1, # OR: c(.5, .5), 
 #           frame = TRUE, mark = TRUE, grid = TRUE, 
 #           mar_all = NA, oma_all = NA
 # )
+
+lbl_3 <- rep("l Eine durch 2 `l` begrenzte Zeile l", 5)
+plot_text(x = 0,
+          y = .80, #
+          # y = c(.80, .70, .55, .35, .15),
+          lbls = lbl_3,
+          y_layout = "flush", # .05,
+          cex = c(1, 1.5, 2, 2.3, 2.6), font = c(2, 1),
+          col_bg = c(grey(.1, .1), grey(.1, .2)), lwd_bg = 1/3, col_bg_border = "red",
+          # pos = NULL, adj = c(0, .5), offset = 999,
+          pos = 4, adj = c(1, 1), offset = 0,
+          padding = 1, # OR: c(.5, .5),
+          frame = TRUE, mark = TRUE, grid = F,
+          mar_all = NA, oma_all = NA
+)
 
 ## ToDo: ##  
 # - Allow setting consistent mar and oma values for key plotting inputs
