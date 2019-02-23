@@ -178,12 +178,12 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
     line_dist <- layout_type  #  some fixed line distance value(s) (constant or vector)
     # if (is.na(line_dist)) { line_dist <- .10 } # some default value         
     
-    ## (a) OLD: 1 single line_dist value:
+    ## (-) OLD: 1 constant line_dist value:
     # line_dist_constant <- line_dist[1]  # use 1st value as constant
     # line_distance_addends  <- c(0, rep(line_dist_constant, (N_lbls - 1)))  # start with 0, N_lbls values overall
     # line_distance_cumsum   <- cumsum(line_distance_addends) 
     
-    # (b) NEW: 1 or more line_dist values: 
+    # (+) NEW: 1 or more line_dist values: 
     # Recycle line_dist to a length of N_lbls (if necessary): 
     if (length(line_dist) < N_lbls){
       line_dist <- rep(line_dist, ceiling(N_lbls/length(line_dist)))[1:N_lbls]
@@ -192,16 +192,16 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
     line_distance_cumsum  <- cumsum(line_distance_addends) 
     
     ## 1. Consider only (between) line distances: 
+    #
     # y_out <- (y_top - line_distance_cumsum)
     
     
-    # 2. Also incorporate line heights:
-    cum_height_seq <- cumsum(c(0, height_seq))[1:N_lbls]  # cumulative height: Start with 0, drop final cumsum 
+    ## 2. Incorporate line heights:
+    # cum_height_seq <- cumsum(c(0, height_seq))[1:N_lbls]  # cumulative height: Start with 0, drop final cumsum 
+    #
+    # y_out <- (y_top - (line_distance_cumsum + cum_height_seq))
     
-    y_out <- (y_top - (line_distance_cumsum + cum_height_seq))
-    
-    
-    # 3. Allow for different heights: 
+    ## 3. Allow for different heights: 
     # Problem: Rectangles can vary in height (due to cex and font differences).
     # Solution: Desired distance between 2 rectangles A (current) and B (next) depends on both heights: 
     #           50% of A (current) + 50% of B (next):
@@ -214,7 +214,6 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
     y_out <- (y_top - (line_distance_cumsum + act_y_dist))
     
   } # if if (is.numeric(layout_type)) etc. 
-  
   
   # Notes or warning messages: ----
   min_y_out <- min(y_out)
