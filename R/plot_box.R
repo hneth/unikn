@@ -211,8 +211,8 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 # plot_box(box_dim = c(5, 5, 10, 15), x_cex = 1, x_dis = 0, grid = TRUE)  # box higher than wide (in upper right) with max "x"
 # # Note: "x" appears orthogonal when grid is evenly spaced (i.e., dimensions of display device match plotting region). 
 # 
-# # Assuming a square canvas: 
-# plot_box(box_dim = c(5, 5, 10, 10), x_cex = 1, x_dis = 0, x_col = "red3", x_lwd = 2, grid = TRUE) # square box (in upper right) with max "x"
+# # Assuming a square canvas: Square box (in upper right) with max "x"
+# plot_box(box_dim = c(5, 5, 10, 10), x_cex = 1, x_dis = 0, x_col = "red3", x_lwd = 2, grid = TRUE) 
 # 
 # # Varying x_dis: 
 # plot_box(box_dim = c(5, 5, 10, 10), x_dis = 0/4, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
@@ -223,17 +223,17 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 
 
 
-## plot_box_x_text: Plot box with "x" and text: ---------- 
+## plot_box_txt: Plot box with "x" and text: ---------- 
 
 # - Documentation: ---- 
 
 #' Plot a colored box (with top x and text). 
 #' 
-#' \code{plot_box_x_text} generates a box with a cross (x) in its top-right corner 
+#' \code{plot_box_txt} generates a box with a cross (x) in its top-right corner 
 #' and places 1 or more text strings (of a character vector \code{lbls}) 
 #' in the box. 
 #' 
-#' \code{plot_box_x_text} uses the base graphics system \code{graphics::}. 
+#' \code{plot_box_txt} uses the base graphics system \code{graphics::}. 
 #' 
 #' This is an earlier version of the more powerful 
 #' \code{plot_box} function. 
@@ -272,20 +272,20 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 #' \code{\link{mark}} to mark text with a colored box. 
 #' 
 #' @examples
-#' plot_box_x_text(lbls = "A heading appears here.")
-#' plot_box_x_text(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
+#' plot_box_txt(lbls = "A heading appears here.")
+#' plot_box_txt(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
 #' 
-#' plot_box_x_text(lbls = "The darkest shade of seeblau.", col_bg = pal_seeblau[[5]], cex = 1.5)
+#' plot_box_txt(lbls = "The darkest shade of seeblau.", col_bg = pal_seeblau[[5]], cex = 1.5)
 #' 
 #' # Note: As a vector of character strings for lbls is converted into separate lines of text,
 #' #       the following examples yield identical results:
-#' plot_box_x_text(lbls = c("The 1st line of text.", "A 2nd and longer line of text.", "The 3rd line of text."))
-#' plot_box_x_text(lbls = "The 1st line of text.\nA 2nd and longer line of text.\nThe 3rd line of text.")
+#' plot_box_txt(lbls = c("The 1st line of text.", "A 2nd and longer line of text.", "The 3rd line of text."))
+#' plot_box_txt(lbls = "The 1st line of text.\nA 2nd and longer line of text.\nThe 3rd line of text.")
 #'
 #' # Box logos:
-#' plot_box_x_text(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
-#' plot_box_x_text(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
-#' plot_box_x_text(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
+#' plot_box_txt(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
+#' plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
+#' plot_box_txt(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 #'
 #' @import graphics 
 #' 
@@ -293,13 +293,14 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 
 # - Definition: ----
 
-plot_box_x_text <- function(lbls = NA,  # character vector of labels to place (as lines of text)  
-                            col_lbl = "white",              # text color
-                            col_bg = as.character(seeblau), # box color
-                            cex = 2, 
-                            font = 2,
-                            lbl_x = .02, 
-                            lbl_y = .65  # fraction in [0, 1] that determines y-value of top line of text (max. of 1 corresponds to 80% of box) 
+plot_box_txt <- function(lbls = NA,  # character vector of labels to place (as lines of text)  
+                         col_lbl = "white",              # text color
+                         col_bg = as.character(seeblau), # box color
+                         cex = 2, 
+                         font = 2,
+                         lbl_x = .02, 
+                         lbl_y = .65  # fraction in [0, 1] that determines y-value of top line of text 
+                         # A (max. of 1 corresponds to 80% of box) 
 ) {
   
   ## (1) Plot a box (as a new plot): -----
@@ -390,26 +391,26 @@ plot_box_x_text <- function(lbls = NA,  # character vector of labels to place (a
   on.exit(par(opar)) # restore original settings
   invisible() # restores par(opar)
   
-} # plot_box_x_text end.
+} # plot_box_txt end.
 
 ## Check:
-# plot_box_x_text(lbls = "A heading appears here.")
-# plot_box_x_text(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
+# plot_box_txt(lbls = "A heading appears here.")
+# plot_box_txt(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
 # 
-# plot_box_x_text(lbls = "The darkest shade of seeblau.", col_bg = pal_seeblau[[5]], cex = 1.5)
+# plot_box_txt(lbls = "The darkest shade of seeblau.", col_bg = pal_seeblau[[5]], cex = 1.5)
 # 
 # # Note: As a vector of character strings for lbls is converted into separate lines of text,
 # #       the following examples yield identical results:
-# plot_box_x_text(lbls = c("The 1st line of text.", "A 2nd and longer line of text.", "The 3rd line of text."))
-# plot_box_x_text(lbls = "The 1st line of text.\nA 2nd and longer line of text.\nThe 3rd line of text.")
+# plot_box_txt(lbls = c("The 1st line of text.", "A 2nd and longer line of text.", "The 3rd line of text."))
+# plot_box_txt(lbls = "The 1st line of text.\nA 2nd and longer line of text.\nThe 3rd line of text.")
 # 
 # # Box logos:
-# plot_box_x_text(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
-# plot_box_x_text(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
-# plot_box_x_text(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
+# plot_box_txt(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
+# plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
+# plot_box_txt(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 #
 ## Box with address/contact details:
-# plot_box_x_text(lbls = c("Dr. B. F. Skinner", " ",
+# plot_box_txt(lbls = c("Dr. B. F. Skinner", " ",
 #                   "Department of Psychology",
 #                   "Office F101",
 #                   "Tel.: +49 7531 88-0815",
