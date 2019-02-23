@@ -130,15 +130,43 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
   
   if (!is.numeric(layout_type) && (layout_type == "even")){
     
-    line_dist <- abs(y_top - y_bot)/(N_lbls + 1)  # evenly spaced across available space (from y_top to y_bot)
+    # ## 1. Consider only (between) line distances (NOT line heights): ---- 
+    # 
+    # # Compute line_dist if NOT considering height_sum:
+    # line_dist <- abs(y_top - y_bot) / (N_lbls - 0)  # evenly spaced across available space (from y_top to y_bot)
+    # 
+    # line_distance_addends  <- c(0, rep(line_dist, (N_lbls - 1)))  # start with 0, N_lbls values overall
+    # line_distance_cumsum   <- cumsum(line_distance_addends) 
+    # 
+    # y_out <- (y_top - line_distance_cumsum)
+    
+    
+    ## 2. Also incorporate line heights: ---- 
+    
+    # Compute line_dist when also considering height_sum:
+    height_sum <- sum(height_seq)
+    line_dist <- abs((y_top - y_bot) - height_sum) / (N_lbls - 1)  # evenly spaced across remaining space (after removing height_sum)
     
     line_distance_addends  <- c(0, rep(line_dist, (N_lbls - 1)))  # start with 0, N_lbls values overall
     line_distance_cumsum   <- cumsum(line_distance_addends) 
     
-    # cum_height_seq <- cumsum(c(0, height_seq))[1:N_lbls]  # cumulative height: Start with 0, drop final cumsum
-    # y_out <- (y_top - (line_distance_cumsum + cum_height_seq))
     
-    y_out <- (y_top - line_distance_cumsum)
+    cum_height_seq <- cumsum(c(0, height_seq))[1:N_lbls]  # cumulative height: Start with 0, drop final cumsum
+    
+    y_out <- (y_top - (line_distance_cumsum + cum_height_seq))
+    
+    
+    # 3. Allow for different heights: 
+    # Problem: Rectangles can vary in height (due to cex and font differences).
+    # Solution: Desired distance between 2 rectangles A (current) and B (next) depends on both heights: 
+    #           50% of A (current) + 50% of B (next):
+    
+    next_height <- c(height_seq[2:N_lbls], 0)           # height of next rect
+    y_dist <- (1/2 * height_seq) + (1/2 * next_height)  # desired distances in y direction
+    cum_y_dist <- cumsum(y_dist)                              # cumulative distances in y direction
+    act_y_dist <- c(0, cum_y_dist)[1:N_lbls]   # shift by 1: start with 0, drop final cum_y_dist
+    
+    y_out <- (y_top - (line_distance_cumsum + act_y_dist))
     
   } # if (layout_type == "even") etc. 
   
@@ -150,12 +178,12 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
     line_dist <- layout_type  #  some fixed line distance value(s) (constant or vector)
     # if (is.na(line_dist)) { line_dist <- .10 } # some default value         
     
-    ## (a) 1 single line_dist value:
+    ## (a) OLD: 1 single line_dist value:
     # line_dist_constant <- line_dist[1]  # use 1st value as constant
     # line_distance_addends  <- c(0, rep(line_dist_constant, (N_lbls - 1)))  # start with 0, N_lbls values overall
     # line_distance_cumsum   <- cumsum(line_distance_addends) 
     
-    # (b) 1 or more line_dist values: 
+    # (b) NEW: 1 or more line_dist values: 
     # Recycle line_dist to a length of N_lbls (if necessary): 
     if (length(line_dist) < N_lbls){
       line_dist <- rep(line_dist, ceiling(N_lbls/length(line_dist)))[1:N_lbls]
@@ -163,10 +191,27 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
     line_distance_addends <- c(0, line_dist)[1:N_lbls]  # start with 0, N_lbls values overall
     line_distance_cumsum  <- cumsum(line_distance_addends) 
     
-    # cum_height_seq <- cumsum(c(0, height_seq))[1:N_lbls]  # cumulative height: Start with 0, drop final cumsum
-    # y_out <- (y_top - (line_distance_cumsum + cum_height_seq))
+    ## 1. Consider only (between) line distances: 
+    # y_out <- (y_top - line_distance_cumsum)
     
-    y_out <- (y_top - line_distance_cumsum)
+    
+    # 2. Also incorporate line heights:
+    cum_height_seq <- cumsum(c(0, height_seq))[1:N_lbls]  # cumulative height: Start with 0, drop final cumsum 
+    
+    y_out <- (y_top - (line_distance_cumsum + cum_height_seq))
+    
+    
+    # 3. Allow for different heights: 
+    # Problem: Rectangles can vary in height (due to cex and font differences).
+    # Solution: Desired distance between 2 rectangles A (current) and B (next) depends on both heights: 
+    #           50% of A (current) + 50% of B (next):
+    
+    next_height <- c(height_seq[2:N_lbls], 0)           # height of next rect
+    y_dist <- (1/2 * height_seq) + (1/2 * next_height)  # desired distances in y direction
+    cum_y_dist <- cumsum(y_dist)                              # cumulative distances in y direction
+    act_y_dist <- c(0, cum_y_dist)[1:N_lbls]   # shift by 1: start with 0, drop final cum_y_dist
+    
+    y_out <- (y_top - (line_distance_cumsum + act_y_dist))
     
   } # if if (is.numeric(layout_type)) etc. 
   
@@ -201,6 +246,11 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
 
 ## Test: Testbed for code above: ------ 
 
+
 ## ToDo: ------
+
+# (1) layout_y: Implement 2 special "layout_type"s of "flush" and "even" 
+#               as special cases of numeric y-values (y_dist = 0 and y_dist = constant)
+
 
 ## eof. ----------
