@@ -715,20 +715,20 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 
 # ## Check: 
 
-lbl_1 <- c("Titelzeile", "Alle meine steilen Zeilen", "Ausgefeilte Zeilen", "Wichtig mitzuteilen!", "LOL", "etc.")
-lbl_1 <- c("Erste Zeile", "Zweite Zeile", "Dritte Zeile", "Vierte Zeile", "Ziemlich ausgefeilte Zeilen", "Wichtig mitzuteilen!")
-plot_text(x = .05, 
-          y = NA, # y = c(.65, .50, .4, .3, .2, .1),
-          lbls = lbl_1, 
-          y_layout = "even",  # "even", "flush", OR fixed value (e.g., .05) 
-          cex = c(1, 1, 2, 2, 3, 3), 
-          font = c(2, 1, 2, 1, 2, 1),
-          col_bg = c(unlist(seeblau), "gold"), lwd_bg = NA,
-          pos = NULL, adj = c(0, .5),  offset = 999,
-          # pos = 4, adj = c(1, 1), offset = 0,
-          xbox = TRUE, mark = FALSE, grid = TRUE,
-          mar_all = NA, oma_all = NA
-)
+# lbl_1 <- c("Titelzeile", "Alle meine steilen Zeilen", "Ausgefeilte Zeilen", "Wichtig mitzuteilen!", "LOL", "etc.")
+# lbl_1 <- c("Erste Zeile", "Zweite Zeile", "Dritte Zeile", "Vierte Zeile", "Ziemlich ausgefeilte Zeilen", "Wichtig mitzuteilen!")
+# plot_text(x = .05, 
+#           y = NA, # y = c(.65, .50, .4, .3, .2, .1),
+#           lbls = lbl_1, 
+#           y_layout = .08, # "even",  # "even", "flush", OR fixed value (e.g., .08) 
+#           cex = c(1, 1, 2, 2, 3, 3), 
+#           font = c(2, 1, 2, 1, 2, 1),
+#           col_bg = c(unlist(seeblau), "gold"), lwd_bg = NA,
+#           pos = NULL, adj = c(0, .5),  offset = 999,
+#           # pos = 4, adj = c(1, 1), offset = 0,
+#           xbox = TRUE, mark = FALSE, grid = TRUE,
+#           mar_all = NA, oma_all = NA
+# )
 
 # lbl_2 <- rep("l Hier noch eine durch zwei Mal `l` begrenzte Zeile l", 6)
 # plot_text(x = 0, 
@@ -742,20 +742,20 @@ plot_text(x = .05,
 #           mar_all = NA, oma_all = NA
 # )
 
-lbl_3 <- rep("l Eine durch 2 `l` begrenzte Zeile l", 5)
-plot_text(x = 0,
-          y = .80, #
-          # y = c(.80, .70, .55, .35, .15),
-          lbls = lbl_3,
-          y_layout = "flush", # .05,
-          cex = c(1, 1.5, 2, 2.3, 2.6), font = c(2, 1),
-          col_bg = c(grey(.1, .1), grey(.1, .2)), lwd_bg = 1/3, col_bg_border = "red",
-          # pos = NULL, adj = c(0, .5), offset = 999,
-          pos = 4, adj = c(1, 1), offset = 0,
-          padding = 1, # OR: c(.5, .5),
-          frame = TRUE, mark = TRUE, grid = F,
-          mar_all = NA, oma_all = NA
-)
+# lbl_3 <- rep("l Eine durch 2 `l` begrenzte Zeile l", 5)
+# plot_text(x = 0,
+#           y = .80, #
+#           # y = c(.80, .70, .55, .35, .15),
+#           lbls = lbl_3,
+#           y_layout = "flush", # .05,
+#           cex = c(1, 1.5, 2, 2.3, 2.6), font = c(2, 1),
+#           col_bg = c(grey(.1, .1), grey(.1, .2)), lwd_bg = 1/3, col_bg_border = "red",
+#           # pos = NULL, adj = c(0, .5), offset = 999,
+#           pos = 4, adj = c(1, 1), offset = 0,
+#           padding = 1, # OR: c(.5, .5),
+#           frame = TRUE, mark = TRUE, grid = F,
+#           mar_all = NA, oma_all = NA
+# )
 
 ## ToDo: ##  
 # - Allow setting consistent mar and oma values for key plotting inputs
