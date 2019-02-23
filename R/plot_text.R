@@ -478,14 +478,15 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   
   # Parameter shortcuts:
   N_lbls <- length(lbls)
-  y_top <- y[1]       # highest y coordinate
-  y_bot_free <- .15   # amount of space free of text at bottom (in % of available y_range/y_top)
-  y_bot <- (y_bot_free * abs(y_top - 0))  # lowest y coordinate (border width = 10% of y_range/y_top)
+  
+  y_top <- y[1]       # highest y coordinate (of lbls)
+  y_bot <- min(par("usr")[3:4])  # minimum y value of current plot
+  y_bot_free <- .10              # amount of space to stay empty at bottom (in % of available y_range/y_top)
+  y_bot <- (y_bot_free * abs(y_top - y_bot))  # lowest y coordinate (border width = 10% of y_range/y_top)
   
   # If more lbls than y coordinates: 
   if (N_lbls > length(y)) {  
     
-    # message("More lbls than y-values: Automatic label layout...")
     message(paste0("N_lbls > N(y): Automatic ", as.character(y_layout), " label layout..."))
     
     if (mark) { 
@@ -713,15 +714,17 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 } # plot_text end.
 
 
-# ## Check: 
-
-# lbl_1 <- c("Titelzeile", "Alle meine steilen Zeilen", "Ausgefeilte Zeilen", "Wichtig mitzuteilen!", "LOL", "etc.")
-# lbl_1 <- c("Erste Zeile", "Zweite Zeile", "Dritte Zeile", "Vierte Zeile", "Ziemlich ausgefeilte Zeilen", "Wichtig mitzuteilen!")
-# plot_text(x = .05, 
-#           y = NA, # y = c(.65, .50, .4, .3, .2, .1),
-#           lbls = lbl_1, 
-#           y_layout = .08, # "even",  # "even", "flush", OR fixed value (e.g., .08) 
-#           cex = c(1, 1, 2, 2, 3, 3), 
+# # ## Check: 
+# 
+# # (a) xbox with text:
+# lbl_1 <- c("Erste Zeile", "Zweite Zeile", "Dritte steile Zeile", "Vierte Zeile zum Verweilen",
+#            "Ziemlich ausgefeilte Zeilen", "Wichtig mitzuteilen!")
+# plot_text(lbls = lbl_1,
+#           x = .05,
+#           y = NA,  # fewer y-coords than labels
+#           # y = c(.65, .50, .4, .3, .2, .1), # fixed y-coords for all lbls
+#           y_layout = "even",  # "even", "flush", OR fixed value (e.g., c(.02, .05), recycled)! 
+#           cex = c(1, 1, 2, 2, 3, 3),
 #           font = c(2, 1, 2, 1, 2, 1),
 #           col_bg = c(unlist(seeblau), "gold"), lwd_bg = NA,
 #           pos = NULL, adj = c(0, .5),  offset = 999,
@@ -729,41 +732,50 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 #           xbox = TRUE, mark = FALSE, grid = TRUE,
 #           mar_all = NA, oma_all = NA
 # )
-
-# lbl_2 <- rep("l Hier noch eine durch zwei Mal `l` begrenzte Zeile l", 6)
-# plot_text(x = 0, 
-#           y = .90, # y = c(.77, .7, .55, .45, .25, .1),
-#           lbls = lbl_2, cex = c(1, 1, 2, 2, 3, 3), font = c(2, 1, 2, 1, 2, 1),
+# 
+# # (b) frame with text and line: 
+# lbl_2 <- rep("l Eine durch zwei `l` begrenzte Zeile l", 6)
+# plot_text(lbls = lbl_2, 
+#           x = 0,
+#           y = .80,  # fewer y-coords than labels
+#           # y = c(.77, .7, .55, .45, .25, .1), # fixed y-coords for all lbls
+#           y_layout = c(.05, .15), # "even" or fixed numeric value(s), (e.g., c(.02, .05), recycled)!
+#           cex = c(1, 1, 1.5, 1.5, 2, 2), 
+#           font = c(2, 1, 2, 1, 2, 1),
 #           col_bg = c(unlist(seeblau), "gold"), lwd_bg = 0,
-#           pos = NULL, adj = c(0, .5), offset = 999, 
-#           # pos = 4, adj = c(1, 1), offset = 0, 
-#           padding = 1, # OR: c(.5, .5), 
-#           frame = TRUE, mark = TRUE, grid = TRUE, 
-#           mar_all = NA, oma_all = NA
+#           pos = NULL, adj = c(0, .5), offset = 999,
+#           # pos = 4, adj = c(1, 1), offset = 0,
+#           padding = 1, # OR: c(.5, .5),
+#           frame = TRUE, 
+#           line = TRUE, 
+#           grid = TRUE, mar_all = NA, oma_all = NA
 # )
-
-# lbl_3 <- rep("l Eine durch 2 `l` begrenzte Zeile l", 5)
-# plot_text(x = 0,
-#           y = .80, #
-#           # y = c(.80, .70, .55, .35, .15),
-#           lbls = lbl_3,
-#           y_layout = "flush", # .05,
-#           cex = c(1, 1.5, 2, 2.3, 2.6), font = c(2, 1),
-#           col_bg = c(grey(.1, .1), grey(.1, .2)), lwd_bg = 1/3, col_bg_border = "red",
+# 
+# # (c) frame with text and mark:
+# lbl_3 <- rep("In Schrift und Grösse variable Zeilen", 6)
+# plot_text(lbls = lbl_3, 
+#           x = 0,
+#           y = .80,  # fewer y-coords than labels
+#           # y = c(.80, .70, .55, .35, .15), # fixed y-coords for all lbls
+#           y_layout = c(0, .05), # "even", # "even", "flush", or fixed value(s) (e.g., c(.02, .05), recycled)!
+#           cex = c(1.5, 1, 2, 1.5, 2, 2.5), font = c(2, 1),
+#           col_bg = c(grey(0, .10), grey(0, .20)), 
+#           lwd_bg = 1/3, col_bg_border = "red2",
 #           # pos = NULL, adj = c(0, .5), offset = 999,
 #           pos = 4, adj = c(1, 1), offset = 0,
 #           padding = 1, # OR: c(.5, .5),
-#           frame = TRUE, mark = TRUE, grid = F,
-#           mar_all = NA, oma_all = NA
+#           frame = TRUE, mark = TRUE, 
+#           grid = FALSE, mar_all = NA, oma_all = NA
 # )
 
 ## ToDo: ##  
 # - Allow setting consistent mar and oma values for key plotting inputs
 # - Distinguish between 2 padding versions: default (by "l", as per CD Manual) vs. numeric user-input-based
 # - mark: Shift x values (of each individual label) by size of its left padding (so that boxes align on left).
+# - all: Allow automatic spacing: Use only y[1] and then space y-values by text or rect heights (to align boxes).
 
 #   +++ here now +++
-# - all: Allow automatic spacing: Use only y[1] and then space y-values by text or rect heights (to align boxes).
+
 # - mark: Warn in case of monotonic step functions. 
 
 
