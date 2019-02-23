@@ -4,7 +4,8 @@
 
 ## Plot text with formatting elements (marking/highlighting or underlining).
 
-## [A]: Full versions (with abundant options): -------- 
+# [A]: Key functions to plot text (with abundant options): -------- 
+
 
 # (1) box_text: Add text with a colored background box to a plot: ------
 
@@ -228,11 +229,11 @@ box_text <- function(x, y, lbls = NA,             # coordinates and labels of te
 #          col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
 
 
-# (2) plot_text_exp: Enhanced (expert/experimental) version of box_text (also supporting underlining): ------ 
+# (2) plot_text: Enhanced (expert/experimental) version of box_text (also supporting underlining): ------ 
 
-## Note that plot_text_exp is an experimental function, intended for expert users.
+## Note that plot_text is an experimental function, intended for expert users.
 
-# plot_text_exp: Uber function that can do many kinds of things:
+# plot_text: Uber function that can do many kinds of things:
 
 # - plot boxes or frames (to a new plotting device, resetting margins)
 # - plot text to (existing) plots
@@ -818,9 +819,10 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 #          col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
 
 
+
 ## Test: Testbed for code snippets (used above) ------
 
-## 1. Is there an open plot? Does already some plot exist? ----- 
+# 1. Is there an open plot? Does already some plot exist? ----- 
 
 # # See 
 # dev.list() # for a list of current devices
@@ -834,7 +836,7 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 # }  
 
 
-## 2. Are cex and strwidth functions vectorized? -----  
+# 2. Are cex and strwidth functions vectorized? -----  
 # plot.new()
 # # cex vectors:
 # text(x = 0, y = c(.8, .5, .2), labels = c("A", "B", "C"), cex = c(1, 2, 3))
@@ -863,6 +865,7 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 # 
 # char_heights <- char_height * cex_vals  # multiply (single) height of key_char with (vec of) cex_vals
 # char_widths
+
 
 
 ## ToDo: ------

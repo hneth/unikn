@@ -4,7 +4,9 @@
 
 ## Plot boxes (e.g., xbox, slides, etc.)
 
-## (A) Key functions to plot colored boxes, frames, (etc.): -------- 
+
+## (A): Key functions to plot colored boxes, frames, (etc.): -------- 
+
 
 
 ## plot_box: Enhanced (expert/experimental) function that plots ONLY a colored box with "x" (but NO text): -----
@@ -220,6 +222,7 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 
 
 
+
 ## plot_box_x_text: Plot box with "x" and text: ---------- 
 
 # - Documentation: ---- 
@@ -416,6 +419,7 @@ plot_box_x_text <- function(lbls = NA,  # character vector of labels to place (a
 #          font = 1, cex = 1.0, col_bg = pal_petrol[[4]])
 
 
+
 ## Test: Testbed for code above: ------ 
 
 # # Aspect ratio of current plot:
@@ -423,6 +427,7 @@ plot_box_x_text <- function(lbls = NA,  # character vector of labels to place (a
 # plot_ratio <- plot_xy[1]/plot_xy[2]  # current aspect ratio
 # scale_x <- 1/plot_ratio              # multiplicative correction factor (for x-widths)
 # scale_x
+
 
 ## ToDo: ------
 

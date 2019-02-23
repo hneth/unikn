@@ -9,7 +9,11 @@
 # - post: postit type xboxes
 # - head: title sequences
 
-# Note that the following functions call plot_text() (with fewer options and sensible defaults). 
+
+
+# [B]: Simpler functions that call plot_text() (with fewer options and sensible defaults): -------- 
+
+
 
 # (1) mark: Highlight text on a plot: ------ 
 
@@ -127,9 +131,10 @@ mark <- function(x, y, lbls = NA,                             # coordinates and 
 
 
 
+
 ## Test: Testbed for code snippets (used above) ------
 
-## 1. Is there an open plot? Does already some plot exist? ----- 
+# 1. Is there an open plot? Does already some plot exist? ----- 
 
 # # See 
 # dev.list() # for a list of current devices
@@ -143,7 +148,7 @@ mark <- function(x, y, lbls = NA,                             # coordinates and 
 # }  
 
 
-## 2. Are cex and strwidth functions vectorized? -----  
+# 2. Are cex and strwidth functions vectorized? -----  
 # plot.new()
 # # cex vectors:
 # text(x = 0, y = c(.8, .5, .2), labels = c("A", "B", "C"), cex = c(1, 2, 3))
@@ -172,6 +177,7 @@ mark <- function(x, y, lbls = NA,                             # coordinates and 
 # 
 # char_heights <- char_height * cex_vals  # multiply (single) height of key_char with (vec of) cex_vals
 # char_widths
+
 
 
 

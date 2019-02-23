@@ -4,7 +4,9 @@
 
 ## More functions to plot boxes (e.g., xbox, slides, etc.).
 
-## (B) Simple functions that call plot_box() (with fewer options, but sensible defaults): -------- 
+
+## (B): Simple functions that call plot_box() (with fewer options, but sensible defaults): -------- 
+
 
 ## xbox: Plot a colored box with "x" (a simple version of plot_box): ------ 
 
@@ -61,6 +63,7 @@ xbox <- function(col = unlist(seeblau),
 # xbox(col = unlist(seegruen))
 # xbox(col = unlist(Bordeaux))
 # xbox(dim = c(2, 1)) # 2:1 dimension (twice as wide than high)
+
 
 ## slide: Plot a colored slide frame without "x": (a simple version of plot_box): ------ 
 
@@ -146,6 +149,7 @@ slide <- function(col = NA,
 
 
 
+
 ## Test: Testbed for code above: ------ 
 
 # # Aspect ratio of current plot:
@@ -153,6 +157,7 @@ slide <- function(col = NA,
 # plot_ratio <- plot_xy[1]/plot_xy[2]  # current aspect ratio
 # scale_x <- 1/plot_ratio              # multiplicative correction factor (for x-widths)
 # scale_x
+
 
 
 ## ToDo: ------
