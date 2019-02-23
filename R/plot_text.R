@@ -818,124 +818,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 #          col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
 
 
-## [B]: Reduced versions (with fewer options and sensible defaults): -------- 
-
-
-# (1) mark: Highlight text on a plot: ------ 
-
-# - Documentation: ---- 
-
-#' \code{mark} places 1 or more text strings (of a character vector \code{lbls}) 
-#' onto a plot and places a colored box behind
-#' each label to mark or highlight it (i.e., make it stand out from the background).
-#' 
-#' \code{mark} uses the base graphics system \code{graphics::}. 
-#' 
-#' @param x A numeric vector of x-coordinates at which the 
-#' text labels in \code{lbls} should be written. 
-#' If the length of \code{x} and \code{y} differs, the shorter one is recycled.
-#' 
-#' @param y A numeric vector of y-coordinates at which the 
-#' text labels in \code{lbls} should be written.
-#' 
-#' @param lbls A character vector specifying the text labels 
-#' to be written.
-#' 
-#' @param col_lbl The color(s) of the text label(s). 
-#' Default: \code{col_lbl = "black"}. 
-#' 
-#' @param col_bg The color(s) to highlight or fill the rectangle(s) with. 
-#' Default: \code{col_bg = NA} (transparent rectangles).
-#' 
-#' @param cex A numeric character expansion factor, 
-#' multiplied by \code{par("cex")} to yield the character size. 
-#' Default: \code{cex = 2}. 
-#' 
-#' @param font The font to be used. 
-#' Default: \code{font = 2} (i.e., bold).
-#' 
-#' 
-#' @examples
-#' ## Example 1: Simple highlights
-#' plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
-#' 
-#' mark(x = 0, y = .9, lbls = "Please note")
-#' mark(x = 0, y = c(.6, .5),
-#'      lbls = c("Highlighting text is simple", "but strikingly effective"),
-#'      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
-#' mark(x = .4, y = c(.3, .2), lbls = c("It is also flexible", "but to be handled with care"), cex = 1.2,
-#'      col_lbl = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
-#' 
-#' ## Example 2: Messy plot
-#' n <- 20
-#' set.seed(1)
-#' plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), axes = F, xlab = "", ylab = "")
-#' 
-#' # Only 1 label:
-#' mark(x = .05, y = .85, lbls = "What a messy plot")
-#' 
-#' # 2 labels at once:
-#' mark(x = c(.35, .55), y = c(.15, .40),
-#'      lbls = c("Note something here", "More highlighting here"),
-#'      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
-#'            
-#' @family text functions
-#' 
-#' @seealso
-#' \code{\link{plot_box}} to plot text in a colored box 
-#'      
-#' @import graphics 
-#'                          
-#' @export 
-
-# - Definition: ---- 
-
-mark <- function(x, y, lbls = NA,                             # coordinates and labels of text element(s) 
-                 col_lbl = "black", col_bg = unlist(seeblau), # color(s)
-                 cex = 2, font = 2                            # text size and font
-){
-  
-  # Pass on (to richer box_text function):
-  box_text(x = x, y = y, lbls = lbls, col_lbl = col_lbl, col_bg = col_bg, cex = cex, font = font)
-  
-}
-
-# ## Check:
-#
-# ## Example 1: Simple highlights
-# plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
-# 
-# mark(x = 0, y = .9, lbls = "Please note")
-# mark(x = 0, y = c(.6, .5),
-#      lbls = c("Highlighting text is simple", "but strikingly effective"),
-#      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
-# mark(x = .4, y = c(.3, .2), lbls = c("It is also flexible", "but to be handled with care"), cex = 1.2,
-#      col_lbl = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
-# 
-# ## Example 2: Messy plot
-# n <- 20
-# set.seed(1)
-# plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), axes = F, xlab = "", ylab = "")
-# 
-# # Only 1 label:
-# mark(x = .05, y = .85, lbls = "What a messy plot")
-# 
-# # 2 labels at once:
-# mark(x = c(.35, .55), y = c(.15, .40),
-#      lbls = c("Note something here", "More highlighting here"),
-#      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
-
-
-
-# (2) line: Underline text on a plot: ------ 
-
-# (3) post: Plot a post-it note with text: ------ 
-
-## Use the plot_box function.
-
-# (4) head: Arrange headings (according to title specifications): ------ 
-
-
 ## Test: Testbed for code snippets (used above) ------
 
 ## 1. Is there an open plot? Does already some plot exist? ----- 
@@ -981,7 +863,6 @@ mark <- function(x, y, lbls = NA,                             # coordinates and 
 # 
 # char_heights <- char_height * cex_vals  # multiply (single) height of key_char with (vec of) cex_vals
 # char_widths
-
 
 
 ## ToDo: ------
