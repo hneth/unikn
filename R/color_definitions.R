@@ -229,7 +229,7 @@ pal_seeblau <- data.frame(                               #  element:
 #' uni.kn color seeblau. 
 #' 
 #' \code{seeblau} provides the preferred color of \code{\link{pal_seeblau}} 
-#' as an atomic data frame and is defined as 
+#' (as an atomic data frame) and is defined as 
 #' \code{\link{pal_seeblau}[3]}. 
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
@@ -239,7 +239,8 @@ pal_seeblau <- data.frame(                               #  element:
 #' all.equal(seeblau, pal_seeblau[3])  # TRUE (both df)
 #' 
 #' @family colors
-#'
+#' @family preferred colors 
+#' 
 #' @seealso
 #' \code{\link{pal_seeblau}} for the corresponding color palette; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
@@ -247,19 +248,21 @@ pal_seeblau <- data.frame(                               #  element:
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
-#' @export
 
 seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn 
 
 ## Check:
 # seeblau
 
+# +++ here now +++: 
+# Do NOT export seeblau (atomic df), but Seeblau (atomic HEX character value)!
+
 #   (e) Preferred color (as HEX character value): ---- 
 
 #' uni.kn color Seeblau. 
 #' 
 #' \code{Seeblau} provides the preferred color of \code{\link{pal_seeblau}} 
-#' as a color value (HEX character) and is defined as 
+#' (as an atomic HEX character value) and is defined as 
 #' \code{\link{pal_seeblau}[[3]]}. 
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
@@ -269,6 +272,7 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 #' all.equal(Seeblau, pal_seeblau[[3]])  # TRUE (both values)
 #' 
 #' @family colors
+#' @family preferred colors 
 #'
 #' @seealso
 #' \code{\link{pal_seeblau}} for the corresponding color palette; 
@@ -279,7 +283,7 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 #'
 #' @export
 
-Seeblau <- pal_seeblau[[3]]  # == Value of seeblau.3 of pal_seeblau OR pal_unikn 
+Seeblau <- pal_seeblau[[3]]  # HEX color value of seeblau.3 of pal_seeblau OR pal_unikn 
 
 ## Check:
 # Seeblau
