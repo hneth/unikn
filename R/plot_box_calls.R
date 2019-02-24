@@ -34,7 +34,7 @@
 #' xbox()  # default box
 #' 
 #' # Options:
-#' xbox(col = unlist(Bordeaux))
+#' xbox(col = unlist(bordeaux))
 #' xbox(dim = c(2, 1)) # 2:1 dimension (wider than high)
 #'
 #' @import graphics 
@@ -68,7 +68,7 @@ xbox <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB"
 
 ## Simple variants:
 # xbox(col = unlist(seegruen))
-# xbox(col = unlist(Bordeaux))
+# xbox(col = unlist(bordeaux))
 # xbox(dim = c(2, 1)) # 2:1 dimension (twice as wide than high)
 
 

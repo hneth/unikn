@@ -194,7 +194,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
 ## Check:
 
 # ## Basic uses: ---- 
-# plot_box(col = unlist(Bordeaux))
+# plot_box(col = unlist(bordeaux))
 # plot_box(col = unlist(karpfenblau))
 # 
 # ## Expert uses: ---- 
@@ -282,7 +282,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
 #'
 #' # Box logos:
 #' plot_box_txt(lbls = c("unikn::"), col_bg = Seeblau, cex = 2.5)
-#' plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_Bordeaux[4]))
+#' plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_bordeaux[4]))
 #' plot_box_txt(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 #'
 #' @import graphics 

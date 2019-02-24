@@ -265,16 +265,16 @@ pal_n <- function(n = "all", pal = pal_unikn){
            out <- pal  # all 5 colors of pal_pinky 
     )
     
-  } else if (isTRUE(all.equal(pal, pal_Bordeaux))) {  # (8) pal_Bordeaux:
+  } else if (isTRUE(all.equal(pal, pal_bordeaux))) {  # (8) pal_bordeaux:
     
-    # message("Get n specific colors of pal_Bordeaux:")
+    # message("Get n specific colors of pal_bordeaux:")
     
     switch(n,
-           out <- pal[c("Bordeaux4")],  # 1 preferred color
-           out <- pal[c("Bordeaux4", "Bordeaux2")],  # 2
-           out <- pal[c("Bordeaux5", "Bordeaux3", "Bordeaux1")],  # 3   
-           out <- pal[c("Bordeaux5", "Bordeaux4", "Bordeaux2", "Bordeaux1")],  # 4              
-           out <- pal  # all 5 colors of pal_Bordeaux 
+           out <- pal[c("bordeaux4")],  # 1 preferred color
+           out <- pal[c("bordeaux4", "bordeaux2")],  # 2
+           out <- pal[c("bordeaux5", "bordeaux3", "bordeaux1")],  # 3   
+           out <- pal[c("bordeaux5", "bordeaux4", "bordeaux2", "bordeaux1")],  # 4              
+           out <- pal  # all 5 colors of pal_bordeaux 
     )
     
   } else {  # (+) any other pal:
@@ -600,14 +600,14 @@ col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_grau, pal_peach))  
 #' # Gradients over 3+ color palettes and colors:
 #' col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11)
 #' col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11)
-#' col_scale(c(rev(pal_karpfenblau), "white", pal_Bordeaux))(11) 
+#' col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux))(11) 
 #' 
 #' ## Creating and plotting color gradients: ------ 
 #' 
 #' # (1) Extending color palettes: ----
 #' plot_pal(col_scale()(20))
 #' plot_pal(col_scale(pal_seeblau)(10))
-#' plot_pal(col_scale(pal_Bordeaux)(10))
+#' plot_pal(col_scale(pal_bordeaux)(10))
 #'
 #' # (2) Combining colors or palettes: ---- 
 #' 
@@ -616,23 +616,23 @@ col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_grau, pal_peach))  
 #' plot_pal(col_scale(c(signal, petrol))(10))  
 #' plot_pal(col_scale(c(seeblau, "white", pinky))(10)) 
 #' plot_pal(col_scale(c(karpfenblau, seeblau, "white"))(10))  
-#' plot_pal(col_scale(c(Bordeaux, "white", petrol))(10)) 
+#' plot_pal(col_scale(c(bordeaux, "white", petrol))(10)) 
 #' plot_pal(col_scale(c(seeblau, "white", petrol))(10))
 #' plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))  # "gold" shines brighter than signal
 #'  
 #' # Combining 2+ color palettes into new palettes:
 #' plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))  
 #' plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10)) 
-#' plot_pal(col_scale(c(rev(pal_karpfenblau), pal_Bordeaux))(10)) 
+#' plot_pal(col_scale(c(rev(pal_karpfenblau), pal_bordeaux))(10)) 
 #' plot_pal(col_scale(c(rev(pal_seegruen), pal_pinky))(10))
-#' plot_pal(col_scale(c(rev(pal_petrol), pal_Bordeaux))(10)) 
+#' plot_pal(col_scale(c(rev(pal_petrol), pal_bordeaux))(10)) 
 #' 
 #' # Combining 2 palettes and mid-color "white" to new palettes:
 #' plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
 #' plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
-#' plot_pal(col_scale(c(rev(pal_karpfenblau), "white", pal_Bordeaux))(11)) 
+#' plot_pal(col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux))(11)) 
 #' plot_pal(col_scale(c(rev(pal_seegruen), "white", pal_peach))(11))
-#' plot_pal(col_scale(c(rev(pal_petrol), "white", pal_Bordeaux))(11))
+#' plot_pal(col_scale(c(rev(pal_petrol), "white", pal_bordeaux))(11))
 #' 
 #' @family color palettes
 #'
