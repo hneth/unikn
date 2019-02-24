@@ -191,16 +191,21 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
   
   next_height <- c(height_seq[2:N_lbls], 0)           # height of next rect
   y_dist <- (1/2 * height_seq) + (1/2 * next_height)  # desired distances in y direction
-  cum_y_dist <- cumsum(y_dist)                              # cumulative distances in y direction
+  cum_y_dist <- cumsum(y_dist)                        # cumulative distances in y direction
   act_y_dist <- c(0, cum_y_dist)[1:N_lbls]   # shift by 1: start with 0, drop final cum_y_dist
   
   y_out <- (y_top - (line_distance_cumsum + act_y_dist))
   
+  # print(paste0("y_out = ", y_out))  # 4debugging  
   
   # Warn if lowest y is below y_bot: ----
-  min_y_out <- min(y_out)
+  min_y_out <- min(y_out, na.rm = TRUE)
+  
+  # print(paste0("y_bot = ", y_bot))          # 4debugging
+  # print(paste0("min_y_out = ", min_y_out))  # 4debugging
+  
   if (min_y_out < y_bot) {
-    message(paste0("Minimum y of layout is ", min_y_out, ", while y_bot = ", y_bot)) 
+    message(paste0("Minimum y of layout is ", min_y_out, ", while y_bot = ", y_bot))
   }
   
   # Return: ---- 
