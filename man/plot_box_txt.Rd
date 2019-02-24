@@ -4,7 +4,7 @@
 \alias{plot_box_txt}
 \title{Plot a colored box (with top x and text).}
 \usage{
-plot_box_txt(lbls = NA, col_lbl = "white",
+plot_box_txt(lbls = "", col_lbl = "white",
   col_bg = as.character(seeblau), cex = 2, font = 2, lbl_x = 0.02,
   lbl_y = 0.65)
 }
@@ -49,6 +49,7 @@ This is an earlier version of the more powerful
 \code{plot_box} function.
 }
 \examples{
+plot_box_txt()
 plot_box_txt(lbls = "A heading appears here.")
 plot_box_txt(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
 
@@ -56,8 +57,8 @@ plot_box_txt(lbls = "The darkest shade of seeblau.", col_bg = pal_seeblau[[5]], 
 
 # Note: As a vector of character strings for lbls is converted into separate lines of text,
 #       the following examples yield identical results:
-plot_box_txt(lbls = c("The 1st line of text.", "A 2nd and longer line of text.", "The 3rd line of text."))
-plot_box_txt(lbls = "The 1st line of text.\\nA 2nd and longer line of text.\\nThe 3rd line of text.")
+plot_box_txt(lbls = c("The 1st line of text.", "A 2nd longer line of text.", "The 3rd line of text."))
+plot_box_txt(lbls = "The 1st line of text.\\nA 2nd longer line of text.\\nThe 3rd line of text.")
 
 # Box logos:
 plot_box_txt(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)

@@ -16,12 +16,20 @@ Default: \code{dim = c(1, 1)} (i.e., a unit square).}
 \description{
 \code{xbox} plots a box with a cross (x) in its top-right corner.
 }
+\details{
+The cross (x) appears rectangular when viewing the plot 
+at the correct aspect ratio (as defined by \code{dim}).
+}
 \examples{
 xbox()  # default box
 
+# Options:
+xbox(col = unlist(Bordeaux))
+xbox(dim = c(2, 1)) # 2:1 dimension (wider than high)
+
 }
 \seealso{
-\code{\link{frame}} to plot a frame.
+\code{\link{slide}} to plot a slide (or frame).
 
 Other plot functions: \code{\link{slide}}
 }

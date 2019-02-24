@@ -14,9 +14,11 @@ Default: \code{col = NA} (i.e., system default for transparency).}
 Default: \code{dim = c(4/3, 1)} (i.e., unit height, 4/3 wider than high).}
 
 \item{border}{The color of the slide's border. 
+Setting \code{border = NA} hides border.  
 Default: \code{border = grey(.33, 1)}.}
 
 \item{lwd}{The line width of the slide's border. 
+Setting \code{lwd = 0} or \code{lwd = NA} removes border. 
 Default: \code{lwd = 1.5}.}
 }
 \description{
@@ -25,6 +27,13 @@ as a colored rectangle.
 }
 \examples{
 slide()  # default slide (or frame)
+slide(lwd = NA)  # borderless slide
+
+# Dimensions: 
+slide(dim = c(18, 9)) # larger and 2:1 dimensions
+
+# Formatting:
+slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2) 
 
 }
 \seealso{
