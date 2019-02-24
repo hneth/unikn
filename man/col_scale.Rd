@@ -49,14 +49,14 @@ col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
 # Gradients over 3+ color palettes and colors:
 col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11)
 col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11)
-col_scale(c(rev(pal_karpfenblau), "white", pal_Bordeaux))(11) 
+col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux))(11) 
 
 ## Creating and plotting color gradients: ------ 
 
 # (1) Extending color palettes: ----
 plot_pal(col_scale()(20))
 plot_pal(col_scale(pal_seeblau)(10))
-plot_pal(col_scale(pal_Bordeaux)(10))
+plot_pal(col_scale(pal_bordeaux)(10))
 
 # (2) Combining colors or palettes: ---- 
 
@@ -65,23 +65,23 @@ plot_pal(col_scale(c(seeblau, signal))(10))
 plot_pal(col_scale(c(signal, petrol))(10))  
 plot_pal(col_scale(c(seeblau, "white", pinky))(10)) 
 plot_pal(col_scale(c(karpfenblau, seeblau, "white"))(10))  
-plot_pal(col_scale(c(Bordeaux, "white", petrol))(10)) 
+plot_pal(col_scale(c(bordeaux, "white", petrol))(10)) 
 plot_pal(col_scale(c(seeblau, "white", petrol))(10))
 plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))  # "gold" shines brighter than signal
  
 # Combining 2+ color palettes into new palettes:
 plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))  
 plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10)) 
-plot_pal(col_scale(c(rev(pal_karpfenblau), pal_Bordeaux))(10)) 
+plot_pal(col_scale(c(rev(pal_karpfenblau), pal_bordeaux))(10)) 
 plot_pal(col_scale(c(rev(pal_seegruen), pal_pinky))(10))
-plot_pal(col_scale(c(rev(pal_petrol), pal_Bordeaux))(10)) 
+plot_pal(col_scale(c(rev(pal_petrol), pal_bordeaux))(10)) 
 
 # Combining 2 palettes and mid-color "white" to new palettes:
 plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
 plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
-plot_pal(col_scale(c(rev(pal_karpfenblau), "white", pal_Bordeaux))(11)) 
+plot_pal(col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux))(11)) 
 plot_pal(col_scale(c(rev(pal_seegruen), "white", pal_peach))(11))
-plot_pal(col_scale(c(rev(pal_petrol), "white", pal_Bordeaux))(11))
+plot_pal(col_scale(c(rev(pal_petrol), "white", pal_bordeaux))(11))
 
 }
 \seealso{
@@ -90,7 +90,7 @@ plot_pal(col_scale(c(rev(pal_petrol), "white", pal_Bordeaux))(11))
 \code{\link{pal_which}} to get specific colors of a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color palettes: \code{\link{pal_Bordeaux}},
+Other color palettes: \code{\link{pal_bordeaux}},
   \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
   \code{\link{pal_n_sq}}, \code{\link{pal_n}},
   \code{\link{pal_peach}}, \code{\link{pal_petrol}},

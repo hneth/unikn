@@ -47,7 +47,7 @@ pal_unikn_plus[6] # "white" or "#FFFFFF" as central of 11 colors
 \code{\link{col_scale}} to extend color palettes (by creating gradients).
 
 Other color palettes: \code{\link{col_scale}},
-  \code{\link{pal_Bordeaux}}, \code{\link{pal_grau}},
+  \code{\link{pal_bordeaux}}, \code{\link{pal_grau}},
   \code{\link{pal_karpfenblau}}, \code{\link{pal_n_sq}},
   \code{\link{pal_n}}, \code{\link{pal_peach}},
   \code{\link{pal_petrol}}, \code{\link{pal_pinky}},

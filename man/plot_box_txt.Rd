@@ -63,7 +63,7 @@ plot_box_txt(lbls = "1st line of text.\\nA 2nd longer line of text.\\nThe 3rd li
 
 # Box logos:
 plot_box_txt(lbls = c("unikn::"), col_bg = Seeblau, cex = 2.5)
-plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_Bordeaux[4]))
+plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_bordeaux[4]))
 plot_box_txt(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 
 }

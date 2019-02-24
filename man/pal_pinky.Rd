@@ -26,7 +26,7 @@ plot_pal(pal_pinky)
 
 }
 \seealso{
-\code{\link{pal_peach}} and \code{\link{pal_Bordeaux}} for alternative redish uni.kn color palettes; 
+\code{\link{pal_peach}} and \code{\link{pal_bordeaux}} for alternative redish uni.kn color palettes; 
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
 \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
@@ -34,7 +34,7 @@ plot_pal(pal_pinky)
 \code{\link{col_scale}} to extend color palettes (by creating gradients).
 
 Other color palettes: \code{\link{col_scale}},
-  \code{\link{pal_Bordeaux}}, \code{\link{pal_grau}},
+  \code{\link{pal_bordeaux}}, \code{\link{pal_grau}},
   \code{\link{pal_karpfenblau}}, \code{\link{pal_n_sq}},
   \code{\link{pal_n}}, \code{\link{pal_peach}},
   \code{\link{pal_petrol}}, \code{\link{pal_seeblau}},
