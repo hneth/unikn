@@ -57,8 +57,10 @@ plot_box_txt(lbls = "The darkest shade of seeblau.", col_bg = pal_seeblau[[5]], 
 
 # Note: As a vector of character strings for lbls is converted into separate lines of text,
 #       the following examples yield identical results:
-plot_box_txt(lbls = c("The 1st line of text.", "A 2nd longer line of text.", "The 3rd line of text."))
-plot_box_txt(lbls = "The 1st line of text.\\nA 2nd longer line of text.\\nThe 3rd line of text.")
+plot_box_txt(lbls = c("1st line of text.", 
+                      "A 2nd longer line of text.", 
+                      "The 3rd line of text."))
+plot_box_txt(lbls = "1st line of text.\\nA 2nd longer line of text.\\nThe 3rd line of text.")
 
 # Box logos:
 plot_box_txt(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)

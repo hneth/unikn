@@ -791,7 +791,8 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 #' ## Example 2: Messy plot
 #' n <- 20
 #' set.seed(1)
-#' plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), axes = F, xlab = "", ylab = "")
+#' plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, 
+#'      col = grey(0, .20), axes = F, xlab = "", ylab = "")
 #' 
 #' # Adjust cex, font and adj:
 #' box_text(x = .05, y = .90, lbls = "What a messy plot",
