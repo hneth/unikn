@@ -1014,17 +1014,17 @@ pal_bordeaux <- data.frame(                               #  Element:
 
 #   (d) Preferred color bordeaux (as df): ---- 
 
-#' uni.kn color bordeaux.    
+#' uni.kn color bordeaux (as df).    
 #' 
 #' \code{bordeaux} provides the preferred color of \code{\link{pal_bordeaux}} 
-#' as an atomic data frame and is defined as 
+#' (as an atomic data frame) and is defined as 
 #' \code{\link{pal_bordeaux}[4]}. 
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' bordeaux  # "bordeaux4" OR "#8E2043"
-#' all.equal(bordeaux, pal_bordeaux[4])  # TRUE
+#' bordeaux  # name "bordeaux4" and color value "#8E2043" (as df)
+#' all.equal(bordeaux, pal_bordeaux[4])  # TRUE (both df)
 #' 
 #' @family colors
 #'
@@ -1036,14 +1036,43 @@ pal_bordeaux <- data.frame(                               #  Element:
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
 #' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
-#' @export
+#' 
 
 bordeaux <- pal_bordeaux[4]  # == bordeaux4 of pal_bordeaux: "bordeaux4" OR "#8E2043"
 
 ## Check:
-# bordeaux
+# bordeaux # (as df)
 
-# +++ here now +++
+#   (e) Preferred color Bordeaux (as HEX character value): ---- 
+
+#' uni.kn color Bordeaux.    
+#' 
+#' \code{Bordeaux} provides the preferred color of \code{\link{pal_bordeaux}} 
+#' (as an atomic HEX character value) and is defined as 
+#' \code{\link{pal_bordeaux}[[4]]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' Bordeaux  # HEX character "#8E2043" (as value)
+#' all.equal(Bordeaux, pal_bordeaux[[4]])  # TRUE (same HEX values)
+#' 
+#' @family colors
+#' @family preferred colors 
+#'
+#' @seealso
+#' \code{\link{pal_bordeaux}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
+
+Bordeaux <- pal_bordeaux[[4]]  # HEX color value of bordeaux.4 of pal_bordeaux 
+
+## Check:
+# Bordeaux  #  "#8E2043"
 
 #  (9) Ampeltöne: pal_signal -----
 
@@ -1098,28 +1127,28 @@ pal_signal <- data.frame(                               #  Element:
   "signal3" = rgb(124, 202, 137, maxColorValue = 255),  #  1. signal3: bot = good  (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) NO Preferred color: ---- 
+#   (d) NO Preferred color signal (as df): ---- 
 
 # Note: As the Ampel palette specification does NOT identify a preferred color,  
 #       using "signal" as a dedicated color is NOT part of the official definition. 
 
-#' uni.kn color signal.    
+#' uni.kn color alert signal (as df).    
 #' 
 #' \code{signal} provides the alert color of \code{\link{pal_signal}} 
-#' as an atomic data frame and is defined as 
+#' (as an atomic data frame) and is defined as 
 #' \code{\link{pal_signal}[2]}. 
 #' 
 #' The official specification of \code{\link{pal_signal}} 
 #' does not identify a preferred color. 
 #' We provide \code{\link{pal_signal}[2]} as a dedicated color 
-#' as it is well-suited for creating color gradients 
+#' as it is suited for creating color gradients 
 #' (see \code{\link{col_scale}}). 
 #'  
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' signal  # "signal2" OR "#EFDC60"
-#' all.equal(signal, pal_signal[2])  # TRUE
+#' signal  # name "signal2" and color value "#EFDC60" (as df)
+#' all.equal(signal, pal_signal[2])  # TRUE (both df)
 #' 
 #' @family colors
 #'
@@ -1131,14 +1160,55 @@ pal_signal <- data.frame(                               #  Element:
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
 #' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
-#' @export
+#' 
 
 signal <- pal_signal[2]  # == signal2 of pal_signal: "signal2" OR "#EFDC60"
 
 ## Check:
 # signal
 
+#   (e) NO Preferred color Signal (as HEX character value): ---- 
 
+# Note: As the Ampel palette specification does NOT identify a preferred color,  
+#       using "signal" as a dedicated color is NOT part of the official definition. 
+
+#' uni.kn color alert Signal.    
+#' 
+#' \code{Signal} provides the alert color of \code{\link{pal_signal}} 
+#' (as an atomic HEX character value) and is defined as 
+#' \code{\link{pal_signal}[2]}. 
+#' 
+#' The official specification of \code{\link{pal_signal}} 
+#' does not identify a preferred color. 
+#' We provide \code{Signal} as a dedicated color 
+#' as it is suited for creating color gradients 
+#' (see \code{\link{col_scale}}). 
+#'  
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' Signal  # HEX character "#EFDC60" (as value)
+#' all.equal(Signal, pal_signal[[2]])  # TRUE (same HEX values)
+#' 
+#' @family colors
+#' @family preferred colors 
+#'
+#' @seealso
+#' \code{\link{pal_signal}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
+#'
+#' @export
+
+Signal <- pal_signal[[2]]  # == signal2 of pal_signal: "signal2" OR "#EFDC60"
+
+## Check:
+# Signal  # "#EFDC60"
+
+# +++ here now +++ 
 
 # (C) Other combinations: -------- 
 
