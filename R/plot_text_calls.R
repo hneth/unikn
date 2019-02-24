@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 02 23
+## hn  |  uni.kn |  2019 02 24
 ## ---------------------------
 
 # Functions for plotting text with formatting elements:
@@ -9,6 +9,7 @@
 # - post: postit type xboxes
 # - head: title sequences
 
+# Allow option for creating a new plot vs. adding to an existing plot.
 
 
 # [B]: Simpler functions that call plot_text() (with fewer options and sensible defaults): -------- 
@@ -76,7 +77,7 @@
 #' @family text functions
 #' 
 #' @seealso
-#' \code{\link{plot_box}} to plot text in a colored box 
+#' \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).  
 #'      
 #' @import graphics 
 #'                          
