@@ -285,7 +285,7 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 #'
 #' @import graphics 
 #'
-#' No export
+#' 
 
 # - Definition: ----
 
