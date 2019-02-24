@@ -43,8 +43,8 @@
 
 # - Definition: ---- 
 
-xbox <- function(col = unlist(seeblau),
-                 dim = c(1, 1)  # dimension: Default: dim = c(1, 1) (i.e., unit square).
+xbox <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB")
+                 dim = c(1, 1)   # default dimensions: dim = c(1, 1) (i.e., unit square).
                  # ...  # etc. 
 ) {
   
@@ -108,7 +108,7 @@ xbox <- function(col = unlist(seeblau),
 #' slide(dim = c(18, 9)) # larger and 2:1 dimensions
 #' 
 #' # Formatting:
-#' slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2) 
+#' slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2)
 #'
 #' @import graphics 
 #'                          
@@ -116,8 +116,8 @@ xbox <- function(col = unlist(seeblau),
 
 # - Definition: ---- 
 
-slide <- function(col = NA,
-                  dim = c(4/3, 1),  # dimension: Default: dim = c(4/3, 1) (i.e., unit height, 4/3 wider than high).
+slide <- function(col = NA,         # default box bg/fill color: none/white/transparent (by system)
+                  dim = c(4/3, 1),  # default dimension: dim = c(4/3, 1) (i.e., unit height, 4/3 wider than high).
                   border = grey(.33, 1),
                   lwd = 1.5){
   
@@ -143,7 +143,7 @@ slide <- function(col = NA,
 # slide()  # default slide
 
 ## Simple variants:
-# slide(col = unlist(pal_seeblau[[1]]), lwd = 0)  
+# slide(col = Seeblau, lwd = 0)  
 # slide(dim = c(18:9)) # larger and 2:1 wider than high
 
 

@@ -12,7 +12,7 @@
 
 # - Definition: ----
 
-plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
+plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB")
                      ## Expert uses: 
                      # - Parameters for box:
                      box_dim = c(0, 0, 1, 1),  # Box dimensions: As c(xleft, ybottom, xright, ytop), as in rect() function 
@@ -281,8 +281,8 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 #' plot_box_txt(lbls = "1st line of text.\nA 2nd longer line of text.\nThe 3rd line of text.")
 #'
 #' # Box logos:
-#' plot_box_txt(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
-#' plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
+#' plot_box_txt(lbls = c("unikn::"), col_bg = Seeblau, cex = 2.5)
+#' plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_Bordeaux[4]))
 #' plot_box_txt(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 #'
 #' @import graphics 
@@ -292,8 +292,8 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 # - Definition: ----
 
 plot_box_txt <- function(lbls = "",  # character vector of labels to place (as lines of text)  
-                         col_lbl = "white",              # text color
-                         col_bg = as.character(seeblau), # box color
+                         col_lbl = "white",   # text color
+                         col_bg = Seeblau,    # default box bg/fill color: Seeblau ("#59C7EB")
                          cex = 2, 
                          font = 2,
                          lbl_x = .02, 
