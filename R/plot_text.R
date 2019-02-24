@@ -33,14 +33,14 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
                       
                       # Text parameters:
                       col = NA,                                                  # col of text lbls 
-                      cex = 2, font = 2,                                         # text size and font
+                      cex = 1.5, font = 2,                                       # text size and font
                       adj = NULL, pos = NULL, offset = 0,                        # text position   
                       padding = NA,  # set padding (around text, in marking) # padding = NA (default padding) OR: 2 numeric values = c(.5, .5), 
                       
                       # Text decorations:
                       mark = FALSE,                 # flag for mark / highlighting / rectangular box function 
                       col_bg = NA,                  # col of bg of text (mark and line, NOT box/slide)
-                      col_bg_border = grey(.50, 1), # col of border of text bg (mark and line, NOT box/slide)
+                      col_bg_border = NA,           # col of border of text bg (mark and line, NOT box/slide)
                       lty_bg = 1,                   # lty of text bg (mark and line):  0: ensure absence of border line (a) 
                       lwd_bg = 1,                   # lwd of text bg (mark and line): NA: ensure absence of border line (b)
                       
@@ -56,7 +56,7 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
                       grid = FALSE,  # for debugging (to position objects)
                       
                       ## Other stuff:                       
-                      ...  # etc.
+                      ...  # etc. arguments, passed to text()
 ){
   
   ## Interpret inputs: ----
@@ -77,6 +77,13 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   
   # (a) new_plot:
   if (is.na(new_plot)) {new_plot <- "none"}  # adding to an existing plot
+  if (!new_plot %in% c("none", "xbox", "box", "slide", "frame", "blank", "empty")){
+    
+    message(paste0("Unknown new_plot = ", new_plot, ": Using 'blank' instead..."))
+    
+    new_plot <- "blank"
+    
+  }
   
   # (b) col (of lbls): 
   if ( is.na(col) && (new_plot == "xbox")) {col <- "white"}
@@ -488,8 +495,9 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
                    labels = lbls, 
                    col = col, 
                    cex = cur_cex, font = font, 
-                   # pos = pos,     # pos was used above (to compute x and y)
-                   adj = c(.5, .5)  # always center (as x and y are computed as mid points above) 
+                   # pos = pos,      # pos was used above (to compute x and y)
+                   adj = c(.5, .5),  # always center (as x and y are computed as mid points above) 
+                   ...  # etc. arguments, passed to text()
     )
     
   } # if (txt) etc.
@@ -537,8 +545,8 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 
 # - Check: ------ 
 
-# # Demo cases:
- 
+## Demo cases:
+
 # # (1) Markieren: 
 # lbl_mark <- c("                                        ", 
 #               "                                ", 
@@ -551,7 +559,7 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 #           cex = 2, pos = 4, 
 #           new_plot = "blank",  
 #           mark = TRUE)
- 
+
 # # (2) Unterstreichen: 
 # lbl_line <- c("Teaching", "This is a line of text", "Learning and studying", "Test")
 # lbl_line <- c("Das ist korrekt, wahr und wahnsinnig wichtig.")
@@ -564,9 +572,9 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 # 
 # slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
 # plot_text(lbls = slogan, font = 2,
-#           x = 0, y = .90, y_layout = c(.15),
-#           col_bg = unlist(seeblau), col_bg_border = NA,
-#           cex = 1.5, pos = 4,
+#           x = 0, y = .85, y_layout = "even",
+#           col = "black", col_bg = unlist(seeblau), col_bg_border = NA,
+#           cex = 1.2, pos = 4,
 #           new_plot = "blank",
 #           line = TRUE, cex_lwd = 2.5, cex_ldn = .42)
 
@@ -632,6 +640,24 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 #           grid = FALSE, mar_all = NA, oma_all = NA
 # )
 
+# # What works:
+# # - Mixing sizes (cex) and fonts:
+# lbl_tst <- rep("Variable Grösse und Schrift", 4)
+# plot_text(lbl = lbl_tst, new_plot = "slide", y = .85, y_layout = c(.0, .15), 
+#           cex = c(1.2, .8, 1.8, 1.5), font = c(2, 1, 4, 3), x = .05, pos = 4, mark = T, col_bg = c(pal_seeblau[[2]], pal_seeblau[[3]]))
+# 
+# plot_text(lbl = lbl_tst, new_plot = "xbox", y = .55, y_layout = c(.03, .15), 
+#           cex = c(1.2, .8, 1.6, 1.4), font = c(2, 1, 4, 3), x = .02, pos = 4)
+# 
+# # - Automatic vertical spacing of labels (in y-direction):
+# #   (see crucial test cases above)
+
+# # What fails: 
+# # - Rotation of lbls is not supported:
+# plot_text(lbls = "This is a test", x = .20, col = "black", new_plot = "blank", srt = 45, mark = T)
+# plot_text(lbls = "This is a test", x = .60, col = "black", new_plot = "none", srt = -45, line = T)
+
+
 ## ToDo: ##  
 # - Allow setting consistent mar and oma values for key plotting inputs
 # - Distinguish between 2 padding versions: default (by "l", as per CD Manual) vs. numeric user-input-based
@@ -641,9 +667,9 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 
 #   +++ here now +++
 
+# - Add warning(s) when text falls beyond xlim (of box/slide) on left or right
 # - adjust "flush" layout for line distance (in case of line = TRUE). [not needed, as y_layout can increase distance (for constant cex)]
 # - mark: Warn in case of monotonic step functions. 
-# - Add warning(s) when text falls beyond xlim (of box/slide) on left or right
 
 
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
