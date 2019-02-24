@@ -1,5 +1,5 @@
 ## plot_box_calls.R | unikn
-## hn  |  uni.kn |  2019 02 23
+## hn  |  uni.kn |  2019 02 24
 ## ---------------------------
 
 ## More functions to plot boxes (e.g., xbox, slides, etc.).
@@ -16,6 +16,9 @@
 #' 
 #' \code{xbox} plots a box with a cross (x) in its top-right corner. 
 #' 
+#' The cross (x) appears rectangular when viewing the plot 
+#' at the correct aspect ratio (as defined by \code{dim}). 
+#' 
 #' @param col The color to fill the box with (i.e., its background color).  
 #' Default: \code{col = unlist(seeblau)}. 
 #' 
@@ -25,10 +28,14 @@
 #' @family plot functions
 #' 
 #' @seealso
-#' \code{\link{frame}} to plot a frame. 
+#' \code{\link{slide}} to plot a slide (or frame). 
 #' 
 #' @examples
 #' xbox()  # default box
+#' 
+#' # Options:
+#' xbox(col = unlist(Bordeaux))
+#' xbox(dim = c(2, 1)) # 2:1 dimension (wider than high)
 #'
 #' @import graphics 
 #'                          
@@ -81,9 +88,11 @@ xbox <- function(col = unlist(seeblau),
 #' Default: \code{dim = c(4/3, 1)} (i.e., unit height, 4/3 wider than high). 
 #' 
 #' @param border The color of the slide's border. 
-#' Default: \code{border = grey(.33, 1)}.
+#' Setting \code{border = NA} hides border.  
+#' Default: \code{border = grey(.33, 1)}. 
 #' 
 #' @param lwd The line width of the slide's border. 
+#' Setting \code{lwd = 0} or \code{lwd = NA} removes border. 
 #' Default: \code{lwd = 1.5}.
 #' 
 #' @family plot functions
@@ -93,6 +102,13 @@ xbox <- function(col = unlist(seeblau),
 #' 
 #' @examples
 #' slide()  # default slide (or frame)
+#' slide(lwd = NA)  # borderless slide
+#' 
+#' # Dimensions: 
+#' slide(dim = c(18, 9)) # larger and 2:1 dimensions
+#' 
+#' # Formatting:
+#' slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2) 
 #'
 #' @import graphics 
 #'                          
@@ -158,15 +174,18 @@ slide <- function(col = NA,
 # scale_x <- 1/plot_ratio              # multiplicative correction factor (for x-widths)
 # scale_x
 
+## Done: ------
+
+## Separate into multiple functions:
+## - plot_box (plots colored box with top "x")
+## - plot_txt (plots lines of text)
+## - plot_both combines both
+## - mark as a reduced version of plot_both
 
 
 ## ToDo: ------
 
-## Separate into multiple functions:
-## - plot box (plots colored box with top "x")
-## - plot txt (plots lines of text)
-## - plot_both combines both
-## - mark as a reduced version of plot_both
+# - Consider adding ... argument to simple functions (to provide expert users with additional options).
 
 # (1) Functions: 
 #   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
