@@ -224,7 +224,7 @@ pal_seeblau <- data.frame(                               #  element:
   stringsAsFactors = FALSE)
 
 
-#   (d) Preferred color seeblau (as df): ---- 
+#   (d) Named color seeblau (as df): ---- 
 
 #' uni.kn color seeblau (as df). 
 #' 
@@ -238,8 +238,7 @@ pal_seeblau <- data.frame(                               #  element:
 #' seeblau  # "seeblau3" with value "#59C7EB" (as df)
 #' all.equal(seeblau, pal_seeblau[3])  # TRUE (both df)
 #' 
-#' @family colors
-#' @family preferred colors 
+#' @family named colors (as df) 
 #' 
 #' @seealso
 #' \code{\link{pal_seeblau}} for the corresponding color palette; 
@@ -268,7 +267,6 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 #' Seeblau  # HEX character "#59C7EB" (as value)
 #' all.equal(Seeblau, pal_seeblau[[3]])  # TRUE (same HEX values)
 #' 
-#' @family colors
 #' @family preferred colors 
 #'
 #' @seealso
@@ -338,7 +336,7 @@ pal_peach <- data.frame(                               #  Element:
   "peach5" = rgb(255, 142, 123, maxColorValue = 255),  #  5. 
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color peach (as df): ---- 
+#   (d) Named color peach (as df): ---- 
 
 #' uni.kn color peach (as df).  
 #' 
@@ -352,7 +350,7 @@ pal_peach <- data.frame(                               #  Element:
 #' peach  # name "peach4" with color value "#FEA090" (as df)
 #' all.equal(peach, pal_peach[4])  # TRUE (both df)
 #' 
-#' @family colors
+#' @family named colors (as df) 
 #'
 #' @seealso
 #' \code{\link{pal_peach}} for the corresponding color palette; 
@@ -382,7 +380,6 @@ peach <- pal_peach[4]  # == peach.4 of pal_peach
 #' Peach  # HEX character "#FEA090" (as value)
 #' all.equal(Peach, pal_peach[[4]])  # TRUE (same HEX values)
 #' 
-#' @family colors
 #' @family preferred colors 
 #'
 #' @seealso
@@ -449,7 +446,7 @@ pal_grau <- data.frame(                               #  element:
   "grau5" = rgb( 77,  80,  84, maxColorValue = 255),  #  5. grau5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color grau (as df): ---- 
+#   (d) Named color grau (as df): ---- 
 
 #' uni.kn color grau (as df).   
 #' 
@@ -463,7 +460,7 @@ pal_grau <- data.frame(                               #  element:
 #' grau  # name "grau3" and color value "#9AA0A7" (as df)
 #' all.equal(grau, pal_grau[3])  # TRUE (both df)
 #' 
-#' @family colors
+#' @family named colors (as df) 
 #'
 #' @seealso
 #' \code{\link{pal_grau}} for the corresponding color palette; 
@@ -493,7 +490,6 @@ grau <- pal_grau[3]  # == grau.3 of pal_grau: "grau3" OR "#9AA0A7"
 #' Grau  # HEX character "#9AA0A7" (as value)
 #' all.equal(Grau, pal_grau[[3]])  # TRUE (same HEX values)
 #' 
-#' @family colors
 #' @family preferred colors 
 #'
 #' @seealso
@@ -563,7 +559,7 @@ pal_petrol <- data.frame(                               #  element:
   "petrol5" = rgb(  3,  95, 114, maxColorValue = 255),  #  5. petrol5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color petrol (as df): ---- 
+#   (d) Named color petrol (as df): ---- 
 
 #' uni.kn color petrol (as df). 
 #' 
@@ -577,7 +573,7 @@ pal_petrol <- data.frame(                               #  element:
 #' petrol  # name "petrol" and color value "#077187" (as df)
 #' all.equal(petrol, pal_petrol[4])  # TRUE (both df)
 #' 
-#' @family colors
+#' @family named colors (as df) 
 #'
 #' @seealso
 #' \code{\link{pal_petrol}} for the corresponding color palette; 
@@ -607,7 +603,6 @@ petrol <- pal_petrol[4]  # == petrol.4 of pal_petrol: "petrol4" OR "#077187"
 #' Petrol  # HEX character "#077187" (as value)
 #' all.equal(Petrol, pal_petrol[[4]])  # TRUE (same HEX values)
 #' 
-#' @family colors
 #' @family preferred colors 
 #'
 #' @seealso
@@ -675,9 +670,9 @@ pal_seegruen <- data.frame(                               #  element:
   "seegruen5" = rgb(  6, 126, 121, maxColorValue = 255),  #  5. seegruen5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color seegruen (as df): ---- 
+#   (d) Named color seegruen (as df): ---- 
 
-#' uni.kn color seegruen.
+#' uni.kn color seegruen (as df).
 #' 
 #' \code{seegruen} provides the preferred color of \code{\link{pal_seegruen}} 
 #' (as an atomic data frame) and is defined as 
@@ -689,7 +684,7 @@ pal_seegruen <- data.frame(                               #  element:
 #' seegruen  # name "seegruen4" and color value "#0A9086" (as df)
 #' all.equal(seegruen, pal_seegruen[4])  # TRUE (both df)
 #'
-#' @family colors
+#' @family named colors (as df) 
 #'
 #' @seealso
 #' \code{\link{pal_seegruen}} for the corresponding color palette; 
@@ -719,7 +714,6 @@ seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#0
 #' Seegruen  # HEX character "#0A9086" (as value)
 #' all.equal(Seegruen, pal_seegruen[[4]])  # TRUE (same HEX values)
 #' 
-#' @family colors
 #' @family preferred colors 
 #'
 #' @seealso
@@ -787,9 +781,9 @@ pal_karpfenblau <- data.frame(                               #  element:
   "karpfenblau5" = rgb( 50,  67, 118, maxColorValue = 255),  #  5. karpfenblau5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color karpfenblau (as df): ---- 
+#   (d) Named color karpfenblau (as df): ---- 
 
-#' uni.kn color karpfenblau.  
+#' uni.kn color karpfenblau (as df).  
 #' 
 #' \code{karpfenblau} provides the preferred color of \code{\link{pal_karpfenblau}} 
 #' (as an atomic data) frame and is defined as 
@@ -801,7 +795,7 @@ pal_karpfenblau <- data.frame(                               #  element:
 #' karpfenblau  # name "karpfenblau4" and color value "#3E5496" (as df)
 #' all.equal(karpfenblau, pal_karpfenblau[4])  # TRUE (both df)
 #' 
-#' @family colors
+#' @family named colors (as df) 
 #'
 #' @seealso
 #' \code{\link{pal_karpfenblau}} for the corresponding color palette; 
@@ -831,7 +825,6 @@ karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfe
 #' Karpfenblau  # HEX character "#3E5496" (as value)
 #' all.equal(Karpfenblau, pal_karpfenblau[[4]])  # TRUE (same HEX values)
 #' 
-#' @family colors
 #' @family preferred colors 
 #'
 #' @seealso
@@ -899,9 +892,9 @@ pal_pinky <- data.frame(                               #  Element:
   "pinky5" = rgb(202,  74, 104, maxColorValue = 255),  #  5. pinky5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color pinky (as df): ---- 
+#   (d) Named color pinky (as df): ---- 
 
-#' uni.kn color pinky.   
+#' uni.kn color pinky (as df).   
 #' 
 #' \code{pinky} provides the preferred color of \code{\link{pal_pinky}} 
 #' (as an atomic data frame) and is defined as 
@@ -913,7 +906,7 @@ pal_pinky <- data.frame(                               #  Element:
 #' pinky  # name "pinky4" and color value "#E0607E" (as df)
 #' all.equal(pinky, pal_pinky[4])  # TRUE (both df)
 #' 
-#' @family colors
+#' @family named colors (as df) 
 #'
 #' @seealso
 #' \code{\link{pal_pinky}} for the corresponding color palette; 
@@ -944,7 +937,6 @@ pinky <- pal_pinky[4]  # == pinky4 of pal_pinky: "pinky4" OR "#E0607E"
 #' Pinky  # HEX character "#E0607E" (as value)
 #' all.equal(Pinky, pal_pinky[[4]])  # TRUE (same HEX values)
 #' 
-#' @family colors
 #' @family preferred colors 
 #'
 #' @seealso
@@ -1012,7 +1004,7 @@ pal_bordeaux <- data.frame(                               #  Element:
   "bordeaux5" = rgb(119,  20,  52, maxColorValue = 255),  #  5. bordeaux5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color bordeaux (as df): ---- 
+#   (d) Named color bordeaux (as df): ---- 
 
 #' uni.kn color bordeaux (as df).    
 #' 
@@ -1026,7 +1018,7 @@ pal_bordeaux <- data.frame(                               #  Element:
 #' bordeaux  # name "bordeaux4" and color value "#8E2043" (as df)
 #' all.equal(bordeaux, pal_bordeaux[4])  # TRUE (both df)
 #' 
-#' @family colors
+#' @family named colors (as df) 
 #'
 #' @seealso
 #' \code{\link{pal_bordeaux}} for the corresponding color palette; 
@@ -1057,7 +1049,6 @@ bordeaux <- pal_bordeaux[4]  # == bordeaux4 of pal_bordeaux: "bordeaux4" OR "#8E
 #' Bordeaux  # HEX character "#8E2043" (as value)
 #' all.equal(Bordeaux, pal_bordeaux[[4]])  # TRUE (same HEX values)
 #' 
-#' @family colors
 #' @family preferred colors 
 #'
 #' @seealso
@@ -1127,7 +1118,7 @@ pal_signal <- data.frame(                               #  Element:
   "signal3" = rgb(124, 202, 137, maxColorValue = 255),  #  1. signal3: bot = good  (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) NO Preferred color signal (as df): ---- 
+#   (d) NO Named color signal (as df): ---- 
 
 # Note: As the Ampel palette specification does NOT identify a preferred color,  
 #       using "signal" as a dedicated color is NOT part of the official definition. 
@@ -1150,7 +1141,7 @@ pal_signal <- data.frame(                               #  Element:
 #' signal  # name "signal2" and color value "#EFDC60" (as df)
 #' all.equal(signal, pal_signal[2])  # TRUE (both df)
 #' 
-#' @family colors
+#' @family named colors (as df) 
 #'
 #' @seealso
 #' \code{\link{pal_signal}} for the corresponding color palette; 
@@ -1190,7 +1181,6 @@ signal <- pal_signal[2]  # == signal2 of pal_signal: "signal2" OR "#EFDC60"
 #' Signal  # HEX character "#EFDC60" (as value)
 #' all.equal(Signal, pal_signal[[2]])  # TRUE (same HEX values)
 #' 
-#' @family colors
 #' @family preferred colors 
 #'
 #' @seealso
