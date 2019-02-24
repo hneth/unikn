@@ -62,7 +62,7 @@ mark(x = c(.35, .55), y = c(.15, .40),
            
 }
 \seealso{
-\code{\link{plot_box}} to plot text in a colored box
+\code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).
 
 Other text functions: \code{\link{box_text}},
   \code{\link{plot_box_txt}}
