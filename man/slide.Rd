@@ -33,7 +33,7 @@ slide(lwd = NA)  # borderless slide
 slide(dim = c(18, 9)) # larger and 2:1 dimensions
 
 # Formatting:
-slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2) 
+slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2)
 
 }
 \seealso{

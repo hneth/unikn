@@ -4,7 +4,7 @@
 \alias{xbox}
 \title{Plot a box (with x).}
 \usage{
-xbox(col = unlist(seeblau), dim = c(1, 1))
+xbox(col = Seeblau, dim = c(1, 1))
 }
 \arguments{
 \item{col}{The color to fill the box with (i.e., its background color).

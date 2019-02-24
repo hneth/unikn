@@ -4,9 +4,8 @@
 \alias{plot_box_txt}
 \title{Plot a colored box (with top x and text).}
 \usage{
-plot_box_txt(lbls = "", col_lbl = "white",
-  col_bg = as.character(seeblau), cex = 2, font = 2, lbl_x = 0.02,
-  lbl_y = 0.65)
+plot_box_txt(lbls = "", col_lbl = "white", col_bg = Seeblau,
+  cex = 2, font = 2, lbl_x = 0.02, lbl_y = 0.65)
 }
 \arguments{
 \item{lbls}{A character vector specifying the text label(s)
@@ -63,8 +62,8 @@ plot_box_txt(lbls = c("1st line of text.",
 plot_box_txt(lbls = "1st line of text.\\nA 2nd longer line of text.\\nThe 3rd line of text.")
 
 # Box logos:
-plot_box_txt(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
-plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
+plot_box_txt(lbls = c("unikn::"), col_bg = Seeblau, cex = 2.5)
+plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_Bordeaux[4]))
 plot_box_txt(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 
 }
