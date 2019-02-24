@@ -1,5 +1,5 @@
 ## color_functions.R  |  unikn
-## hn  |  uni.kn |  2019 02 18
+## hn  |  uni.kn |  2019 02 24
 ## ---------------------------
 
 ## Define color-related functions 
@@ -677,9 +677,15 @@ col_scale <- function(col = pal_unikn, ...){
 # col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
 
 
-
-
 ## ToDo: ------
+
+# Create 1 bottleneck function "seecol" that provides a user-interface to all color palettes:
+# - plot a palette (by name, nr, or random)
+# - plot n palettes to compare palettes (...)
+# - choose 1 (preferred, random) color from a palette
+# - choose n good colors from a palette
+# - extend (stretch and mix) palettes to define new palettes
+# - modify color values and palettes (by transparency etc.)
 
 # (1) Functions: 
 #   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
