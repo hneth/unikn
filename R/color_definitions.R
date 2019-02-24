@@ -224,9 +224,9 @@ pal_seeblau <- data.frame(                               #  element:
   stringsAsFactors = FALSE)
 
 
-#   (d) Preferred color (as df): ---- 
+#   (d) Preferred color seeblau (as df): ---- 
 
-#' uni.kn color seeblau. 
+#' uni.kn color seeblau (as df). 
 #' 
 #' \code{seeblau} provides the preferred color of \code{\link{pal_seeblau}} 
 #' (as an atomic data frame) and is defined as 
@@ -254,10 +254,7 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 ## Check:
 # seeblau
 
-# +++ here now +++: 
-# Do NOT export seeblau (atomic df), but Seeblau (atomic HEX character value)!
-
-#   (e) Preferred color (as HEX character value): ---- 
+#   (e) Preferred color Seeblau (as HEX character value): ---- 
 
 #' uni.kn color Seeblau. 
 #' 
@@ -269,7 +266,7 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 #'
 #' @examples
 #' Seeblau  # HEX character "#59C7EB" (as value)
-#' all.equal(Seeblau, pal_seeblau[[3]])  # TRUE (both values)
+#' all.equal(Seeblau, pal_seeblau[[3]])  # TRUE (same HEX values)
 #' 
 #' @family colors
 #' @family preferred colors 
@@ -286,7 +283,7 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 Seeblau <- pal_seeblau[[3]]  # HEX color value of seeblau.3 of pal_seeblau OR pal_unikn 
 
 ## Check:
-# Seeblau
+# Seeblau # "#59C7EB"
 
 
 #  (2) peach: -----
@@ -322,7 +319,7 @@ Seeblau <- pal_seeblau[[3]]  # HEX color value of seeblau.3 of pal_seeblau OR pa
 #' @family color palettes
 #'
 #' @seealso
-#' \code{\link{pal_pinky}} and \code{\link{pal_Bordeaux}} for alternative redish uni.kn color palettes;  
+#' \code{\link{pal_pinky}} and \code{\link{pal_bordeaux}} for alternative redish uni.kn color palettes;  
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
@@ -341,19 +338,19 @@ pal_peach <- data.frame(                               #  Element:
   "peach5" = rgb(255, 142, 123, maxColorValue = 255),  #  5. 
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color: ---- 
+#   (d) Preferred color peach (as df): ---- 
 
-#' uni.kn color peach.  
+#' uni.kn color peach (as df).  
 #' 
 #' \code{peach} provides the preferred color of \code{\link{pal_peach}} 
-#' as an atomic data frame and is defined as 
+#' (as an atomic data frame) and is defined as 
 #' \code{\link{pal_peach}[4]}. 
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' peach  # "peach4" OR "#FEA090"
-#' all.equal(peach, pal_peach[4])  # TRUE
+#' peach  # name "peach4" with color value "#FEA090" (as df)
+#' all.equal(peach, pal_peach[4])  # TRUE (both df)
 #' 
 #' @family colors
 #'
@@ -364,12 +361,43 @@ pal_peach <- data.frame(                               #  Element:
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
-#' @export
+#' 
 
 peach <- pal_peach[4]  # == peach.4 of pal_peach 
 
 ## Check:
 # peach
+
+#   (e) Preferred color Peach (as HEX character value): ---- 
+
+#' uni.kn color Peach. 
+#' 
+#' \code{Peach} provides the preferred color of \code{\link{pal_peach}} 
+#' (as an atomic HEX character value) and is defined as 
+#' \code{\link{pal_peach}[[4]]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' Peach  # HEX character "#FEA090" (as value)
+#' all.equal(Peach, pal_peach[[4]])  # TRUE (same HEX values)
+#' 
+#' @family colors
+#' @family preferred colors 
+#'
+#' @seealso
+#' \code{\link{pal_peach}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
+
+Peach <- pal_peach[[4]]  # HEX color value of peach.4 of pal_peach 
+
+## Check:
+# Peach  # "#FEA090"
 
 #  (3) grau: ----- 
 
@@ -421,19 +449,19 @@ pal_grau <- data.frame(                               #  element:
   "grau5" = rgb( 77,  80,  84, maxColorValue = 255),  #  5. grau5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color: ---- 
+#   (d) Preferred color grau (as df): ---- 
 
-#' uni.kn color grau.   
+#' uni.kn color grau (as df).   
 #' 
 #' \code{grau} provides the preferred color of \code{\link{pal_grau}} 
-#' as an atomic data frame and is defined as 
+#' (as an atomic data frame) and is defined as 
 #' \code{\link{pal_grau}[3]}. 
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' grau  # "grau3" OR "#9AA0A7"
-#' all.equal(grau, pal_grau[3])  # TRUE
+#' grau  # name "grau3" and color value "#9AA0A7" (as df)
+#' all.equal(grau, pal_grau[3])  # TRUE (both df)
 #' 
 #' @family colors
 #'
@@ -444,12 +472,43 @@ pal_grau <- data.frame(                               #  element:
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
-#' @export
+#' 
 
 grau <- pal_grau[3]  # == grau.3 of pal_grau: "grau3" OR "#9AA0A7"
 
 ## Check:
 # grau
+
+#   (e) Preferred color Grau (as HEX character value): ---- 
+
+#' uni.kn color Grau.  
+#' 
+#' \code{Grau} provides the preferred color of \code{\link{pal_grau}} 
+#' (as an atomic HEX character value) and is defined as 
+#' \code{\link{pal_grau}[[3]]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' Grau  # HEX character "#9AA0A7" (as value)
+#' all.equal(Grau, pal_grau[[3]])  # TRUE (same HEX values)
+#' 
+#' @family colors
+#' @family preferred colors 
+#'
+#' @seealso
+#' \code{\link{pal_grau}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
+
+Grau <- pal_grau[[3]]  # HEX color value of grau.3 of pal_grau 
+
+## Check:
+# Grau  # "#9AA0A7"
 
 #  (4) petrol: -----
 
@@ -504,19 +563,19 @@ pal_petrol <- data.frame(                               #  element:
   "petrol5" = rgb(  3,  95, 114, maxColorValue = 255),  #  5. petrol5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color: ---- 
+#   (d) Preferred color petrol (as df): ---- 
 
-#' uni.kn color petrol. 
+#' uni.kn color petrol (as df). 
 #' 
 #' \code{petrol} provides the preferred color of \code{\link{pal_petrol}} 
-#' as an atomic data frame and is defined as 
+#' (as an atomic data frame) and is defined as 
 #' \code{\link{pal_petrol}[4]}. 
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' petrol  # "petrol" OR "#077187"
-#' all.equal(petrol, pal_petrol[4])  # TRUE
+#' petrol  # name "petrol" and color value "#077187" (as df)
+#' all.equal(petrol, pal_petrol[4])  # TRUE (both df)
 #' 
 #' @family colors
 #'
@@ -527,12 +586,43 @@ pal_petrol <- data.frame(                               #  element:
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
-#' @export
+#' 
 
 petrol <- pal_petrol[4]  # == petrol.4 of pal_petrol: "petrol4" OR "#077187"
 
 ## Check:
 # petrol
+
+#   (e) Preferred color Petrol (as HEX character value): ---- 
+
+#' uni.kn color Petrol. 
+#' 
+#' \code{Petrol} provides the preferred color of \code{\link{pal_petrol}} 
+#' (as an atomic HEX character value) and is defined as 
+#' \code{\link{pal_petrol}[[4]]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' Petrol  # HEX character "#077187" (as value)
+#' all.equal(Petrol, pal_petrol[[4]])  # TRUE (same HEX values)
+#' 
+#' @family colors
+#' @family preferred colors 
+#'
+#' @seealso
+#' \code{\link{pal_petrol}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
+
+Petrol <- pal_petrol[[4]]  # HEX color value of petrol.4 of pal_petrol 
+
+## Check:
+# Petrol  #  "#077187"
 
 #  (5) seegruen: -----
 
@@ -585,19 +675,19 @@ pal_seegruen <- data.frame(                               #  element:
   "seegruen5" = rgb(  6, 126, 121, maxColorValue = 255),  #  5. seegruen5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color: ---- 
+#   (d) Preferred color seegruen (as df): ---- 
 
 #' uni.kn color seegruen.
 #' 
 #' \code{seegruen} provides the preferred color of \code{\link{pal_seegruen}} 
-#' as an atomic data frame and is defined as 
+#' (as an atomic data frame) and is defined as 
 #' \code{\link{pal_seegruen}[4]}. 
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' seegruen  # "seegruen4" OR "#0A9086"
-#' all.equal(seegruen, pal_seegruen[4])  # TRUE
+#' seegruen  # name "seegruen4" and color value "#0A9086" (as df)
+#' all.equal(seegruen, pal_seegruen[4])  # TRUE (both df)
 #'
 #' @family colors
 #'
@@ -608,12 +698,43 @@ pal_seegruen <- data.frame(                               #  element:
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
-#' @export
+#' 
 
 seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#0A9086"
 
 ## Check: 
 # seegruen
+
+#   (e) Preferred color Seegruen (as HEX character value): ---- 
+
+#' uni.kn color Seegruen. 
+#' 
+#' \code{Seegruen} provides the preferred color of \code{\link{pal_seegruen}} 
+#' (as an atomic HEX character value) and is defined as 
+#' \code{\link{pal_seegruen}[[4]]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' Seegruen  # HEX character "#0A9086" (as value)
+#' all.equal(Seegruen, pal_seegruen[[4]])  # TRUE (same HEX values)
+#' 
+#' @family colors
+#' @family preferred colors 
+#'
+#' @seealso
+#' \code{\link{pal_seegruen}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
+
+Seegruen <- pal_seegruen[[4]]  # HEX color value of seegruen.4 of pal_seegruen 
+
+## Check:
+# Seegruen  #  "#0A9086"
 
 #  (6) karpfenblau: -----
 
@@ -666,19 +787,19 @@ pal_karpfenblau <- data.frame(                               #  element:
   "karpfenblau5" = rgb( 50,  67, 118, maxColorValue = 255),  #  5. karpfenblau5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color: ---- 
+#   (d) Preferred color karpfenblau (as df): ---- 
 
 #' uni.kn color karpfenblau.  
 #' 
 #' \code{karpfenblau} provides the preferred color of \code{\link{pal_karpfenblau}} 
-#' as an atomic data frame and is defined as 
+#' (as an atomic data) frame and is defined as 
 #' \code{\link{pal_karpfenblau}[4]}. 
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' karpfenblau  # "karpfenblau4" OR "#3E5496"
-#' all.equal(karpfenblau, pal_karpfenblau[4])  # TRUE
+#' karpfenblau  # name "karpfenblau4" and color value "#3E5496" (as df)
+#' all.equal(karpfenblau, pal_karpfenblau[4])  # TRUE (both df)
 #' 
 #' @family colors
 #'
@@ -689,13 +810,43 @@ pal_karpfenblau <- data.frame(                               #  element:
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
 #'
-#' @export
+#' 
 
 karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfenblau4" OR "#3E5496"
 
 ## Check:
 # karpfenblau
 
+#   (e) Preferred color Karpfenblau (as HEX character value): ---- 
+
+#' uni.kn color Karpfenblau.  
+#' 
+#' \code{Karpfenblau} provides the preferred color of \code{\link{pal_karpfenblau}} 
+#' (as an atomic HEX character value) and is defined as 
+#' \code{\link{pal_karpfenblau}[[4]]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' Karpfenblau  # HEX character "#3E5496" (as value)
+#' all.equal(Karpfenblau, pal_karpfenblau[[4]])  # TRUE (same HEX values)
+#' 
+#' @family colors
+#' @family preferred colors 
+#'
+#' @seealso
+#' \code{\link{pal_karpfenblau}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
+
+Karpfenblau <- pal_karpfenblau[[4]]  # HEX color value of karpfenblau.4 of pal_karpfenblau 
+
+## Check:
+Karpfenblau  #  "#3E5496"
 
 #  (7) pinky: -----
 
@@ -729,7 +880,7 @@ karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfe
 #' @family color palettes
 #'
 #' @seealso
-#' \code{\link{pal_peach}} and \code{\link{pal_Bordeaux}} for alternative redish uni.kn color palettes; 
+#' \code{\link{pal_peach}} and \code{\link{pal_bordeaux}} for alternative redish uni.kn color palettes; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
@@ -748,19 +899,19 @@ pal_pinky <- data.frame(                               #  Element:
   "pinky5" = rgb(202,  74, 104, maxColorValue = 255),  #  5. pinky5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color: ---- 
+#   (d) Preferred color pinky (as df): ---- 
 
 #' uni.kn color pinky.   
 #' 
 #' \code{pinky} provides the preferred color of \code{\link{pal_pinky}} 
-#' as an atomic data frame and is defined as 
+#' (as an atomic data frame) and is defined as 
 #' \code{\link{pal_pinky}[4]}. 
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' pinky  # "pinky4" OR "#E0607E"
-#' all.equal(pinky, pal_pinky[4])  # TRUE
+#' pinky  # name "pinky4" and color value "#E0607E" (as df)
+#' all.equal(pinky, pal_pinky[4])  # TRUE (both df)
 #' 
 #' @family colors
 #'
@@ -772,18 +923,45 @@ pal_pinky <- data.frame(                               #  Element:
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
 #' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
 #'
-#' @export
+#' 
 
 pinky <- pal_pinky[4]  # == pinky4 of pal_pinky: "pinky4" OR "#E0607E"
 
 ## Check:
 # pinky
 
+#   (e) Preferred color Pinky (as HEX character value): ---- 
 
-# +++ here now +++ 
+#' uni.kn color Pinky.   
+#' 
+#' \code{Pinky} provides the preferred color of \code{\link{pal_pinky}} 
+#' (as an atomic HEX character value) and is defined as 
+#' \code{\link{pal_pinky}[[4]]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' Pinky  # HEX character "#E0607E" (as value)
+#' all.equal(Pinky, pal_pinky[[4]])  # TRUE (same HEX values)
+#' 
+#' @family colors
+#' @family preferred colors 
+#'
+#' @seealso
+#' \code{\link{pal_pinky}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
 
+Pinky <- pal_pinky[[4]]  # HEX color value of pinky.4 of pal_pinky 
 
-#  (8) Bordeaux: -----
+## Check:
+Pinky  #  "#E0607E"
+
+#  (8) bordeaux: -----
 
 #   (a) Table (from Excel file): ----  
 
@@ -796,21 +974,21 @@ pinky <- pal_pinky[4]  # == pinky4 of pal_pinky: "pinky4" OR "#E0607E"
 
 #   (b) Documentation: ----  
 
-#' uni.kn Bordeaux color palette.
+#' uni.kn bordeaux color palette.
 #'
-#' \code{pal_Bordeaux} provides an additional uni.kn color palette  
+#' \code{pal_bordeaux} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of Bordeaux). 
 #'
 #' See \url{https://www.uni-konstanz.de} for details. 
 #'
 #' @examples
-#' pal_Bordeaux
-#' dim(pal_Bordeaux)  # 1 5
-#' pal_Bordeaux[4]    # preferred (named) color "Bordeaux4"
-#' pal_Bordeaux[[4]]  # preferred color "Bordeaux4" OR "#8E2043"
+#' pal_bordeaux
+#' dim(pal_bordeaux)  # 1 5
+#' pal_bordeaux[4]    # preferred (named) color "bordeaux4"
+#' pal_bordeaux[[4]]  # preferred color "bordeaux4" OR "#8E2043"
 #' 
 #' # Plotting palette:
-#' plot_pal(pal_Bordeaux)
+#' plot_pal(pal_bordeaux)
 #'
 #' @family color palettes
 #'
@@ -826,32 +1004,32 @@ pinky <- pal_pinky[4]  # == pinky4 of pal_pinky: "pinky4" OR "#E0607E"
 
 #   (c) Definition: ---- 
 
-pal_Bordeaux <- data.frame(                               #  Element: 
-  "Bordeaux1" = rgb(210, 166, 180, maxColorValue = 255),  #  1. Bordeaux1 (non-transparent)
-  "Bordeaux2" = rgb(188, 122, 143, maxColorValue = 255),  #  2. Bordeaux2 (non-transparent)
-  "Bordeaux3" = rgb(165,  77, 105, maxColorValue = 255),  #  3. Bordeaux3 (non-transparent)
-  "Bordeaux4" = rgb(142,  32,  67, maxColorValue = 255),  #  4. Bordeaux4 (non-transparent): preferred color: "Bordeaux"
-  "Bordeaux5" = rgb(119,  20,  52, maxColorValue = 255),  #  5. Bordeaux5 (non-transparent)
+pal_bordeaux <- data.frame(                               #  Element: 
+  "bordeaux1" = rgb(210, 166, 180, maxColorValue = 255),  #  1. bordeaux1 (non-transparent)
+  "bordeaux2" = rgb(188, 122, 143, maxColorValue = 255),  #  2. bordeaux2 (non-transparent)
+  "bordeaux3" = rgb(165,  77, 105, maxColorValue = 255),  #  3. bordeaux3 (non-transparent)
+  "bordeaux4" = rgb(142,  32,  67, maxColorValue = 255),  #  4. bordeaux4 (non-transparent): preferred color: "bordeaux"
+  "bordeaux5" = rgb(119,  20,  52, maxColorValue = 255),  #  5. bordeaux5 (non-transparent)
   stringsAsFactors = FALSE)
 
-#   (d) Preferred color: ---- 
+#   (d) Preferred color bordeaux (as df): ---- 
 
-#' uni.kn color Bordeaux.    
+#' uni.kn color bordeaux.    
 #' 
-#' \code{Bordeaux} provides the preferred color of \code{\link{pal_Bordeaux}} 
+#' \code{bordeaux} provides the preferred color of \code{\link{pal_bordeaux}} 
 #' as an atomic data frame and is defined as 
-#' \code{\link{pal_Bordeaux}[4]}. 
+#' \code{\link{pal_bordeaux}[4]}. 
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' Bordeaux  # "Bordeaux4" OR "#8E2043"
-#' all.equal(Bordeaux, pal_Bordeaux[4])  # TRUE
+#' bordeaux  # "bordeaux4" OR "#8E2043"
+#' all.equal(bordeaux, pal_bordeaux[4])  # TRUE
 #' 
 #' @family colors
 #'
 #' @seealso
-#' \code{\link{pal_Bordeaux}} for the corresponding color palette; 
+#' \code{\link{pal_bordeaux}} for the corresponding color palette; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
@@ -860,11 +1038,12 @@ pal_Bordeaux <- data.frame(                               #  Element:
 #'
 #' @export
 
-Bordeaux <- pal_Bordeaux[4]  # == Bordeaux4 of pal_Bordeaux: "Bordeaux4" OR "#8E2043"
+bordeaux <- pal_bordeaux[4]  # == bordeaux4 of pal_bordeaux: "bordeaux4" OR "#8E2043"
 
 ## Check:
-# Bordeaux
+# bordeaux
 
+# +++ here now +++
 
 #  (9) Ampeltöne: pal_signal -----
 
@@ -1059,7 +1238,7 @@ pal_unikn_pref <- data.frame(            # Element:
   "seegruen"    = pal_seegruen[[4]],     #  5. seegruen 
   "karpfenblau" = pal_karpfenblau[[4]],  #  6. karpfenblau
   "pinky"       = pal_pinky[[4]],        #  7. pinky 
-  "Bordeaux"    = pal_Bordeaux[[4]],     #  8. Bordeaux
+  "bordeaux"    = pal_bordeaux[[4]],     #  8. bordeaux
   "signal"      = pal_signal[[2]],       # (9.) (alert) signal
   stringsAsFactors = FALSE)
 
@@ -1149,7 +1328,7 @@ pal_unikn_light <- data.frame(
 pal_unikn_dark <- data.frame(
   pal_karpfenblau[c(5, 3)],
   pal_petrol[c(5, 3)],
-  pal_Bordeaux[c(5, 3)],
+  pal_bordeaux[c(5, 3)],
   pal_pinky[c(5, 3)],
   stringsAsFactors = FALSE)
 
@@ -1197,7 +1376,7 @@ pal_unikn_pair <- data.frame(
   pal_seeblau[c(5, 3)],
   pal_petrol[c(4, 2)],
   pal_seegruen[c(4, 2)],
-  pal_Bordeaux[c(4, 2)],
+  pal_bordeaux[c(4, 2)],
   pal_pinky[c(4, 2)],
   pal_peach[c(4, 2)],
   pal_grau[c(2, 1)],
