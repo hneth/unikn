@@ -1,5 +1,5 @@
 ## color_definitions.R | unikn
-## hn |  uni.kn  |  2019 02 18
+## hn |  uni.kn  |  2019 02 24
 ## ---------------------------
 
 ## Define colors and color palettes. 
@@ -48,8 +48,14 @@ pal_unikn <- data.frame(                                 #  element:
 #' @examples
 #' pal_unikn
 #' dim(pal_unikn)  # 1 10
-#' pal_unikn[1]    # named color
-#' pal_unikn[[1]]  # color
+#' 
+#' # Access by index:
+#' pal_unikn[1]    # 1st named color "seeblau4" (as df)
+#' pal_unikn[[1]]  # 1st color value "#00A9E0"
+#' 
+#' # Access by name: 
+#' pal_unikn["seeblau4"]    # color "seeblau4" (df) by name
+#' pal_unikn[["seeblau4"]]  # color value "#00A9E0" by name
 #' 
 #' # Plotting palette:
 #' plot_pal(pal_unikn)
@@ -113,8 +119,14 @@ pal_unikn_ppt <- data.frame(                             #  element:
 #' @examples
 #' pal_unikn_ppt
 #' dim(pal_unikn_ppt)  # 1 10
-#' pal_unikn_ppt[1]    # named color
-#' pal_unikn_ppt[[1]]  # color
+#' 
+#' # Access by index:
+#' pal_unikn_ppt[1]    # 1st named color "seeblau4" (as df)
+#' pal_unikn_ppt[[1]]  # 1st color value "#009AD1"
+#' 
+#' # Access by name: 
+#' pal_unikn_ppt["seeblau4"]    # color "seeblau4" (df) by name
+#' pal_unikn_ppt[["seeblau4"]]  # color value "#009AD1" by name
 #' 
 #' # Plotting palette:
 #' plot_pal(pal_unikn_ppt)
@@ -173,8 +185,18 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 #' @examples
 #' pal_seeblau
 #' dim(pal_seeblau)  # 1 5
-#' pal_seeblau[3]    # preferred (named) color "seeblau3" 
-#' pal_seeblau[[3]]  # preferred color "seeblau3" = "#59C7EB"
+#' 
+#' # Preferred color:
+#' pal_seeblau[3]    # preferred (named) color "seeblau3" (as df)
+#' pal_seeblau[[3]]  # preferred color value of "seeblau3": "#59C7EB"
+#' 
+#' # Access by index:
+#' pal_seeblau[3]    # 1st named color "seeblau3" (as df)
+#' pal_seeblau[[3]]  # 1st color value "#59C7EB"
+#' 
+#' # Access by name: 
+#' pal_unikn["seeblau3"]    # color "seeblau3" (df) by name
+#' pal_unikn[["seeblau3"]]  # color value "#59C7EB" by name
 #' 
 #' # Plotting palette:
 #' plot_pal(pal_seeblau)
@@ -202,7 +224,7 @@ pal_seeblau <- data.frame(                               #  element:
   stringsAsFactors = FALSE)
 
 
-#   (d) Preferred color: ---- 
+#   (d) Preferred color (as df): ---- 
 
 #' uni.kn color seeblau. 
 #' 
@@ -213,8 +235,8 @@ pal_seeblau <- data.frame(                               #  element:
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' seeblau  # "seeblau3" OR "#59C7EB"
-#' all.equal(seeblau, pal_seeblau[3])  # TRUE
+#' seeblau  # "seeblau3" with value "#59C7EB" (as df)
+#' all.equal(seeblau, pal_seeblau[3])  # TRUE (both df)
 #' 
 #' @family colors
 #'
@@ -231,6 +253,37 @@ seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn
 
 ## Check:
 # seeblau
+
+#   (e) Preferred color (as HEX character value): ---- 
+
+#' uni.kn color Seeblau. 
+#' 
+#' \code{Seeblau} provides the preferred color of \code{\link{pal_seeblau}} 
+#' as a color value (HEX character) and is defined as 
+#' \code{\link{pal_seeblau}[[3]]}. 
+#'
+#' See \url{https://www.uni-konstanz.de} for details.
+#'
+#' @examples
+#' Seeblau  # HEX character "#59C7EB" (as value)
+#' all.equal(Seeblau, pal_seeblau[[3]])  # TRUE (both values)
+#' 
+#' @family colors
+#'
+#' @seealso
+#' \code{\link{pal_seeblau}} for the corresponding color palette; 
+#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
+#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
+#'
+#' @export
+
+Seeblau <- pal_seeblau[[3]]  # == Value of seeblau.3 of pal_seeblau OR pal_unikn 
+
+## Check:
+# Seeblau
+
 
 #  (2) peach: -----
 
@@ -1152,6 +1205,9 @@ pal_unikn_pair <- data.frame(
 
 
 ## ToDo: ------
+
+# - Export all preferred color values (as HEX character value) with Capital letter names!
+# - Do NOT export the other palettes and values, but use "seecol" function as user-interface. 
 
 # (1) Color definitions: 
 #   - Define additional color palettes: 
