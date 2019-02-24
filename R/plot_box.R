@@ -1,13 +1,10 @@
 ## plot_box.R | unikn
-## hn  |  uni.kn |  2019 02 23
+## hn  |  uni.kn |  2019 02 24
 ## ---------------------------
 
 ## Plot boxes (e.g., xbox, slides, etc.)
 
-
 ## (A): Key functions to plot colored boxes, frames, (etc.): -------- 
-
-
 
 ## plot_box: Enhanced (expert/experimental) function that plots ONLY a colored box with "x" (but NO text): -----
 
@@ -221,8 +218,6 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 # plot_box(box_dim = c(5, 5, 10, 10), x_dis = 1/1, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
 
 
-
-
 ## plot_box_txt: Plot box with "x" and text: ---------- 
 
 # - Documentation: ---- 
@@ -272,6 +267,7 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 #' \code{\link{mark}} to mark text with a colored box. 
 #' 
 #' @examples
+#' plot_box_txt()
 #' plot_box_txt(lbls = "A heading appears here.")
 #' plot_box_txt(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
 #' 
@@ -279,8 +275,8 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 #' 
 #' # Note: As a vector of character strings for lbls is converted into separate lines of text,
 #' #       the following examples yield identical results:
-#' plot_box_txt(lbls = c("The 1st line of text.", "A 2nd and longer line of text.", "The 3rd line of text."))
-#' plot_box_txt(lbls = "The 1st line of text.\nA 2nd and longer line of text.\nThe 3rd line of text.")
+#' plot_box_txt(lbls = c("The 1st line of text.", "A 2nd longer line of text.", "The 3rd line of text."))
+#' plot_box_txt(lbls = "The 1st line of text.\nA 2nd longer line of text.\nThe 3rd line of text.")
 #'
 #' # Box logos:
 #' plot_box_txt(lbls = c("unikn::"), col_bg = pal_seeblau[[3]], cex = 2.5)
@@ -288,12 +284,12 @@ plot_box <- function(col = unlist(seeblau),    # box bg color (WAS: box_bg)
 #' plot_box_txt(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 #'
 #' @import graphics 
-#' 
-
+#'
+#' No export
 
 # - Definition: ----
 
-plot_box_txt <- function(lbls = NA,  # character vector of labels to place (as lines of text)  
+plot_box_txt <- function(lbls = "",  # character vector of labels to place (as lines of text)  
                          col_lbl = "white",              # text color
                          col_bg = as.character(seeblau), # box color
                          cex = 2, 
@@ -347,8 +343,8 @@ plot_box_txt <- function(lbls = NA,  # character vector of labels to place (as l
   ## Plot an "x" (in top right corner): ----- 
   
   # Parameters of "x" (coordinates): 
-  p1 <- .85  # (fractions of 1)
-  p2 <- .95
+  p1 <- .86  # (fractions of 1)
+  p2 <- .96
   
   # Draw segments:
   graphics::segments(x0 = c(p1, p1), y0 = c(p1, p2), 
@@ -394,6 +390,7 @@ plot_box_txt <- function(lbls = NA,  # character vector of labels to place (as l
 } # plot_box_txt end.
 
 ## Check:
+# plot_box_txt()
 # plot_box_txt(lbls = "A heading appears here.")
 # plot_box_txt(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
 # 
@@ -411,14 +408,13 @@ plot_box_txt <- function(lbls = NA,  # character vector of labels to place (as l
 #
 ## Box with address/contact details:
 # plot_box_txt(lbls = c("Dr. B. F. Skinner", " ",
-#                   "Department of Psychology",
-#                   "Office F101",
-#                   "Tel.: +49 7531 88-0815",
-#                   "Fax: +49 7531 88-0810",
-#                   "b.skin@uni-konstanz.de"),
-#          lbl_x = .03, lbl_y = .73,
-#          font = 1, cex = 1.0, col_bg = pal_petrol[[4]])
-
+#                       "Department of Psychology",
+#                       "Office F101",
+#                       "Tel.: +49 7531 88-0815",
+#                       "Fax: +49 7531 88-0810",
+#                       "b.f.skin@uni-konstanz.de"),
+#              lbl_x = .03, lbl_y = .73,
+#              font = 1, cex = 1.0, col_bg = pal_petrol[[4]])
 
 
 ## Test: Testbed for code above: ------ 
