@@ -35,22 +35,11 @@ all.equal(Signal, pal_signal[[2]])  # TRUE (same HEX values)
 \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
 \code{\link{col_scale}} to extend color palettes (by creating gradients).
 
-Other colors: \code{\link{Bordeaux}}, \code{\link{Grau}},
-  \code{\link{Karpfenblau}}, \code{\link{Peach}},
-  \code{\link{Petrol}}, \code{\link{Pinky}},
-  \code{\link{Seeblau}}, \code{\link{Seegruen}},
-  \code{\link{bordeaux}}, \code{\link{grau}},
-  \code{\link{karpfenblau}}, \code{\link{peach}},
-  \code{\link{petrol}}, \code{\link{pinky}},
-  \code{\link{seeblau}}, \code{\link{seegruen}},
-  \code{\link{signal}}
-
 Other preferred colors: \code{\link{Bordeaux}},
   \code{\link{Grau}}, \code{\link{Karpfenblau}},
   \code{\link{Peach}}, \code{\link{Petrol}},
   \code{\link{Pinky}}, \code{\link{Seeblau}},
-  \code{\link{Seegruen}}, \code{\link{seeblau}}
+  \code{\link{Seegruen}}
 }
-\concept{colors}
 \concept{preferred colors}
 \keyword{datasets}
