@@ -1,11 +1,10 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 02 23
+## hn  |  uni.kn |  2019 02 24
 ## ---------------------------
 
 ## Plot text with formatting elements (marking/highlighting or underlining).
 
 # [A]: Key functions to plot text (with abundant options): -------- 
-
 
 
 # (1) plot_text: Add text labels (with decorations like highlighting or underlining) to a plot: -------- 
@@ -46,16 +45,17 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
                       lwd_bg = 1,                   # lwd of text bg (mark and line): NA: ensure absence of border line (b)
                       
                       line = FALSE,   # flag for underlining function 
-                      cex_lwd = 2,    # if line: scaling factor for line width
-                      cex_ldn = .40,  # if line: scaling factor for downwards shift of line
+                      cex_lwd = 2.1,  # if line: scaling factor for line width
+                      cex_ldn = .42,  # if line: scaling factor for downwards shift of line
                       
-                      # Plotting parameters:
-                      xbox = FALSE, slide = FALSE,  # flags for creating a new plot
-                      
-                      ## Other stuff: 
+                      ## Plotting parameters:
+                      # WAS: xbox = FALSE, slide = FALSE,  # flags for creating a new plot
+                      new_plot = "none",  # Default: "none" (add to currently existing plot). Options: "xbox", "slide", "blank" (borderless slide)
                       mar_all = NA,  # option to reset all mar values (in nr. of line units)
                       oma_all = NA,  # option to reset all oma values (in nr. of line units)
                       grid = FALSE,  # for debugging (to position objects)
+                      
+                      ## Other stuff:                       
                       ...  # etc.
 ){
   
@@ -75,8 +75,11 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   
   # Set sensible defaults (for robustness):
   
+  # (a) new_plot:
+  if (is.na(new_plot)) {new_plot <- "none"}  # adding to an existing plot
+  
   # (b) col (of lbls): 
-  if ( is.na(col) && xbox) {col <- "white"}
+  if ( is.na(col) && (new_plot == "xbox")) {col <- "white"}
   if ( is.na(col) && any(!is.na(lbls)) ) { col <- "black"} 
   
   # (c) col_bg: 
@@ -87,7 +90,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   # Treat "flush" as special case of numeric layout (fixed distance of 0): 
   if (!is.numeric(y_layout) && (y_layout == "flush")) {y_layout <- 0}  
   
-  # +++ here now +++ 
   
   ## Plotting area: ----- 
   
@@ -105,20 +107,30 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   }
   
   # (c) Create a new plot (if desired or needed):  
-  if (xbox) { # plot xbox:
+  if (new_plot == "xbox" || new_plot == "box") { # plot xbox:
     
     # message("Plotting desired xbox...") 
     
     col_box <- unlist(seeblau)
     xbox(col = col_box)    
     
-  } else if (slide) {  # plot slide:
+  } else if (new_plot == "slide" || new_plot == "frame") {  # plot slide (or frame):
     
     # message("Plotting desired slide...") 
     
     col_slide <- NA
     col_slide_border <- grey(.33, 1)
     lwd_slide_border <- 1.0
+    
+    slide(col = col_slide, border = col_slide_border, lwd = lwd_slide_border)
+    
+  } else if (new_plot == "blank" || new_plot == "empty") {  # plot borderless slide (or frame):
+    
+    # message("Plotting desired slide...") 
+    
+    col_slide <- NA
+    col_slide_border <- NA
+    lwd_slide_border <- 0
     
     slide(col = col_slide, border = col_slide_border, lwd = lwd_slide_border)
     
@@ -158,7 +170,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   key_height_f2 <- strheight(s = key_char, cex = 1, font = 2)  # get height of "l" for cex = 1, font = 2 (only)
   key_height_f3 <- strheight(s = key_char, cex = 1, font = 3)  # get height of "l" for cex = 1, font = 3 (only)
   key_height_f4 <- strheight(s = key_char, cex = 1, font = 4)  # get height of "l" for cex = 1, font = 4 (only)
-  # print(key_width_f2)   # 4debugging: 1 value (NOT vector)
   
   # Get the REAL char dimensions by scaling key_width/key_height values (for each font size) 
   # by the vector of cur_cex values (at corresponding font size):
@@ -174,7 +185,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   char_height[font == 2] <- key_height_f2 * cur_cex[font == 2]
   char_height[font == 3] <- key_height_f3 * cur_cex[font == 3]
   char_height[font == 4] <- key_height_f4 * cur_cex[font == 4]
-  # print(char_height)   # 4debugging
   
   
   # (B) Measure dimensions of text lbls: ---- 
@@ -205,7 +215,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   text_height[font == 2] <- lbls_height_f2[font == 2] * cur_cex[font == 2]
   text_height[font == 3] <- lbls_height_f3[font == 3] * cur_cex[font == 3]
   text_height[font == 4] <- lbls_height_f4[font == 4] * cur_cex[font == 4]
-  # print(text_height)   # 4debugging
   
   
   # (C) Measure dimension of desired padding (around text): ---- 
@@ -220,7 +229,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
       # Use default paddings (based on character sizes) [see p. 25 of CD Manual]: 
       pad_l_r <-  char_width  # padding on left and right: width of letter "l" 
       pad_t_b <- (char_height * 1.5)/2  # padding on top and bottom: 1.5 x height of letter "l" (1/2 on either side).
-      # print(pad_l_r)  # 4debugging
       
       # Dimensions of corresponding rectangle(s):  
       
@@ -253,7 +261,7 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
       ## OR: NOT char_height, to use same scaling factor in both dimensions:
       # rect_height <- (text_height + (2 * padding[2] * char_width)) # y-dim of padded rectangle  
       
-      padl_width  <- (2 * padding[1] * char_width)/2  # save left padded width (to shift mid-points below)
+      padl_width  <- (1 * padding[1] * char_width)  # save left padded width (to shift mid-points below)
       
     }  # padding etc.
     
@@ -263,17 +271,23 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   ## Compute text positions (AFTER all measurements are known): ------
   
   # Extreme y coordinates: ---- 
+  y_bot <- NA
+  y_top <- NA
   
-  y_top <- y[1]       # highest y coordinate (of lbls)
-  y_bot <- min(par("usr")[3:4])  # minimum y value of current plot
-  y_bot_empty <- .10             # amount of space to stay empty at bottom (in % of available y_range/y_top)
-  y_bot <- (y_bot_empty * abs(y_top - y_bot))  # lowest y coordinate (border width = 10% of y_range/y_top)
+  plot_dim <- par("usr")  # actual dimensions (of current plot)
+  # print(paste0("Current plot_dim = ", plot_dim))  # 4debugging  
+  
+  y_top <- min(par("usr")[4], y[1])  # Min of highest possible y value (of current plot) and 1st actual y coordinate (of lbls)
+  y_bot <- min(par("usr")[3], y[1])  # Min of  lowest possible y value (of current plot) and 1st actual y coordinate (of lbls)
+  y_bot_blank_space <- .10  # proportion of required blank space at bottom (in % of available y_range/y_top)
+  y_bot <- (y_bot_blank_space * abs(y_top - y_bot))  # lowest actual y coordinate tolerated
+  # print(paste0("y_bot = ", y_bot))  # 4debugging
   
   # Adjust y values (if fewer y's than lbls): ---- 
   
   if (N_lbls > length(y)) { # If there are more lbls than y coordinates: 
     
-    message(paste0("N_lbls > N(y): Automatic ", as.character(y_layout), " label layout..."))
+    # message(paste0("N_lbls > N(y): Automatic ", as.character(y_layout), " label layout..."))
     
     if (mark) { 
       
@@ -297,11 +311,13 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
     
   } else {
     
-    message("N(y) >= N_lbls: Using y-values provided for label layout...")
+    # message("N(y) >= N_lbls: Using y-values provided for label layout...")
     
   }
   
+  
   # x/y coordinates: Recycle if unequal length: ----  
+  
   if (length(x) != length(y)){   
     
     lx <- length(x)
@@ -317,6 +333,7 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
       
     }
   }
+  
   
   # pos values: ---- 
   
@@ -375,7 +392,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   }
   
   
-  
   # ToDo: Handle special case of "flush" underlining (line == TRUE && y_layout == 0): ---- 
   # if (line && (y_layout == 0)) {
   #   
@@ -391,6 +407,7 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   #   y <- y + cum_y_add
   #   
   # }
+  
   
   # Midpoints of text(s): ---- 
   
@@ -419,7 +436,7 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
                    ybottom = (y_mid - rect_height/2),
                    xright  = (x_mid + rect_width/2),
                    ytop    = (y_mid + rect_height/2),
-                   col     = col_bg, 
+                   col     = col_bg,  # Note: col_bg also used in segments (for underlining)
                    border  = col_bg_border,
                    lty     = lty_bg,
                    lwd     = lwd_bg#,
@@ -448,13 +465,13 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
     
     # Plot line(s): 
     graphics::segments(x0  = (x_mid  - text_width/2),
-                       y0  = ((y_mid - text_height/2) - y_dn),
+                       y0  = ((y_mid - text_height/2) - y_dn),  # y_dn below text
                        x1  = (x_mid  + text_width/2),
-                       y1  = ((y_mid - text_height/2) - y_dn),
-                       col = col_bg,
+                       y1  = ((y_mid - text_height/2) - y_dn),  # y_dn below text
+                       col = col_bg,  # Note: col_bg also used in rect (for marking/highlighting)
                        lty = 1,
-                       lwd = (cex_lwd * par("lwd")),
-                       lend = 1  # line end style: 0: round (default), 1: butt, 2: square. 
+                       lwd = (cex_lwd * par("lwd")),  # lwd scaled by cex_lwd
+                       lend = 1  # line end styles: 0: round (default), 1: butt, 2: square. 
     )
     
   } # if (line) etc.
@@ -462,15 +479,17 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   
   #  C. txt: Plot text lbls: ---- 
   
-  txt <- TRUE  # 4debugging
+  txt <- TRUE  # default 
   
   if (txt) { 
     
     # Plot text lbl(s):
-    graphics::text(x = x_mid, y = y_mid, labels = lbls, col = col, 
+    graphics::text(x = x_mid, y = y_mid, 
+                   labels = lbls, 
+                   col = col, 
                    cex = cur_cex, font = font, 
-                   # pos = pos, # use pos
-                   adj = c(.5, .5)  # always center text in rectangle (x and y) 
+                   # pos = pos,     # pos was used above (to compute x and y)
+                   adj = c(.5, .5)  # always center (as x and y are computed as mid points above) 
     )
     
   } # if (txt) etc.
@@ -496,7 +515,7 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
     
   } else {
     
-    # Return text coordinates:
+    # Return the coordinates of text labels:
     
     if (length(x_mid) == 1){  # Coordinates of 1 character string:
       
@@ -517,6 +536,47 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 
 
 # - Check: ------ 
+
+# # Demo cases:
+ 
+# # (1) Markieren: 
+# lbl_mark <- c("                                        ", 
+#               "                                ", 
+#               "                                              ", 
+#               "                                        ", 
+#               "                        ")
+# plot_text(lbls = lbl_mark, 
+#           x = 0, y = .90, y_layout = c(.03),  
+#           col_bg = unlist(seeblau), col_bg_border = NA, 
+#           cex = 2, pos = 4, 
+#           new_plot = "blank",  
+#           mark = TRUE)
+ 
+# # (2) Unterstreichen: 
+# lbl_line <- c("Teaching", "This is a line of text", "Learning and studying", "Test")
+# lbl_line <- c("Das ist korrekt, wahr und wahnsinnig wichtig.")
+# plot_text(lbls = lbl_line, font = 1,
+#           x = 0, y = .90, y_layout = c(.05),
+#           col_bg = unlist(seeblau), col_bg_border = NA,
+#           cex = 1.5, pos = 4,
+#           new_plot = "blank",
+#           line = TRUE)
+# 
+# slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
+# plot_text(lbls = slogan, font = 2,
+#           x = 0, y = .90, y_layout = c(.15),
+#           col_bg = unlist(seeblau), col_bg_border = NA,
+#           cex = 1.5, pos = 4,
+#           new_plot = "blank",
+#           line = TRUE, cex_lwd = 2.5, cex_ldn = .42)
+
+## (3) Merken:
+# xbox()
+
+# ToDo: xbox with text (different cex and font values)
+
+
+# # Crucial test cases: 
 # 
 # # (a) xbox with text:
 # lbl_1 <- c("Erste Zeile", "Zweite Zeile", "Dritte steile Zeile", "Vierte Zeile zum Verweilen",
@@ -525,20 +585,21 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 #           x = .05,
 #           y = NA,  # fewer y-coords than labels
 #           # y = c(.65, .50, .4, .3, .2, .1), # fixed y-coords for all lbls
-#           y_layout = "even",  # "even", "flush", OR fixed numeric value for distance b/w lbls (e.g., c(.02, .05), recycled)! 
+#           y_layout = "even",  # "even", "flush", OR fixed numeric value for distance b/w lbls (e.g., c(.02, .05), recycled)!
 #           cex = c(1, 1, 2, 2, 3, 3),
 #           font = c(2, 1, 2, 1, 2, 1),
 #           col_bg = c(unlist(seeblau), "gold"), lwd_bg = NA,
 #           pos = NULL, adj = c(0, .5),  offset = 999,
 #           # pos = 4, adj = c(1, 1), offset = 0,
-#           xbox = TRUE, mark = FALSE, grid = TRUE,
+#           new_plot = "xbox", 
+#           mark = FALSE, grid = TRUE,
 #           mar_all = NA, oma_all = NA
 # )
 # 
 # # (b) slide with text and line: 
 # lbl_2 <- rep("l Eine durch zwei `l` begrenzte Zeile l", 6)
 # plot_text(lbls = lbl_2,
-#           x = .05,
+#           x = .00,
 #           y = .80,  # fewer y-coords than labels
 #           # y = c(.77, .7, .55, .45, .25, .1), # fixed y-coords for all lbls
 #           y_layout = c(.05, .10), # "even" or fixed numeric value(s) for distance b/w lbls (e.g., c(.02, .05), recycled)!
@@ -548,7 +609,7 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 #           pos = NULL, adj = c(0, .5), offset = 999,
 #           # pos = 4, adj = c(1, 1), offset = 0,
 #           padding = 1, # OR: c(.5, .5),
-#           slide = TRUE,
+#           new_plot = "blank",
 #           line = TRUE,
 #           grid = TRUE, mar_all = NA, oma_all = NA
 # )
@@ -559,14 +620,15 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 #           x = 0,
 #           y = .80,  # fewer y-coords than labels
 #           # y = c(.80, .70, .55, .35, .15), # fixed y-coords for all lbls
-#           y_layout = c(0, .1), # "even", "flush", or fixed numeric value(s) for distance b/w lbls (e.g., c(.02, .05), recycled)!
+#           y_layout = c(0, .08), # "even", "flush", or fixed numeric value(s) for distance b/w lbls (e.g., c(.02, .05), recycled)!
 #           cex = c(1.5, 1, 2, 1.5, 2, 2.5), font = c(2, 1),
 #           col_bg = c(grey(0, .10), grey(0, .20)),
 #           lwd_bg = 1/3, col_bg_border = "red2",
 #           # pos = NULL, adj = c(0, .5), offset = 999,
 #           pos = 4, adj = c(1, 1), offset = 0,
 #           padding = 1, # OR: c(.5, .5),
-#           slide = TRUE, mark = TRUE,
+#           new_plot = "slide", 
+#           mark = TRUE,
 #           grid = FALSE, mar_all = NA, oma_all = NA
 # )
 
@@ -579,8 +641,9 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 
 #   +++ here now +++
 
-# - adjust "flush" layout for line distance (in case of line = TRUE).
+# - adjust "flush" layout for line distance (in case of line = TRUE). [not needed, as y_layout can increase distance (for constant cex)]
 # - mark: Warn in case of monotonic step functions. 
+# - Add warning(s) when text falls beyond xlim (of box/slide) on left or right
 
 
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
