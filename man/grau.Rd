@@ -29,10 +29,10 @@ all.equal(grau, pal_grau[3])  # TRUE
 \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette.
 
 Other colors: \code{\link{Bordeaux}},
-  \code{\link{karpfenblau}}, \code{\link{peach}},
-  \code{\link{petrol}}, \code{\link{pinky}},
-  \code{\link{seeblau}}, \code{\link{seegruen}},
-  \code{\link{signal}}
+  \code{\link{Seeblau}}, \code{\link{karpfenblau}},
+  \code{\link{peach}}, \code{\link{petrol}},
+  \code{\link{pinky}}, \code{\link{seeblau}},
+  \code{\link{seegruen}}, \code{\link{signal}}
 }
 \concept{colors}
 \keyword{datasets}

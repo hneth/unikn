@@ -28,7 +28,8 @@ all.equal(peach, pal_peach[4])  # TRUE
 \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette.
 
-Other colors: \code{\link{Bordeaux}}, \code{\link{grau}},
+Other colors: \code{\link{Bordeaux}},
+  \code{\link{Seeblau}}, \code{\link{grau}},
   \code{\link{karpfenblau}}, \code{\link{petrol}},
   \code{\link{pinky}}, \code{\link{seeblau}},
   \code{\link{seegruen}}, \code{\link{signal}}

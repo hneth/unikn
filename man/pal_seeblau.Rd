@@ -18,8 +18,18 @@ See \url{https://www.uni-konstanz.de} for details.
 \examples{
 pal_seeblau
 dim(pal_seeblau)  # 1 5
-pal_seeblau[3]    # preferred (named) color "seeblau3" 
-pal_seeblau[[3]]  # preferred color "seeblau3" = "#59C7EB"
+
+# Preferred color:
+pal_seeblau[3]    # preferred (named) color "seeblau3" (as df)
+pal_seeblau[[3]]  # preferred color value of "seeblau3": "#59C7EB"
+
+# Access by index:
+pal_seeblau[3]    # 1st named color "seeblau3" (as df)
+pal_seeblau[[3]]  # 1st color value "#59C7EB"
+
+# Access by name: 
+pal_unikn["seeblau3"]    # color "seeblau3" (df) by name
+pal_unikn[["seeblau3"]]  # color value "#59C7EB" by name
 
 # Plotting palette:
 plot_pal(pal_seeblau)

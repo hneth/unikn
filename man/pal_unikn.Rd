@@ -20,8 +20,14 @@ See \url{https://www.uni-konstanz.de} for details.
 \examples{
 pal_unikn
 dim(pal_unikn)  # 1 10
-pal_unikn[1]    # named color
-pal_unikn[[1]]  # color
+
+# Access by index:
+pal_unikn[1]    # 1st named color "seeblau4" (as df)
+pal_unikn[[1]]  # 1st color value "#00A9E0"
+
+# Access by name: 
+pal_unikn["seeblau4"]    # color "seeblau4" (df) by name
+pal_unikn[["seeblau4"]]  # color value "#00A9E0" by name
 
 # Plotting palette:
 plot_pal(pal_unikn)

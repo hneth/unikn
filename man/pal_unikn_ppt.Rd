@@ -21,8 +21,14 @@ and \url{https://www.uni-konstanz.de} for details.
 \examples{
 pal_unikn_ppt
 dim(pal_unikn_ppt)  # 1 10
-pal_unikn_ppt[1]    # named color
-pal_unikn_ppt[[1]]  # color
+
+# Access by index:
+pal_unikn_ppt[1]    # 1st named color "seeblau4" (as df)
+pal_unikn_ppt[[1]]  # 1st color value "#009AD1"
+
+# Access by name: 
+pal_unikn_ppt["seeblau4"]    # color "seeblau4" (df) by name
+pal_unikn_ppt[["seeblau4"]]  # color value "#009AD1" by name
 
 # Plotting palette:
 plot_pal(pal_unikn_ppt)
