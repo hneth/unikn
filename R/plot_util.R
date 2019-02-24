@@ -1,5 +1,5 @@
 ## plot_util.R | unikn
-## hn  |  uni.kn |  2019 02 22
+## hn  |  uni.kn |  2019 02 24
 ## ---------------------------
 
 ## Utility functions for plotting 
