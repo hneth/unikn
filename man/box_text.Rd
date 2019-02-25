@@ -78,7 +78,7 @@ plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1))
 n <- 20
 set.seed(1)
 plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, 
-     col = grey(0, .20), axes = F, xlab = "", ylab = "")
+     col = grey(0, .20), axes = FALSE, xlab = "", ylab = "")
 
 ## Adjust cex, font and adj:
 # box_text(x = .05, y = .90, lbls = "What a messy plot",
