@@ -47,13 +47,14 @@ mark(x = 0, y = .9, lbls = "Please note")
 mark(x = 0, y = c(.6, .5),
      lbls = c("Highlighting text is simple", "but strikingly effective"),
      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
-mark(x = .4, y = c(.3, .2), lbls = c("It is also flexible", "but to be handled with care"), cex = 1.2,
-     col_lbl = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
+mark(x = .4, y = c(.3, .2), lbls = c("It is also flexible", "but to be handled with care"), 
+     cex = 1.2, col_lbl = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
 
 ## Example 2: Messy plot
 n <- 20
 set.seed(1)
-plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), axes = F, xlab = "", ylab = "")
+plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), 
+     axes = FALSE, xlab = "", ylab = "")
 
 # Only 1 label:
 mark(x = .05, y = .85, lbls = "What a messy plot")

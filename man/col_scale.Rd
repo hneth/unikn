@@ -36,10 +36,10 @@ col_scale()(5)  # 5 colors of default scale pal_unikn
 col_scale(pal_petrol)(10)  # 10 colors of pal_petrol
 
 # Gradients over 2+ colors:
-col_scale(c(seeblau, peach))(10)
-col_scale(c(signal, petrol))(10)  
-col_scale(c(seeblau, "white", pinky))(10)
-col_scale(c(karpfenblau, seeblau, "gold"))(10)  # "gold" shines brighter than signal
+col_scale(c(Seeblau, Peach))(10)
+col_scale(c(Signal, Petrol))(10)  
+col_scale(c(Seeblau, "white", Pinky))(10)
+col_scale(c(Karpfenblau, Seeblau, "gold"))(10)  # "gold" shines brighter than signal
 
 # Gradients over 2+ color palettes:
 col_scale(c(pal_seeblau, pal_peach))(10)
@@ -61,13 +61,13 @@ plot_pal(col_scale(pal_bordeaux)(10))
 # (2) Combining colors or palettes: ---- 
 
 # Combining 2+ colors to create new palettes:
-plot_pal(col_scale(c(seeblau, signal))(10))
-plot_pal(col_scale(c(signal, petrol))(10))  
-plot_pal(col_scale(c(seeblau, "white", pinky))(10)) 
-plot_pal(col_scale(c(karpfenblau, seeblau, "white"))(10))  
-plot_pal(col_scale(c(bordeaux, "white", petrol))(10)) 
-plot_pal(col_scale(c(seeblau, "white", petrol))(10))
-plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))  # "gold" shines brighter than signal
+plot_pal(col_scale(c(Seeblau, Signal))(10))
+plot_pal(col_scale(c(Signal, Petrol))(10))  
+plot_pal(col_scale(c(Seeblau, "white", Pinky))(10)) 
+plot_pal(col_scale(c(Karpfenblau, Seeblau, "white"))(10))  
+plot_pal(col_scale(c(Bordeaux, "white", Petrol))(10)) 
+plot_pal(col_scale(c(Seeblau, "white", Petrol))(10))
+plot_pal(col_scale(c(Karpfenblau, Seeblau, "gold"))(10))  # "gold" shines brighter than signal
  
 # Combining 2+ color palettes into new palettes:
 plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))  
