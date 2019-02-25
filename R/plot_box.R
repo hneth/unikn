@@ -1,33 +1,34 @@
 ## plot_box.R | unikn
-## hn  |  uni.kn |  2019 02 24
+## hn  |  uni.kn |  2019 02 25
 ## ---------------------------
 
 ## Plot boxes (e.g., xbox, slides, etc.)
 
 ## (A): Key functions to plot colored boxes, frames, (etc.): -------- 
 
-## plot_box: Enhanced (expert/experimental) function that plots ONLY a colored box with "x" (but NO text): -----
+## plot_box: Enhanced (expert/experimental) function that plots ONLY a colored box with an "x" (but NO text): -----
 
 ## Note that plot_box is an experimental function, intended for expert users.
 
 # - Definition: ----
 
 plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB")
-                     ## Expert uses: 
-                     # - Parameters for box:
+                     ## Expert uses: ## 
+                     # Box parameters:
                      box_dim = c(0, 0, 1, 1),  # Box dimensions: As c(xleft, ybottom, xright, ytop), as in rect() function 
-                     lty =  0,   #  Default: lty =  0: ensure absence of border line (a)
-                     lwd = NA,   #  Default: lwd = NA: ensure absence of border line (b)
-                     # - Parameters for "x": 
-                     x_col = "white",
-                     x_cex = .10,   # size of "x" (as an expansion factor)
-                     x_dis = .025,  # distance of "x" from box border (as a fraction of box size)
-                     x_lwd = 1.2,   # lwd of "x" segements
-                     # - Other stuff:
-                     cross = TRUE,  # plot "x" (in top-right corner)
+                     lty =  0,                 # Default: lty =  0: ensure absence of border line (a)
+                     lwd = NA,                 # Default: lwd = NA: ensure absence of border line (b)
+                     # "x" parameters: 
+                     cross = TRUE,     # plot an "x" (in top-right corner)
+                     x_col = "white",  # color of "x" segments 
+                     x_cex = .10,      # size of "x" (as an expansion factor)
+                     x_dis = .025,     # distance of "x" from box border (as a fraction of box size)
+                     x_lwd = 1.2,      # lwd of "x" segements
+                     # Plot parameters:
                      mar_all = NA,  # option to reset all mar values (in nr. of line units)
                      oma_all = NA,  # option to reset all oma values (in nr. of line units)
                      grid = FALSE,  # 4debugging
+                     # etc.:
                      ...  # etc. (passed to rect, not to segments)
 ) {
   
@@ -45,7 +46,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
   box_height <- (box_top - box_bot)
   
   # "x" parameters: 
-  x_dis <- x_dis * min(box_width, box_height)  # scale x_dis with box size 
+  x_dis <- x_dis * min(box_width, box_height)  # scale x_dis by box size 
   
   ## (1) Create a new plot: -----
   
@@ -92,8 +93,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
     # grid() # default grid
     
     ## Call utility function:
-    plot_grid(x_min = x_min, x_max = x_max, 
-              y_min = y_min, y_max = y_max)
+    plot_grid()
     
   }
   
@@ -102,7 +102,6 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
   plot_ratio <- plot_xy[1]/plot_xy[2]  # current aspect ratio
   scale_x <- 1/plot_ratio              # multiplicative correction factor (for x-widths)
   # print(scale_x)  # 4debugging
-  
   
   ## (2) Plot a colored box (using rect): ----- 
   
@@ -191,34 +190,45 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
   
 } # plot_box end. 
 
-## Check:
+# - Check: ------ 
 
-# ## Basic uses: ---- 
-# plot_box(col = unlist(bordeaux))
-# plot_box(col = unlist(karpfenblau))
-# 
-# ## Expert uses: ---- 
-# 
-# # Assuming a square canvas: 
+## Basic uses:
+
+# plot_box()
+
+# plot_box(Bordeaux)
+# plot_box(Karpfenblau)
+# plot_box(col = "forestgreen") 
+
+## Expert uses: 
+
+# plot_box(col = grey(.50, .50), grid = TRUE)
+
+# # Assuming a square canvas:
 # plot_box(box_dim = c(5, 5, 10, 10), x_cex = .10, grid = TRUE)  # square box in upper right corner
 # 
 # # Test calls:
-# # Assuming non-square canvases: 
+# 
+# # Setting box size and margins:
+# plot_box(box_dim = c(6, 6, 10, 10), x_cex = .10,  # square box in upper right corner
+#          mar_all = 2, oma_all = 1, grid = TRUE)   # adjust margins, show grid
+# 
+# # Assuming non-square canvases:
 # plot_box(box_dim = c(5, 5, 15, 10), x_cex = 1, x_dis = 0, grid = TRUE)  # box wider than high (in upper right) with max "x"
 # plot_box(box_dim = c(5, 5, 10, 15), x_cex = 1, x_dis = 0, grid = TRUE)  # box higher than wide (in upper right) with max "x"
-# # Note: "x" appears orthogonal when grid is evenly spaced (i.e., dimensions of display device match plotting region). 
+# # Note: "x" appears orthogonal when grid is evenly spaced (i.e., dimensions of display device match plotting region).
 # 
 # # Assuming a square canvas: Square box (in upper right) with max "x"
-# plot_box(box_dim = c(5, 5, 10, 10), x_cex = 1, x_dis = 0, x_col = "red3", x_lwd = 2, grid = TRUE) 
+# plot_box(box_dim = c(5, 5, 10, 10), x_cex = 1, x_dis = 0, x_col = "red3", x_lwd = 2, grid = TRUE)
 # 
-# # Varying x_dis: 
+# # Varying x_dis:
 # plot_box(box_dim = c(5, 5, 10, 10), x_dis = 0/4, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
 # plot_box(box_dim = c(5, 5, 10, 10), x_dis = 1/4, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
 # plot_box(box_dim = c(5, 5, 10, 10), x_dis = 1/2, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
 # plot_box(box_dim = c(5, 5, 10, 10), x_dis = 1/1, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
 
 
-## plot_box_txt: Plot box with "x" and text: ---------- 
+## plot_box_txt: Plot box with an "x" and text: ---------- 
 
 # - Documentation: ---- 
 
@@ -391,7 +401,8 @@ plot_box_txt <- function(lbls = "",  # character vector of labels to place (as l
   
 } # plot_box_txt end.
 
-## Check:
+# - Check: ------ 
+
 # plot_box_txt()
 # plot_box_txt(lbls = "A heading appears here.")
 # plot_box_txt(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
