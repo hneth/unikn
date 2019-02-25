@@ -277,23 +277,24 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
 #' \code{\link{mark}} to mark text with a colored box. 
 #' 
 #' @examples
-#' plot_box_txt()
-#' plot_box_txt(lbls = "A heading appears here.")
-#' plot_box_txt(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
+#' # plot_box_txt()  # default box (w/o text)
 #' 
-#' plot_box_txt(lbls = "The darkest shade of seeblau.", col_bg = pal_seeblau[[5]], cex = 1.5)
+#' # plot_box_txt(lbls = "A heading appears here.")
+#' # plot_box_txt(lbls = c("Some title", "The second line is longer", "A third short line"), cex = 2.4)
 #' 
-#' # Note: As a vector of character strings for lbls is converted into separate lines of text,
-#' #       the following examples yield identical results:
-#' plot_box_txt(lbls = c("1st line of text.", 
-#'                       "A 2nd longer line of text.", 
-#'                       "The 3rd line of text."))
-#' plot_box_txt(lbls = "1st line of text.\nA 2nd longer line of text.\nThe 3rd line of text.")
+#' # plot_box_txt(lbls = "The darkest shade of seeblau.", col_bg = pal_seeblau[[5]], cex = 1.5)
+#' 
+#' ## Note: As a vector of character strings for lbls is converted into separate lines of text,
+#' ##       the following examples yield identical results:
+#' # plot_box_txt(lbls = c("1st line of text.", 
+#' #                       "A 2nd longer line of text.", 
+#' #                       "The 3rd line of text."))
+#' # plot_box_txt(lbls = "1st line of text.\nA 2nd longer line of text.\nThe 3rd line of text.")
 #'
-#' # Box logos:
-#' plot_box_txt(lbls = c("unikn::"), col_bg = Seeblau, cex = 2.5)
-#' plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_bordeaux[4]))
-#' plot_box_txt(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
+#' ## Box logos:
+#' # plot_box_txt(lbls = c("unikn::"), col_bg = Seeblau, cex = 2.5)
+#' # plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_bordeaux[4]))
+#' # plot_box_txt(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 #'
 #' @import graphics 
 #'

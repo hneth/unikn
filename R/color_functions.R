@@ -97,9 +97,9 @@ pal_which <- function(which = "all", pal = pal_unikn){
 #' 
 #' pal_n(99)  # returns maximal number of colors: pal_unikn_plus (11)
 #' 
-#' # Other palettes pal:
-#' pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))
-#' pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
+#' ## Other color palettes:
+#' # pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))
+#' # pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 #' 
 #' @family color palettes
 #'
@@ -302,9 +302,9 @@ pal_n <- function(n = "all", pal = pal_unikn){
 # 
 # pal_n(11)  # return maximal number of colors
 # 
-# # Other palettes pal:
-# pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))
-# pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
+# ## Other color palettes:
+# # pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))
+# # pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 
 
 
@@ -419,21 +419,21 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #' 
 #' ## Not run: 
 #' 
-#' # Plotting palettes from other packages: ------ 
+#' ## Plotting palettes from other packages: ------ 
 #' 
-#' # RColorBrewer palettes: 
-#' plot_pal(RColorBrewer::brewer.pal(n = "all", name = "Set1"))
-#' plot_pal(RColorBrewer::brewer.pal(n = 5, name = "Blues"))
+#' ## RColorBrewer palettes: 
+#' # plot_pal(RColorBrewer::brewer.pal(n = "all", name = "Set1"))
+#' # plot_pal(RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 #' 
-#' # viridisLite palettes: 
-#' plot_pal(viridisLite::viridis(20))
-#' plot_pal(viridisLite::inferno(25)) 
-#' plot_pal(viridisLite::magma(25))
-#' plot_pal(viridisLite::plasma(25))
+#' ## viridisLite palettes: 
+#' # plot_pal(viridisLite::viridis(20))
+#' # plot_pal(viridisLite::inferno(25)) 
+#' # plot_pal(viridisLite::magma(25))
+#' # plot_pal(viridisLite::plasma(25))
 #'   
-#' # yarrr palettes: 
-#' plot_pal(yarrr::piratepal(palette = "appletv"))
-#' plot_pal(yarrr::piratepal(palette = "google"))
+#' ## yarrr palettes: 
+#' # plot_pal(yarrr::piratepal(palette = "appletv"))
+#' # plot_pal(yarrr::piratepal(palette = "google"))
 #' 
 #' ## End(Not run)
 #'
@@ -587,10 +587,10 @@ col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_grau, pal_peach))  
 #' col_scale(pal_petrol)(10)  # 10 colors of pal_petrol
 #' 
 #' # Gradients over 2+ colors:
-#' col_scale(c(seeblau, peach))(10)
-#' col_scale(c(signal, petrol))(10)  
-#' col_scale(c(seeblau, "white", pinky))(10)
-#' col_scale(c(karpfenblau, seeblau, "gold"))(10)  # "gold" shines brighter than signal
+#' col_scale(c(Seeblau, Peach))(10)
+#' col_scale(c(Signal, Petrol))(10)  
+#' col_scale(c(Seeblau, "white", Pinky))(10)
+#' col_scale(c(Karpfenblau, Seeblau, "gold"))(10)  # "gold" shines brighter than signal
 #' 
 #' # Gradients over 2+ color palettes:
 #' col_scale(c(pal_seeblau, pal_peach))(10)
@@ -612,13 +612,13 @@ col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_grau, pal_peach))  
 #' # (2) Combining colors or palettes: ---- 
 #' 
 #' # Combining 2+ colors to create new palettes:
-#' plot_pal(col_scale(c(seeblau, signal))(10))
-#' plot_pal(col_scale(c(signal, petrol))(10))  
-#' plot_pal(col_scale(c(seeblau, "white", pinky))(10)) 
-#' plot_pal(col_scale(c(karpfenblau, seeblau, "white"))(10))  
-#' plot_pal(col_scale(c(bordeaux, "white", petrol))(10)) 
-#' plot_pal(col_scale(c(seeblau, "white", petrol))(10))
-#' plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10))  # "gold" shines brighter than signal
+#' plot_pal(col_scale(c(Seeblau, Signal))(10))
+#' plot_pal(col_scale(c(Signal, Petrol))(10))  
+#' plot_pal(col_scale(c(Seeblau, "white", Pinky))(10)) 
+#' plot_pal(col_scale(c(Karpfenblau, Seeblau, "white"))(10))  
+#' plot_pal(col_scale(c(Bordeaux, "white", Petrol))(10)) 
+#' plot_pal(col_scale(c(Seeblau, "white", Petrol))(10))
+#' plot_pal(col_scale(c(Karpfenblau, Seeblau, "gold"))(10))  # "gold" shines brighter than signal
 #'  
 #' # Combining 2+ color palettes into new palettes:
 #' plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))  
@@ -663,15 +663,15 @@ col_scale <- function(col = pal_unikn, ...){
 # col_scale(pal_petrol)(12)  # 12 colors of pal_petrol
 # 
 # # Gradients over 2 colors:
-# col_scale(c(seeblau, peach))(10)
-# col_scale(c(seegruen, petrol))(10)
+# col_scale(c(Seeblau, Peach))(10)
+# col_scale(c(Seegruen, Petrol))(10)
 # 
 # # Gradients over 2 color palettes:
 # col_scale(c(pal_seeblau, pal_peach))(10)
 # col_scale(c(pal_seeblau, pal_karpfenblau))(10)
 # 
 # # Gradients over 3+ colors:
-# col_scale(c(seeblau, grau, seegruen, peach))(10)
+# col_scale(c(Seeblau, Grau, Seegruen, Peach))(10)
 # 
 # # Gradients over 3+ color palettes:
 # col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
