@@ -2,8 +2,8 @@
 % Please edit documentation in R/plot_text_calls.R
 \name{mark}
 \alias{mark}
-\title{\code{mark} places 1 or more text strings (of a character vector \code{lbls}) 
-onto a plot and places a colored box behind
+\title{\code{mark} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+to an (existing or new) plot and places a colored box behind
 each label to mark or highlight it (i.e., make it stand out from the background).}
 \usage{
 mark(x, y, lbls = NA, col_lbl = "black", col_bg = unlist(seeblau),
@@ -12,10 +12,13 @@ mark(x, y, lbls = NA, col_lbl = "black", col_bg = unlist(seeblau),
 \arguments{
 \item{x}{A numeric vector of x-coordinates at which the 
 text labels in \code{lbls} should be written. 
-If the length of \code{x} and \code{y} differs, the shorter one is recycled.}
+If the lengths of \code{x} and \code{y} differ, 
+the shorter one is recycled.}
 
 \item{y}{A numeric vector of y-coordinates at which the 
-text labels in \code{lbls} should be written.}
+text labels in \code{lbls} should be written. 
+If the lengths of \code{x} and \code{y} differ, 
+the shorter one is recycled.}
 
 \item{lbls}{A character vector specifying the text labels 
 to be written.}

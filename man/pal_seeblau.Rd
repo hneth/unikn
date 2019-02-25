@@ -21,15 +21,15 @@ dim(pal_seeblau)  # 1 5
 
 # Preferred color:
 pal_seeblau[3]    # preferred (named) color "seeblau3" (as df)
-pal_seeblau[[3]]  # preferred color value of "seeblau3": "#59C7EB"
+pal_seeblau[[3]]  # preferred color value "#59C7EB"
 
-# Access by index:
-pal_seeblau[3]    # 1st named color "seeblau3" (as df)
-pal_seeblau[[3]]  # 1st color value "#59C7EB"
+# Access by position:
+pal_seeblau[3]    # named color "seeblau3" (as df)
+pal_seeblau[[3]]  # color value "#59C7EB"
 
 # Access by name: 
-pal_unikn["seeblau3"]    # color "seeblau3" (df) by name
-pal_unikn[["seeblau3"]]  # color value "#59C7EB" by name
+pal_unikn["seeblau3"]    # color "seeblau3" (as df) 
+pal_unikn[["seeblau3"]]  # color value "#59C7EB"
 
 # Plotting palette:
 plot_pal(pal_seeblau)

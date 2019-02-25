@@ -19,9 +19,14 @@ See \url{https://www.uni-konstanz.de} for details.
 \examples{
 pal_unikn_light
 dim(pal_unikn_light)  # 1 8 
-pal_unikn_light[1]    # color "seeblau3" by position
-pal_unikn_light[[1]]  # color value by position: #59C7EB"
-pal_unikn_light["seeblau3"]  # color value by name
+
+# Access by position:
+pal_unikn_light[1]    # color "seeblau3" (as df)
+pal_unikn_light[[1]]  # color value "#59C7EB" 
+
+# Access by name: 
+pal_unikn_light["seeblau3"]   # color "seeblau3" (as df) 
+pal_unikn_light[["seeblau3"]] # color value "#59C7EB"  
 
 # Plotting palette:
 plot_pal(pal_unikn_light)

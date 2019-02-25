@@ -22,13 +22,13 @@ and \url{https://www.uni-konstanz.de} for details.
 pal_unikn_ppt
 dim(pal_unikn_ppt)  # 1 10
 
-# Access by index:
+# Access by position:
 pal_unikn_ppt[1]    # 1st named color "seeblau4" (as df)
 pal_unikn_ppt[[1]]  # 1st color value "#009AD1"
 
 # Access by name: 
-pal_unikn_ppt["seeblau4"]    # color "seeblau4" (df) by name
-pal_unikn_ppt[["seeblau4"]]  # color value "#009AD1" by name
+pal_unikn_ppt["seeblau4"]    # color "seeblau4" (as df)
+pal_unikn_ppt[["seeblau4"]]  # color value "#009AD1"
 
 # Plotting palette:
 plot_pal(pal_unikn_ppt)

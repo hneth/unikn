@@ -24,7 +24,7 @@ at the correct aspect ratio (as defined by \code{dim}).
 xbox()  # default box
 
 # Options:
-xbox(col = unlist(bordeaux))
+xbox(col = Bordeaux)
 xbox(dim = c(2, 1)) # 2:1 dimension (wider than high)
 
 }

@@ -29,9 +29,14 @@ See \url{https://www.uni-konstanz.de} for details.
 \examples{
 pal_unikn_plus
 dim(pal_unikn_plus)         # 1 11
-pal_unikn_plus[1]           # seeblau5 (new)
-pal_unikn_plus[[1]]         # darker blue color value: "#008ECE"
-pal_unikn_plus["seeblau5"]  # seeblau5 color value by name
+
+# Access by position:
+pal_unikn_plus[1]    # new color "seeblau5" (as df)
+pal_unikn_plus[[1]]  # new color value "#008ECE"
+
+# Access by name: 
+pal_unikn_plus["seeblau5"]   # new color "seeblau5" (as df) 
+pal_unikn_plus[["seeblau5"]] # new color value "#008ECE"
 
 # Plotting palette:
 plot_pal(pal_unikn_plus)

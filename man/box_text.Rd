@@ -70,9 +70,9 @@ If only one label is placed, its coordinates are returned as a vector.
 \examples{
 ## Example 1: Simple highlights
 plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1))
-box_text(x = 0, y = .9, lbls = "Something to notice", col_bg = unlist(seeblau))
-box_text(x = 0, y = .7, lbls = "Highlighting text is really simple", cex = 1.5, col_bg = "gold")
-box_text(x = 0, y = .6, lbls = "and strikingly effective", cex = 1.5, col_bg = pal_seeblau[[1]])
+# box_text(x = 0, y = .9, lbls = "Something to notice", col_bg = Seeblau)
+# box_text(x = 0, y = .7, lbls = "Highlighting text is really simple", cex = 1.5, col_bg = "gold")
+# box_text(x = 0, y = .6, lbls = "and strikingly effective", cex = 1.5, col_bg = pal_seeblau[[1]])
 
 ## Example 2: Messy plot
 n <- 20
@@ -80,14 +80,14 @@ set.seed(1)
 plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, 
      col = grey(0, .20), axes = F, xlab = "", ylab = "")
 
-# Adjust cex, font and adj:
-box_text(x = .05, y = .90, lbls = "What a messy plot",
-         col_bg = seeblau[[1]], adj = c(0, 0), padding = c(.25, .85), cex = 2)
+## Adjust cex, font and adj:
+# box_text(x = .05, y = .90, lbls = "What a messy plot",
+#          col_bg = seeblau[[1]], adj = c(0, 0), padding = c(.25, .85), cex = 2)
 
-# Vector of 2 lbls, using argument 'pos' to position right of coordinates:
-box_text(x = c(.30, .60), y = c(.20, .40),
-         lbls = c("Note something here", "Some highlighting here"),
-         col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
+## Vector of 2 lbls, using argument 'pos' to position right of coordinates:
+# box_text(x = c(.30, .60), y = c(.20, .40),
+#          lbls = c("Note something here", "Some highlighting here"),
+#          col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
 
 }
 \seealso{

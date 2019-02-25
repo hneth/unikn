@@ -14,17 +14,23 @@ that collects the preferred color of each palette
 as a data frame containing 9 (or 8 + 1) colors.
 }
 \details{
-Note that the color \code{\link{signal}} is not identified 
-as a preferred color according to the official color definition.
+Note that the (alert) color \code{\link{Signal}} is 
+not a preferred color according to the official color 
+definition.
 
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
 pal_unikn_pref
 dim(pal_unikn_pref)  # 1 9
-pal_unikn_pref[1]    # preferred (named) color
-pal_unikn_pref[[1]]  # preferred color value: #59C7EB"
-pal_unikn_pref["seeblau"]  # preferred color by name
+
+# Access by position:
+pal_unikn_pref[1]    # color "seeblau3" (as df)
+pal_unikn_pref[[1]]  # color value "#59C7EB" 
+
+# Access by name: 
+pal_unikn_pref["seeblau"]   # color "seeblau3" (as df) 
+pal_unikn_pref[["seeblau"]] # color value "#59C7EB" 
 
 # Plotting palette:
 plot_pal(pal_unikn_pref)
