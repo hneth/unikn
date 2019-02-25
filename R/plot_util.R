@@ -1,5 +1,5 @@
 ## plot_util.R | unikn
-## hn  |  uni.kn |  2019 02 24
+## hn  |  uni.kn |  2019 02 25
 ## ---------------------------
 
 ## Utility functions for plotting 
@@ -50,7 +50,7 @@ plot_mar <- function(mar_all = 0,
 
 ## plot_grid: Helper function to plot a grid of points (to position objects): ------ 
 
-plot_grid <- function(x_min = 0, x_max = 1, y_min = 0, y_max = 1, col = grey(0, .50)){
+plot_grid <- function(col = grey(0, .50)){
   
   if (dev.cur() == 1) {  # no graphics device open (null device)
     
@@ -58,37 +58,82 @@ plot_grid <- function(x_min = 0, x_max = 1, y_min = 0, y_max = 1, col = grey(0, 
     
   } else {
     
-    # Add default grid: 
-    grid(col = col)
+    # Determine dimensions of current plot: ---- 
     
-    # Mark points:
-    points(0, 0, pch = 1, col = col, cex = 2)  # origin
-    points(x_max, y_max, pch = 0, col = col, cex = 2)  # top right
+    dim_plot <- par("usr")  # Note added 4% margin if par("xaxs") == "r"
     
-    # Grid parameters:
-    if ((abs(x_max - x_min) > 1) && (abs(y_max - y_min) > 1)) { 
-      stepsize <- 1
-    } else { 
-      stepsize <- 1/10 
+    x_min <- dim_plot[1] 
+    x_max <- dim_plot[2]
+    y_min <- dim_plot[3]
+    y_max <- dim_plot[4]
+    
+    x_dim <- abs(x_max - x_min)  # dimensions
+    y_dim <- abs(y_max - y_min)
+    
+    # max values in figure range (excluding axes):
+    if (x_min < 0){
+      x_top <- x_min + x_max
+    } else {
+      x_top <- x_max
     }
     
-    grid_x <- rep(seq(x_min, x_max, by = stepsize), times = length(seq(y_min, y_max, by = stepsize)))  # x/horizontal
-    grid_y <- rep(seq(y_min, y_max, by = stepsize), each =  length(seq(x_min, x_max, by = stepsize)))  # y/vertical
+    if (y_min < 0){
+      y_top <- y_min + y_max
+    } else {
+      y_top <- y_max
+    }
+  
+    # Add default grid: ---- 
     
-    # Plot grid of points:    
+    grid(col = col)
+    
+    # Mark extreme points: ---- 
+    
+    # (a) overall (far corners):
+    points(x_min, y_min, pch = 15, col = col, cex = 1)  # bot left
+    points(x_max, y_min, pch = 15, col = col, cex = 1)  # bot right
+    points(x_min, y_max, pch = 15, col = col, cex = 1)  # top left 
+    points(x_max, y_max, pch = 15, col = col, cex = 1)  # top right    
+    
+    # (b) figure:
+    points(0,     0,     pch = 1, col = col, cex = 2)  # plot origin
+    points(x_top, y_top, pch = 0, col = col, cex = 2)  # plot max
+
+    
+    # Plot a grid of points: ---- 
+    
+    # Parameters: 
+    x_dig <- nchar(as.integer(x_dim))  # N of digits
+    y_dig <- nchar(as.integer(y_dim)) 
+    
+    min_dig <- min(x_dig, y_dig)
+    max_dig <- max(x_dig, y_dig)
+    
+    stepsize <- 10^(min_dig - 1)  # use min (to plot points even when dimension differ in order of magnitude)
+    
+    grid_x <- rep(seq(0, x_top, by = stepsize), times = length(seq(0, y_top, by = stepsize)))  # x/horizontal
+    grid_y <- rep(seq(0, y_top, by = stepsize), each =  length(seq(0, x_top, by = stepsize)))  # y/vertical
+    
+    # Plot points: 
     points(grid_x, grid_y, pch = 3, col = col, cex = 3/4)
     
   }
   
 } # plot_grid end.
 
-## Check:
+# ## Check:
+# 
+# # Defaults: 
 # plot.new()
 # plot_grid()
-
-# plot(x = 0, y = 0, type = "n", xlim = c(0, 10), ylim = c(0, 5))
-# plot_grid(x_max = 10, y_max = 5)
-# plot_grid(col = "gold")
+# 
+# # Larger plot:
+# plot(x = 0, y = 0, type = "n", xlim = c(0, 1000), ylim = c(0, 500))
+# plot_grid(col = "red")
+# 
+# # Dimensions differ by order of magnitude:
+# plot(x = 0, y = 0, type = "n", xlim = c(0, 100), ylim = c(0, 10))
+# plot_grid(col = "steelblue")
 
 
 ## layout_y: Compute y-coordinates given the height of objects and different lbl_layout options: ------
