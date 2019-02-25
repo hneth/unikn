@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1550577985337.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "347C751C",
+    "lastKnownWriteTime" : 1550692097,
+    "last_content_update" : 1550692097,
+    "path" : "C:/Users/Nico Gradwohl/bwSyncAndShare/unikn/R/plot_pal.R",
+    "project_path" : "R/plot_pal.R",
+    "properties" : {
+        "cursorPosition" : "139,0",
+        "scrollLine" : "24",
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

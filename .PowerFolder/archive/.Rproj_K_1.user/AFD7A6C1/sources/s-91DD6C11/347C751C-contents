@@ -155,190 +155,103 @@ yarrr::piratepal()
 ## 1. Plotting multiple shapes (rectangles) for comparison; add numbers. 
 ## 2. Plot detailed color palettes, including names, hex and rgb. 
 
-## Helper function to detect hex-colors:
-isHexCol <- function(color) {
-  return(grepl(pattern = "#[0-9A-F]+", color))
+
+op <- par(no.readonly = TRUE)  # get original plotting settings.
+
+
+## Overview function: ------ 
+palettes <- apropos("pal_")  # get all unikn palettes.
+
+pal_ls <- sapply(palettes, get)
+is_pal <- unlist(lapply(pal_ls, FUN = typeof) == "list")
+pal_ls <- pal_ls[is_pal]
+
+distance <- 0  # set distance. 
+
+
+max_len <- max(unlist(lapply(pal_ls, FUN = length)))
+
+## TODO: Enter xlength of boxes into calculation of xlim. 
+if (distance > 0) {
+  xlim <- c(0 - distance * max_len, max_len * (1 + distance))
+} else {
+  xlim <- c(0, max_len)
 }
 
+ylim <- length(pal_ls)  # determine ylim. 
 
-## FUnction seepal start: ---------------
+## Bind to index:
+pal_mat <- cbind(pal_ls, 1:length(pal_ls))
 
-seepal <- function(pal = "all",  # which palette to output?
-                   hex = NULL,  # determine by crowdedness, whether hex values should be shown in detail view.
-                   rgb = NULL   # determine, whether rgb values should be shown in detail view (defaults to TRUE)
-                   ) {
-  
-  ## 0. Preparations: ---------
-  op <- par(no.readonly = TRUE)  # save original plotting settings.
-  
-  # Robustify inputs: 
-  if (!(is.null(hex) | is.logical(hex))) stop("Please specify a valid value for 'hex'.")
-  if (!(is.null(rgb) | is.logical(rgb))) stop("Please specify a valid value for 'rgb'.")
-  
-  
-  ## 1. Overview function: ------
-  if (pal == "all") {
-    
-    # 1.1 Get all color palettes with the prefix "_pal" from the environment:
-    pal_names <- apropos("pal_")  # get all unikn palettes.
-    pal_ls <- sapply(pal_names, get)
-    
-    ## Indicator, whether these are color palettes: 
-    is_pal <- lapply(pal_ls, FUN = function(x) {
-      
-      if (!typeof(x) %in% c("vector", "list")) {
-        is_color <- FALSE
-      } else {
-        is_color <- isHexCol(color = x)
-      } 
-      return(all(is_color))  # are all entries colors? 
-      
-    })
-    
-    ## Get the palettes:
-    pal <- pal_ls[unlist(is_pal)]
-    
-  } else {
-    
-    # TODO: Getting the single palette. 
-    
-  }
-  
-  ## Check if palette is non-empty:
-  if (length(pal) == 0) {
-    stop("No palettes defined.")
-    # return(NULL)
-  }
-  
-  pal_nm <- gsub("pal_", "", names(pal))  # get palette names from listnames. 
 
-  ## Plotting preparations: 
-  distance <- 0  # set distance.
-  xlen <- 1  # set x length of boxes.
-  # TODO: Allow user to set these inputs? 
-  
-  ## Get maximum number of colors:
-  max_num <- max(unlist(lapply(pal, FUN = length)))
-  
-  ## Determine xlim based on distance, maximum number of colors, and box length:
-  xlim <- c(0 - distance, (1 + distance) * xlen) * max_num * xlen
-  # Determine ylim as number of colors in the palette:
-  ylim <- length(pal)  
-  
-  ## Bind palettes to color index:
-  pal_mat <- cbind(pal, length(pal):1)  # TODO: Note, that a single palette needs to be a list of length 1!
-  
-  
-  
-    ## TODO: How to handle inputs of multiple palettes?  Merge them or display them for comparison.
-    ## Possible solution: (a) 1 list entry --> details; (b) more than 1 list entry --> comparison:
-    if ( length(pal) > 1 ) {
-      
-      ## Set margins:
-      par(mar = c(3, 6, 3, 1))
-      
-      # Create empty plot:
-      plot(x = 0, type = "n", xlim = xlim, ylim = c(0, ylim),
-           xaxt = "n", yaxt = "n",  # hide axes.
-           xlab = "", ylab = "", main = "See all KN palettes",
-           bty = "n"
-      )  
-      
-      ## TODO: Add fancy KN-design stuff!
-      
-      
-      ## Add the color vectors:
-      apply(pal_mat, MAR = 1, FUN = function(row) {
-        # print(row[[2]])
-        plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = 0.8, col_brd = "grey", lwd = 1)
-      })
-      # TODO: Can I allow to plot the matrix in a vectorized way (unlisting somewhere)?
-      
-      ## Add color names and indices:
-      text(x = -1, y = 1:length(pal), labels = rev(pal_nm), pos = 2, xpd = TRUE)
-      text(x = seq(0.5, max_num - 0.5, by = 1), y = -1, 
-           labels = paste0("[", 1:max_num, "]"), pos = 3, xpd = TRUE,
-           cex = 0.7)
-    
-      } else {  # if only a list of 1 is specified:
-      
-      # 2. Detail view: ------------
-        
-        ## Preps: 
-        pal <- unlist(pal)  # TODO: This essentially changes the length of the color vector.  FInd better solution!
-        
-        ## Set margins:
-        par(mar = c(3, 2, 3, 1))
-        
-        plot(x = 0, type = "n", xlim = xlim, ylim = c(-1, 2),
-             xaxt = "n", yaxt = "n",  # hide axes.
-             xlab = "", ylab = "", main = paste("See palette", gsub("pal_", "", pal_nm)),
-             bty = "n"
-        )  # create empty plot.
-        
-        ## Determine whether to display hex values:
-        if ( is.null(hex) ) {
-          hex <- ifelse(strwidth("#XXXXXX") * max_num > xlim[2], FALSE, TRUE)
-        }
-        
-        ## Determine, whether to display rgb values:
-        if ( is.null(rgb) ) {
-          rgb <- TRUE  # TODO: Determiune also dynamically?
-        }
-        
-        plot_col(x = pal, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = "grey", lwd = 1)
-        plot_col(x = pal, ypos = 1.2, plot.new = FALSE, xlen = 0.5, shape = "circle")
-        
-        ## Text elements:
-        txt_pos <- seq(0.5, length(pal) - 0.5)
-        
-        ## Color names:
-        text(x = txt_pos, y = 1.8, labels = names(pal), pos = 1, srt = 45, xpd = TRUE)
-        ## Color indices:
-        text(x = txt_pos, y = -0.1, labels = paste0("[", 1:length(pal), "]"), pos = 3, xpd = TRUE,
-             cex = 1)
-        ## Hex values:
-        if ( hex ) {
-          text(x = -0.1, y = -0.3, labels = "Hex", font = 2, pos = 3, xpd = TRUE, cex = 1)
-          text(x = txt_pos, y = -0.3, labels = pal, pos = 3, xpd = TRUE,
-               cex = 1)
-        }
-        
-        ## RGB values:
-        if ( rgb ) {
-          y_rgb <- c(-0.6, -0.75, -0.9)
-          text(x = rep(-0.1, 3),
-               y = y_rgb,
-               labels = c("R", "G", "B"), font = 2, 
-               pos = 3, xpd = TRUE,
-               cex = 1)
-          text(x = matrix(rep(txt_pos, 3), nrow = 3, byrow = TRUE),
-               y = matrix(rep(y_rgb, length(txt_pos) + 1), nrow = 3),
-               labels = col2rgb(pal),
-               pos = 3, xpd = TRUE,
-               cex = 1)
-        }
-        
-    }
-    
-  
-  # Reset plotting parameters: 
-  par(op)
-  
-  ## Invisibly return palette(s):
-  invisible(pal)
+## Set margins:
+par(mar = c(3, 6, 3, 1))
+
+plot(x = 0, type = "n", xlim = xlim, ylim = c(0, ylim),
+     xaxt = "n", yaxt = "n",  # hide axes.
+     xlab = "", ylab = "", main = "See all KN palettes",
+     bty = "n"
+     )  # create empty plot.
+
+apply(pal_mat, MAR = 1, FUN = function(row) {
+  print(row[[2]])
+  plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = 0.8, col_brd = "grey", lwd = 1)
+  })
+
+text(x = -1, y = 1:length(pal_ls), labels = gsub("pal_", "", palettes[is_pal]), pos = 2, xpd = TRUE)
+text(x = seq(0.5, max_len - 0.5, by = 1), y = -1, labels = 1:max_len, pos = 3, xpd = TRUE,
+     cex = 0.7)
+
+
+par(op)
+
+
+
+
+
+## Detail view: 
+pal_nm <- palettes[1]
+pal <- pal_ls[[pal_nm]]
+
+
+distance <- 0  # set distance. 
+
+max_len <- length(pal)
+
+## TODO: Enter xlength of boxes into calculation of xlim. 
+if (distance > 0) {
+  xlim <- c(0 - distance * max_len, max_len * (1 + distance))
+} else {
+  xlim <- c(0, max_len)
 }
 
+plot(x = 0, type = "n", xlim = xlim, ylim = c(-1, 2),
+     xaxt = "n", yaxt = "n",  # hide axes.
+     xlab = "", ylab = "", main = paste("See palette", gsub("pal_", "", pal_nm)),
+     bty = "n"
+)  # create empty plot.
 
-## Currently to be commented out for building (probably no palettes loaded before the function is executed):
-a <- seepal(pal = "all")  # return all palettes.
-a
+plot_col(x = pal, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = "grey", lwd = 1)
+plot_col(x = pal, ypos = 1.2, plot.new = FALSE, xlen = 0.5, shape = "circle")
 
-b <- seepal(pal = list(pal_unikn_pair))  # return one long palette (hex not displayed by default.)
-b
+## Text elements:
+txt_pos <- seq(0.5, length(pal) - 0.5)
 
-c <- seepal(pal = list(pal_Bordeaux), hex = TRUE)
+## Color names:
+text(x = txt_pos, y = 1.6, labels = names(pal), pos = 1, srt = 45, xpd = TRUE)
+## Color indices:
+text(x = txt_pos, y = -0.1, labels = paste0("[", 1:length(pal), "]"), pos = 3, xpd = TRUE,
+     cex = 1)
+## Hex values:
+## TODO: In if-statement. 
+text(x = c(-0.1, txt_pos), y = -0.3, labels = c("Hex", pal), pos = 3, xpd = TRUE,
+     cex = 1)
 
+text(x = matrix(rep(c(-0.1, txt_pos), 3), nrow = 3, byrow = TRUE), 
+     y = matrix(rep(c(-0.5, -0.75, -1.0), length(txt_pos) + 1), nrow = 3), 
+     labels = cbind(c("R", "G", "B"), col2rgb(pal)), 
+                    pos = 3, xpd = TRUE,
+     cex = 1)
 
 
 
