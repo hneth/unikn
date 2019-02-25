@@ -5,6 +5,8 @@
 ## Utility functions for plotting 
 ## (for internal use, not exported): 
 
+
+
 ## plot_mar: Set plotting margins: ------ 
 
 plot_mar <- function(mar_all = 0,
@@ -35,6 +37,7 @@ plot_mar <- function(mar_all = 0,
 }
 
 ## Check:
+
 # par("mar")  # => # 5.1 4.1 4.1 2.1 (default)
 # par("oma")  # => # 0   0   0   0   (default)
 
@@ -48,7 +51,8 @@ plot_mar <- function(mar_all = 0,
 # plot_mar()
 
 
-## plot_grid: Helper function to plot a grid of points (to position objects): ------ 
+
+## plot_grid: Plot a grid of points (to position objects): ------ 
 
 plot_grid <- function(col = grey(0, .50)){
   
@@ -121,8 +125,8 @@ plot_grid <- function(col = grey(0, .50)){
   
 } # plot_grid end.
 
-# ## Check:
-# 
+## Check: 
+ 
 # # Defaults: 
 # plot.new()
 # plot_grid()
@@ -136,7 +140,8 @@ plot_grid <- function(col = grey(0, .50)){
 # plot_grid(col = "steelblue")
 
 
-## layout_y: Compute y-coordinates given the height of objects and different lbl_layout options: ------
+
+## layout_y: Compute y-coordinates given y range, heights of objects, and layout_type options: ------
 
 layout_y <- function(y_top, y_bot, height_seq, layout_type) {
   
@@ -243,7 +248,7 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
   
   # print(paste0("y_out = ", y_out))  # 4debugging  
   
-  # Warn if lowest y is below y_bot: ----
+  # (D) Warn if lowest y is below y_bot: ----
   min_y_out <- min(y_out, na.rm = TRUE)
   
   # print(paste0("y_bot = ", y_bot))          # 4debugging
@@ -253,13 +258,13 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
     message(paste0("Minimum y of layout is ", min_y_out, ", while y_bot = ", y_bot))
   }
   
-  # Return: ---- 
+  # (E) Return: ---- 
   return(y_out)
   
 } # layout_y end. 
 
 ## Check:
-#
+
 # layout_y(y_top = 1, y_bot = 0, height_seq = rep(.10, 5), layout_type = "even")
 #
 # layout_y(y_top = 1, y_bot = 0, height_seq = rep(.10, 5), layout_type = "flush")
@@ -271,6 +276,8 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
 # layout_y(y_top = 1, y_bot = 0, height_seq = rep(.10, 5), layout_type = c(.1, .2, .3, .4, 99)) # fixed steps as vector (additional value ignored) 
 #
 # layout_y(y_top = 1, y_bot = 0, height_seq = rep(.10, 5), layout_type = "odd")  # warning and return 0.
+
+
 
 
 ## Test: Testbed for code above: ------ 

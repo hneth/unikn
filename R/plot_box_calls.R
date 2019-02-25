@@ -1,12 +1,10 @@
 ## plot_box_calls.R | unikn
-## hn  |  uni.kn |  2019 02 24
+## hn  |  uni.kn |  2019 02 25
 ## ---------------------------
 
-## More functions to plot boxes (e.g., xbox, slides, etc.).
-
+## Specialized functions to plot rectangular boxes (e.g., frames, slides, etc.)
 
 ## (B): Simple functions that call plot_box() (with fewer options, but sensible defaults): -------- 
-
 
 ## xbox: Plot a colored box with "x" (a simple version of plot_box): ------ 
 
@@ -34,7 +32,7 @@
 #' xbox()  # default box
 #' 
 #' # Options:
-#' xbox(col = unlist(bordeaux))
+#' xbox(col = Bordeaux)
 #' xbox(dim = c(2, 1)) # 2:1 dimension (wider than high)
 #'
 #' @import graphics 
@@ -67,9 +65,9 @@ xbox <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB"
 # xbox()  # default xbox
 
 ## Simple variants:
-# xbox(col = unlist(seegruen))
-# xbox(col = unlist(bordeaux))
-# xbox(dim = c(2, 1)) # 2:1 dimension (twice as wide than high)
+# xbox(col = Seegruen)
+# xbox(col = Bordeaux)
+# xbox(dim = c(2, 1)) # 2:1 dimension (wider than high)
 
 
 ## slide: Plot a colored slide frame without "x": (a simple version of plot_box): ------ 
@@ -105,7 +103,7 @@ xbox <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB"
 #' slide(lwd = NA)  # borderless slide
 #' 
 #' # Dimensions: 
-#' slide(dim = c(18, 9)) # larger and 2:1 dimensions
+#' slide(dim = c(18, 9))  # larger and 2:1 dimensions
 #' 
 #' # Formatting:
 #' slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2)
@@ -144,26 +142,9 @@ slide <- function(col = NA,         # default box bg/fill color: none/white/tran
 
 ## Simple variants:
 # slide(col = Seeblau, lwd = 0)  
-# slide(dim = c(18:9)) # larger and 2:1 wider than high
-
+# slide(dim = c(18:9))  # larger and 2:1 wider than high
 
 # +++ here now +++
-
-## ToDo: 
-
-# Adopt a more modular approach: 
-# 1 - Plot a colored box without text (as full expert vs. naive user function).
-# 2 - Plot text into an existing box with a dedicated plot_text function.
-# 3 - Do NOT combine labels into 1, to allow using a different fonts (and colors) for different character strings:
-#     Instead: Use coordinates for 1st line and place subsequent lines based on text heights (of each string).
-
-# plot_box_x_text(lbls = c("Plakativ und sachlich", "Hier steht etwas, das ich mir merken muss."), font = c(2, 1))  # fails to work (as labels are combined into 1)
-# plot_box_x_text(lbls = c("Plakativ und sachlich", "Hier steht etwas, das ich mir merken muss."), cex = c(1, 2)) # fails to work (as cex are not applied)
-
-## plot_txt: Plot lines of text (into an existing plot): -------- 
-
-
-
 
 
 ## Test: Testbed for code above: ------ 
@@ -176,12 +157,17 @@ slide <- function(col = NA,         # default box bg/fill color: none/white/tran
 
 ## Done: ------
 
-## Separate into multiple functions:
+# Strategy: Adopt a more modular approach: 
+# 1 - Plot a colored box without text (as full expert vs. naive user function).
+# 2 - Plot text into an existing box with a dedicated plot_text function.
+# 3 - Do NOT combine labels into 1, to allow using a different fonts (and colors) for different character strings:
+#     Instead: Use coordinates for 1st line and place subsequent lines based on text heights (of each string).
+
+## Separated into multiple functions:
 ## - plot_box (plots colored box with top "x")
 ## - plot_txt (plots lines of text)
 ## - plot_both combines both
 ## - mark as a reduced version of plot_both
-
 
 ## ToDo: ------
 

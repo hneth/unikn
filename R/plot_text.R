@@ -1,48 +1,47 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 02 24
+## hn  |  uni.kn |  2019 02 25
 ## ---------------------------
 
-## Plot text with formatting elements (marking/highlighting or underlining).
+## General functions to plot text with formatting elements (marking/highlighting or underlining).
 
-# [A]: Key functions to plot text (with abundant options): -------- 
+# [A]: General functions to plot formatted text with options (e.g., size, font, mark/line decorations): -------- 
 
-
-# (1) plot_text: Add text labels (with decorations like highlighting or underlining) to a plot: -------- 
+# (1) plot_text: Add formatted text labels (with decorations like highlighting or underlining) to a plot: -------- 
 
 # Note that plot_text is an experimental function, intended for expert users.
 # plot_text is an enhanced (expert/experimental) version of box_text 
 # (also supporting underlining, and arranging text labels). 
 
-# plot_text: Uber function that can do many kinds of things:
-
-# - plot boxes or slides (to a new plotting device, resetting margins)
-# - plot text to (existing) plots
-# - measure character strings to mark or underline them
-# - position text objects according to their sizes (e.g. heights)
-# - warn if formatting rules are violated 
+# plot_text: 
+# An uber function that can do many kinds of things:
+#  - plot boxes or slides (to a new plotting device, resetting margins)
+#  - plot text to (existing) plots
+#  - measure character strings to mark or underline them
+#  - position text objects according to their sizes (e.g. heights)
+#  - warn if formatting rules are violated 
 
 # Note: Distinguish between functions that generate NEW plots (like plot_box, box, ...)
 #       and functions that add objects (like text) to existing plots!
 
 # - Definition: ---- 
 
-plot_text <- function(lbls = NA,           # labels of text element(s) 
-                      x = 0, y = .55,      # coordinates of text lbls 
+plot_text <- function(lbls = NA,          # labels of text element(s) 
+                      x = 0, y = .55,     # coordinates of text lbls 
                       
-                      y_layout = "even", # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
+                      y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
                       
                       # Text parameters:
-                      col = NA,                                                  # col of text lbls 
-                      cex = 1.5, font = 2,                                       # text size and font
-                      adj = NULL, pos = NULL, offset = 0,                        # text position   
+                      col = NA,                            # col of text lbls 
+                      cex = 1.5, font = 2,                 # text size and font type 
+                      adj = NULL, pos = NULL, offset = 0,  # text position   
                       padding = NA,  # set padding (around text, in marking) # padding = NA (default padding) OR: 2 numeric values = c(.5, .5), 
                       
-                      # Text decorations:
-                      mark = FALSE,                 # flag for mark / highlighting / rectangular box function 
-                      col_bg = NA,                  # col of bg of text (mark and line, NOT box/slide)
-                      col_bg_border = NA,           # col of border of text bg (mark and line, NOT box/slide)
-                      lty_bg = 1,                   # lty of text bg (mark and line):  0: ensure absence of border line (a) 
-                      lwd_bg = 1,                   # lwd of text bg (mark and line): NA: ensure absence of border line (b)
+                      # Text decorations: 
+                      mark = FALSE,         # flag for mark / highlighting / rectangular box function 
+                      col_bg = NA,          # col of bg of text (mark and line, NOT box/slide)
+                      col_bg_border = NA,   # col of border of text bg (mark and line, NOT box/slide)
+                      lty_bg = 1,           # lty of text bg (mark and line):  0: ensure absence of border line (a) 
+                      lwd_bg = 1,           # lwd of text bg (mark and line): NA: ensure absence of border line (b)
                       
                       line = FALSE,   # flag for underlining function 
                       cex_lwd = 2.1,  # if line: scaling factor for line width
@@ -96,7 +95,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   # (d) y_layout:
   # Treat "flush" as special case of numeric layout (fixed distance of 0): 
   if (!is.numeric(y_layout) && (y_layout == "flush")) {y_layout <- 0}  
-  
   
   ## Plotting area: ----- 
   
@@ -160,7 +158,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   # (d) Plot grid: 
   if (grid) {plot_grid()}
   
-  
   ## Measure and scale text elements: ------ 
   
   # (A) Measure key character dimensions (for cex = 1 only, but different fonts 1-4): ----
@@ -193,7 +190,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   char_height[font == 3] <- key_height_f3 * cur_cex[font == 3]
   char_height[font == 4] <- key_height_f4 * cur_cex[font == 4]
   
-  
   # (B) Measure dimensions of text lbls: ---- 
   
   # Measure dimensions of lbls (for cex = 1 only, but different fonts 1-4): 
@@ -222,7 +218,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
   text_height[font == 2] <- lbls_height_f2[font == 2] * cur_cex[font == 2]
   text_height[font == 3] <- lbls_height_f3[font == 3] * cur_cex[font == 3]
   text_height[font == 4] <- lbls_height_f4[font == 4] * cur_cex[font == 4]
-  
   
   # (C) Measure dimension of desired padding (around text): ---- 
   
@@ -273,7 +268,6 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
     }  # padding etc.
     
   } # if (mark) etc. 
-  
   
   ## Compute text positions (AFTER all measurements are known): ------
   
@@ -659,8 +653,8 @@ plot_text <- function(lbls = NA,           # labels of text element(s)
 
 
 ## ToDo: ##  
-# - Allow setting consistent mar and oma values for key plotting inputs
-# - Distinguish between 2 padding versions: default (by "l", as per CD Manual) vs. numeric user-input-based
+# - allow setting consistent mar and oma values for key plotting inputs
+# - distinguish b/w and allow 2 padding versions: default (by "l", as per CD Manual) vs. numeric user-input-based
 # - mark: Shift x values (of each individual label) by size of its left padding (so that boxes align on left).
 # - all: Allow automatic spacing: Use only y[1] and then space y-values by text or rect heights (to align boxes).
 # - Treat "flush" layout as special case of numeric layout (as y_layout = 0).

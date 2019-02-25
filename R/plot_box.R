@@ -2,9 +2,9 @@
 ## hn  |  uni.kn |  2019 02 25
 ## ---------------------------
 
-## Plot boxes (e.g., xbox, slides, etc.)
+## General functions to plot rectangular boxes (e.g., frames, slides, etc.)
 
-## (A): Key functions to plot colored boxes, frames, (etc.): -------- 
+## (A): General functions to plot rectangular boxes, frames, (etc.): -------- 
 
 ## plot_box: Enhanced (expert/experimental) function that plots ONLY a colored box with an "x" (but NO text): -----
 
