@@ -1,37 +1,38 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 02 24
+## hn  |  uni.kn |  2019 02 25
 ## ---------------------------
 
-# Functions for plotting text with formatting elements:
+# Specialized functions for plotting formatted text (with decorations):
 #
 # - mark: highlighting text 
 # - line: underlining text 
 # - post: postit type xboxes
 # - head: title sequences
 
-# Allow option for creating a new plot vs. adding to an existing plot.
-
+# Allow an option for creating a new plot vs. adding to an existing plot.
 
 # [B]: Simpler functions that call plot_text() (with fewer options and sensible defaults): -------- 
-
 
 
 # (1) mark: Highlight text on a plot: ------ 
 
 # - Documentation: ---- 
 
-#' \code{mark} places 1 or more text strings (of a character vector \code{lbls}) 
-#' onto a plot and places a colored box behind
+#' \code{mark} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+#' to an (existing or new) plot and places a colored box behind
 #' each label to mark or highlight it (i.e., make it stand out from the background).
 #' 
-#' \code{mark} uses the base graphics system \code{graphics::}. 
+#' \code{mark} uses the base graphics system \code{graphics::}.  
 #' 
 #' @param x A numeric vector of x-coordinates at which the 
 #' text labels in \code{lbls} should be written. 
-#' If the length of \code{x} and \code{y} differs, the shorter one is recycled.
+#' If the lengths of \code{x} and \code{y} differ, 
+#' the shorter one is recycled.
 #' 
 #' @param y A numeric vector of y-coordinates at which the 
-#' text labels in \code{lbls} should be written.
+#' text labels in \code{lbls} should be written. 
+#' If the lengths of \code{x} and \code{y} differ, 
+#' the shorter one is recycled.
 #' 
 #' @param lbls A character vector specifying the text labels 
 #' to be written.
@@ -48,7 +49,6 @@
 #' 
 #' @param font The font to be used. 
 #' Default: \code{font = 2} (i.e., bold).
-#' 
 #' 
 #' @examples
 #' ## Example 1: Simple highlights
