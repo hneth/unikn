@@ -1,5 +1,5 @@
 ## color_definitions.R | unikn
-## hn |  uni.kn  |  2019 02 24
+## hn |  uni.kn  |  2019 02 25
 ## ---------------------------
 
 ## Define colors and color palettes. 
@@ -49,13 +49,13 @@ pal_unikn <- data.frame(                                 #  element:
 #' pal_unikn
 #' dim(pal_unikn)  # 1 10
 #' 
-#' # Access by index:
+#' # Access by position:
 #' pal_unikn[1]    # 1st named color "seeblau4" (as df)
 #' pal_unikn[[1]]  # 1st color value "#00A9E0"
 #' 
 #' # Access by name: 
-#' pal_unikn["seeblau4"]    # color "seeblau4" (df) by name
-#' pal_unikn[["seeblau4"]]  # color value "#00A9E0" by name
+#' pal_unikn["seeblau4"]    # color "seeblau4" (as df)
+#' pal_unikn[["seeblau4"]]  # color value "#00A9E0"
 #' 
 #' # Plotting palette:
 #' plot_pal(pal_unikn)
@@ -120,13 +120,13 @@ pal_unikn_ppt <- data.frame(                             #  element:
 #' pal_unikn_ppt
 #' dim(pal_unikn_ppt)  # 1 10
 #' 
-#' # Access by index:
+#' # Access by position:
 #' pal_unikn_ppt[1]    # 1st named color "seeblau4" (as df)
 #' pal_unikn_ppt[[1]]  # 1st color value "#009AD1"
 #' 
 #' # Access by name: 
-#' pal_unikn_ppt["seeblau4"]    # color "seeblau4" (df) by name
-#' pal_unikn_ppt[["seeblau4"]]  # color value "#009AD1" by name
+#' pal_unikn_ppt["seeblau4"]    # color "seeblau4" (as df)
+#' pal_unikn_ppt[["seeblau4"]]  # color value "#009AD1"
 #' 
 #' # Plotting palette:
 #' plot_pal(pal_unikn_ppt)
@@ -188,15 +188,15 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 #' 
 #' # Preferred color:
 #' pal_seeblau[3]    # preferred (named) color "seeblau3" (as df)
-#' pal_seeblau[[3]]  # preferred color value of "seeblau3": "#59C7EB"
+#' pal_seeblau[[3]]  # preferred color value "#59C7EB"
 #' 
-#' # Access by index:
-#' pal_seeblau[3]    # 1st named color "seeblau3" (as df)
-#' pal_seeblau[[3]]  # 1st color value "#59C7EB"
+#' # Access by position:
+#' pal_seeblau[3]    # named color "seeblau3" (as df)
+#' pal_seeblau[[3]]  # color value "#59C7EB"
 #' 
 #' # Access by name: 
-#' pal_unikn["seeblau3"]    # color "seeblau3" (df) by name
-#' pal_unikn[["seeblau3"]]  # color value "#59C7EB" by name
+#' pal_unikn["seeblau3"]    # color "seeblau3" (as df) 
+#' pal_unikn[["seeblau3"]]  # color value "#59C7EB"
 #' 
 #' # Plotting palette:
 #' plot_pal(pal_seeblau)
@@ -1227,9 +1227,14 @@ Signal <- pal_signal[[2]]  # == signal2 of pal_signal: "signal2" OR "#EFDC60"
 #' @examples
 #' pal_unikn_plus
 #' dim(pal_unikn_plus)         # 1 11
-#' pal_unikn_plus[1]           # seeblau5 (new)
-#' pal_unikn_plus[[1]]         # darker blue color value: "#008ECE"
-#' pal_unikn_plus["seeblau5"]  # seeblau5 color value by name
+#' 
+#' # Access by position:
+#' pal_unikn_plus[1]    # new color "seeblau5" (as df)
+#' pal_unikn_plus[[1]]  # new color value "#008ECE"
+#' 
+#' # Access by name: 
+#' pal_unikn_plus["seeblau5"]   # new color "seeblau5" (as df) 
+#' pal_unikn_plus[["seeblau5"]] # new color value "#008ECE"
 #' 
 #' # Plotting palette:
 #' plot_pal(pal_unikn_plus)
@@ -1264,17 +1269,23 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 #' that collects the preferred color of each palette 
 #' as a data frame containing 9 (or 8 + 1) colors. 
 #' 
-#' Note that the color \code{\link{signal}} is not identified 
-#' as a preferred color according to the official color definition.
+#' Note that the (alert) color \code{\link{Signal}} is 
+#' not a preferred color according to the official color 
+#' definition.
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
 #' pal_unikn_pref
 #' dim(pal_unikn_pref)  # 1 9
-#' pal_unikn_pref[1]    # preferred (named) color
-#' pal_unikn_pref[[1]]  # preferred color value: #59C7EB"
-#' pal_unikn_pref["seeblau"]  # preferred color by name
+#' 
+#' # Access by position:
+#' pal_unikn_pref[1]    # color "seeblau3" (as df)
+#' pal_unikn_pref[[1]]  # color value "#59C7EB" 
+#' 
+#' # Access by name: 
+#' pal_unikn_pref["seeblau"]   # color "seeblau3" (as df) 
+#' pal_unikn_pref[["seeblau"]] # color value "#59C7EB" 
 #' 
 #' # Plotting palette:
 #' plot_pal(pal_unikn_pref)
@@ -1321,9 +1332,14 @@ pal_unikn_pref <- data.frame(            # Element:
 #' @examples
 #' pal_unikn_light
 #' dim(pal_unikn_light)  # 1 8 
-#' pal_unikn_light[1]    # color "seeblau3" by position
-#' pal_unikn_light[[1]]  # color value by position: #59C7EB"
-#' pal_unikn_light["seeblau3"]  # color value by name
+#' 
+#' # Access by position:
+#' pal_unikn_light[1]    # color "seeblau3" (as df)
+#' pal_unikn_light[[1]]  # color value "#59C7EB" 
+#' 
+#' # Access by name: 
+#' pal_unikn_light["seeblau3"]   # color "seeblau3" (as df) 
+#' pal_unikn_light[["seeblau3"]] # color value "#59C7EB"  
 #' 
 #' # Plotting palette:
 #' plot_pal(pal_unikn_light)
