@@ -415,6 +415,11 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   x_mid <- x + (.5 - adj[1]) * text_width  + offset_vec[1]
   y_mid <- y + (.5 - adj[2]) * text_height + offset_vec[2]
   
+  # Check for step-function: ---- 
+  if (mark & (monotonic(x_mid))) {
+    message("Arranging titles in a step-wise fashion is discouraged. Perhaps consider re-arranging it?")
+    # print(paste0("x_mid = ", x_mid))
+  }
   
   ## Plot stuff: ------ 
   
@@ -556,12 +561,20 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 
 # +++ here now +++
 
-# lbl_hl <- c("Ich bin", "eine", "Headline.")
-# plot_text(lbls = lbl_hl,
+# lbl_hl1 <- c("Ich bin", "eine", "Headline.")
+# plot_text(lbls = lbl_hl1,
 #           x = 0, y = .80, y_layout = "flush",
 #           col_bg = c(pal_seeblau[[1]], pal_seeblau[[3]], pal_seeblau[[4]]),
-#           cex = 2.5, pos = 4, 
-#           mark = TRUE, 
+#           cex = 2.5, pos = 4,
+#           mark = TRUE,
+#           new_plot = "blank")
+# 
+# lbl_hl2 <- c("Ich", "bin eine", "Headline.")
+# plot_text(lbls = lbl_hl2,
+#           x = 0, y = .80, y_layout = "flush",
+#           col_bg = c(pal_seeblau[[1]], pal_seeblau[[3]], pal_seeblau[[4]]),
+#           cex = 2.5, pos = 4,
+#           mark = TRUE,
 #           new_plot = "blank")
 
 

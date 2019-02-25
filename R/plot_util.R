@@ -5,6 +5,24 @@
 ## Utility functions for plotting 
 ## (for internal use, not exported): 
 
+## monotonic: Check if a vector is monotonically increasing: ------ 
+
+monotonic <-function(v) {
+  
+  mono <- NA
+  
+  mono_increasing <- all(v == cummax(v))
+  mono_decreasing <- all(v == cummin(v))
+
+  mono <- (mono_increasing | mono_decreasing)
+  
+  return(mono)
+}
+
+## Check:
+# monotonic(c(1, 2, 2, 3))
+# monotonic(rev(c(1, 2, 2, 3)))
+# monotonic(c(1, 2, 2, 1))
 
 
 ## plot_mar: Set plotting margins: ------ 
