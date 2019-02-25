@@ -164,8 +164,10 @@ isHexCol <- function(color) {
 ## FUnction seepal start: ---------------
 
 seepal <- function(pal = "all",  # which palette to output?
+                   n = NULL,
                    hex = NULL,  # determine by crowdedness, whether hex values should be shown in detail view.
-                   rgb = NULL   # determine, whether rgb values should be shown in detail view (defaults to TRUE)
+                   rgb = NULL,   # determine, whether rgb values should be shown in detail view (defaults to TRUE)
+                   col_brd = NULL  # border color of the boxes. 
                    ) {
   
   ## 0. Preparations: ---------
@@ -272,9 +274,16 @@ seepal <- function(pal = "all",  # which palette to output?
         
         plot(x = 0, type = "n", xlim = xlim, ylim = c(-1, 2),
              xaxt = "n", yaxt = "n",  # hide axes.
-             xlab = "", ylab = "", main = paste("See palette", gsub("pal_", "", pal_nm)),
+             xlab = "", ylab = "", main = paste("See palette", pal_nm),
              bty = "n"
         )  # create empty plot.
+        
+        ## Text elements:
+        txt_pos <- seq(0.5, length(pal) - 0.5)
+        
+        abline(h = c(0.6, 1.2, 1.6, -0.1, -0.6, -0.75, -0.90),
+               v = txt_pos,
+               col = grey(0.5, 0.3))
         
         ## Determine whether to display hex values:
         if ( is.null(hex) ) {
@@ -286,14 +295,17 @@ seepal <- function(pal = "all",  # which palette to output?
           rgb <- TRUE  # TODO: Determiune also dynamically?
         }
         
-        plot_col(x = pal, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = "grey", lwd = 1)
+        # Plot rectangles:
+        plot_col(x = pal, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = 1)
+        # Plot circles:
         plot_col(x = pal, ypos = 1.2, plot.new = FALSE, xlen = 0.5, shape = "circle")
         
-        ## Text elements:
-        txt_pos <- seq(0.5, length(pal) - 0.5)
+        
         
         ## Color names:
-        text(x = txt_pos, y = 1.8, labels = names(pal), pos = 1, srt = 45, xpd = TRUE)
+        text(x = txt_pos, y = 1.6, labels = names(pal), # pos = 3, 
+             srt = 45, xpd = TRUE, offset = 1,
+             adj = c(0, 0))
         ## Color indices:
         text(x = txt_pos, y = -0.1, labels = paste0("[", 1:length(pal), "]"), pos = 3, xpd = TRUE,
              cex = 1)
