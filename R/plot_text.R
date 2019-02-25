@@ -542,17 +542,28 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 ## Demo cases:
 
 # # (1) Markieren: 
-# lbl_mark <- c("                                        ", 
-#               "                                ", 
-#               "                                              ", 
-#               "                                        ", 
-#               "                        ")
-# plot_text(lbls = lbl_mark, 
-#           x = 0, y = .90, y_layout = c(.03),  
-#           col_bg = unlist(seeblau), col_bg_border = NA, 
-#           cex = 2, pos = 4, 
-#           new_plot = "blank",  
+# lbl_mark <- c("                                                ",
+#               "                                      ",
+#               "                                                      ",
+#               "                                                ",
+#               "                              ")
+# plot_text(lbls = lbl_mark,
+#           x = 0, y = .90, y_layout = c(.03),
+#           col_bg = Seeblau, col_bg_border = NA,
+#           cex = 1, pos = 4,
+#           new_plot = "blank",
 #           mark = TRUE)
+
+# +++ here now +++
+
+# lbl_hl <- c("Ich bin", "eine", "Headline.")
+# plot_text(lbls = lbl_hl,
+#           x = 0, y = .80, y_layout = "flush",
+#           col_bg = c(pal_seeblau[[1]], pal_seeblau[[3]], pal_seeblau[[4]]),
+#           cex = 2.5, pos = 4, 
+#           mark = TRUE, 
+#           new_plot = "blank")
+
 
 # # (2) Unterstreichen: 
 # lbl_line <- c("Teaching", "This is a line of text", "Learning and studying", "Test")
