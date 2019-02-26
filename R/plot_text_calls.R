@@ -6,7 +6,7 @@
 #
 # - mark: highlighting text 
 # - line: underlining text 
-# - post: postit type xboxes
+# - post: post-it type xboxes
 # - head: title sequences
 
 # Allow an option for creating a new plot vs. adding to an existing plot.
@@ -161,8 +161,6 @@ mark <- function(lbls,               # labels of text element(s)
 #      col_bg = pal_pinky[[2]],
 #      cex = 1.5)
 
-# +++ here now +++
-
 # (2) line: Underline text on a plot: ------ 
 
 # - Definition: ---- 
@@ -177,9 +175,6 @@ line <- function(lbls,               # labels of text element(s)
                  new_plot = "none"                 # type of new plot (if desired)
 ){
   
-  ## Pass on (to older box_text function):
-  # box_text(x = x, y = y, lbls = lbls, col_lbl = col_lbl, col_bg = col_bg, cex = cex, font = font)
-  
   # Pass on (to newer plot_text function):
   plot_text(lbls = lbls, 
             x = x, y = y, y_layout = y_layout,  
@@ -189,8 +184,7 @@ line <- function(lbls,               # labels of text element(s)
             # fixed defaults (not available to user): 
             col_bg_border = NA,
             pos = 4,
-            line = TRUE
-  )
+            line = TRUE)
   
   # Return? 
 }
@@ -205,15 +199,18 @@ line <- function(lbls,               # labels of text element(s)
 #      x = 0, y = .80, cex = 1.5, font = 1)
 # 
 # slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
-# line(lbls = slogan, font = 2,
-#  x = 0, y = .85, y_layout = "even",
-#  col = "black", col_bg = Seeblau,
-#  cex = 1.5,
-#  new_plot = "blank")
-
-
+# line(lbls = slogan, 
+#      x = 0, y = .88, y_layout = "even",
+#      col = "black", col_bg = Seeblau,
+#      cex = 1.1, font = 2,
+#      new_plot = "blank")
 
 # (3) post: Plot a post-it note with text: ------ 
+
+
+
+
+# +++ here now +++ 
 
 ## Use the plot_box function.
 

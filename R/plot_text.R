@@ -634,8 +634,8 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #           mark = FALSE, grid = TRUE,
 #           mar_all = NA, oma_all = NA
 # )
-# 
-# # (b) slide with text and line: 
+ 
+# # # (b) slide with text and line: 
 # lbl_2 <- rep("l Eine durch zwei `l` begrenzte Zeile l", 6)
 # plot_text(lbls = lbl_2,
 #           x = .00,
@@ -650,9 +650,8 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #           padding = 1, # OR: c(.5, .5),
 #           new_plot = "blank",
 #           line = TRUE,
-#           grid = TRUE, mar_all = NA, oma_all = NA
-# )
-# 
+#           grid = TRUE, mar_all = NA, oma_all = NA)
+
 # # (c) slide with text and mark:
 # lbl_3 <- rep("In Schrift und Grösse variable Zeilen", 6)
 # plot_text(lbls = lbl_3,
