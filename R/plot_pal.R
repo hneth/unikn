@@ -164,7 +164,7 @@ isHexCol <- function(color) {
 ## Function seepal start: ---------------
 
 seepal <- function(pal = "all",  # which palette to output?
-                   n = NULL,
+                   n = "all",
                    hex = NULL,  # determine by crowdedness, whether hex values should be shown in detail view.
                    rgb = NULL,   # determine, whether rgb values should be shown in detail view (defaults to TRUE)
                    col_brd = NULL  # border color of the boxes. 
@@ -226,9 +226,14 @@ seepal <- function(pal = "all",  # which palette to output?
         # return(NULL)
       }
       
+      ## Select the number of colors:
+      pal_tmp <- lapply(pal_tmp, FUN = pal_n, n = n)  # get n colors of each. 
+      
       pal_nm <- gsub("pal_", "", names(pal_tmp))  # get palette names from listnames. 
       
       title <- "See all KN palettes"  # specify title.
+      
+      
     
     ## 1.2.2 Single palette name: ------
     } else {  # if pal != "all".
@@ -251,7 +256,7 @@ seepal <- function(pal = "all",  # which palette to output?
         )
         
         pal_tmp <- list(pal_tmp)  # bind palette into list of length 1. 
-        title <- paste0("See palette ", pal)
+        title <- paste0("See palette ", gsub("pal_", "", pal))
         
       } else {
         
@@ -267,12 +272,14 @@ seepal <- function(pal = "all",  # which palette to output?
   ## 1.3 Palette as list or vector: -------
   if ( length(pal_tmp) > 1 & !all(pal == "all")) {  # test again, if a palette has been retrieved before! 
     
+    pal_tmp <- pal_n(n = n, pal_tmp)  # include the color selection (if there is more than one color).
+    
     ## Wrap in list:
     # TODO: Neater solution? 
     pal_tmp <- list(pal_tmp)
     
     nm <- deparse(substitute(pal))
-    title <- paste0("See palette ", nm)
+    title <- paste0("See palette ", gsub("pal_", "", nm))
       
   }
   
@@ -361,7 +368,7 @@ seepal <- function(pal = "all",  # which palette to output?
         
         ## Determine, whether to display rgb values:
         if ( is.null(rgb) ) {
-          rgb <- TRUE  # TODO: Determiune also dynamically?
+          rgb <- ifelse(strwidth("999") * max_num > xlim[2], FALSE, TRUE)
         }
         
         # Plot rectangles:
@@ -418,13 +425,18 @@ a
 b <- seepal(pal = pal_unikn_pair)  # return one long palette (hex not displayed by default.)
 b
 
-c <- seepal(pal = list(pal_Bordeaux), hex = TRUE)
+c <- seepal(pal = pal_Bordeaux, hex = TRUE)
 
 seepal(pal = "seblau")  # raise error. 
 
-seepal(pal = "all")
+gradient <- col_scale(c(pal_seeblau, "white", pal_grau, pal_peach))
 
+seepal(gradient(100))
 
+seepal(pal = "all", n = 9)  # return a subset of colors. 
+seepal(pal = pal_petrol, n = 8)
+
+# TODO: Function to select colors differently!
 
 
 
