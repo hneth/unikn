@@ -67,7 +67,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   y_def <- .55                  # default y
   if (missing(y)) {y <- y_def}  # default y
   if (is.null(y)) {y <- y_def}
-  if (is.na(y))   {y <- y_def}
+  if (any(is.na(y))) {y <- y_def}
   
   # cex value(s): 
   cur_cex <- (cex * graphics::par('cex'))  # character expansion factor(s) to use
@@ -416,9 +416,12 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   y_mid <- y + (.5 - adj[2]) * text_height + offset_vec[2]
   
   # Check for step-function: ---- 
-  if (mark & (monotonic(x_mid))) {
+  if (mark && (length(x_mid) > 2) && monotonic(x_mid)) {
+    
+    print(paste0("x_mid = ", x_mid))
+    
     message("Step-wise titles are discouraged: Consider re-arranging?")
-    # print(paste0("x_mid = ", x_mid))
+
   }
   
   ## Plot stuff: ------ 
