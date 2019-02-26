@@ -99,7 +99,7 @@ mark <- function(lbls,               # labels of text element(s)
             col_bg_border = NA,
             pos = 4,
             mark = TRUE
-            )
+  )
   
   # Return? 
 }
@@ -164,6 +164,54 @@ mark <- function(lbls,               # labels of text element(s)
 # +++ here now +++
 
 # (2) line: Underline text on a plot: ------ 
+
+# - Definition: ---- 
+
+line <- function(lbls,               # labels of text element(s) 
+                 x = 0, y = .55,     # coordinates of text lbls 
+                 y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
+                 # Colors and text parameters:
+                 col = "black", col_bg = Seeblau,  # color(s)
+                 cex = 1.5, font = 1,                # text size and font
+                 # Others: 
+                 new_plot = "none"                 # type of new plot (if desired)
+){
+  
+  ## Pass on (to older box_text function):
+  # box_text(x = x, y = y, lbls = lbls, col_lbl = col_lbl, col_bg = col_bg, cex = cex, font = font)
+  
+  # Pass on (to newer plot_text function):
+  plot_text(lbls = lbls, 
+            x = x, y = y, y_layout = y_layout,  
+            col = col, col_bg = col_bg,
+            cex = cex, font = font,
+            new_plot = new_plot, 
+            # fixed defaults (not available to user): 
+            col_bg_border = NA,
+            pos = 4,
+            line = TRUE
+  )
+  
+  # Return? 
+}
+
+## Check: 
+
+# lbl_line <- c("Das ist korrekt, wahr und wahnsinnig wichtig.")
+# line(lbls = lbl_line, 
+#      x = 0, y = .90, cex = 1.5, font = 1,  
+#      new_plot = "blank")
+# line(lbls = "(und wird daher unterstrichen)", 
+#      x = 0, y = .80, cex = 1.5, font = 1)
+# 
+# slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
+# line(lbls = slogan, font = 2,
+#  x = 0, y = .85, y_layout = "even",
+#  col = "black", col_bg = Seeblau,
+#  cex = 1.5,
+#  new_plot = "blank")
+
+
 
 # (3) post: Plot a post-it note with text: ------ 
 
