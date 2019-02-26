@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 02 25
+## hn  |  uni.kn |  2019 02 26
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -22,7 +22,13 @@
 #' to an (existing or new) plot and places a colored box behind
 #' each label to mark or highlight it (i.e., make it stand out from the background).
 #' 
+#' Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
+#' are recycled to match \code{length(lbls)}. 
+#' 
 #' \code{mark} uses the base graphics system \code{graphics::}.  
+#' 
+#' @param lbls A character vector specifying the text labels 
+#' to be written.
 #' 
 #' @param x A numeric vector of x-coordinates at which the 
 #' text labels in \code{lbls} should be written. 
@@ -32,49 +38,33 @@
 #' @param y A numeric vector of y-coordinates at which the 
 #' text labels in \code{lbls} should be written. 
 #' If the lengths of \code{x} and \code{y} differ, 
-#' the shorter one is recycled.
+#' the shorter one is recycled. 
 #' 
-#' @param lbls A character vector specifying the text labels 
-#' to be written.
+#' @param y_layout A numeric value or vector for the vertical 
+#' spacing of labels in \code{lbls}. 
+#' 2 special values are \code{"even"} and \code{"flush"} 
+#' (i.e., \code{y_layout = 0}). 
 #' 
-#' @param col_lbl The color(s) of the text label(s). 
+#' @param col The color(s) of the text label(s). 
 #' Default: \code{col_lbl = "black"}. 
 #' 
 #' @param col_bg The color(s) to highlight or fill the rectangle(s) with. 
-#' Default: \code{col_bg = NA} (transparent rectangles).
+#' Default: \code{col_bg = Seeblau}.  
 #' 
 #' @param cex A numeric character expansion factor, 
 #' multiplied by \code{par("cex")} to yield the character size. 
 #' Default: \code{cex = 2}. 
 #' 
 #' @param font The font to be used. 
-#' Default: \code{font = 2} (i.e., bold).
+#' Default: \code{font = 2} (i.e., bold). 
 #' 
-#' @examples
-#' ## Example 1: Simple highlights
-#' plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
+#' @param new_plot Should a new plot be generated? 
+#' Set to \code{"blank"} or \code{"slide"} to create a new plot. 
+#' Default: \code{new_plot = "none"} (i.e., add to existing plot). 
 #' 
-#' mark(x = 0, y = .9, lbls = "Please note")
-#' mark(x = 0, y = c(.6, .5),
-#'      lbls = c("Highlighting text is simple", "but strikingly effective"),
-#'      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
-#' mark(x = .4, y = c(.3, .2), lbls = c("It is also flexible", "but to be handled with care"), 
-#'      cex = 1.2, col_lbl = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
-#' 
-#' ## Example 2: Messy plot
-#' n <- 20
-#' set.seed(1)
-#' plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), 
-#'      axes = FALSE, xlab = "", ylab = "")
-#' 
-#' # Only 1 label:
-#' mark(x = .05, y = .85, lbls = "What a messy plot")
-#' 
-#' # 2 labels at once:
-#' mark(x = c(.35, .55), y = c(.15, .40),
-#'      lbls = c("Note something here", "More highlighting here"),
-#'      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
-#'            
+#' @examples 
+#' mark(lbls = "Test text", new_plot = "blank")
+#'                         
 #' @family text functions
 #' 
 #' @seealso
@@ -86,32 +76,58 @@
 
 # - Definition: ---- 
 
-mark <- function(x, y, lbls = NA,                             # coordinates and labels of text element(s) 
-                 col_lbl = "black", col_bg = unlist(seeblau), # color(s)
-                 cex = 2, font = 2                            # text size and font
+mark <- function(lbls,               # labels of text element(s) 
+                 x = 0, y = .55,     # coordinates of text lbls 
+                 y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
+                 # Colors and text parameters:
+                 col = "black", col_bg = Seeblau,  # color(s)
+                 cex = 2, font = 2,                # text size and font
+                 # Others: 
+                 new_plot = "none"                 # type of new plot (if desired)
 ){
   
-  # Pass on (to richer box_text function):
-  box_text(x = x, y = y, lbls = lbls, col_lbl = col_lbl, col_bg = col_bg, cex = cex, font = font)
+  ## Pass on (to older box_text function):
+  # box_text(x = x, y = y, lbls = lbls, col_lbl = col_lbl, col_bg = col_bg, cex = cex, font = font)
   
+  # Pass on (to newer plot_text function):
+  plot_text(lbls = lbls, 
+            x = x, y = y, y_layout = y_layout,  
+            col = col, col_bg = col_bg,
+            cex = cex, font = font,
+            new_plot = new_plot, 
+            # fixed defaults (not available to user): 
+            col_bg_border = NA,
+            pos = 4,
+            mark = TRUE
+            )
+  
+  # Return? 
 }
 
-# ## Check:
-#
+## Check:
+
+# Basics:
+# mark(lbls = "Test text", new_plot = "blank")
+
 # ## Example 1: Simple highlights
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
 # 
-# mark(x = 0, y = .9, lbls = "Please note")
-# mark(x = 0, y = c(.6, .5),
-#      lbls = c("Highlighting text is simple", "but strikingly effective"),
-#      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
-# mark(x = .4, y = c(.3, .2), lbls = c("It is also flexible", "but to be handled with care"), cex = 1.2,
-#      col_lbl = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
+# mark(x = 0, y = .9, lbls = "Please note")  # uses existing plot
+# mark(x = 0, y = .9, lbls = "Please note", new_plot = "slide")  # starts a new plot
 # 
+# mark(x = 0, y = c(.6, .5),
+#      lbls = c("Highlighting text is simple", "and effective"),
+#      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
+# 
+# mark(lbls = c("It is also flexible", "but to be handled with care"),
+#      x = .4, y = .3, y_layout = 0, cex = 1.2,
+#      col = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
+
 # ## Example 2: Messy plot
 # n <- 20
 # set.seed(1)
-# plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), axes = F, xlab = "", ylab = "")
+# plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), 
+#      axes = FALSE, xlab = "", ylab = "")
 # 
 # # Only 1 label:
 # mark(x = .05, y = .85, lbls = "What a messy plot")
@@ -121,7 +137,31 @@ mark <- function(x, y, lbls = NA,                             # coordinates and 
 #      lbls = c("Note something here", "More highlighting here"),
 #      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
 
+# ## Example 3: Create a new plot vs. mark on existing plot:
+# lbl_mark <- c("                                                ",
+#               "                                      ",
+#               "                                                      ",
+#               "                                                ",
+#               "                              ")
+# 
+# lbl_mark <- c("Markieren",
+#               "ist ein Bestandteil",
+#               "von Studieren.")
+# 
+# # (a) Create a new plot (of type "slide"):
+# mark(lbls = lbl_mark,
+#      x = 0, y = .85, y_layout = .03,
+#      col_bg = Seeblau,
+#      cex = 1.5,
+#      new_plot = "slide")
+# 
+# # (b) Add more text to the same plot:
+# mark(lbls = lbl_mark,
+#      x = 0, y = .45, y_layout = .03,
+#      col_bg = pal_pinky[[2]],
+#      cex = 1.5)
 
+# +++ here now +++
 
 # (2) line: Underline text on a plot: ------ 
 

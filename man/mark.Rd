@@ -6,10 +6,13 @@
 to an (existing or new) plot and places a colored box behind
 each label to mark or highlight it (i.e., make it stand out from the background).}
 \usage{
-mark(x, y, lbls = NA, col_lbl = "black", col_bg = unlist(seeblau),
-  cex = 2, font = 2)
+mark(lbls, x = 0, y = 0.55, y_layout = "even", col = "black",
+  col_bg = Seeblau, cex = 2, font = 2, new_plot = "none")
 }
 \arguments{
+\item{lbls}{A character vector specifying the text labels 
+to be written.}
+
 \item{x}{A numeric vector of x-coordinates at which the 
 text labels in \code{lbls} should be written. 
 If the lengths of \code{x} and \code{y} differ, 
@@ -20,14 +23,16 @@ text labels in \code{lbls} should be written.
 If the lengths of \code{x} and \code{y} differ, 
 the shorter one is recycled.}
 
-\item{lbls}{A character vector specifying the text labels 
-to be written.}
+\item{y_layout}{A numeric value or vector for the vertical 
+spacing of labels in \code{lbls}. 
+2 special values are \code{"even"} and \code{"flush"} 
+(i.e., \code{y_layout = 0}).}
 
-\item{col_lbl}{The color(s) of the text label(s). 
+\item{col}{The color(s) of the text label(s). 
 Default: \code{col_lbl = "black"}.}
 
 \item{col_bg}{The color(s) to highlight or fill the rectangle(s) with. 
-Default: \code{col_bg = NA} (transparent rectangles).}
+Default: \code{col_bg = Seeblau}.}
 
 \item{cex}{A numeric character expansion factor, 
 multiplied by \code{par("cex")} to yield the character size. 
@@ -35,35 +40,21 @@ Default: \code{cex = 2}.}
 
 \item{font}{The font to be used. 
 Default: \code{font = 2} (i.e., bold).}
+
+\item{new_plot}{Should a new plot be generated? 
+Set to \code{"blank"} or \code{"slide"} to create a new plot. 
+Default: \code{new_plot = "none"} (i.e., add to existing plot).}
 }
 \description{
+Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
+are recycled to match \code{length(lbls)}.
+}
+\details{
 \code{mark} uses the base graphics system \code{graphics::}.
 }
 \examples{
-## Example 1: Simple highlights
-plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
-
-mark(x = 0, y = .9, lbls = "Please note")
-mark(x = 0, y = c(.6, .5),
-     lbls = c("Highlighting text is simple", "but strikingly effective"),
-     cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
-mark(x = .4, y = c(.3, .2), lbls = c("It is also flexible", "but to be handled with care"), 
-     cex = 1.2, col_lbl = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
-
-## Example 2: Messy plot
-n <- 20
-set.seed(1)
-plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), 
-     axes = FALSE, xlab = "", ylab = "")
-
-# Only 1 label:
-mark(x = .05, y = .85, lbls = "What a messy plot")
-
-# 2 labels at once:
-mark(x = c(.35, .55), y = c(.15, .40),
-     lbls = c("Note something here", "More highlighting here"),
-     col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
-           
+mark(lbls = "Test text", new_plot = "blank")
+                        
 }
 \seealso{
 \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).
