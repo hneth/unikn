@@ -596,7 +596,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 # lbl_line <- c("Das ist korrekt, wahr und wahnsinnig wichtig.")
 # plot_text(lbls = lbl_line, font = 1,
 #           x = 0, y = .90, y_layout = c(.05),
-#           col_bg = unlist(seeblau), col_bg_border = NA,
+#           col_bg = Seeblau, col_bg_border = NA,
 #           cex = 1.5, pos = 4,
 #           new_plot = "blank",
 #           line = TRUE)
@@ -604,7 +604,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 # slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
 # plot_text(lbls = slogan, font = 2,
 #           x = 0, y = .85, y_layout = "even",
-#           col = "black", col_bg = unlist(seeblau), col_bg_border = NA,
+#           col = "black", col_bg = Seeblau, col_bg_border = NA,
 #           cex = 1.2, pos = 4,
 #           new_plot = "blank",
 #           line = TRUE, cex_lwd = 2.5, cex_ldn = .42)
