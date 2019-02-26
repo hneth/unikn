@@ -1,5 +1,5 @@
 ## color_functions.R  |  unikn
-## hn  |  uni.kn |  2019 02 18
+## hn  |  uni.kn |  2019 02 26
 ## ---------------------------
 
 ## Define function to plot colors 
@@ -151,14 +151,16 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
 yarrr::piratepal()
 
 
-## TODO: 
-## 1. Plotting multiple shapes (rectangles) for comparison; add numbers. 
-## 2. Plot detailed color palettes, including names, hex and rgb. 
-
 ## Helper function to detect hex-colors:
 isHexCol <- function(color) {
   return(grepl(pattern = "#[0-9A-F]+", color))
 }
+
+# TODO: General color function! 
+
+# TODO: Determine sizing of boxed, circles and text dynamically! 
+# - For hex and rgb: below critical cex do not plot.
+# - for shapes and text: prevent overlap. 
 
 
 ## Function seepal start: ---------------
@@ -167,7 +169,8 @@ seepal <- function(pal = "all",  # which palette to output?
                    n = "all",
                    hex = NULL,  # determine by crowdedness, whether hex values should be shown in detail view.
                    rgb = NULL,   # determine, whether rgb values should be shown in detail view (defaults to TRUE)
-                   col_brd = NULL  # border color of the boxes. 
+                   col_brd = NULL,  # border color of the boxes. 
+                   ...  # additional arguments to plot.default().
                    ) {
   
   ## 0. Preparations: ---------
@@ -372,9 +375,11 @@ seepal <- function(pal = "all",  # which palette to output?
         }
         
         # Plot rectangles:
-        plot_col(x = pal_tmp, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = 1)
+        plot_col(x = pal_tmp, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = 1,
+                 ...)
         # Plot circles:
-        plot_col(x = pal_tmp, ypos = 1.2, plot.new = FALSE, xlen = 0.5, shape = "circle")
+        plot_col(x = pal_tmp, ypos = 1.2, plot.new = FALSE, xlen = 0.5, shape = "circle",
+                 ...)
         
         
         
