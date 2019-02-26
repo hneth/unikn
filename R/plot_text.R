@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 02 25
+## hn  |  uni.kn |  2019 02 26
 ## ---------------------------
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
@@ -230,16 +230,16 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
       
       # Use default paddings (based on character sizes) [see p. 25 of CD Manual]: 
       pad_l_r <-  char_width  # padding on left and right: width of letter "l" 
-      pad_t_b <- (char_height * 1.5)/2  # padding on top and bottom: 1.5 x height of letter "l" (1/2 on either side).
+      pad_t_b <- (char_height * .5)  # padding on top and bottom: Rectangle = 1.5 x height of letter "l".
       
       # Dimensions of corresponding rectangle(s):  
       
       # (a) by the book (definition): 
       rect_width  <- (text_width  + (2 * pad_l_r))  # x-dim of padded rectangle  
       rect_height <- (text_height + (2 * pad_t_b))  # y-dim of padded rectangle
-      padl_width  <- (2 * pad_l_r)/2  # save left padded width (to shift mid-points below)
+      padl_width  <- pad_l_r  # save left padded width (to shift mid-points below)
       
-      # (b) by visual inspection: 
+      ## (b) by visual inspection: 
       rect_width  <- (text_width  + (1.2 * pad_l_r))  # x-dim of padded rectangle
       rect_height <- (text_height + (1.4 * pad_t_b))  # y-dim of padded rectangle
       padl_width  <- (1.2 * pad_l_r)/2  # save left padded width (to shift mid-points below)
@@ -417,7 +417,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   
   # Check for step-function: ---- 
   if (mark & (monotonic(x_mid))) {
-    message("Arranging titles in a step-wise fashion is discouraged. Perhaps consider re-arranging it?")
+    message("Step-wise titles are discouraged: Consider re-arranging?")
     # print(paste0("x_mid = ", x_mid))
   }
   
@@ -546,7 +546,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 
 ## Demo cases:
 
-# # (1) Markieren: 
+# ## (1) Markieren: 
 # lbl_mark <- c("                                                ",
 #               "                                      ",
 #               "                                                      ",
@@ -555,11 +555,13 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 # plot_text(lbls = lbl_mark,
 #           x = 0, y = .90, y_layout = c(.03),
 #           col_bg = Seeblau, col_bg_border = NA,
-#           cex = 1, pos = 4,
+#           cex = 1.0, pos = 4,
 #           new_plot = "blank",
 #           mark = TRUE)
 
 # +++ here now +++
+
+## (4) mark + flush: Formatting headlines/titles:
 
 # lbl_hl1 <- c("Ich bin", "eine", "Headline.")
 # plot_text(lbls = lbl_hl1,
@@ -569,8 +571,16 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #           mark = TRUE,
 #           new_plot = "blank")
 # 
-# lbl_hl2 <- c("Ich", "bin eine", "Headline.")
+# lbl_hl2 <- c("Ich", "bin keine", "gute Headline.")
 # plot_text(lbls = lbl_hl2,
+#           x = 0, y = .80, y_layout = "flush",
+#           col_bg = c(pal_seeblau[[1]], pal_seeblau[[3]], pal_seeblau[[4]]),
+#           cex = 2.5, pos = 4,
+#           mark = TRUE,
+#           new_plot = "blank")
+# 
+# lbl_hl3 <- c("Ich bin", "eine alternative", "Headline.")
+# plot_text(lbls = lbl_hl3,
 #           x = 0, y = .80, y_layout = "flush",
 #           col_bg = c(pal_seeblau[[1]], pal_seeblau[[3]], pal_seeblau[[4]]),
 #           cex = 2.5, pos = 4,
@@ -578,7 +588,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #           new_plot = "blank")
 
 
-# # (2) Unterstreichen: 
+# ## (2) Unterstreichen: 
 # lbl_line <- c("Teaching", "This is a line of text", "Learning and studying", "Test")
 # lbl_line <- c("Das ist korrekt, wahr und wahnsinnig wichtig.")
 # plot_text(lbls = lbl_line, font = 1,
@@ -653,7 +663,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #           # pos = NULL, adj = c(0, .5), offset = 999,
 #           pos = 4, adj = c(1, 1), offset = 0,
 #           padding = 1, # OR: c(.5, .5),
-#           new_plot = "slide", 
+#           new_plot = "slide",
 #           mark = TRUE,
 #           grid = FALSE, mar_all = NA, oma_all = NA
 # )
@@ -661,12 +671,13 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 # # What works:
 # # - Mixing sizes (cex) and fonts:
 # lbl_tst <- rep("Variable Grösse und Schrift", 4)
-# plot_text(lbl = lbl_tst, new_plot = "slide", y = .85, y_layout = c(.0, .15), 
-#           cex = c(1.2, .8, 1.8, 1.5), font = c(2, 1, 4, 3), x = .05, pos = 4, mark = T, col_bg = c(pal_seeblau[[2]], pal_seeblau[[3]]))
-# 
-# plot_text(lbl = lbl_tst, new_plot = "xbox", y = .55, y_layout = c(.03, .15), 
-#           cex = c(1.2, .8, 1.6, 1.4), font = c(2, 1, 4, 3), x = .02, pos = 4)
-# 
+# plot_text(lbl = lbl_tst, new_plot = "slide", y = .85, y_layout = c(.0, .15),
+#           cex = c(1.2, .8, 1.8, 1.5), font = c(2, 1, 4, 3), x = .05, pos = 4, 
+#           mark = TRUE, col_bg = c(pal_seeblau[[2]], pal_seeblau[[3]]))
+#  
+# plot_text(lbl = lbl_tst, new_plot = "xbox", y = .55, y_layout = c(.03, .15),
+#           cex = c(1.2, 1.0, 1.5, 1.2), font = c(2, 1, 2, 3), x = .02, pos = 4)
+ 
 # # - Automatic vertical spacing of labels (in y-direction):
 # #   (see crucial test cases above)
 
@@ -682,12 +693,12 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 # - mark: Shift x values (of each individual label) by size of its left padding (so that boxes align on left).
 # - all: Allow automatic spacing: Use only y[1] and then space y-values by text or rect heights (to align boxes).
 # - Treat "flush" layout as special case of numeric layout (as y_layout = 0).
+# - mark: Warn in case of monotonic step functions. 
 
 #   +++ here now +++
 
 # - Add warning(s) when text falls beyond xlim (of box/slide) on left or right
 # - adjust "flush" layout for line distance (in case of line = TRUE). [not needed, as y_layout can increase distance (for constant cex)]
-# - mark: Warn in case of monotonic step functions. 
 
 
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
