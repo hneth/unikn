@@ -313,7 +313,7 @@ seepal <- function(pal = "all",  # which palette to output?
       
       # Create empty plot:
       plot(x = 0, type = "n", xlim = xlim, ylim = c(0, ylim),
-           xaxt = "n", yaxt = "n",  # hide axes.
+           # xaxt = "n", yaxt = "n",  # hide axes.
            xlab = "", ylab = "", main = title,
            bty = "n"
       )  
@@ -346,10 +346,10 @@ seepal <- function(pal = "all",  # which palette to output?
         
         
         ## Set margins:
-        par(mar = c(3, 2, 3, 1))
+        par(mar = c(3, 4, 3, 1))
         
         plot(x = 0, type = "n", xlim = xlim, ylim = c(-1, 2),
-             xaxt = "n", yaxt = "n",  # hide axes.
+             # xaxt = "n", yaxt = "n",  # hide axes.
              xlab = "", ylab = "", main = title,
              bty = "n"
         )  # create empty plot.
@@ -361,20 +361,53 @@ seepal <- function(pal = "all",  # which palette to output?
                v = txt_pos,
                col = grey(0.5, 0.3))
         
+        
+        
+        # Find cex so that it is as large as possible:
+        cex_lim <- 0.7  # lower limit for cex. 
+        
+        
         ## Determine whether to display hex values:
-        if ( is.null(hex) ) {
-          hex <- ifelse(strwidth("#XXXXXX") * max_num > xlim[2], FALSE, TRUE)
+        cex_hex <- par("cex")
+        wdth_hex <- strwidth("#XXXXXX", cex = cex_hex) * max_num  # is the width small enough?
+        
+        while (wdth_hex > xlim[2]) {
+          
+          cex_hex <- cex_hex - 0.1
+          wdth_hex <- strwidth("#XXXXXX", cex = cex_hex) * max_num  # is the width small enough?
+          
         }
+
+        ## If it is NULL, determine based on width and max cex.
+        ## Otherwise use the provided value.
+        if ( is.null(hex) ) {
+          
+          hex <- ifelse(wdth_hex > xlim[2] | cex_hex < cex_lim, FALSE, TRUE)  # test, whether hex can be displayed.
+
+          # TODO: Is the width even needed? 
+        } 
         
         ## Determine, whether to display rgb values:
+        cex_rgb <- par("cex")
+        wdth_rgb <- strwidth("999", cex = cex_rgb) * max_num
+        while (wdth_rgb > xlim[2]) {
+          
+          cex_rgb <- cex_rgb - 0.1
+          wdth_rgb <- strwidth("999", cex = cex_rgb) * max_num  # is the width small enough?
+          
+        }
+        
+        ## If it is NULL, determine based on width and max cex.
+        ## Otherwise use the provided value.
         if ( is.null(rgb) ) {
-          rgb <- ifelse(strwidth("999") * max_num > xlim[2], FALSE, TRUE)
+          rgb <- ifelse(wdth_rgb > xlim[2] | cex_rgb < cex_lim, FALSE, TRUE)
         }
         
         # Plot rectangles:
         plot_col(x = pal_tmp, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = 1,
                  ...)
         # Plot circles:
+        # TODO: Dynamically determine xlen:
         plot_col(x = pal_tmp, ypos = 1.2, plot.new = FALSE, xlen = 0.5, shape = "circle",
                  ...)
         
@@ -389,9 +422,15 @@ seepal <- function(pal = "all",  # which palette to output?
              cex = 1)
         ## Hex values:
         if ( hex ) {
-          text(x = -0.1, y = -0.3, labels = "Hex", font = 2, pos = 3, xpd = TRUE, cex = 1)
+          
+          ## Convert to hex if not already given in this format:
+          if(!all(isHexCol(pal_tmp))) { 
+            pal_tmp <- rgb(t(col2rgb(pal_tmp)), maxColorValue = 255)
+            }
+          
+          text(x = -0.1, y = -0.3, labels = "Hex", font = 2, pos = 3, xpd = TRUE, cex = cex_hex)
           text(x = txt_pos, y = -0.3, labels = pal_tmp, pos = 3, xpd = TRUE,
-               cex = 1)
+               cex = cex_hex)
         }
         
         ## RGB values:
@@ -401,12 +440,12 @@ seepal <- function(pal = "all",  # which palette to output?
                y = y_rgb,
                labels = c("R", "G", "B"), font = 2, 
                pos = 3, xpd = TRUE,
-               cex = 1)
+               cex = cex_rgb)
           text(x = matrix(rep(txt_pos, 3), nrow = 3, byrow = TRUE),
                y = matrix(rep(y_rgb, length(txt_pos) + 1), nrow = 3),
                labels = col2rgb(pal_tmp),
                pos = 3, xpd = TRUE,
-               cex = 1)
+               cex = cex_rgb)
         }
         
     }
@@ -425,7 +464,7 @@ a <- seepal(pal = "all")  # return all palettes.
 a
 
 b <- seepal(pal = pal_unikn_pair)  # return one long palette (hex not displayed by default.)
-b
+seepal(pal = pal_unikn_pair, hex = TRUE)  # display hex independent of fontsize.
 
 c <- seepal(pal = pal_Bordeaux, hex = TRUE)
 

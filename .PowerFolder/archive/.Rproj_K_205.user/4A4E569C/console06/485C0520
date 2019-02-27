@@ -1,0 +1,350 @@
+[0m[0K]0;:/c/Users/Jörn/bwSyncAndShare/unikn[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git f[0K[?25he[0Kt[0Kc[0Kh[0K[13G[?25l$ git fetch u[0K[?25hp[0K[?25ls[0K[15G[?25h[16G[?25l$ git fetch upst[0K[?25hr[0Ke[0Ka[0Km[0K[22G[?25l$ git fetch upstream m[0K[?25h[?25la[0K[23G[?25h[24G[?25l$ git fetch upstream mas[0K[?25ht[0Ke[0Kr[0K[?25l
+[0K[?25hremote: Enumerating objects: 97, done.[0K[?25l
+remote: Counting objects: 100% (97/97), done.[0K
+remote: Compressing objects: 100% (49/49), done.[0K
+[0K[?25h[?25lUnpacking objects:   2% (2/84)[0K[1G[?25h[?25lUnpacking objects:   7% (6/84)[0K[1G[?25h[?25lUnpacking objects:  10% (9/84)[0K[1G[?25h[?25lUnpacking objects:  14% (12/84)[0K[1G[?25h[?25lUnpacking objects:  20% (17/84)[0K[1G[?25h[?25lUnpacking objects:  23% (20/84)[0K[1G[?25h[?25lUnpacking objects:  26% (22/84)[0K[1G[?25h[?25lUnpacking objects:  27% (23/84)[0K[1G[?25h[?25lUnpacking objects:  30% (26/84)[0K[1G[?25h[?25lUnpacking objects:  32% (27/84)[0K[1G[?25h[?25lUnpacking objects:  33% (28/84)[0K[1G[?25h[?25lUnpacking objects:  38% (32/84)[0K[1G[?25h[?25lUnpacking objects:  40% (34/84)[0K[1G[?25h[?25lUnpacking objects:  44% (37/84)[0K[1G[?25h[?25lUnpacking objects:  45% (38/84)[0K[1G[?25h[?25lUnpacking objects:  48% (41/84)[0K[1G[?25h[?25lUnpacking objects:  53% (45/84)[0K[1G[?25h[?25lUnpacking objects:  57% (48/84)[0K[1G[?25h[?25lUnpacking objects:  59% (50/84)[0K[1G[?25h[?25lUnpacking objects:  61% (52/84)[0K[1G[?25hremote: Total 84 (delta 41), reused 75 (delta 32), pack-reused 0[0K[?25l
+Unpacking objects:  64% (54/84)[0K[1G[?25h[?25lUnpacking objects:  66% (56/84)[0K[1G[?25h[?25lUnpacking objects:  69% (58/84)[0K[1G[?25h[?25lUnpacking objects:  72% (61/84)[0K[1G[?25h[?25lUnpacking objects:  75% (63/84)[0K[1G[?25h[?25lUnpacking objects:  78% (66/84)[0K[1G[?25h[?25lUnpacking objects:  83% (70/84)[0K[1G[?25h[?25lUnpacking objects:  88% (74/84)[0K[1G[?25h[?25lUnpacking objects:  89% (75/84)[0K[1G[?25h[?25lUnpacking objects:  92% (78/84)[0K[1G[?25h[?25lUnpacking objects:  96% (81/84)[0K[1G[?25hUnpacking objects: 100% (84/84), done.[0K[?25l
+[0K[?25hFrom https://github.com/hneth/unikn[0K[?25l
+ * branch            master     -> FETCH_HEAD[0K
+[0K[?25h   9bede0e..72e0e38  master     -> upstream/master[0K[?25l
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git m[0K[?25he[0Kr[0Kg[0Ke[0K[13G[?25l$ git merge u[0K[?25h[?25lp[0K[14G[?25h[15G[?25l$ git merge ups[0K[?25ht[0Kr[0Ke[0Ka[0Km[0K/[0Km[0Ka[0Ks[0Kt[0Ke[0K[?25lr[0K[27G[?25h[28G[?25l
+[0K[?25hRemoving inst/pix/box_R_5.png[0K[?25l
+Removing inst/pix/box_R_4.png[0K
+Removing inst/pix/box_R_3.png[0K
+[0K[?25h[?25lMerge made by the 'recursive' strategy.[0K[1G[?25h[?25l
+[0K[?25h NAMESPACE                                 |   2 [0;32m+[0;31m-[0m[0K[?25l
+ R/color_definitions.R                     |  17 [0;32m+[0;31m-[0m[0K
+ R/plot_box.R                              |  28 [0;32m+[0;31m-[0m[0K
+ R/plot_text.R                             | 418 [0;32m++++++++++++++++++++++++++[0;31m----[0m[0K
+ README.Rmd                                | 159 [0;32m+++++++++++[0;31m-[0m[0K
+ README.md                                 | 146 [0;32m++++++++++[0;31m-[0m[0K
+ inst/pix/box_R+/box_R_seeblau3.png        | Bin [0;31m0[0m -> [0;32m5976[0m bytes[0K
+ inst/pix/box_R+/box_R_seeblau4.png        | Bin [0;31m0[0m -> [0;32m6132[0m bytes[0K[50G[?25h[?25l
+ inst/pix/box_R+/box_R_seeblau5.png        | Bin [0;31m0[0m -> [0;32m6153[0m bytes[0K
+ inst/pix/box_R.png                        | Bin [0;31m0[0m -> [0;32m6132[0m bytes[0K
+ inst/pix/box_R_3.png                      | Bin [0;31m6008[0m -> [0;32m0[0m bytes[0K
+ inst/pix/box_R_4.png                      | Bin [0;31m6111[0m -> [0;32m0[0m bytes[0K
+ inst/pix/box_R_5.png                      | Bin [0;31m6175[0m -> [0;32m0[0m bytes[0K
+ inst/pix/{ => box_unikn+}/box_unikn_3.png | Bin[0K
+ inst/pix/{ => box_unikn+}/box_unikn_4.png | Bin[0K
+ inst/pix/{ => box_unikn+}/box_unikn_5.png | Bin[0K
+ inst/pix/box_unikn+/box_unikn_sb3.png     | Bin [0;31m0[0m -> [0;32m5240[0m bytes[0K
+ inst/pix/box_unikn.png                    | Bin [0;31m5147[0m -> [0;32m5240[0m bytes[0K
+ inst/pix/highlight_text.png               | Bin [0;31m0[0m -> [0;32m37107[0m bytes[0K
+ inst/pix/line_matters.png                 | Bin [0;31m0[0m -> [0;32m31477[0m bytes[0K
+ inst/pix/messy_plot.png                   | Bin [0;31m0[0m -> [0;32m50749[0m bytes[0K
+ inst/pix/todo+/todo_Bordeaux3.png         | Bin [0;31m0[0m -> [0;32m6116[0m bytes[0K
+ inst/pix/todo+/todo_Bordeaux4.png         | Bin [0;31m0[0m -> [0;32m6121[0m bytes[0K
+ inst/pix/todo+/todo_peach4.png            | Bin [0;31m0[0m -> [0;32m5876[0m bytes[0K
+ inst/pix/todo+/todo_petrol3.png           | Bin [0;31m0[0m -> [0;32m6054[0m bytes[0K
+ inst/pix/todo+/todo_petrol4.png           | Bin [0;31m0[0m -> [0;32m6053[0m bytes[0K
+ inst/pix/todo+/todo_pinky4.png            | Bin [0;31m0[0m -> [0;32m6036[0m bytes[0K
+ inst/pix/todo+/todo_seeblau3.png          | Bin [0;31m0[0m -> [0;32m5875[0m bytes[0K
+ inst/pix/todo+/todo_seeblau4.png          | Bin [0;31m0[0m -> [0;32m6053[0m bytes[0K
+ inst/pix/todo+/todo_seeblau5.png          | Bin [0;31m0[0m -> [0;32m6054[0m bytes[0K
+ inst/pix/todo+/todo_seegruen3.png         | Bin [0;31m0[0m -> [0;32m6059[0m bytes[0K
+ inst/pix/todo+/todo_seegruen4.png         | Bin [0;31m0[0m -> [0;32m6072[0m bytes[0K
+ inst/pix/todo+/todo_signal1.png           | Bin [0;31m0[0m -> [0;32m6095[0m bytes[0K
+ inst/pix/todo+/todo_signal2.png           | Bin [0;31m0[0m -> [0;32m5944[0m bytes[0K
+ inst/pix/todo+/todo_signal3.png           | Bin [0;31m0[0m -> [0;32m6020[0m bytes[0K
+ inst/pix/todo.png                         | Bin [0;31m0[0m -> [0;32m6095[0m bytes[0K
+ inst/pix/todo_pinky4.png                  | Bin [0;31m0[0m -> [0;32m6036[0m bytes[0K
+ inst/pix/todo_seegruen4.png               | Bin [0;31m0[0m -> [0;32m6072[0m bytes[0K
+ man/box_text.Rd                           |  83 [0;32m+++[0;31m---[0m[0K
+ man/mark.Rd                               |  70 [0;32m+++++[0m[0K
+ man/plot_box.Rd                           |  11 [0;32m+[0;31m-[0m[0K
+ 41 files changed, 806 insertions(+), 128 deletions(-)[0K
+ create mode 100644 inst/pix/box_R+/box_R_seeblau3.png[0K
+ create mode 100644 inst/pix/box_R+/box_R_seeblau4.png[0K
+ create mode 100644 inst/pix/box_R+/box_R_seeblau5.png[0K
+ create mode 100644 inst/pix/box_R.png[0K
+ delete mode 100644 inst/pix/box_R_3.png[0K
+ delete mode 100644 inst/pix/box_R_4.png[0K
+ delete mode 100644 inst/pix/box_R_5.png[0K
+ rename inst/pix/{ => box_unikn+}/box_unikn_3.png (100%)[0K
+ rename inst/pix/{ => box_unikn+}/box_unikn_4.png (100%)[0K
+ rename inst/pix/{ => box_unikn+}/box_unikn_5.png (100%)[0K
+ create mode 100644 inst/pix/box_unikn+/box_unikn_sb3.png[0K
+ create mode 100644 inst/pix/highlight_text.png[0K
+ create mode 100644 inst/pix/line_matters.png[0K
+ create mode 100644 inst/pix/messy_plot.png[0K
+ create mode 100644 inst/pix/todo+/todo_Bordeaux3.png[0K
+ create mode 100644 inst/pix/todo+/todo_Bordeaux4.png[0K
+ create mode 100644 inst/pix/todo+/todo_peach4.png[0K
+ create mode 100644 inst/pix/todo+/todo_petrol3.png[0K
+ create mode 100644 inst/pix/todo+/todo_petrol4.png[0K
+ create mode 100644 inst/pix/todo+/todo_pinky4.png[0K
+ create mode 100644 inst/pix/todo+/todo_seeblau3.png[0K
+ create mode 100644 inst/pix/todo+/todo_seeblau4.png[0K
+ create mode 100644 inst/pix/todo+/todo_seeblau5.png[0K
+ create mode 100644 inst/pix/todo+/todo_seegruen3.png[0K
+ create mode 100644 inst/pix/todo+/todo_seegruen4.png[0K
+ create mode 100644 inst/pix/todo+/todo_signal1.png[0K
+ create mode 100644 inst/pix/todo+/todo_signal2.png[0K
+ create mode 100644 inst/pix/todo+/todo_signal3.png[0K
+ create mode 100644 inst/pix/todo.png[0K
+ create mode 100644 inst/pix/todo_pinky4.png[0K
+ create mode 100644 inst/pix/todo_seegruen4.png[0K
+ create mode 100644 man/mark.Rd[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25ha[0Km[0K[18G[?25l$ git commit -am "[0K[?25hb[0Ka[0Ks[0Ki[0Kc[0K[25G[?25l$ git commit -am "basic f[0K[?25hu[0Kn[0Kc[0Kt[0Ki[0Ko[0Kn[0Ka[0Kl[0Ki[0Kt[0Ky[0K[39G[?25l$ git commit -am "basic functionality s[0K[?25hh[0Ko[0Kw[0Ki[0Kn[0Kg[0K[47G[?25l$ git commit -am "basic functionality showing a[0K[?25hl[0Kl[0K[51G[?25l$ git commit -am "basic functionality showing all p[0K[?25h[?25la[0K[52G[?25h[53G[?25l$ git commit -am "basic functionality showing all pal[0K[?25he[0Kt[0Kt[0Ke[0Ks[0K"[0K[?25l
+[0K[?25h[master c8bc26d] basic functionality showing all palettes[0K[?25l
+ 1 file changed, 63 insertions(+), 5 deletions(-)[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25ha[0Km[0K[18G[?25l$ git commit -am "[0K[?25ha[0Kd[0Kd[0K[23G[?25l$ git commit -am "add c[0K[?25ho[0Kl[0Ko[0Kr[0K[29G[?25l$ git commit -am "add color i[0K[?25hn[0Kd[0Ki[0Kc[0Ke[0K[?25ls[0K[35G[?25h[36G[?25l$ git commit -am "add color indices"[0K[?25h[?25l
+[0K[?25h[master 9816a51] add color indices[0K[?25l
+ 1 file changed, 10 insertions(+), 4 deletions(-)[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0K[?25lt[0K[12G[?25h[13G[14G[?25l$ git commit -[0K[?25ha[0Km[0K[18G[?25l$ git commit -am "[0K[?25hd[0Ke[0Kt[0Ka[0Ki[0Kl[0Ke[0Kd[0K[28G[?25l$ git commit -am "detailed v[0K[?25he[0Kw[0K"[0K[28G[19G[?25l$ git commit -am "adetailed vew"[0K[20G[?25h[?25l$ git commit -am "addetailed vew"[0K[21G[?25h[?25l$ git commit -am "adddetailed vew"[0K[22G[?25h[?25l$ git commit -am "addedetailed vew"[0K[23G[?25h[?25l$ git commit -am "addeddetailed vew"[0K[24G[?25h[?25l$ git commit -am "added detailed vew"[0K[25G[?25h[?25l$ git commit -am "added pdetailed vew"[0K[26G[?25h[?25l$ git commit -am "added prdetailed vew"[0K[27G[?25h[?25l$ git commit -am "added prodetailed vew"[0K[28G[?25h[?25l$ git commit -am "added protdetailed vew"[0K[29G[?25h[?25l$ git commit -am "added protodetailed vew"[0K[30G[?25h[?25l$ git commit -am "added prototdetailed vew"[0K[31G[?25h[?25l$ git commit -am "added prototydetailed vew"[0K[32G[?25h[?25l$ git commit -am "added prototypdetailed vew"[0K[33G[?25h[?25l$ git commit -am "added prototypedetailed vew"[0K[34G[?25h[?25l$ git commit -am "added prototype detailed vew"[0K[35G[?25h[?25l$ git commit -am "added prototype odetailed vew"[0K[36G[?25h[?25l$ git commit -am "added prototype ofdetailed vew"[0K[37G[?25h[?25l$ git commit -am "added prototype of detailed vew"[0K[38G[?25h[?25l
+[0K[?25h[master e5f7855] added prototype of detailed vew[0K[?25l
+ 1 file changed, 47 insertions(+)[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[?25l$ git commi[0K[?25h[?25l$ git comm[0K[?25h[?25l$ git com[0K[?25h[?25l$ git co[0K[?25h[?25l$ git[0K[7G[?25h[6G[?25l$ gi[0K[6G[?25h[5G[?25l$ git[0K[?25h[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h[?25l
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_1.user/AFD7A6C1/cpp-definition-ca[0Kc[?25l
+he.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_1.user/AFD7A6C1/rmd-outputs.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/347[0KC[72G[?25h[?25l
+751C.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/347[0KC
+751C-contents.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/83D[0KD
+6F2.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/83D[0KD
+6F2-contents.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/96F[0KA
+3555.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/96F[0KA[?25l
+3555-contents.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_5.user/AFD7A6C1/sources/prop/A0D0[0K1
+5C3.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_771.user/AFD7A6C1/sources/prop/42[0K6[?25l
+4619C.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/_K_1.Rhistory.[0K[?25l
+The file will have its original line endings in your working directory[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25ha[0Km[0K[18G[?25l$ git commit -am "[0K[?25hd[0Ki[0Ks[0Kp[0K[?25ll[0K[23G[?25h[24G[?25l$ git commit -am "displa[0K[?25hy[0K[27G[?25l$ git commit -am "display c[0K[?25h[?25lo[0K[28G[?25h[29G[?25l$ git commit -am "display col[0K[?25ho[0Kr[0K[33G[?25l$ git commit -am "display color v[0K[?25ha[0Kl[0Ku[0Ke[0Ks[0K"[0K[?25l
+[0K[?25h[master 8072e56] display color values[0K[?25l
+ 25 files changed, 2732 insertions(+), 5 deletions(-)[0K
+ create mode 100644 .PowerFolder/.PowerFolder.db[0K
+ create mode 100644 .PowerFolder/FolderStatistic[0K
+ create mode 100644 .PowerFolder/Last_sync[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_1.user/AFD7A6C1/cpp-definition-cache[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_1.user/AFD7A6C1/rmd-outputs[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_1.user/AFD7A6C1/saved_source_markers[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/347C751C[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/347C751C-contents[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/83DD6F2[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/83DD6F2-contents[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/96FA3555[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/per/t/96FA3555-contents[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_32.user/AFD7A6C1/console06/INDEX001[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_5.user/AFD7A6C1/sources/prop/A0D015C3[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_771.user/AFD7A6C1/sources/prop/4264619C[0K
+ create mode 100644 .PowerFolder/archive/Size[0K
+ create mode 100644 .PowerFolder/archive/_K_1.Rhistory[0K
+ create mode 100644 .PowerFolder/archive/_K_20.git/index[0K
+ create mode 100644 .PowerFolder/ignore.patterns[0K
+ create mode 100644 .PowerFolder/meta/.PowerFolder/.PowerFolder.db[0K
+ create mode 100644 .PowerFolder/meta/.PowerFolder/FolderStatistic[0K
+ create mode 100644 .PowerFolder/meta/.PowerFolder/Last_sync[0K
+ create mode 100644 .PowerFolder/meta/Members[0K
+ create mode 100644 desktop.ini[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25hfatal: 'master' does not appear to be a git repository[0K[?25l
+fatal: Could not read from remote repository.[0K[1G[?25h[?25l
+[0K
+Please make sure you have the correct access rights[0K
+and the repository exists.[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git push master[0K[?25h[?25l$ git push maste[0K[?25h[?25l$ git push mast[0K[?25h[?25l$ git push mas[0K[?25h[?25l$ git push ma[0K[?25h[?25l$ git push m[0K[?25h[?25l$ git push[0K[12G[?25h[?25l$ git push u[0K[?25hn[0Ki[0Kk[0Kn[0K/[0Km[0Ka[0Ks[0K[?25lt[0K[21G[?25h[22G[?25l$ git push unikn/maste[0K[?25hr[0K[?25l
+[0K[?25hfatal: 'unikn/master' does not appear to be a git repository[0K[?25l
+fatal: Could not read from remote repository.[0K
+[0K
+Please make sure you have the correct access rights[0K
+and the repository exists.[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25h[?25li[0K[4G[?25h[5G[?25l$ git[0K[?25h[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push u[0K[?25hn[0Ki[0Kk[0Kn[0K[?25l
+[0K[?25hfatal: 'unikn' does not appear to be a git repository[0K[?25l
+fatal: Could not read from remote repository.[0K
+[0K
+Please make sure you have the correct access rights[0K
+and the repository exists.[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0K[?25lt[0K[5G[?25h[6G[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[19G[?25l$ git push origin m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25hEnumerating objects: 173, done.[0K[?25l
+Counting objects:  17% (28/162)[0K[1G[?25h[?25lCounting objects:  24% (39/162)[0K[1G[?25h[?25lCounting objects:  52% (85/162)[0K[1G[?25h[?25lCounting objects:  82% (133/162)[0K[1G[?25hCounting objects: 100% (162/162), done.[0K[?25l
+Delta compression using up to 4 threads[0K
+Compressing objects:  53% (65/121)[0K[1G[?25hCompressing objects: 100% (121/121), done.[0K[?25l
+Writing objects:  19% (28/146)[0K[1G[?25h[?25lWriting objects:  54% (79/146)[0K[1G[?25hWriting objects: 100% (146/146), 234.70 KiB | 4.35 MiB/s, done.[0K[?25l
+Total 146 (delta 58), reused 0 (delta 0)[0K
+[0K[?25hremote: Resolving deltas: 100% (58/58), completed with 10 local objects.[0K[?25l
+[0K[?25hTo https://github.com/nigradwohl/unikn.git[0K[?25l
+   8225ba5..8072e56  master -> master[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+]0;:/c/Users/Jörn/bwSyncAndShare/unikn[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git fe[0K[?25ht[0Kc[0Kh[0K[13G[?25l$ git fetch u[0K[?25hp[0Ks[0Kt[0Kr[0Ke[0Ka[0Km[0K[22G[?25l$ git fetch upstream m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25hremote: Enumerating objects: 37, done.[0K[?25l
+remote: Counting objects: 100% (37/37), done.[0K
+remote: Compressing objects: 100% (9/9), done.[0K
+[0K[?25h[?25lUnpacking objects:   3% (1/26)[0K[1G[?25h[?25lUnpacking objects:   7% (2/26)[0K[1G[?25h[?25lUnpacking objects:  11% (3/26)[0K[1G[?25h[?25lUnpacking objects:  15% (4/26)[0K[1G[?25h[?25lUnpacking objects:  19% (5/26)[0K[1G[?25h[?25lUnpacking objects:  23% (6/26)[0K[1G[?25h[?25lUnpacking objects:  26% (7/26)[0K[1G[?25h[?25lUnpacking objects:  34% (9/26)[0K[1G[?25h[?25lUnpacking objects:  38% (10/26)[0K[1G[?25h[?25lUnpacking objects:  42% (11/26)[0K[1G[?25h[?25lUnpacking objects:  46% (12/26)[0K[1G[?25h[?25lUnpacking objects:  50% (13/26)[0K[1G[?25h[?25lUnpacking objects:  53% (14/26)[0K[1G[?25hUremote: Total 26 (delta 15), reused 26 (delta 15), pack-reused 0[0K[?25l
+[0K[?25h[?25lUnpacking objects:  61% (16/26)[0K[1G[?25h[?25lUnpacking objects:  65% (17/26)[0K[1G[?25h[?25lUnpacking objects:  69% (18/26)[0K[1G[?25h[?25lUnpacking objects:  73% (19/26)[0K[1G[?25h[?25lUnpacking objects:  76% (20/26)[0K[1G[?25h[?25lUnpacking objects:  80% (21/26)[0K[1G[?25h[?25lUnpacking objects:  84% (22/26)[0K[1G[?25h[?25lUnpacking objects:  88% (23/26)[0K[1G[?25h[?25lUnpacking objects:  92% (24/26)[0K[1G[?25hUnpacking objects: 100% (26/26), done.[0K[?25l
+[0K[?25hFrom https://github.com/hneth/unikn[0K[?25l
+ * branch            master     -> FETCH_HEAD[0K
+   9b6b0c6..d92a86e  master     -> upstream/master[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h[?25l
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_0.user/AFD7A6C1/sources/prop/49D7[0K5[?25l
+291.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/cpp-definition-ca[0Kc
+he.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/rmd-outputs.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/347[0KC[?25l
+751C.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/347[0KC[?25l
+751C-contents.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/83D[0KD[?25l
+6F2.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/83D[0KD[?25l
+6F2-contents.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/96F[0KA
+3555.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/96F[0KA[?25l
+3555-contents.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_6.user/AFD7A6C1/sources/prop/A0D0[0K1
+5C3.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_772.user/AFD7A6C1/sources/prop/42[0K6[?25l
+4619C.[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/_K_1.git/logs/refs/remotes/upstream/master[0K.
+[0K
+The file will have its original line endings in your working directory[0K
+warning: LF will be replaced by CRLF in .PowerFolder/archive/_K_1.git/refs/remotes/upstream/master.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/_K_5.git/FETCH_HEAD.[0K[?25l
+The file will have its original line endings in your working directory[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25ha[0Km[0K[18G[?25l$ git commit -am "[0K[?25hp[0Kr[0Ko[0Kt[0Ko[0K[?25l$ git commit -am "prot[0K[?25ho[0K[?25lt[0K[24G[?25h[25G[?25l$ git commit -am "prototy[0K[?25hp[0Ke[0K[29G[?25l$ git commit -am "prototype o[0K[?25h[?25lf[0K[30G[?25h[31G[32G[?25l$ git commit -am "prototype of f[0K[?25hu[0Kn[0Kc[0Kt[0Ki[0Ko[0Kn[0K[41G[?25l$ git commit -am "prototype of function t[0K[?25ho[0K[44G[?25l$ git commit -am "prototype of function to d[0K[?25hi[0Ks[0K[?25lp[0K[47G[?25h[48G[?25l$ git commit -am "prototype of function to dis[0K[?25h[?25l$ git commit -am "prototype of function to di[0K[?25h[?25l$ git commit -am "prototype of function to d[0K[?25h[?25l$ git commit -am "prototype of function to[0K[44G[?25h[?25l$ git commit -am "prototype of function t[0K[?25h[?25l$ git commit -am "prototype of function[0K[41G[?25h[40G[?25l$ git commit -am "prototype of functio[0K[?25hn[0K[41G[?25l$ git commit -am "prototype of function s[0K[?25he[0Ke[0Kp[0Ka[0Kl[0K"[0K[?25l
+[0K[?25h[master 4d067ae] prototype of function seepal[0K[?25l
+ 25 files changed, 2421 insertions(+), 89 deletions(-)[0K
+ rewrite .PowerFolder/.PowerFolder.db (95%)[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_0.user/AFD7A6C1/sources/prop/49D75291[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/cpp-definition-cache[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/rmd-outputs[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/saved_source_markers[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_33.user/AFD7A6C1/console06/INDEX001[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/347C751C[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/347C751C-contents[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/83DD6F2[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/83DD6F2-contents[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/96FA3555[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_4.user/AFD7A6C1/sources/per/t/96FA3555-contents[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_6.user/AFD7A6C1/sources/prop/A0D015C3[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_67.user/AFD7A6C1/console06/C20FE9F3[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_772.user/AFD7A6C1/sources/prop/4264619C[0K
+ create mode 100644 .PowerFolder/archive/_K_1.git/logs/refs/remotes/upstream/master[0K
+ create mode 100644 .PowerFolder/archive/_K_1.git/refs/remotes/upstream/master[0K
+ create mode 100644 .PowerFolder/archive/_K_27.git/index[0K
+ create mode 100644 .PowerFolder/archive/_K_5.git/FETCH_HEAD[0K
+ rewrite .PowerFolder/meta/.PowerFolder/.PowerFolder.db (68%)[0K
+ rewrite .PowerFolder/meta/Members (62%)[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0K[?25lm[0K[9G[?25h[10G[?25l$ git comm[0K[?25hi[0Kt[0K[14G[?25l$ git commit -[0K[?25ha[0Km[0K[18G[?25l$ git commit -am "[0K[?25hc[0Ko[0Kn[0Kd[0Ki[0Kt[0Ki[0Ko[0Kn[0Ka[0Kl[0K[31G[?25l$ git commit -am "conditional d[0K[?25hi[0Ks[0Kp[0Kl[0Ka[0Ky[0K[39G[?25l$ git commit -am "conditional display o[0K[?25hf[0K[42G[?25l$ git commit -am "conditional display of h[0K[?25he[0Kx[0K[46G[?25l$ git commit -am "conditional display of hex a[0K[46G[?25h[47G[?25l$ git commit -am "conditional display of hex an[0K[?25hd[0K[50G[?25l$ git commit -am "conditional display of hex and r[0K[?25hg[0Kb[0K"[0K[?25l
+[0K[?25h[master 54d6dda] conditional display of hex and rgb[0K[?25l
+ 3 files changed, 25 insertions(+), 11 deletions(-)[0K
+ rewrite .PowerFolder/.PowerFolder.db (86%)[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[0m[0K]0;:/c/Users/Jörn/bwSyncAndShare/unikn[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+[?25l$ g[0K[?25hg[0K[?25lg[0K[5G[?25h[6G[?25l$ gggg[0K[?25h[?25l$ ggg[0K[?25h[?25l$ gg[0K[?25h[?25l$ g[0K[?25h[?25l$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git f[0K[?25he[0Kt[0Kc[0Kh[0K[13G[?25l$ git fetch u[0K[?25h[?25lp[0K[14G[?25h[15G[?25l$ git fetch ups[0K[?25ht[0Kr[0Ke[0Ka[0Km[0K[?25l
+[0K[?25hremote: Enumerating objects: 179, done.[0K[?25l
+remote: Counting objects:  60% (108/179)[0K[44G[?25h[?25lremote: Counting objects:  76% (137/179)[0K[1G[?25hremote: Counting objects: 100% (179/179), done.[0K[?25l
+remote: Compressing objects: 100% (34/34), done.[0K
+[0K[?25hReceiving objects:  41% (154/375)[0K[?25lReceiving objects:  83% (312/375)[0K[1G[?25h[?25lReceiving objects:  84% (315/375)[0K[1G[?25h[?25lReceiving objects:  88% (330/375)[0K[1G[?25hremote: Total 375 (delta 152), reused 167 (delta 145), pack-reused 196 eceiving objects:  89% (334/375)[0K[?25l
+Receiving objects:  90% (338/375)[0K
+Receiving objects: 100% (375/375), 116.74 KiB | 699.00 KiB/s, done.[0K
+Resolving deltas:  58% (163/279)[0K[2G[?25h[?25lResolving deltas:  63% (177/279)[0K[1G[?25h[?25lResolving deltas:  69% (195/279)[0K[1G[?25h[?25lResolving deltas:  70% (196/279)[0K[1G[?25h[?25lResolving deltas:  84% (235/279)[0K[2G[?25h[?25lResolving deltas:  99% (277/279)[0K[1G[?25hResolving deltas: 100% (279/279), completed with 43 local objects.[0K[?25l
+[0K[?25hFrom https://github.com/hneth/unikn[0K[?25l
+   d92a86e..479bff4  master     -> upstream/master[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h[?25l
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_0.user/AFD7A6C1/sources/s-91DD6C1[0K1[?25l
+/83DD6F2.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_0.user/AFD7A6C1/sources/s-91DD6C1[0K1[?25l
+/83DD6F2-contents.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_1.user/AFD7A6C1/sources/s-91DD6C1[0K1[?25l
+/347C751C-contents.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_1.user/AFD7A6C1/sources/s-91DD6C1[0K1[?25l
+/96FA3555-contents.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/s-91DD6C1[0K1[?25l
+/347C751C.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/s-91DD6C1[0K1[?25l
+/96FA3555.[0K
+The file will have its original line endings in your working directory[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0K[?25li[0K[11G[?25h[12G[?25l$ git commit[0K[12G[?25h[13G[14G[?25l$ git commit -[0K[?25ha[0K[?25lm[0K[16G[?25h[17G[18G[?25l$ git commit -am "[0K[?25hm[0Ki[0Kn[0Ko[0Kr[0K[25G[?25l$ git commit -am "minor f[0K[?25hi[0Kx[0Ke[0Ks[0K"[0K[?25l
+[0K[?25h[master 79ced54] minor fixes[0K[?25l
+ 14 files changed, 2314 insertions(+), 7 deletions(-)[0K
+ rewrite .PowerFolder/.PowerFolder.db (93%)[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_0.user/AFD7A6C1/sources/s-91DD6C11/83DD6F2[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_0.user/AFD7A6C1/sources/s-91DD6C11/83DD6F2-contents[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_0.user/AFD7A6C1/sources/s-91DD6C11/lock_file[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_1.user/AFD7A6C1/sources/s-91DD6C11/347C751C-contents[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_1.user/AFD7A6C1/sources/s-91DD6C11/96FA3555-contents[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/s-91DD6C11/347C751C[0K
+ create mode 100644 .PowerFolder/archive/.Rproj_K_2.user/AFD7A6C1/sources/s-91DD6C11/96FA3555[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25ha[0Km[0K[18G[?25l$ git commit -am "[0K[?25hm[0Ki[0Kn[0Ko[0Kr[0K"[0K[?25l
+[0K[?25h[master ea602e0] minor[0K[?25l
+ 3 files changed, 18 insertions(+), 6 deletions(-)[0K
+ rewrite .PowerFolder/.PowerFolder.db (82%)[0K
+[0K[?25h[?25l
+[0;32mJörn@J▒rn-HP [0;35m [0;33m~/bwSyncAndShare/unikn[0;36m (master)[0m[0K
+$[0K[3G[?25h
