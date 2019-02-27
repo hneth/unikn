@@ -313,7 +313,7 @@ seepal <- function(pal = "all",  # which palette to output?
       
       # Create empty plot:
       plot(x = 0, type = "n", xlim = xlim, ylim = c(0, ylim),
-           # xaxt = "n", yaxt = "n",  # hide axes.
+           xaxt = "n", yaxt = "n",  # hide axes.
            xlab = "", ylab = "", main = title,
            bty = "n"
       )  
@@ -329,7 +329,9 @@ seepal <- function(pal = "all",  # which palette to output?
       # TODO: Can I allow to plot the matrix in a vectorized way (unlisting somewhere)?
       
       ## Add color names and indices:
-      text(x = -1, y = 1:length(pal_tmp), labels = rev(pal_nm), pos = 2, xpd = TRUE)
+      text(x = 0, y = 1:length(pal_tmp), labels = rev(pal_nm), pos = 2, xpd = TRUE,
+           offset = 1  # offset by width of one character.
+           )
       text(x = seq(0.5, max_num - 0.5, by = 1), y = -1, 
            labels = paste0("[", 1:max_num, "]"), pos = 3, xpd = TRUE,
            cex = 0.7)
@@ -343,10 +345,10 @@ seepal <- function(pal = "all",  # which palette to output?
         
         
         ## Set margins:
-        par(mar = c(3, 4, 3, 1))
+        par(mar = c(3, 2, 3, 1))
         
         plot(x = 0, type = "n", xlim = xlim, ylim = c(-1, 2),
-             # xaxt = "n", yaxt = "n",  # hide axes.
+             xaxt = "n", yaxt = "n",  # hide axes.
              xlab = "", ylab = "", main = title,
              bty = "n"
         )  # create empty plot.
@@ -354,7 +356,9 @@ seepal <- function(pal = "all",  # which palette to output?
         ## Text elements:
         txt_pos <- seq(0.5, length(pal_tmp) - 0.5)
         
-        abline(h = c(0.6, 1.2, 1.6, -0.1, -0.6, -0.75, -0.90),
+        ## Grid:
+        y_rgb <- c(-0.6, -0.75, -0.9)
+        abline(h = c(c(0.6, 1.2, 1.6, -0.1), c(-0.45, y_rgb) + 0.03),
                v = txt_pos,
                col = grey(0.5, 0.3))
         
@@ -366,14 +370,16 @@ seepal <- function(pal = "all",  # which palette to output?
         
         ## Determine whether to display hex values:
         cex_hex <- par("cex")
-        wdth_hex <- strwidth("#XXXXXX", cex = cex_hex) * max_num  # is the width small enough?
+        wdth_hex <- strwidth("#XXXXXX", cex = cex_hex) * max_num + strwidth("Hex") # is the width small enough?
         
         while (wdth_hex > xlim[2]) {
           
           cex_hex <- cex_hex - 0.1
-          wdth_hex <- strwidth("#XXXXXX", cex = cex_hex) * max_num  # is the width small enough?
+          wdth_hex <- strwidth("#XXXXXX", cex = cex_hex) * max_num + strwidth("Hex") # is the width small enough?
           
         }
+        
+        print(cex_hex)
 
         ## If it is NULL, determine based on width and max cex.
         ## Otherwise use the provided value.
@@ -402,12 +408,13 @@ seepal <- function(pal = "all",  # which palette to output?
         
         # Plot rectangles:
         plot_col(x = pal_tmp, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = 1,
-                 ...)
+                 ...
+                 )
         # Plot circles:
         # TODO: Dynamically determine xlen:
-        xlim[2] / max_num[1]
+        circle_len <- ifelse(xlim[2] / 10 < 0.5, xlim[2] / 10, 0.5)
         
-        plot_col(x = pal_tmp, ypos = 1.2, plot.new = FALSE, xlen = 0.5, shape = "circle",
+        plot_col(x = pal_tmp, ypos = 1.2, plot.new = FALSE, xlen = circle_len, shape = "circle",
                  ...)
         
         
@@ -428,15 +435,16 @@ seepal <- function(pal = "all",  # which palette to output?
             }
           
           ## Plot the values:
-          text(x = -0.1, y = -0.3, labels = "Hex", font = 2, pos = 3, xpd = TRUE, cex = cex_hex)
+          text(x = 0, y = -0.3, labels = "Hex", font = 2, pos = 3, xpd = TRUE, 
+               cex = cex_hex)
           text(x = txt_pos, y = -0.3, labels = pal_tmp, pos = 3, xpd = TRUE,
                cex = cex_hex)
         }
         
         ## RGB values:
         if ( rgb ) {
-          y_rgb <- c(-0.6, -0.75, -0.9)
-          text(x = rep(-0.1, 3),
+          
+          text(x = rep(0, 3),
                y = y_rgb,
                labels = c("R", "G", "B"), font = 2, 
                pos = 3, xpd = TRUE,
@@ -459,6 +467,7 @@ seepal <- function(pal = "all",  # which palette to output?
 }
 
 
+## A few examples: 
 ## Currently to be commented out for building (probably no palettes loaded before the function is executed):
 a <- seepal(pal = "all")  # return all palettes.
 a
@@ -474,8 +483,8 @@ gradient <- col_scale(c(pal_seeblau, "white", pal_grau, pal_peach))
 
 seepal(gradient(100))
 
-seepal(pal = "all", n = 9)  # return a subset of colors.
-seepal(pal = pal_petrol, n = 8)
+seepal(pal = "all", n = 2)  # return a subset of colors.
+seepal(pal = pal_petrol, n = 5)
 
 # TODO: Function to select colors differently!
 
