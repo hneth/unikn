@@ -42,5 +42,6 @@ vignettes/*.pdf
 
 # Others:
 _gitless
+.PowerFolder
 
 # eof. 
