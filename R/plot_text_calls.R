@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 02 26
+## hn  |  uni.kn |  2019 02 27
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -80,8 +80,8 @@ mark <- function(lbls,               # labels of text element(s)
                  x = 0, y = .55,     # coordinates of text lbls 
                  y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
                  # Colors and text parameters:
-                 col = "black", col_bg = Seeblau,  # color(s)
-                 cex = 2, font = 2,                # text size and font
+                 col = "black", col_bg = Seeblau,  # default color(s)
+                 cex = 2, font = 2,                # default text size and font
                  # Others: 
                  new_plot = "none"                 # type of new plot (if desired)
 ){
@@ -169,8 +169,8 @@ line <- function(lbls,               # labels of text element(s)
                  x = 0, y = .55,     # coordinates of text lbls 
                  y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
                  # Colors and text parameters:
-                 col = "black", col_bg = Seeblau,  # color(s)
-                 cex = 1.5, font = 1,                # text size and font
+                 col = "black", col_bg = Seeblau,  # default color(s)
+                 cex = 1.5, font = 1,              # default text size and font
                  # Others: 
                  new_plot = "none"                 # type of new plot (if desired)
 ){
@@ -207,12 +207,63 @@ line <- function(lbls,               # labels of text element(s)
 
 # (3) post: Plot a post-it note with text: ------ 
 
+# - Definition: ---- 
 
+post <- function(lbls,               # labels of text element(s) 
+                 x = .03, y = .55,   # coordinates of text lbls 
+                 y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
+                 # Colors and text parameters:
+                 col = "white", col_bg = Seeblau,  # default color(s)
+                 cex = 1.0, font = 1,              # default text size and font
+                 # Others: 
+                 new_plot = "none"                 # type of new plot (if desired)
+){
+  
+  # Pass on (to newer plot_text function):
+  plot_text(lbls = lbls, 
+            x = x, y = y, y_layout = y_layout,  
+            col = col, col_bg = col_bg,
+            cex = cex, font = font,
+            new_plot = new_plot, 
+            # fixed defaults (not available to user): 
+            col_bg_border = NA,
+            pos = 4
+  )
+  
+  # Return? 
+}
 
+## Check:
+
+# post(lbls = "This is a test", 
+#      cex = 1.1, font = 2, 
+#      new_plot = "xbox", col_bg = pal_seeblau[[5]])
+# 
+# post(lbls = c("More text follows here,", 
+#               "yet another line here,", 
+#               "and even more here."), 
+#      y = .4, y_layout = .04, 
+#      font = 1, new_plot = "none")
+ 
+# ## Box with address/contact details:
+# address <- c("Dr. B. F. Skinner", " ",
+#              "Department of Psychology",
+#              "Office F101",
+#              "Tel.: +49 7531 88-0815",
+#              "Fax: +49 7531 88-0810",
+#              "b.f.skin@uni-konstanz.de")
+# 
+# post(lbls = "Contact",
+#      y = .75, 
+#      cex = 1.2, font = 2, 
+#      col_bg = Petrol, 
+#      new_plot = "xbox")
+# 
+# post(lbls = address, 
+#      y = .55, y_layout = .03,
+#      new_plot = "none")
 
 # +++ here now +++ 
-
-## Use the plot_box function.
 
 # (4) head: Arrange headings (according to title specifications): ------ 
 
