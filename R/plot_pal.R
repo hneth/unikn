@@ -118,7 +118,7 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
   ## 3. Plot all shapes: --------------------------------------
   # col_pos <- cbind(color = unlist(x), pos_x = pos_x)  # data to be plotted. 
   
-  #apply(col_pos, MAR = 1, function(colors) {
+  #apply(col_pos, MARGIN = 1, function(colors) {
   
   ypos <- rep(ypos, length.out = len_x)  # length out ypos to the length of x. 
   xlen <- rep(xlen, length.out = len_x)
@@ -200,7 +200,7 @@ seepal <- function(pal = "all",     # which palette to output?
     if ( pal == "all" ) {
       
       # Get all color palettes with the prefix "_pal" from the environment:
-      pal_names <- apropos("pal_")  # get all unikn palettes.
+      pal_names <- utils::apropos("pal_")  # get all unikn palettes.
       pal_ls <- sapply(pal_names, get)
       
       ## Indicator, whether these are color palettes: 
@@ -326,7 +326,7 @@ seepal <- function(pal = "all",     # which palette to output?
     
     
     ## Add the color vectors:
-    apply(pal_mat, MAR = 1, FUN = function(row) {
+    apply(pal_mat, MARGIN = 1, FUN = function(row) {
       # print(row[[2]])
       plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = 0.8, col_brd = col_brd, lwd = 0)
     })
@@ -508,12 +508,12 @@ seepal <- function(pal = "all",     # which palette to output?
 
 #' Plot a color palette.
 #'
-#' \code{plot_pal} plots information on a color palette \code{pal}.
+#' \code{plot_pal} plots information on a color palette \code{pal}. 
 #'
 #' @param pal A color palette (as a data frame). 
 #' Default: \code{pal = \link{pal_unikn}}. 
 #'
-#' @examples
+#' @examples 
 #' plot_pal()  # plots default color palette 
 #' plot_pal(pal_unikn_plus) 
 #' 
@@ -521,19 +521,19 @@ seepal <- function(pal = "all",     # which palette to output?
 #' 
 #' # Plotting palettes from other packages: ------ 
 #' 
-#' # RColorBrewer palettes: 
-#' plot_pal(RColorBrewer::brewer.pal(n = "all", name = "Set1"))
-#' plot_pal(RColorBrewer::brewer.pal(n = 5, name = "Blues"))
+#' ## RColorBrewer palettes: 
+#' # plot_pal(RColorBrewer::brewer.pal(n = "all", name = "Set1"))
+#' # plot_pal(RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 #' 
-#' # viridisLite palettes: 
-#' plot_pal(viridisLite::viridis(20))
-#' plot_pal(viridisLite::inferno(25)) 
-#' plot_pal(viridisLite::magma(25))
-#' plot_pal(viridisLite::plasma(25))
+#' ## viridisLite palettes: 
+#' # plot_pal(viridisLite::viridis(20))
+#' # plot_pal(viridisLite::inferno(25)) 
+#' # plot_pal(viridisLite::magma(25))
+#' # plot_pal(viridisLite::plasma(25))
 #'   
-#' # yarrr palettes: 
-#' plot_pal(yarrr::piratepal(palette = "appletv"))
-#' plot_pal(yarrr::piratepal(palette = "google"))
+#' ## yarrr palettes: 
+#' # plot_pal(yarrr::piratepal(palette = "appletv"))
+#' # plot_pal(yarrr::piratepal(palette = "google"))
 #' 
 #' ## End(Not run)
 #'
@@ -547,9 +547,9 @@ seepal <- function(pal = "all",     # which palette to output?
 #'
 #' @import ggplot2
 #' @import grDevices 
+#' @import utils 
 #'
 #' @export
-
 
 # - Definition: ---- 
 
