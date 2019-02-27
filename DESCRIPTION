@@ -1,10 +1,11 @@
 Package: unikn
 Type: Package
 Title: Graphical Elements of the University of Konstanz's Corporate Design
-Version: 0.0.0.9008
-Date: 2018-02-24
-Authors@R: c(person("Hansjoerg", "Neth", role = c("aut", "cre"), email = "h.neth@uni.kn"))
-Author: Hansjoerg Neth [aut, cre]
+Version: 0.0.0.9009
+Date: 2018-02-27
+Authors@R: c(person("Hansjoerg", "Neth", role = c("aut", "cre"), email = "h.neth@uni.kn"), 
+             person("Nico", "Gradwohl", role = "aut"))
+Author: Hansjoerg Neth [aut, cre], Nico Gradwohl [aut] 
 Maintainer: Hansjoerg Neth <h.neth@uni.kn>
 Description: Provide graphical elements of the University of Konstanz's corporate design in R. We presently provide mostly support for color (pre-defined colors and color palettes, functions for creating and plotting new color palettes), but also provide functions for plotting boxes and styled text elements (colored titles, underlining, etc.). See https://www.uni-konstanz.de for details. 
 Depends:
@@ -23,6 +24,7 @@ Suggests:
 Collate: 'color_def.R'
          'color_definitions.R'
          'color_functions.R'
+         'plot_pal.R' 
          'plot_util.R'
          'plot_box.R'
          'plot_box_calls.R'
