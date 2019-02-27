@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 02 26
+## hn  |  uni.kn |  2019 02 27
 ## ---------------------------
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
@@ -50,6 +50,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
                       ## Plotting parameters:
                       # WAS: xbox = FALSE, slide = FALSE,  # flags for creating a new plot
                       new_plot = "none",  # Default: "none" (add to currently existing plot). Options: "xbox", "slide", "blank" (borderless slide)
+                      col_bg_plot = NA,   # Color of background of new plot: Defaults: "white" for blank/slide, Seeblau for xbox.
                       mar_all = NA,  # option to reset all mar values (in nr. of line units)
                       oma_all = NA,  # option to reset all oma values (in nr. of line units)
                       grid = FALSE,  # for debugging (to position objects)
@@ -112,18 +113,19 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   }
   
   # (c) Create a new plot (if desired or needed):  
+  
   if (new_plot == "xbox" || new_plot == "box") { # plot xbox:
     
     # message("Plotting desired xbox...") 
     
-    col_box <- unlist(seeblau)
-    xbox(col = col_box)    
+    if (is.na(col_bg_plot)) {col_box <- col_bg} else {col_box <- col_bg_plot} 
+    xbox(col = col_box)
     
   } else if (new_plot == "slide" || new_plot == "frame") {  # plot slide (or frame):
     
     # message("Plotting desired slide...") 
     
-    col_slide <- NA
+    if (is.na(col_bg_plot)) {col_slide <- NA} else {col_slide <- col_bg_plot} 
     col_slide_border <- grey(.33, 1)
     lwd_slide_border <- 1.0
     
@@ -133,7 +135,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
     
     # message("Plotting desired slide...") 
     
-    col_slide <- NA
+    if (is.na(col_bg_plot)) {col_slide <- NA} else {col_slide <- col_bg_plot} 
     col_slide_border <- NA
     lwd_slide_border <- 0
     
@@ -143,7 +145,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
     
     message("No existing plot: Plotting default slide...")  
     
-    col_slide <- NA
+    if (is.na(col_bg_plot)) {col_slide <- NA} else {col_slide <- col_bg_plot} 
     col_slide_border <- grey(.33, 1)
     lwd_slide_border <- 1.0
     
@@ -421,7 +423,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
     print(paste0("x_mid = ", x_mid))
     
     message("Step-wise titles are discouraged: Consider re-arranging?")
-
+    
   }
   
   ## Plot stuff: ------ 
@@ -634,7 +636,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #           mark = FALSE, grid = TRUE,
 #           mar_all = NA, oma_all = NA
 # )
- 
+
 # # # (b) slide with text and line: 
 # lbl_2 <- rep("l Eine durch zwei `l` begrenzte Zeile l", 6)
 # plot_text(lbls = lbl_2,
@@ -679,7 +681,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #  
 # plot_text(lbl = lbl_tst, new_plot = "xbox", y = .55, y_layout = c(.03, .15),
 #           cex = c(1.2, 1.0, 1.5, 1.2), font = c(2, 1, 2, 3), x = .02, pos = 4)
- 
+
 # # - Automatic vertical spacing of labels (in y-direction):
 # #   (see crucial test cases above)
 
