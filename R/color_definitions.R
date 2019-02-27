@@ -1,5 +1,5 @@
 ## color_definitions.R | unikn
-## hn |  uni.kn  |  2019 02 25
+## hn |  uni.kn  |  2019 02 27
 ## ---------------------------
 
 ## Define colors and color palettes. 

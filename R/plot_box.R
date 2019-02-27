@@ -422,7 +422,7 @@ plot_box_txt <- function(lbls = "",  # character vector of labels to place (as l
 # plot_box_txt(lbls = "ToDo", cex = 4, col_bg = unlist(pal_seeblau[5]))
 # plot_box_txt(lbls = "R", col_bg = pal_seeblau[[5]], cex = 10, lbl_y = .7)
 #
-## Box with address/contact details:
+# ## Box with address/contact details:
 # plot_box_txt(lbls = c("Dr. B. F. Skinner", " ",
 #                       "Department of Psychology",
 #                       "Office F101",
