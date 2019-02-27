@@ -338,9 +338,6 @@ seepal <- function(pal = "all",  # which palette to output?
       
       # 2.2 Detail view: ------------
 
-        
-        # TODO: Convert palette to rgb if necessary! 
-        
         # NOTE: Only necessary as long palettes are lists!
         pal_tmp <- unlist(pal_tmp)  # TODO: This essentially changes the length of the color vector.  FInd better solution!
         
@@ -408,6 +405,8 @@ seepal <- function(pal = "all",  # which palette to output?
                  ...)
         # Plot circles:
         # TODO: Dynamically determine xlen:
+        xlim[2] / max_num[1]
+        
         plot_col(x = pal_tmp, ypos = 1.2, plot.new = FALSE, xlen = 0.5, shape = "circle",
                  ...)
         
@@ -428,6 +427,7 @@ seepal <- function(pal = "all",  # which palette to output?
             pal_tmp <- rgb(t(col2rgb(pal_tmp)), maxColorValue = 255)
             }
           
+          ## Plot the values:
           text(x = -0.1, y = -0.3, labels = "Hex", font = 2, pos = 3, xpd = TRUE, cex = cex_hex)
           text(x = txt_pos, y = -0.3, labels = pal_tmp, pos = 3, xpd = TRUE,
                cex = cex_hex)
@@ -482,6 +482,7 @@ seepal(pal = pal_petrol, n = 8)
 rmp <- colorRampPalette(c(pal_seeblau, "white", pal_grau, pal_peach))
 
 seepal(rmp(0.5))
+seepal(c("black", "yellow", "green"))
 
 ## Original function using ggplot: --------------------------
 
