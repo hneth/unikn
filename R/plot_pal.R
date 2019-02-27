@@ -144,11 +144,8 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
 
 
 
-
-
-
 ## see_pal should work like the following: ------------
-yarrr::piratepal()
+# yarrr::piratepal()
 
 
 ## Helper function to detect hex-colors:
@@ -432,18 +429,20 @@ b
 
 c <- seepal(pal = pal_Bordeaux, hex = TRUE)
 
-seepal(pal = "seblau")  # raise error. 
+seepal(pal = "seblau")  # raise error.
 
 gradient <- col_scale(c(pal_seeblau, "white", pal_grau, pal_peach))
 
 seepal(gradient(100))
 
-seepal(pal = "all", n = 9)  # return a subset of colors. 
+seepal(pal = "all", n = 9)  # return a subset of colors.
 seepal(pal = pal_petrol, n = 8)
 
 # TODO: Function to select colors differently!
 
+rmp <- colorRampPalette(c(pal_seeblau, "white", pal_grau, pal_peach))
 
+seepal(rmp(0.5))
 
 ## Original function using ggplot: --------------------------
 
