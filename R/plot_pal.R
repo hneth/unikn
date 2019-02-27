@@ -467,31 +467,31 @@ seepal <- function(pal = "all",  # which palette to output?
 }
 
 
-## A few examples: 
+## A few examples: ---------------
 ## Currently to be commented out for building (probably no palettes loaded before the function is executed):
-a <- seepal(pal = "all")  # return all palettes.
-a
-
-b <- seepal(pal = pal_unikn_pair)  # return one long palette (hex not displayed by default.)
-seepal(pal = pal_unikn_pair, hex = TRUE)  # display hex independent of fontsize.
-
-c <- seepal(pal = pal_Bordeaux, hex = TRUE)
-
-seepal(pal = "seblau")  # raise error.
-
-gradient <- col_scale(c(pal_seeblau, "white", pal_grau, pal_peach))
-
-seepal(gradient(100))
-
-seepal(pal = "all", n = 2)  # return a subset of colors.
-seepal(pal = pal_petrol, n = 5)
-
-# TODO: Function to select colors differently!
-
-rmp <- colorRampPalette(c(pal_seeblau, "white", pal_grau, pal_peach))
-
-seepal(rmp(0.5))
-seepal(c("black", "yellow", "green"))
+# a <- seepal(pal = "all")  # return all palettes.
+# a
+# 
+# b <- seepal(pal = pal_unikn_pair)  # return one long palette (hex not displayed by default.)
+# seepal(pal = pal_unikn_pair, hex = TRUE)  # display hex independent of fontsize.
+# 
+# c <- seepal(pal = pal_Bordeaux, hex = TRUE)
+# 
+# seepal(pal = "seblau")  # raise error.
+# 
+# gradient <- col_scale(c(pal_seeblau, "white", pal_grau, pal_peach))
+# 
+# seepal(gradient(100))
+# 
+# seepal(pal = "all", n = 2)  # return a subset of colors.
+# seepal(pal = pal_petrol, n = 5)
+# 
+# # TODO: Function to select colors differently!
+# 
+# rmp <- colorRampPalette(c(pal_seeblau, "white", pal_grau, pal_peach))
+# 
+# seepal(rmp(0.5))
+# seepal(c("black", "yellow", "green"))
 
 ## Original function using ggplot: --------------------------
 
