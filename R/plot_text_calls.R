@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 02 27
+## hn  |  uni.kn |  2019 02 28
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -263,11 +263,11 @@ post <- function(lbls,               # labels of text element(s)
 #      y = .55, y_layout = .03,
 #      new_plot = "none")
 
-# +++ here now +++ 
+
 
 # (4) head: Arrange headings (according to title specifications): ------ 
 
-
+# +++ here now +++ 
 
 
 ## Test: Testbed for code snippets (used above) ------

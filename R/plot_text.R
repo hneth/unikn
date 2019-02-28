@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 02 27
+## hn  |  uni.kn |  2019 02 28
 ## ---------------------------
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
@@ -277,11 +277,11 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   y_bot <- NA
   y_top <- NA
   
-  plot_dim <- par("usr")  # actual dimensions (of current plot)
+  plot_dim <- par("usr")  # actual dimensions (of current plot): 4 values: x_min, x_max, y_min, y_max. 
   # print(paste0("Current plot_dim = ", plot_dim))  # 4debugging  
   
-  y_top <- min(par("usr")[4], y[1])  # Min of highest possible y value (of current plot) and 1st actual y coordinate (of lbls)
-  y_bot <- min(par("usr")[3], y[1])  # Min of  lowest possible y value (of current plot) and 1st actual y coordinate (of lbls)
+  y_top <- min(plot_dim[4], y[1])  # Min of highest possible y value (of current plot) and 1st actual y coordinate (of lbls)
+  y_bot <- min(plot_dim[3], y[1])  # Min of  lowest possible y value (of current plot) and 1st actual y coordinate (of lbls)
   y_bot_blank_space <- .10  # proportion of required blank space at bottom (in % of available y_range/y_top)
   y_bot <- (y_bot_blank_space * abs(y_top - y_bot))  # lowest actual y coordinate tolerated
   # print(paste0("y_bot = ", y_bot))  # 4debugging
@@ -414,8 +414,8 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   
   # Midpoints of text(s): ---- 
   
-  x_mid <- x + (.5 - adj[1]) * text_width  + offset_vec[1]
-  y_mid <- y + (.5 - adj[2]) * text_height + offset_vec[2]
+  x_mid <- x + ((.5 - adj[1]) * text_width)  + offset_vec[1]
+  y_mid <- y + ((.5 - adj[2]) * text_height) + offset_vec[2]
   
   # Check for step-function: ---- 
   if (mark && (length(x_mid) > 2) && monotonic(x_mid)) {
@@ -453,6 +453,17 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
                    lwd     = lwd_bg#,
                    # xpd = TRUE  # draw beyond border
     )
+    
+    # # Report values beyond current plot dimensions: ----
+    # if ( any((x_mid - rect_width/2) < plot_dim[1]) ||
+    #      any((x_mid + rect_width/2) > plot_dim[2]) ) {
+    #   message("Some x values are beyond current plot dimensions.")
+    # }
+    # 
+    # if ( any((y_mid - rect_height/2) < plot_dim[3]) ||
+    #      any((y_mid + rect_height/2) > plot_dim[4]) ) {
+    #   message("Some y values are beyond current plot dimensions.")
+    # }
     
   } # if (mark) etc.
   
@@ -500,9 +511,21 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
                    col = col, 
                    cex = cur_cex, font = font, 
                    # pos = pos,      # pos was used above (to compute x and y)
-                   adj = c(.5, .5),  # always center (as x and y are computed as mid points above) 
+                   adj = c(.5, .5),  # always center (as x and y are computed as mid points above)
+                   # xpd = TRUE, 
                    ...  # etc. arguments, passed to text()
     )
+    
+    # Report values beyond current plot dimensions: ----
+    if ( any((x_mid - text_width/2) < plot_dim[1]) ||
+         any((x_mid + text_width/2) > plot_dim[2]) ) {
+      message("Some x values are beyond current plot dimensions.")
+    }
+
+    if ( any((y_mid - text_width/2) < plot_dim[3]) ||
+         any((y_mid + text_width/2) > plot_dim[4]) ) {
+      message("Some y values are beyond current plot dimensions.")
+    }
     
   } # if (txt) etc.
   
@@ -570,12 +593,12 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 
 # lbl_hl1 <- c("Ich bin", "eine", "Headline.")
 # plot_text(lbls = lbl_hl1,
-#           x = 0, y = .80, y_layout = "flush",
+#           x = 0, y = .8, y_layout = "flush",
 #           col_bg = c(pal_seeblau[[1]], pal_seeblau[[3]], pal_seeblau[[4]]),
 #           cex = 2.5, pos = 4,
 #           mark = TRUE,
 #           new_plot = "blank")
-# 
+
 # lbl_hl2 <- c("Ich", "bin keine", "gute Headline.")
 # plot_text(lbls = lbl_hl2,
 #           x = 0, y = .80, y_layout = "flush",
@@ -690,30 +713,20 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 # plot_text(lbls = "This is a test", x = .20, col = "black", new_plot = "blank", srt = 45, mark = T)
 # plot_text(lbls = "This is a test", x = .60, col = "black", new_plot = "none", srt = -45, line = T)
 
-
-## ToDo: ##  
-# - allow setting consistent mar and oma values for key plotting inputs
-# - distinguish b/w and allow 2 padding versions: default (by "l", as per CD Manual) vs. numeric user-input-based
-# - mark: Shift x values (of each individual label) by size of its left padding (so that boxes align on left).
-# - all: Allow automatic spacing: Use only y[1] and then space y-values by text or rect heights (to align boxes).
-# - Treat "flush" layout as special case of numeric layout (as y_layout = 0).
-# - mark: Warn in case of monotonic step functions. 
-
 #   +++ here now +++
 
-# - Add warning(s) when text falls beyond xlim (of box/slide) on left or right
-# - adjust "flush" layout for line distance (in case of line = TRUE). [not needed, as y_layout can increase distance (for constant cex)]
-
-
+## More tests:
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
 # 
-# ## Multiple font values:
-# plot_text(x = 0, y = c(.4, .2), lbls = c("m", "m"), font = c(1, 2), col_bg = "green2")  
-# # => seems to work (but fonts do not seem to suffer in size?)
-#
 # ## Multiple cex values:
-# plot_text(x = 0, y = c(.8, .6), lbls = c("m", "m"), cex = c(1, 5), col_bg = "red1")     
-# # => FAILS to work: ERROR: changing font size with cex is not supported!!!
+# plot_text(lbls = c("m", "m"), x = 0, y = .8, cex = c(1, 5), 
+#           col_bg = "red1", mark = TRUE)
+# # =>  works (i.e., different cex sizes are supported)
+
+# ## Multiple font values:
+# plot_text(lbls = c("m", "m"), x = 0, y = c(.4, .2), font = c(2, 1),
+#           col_bg = "gold", mark = TRUE)
+# # => seems to FAIL (and fonts do not seem to differ in size?)
 
 
 ## Example 0: Plot box
@@ -1020,6 +1033,18 @@ box_text <- function(x, y, lbls = NA,             # coordinates and labels of te
 # char_widths
 
 
+
+
+## Done: ------
+
+# - allow setting consistent mar and oma values for key plotting inputs
+# - distinguish b/w and allow 2 padding versions: default (by "l", as per CD Manual) vs. numeric user-input-based
+# - mark: Shift x values (of each individual label) by size of its left padding (so that boxes align on left).
+# - all: Allow automatic spacing: Use only y[1] and then space y-values by text or rect heights (to align boxes).
+# - Treat "flush" layout as special case of numeric layout (as y_layout = 0).
+# - mark: Warn in case of monotonic step functions. 
+# - Add warning(s) when text falls beyond xlim (of box/slide) on left or right. 
+# - adjust "flush" layout for line distance (in case of line = TRUE). [not needed, as y_layout can increase distance (for constant cex)]
 
 ## ToDo: ------
 
