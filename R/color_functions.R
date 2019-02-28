@@ -1,5 +1,5 @@
 ## color_functions.R  |  unikn
-## hn  |  uni.kn |  2019 02 24
+## hn  |  uni.kn |  2019 02 28
 ## ---------------------------
 
 ## Define color-related functions 
@@ -114,14 +114,19 @@ pal_which <- function(which = "all", pal = pal_unikn){
 
 pal_n <- function(n = "all", pal = pal_unikn){
   
-  # handle inputs:
+  # Handle inputs:
   stopifnot(length(pal) > 0)
   
   if (is.character(n) && tolower(n) == "all") { n <- length(pal) }
   stopifnot(is.numeric(n))
   stopifnot(n > 0)
   
+  pal_name <- deparse(substitute(pal)) # name of pal (as df)
+  
+  # n > colors in pal: 
   if (n > length(pal)){  # n exceeds numbers of available colors in pal: 
+    
+    # ToDo: Extend/stretch pal to n colors? 
     
     # Special case: Switch to longer pal_unikn_plus when (pal == pal_unikn): 
     if (isTRUE(all.equal(pal, pal_unikn))) { 
@@ -138,11 +143,13 @@ pal_n <- function(n = "all", pal = pal_unikn){
       
     }
     
-  }
+  } # if (n > length(pal)) etc.
   
   out <- NA    # initialize
   
-  # Select colors based on current pal and n: 
+  ## Select colors based on current pal and n: ------ 
+  
+  # print(paste0("pal_n: pal_name = ", pal_name))  # 4debugging
   
   # (A) Basic color palettes: 
   if (isTRUE(all.equal(pal, pal_unikn))) {  # (1) pal == pal_unikn:
@@ -279,7 +286,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
     
   } else {  # (+) any other pal:
     
-    message("Unknown pal: Returning the first n colors:")
+    message(paste0("Unknown pal '", pal_name, "': Returning the first n colors."))
     
     out <- pal_which(which = 1:n, pal = pal)  # first n colors of pal
     
@@ -463,7 +470,7 @@ plot_pal <- function(pal = pal_unikn) {
   # if pal contained no names:  
   if (is.null(name)) {name <- paste0("[", 1:length(pal), "]")}
   
-  pal_name <- deparse(substitute(pal)) # gets name of df
+  pal_name <- deparse(substitute(pal)) # name of pal (as df)
   
   df <- data.frame(n = n, name = name)
   
