@@ -7,7 +7,7 @@
 # Cleaner version of color_definitions.R, with fewer components and exports:
 # (1) official color palettes: NOT exported, but accessed via "seecol" user-interface function. 
 # (2) official preferred colors: Capitalized and exported (for convenient access).  
-# (+) Additional color palettes (unikn_plus/_pref/_light/_dark/_pair): Move to a separate/later file. 
+# (3) Additional color palettes (unikn_plus/_pref/_light/_dark/_pair): Move to a separate/later file. 
 
 ## ToDo: ------
 
