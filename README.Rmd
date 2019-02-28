@@ -148,10 +148,10 @@ Additional pre-defined color palettes include:
 
 ```{r pal_unikn_more, eval = FALSE}
 # Plot additional color palettes: ----- 
-plot_pal(pal_unikn_pref)   # palette of  9 preferred colors
-plot_pal(pal_unikn_light)  # palette of  8 light colors (in 4 pairs)
-plot_pal(pal_unikn_dark)   # palette of  8 dark colors (in 4 pairs)
-plot_pal(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
+seepal(pal_unikn_pref)   # palette of  9 preferred colors
+seepal(pal_unikn_light)  # palette of  8 light colors (in 4 pairs)
+seepal(pal_unikn_dark)   # palette of  8 dark colors (in 4 pairs)
+seepal(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
 ```
 
 More flexible and complex color palettes can be created by using the `col_scale()` function. 
@@ -164,7 +164,8 @@ The `plot_pal()` function provides a quick overview over the contents of a color
 
 ```{r plot_pal, eval = FALSE}
 # Plot a color palette: ----- 
-plot_pal(pal_unikn_pref)
+seepal(pal_unikn_pref)
+# plot_pal(pal_unikn_pref)  # OLDER
 ```
 
 <img src = "./inst/pix/README-plot_pal-1.png" align = "center" alt = "pal_unikn_pref" style = "border:10;"/>
@@ -284,8 +285,8 @@ barplot(1/sqrt(1:11),  col = seepal(pal_unikn_plus))
 barplot(1/sqrt(10:25), col = seepal(pal_unikn_pair))
 
 # Using n colors of a palette:
-barplot(1/sqrt(1:5), col = seepal(pal_n(n = 4, pal = pal_unikn)))
-barplot(1/sqrt(1:5), col = seepal(pal_unikn))  # pal_n does not recognize name (without "pal_")
+barplot(1/sqrt(1:5), col = seepal(pal_unikn, n = 5)) 
+# barplot(1/sqrt(1:5), col = seepal(pal_n(n = 5, pal = pal_unikn)))  # OLD
 
 # Scatterplot:
 plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = 1))   # 0 transparency
