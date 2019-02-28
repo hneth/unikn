@@ -60,6 +60,7 @@ pal_unikn  # 10 default colors (web/sRGB)
 
 # Plot color palette: ----- 
 plot_pal(pal_unikn)
+seepal(pal_unikn)
 ```
 
 <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/>
@@ -76,6 +77,7 @@ pal_unikn_plus  # 11 colors (white in middle)
 
 # Plot color palette: ----- 
 plot_pal(pal_unikn_plus)
+seepal(pal_unikn_plus)
 ```
 
 <img src = "./inst/pix/README-pal_unikn_plus-1.png" align = "center" alt = "pal_unikn_plus" style = "border:10;"/>
@@ -85,6 +87,9 @@ plot_pal(pal_unikn_plus)
 The following dedicated color palettes are defined in an Excel file on [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) and provided here by the following color palettes:
 
 ``` r
+# All palettes:
+seepal("all")
+
 # 8 mono-tone palettes: ----- 
 # Name:          Nr:           Tone:          
 pal_seeblau      # 5 shades of seeblau
@@ -251,11 +256,12 @@ Examples for using color palettes in graphs:
 
 ``` r
 # Using color palettes:
-barplot(1/sqrt(1:11),  col = unlist(pal_unikn_plus))
-barplot(1/sqrt(10:25), col = unlist(pal_unikn_pair))
+barplot(1/sqrt(1:11),  col = seepal(pal_unikn_plus))
+barplot(1/sqrt(10:25), col = seepal(pal_unikn_pair))
 
 # Using n colors of a palette:
-barplot(1/sqrt(1:4), col = as.character(pal_n(n = 5, pal = pal_seegruen)))
+barplot(1/sqrt(1:5), col = seepal(pal_n(n = 4, pal = pal_unikn)))
+barplot(1/sqrt(1:5), col = seepal(pal_unikn))  # pal_n does not recognize name (without "pal_")
 
 # Scatterplot:
 plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = 1))   # 0 transparency
@@ -269,12 +275,12 @@ Visualizing data with `image`:
 set.seed(1)
 n <- 20
 m <- matrix(rnorm(n*n), ncol = n, nrow = n)
-image(m, col = unlist(pal_seeblau))
-image(m, col = unlist(pal_peach))
-image(m, col = unlist(pal_seegruen))
-image(m, col = unlist(pal_petrol))
-image(m, col = unlist(pal_pinky))
-image(m, col = unlist(pal_Bordeaux))
+image(m, col = seepal(pal_seeblau))
+image(m, col = seepal(pal_peach))
+image(m, col = seepal(pal_seegruen))
+image(m, col = seepal(pal_petrol))
+image(m, col = seepal(pal_pinky))
+image(m, col = seepal(pal_bordeaux))
 
 # Geometric images:
 x <- y <- seq(-4 * pi, 4 * pi, len = 30)
@@ -297,7 +303,15 @@ image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, rev(pal_pe
 Text
 ----
 
-Like all other templates, our renderings are subject to constraints and limitations. As a standard installation of R lacks the official "Theinhardt" fonts, we can only mimic the design specifications (in Arial, sans serif). Nevertheless, the `unikn` package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line titles) and can be customized and improved by expert users. Overall, we hope that the following functions will be useful for plotting graphical elements (e.g., boxes, logos, etc.) and achieving a uniform look when styling visualizations.
+`unikn` also provides some functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining).
+
+Some important caveats:
+
+-   Plotting text (i.e., graphically rendering characters) is rarely a good idea. It typically doesn't scale (when changing the size of images) and cannot be recognized automatically (e.g., copied, indexed, or scraped). Hence, the following functions should only be used in contexts in which no better solutions are available or practical (e.g., when specifically creating images, or needing to add text to graphs).
+
+-   Like all other templates, our renderings are subject to constraints and limitations. As a standard installation of R lacks the official "Theinhardt" fonts, we can only mimic the design specifications (in Arial, sans serif). Nevertheless, the `unikn` package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line titles) and can be customized and improved by expert users.
+
+Overall, we hope that the following functions will be useful for plotting graphical elements (e.g., boxes, logos, etc.) and achieving a uniform look when styling visualizations.
 
 ### ToDo <img src = "./inst/pix/todo.png" alt = "ToDo" align = "right" width = "120px" style = "width: 120px; float: right; border:10;"/>
 
@@ -376,7 +390,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-02-22 by [hn](https://neth.de).\]
+\[Updated 2019-02-28 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 
