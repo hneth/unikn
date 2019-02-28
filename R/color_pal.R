@@ -189,6 +189,7 @@ seepal <- function(pal = "all",     # which palette to output?
   stopifnot(len_pal > 0)  # stop if no palette is specified. 
   
   pal_tmp <- pal  # specify temporary palette for processing (to retain input). 
+  pal_name <- deparse(substitute(pal)) # name of pal (as df)
   
   ## 1.2 Check, whether palette is of length 1 (single color or all): 
   if ( len_pal == 1 ) {
@@ -498,6 +499,58 @@ seepal <- function(pal = "all",     # which palette to output?
 
 # - Check: ------- 
 
+## (a) Multiple palettes: ---- 
+
+# seepal("all")
+
+## Return a subset of colors:
+# seepal(pal = "all", n = 2)  
+
+## Critical calls: 
+# seepal("all", n =  4)  # works, but many messages
+# seepal("all", n = 12)  # works, but even more messages
+
+## 2 palettes: 
+# seepal(c(pal_unikn_light, pal_unikn_dark))
+
+# ToDo: 
+# - group in 2 sets: "unikn" vs. "others"
+# - allow grep for name components (e.g., "see", or "unikn")
+# - allow grep for palette properties (e.g., > 5 colors)
+# - default/random palette?
+
+## (b) 1 palette: ---- 
+
+# seepal(pal_unikn)
+# seepal(pal_unikn_plus, hex = TRUE)
+
+## seepal(pal = "seblau")  # raise error.
+
+## Return a subset of colors:
+# seepal(pal = pal_petrol, n = 3)
+# seepal(pal = pal_unikn_light, n = 3)
+
+## Critical calls:
+# seepal(pal_unikn, n =  4)  # works (4 selected)
+# seepal(pal_unikn, n = 20)  # fails (max n = 11 of pal_unikn_plus selected)
+
+# seepal(pal_bordeaux, n =  3)  # works (3 selected)
+# seepal(pal_bordeaux, n = 10)  # fails (max n = 5 returned)
+
+# seepal(pal_unikn_light, n = 3)   # mostly works (first 3 chosen)
+# seepal(pal_unikn_light, n = 10)  # mostly fails (max n = 10 returned)
+
+
+## (c) Creating new palettes: ---- 
+
+## Color gradients: 
+# gradient <- col_scale(c(rev(pal_seeblau), "white", pal_peach))
+# seepal(gradient(50))
+
+## ToDo: 2 main cases: 
+# - n < available colors in palettes: Select some from available colors (rather than generating new ones)
+# - n > available colors in palettes: Extend/stretch color palettes (rather than individual colors)
+
 ## Currently to be commented out for building (probably no palettes loaded before the function is executed):
 # a <- seepal(pal = "all")  # return all palettes.
 # a
@@ -508,16 +561,9 @@ seepal <- function(pal = "all",     # which palette to output?
 
 # c <- seepal(pal = pal_bordeaux, hex = TRUE)
 
-# seepal(pal = "seblau")  # raise error.
-
-# gradient <- col_scale(c(pal_seeblau, "white", pal_grau, pal_peach))
-# seepal(gradient(100))
-
-# seepal(pal = "all", n = 2)  # return a subset of colors.
-# seepal(pal = pal_petrol, n = 5)
 
 ## TODO: Function to select colors differently!
-# 
+ 
 # rmp <- colorRampPalette(c(pal_seeblau, "white", pal_grau, pal_peach))
 
 # seepal(rmp(.5))
