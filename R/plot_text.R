@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 02 28
+## hn  |  uni.kn |  2019 03 01
 ## ---------------------------
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
@@ -27,12 +27,12 @@
 
 plot_text <- function(lbls = NA,          # labels of text element(s) 
                       x = 0, y = .55,     # coordinates of text lbls 
-                      
                       y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
                       
                       # Text parameters:
-                      col = NA,                            # col of text lbls 
-                      cex = 1.5, font = 2,                 # text size and font type 
+                      col = NA,      # col of text lbls 
+                      cex = 1.5,     # text size(s), recycled or truncated to length of lbls
+                      font = 2,      # font type(s), recycled or truncated to length of lbls
                       adj = NULL, pos = NULL, offset = 0,  # text position   
                       padding = NA,  # set padding (around text, in marking) # padding = NA (default padding) OR: 2 numeric values = c(.5, .5), 
                       
@@ -72,6 +72,46 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   
   # cex value(s): 
   cur_cex <- (cex * graphics::par('cex'))  # character expansion factor(s) to use
+  
+  # cex: Truncate or recycle cur_cex: ----  
+  
+  if (N_lbls != length(cur_cex)){   
+    
+    l_cex <- length(cur_cex)
+    
+    if (l_cex > N_lbls){ # truncate cur_cex to a length of N_lbls: 
+      
+      cur_cex <- cur_cex[1:N_lbls]
+      
+    } else { # recycle cur_cex to a length of N_lbls: 
+      
+      cur_cex <- rep(cur_cex, ceiling(N_lbls/l_cex))[1:N_lbls]
+      
+    }
+    
+    # print(paste0("cur_cex = ", cur_cex))  # 4debugging
+    
+  }
+  
+  # font: Truncate or recycle font: ----  
+  
+  if (N_lbls != length(font)){   
+    
+    l_font <- length(font)
+    
+    if (l_font > N_lbls){ # truncate font to a length of N_lbls: 
+      
+      font <- font[1:N_lbls]
+      
+    } else { # recycle font to a length of N_lbls: 
+      
+      font <- rep(font, ceiling(N_lbls/l_font))[1:N_lbls]
+      
+    }
+    
+    # print(paste0("font = ", font))  # 4debugging
+    
+  }
   
   # Set sensible defaults (for robustness):
   
@@ -337,7 +377,6 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
     }
   }
   
-  
   # pos values: ---- 
   
   if (!is.null(pos)){
@@ -517,14 +556,18 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
     )
     
     # Report values beyond current plot dimensions: ----
-    if ( any((x_mid - text_width/2) < plot_dim[1]) ||
-         any((x_mid + text_width/2) > plot_dim[2]) ) {
-      message("Some x values are beyond current plot dimensions.")
+    
+    # print(paste0("x_mid = ", x_mid))  # 4debugging
+    # print(paste0("text_width = ", text_width))
+    
+    if ( (min(x_mid - text_width/2) < plot_dim[1]) ||
+         (max(x_mid + text_width/2) > plot_dim[2]) ) {
+      message("Some x-values are beyond current plot dimensions.")
     }
 
-    if ( any((y_mid - text_width/2) < plot_dim[3]) ||
-         any((y_mid + text_width/2) > plot_dim[4]) ) {
-      message("Some y values are beyond current plot dimensions.")
+    if ( (min(y_mid - text_width/2) < plot_dim[3]) ||
+         (max(y_mid + text_width/2) > plot_dim[4]) ) {
+      message("Some y-values are beyond current plot dimensions.")
     }
     
   } # if (txt) etc.
@@ -699,35 +742,38 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 # # - Mixing sizes (cex) and fonts:
 # lbl_tst <- rep("Variable Grösse und Schrift", 4)
 # plot_text(lbl = lbl_tst, new_plot = "slide", y = .85, y_layout = c(.0, .15),
-#           cex = c(1.2, .8, 1.8, 1.5), font = c(2, 1, 4, 3), x = .05, pos = 4, 
+#           cex = c(1.2, .8, 1.8, 1.5), font = c(2, 1, 4, 3), x = .05, pos = 4,
 #           mark = TRUE, col_bg = c(pal_seeblau[[2]], pal_seeblau[[3]]))
-#  
-# plot_text(lbl = lbl_tst, new_plot = "xbox", y = .55, y_layout = c(.03, .15),
-#           cex = c(1.2, 1.0, 1.5, 1.2), font = c(2, 1, 2, 3), x = .02, pos = 4)
+# #  
+# plot_text(lbl = lbl_tst, new_plot = "xbox", col_bg = Seeblau, 
+#           x = .02, y = .55, y_layout = c(.03, .15),
+#           cex = c(1.2, 1.0, 1.5, 1.2), font = c(2, 1, 2, 3), pos = 4)
 
 # # - Automatic vertical spacing of labels (in y-direction):
 # #   (see crucial test cases above)
 
-# # What fails: 
-# # - Rotation of lbls is not supported:
-# plot_text(lbls = "This is a test", x = .20, col = "black", new_plot = "blank", srt = 45, mark = T)
-# plot_text(lbls = "This is a test", x = .60, col = "black", new_plot = "none", srt = -45, line = T)
-
 #   +++ here now +++
 
-## More tests:
+# ## What works:
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
 # 
 # ## Multiple cex values:
-# plot_text(lbls = c("m", "m"), x = 0, y = .8, cex = c(1, 5), 
+# plot_text(lbls = c("m", "m"), x = 0, y = .8, cex = c(1, 5),
 #           col_bg = "red1", mark = TRUE)
-# # =>  works (i.e., different cex sizes are supported)
+# =>  works (i.e., different cex sizes are supported)
 
 # ## Multiple font values:
-# plot_text(lbls = c("m", "m"), x = 0, y = c(.4, .2), font = c(2, 1),
-#           col_bg = "gold", mark = TRUE)
-# # => seems to FAIL (and fonts do not seem to differ in size?)
+# plot_text(lbls = rep("m", 4), x = 0, y = .9, y_layout = "flush",  
+#           cex = 5, font = c(2, 1), pos = 4, 
+#           col_bg = "gold", mark = TRUE, new_plot = "slide")
+# => works (i.e., different font sizes are supported)
 
+# # What fails: 
+# # - Rotation of lbls is not supported:
+# plot_text(lbls = "This is a test", x = .20, col = "black", 
+#           new_plot = "blank", srt = 45, mark = TRUE)
+# plot_text(lbls = "This is a test", x = .60, col = "black", 
+#           new_plot = "none", srt = -45, line = TRUE)
 
 ## Example 0: Plot box
 
