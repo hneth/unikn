@@ -174,7 +174,7 @@ The `col_scale()` function provides color gradients based on given colors or col
 # Extending color palettes: ----- 
 plot_pal(col_scale()(20))
 plot_pal(col_scale(pal_seeblau)(10))
-plot_pal(col_scale(pal_Bordeaux)(10))
+plot_pal(col_scale(pal_bordeaux)(10))
 ```
 
 <img src = "./inst/pix/README-col_scale_1-1.png" align = "center" alt = "col_scale" style = "border:10;"/>
@@ -189,10 +189,10 @@ New color palettes of arbitrary length can be created by combining colors (from 
 
 ``` r
 # Combining colors: ----- 
-plot_pal(col_scale(c(seeblau, "white", pinky))(10)) 
-plot_pal(col_scale(c(signal, petrol))(10))  
-plot_pal(col_scale(c(Bordeaux, "white", petrol))(10)) 
-plot_pal(col_scale(c(karpfenblau, seeblau, "gold"))(10)) 
+plot_pal(col_scale(c(Seeblau, "white", Pinky))(10)) 
+plot_pal(col_scale(c(Signal, Petrol))(10))  
+plot_pal(col_scale(c(Bordeaux, "white", Petrol))(10)) 
+plot_pal(col_scale(c(Karpfenblau, Seeblau, "gold"))(10)) 
 ```
 
 <img src = "./inst/pix/README-col_scale_2-1.png" align = "center" alt = "col_scale: seeblau white pinky" style = "border:10;"/>
@@ -207,8 +207,10 @@ For best results, consider combining existing color palettes and individual colo
 
 ``` r
 # Combining color palettes (and colors): ----- 
+plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_peach))(11))
 plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
 plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
+plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_seegruen))(11))
 plot_pal(col_scale(c(rev(pal_petrol),  "white", pal_Bordeaux))(11))
 ```
 
@@ -233,7 +235,7 @@ typeof(unlist(pal_unikn)) # "character"
 unlist(pal_unikn)["seeblau3"]  # call by name
 unlist(pal_unikn)[2]  # call by index
 
-barplot(rep(6:3, 4), col = colorRampPalette(pal_unikn_plus)(5))
+barplot(rep(6:3, 4), col = colorRampPalette(pal_unikn_plus)(7))
 ```
 
 ### ToDo <img src = "./inst/pix/todo.png" alt = "ToDo" align = "right" width = "120px" style = "width: 120px; float: right; border:10;"/>
@@ -326,6 +328,13 @@ For `mark` and `line`: Versions that allow to arrange multiple character strings
 
 -   `head` for arranging headings (sensible defaults, warn in case of step functions)
 
+``` r
+post(lbls = c("Please note", "Something important here."), y = .5, y_layout = .05, cex = c(1.5, 1.2), font = c(2, 1))
+mark(lbls = "Highlighting text is simple.", new_plot = "slide")
+line(lbls = c("veni", "vidi", "vici"), y = .8, y_layout = .1, cex = 2, font = 2, new_plot = "blank")
+head(lbls = c("Dies", "ist eine tolle", "Headline."), cex = 4)
+```
+
 <!-- Demo of text functions: -->
 ### Examples
 
@@ -391,7 +400,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-02-28 by [hn](https://neth.de).\]
+\[Updated 2019-03-01 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 
