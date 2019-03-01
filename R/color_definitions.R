@@ -839,7 +839,7 @@ karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfe
 Karpfenblau <- pal_karpfenblau[[4]]  # HEX color value of karpfenblau.4 of pal_karpfenblau 
 
 ## Check:
-Karpfenblau  #  "#3E5496"
+# Karpfenblau  #  "#3E5496"
 
 #  (7) pinky: -----
 

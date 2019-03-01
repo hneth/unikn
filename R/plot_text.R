@@ -701,7 +701,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #           col_bg = c(unlist(seeblau), "gold"), lwd_bg = NA,
 #           pos = NULL, adj = c(0, .5),  offset = 999,
 #           # pos = 4, adj = c(1, 1), offset = 0,
-#           new_plot = "xbox", 
+#           new_plot = "xbox",
 #           mark = FALSE, grid = TRUE,
 #           mar_all = NA, oma_all = NA
 # )
@@ -721,7 +721,8 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #           padding = 1, # OR: c(.5, .5),
 #           new_plot = "blank",
 #           line = TRUE,
-#           grid = TRUE, mar_all = NA, oma_all = NA)
+#           grid = TRUE, mar_all = NA, oma_all = NA
+# )
 
 # # (c) slide with text and mark:
 # lbl_3 <- rep("In Schrift und Grösse variable Zeilen", 6)

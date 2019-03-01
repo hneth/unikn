@@ -137,7 +137,7 @@ mark <- function(lbls,               # labels of text element(s)
 #      lbls = c("Note something here", "More highlighting here"),
 #      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
 
-# ## Example 3: Create a new plot vs. mark on existing plot:
+# # ## Example 3: Create a new plot vs. mark on existing plot:
 # lbl_mark <- c("                                                ",
 #               "                                      ",
 #               "                                                      ",
@@ -192,14 +192,14 @@ line <- function(lbls,               # labels of text element(s)
 ## Check: 
 
 # lbl_line <- c("Das ist korrekt, wahr und wahnsinnig wichtig.")
-# line(lbls = lbl_line, 
-#      x = 0, y = .90, cex = 1.5, font = 1,  
+# line(lbls = lbl_line,
+#      x = 0, y = .90, cex = 1.5, font = 1,
 #      new_plot = "blank")
-# line(lbls = "(und wird daher unterstrichen)", 
+# line(lbls = "(und wird daher unterstrichen)",
 #      x = 0, y = .80, cex = 1.5, font = 1)
 # 
 # slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
-# line(lbls = slogan, 
+# line(lbls = slogan,
 #      x = 0, y = .88, y_layout = "even",
 #      col = "black", col_bg = Seeblau,
 #      cex = 1.1, font = 2,
@@ -235,19 +235,19 @@ post <- function(lbls,               # labels of text element(s)
 
 ## Check:
 
-# post(lbls = "Calling post() with default settings") 
-
-# post(lbls = "This is a test", 
-#      cex = 1.1, font = 2, 
+# post(lbls = "Calling post() with default settings")
+# 
+# post(lbls = "This is a test",
+#      cex = 1.1, font = 2,
 #      col_bg = pal_seeblau[[5]])
 # 
-# post(lbls = c("More text follows here,", 
-#               "yet another line here,", 
-#               "and even more here."), 
-#      y = .4, y_layout = .04, 
+# post(lbls = c("More text follows here,",
+#               "yet another line here,",
+#               "and even more here."),
+#      y = .4, y_layout = .04,
 #      font = 1, new_plot = "none")
-
-# ## Box with address/contact details:
+# 
+# # ## Box with address/contact details:
 # address <- c("Dr. B. F. Skinner", " ",
 #              "Department of Psychology",
 #              "Office F101",
@@ -256,12 +256,12 @@ post <- function(lbls,               # labels of text element(s)
 #              "b.f.skin@uni-konstanz.de")
 # 
 # post(lbls = "Contact",
-#      y = .75, 
-#      cex = 1.2, font = 2, 
-#      col_bg = Petrol, 
+#      y = .75,
+#      cex = 1.2, font = 2,
+#      col_bg = Petrol,
 #      new_plot = "xbox")
 # 
-# post(lbls = address, 
+# post(lbls = address,
 #      y = .55, y_layout = .03,
 #      new_plot = "none")
 
@@ -327,7 +327,7 @@ head <- function(lbls,               # labels of text element(s)
 # head(lbls = c("Dies ist eine Headline", "mit zwei Zeilen"))
 
 # ## (a) Step-wise arrangements:
-#
+# 
 # hl_1a <- c("Ich bin", "eine", "Headline.")
 # head(lbls = hl_1a)
 # 
@@ -336,8 +336,8 @@ head <- function(lbls,               # labels of text element(s)
 # 
 # hl_1c <- c("Ich bin", "eine alternative", "Headline.")
 # head(lbls = hl_1c)  # no warning
-
-# ## (b) Number of lines:
+# 
+# # ## (b) Number of lines:
 # 
 # hl_1 <- c("Eine einzeilige Headline.")
 # head(lbls = hl_1)  # 1 line/color + warning

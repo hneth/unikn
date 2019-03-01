@@ -502,6 +502,7 @@ seepal <- function(pal = "all",     # which palette to output?
 ## (a) Multiple palettes: ---- 
 
 # seepal("all")
+# seepal("all", col_brd = grey(0, .25), lwd = .1)
 
 ## Return a subset of colors:
 # seepal(pal = "all", n = 2)  
@@ -511,12 +512,12 @@ seepal <- function(pal = "all",     # which palette to output?
 # seepal("all", n = 12)  # works, but even more messages
 
 ## 2 palettes: 
-# seepal(c(pal_unikn_light, pal_unikn_dark))
+# seepal(c(pal_unikn_light, pal_unikn_dark), hex = TRUE)
 
 # ToDo: 
 # - group in 2 sets: "unikn" vs. "others"
-# - allow grep for name components (e.g., "see", or "unikn")
-# - allow grep for palette properties (e.g., > 5 colors)
+# - allow grep for name components (e.g., "see", or "unikn")? 
+# - allow grep for palette properties (e.g., > 5 colors)? 
 # - default/random palette?
 
 ## (b) 1 palette: ---- 
@@ -524,7 +525,7 @@ seepal <- function(pal = "all",     # which palette to output?
 # seepal(pal_unikn)
 # seepal(pal_unikn_plus, hex = TRUE)
 
-## seepal(pal = "seblau")  # raise error.
+# seepal(pal = "seblau")  # raise error.
 
 ## Return a subset of colors:
 # seepal(pal = pal_petrol, n = 3)
@@ -541,7 +542,13 @@ seepal <- function(pal = "all",     # which palette to output?
 # seepal(pal_unikn_light, n = 10)  # mostly fails (max n = 10 returned)
 
 
+
 ## (c) Creating new palettes: ---- 
+
+# see colorRampPalette() to extend/stretch color palettes
+# ?: What happens when only subsets are selected
+#    (a) averages between min and max color?
+#    (b) choose existing colors for as long as possible
 
 ## Color gradients: 
 # gradient <- col_scale(c(rev(pal_seeblau), "white", pal_peach))
