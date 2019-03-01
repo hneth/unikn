@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 02 28
+## hn  |  uni.kn |  2019 03 01
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -216,7 +216,7 @@ post <- function(lbls,               # labels of text element(s)
                  col = "white", col_bg = Seeblau,  # default color(s)
                  cex = 1.0, font = 1,              # default text size and font
                  # Others: 
-                 new_plot = "none"                 # type of new plot (if desired)
+                 new_plot = "xbox"                 # type of new plot (if desired)
 ){
   
   # Pass on (to newer plot_text function):
@@ -235,16 +235,18 @@ post <- function(lbls,               # labels of text element(s)
 
 ## Check:
 
+# post(lbls = "Calling post() with default settings") 
+
 # post(lbls = "This is a test", 
 #      cex = 1.1, font = 2, 
-#      new_plot = "xbox", col_bg = pal_seeblau[[5]])
+#      col_bg = pal_seeblau[[5]])
 # 
 # post(lbls = c("More text follows here,", 
 #               "yet another line here,", 
 #               "and even more here."), 
 #      y = .4, y_layout = .04, 
 #      font = 1, new_plot = "none")
- 
+
 # ## Box with address/contact details:
 # address <- c("Dr. B. F. Skinner", " ",
 #              "Department of Psychology",
@@ -268,6 +270,93 @@ post <- function(lbls,               # labels of text element(s)
 # (4) head: Arrange headings (according to title specifications): ------ 
 
 # +++ here now +++ 
+
+# - Definition: ---- 
+
+head <- function(lbls,               # labels of text element(s) 
+                 x = .0, y = .8,     # coordinates of text lbls 
+                 y_layout = "flush", # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
+                 # Colors and text parameters:
+                 col = "black", col_bg = "default",  # default color(s)
+                 cex = 2.0, font = 2,                # default text size and font
+                 # Others: 
+                 new_plot = "slide"                  # type of new plot (if desired)
+){
+  
+  N_lbls <- length(lbls)
+  
+  # Checks (see CDM p. 25):
+  if (N_lbls < 2) {
+    message("Headlines should contain at least 2 (and ideally 3 or 4) lines.")
+  }
+  if (N_lbls > 4) {
+    message("Headlines should not exceed 4 lines.")
+  }
+  
+  # Defaults for col_bg:
+  if (col_bg == "default"){
+    
+    switch(N_lbls,
+           col_bg <- Seeblau,  # 1:
+           col_bg <- c(pal_seeblau[[2]], pal_seeblau[[4]]), # 2:
+           col_bg <- c(pal_seeblau[[1]], pal_seeblau[[3]], pal_seeblau[[4]]), # 3:
+           col_bg <- c(pal_seeblau[[1]], pal_seeblau[[2]], pal_seeblau[[3]], pal_seeblau[[4]]), # 4: 
+           col_bg <- c(pal_seeblau[[1]], pal_seeblau[[2]], pal_seeblau[[3]], pal_seeblau[[4]], pal_seeblau[[5]]) # 5: 
+    )
+  }
+  
+  # Pass on (to newer plot_text function):
+  plot_text(lbls = lbls, 
+            x = x, y = y, y_layout = y_layout,  
+            col = col, col_bg = col_bg,
+            cex = cex, 
+            font = font,
+            new_plot = new_plot, 
+            # fixed defaults (not available to user): 
+            mark = TRUE, 
+            col_bg_border = NA,
+            pos = 4
+  )
+  
+  # Return? 
+}
+
+## Check:
+
+# head(lbls = "Calling head() with default settings") 
+# head(lbls = c("Dies ist eine Headline", "mit zwei Zeilen"))
+
+# ## (a) Step-wise arrangements:
+#
+# hl_1a <- c("Ich bin", "eine", "Headline.")
+# head(lbls = hl_1a)
+# 
+# hl_1b <- c("Ich", "bin keine", "gute Headline.")
+# head(lbls = hl_1b)  # issues a warning: Avoid step-wise titles...
+# 
+# hl_1c <- c("Ich bin", "eine alternative", "Headline.")
+# head(lbls = hl_1c)  # no warning
+
+# ## (b) Number of lines:
+# 
+# hl_1 <- c("Eine einzeilige Headline.")
+# head(lbls = hl_1)  # 1 line/color + warning
+# 
+# hl_2 <- c("Eine Headline", "mit zwei Zeilen.")
+# head(lbls = hl_2)  # 2 lines/colors, no warnings
+# 
+# hl_3 <- c("Ich bin", "eine Headline", "mit drei Zeilen.")
+# head(lbls = hl_3)  # 3 lines/colors, but warning
+# 
+# hl_3b <- c("Ich bin", "eine andere Headline", "mit drei Zeilen.")
+# head(lbls = hl_3b)  # 3 lines/colors, no warning
+# 
+# hl_4 <- c("Ich bin", "eine weitere", "Headline", "mit vier Zeilen.")
+# head(lbls = hl_4)  # 4 colors
+# 
+# hl_5 <- c("Ich bin", "eine weitere", "Headline", "aber umfasse", "ganze fünf Zeilen.")
+# head(lbls = hl_5)  # 4 colors
+
 
 
 ## Test: Testbed for code snippets (used above) ------
