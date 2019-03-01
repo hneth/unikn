@@ -559,15 +559,18 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
     
     # print(paste0("x_mid = ", x_mid))  # 4debugging
     # print(paste0("text_width = ", text_width))
+    # print(paste0("text_height = ", text_height))
     
     if ( (min(x_mid - text_width/2) < plot_dim[1]) ||
          (max(x_mid + text_width/2) > plot_dim[2]) ) {
-      message("Some x-values are beyond current plot dimensions.")
+      message("Some x-values are beyond current plot dimensions.") 
+      # print(paste0("max(y_mid + text_width/2) = ", max(y_mid + text_width/2)))  # 4debugging
     }
 
-    if ( (min(y_mid - text_width/2) < plot_dim[3]) ||
-         (max(y_mid + text_width/2) > plot_dim[4]) ) {
-      message("Some y-values are beyond current plot dimensions.")
+    if ( (min(y_mid - text_height/2) < plot_dim[3]) ||
+         (max(y_mid + text_height/2) > plot_dim[4]) ) {
+      message("Some y-values are beyond current plot dimensions.")  
+      # print(paste0("max(y_mid + text_height/2) = ", max(y_mid + text_height/2)))  # 4debugging
     }
     
   } # if (txt) etc.
