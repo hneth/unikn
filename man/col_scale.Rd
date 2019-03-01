@@ -62,24 +62,24 @@ plot_pal(col_scale(pal_bordeaux)(10))
 
 # Combining 2+ colors to create new palettes:
 plot_pal(col_scale(c(Seeblau, Signal))(10))
-plot_pal(col_scale(c(Signal, Petrol))(10))  
-plot_pal(col_scale(c(Seeblau, "white", Pinky))(10)) 
-plot_pal(col_scale(c(Karpfenblau, Seeblau, "white"))(10))  
-plot_pal(col_scale(c(Bordeaux, "white", Petrol))(10)) 
+plot_pal(col_scale(c(Signal, Petrol))(10))
+plot_pal(col_scale(c(Seeblau, "white", Pinky))(10))
+plot_pal(col_scale(c(Karpfenblau, Seeblau, "white"))(10))
+plot_pal(col_scale(c(Bordeaux, "white", Petrol))(10))
 plot_pal(col_scale(c(Seeblau, "white", Petrol))(10))
 plot_pal(col_scale(c(Karpfenblau, Seeblau, "gold"))(10))  # "gold" shines brighter than signal
- 
+  
 # Combining 2+ color palettes into new palettes:
-plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))  
-plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10)) 
-plot_pal(col_scale(c(rev(pal_karpfenblau), pal_bordeaux))(10)) 
+plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))
+plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10))
+plot_pal(col_scale(c(rev(pal_karpfenblau), pal_bordeaux))(10))
 plot_pal(col_scale(c(rev(pal_seegruen), pal_pinky))(10))
-plot_pal(col_scale(c(rev(pal_petrol), pal_bordeaux))(10)) 
+plot_pal(col_scale(c(rev(pal_petrol), pal_bordeaux))(10))
 
-# Combining 2 palettes and mid-color "white" to new palettes:
+#' # Combining 2 palettes and mid-color "white" to new palettes:
 plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
 plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
-plot_pal(col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux))(11)) 
+plot_pal(col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux))(11))
 plot_pal(col_scale(c(rev(pal_seegruen), "white", pal_peach))(11))
 plot_pal(col_scale(c(rev(pal_petrol), "white", pal_bordeaux))(11))
 
