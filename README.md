@@ -326,16 +326,16 @@ Identify key functions:
 
 For `mark` and `line`: Versions that allow to arrange multiple character strings with fixed spacing and sensible default colors:
 
--   `head` for arranging headings (sensible defaults, warn in case of step functions)
-
-``` r
-post(lbls = c("Please note", "Something important here."), y = .5, y_layout = .05, cex = c(1.5, 1.2), font = c(2, 1))
-mark(lbls = "Highlighting text is simple.", new_plot = "slide")
-line(lbls = c("veni", "vidi", "vici"), y = .8, y_layout = .1, cex = 2, font = 2, new_plot = "blank")
-head(lbls = c("Dies", "ist eine tolle", "Headline."), cex = 4)
-```
+-   `heading` for arranging headings (sensible defaults, warn in case of step functions)
 
 <!-- Demo of text functions: -->
+``` r
+post(lbls = c("Please note", "Something important here."), y = c(.5, .4), cex = c(1.5, 1.2), font = c(2, 1))
+mark(lbls = "Highlighting text is simple.", new_plot = "slide")
+line(lbls = c("Ewig", "währt", "am längsten"), y = .8, y_layout = .1, font = 2, new_plot = "blank")
+heading(lbls = c("Dies", "ist eine feine", "Headline."))
+```
+
 ### Examples
 
 Key text functions include:
@@ -400,7 +400,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-03-01 by [hn](https://neth.de).\]
+\[Updated 2019-03-02 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 
