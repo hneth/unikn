@@ -6,7 +6,7 @@ output:
   rmarkdown::html_vignette: 
     fig_caption: yes
 vignette: > 
-  %\VignetteIndexEntry{1 Colors}
+  %\VignetteIndexEntry{Colors}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -31,8 +31,8 @@ Explain how to use the `unikn` color palettes.
 
 | Nr.  | Vignette | Content    |        
 | ---: |:---------|:-----------|
-| 1. | [Colors](1_colors.html) | Using color palettes | 
-| 2. | [Text](2_text.html) | Using decorated text | 
+| 1. | [Colors](colors.html) | Using color palettes | 
+| 2. | [Text](text.html)     | Using decorated text | 
 
 
 <!-- eof. -->
