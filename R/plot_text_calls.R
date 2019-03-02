@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 03 01
+## hn  |  uni.kn |  2019 03 02
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -7,7 +7,7 @@
 # - mark: highlighting text 
 # - line: underlining text 
 # - post: post-it type xboxes
-# - head: title sequences
+# - heading: title sequences
 
 # Allow an option for creating a new plot vs. adding to an existing plot.
 
@@ -267,13 +267,13 @@ post <- function(lbls,               # labels of text element(s)
 
 
 
-# (4) head: Arrange headings (according to title specifications): ------ 
+# (4) heading: Arrange headings (according to title specifications): ------ 
 
 # +++ here now +++ 
 
 # - Definition: ---- 
 
-head <- function(lbls,               # labels of text element(s) 
+heading <- function(lbls,               # labels of text element(s) 
                  x = .0, y = .8,     # coordinates of text lbls 
                  y_layout = "flush", # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
                  # Colors and text parameters:
@@ -323,39 +323,39 @@ head <- function(lbls,               # labels of text element(s)
 
 ## Check:
 
-# head(lbls = "Calling head() with default settings") 
-# head(lbls = c("Dies ist eine Headline", "mit zwei Zeilen"))
+# heading(lbls = "Calling heading() with default settings") 
+# heading(lbls = c("Dies ist eine Headline", "mit zwei Zeilen"))
 
 # ## (a) Step-wise arrangements:
 # 
 # hl_1a <- c("Ich bin", "eine", "Headline.")
-# head(lbls = hl_1a)
+# heading(lbls = hl_1a)
 # 
 # hl_1b <- c("Ich", "bin keine", "gute Headline.")
-# head(lbls = hl_1b)  # issues a warning: Avoid step-wise titles...
+# heading(lbls = hl_1b)  # issues a warning: Avoid step-wise titles...
 # 
 # hl_1c <- c("Ich bin", "eine alternative", "Headline.")
-# head(lbls = hl_1c)  # no warning
+# heading(lbls = hl_1c)  # no warning
 # 
 # # ## (b) Number of lines:
 # 
 # hl_1 <- c("Eine einzeilige Headline.")
-# head(lbls = hl_1)  # 1 line/color + warning
+# heading(lbls = hl_1)  # 1 line/color + warning
 # 
 # hl_2 <- c("Eine Headline", "mit zwei Zeilen.")
-# head(lbls = hl_2)  # 2 lines/colors, no warnings
+# heading(lbls = hl_2)  # 2 lines/colors, no warnings
 # 
 # hl_3 <- c("Ich bin", "eine Headline", "mit drei Zeilen.")
-# head(lbls = hl_3)  # 3 lines/colors, but warning
+# heading(lbls = hl_3)  # 3 lines/colors, but warning
 # 
 # hl_3b <- c("Ich bin", "eine andere Headline", "mit drei Zeilen.")
-# head(lbls = hl_3b)  # 3 lines/colors, no warning
+# heading(lbls = hl_3b)  # 3 lines/colors, no warning
 # 
 # hl_4 <- c("Ich bin", "eine weitere", "Headline", "mit vier Zeilen.")
-# head(lbls = hl_4)  # 4 colors
+# heading(lbls = hl_4)  # 4 colors
 # 
 # hl_5 <- c("Ich bin", "eine weitere", "Headline", "aber umfasse", "ganze fünf Zeilen.")
-# head(lbls = hl_5)  # 4 colors
+# heading(lbls = hl_5)  # 4 colors
 
 
 
