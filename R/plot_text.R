@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 03 01
+## hn  |  uni.kn |  2019 03 02
 ## ---------------------------
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
@@ -459,7 +459,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   # Check for step-function: ---- 
   if (mark && (length(x_mid) > 2) && monotonic(x_mid)) {
     
-    print(paste0("x_mid = ", x_mid))
+    # print(paste0("x_mid = ", x_mid))  # 4debugging 
     
     message("Step-wise titles are discouraged: Consider re-arranging?")
     
