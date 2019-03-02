@@ -1,5 +1,5 @@
 ## color_pal.R  |  unikn
-## ng/hn | uni.kn | 2019 02 28
+## ng/hn | uni.kn | 2019 03 02
 ## ---------------------------
 
 ## Main functions to access and plot color palettes. 
@@ -137,7 +137,7 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
   # TODO: Is there a quicker (vectorized) way?
   ## Vectorize in previous function? (i.e., sapply over vectors of input values?)
   
-}
+} # plot_col end. 
 
 
 
@@ -155,6 +155,50 @@ isHexCol <- function(color) {
 # - for shapes and text: prevent overlap. 
 
 ## seepal: Main interface to color palettes: ---------- 
+
+# - Documentation: ---- 
+
+#' Show and use color palettes.
+#'
+#' \code{seepal} provides an interface to color palettes.
+#'
+#' @param pal A color palette (as a data frame) or 
+#' the character string \code{"all"} (to show all 
+#' color palettes in the current environment). 
+#' Default: \code{pal = "all"}. 
+#' 
+#' @param n Number of colors to show or use.
+#' Default: \code{n = "all"}. 
+#' 
+#' @param hex Should HEX color values be shown?
+#' Default: \code{hex = NULL} (i.e., show HEX color values 
+#' when there is sufficient space to print them). 
+#' 
+#' @param rgb Should RGB color values be shown?
+#' Default: \code{rgb = NULL} (i.e., show RGB color values 
+#' when there is sufficient space to print them). 
+#' 
+#' @param col_brd Color of box borders (if shown).
+#' 
+#' @param ... Other graphical parameters 
+#' (passed to \code{plot_col}). 
+#' 
+#' @examples
+#' seepal()  # shows all color palettes
+#'
+#' @family color palettes
+#'
+#' @seealso 
+#' \code{\link{col_scale}} to extend color palettes (by creating gradients);  
+#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{pal_which}} to get specific colors of a color palette; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette.
+#'
+#' @import graphics 
+#' @import grDevices 
+#' @import utils
+#' 
+#' @export
 
 # - Definition: ------- 
 
