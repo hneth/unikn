@@ -26,7 +26,8 @@
 #' @family plot functions
 #' 
 #' @seealso
-#' \code{\link{slide}} to plot a slide (or frame). 
+#' \code{\link{post}} to add text to an xbox;   
+#' \code{\link{slide}} to plot a new slide (or frame).  
 #' 
 #' @examples
 #' xbox()  # default box
@@ -96,7 +97,9 @@ xbox <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB"
 #' @family plot functions
 #' 
 #' @seealso
-#' \code{\link{xbox}} to plot a box. 
+#' \code{\link{heading}}, \code{\link{line}}, or \code{\link{mark}} to add text to a slide;  
+#' \code{\link{xbox}} to plot a box.
+#' 
 #' 
 #' @examples
 #' slide()  # default slide (or frame)
