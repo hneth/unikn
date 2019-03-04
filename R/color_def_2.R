@@ -83,12 +83,12 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 #' dim(pal_unikn_pref)  # 1 9
 #' 
 #' # Access by position:
-#' pal_unikn_pref[1]    # color "seeblau3" (as df)
+#' pal_unikn_pref[1]    # color Seeblau (as df)
 #' pal_unikn_pref[[1]]  # color value "#59C7EB" 
 #' 
 #' # Access by name: 
-#' pal_unikn_pref["seeblau"]   # color "seeblau3" (as df) 
-#' pal_unikn_pref[["seeblau"]] # color value "#59C7EB" 
+#' pal_unikn_pref["Seeblau"]   # color "seeblau3" (as df) 
+#' pal_unikn_pref[["Seeblau"]] # color value "#59C7EB" 
 #' 
 #' # Plotting palette:
 #' seepal(pal_unikn_pref)
@@ -104,15 +104,15 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 #   (b) Definition: ----  
 
 pal_unikn_pref <- data.frame(            # Element: 
-  "seeblau"     = pal_seeblau[[3]],      #  1. seeblau
-  "peach"       = pal_peach[[4]],        #  2. peach
-  "grau"        = pal_grau[[3]],         #  3. grau 
-  "petrol"      = pal_petrol[[4]],       #  4. petrol 
-  "seegruen"    = pal_seegruen[[4]],     #  5. seegruen 
-  "karpfenblau" = pal_karpfenblau[[4]],  #  6. karpfenblau
-  "pinky"       = pal_pinky[[4]],        #  7. pinky 
-  "bordeaux"    = pal_bordeaux[[4]],     #  8. bordeaux
-  "signal"      = pal_signal[[2]],       # (9.) (alert) signal
+  "Seeblau"     = Seeblau,     # pal_seeblau[[3]],      #  1. seeblau
+  "Peach"       = Peach,       # pal_peach[[4]],        #  2. peach
+  "Grau"        = Grau,        # pal_grau[[3]],         #  3. grau 
+  "Petrol"      = Petrol,      # pal_petrol[[4]],       #  4. petrol 
+  "Seegruen"    = Seegruen,    # pal_seegruen[[4]],     #  5. seegruen 
+  "Karpfenblau" = Karpfenblau, # pal_karpfenblau[[4]],  #  6. karpfenblau
+  "Pinky"       = Pinky,       # pal_pinky[[4]],        #  7. pinky 
+  "Bordeaux"    = Bordeaux,    # pal_bordeaux[[4]],     #  8. bordeaux
+  "Signal"      = Signal,      # pal_signal[[2]],       # (9.) (alert) signal
   stringsAsFactors = FALSE)
 
 ## Check:
