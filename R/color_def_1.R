@@ -235,8 +235,8 @@ pal_seeblau <- data.frame(                               #  element:
 #' See \url{https://www.uni-konstanz.de} for details.
 #' 
 #' @examples
-#' seeblau  # "seeblau3" with value "#59C7EB" (as df)
-#' all.equal(seeblau, pal_seeblau[3])  # TRUE (both df)
+#' # seeblau  # "seeblau3" with value "#59C7EB" (as df)
+#' # all.equal(seeblau, pal_seeblau[3])  # TRUE (both df)
 #' 
 #' @family named colors (as df)
 #' 
@@ -346,8 +346,8 @@ pal_peach <- data.frame(                               #  Element:
 #' See \url{https://www.uni-konstanz.de} for details.
 #' 
 #' @examples
-#' peach  # name "peach4" with color value "#FEA090" (as df)
-#' all.equal(peach, pal_peach[4])  # TRUE (both df)
+#' # peach  # name "peach4" with color value "#FEA090" (as df)
+#' # all.equal(peach, pal_peach[4])  # TRUE (both df)
 #' 
 #' @family named colors (as df)
 #' 
@@ -455,8 +455,8 @@ pal_grau <- data.frame(                               #  element:
 #' See \url{https://www.uni-konstanz.de} for details.
 #' 
 #' @examples
-#' grau  # name "grau3" and color value "#9AA0A7" (as df)
-#' all.equal(grau, pal_grau[3])  # TRUE (both df)
+#' # grau  # name "grau3" and color value "#9AA0A7" (as df)
+#' # all.equal(grau, pal_grau[3])  # TRUE (both df)
 #' 
 #' @family named colors (as df)
 #' 
@@ -569,8 +569,8 @@ pal_petrol <- data.frame(                               #  element:
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' petrol  # name "petrol" and color value "#077187" (as df)
-#' all.equal(petrol, pal_petrol[4])  # TRUE (both df)
+#' # petrol  # name "petrol" and color value "#077187" (as df)
+#' # all.equal(petrol, pal_petrol[4])  # TRUE (both df)
 #' 
 #' @family named colors (as df) 
 #'
@@ -682,8 +682,8 @@ pal_seegruen <- data.frame(                               #  element:
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' seegruen  # name "seegruen4" and color value "#0A9086" (as df)
-#' all.equal(seegruen, pal_seegruen[4])  # TRUE (both df)
+#' # seegruen  # name "seegruen4" and color value "#0A9086" (as df)
+#' # all.equal(seegruen, pal_seegruen[4])  # TRUE (both df)
 #'
 #' @family named colors (as df) 
 #'
@@ -793,8 +793,8 @@ pal_karpfenblau <- data.frame(                               #  element:
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' karpfenblau  # name "karpfenblau4" and color value "#3E5496" (as df)
-#' all.equal(karpfenblau, pal_karpfenblau[4])  # TRUE (both df)
+#' # karpfenblau  # name "karpfenblau4" and color value "#3E5496" (as df)
+#' # all.equal(karpfenblau, pal_karpfenblau[4])  # TRUE (both df)
 #' 
 #' @family named colors (as df) 
 #'
@@ -904,8 +904,8 @@ pal_pinky <- data.frame(                               #  Element:
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' pinky  # name "pinky4" and color value "#E0607E" (as df)
-#' all.equal(pinky, pal_pinky[4])  # TRUE (both df)
+#' # pinky  # name "pinky4" and color value "#E0607E" (as df)
+#' # all.equal(pinky, pal_pinky[4])  # TRUE (both df)
 #' 
 #' @family named colors (as df) 
 #'
@@ -1014,8 +1014,8 @@ pal_bordeaux <- data.frame(                               #  Element:
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' bordeaux  # name "bordeaux4" and color value "#8E2043" (as df)
-#' all.equal(bordeaux, pal_bordeaux[4])  # TRUE (both df)
+#' # bordeaux  # name "bordeaux4" and color value "#8E2043" (as df)
+#' # all.equal(bordeaux, pal_bordeaux[4])  # TRUE (both df)
 #' 
 #' @family named colors (as df) 
 #'
@@ -1139,8 +1139,8 @@ pal_signal <- data.frame(                               #  Element:
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' signal  # name "signal2" and color value "#EFDC60" (as df)
-#' all.equal(signal, pal_signal[2])  # TRUE (both df)
+#' # signal  # name "signal2" and color value "#EFDC60" (as df)
+#' # all.equal(signal, pal_signal[2])  # TRUE (both df)
 #' 
 #' @family named colors (as df) 
 #'
