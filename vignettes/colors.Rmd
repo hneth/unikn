@@ -1,7 +1,7 @@
 ---
 title: "Colors"
 author: "Hansjörg Neth, SPDS, uni.kn"
-date: "2019 03 02"
+date: "2019 03 03"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -18,7 +18,57 @@ knitr::opts_chunk$set(
 )
 ```
 
-Explain how to use the `unikn` color palettes.
+Explain which colors and color palettes exist in `unikn` and how to use them.
+
+```{r}
+library(unikn)
+```
+
+
+## Viewing color palettes
+
+Viewing all available color palettes:
+
+```{r}
+seepal()
+```
+
+Viewing a particular color palette:
+
+```{r}
+seepal(pal = pal_unikn_plus)
+```
+
+## Using colors and color palettes
+
+```{r}
+seepal(pal_unikn_pref)
+```
+
+## Modifying color palettes
+
+Using only a subset of colors:
+
+```{r}
+seepal(n = 4)
+seepal(pal_unikn_plus, 4)
+```
+
+Extending a palette to a larger number of colors than contained in the palette:
+
+```{r}
+# seepal(n = 12)
+# seepal(pal_unikn_plus, 12)
+```
+
+Combining color palettes: 
+
+```{r}
+seepal(pal = c(rev(pal_seeblau), "white", pal_pinky))
+seepal(pal = c(rev(pal_seeblau), "white", pal_petrol))
+seepal(pal = c(rev(pal_petrol), "white", pal_bordeaux))
+```
+
 
 ## All unikn vignettes
 
