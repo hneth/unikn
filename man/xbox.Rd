@@ -29,7 +29,8 @@ xbox(dim = c(2, 1)) # 2:1 dimension (wider than high)
 
 }
 \seealso{
-\code{\link{slide}} to plot a slide (or frame).
+\code{\link{post}} to add text to an xbox;   
+\code{\link{slide}} to plot a new slide (or frame).
 
 Other plot functions: \code{\link{slide}}
 }

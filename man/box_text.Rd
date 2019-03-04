@@ -93,8 +93,9 @@ plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20,
 \seealso{
 \code{\link{mark}} (reduced version) to mark text with a colored box
 
-Other text functions: \code{\link{mark}},
-  \code{\link{plot_box_txt}}
+Other text functions: \code{\link{heading}},
+  \code{\link{line}}, \code{\link{mark}},
+  \code{\link{plot_box_txt}}, \code{\link{post}}
 }
 \author{
 Adapted from code by Ian Kopacka.

@@ -72,6 +72,7 @@ This is an earlier version of the more powerful
 \code{\link{mark}} to mark text with a colored box.
 
 Other text functions: \code{\link{box_text}},
-  \code{\link{mark}}
+  \code{\link{heading}}, \code{\link{line}},
+  \code{\link{mark}}, \code{\link{post}}
 }
 \concept{text functions}
