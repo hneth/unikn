@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 03 02
+## hn  |  uni.kn |  2019 03 04
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -20,7 +20,7 @@
 
 #' \code{mark} plots 1 or more text strings (provided as a character vector \code{lbls}) 
 #' to an (existing or new) plot and places a colored box behind
-#' each label to mark or highlight it (i.e., make it stand out from the background).
+#' each label to mark it (i.e., highlight or make it stand out from the background).
 #' 
 #' Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
 #' are recycled to match \code{length(lbls)}. 
@@ -33,37 +33,42 @@
 #' @param x A numeric vector of x-coordinates at which the 
 #' text labels in \code{lbls} should be written. 
 #' If the lengths of \code{x} and \code{y} differ, 
-#' the shorter one is recycled.
+#' the shorter one is recycled. 
+#' Default: \code{x = 0}. 
 #' 
 #' @param y A numeric vector of y-coordinates at which the 
 #' text labels in \code{lbls} should be written. 
 #' If the lengths of \code{x} and \code{y} differ, 
 #' the shorter one is recycled. 
+#' Default: \code{y = .55}. 
 #' 
 #' @param y_layout A numeric value or vector for the vertical 
 #' spacing of labels in \code{lbls}. 
-#' 2 special values are \code{"even"} and \code{"flush"} 
-#' (i.e., \code{y_layout = 0}). 
+#' 2 special values are 
+#' \code{"even"} (i.e., even distribution of labels across available y-space) and 
+#' \code{"flush"} (i.e., no space between adjacent labels, or \code{y_layout = 0}). 
+#' Default: \code{y_layout = "even"}. 
 #' 
 #' @param col The color(s) of the text label(s). 
 #' Default: \code{col_lbl = "black"}. 
 #' 
 #' @param col_bg The color(s) to highlight or fill the rectangle(s) with. 
-#' Default: \code{col_bg = Seeblau}.  
+#' Default: \code{col_bg = Seeblau}. 
 #' 
-#' @param cex A numeric character expansion factor, 
-#' multiplied by \code{par("cex")} to yield the character size. 
+#' @param cex Numeric character expansion factor(s), 
+#' multiplied by \code{par("cex")} to yield the character size(s). 
 #' Default: \code{cex = 2}. 
 #' 
-#' @param font The font to be used. 
+#' @param font The font type(s) to be used. 
 #' Default: \code{font = 2} (i.e., bold). 
 #' 
-#' @param new_plot Should a new plot be generated? 
+#' @param new_plot Boolean: Should a new plot be generated?   
 #' Set to \code{"blank"} or \code{"slide"} to create a new plot. 
-#' Default: \code{new_plot = "none"} (i.e., add to existing plot). 
+#' Default: \code{new_plot = "none"} (i.e., add to an existing plot). 
 #' 
 #' @examples 
-#' mark(lbls = "Test text", new_plot = "blank")
+#' mark(lbls = "Just testing.", new_plot = "blank")  # create a new plot
+#' mark(lbls = "More testing here.", y = .45, col_bg = pal_pinky[[2]])  # add to plot
 #'                         
 #' @family text functions
 #' 
@@ -112,10 +117,10 @@ mark <- function(lbls,               # labels of text element(s)
 # ## Example 1: Simple highlights
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
 # 
-# mark(x = 0, y = .9, lbls = "Please note")  # uses existing plot
-# mark(x = 0, y = .9, lbls = "Please note", new_plot = "slide")  # starts a new plot
+# mark(x = 0, y = .8, lbls = "Please note")  # uses existing plot
+# mark(x = 0, y = .8, lbls = "Please note", new_plot = "slide")  # starts a new plot
 # 
-# mark(x = 0, y = c(.6, .5),
+# mark(x = 0, y = c(.60, .55),
 #      lbls = c("Highlighting text is simple", "and effective"),
 #      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
 # 
@@ -137,7 +142,7 @@ mark <- function(lbls,               # labels of text element(s)
 #      lbls = c("Note something here", "More highlighting here"),
 #      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
 
-# # ## Example 3: Create a new plot vs. mark on existing plot:
+# ## Example 3: Create a new plot vs. mark on existing plot:
 # lbl_mark <- c("                                                ",
 #               "                                      ",
 #               "                                                      ",
@@ -161,7 +166,73 @@ mark <- function(lbls,               # labels of text element(s)
 #      col_bg = pal_pinky[[2]],
 #      cex = 1.5)
 
+
 # (2) line: Underline text on a plot: ------ 
+
+# - Documentation: ---- 
+
+#' \code{line} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+#' to an (existing or new) plot and places a colored line beneath  
+#' each label to underline it.
+#' 
+#' Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
+#' are recycled to match \code{length(lbls)}. 
+#' 
+#' \code{line} uses the base graphics system \code{graphics::}.  
+#' 
+#' @param lbls A character vector specifying the text labels 
+#' to be written.
+#' 
+#' @param x A numeric vector of x-coordinates at which the 
+#' text labels in \code{lbls} should be written. 
+#' If the lengths of \code{x} and \code{y} differ, 
+#' the shorter one is recycled. 
+#' Default: \code{x = 0}. 
+#' 
+#' @param y A numeric vector of y-coordinates at which the 
+#' text labels in \code{lbls} should be written. 
+#' If the lengths of \code{x} and \code{y} differ, 
+#' the shorter one is recycled. 
+#' Default: \code{y = .55}. 
+#' 
+#' @param y_layout A numeric value or vector for the vertical 
+#' spacing of labels in \code{lbls}. 
+#' 2 special values are 
+#' \code{"even"} (i.e., even distribution of labels across available y-space) and 
+#' \code{"flush"} (i.e., no space between adjacent labels, or \code{y_layout = 0}). 
+#' Default: \code{y_layout = "even"}. 
+#' 
+#' @param col The color(s) of the text label(s). 
+#' Default: \code{col_lbl = "black"}. 
+#' 
+#' @param col_bg The color(s) of the line (under the text labels 
+#' of \code{lbls}). 
+#' Default: \code{col_bg = Seeblau}. 
+#' 
+#' @param cex Numeric character expansion factor(s), 
+#' multiplied by \code{par("cex")} to yield the character size(s). 
+#' Default: \code{cex = 1.5}. 
+#' 
+#' @param font The font type(s) to be used. 
+#' Default: \code{font = 1} (i.e., plain text). 
+#' 
+#' @param new_plot Boolean: Should a new plot be generated?   
+#' Set to \code{"blank"} or \code{"slide"} to create a new plot. 
+#' Default: \code{new_plot = "none"} (i.e., add to an existing plot). 
+#' 
+#' @examples 
+#' lbl_line <- c("This is neat, true, and terribly important.")
+#' line(lbls = lbl_line, new_plot = "blank")                # create a new plot
+#' line(lbls = "(which is why we underline it).", y = .40)  # add to plot
+#'                         
+#' @family text functions
+#' 
+#' @seealso
+#' \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).  
+#'      
+#' @import graphics 
+#'                          
+#' @export 
 
 # - Definition: ---- 
 
@@ -191,21 +262,95 @@ line <- function(lbls,               # labels of text element(s)
 
 ## Check: 
 
+# # Example 1: 
+# lbl_line <- c("This is neat, true, and terribly important.")
+# line(lbls = lbl_line, new_plot = "blank")                # create a new plot
+# line(lbls = "(which is why we underline it).", y = .40)  # add to plot
+
 # lbl_line <- c("Das ist korrekt, wahr und wahnsinnig wichtig.")
-# line(lbls = lbl_line,
-#      x = 0, y = .90, cex = 1.5, font = 1,
-#      new_plot = "blank")
-# line(lbls = "(und wird daher unterstrichen)",
-#      x = 0, y = .80, cex = 1.5, font = 1)
-# 
+# line(lbls = lbl_line, new_plot = "blank")
+# line(lbls = "(und wird daher unterstrichen)", y = .30)
+
+# # Example 2: 
 # slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
 # line(lbls = slogan,
-#      x = 0, y = .88, y_layout = "even",
-#      col = "black", col_bg = Seeblau,
-#      cex = 1.1, font = 2,
+#      x = 0, y = .85, y_layout = "even",
+#      cex = 1.2, font = 2,
 #      new_plot = "blank")
 
+
 # (3) post: Plot a post-it note with text: ------ 
+
+# - Documentation: ---- 
+
+#' \code{post} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+#' to an (existing or new) \code{\link{xbox}}.
+#' 
+#' Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
+#' are recycled to match \code{length(lbls)}. 
+#' 
+#' \code{post} uses the base graphics system \code{graphics::}.  
+#' 
+#' @param lbls A character vector specifying the text labels 
+#' to be written.
+#' 
+#' @param x A numeric vector of x-coordinates at which the 
+#' text labels in \code{lbls} should be written. 
+#' If the lengths of \code{x} and \code{y} differ, 
+#' the shorter one is recycled. 
+#' Default: \code{x = .03}. 
+#' 
+#' @param y A numeric vector of y-coordinates at which the 
+#' text labels in \code{lbls} should be written. 
+#' If the lengths of \code{x} and \code{y} differ, 
+#' the shorter one is recycled. 
+#' Default: \code{y = .55}. 
+#' 
+#' @param y_layout A numeric value or vector for the vertical 
+#' spacing of labels in \code{lbls}. 
+#' 2 special values are 
+#' \code{"even"} (i.e., even distribution of labels across available y-space) and 
+#' \code{"flush"} (i.e., no space between adjacent labels, or \code{y_layout = 0}). 
+#' Default: \code{y_layout = "even"}. 
+#' 
+#' @param col The color(s) of the text label(s). 
+#' Default: \code{col_lbl = "white"}. 
+#' 
+#' @param col_bg The background color(s) of the \code{\link{xbox}}. 
+#' Default: \code{col_bg = Seeblau}. 
+#' 
+#' @param cex Numeric character expansion factor(s), 
+#' multiplied by \code{par("cex")} to yield the character size(s). 
+#' Default: \code{cex = 1.0}. 
+#' 
+#' @param font The font type(s) to be used. 
+#' Default: \code{font = 1} (i.e., plain text). 
+#' 
+#' @param new_plot Boolean: Should a new plot be generated?   
+#' Set to \code{"none"} to plot to an existing \code{\link{xbox}}. 
+#' Default: \code{new_plot = "xbox"} (i.e., create a new \code{\link{xbox}}). 
+#' 
+#' @examples 
+#' post(lbls = "Calling post() with default settings.")
+#' 
+#' # Create a new xbox: 
+#' post(lbls = "This is a test.", cex = 1.1, font = 2, col_bg = pal_seeblau[[5]])
+#' 
+#' # Add to existing xbox: 
+#' post(lbls = c("More text follows here,",
+#'               "yet another line here,",
+#'               "and even more here."), 
+#'               y = .4, y_layout = .04, 
+#'               new_plot = "none")
+#'                         
+#' @family text functions
+#' 
+#' @seealso 
+#' \code{\link{xbox}} to create a new xbox (without text).  
+#'      
+#' @import graphics 
+#'                          
+#' @export 
 
 # - Definition: ---- 
 
@@ -269,12 +414,80 @@ post <- function(lbls,               # labels of text element(s)
 
 # (4) heading: Arrange headings (according to title specifications): ------ 
 
-# +++ here now +++ 
+# - Documentation: ---- 
+
+#' \code{heading} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+#' as a heading to an (existing or new) plot and places a colored box behind
+#' each label to mark it (i.e., highlighting the heading).
+#' 
+#' Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
+#' are recycled to match \code{length(lbls)}. 
+#' 
+#' \code{heading} uses the base graphics system \code{graphics::}.  
+#' 
+#' @param lbls A character vector specifying the text labels 
+#' to be written.
+#' 
+#' @param x A numeric vector of x-coordinates at which the 
+#' text labels in \code{lbls} should be written. 
+#' If the lengths of \code{x} and \code{y} differ, 
+#' the shorter one is recycled. 
+#' Default: \code{x = 0}. 
+#' 
+#' @param y A numeric vector of y-coordinates at which the 
+#' text labels in \code{lbls} should be written. 
+#' If the lengths of \code{x} and \code{y} differ, 
+#' the shorter one is recycled. 
+#' Default: \code{y = .8}. 
+#' 
+#' @param y_layout A numeric value or vector for the vertical 
+#' spacing of labels in \code{lbls}. 
+#' 2 special values are 
+#' \code{"even"} (i.e., even distribution of labels across available y-space) and 
+#' \code{"flush"} (i.e., no space between adjacent labels, or \code{y_layout = 0}). 
+#' Default: \code{y_layout = "flush"}. 
+#' 
+#' @param col The color(s) of the text label(s). 
+#' Default: \code{col_lbl = "black"}. 
+#' 
+#' @param col_bg The color(s) to highlight or fill the rectangle(s) with. 
+#' Default: \code{col_bg = "default"} (to automatically select different 
+#' shades of \code{\link{pal_seeblau}}).  
+#' 
+#' @param cex Numeric character expansion factor(s), 
+#' multiplied by \code{par("cex")} to yield the character size(s). 
+#' Default: \code{cex = 2}. 
+#' 
+#' @param font The font type(s) to be used. 
+#' Default: \code{font = 2} (i.e., bold). 
+#' 
+#' @param new_plot Boolean: Should a new plot be generated?   
+#' Set to \code{"blank"} or \code{"slide"} to create a new plot, 
+#' and to \code{"none"} to add to an existing plot. 
+#' Default: \code{new_plot = "slide"} (i.e., create a new \code{\link{slide}}).  
+#' 
+#' @examples 
+#' heading(lbls = c("This is a headline", "containing two lines."))
+#' 
+#' # Note the warning:
+#' heading(lbls = c("Headlines", "with 3 or more lines", "should not be arranged", "in such a step-wise fashion.")) 
+#' 
+#' # Avoiding warning:
+#' heading(lbls = c("Headlines with", "3 or more lines should not", "be arranged in", "a step-wise fashion."))
+#'  
+#' @family text functions
+#' 
+#' @seealso 
+#' \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).  
+#'      
+#' @import graphics 
+#'                          
+#' @export 
 
 # - Definition: ---- 
 
 heading <- function(lbls,               # labels of text element(s) 
-                 x = .0, y = .8,     # coordinates of text lbls 
+                 x = 0, y = .8,     # coordinates of text lbls 
                  y_layout = "flush", # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
                  # Colors and text parameters:
                  col = "black", col_bg = "default",  # default color(s)
@@ -323,8 +536,8 @@ heading <- function(lbls,               # labels of text element(s)
 
 ## Check:
 
-# heading(lbls = "Calling heading() with default settings") 
-# heading(lbls = c("Dies ist eine Headline", "mit zwei Zeilen"))
+# heading(lbls = "Calling heading() with default settings.") 
+# heading(lbls = c("This is a headline", "containing two lines."))
 
 # ## (a) Step-wise arrangements:
 # 
