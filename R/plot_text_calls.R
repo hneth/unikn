@@ -470,10 +470,12 @@ post <- function(lbls,               # labels of text element(s)
 #' heading(lbls = c("This is a headline", "containing two lines."))
 #' 
 #' # Note the warning:
-#' heading(lbls = c("Headlines", "with 3 or more lines", "should not be arranged", "in such a step-wise fashion.")) 
+#' heading(lbls = c("Headlines", "with 3 or more lines", 
+#'                  "should not be arranged", "in such a step-wise fashion.")) 
 #' 
 #' # Avoiding warning:
-#' heading(lbls = c("Headlines with", "3 or more lines should not", "be arranged in", "a step-wise fashion."))
+#' heading(lbls = c("Headlines with", "3 or more lines should not", 
+#'                  "be arranged in", "a step-wise fashion."))
 #'  
 #' @family text functions
 #' 
