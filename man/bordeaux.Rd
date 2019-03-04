@@ -17,8 +17,8 @@ Bordeaux
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
-bordeaux  # name "bordeaux4" and color value "#8E2043" (as df)
-all.equal(bordeaux, pal_bordeaux[4])  # TRUE (both df)
+# bordeaux  # name "bordeaux4" and color value "#8E2043" (as df)
+# all.equal(bordeaux, pal_bordeaux[4])  # TRUE (both df)
 
 Bordeaux  # HEX character "#8E2043" (as value)
 all.equal(Bordeaux, pal_bordeaux[[4]])  # TRUE (same HEX values)

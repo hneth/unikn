@@ -17,8 +17,8 @@ Petrol
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
-petrol  # name "petrol" and color value "#077187" (as df)
-all.equal(petrol, pal_petrol[4])  # TRUE (both df)
+# petrol  # name "petrol" and color value "#077187" (as df)
+# all.equal(petrol, pal_petrol[4])  # TRUE (both df)
 
 Petrol  # HEX character "#077187" (as value)
 all.equal(Petrol, pal_petrol[[4]])  # TRUE (same HEX values)

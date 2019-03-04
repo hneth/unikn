@@ -17,8 +17,8 @@ Karpfenblau
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
-karpfenblau  # name "karpfenblau4" and color value "#3E5496" (as df)
-all.equal(karpfenblau, pal_karpfenblau[4])  # TRUE (both df)
+# karpfenblau  # name "karpfenblau4" and color value "#3E5496" (as df)
+# all.equal(karpfenblau, pal_karpfenblau[4])  # TRUE (both df)
 
 Karpfenblau  # HEX character "#3E5496" (as value)
 all.equal(Karpfenblau, pal_karpfenblau[[4]])  # TRUE (same HEX values)

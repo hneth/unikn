@@ -23,8 +23,8 @@ as it is suited for creating color gradients
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
-signal  # name "signal2" and color value "#EFDC60" (as df)
-all.equal(signal, pal_signal[2])  # TRUE (both df)
+# signal  # name "signal2" and color value "#EFDC60" (as df)
+# all.equal(signal, pal_signal[2])  # TRUE (both df)
 
 Signal  # HEX character "#EFDC60" (as value)
 all.equal(Signal, pal_signal[[2]])  # TRUE (same HEX values)

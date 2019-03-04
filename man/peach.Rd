@@ -17,8 +17,8 @@ Peach
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
-peach  # name "peach4" with color value "#FEA090" (as df)
-all.equal(peach, pal_peach[4])  # TRUE (both df)
+# peach  # name "peach4" with color value "#FEA090" (as df)
+# all.equal(peach, pal_peach[4])  # TRUE (both df)
 
 Peach  # HEX character "#FEA090" (as value)
 all.equal(Peach, pal_peach[[4]])  # TRUE (same HEX values)

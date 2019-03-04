@@ -17,8 +17,8 @@ Seegruen
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
-seegruen  # name "seegruen4" and color value "#0A9086" (as df)
-all.equal(seegruen, pal_seegruen[4])  # TRUE (both df)
+# seegruen  # name "seegruen4" and color value "#0A9086" (as df)
+# all.equal(seegruen, pal_seegruen[4])  # TRUE (both df)
 
 Seegruen  # HEX character "#0A9086" (as value)
 all.equal(Seegruen, pal_seegruen[[4]])  # TRUE (same HEX values)

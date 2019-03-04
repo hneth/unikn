@@ -17,8 +17,8 @@ Seeblau
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
-seeblau  # "seeblau3" with value "#59C7EB" (as df)
-all.equal(seeblau, pal_seeblau[3])  # TRUE (both df)
+# seeblau  # "seeblau3" with value "#59C7EB" (as df)
+# all.equal(seeblau, pal_seeblau[3])  # TRUE (both df)
 
 Seeblau  # HEX character "#59C7EB" (as value)
 all.equal(Seeblau, pal_seeblau[[3]])  # TRUE (same HEX values)

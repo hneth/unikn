@@ -17,8 +17,8 @@ Pinky
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
-pinky  # name "pinky4" and color value "#E0607E" (as df)
-all.equal(pinky, pal_pinky[4])  # TRUE (both df)
+# pinky  # name "pinky4" and color value "#E0607E" (as df)
+# all.equal(pinky, pal_pinky[4])  # TRUE (both df)
 
 Pinky  # HEX character "#E0607E" (as value)
 all.equal(Pinky, pal_pinky[[4]])  # TRUE (same HEX values)

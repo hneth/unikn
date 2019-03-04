@@ -17,8 +17,8 @@ Grau
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
-grau  # name "grau3" and color value "#9AA0A7" (as df)
-all.equal(grau, pal_grau[3])  # TRUE (both df)
+# grau  # name "grau3" and color value "#9AA0A7" (as df)
+# all.equal(grau, pal_grau[3])  # TRUE (both df)
 
 Grau  # HEX character "#9AA0A7" (as value)
 all.equal(Grau, pal_grau[[3]])  # TRUE (same HEX values)
