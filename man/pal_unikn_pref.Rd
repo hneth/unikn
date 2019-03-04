@@ -25,12 +25,12 @@ pal_unikn_pref
 dim(pal_unikn_pref)  # 1 9
 
 # Access by position:
-pal_unikn_pref[1]    # color "seeblau3" (as df)
+pal_unikn_pref[1]    # color Seeblau (as df)
 pal_unikn_pref[[1]]  # color value "#59C7EB" 
 
 # Access by name: 
-pal_unikn_pref["seeblau"]   # color "seeblau3" (as df) 
-pal_unikn_pref[["seeblau"]] # color value "#59C7EB" 
+pal_unikn_pref["Seeblau"]   # color "seeblau3" (as df) 
+pal_unikn_pref[["Seeblau"]] # color value "#59C7EB" 
 
 # Plotting palette:
 seepal(pal_unikn_pref)
