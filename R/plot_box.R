@@ -101,7 +101,10 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
   plot_xy <- dev.size("in")            # use EITHER par("pin") OR dev.size("in")
   plot_ratio <- plot_xy[1]/plot_xy[2]  # current aspect ratio
   scale_x <- 1/plot_ratio              # multiplicative correction factor (for x-widths)
-  # print(scale_x)  # 4debugging
+  # scale_x <- box_height/box_width
+  scale_x <- 1
+    
+  # print(paste0("scale_X = ", scale_x)) # 4debugging
   
   ## (2) Plot a colored box (using rect): ----- 
   
@@ -201,6 +204,10 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
 # plot_box(col = "forestgreen") 
 
 ## Expert uses: 
+
+# Box dimensions:
+# plot_box(col = Bordeaux, box_dim  = c(0, 0, 2, 1), grid = TRUE)  # x = 2, y = 1
+# plot_box(col = Petrol, box_dim  = c(0, 0, 1, 2), grid = TRUE)    # x = 1, y = 2
 
 # plot_box(col = grey(.50, .50), grid = TRUE)
 

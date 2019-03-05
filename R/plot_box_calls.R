@@ -1,5 +1,5 @@
 ## plot_box_calls.R | unikn
-## hn  |  uni.kn |  2019 02 25
+## hn  |  uni.kn |  2019 03 05
 ## ---------------------------
 
 ## Specialized functions to plot rectangular boxes (e.g., frames, slides, etc.)
@@ -68,7 +68,10 @@ xbox <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB"
 ## Simple variants:
 # xbox(col = Seegruen)
 # xbox(col = Bordeaux)
-# xbox(dim = c(2, 1)) # 2:1 dimension (wider than high)
+
+## xbox dimensions:
+# xbox(dim = c(2, 1))  # 2:1 dimension (wider than high)
+# xbox(dim = c(1, 2))  # 1:2 dimension (higher than wide)
 
 
 ## slide: Plot a colored slide frame without "x": (a simple version of plot_box): ------ 
