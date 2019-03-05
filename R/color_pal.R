@@ -276,6 +276,7 @@ seepal <- function(pal = "all",     # which palette to output?
       
       # Get all color palettes with the prefix "pal_" from the environment:
       pal_names <- utils::apropos("pal_")  # get all unikn palettes.
+      # TODO: Problem, that pal_tmp may not be in the environment!
       pal_ls <- sapply(pal_names, get)
       
       # Indicator, whether these are color palettes: 
