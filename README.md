@@ -4,7 +4,7 @@ unikn
 =====
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/box_unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/> </a>
+<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/> </a>
 
 The `unikn` package enables the use some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design for users of [R](https://www.r-project.org/). For instance, it provides a range of beautiful color palettes for scientific visualizations that are consistent with [corporate design specifications](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/).
 
@@ -26,7 +26,7 @@ The package currently provides 4 types of objects or functions:
 
 1.  Colors, color palettes, and related functions
 2.  Plotting styled graphical objects (e.g., boxes and frames)
-3.  Plotting styled text elements (e.g.,, highlighting and underlining)
+3.  Plotting styled text elements (e.g., highlighting and underlining)
 4.  Graphical support (e.g., commands and themes for creating scientific visualizations)
 
 Additional elements are added as they become available. Please use responsibly!
@@ -336,6 +336,27 @@ line(lbls = c("Ewig", "währt", "am längsten"), y = .8, y_layout = .1, font = 2
 heading(lbls = c("Studieren", "geht praktisch über", "ins Probieren"))
 ```
 
+Post: Generating logo
+
+``` r
+# unikn: 
+post(lbls = "unikn::", cex = 2.5, font = 2, y = .4)  # save in size: 250 x 250 pixel
+
+# R: 
+post(lbls = "R", col_bg = pal_seeblau[[5]], 
+     cex = 10, font = 2, y = .33)  # save in size: 250 x 250 pixel
+
+# ToDo: 
+post(lbls = "ToDo", col_bg = pal_signal[[1]], 
+     cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
+post(lbls = "ToDo", col_bg = pal_petrol[[4]], 
+     cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
+post(lbls = "ToDo", col_bg = pal_pinky[[4]], 
+     cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
+post(lbls = "ToDo", col_bg = pal_seegruen[[4]], 
+     cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
+```
+
 ### Examples
 
 Key text functions include:
@@ -350,7 +371,7 @@ Key text functions include:
 
 -   Boxing text with `post`:
 
-<img src = "./inst/pix/box_R.png"       alt = "R" width = "150px" style = "width: 150px; border:10;"/> <img src = "./inst/pix/todo_pinky4.png" alt = "ToDo" width = "150px" style = "width: 150px; border:10;"/> <img src = "./inst/pix/box_unikn.png"   alt = "unikn::" width = "150px" style = "width: 150px; border:10;"/>
+<img src = "./inst/pix/R.png"           alt = "R" width = "150px" style = "width: 150px; border:10;"/> <img src = "./inst/pix/todo_pinky4.png" alt = "ToDo" width = "150px" style = "width: 150px; border:10;"/> <img src = "./inst/pix/unikn.png"       alt = "unikn::" width = "150px" style = "width: 150px; border:10;"/>
 
 ### Image sizes
 
@@ -400,7 +421,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-03-04 by [hn](https://neth.de).\]
+\[Updated 2019-03-05 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 
