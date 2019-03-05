@@ -202,6 +202,25 @@ isHexCol <- function(color) {
 
 # - Definition: ------- 
 
+# How does color ramp work?
+# pal_tst <- grey(c(0.1, 0.2, 0.3, 0.4, 0.9), 1)
+# seepal(pal_tst)
+# 
+# pal_tst[2] <- "red"
+# 
+# rmp <- colorRampPalette(pal_tst)
+# 
+# 
+# seepal(pal_tst)
+# seepal(rmp(10))  # the original color poles appear to be always included!
+# seepal(rmp(3))
+# 
+# # TODO: Use a two-step procedure to retain all original colors?
+# 
+# rmp2 <- colorRampPalette(pal_unikn_pair)
+# seepal(pal_unikn_pair, hex = TRUE)
+# rmp2(5) %in% pal_unikn_pair
+
 # TODO:
 # - allow to either collapse palettes or compare them like pal = "all"
 # - group colors
@@ -523,7 +542,7 @@ seepal <- function(pal = "all",     # which palette to output?
       }
       
       ## Plot the values: 
-      text(x = -.25, y = -0.35, labels = "Hex:", font = 2, pos = 3, xpd = TRUE, 
+      text(x = 0, y = -0.35, labels = "Hex:", font = 2, pos = 3, xpd = TRUE, 
            cex = cex_hex)
       text(x = txt_pos, y = -0.35, labels = pal_tmp, pos = 3, xpd = TRUE,
            cex = cex_hex, srt = 0)
