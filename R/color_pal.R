@@ -298,7 +298,13 @@ seepal <- function(pal = "all",     # which palette to output?
         # return(NULL)
       }
       
+      ## Order palettes:
+      ix <- c(grep("pal_unikn", names(pal_tmp)), grep("pal_signal", names(pal_tmp)))
+      
+      pal_tmp <- c(pal_tmp[ix], pal_tmp[-ix])
+      
       # Select the number of colors:
+      # TODO!  ColorRamp oä?
       pal_tmp <- lapply(pal_tmp, FUN = pal_n, n = n)  # get n colors of each. 
       
       pal_nm <- gsub("pal_", "", names(pal_tmp))  # get palette names from listnames. 
@@ -314,6 +320,10 @@ seepal <- function(pal = "all",     # which palette to output?
       
       ## NOTE: is.character can pertain to a single color or a palette name!
       
+      ## Try to get name with "pal_" prefix:
+      
+      # TODO: Create function for getting(vectors of) palettes!  
+      
       ## No single color but palette (note: length == 1 is already tested!):
       if ( !isHexCol(pal) & !pal %in% colors()) {  # TODO: Allow for other color models!
 
@@ -325,8 +335,22 @@ seepal <- function(pal = "all",     # which palette to output?
             },
           
           error = function(error) {
-            err_msg <- paste0(error, "The specified palette is not defined in the current namespace.")
-            stop(err_msg)
+            
+            ## Allow color aliases:
+            out <- tryCatch(
+              expr = {
+                # TODO!
+                input <- sub("[[:punct:]]", "", pal)  # Substitute first puctuation sign # TODO: What to substitute?
+                get(paste0("pal_", input))  # try to find the palette in namespace.
+              },
+              
+              error = function(error) {
+                err_msg <- paste0(error, "The specified palette is not defined in the current namespace.")
+                stop(err_msg)
+              }
+            )
+            
+            
           }
         )
         
