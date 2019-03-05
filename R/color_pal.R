@@ -313,7 +313,6 @@ seepal <- function(pal = "all",     # which palette to output?
           return(out(n))
         })
       }
-     
       
       # pal_tmp <- lapply(pal_tmp, FUN = pal_n, n = n)  # get n colors of each. 
       
@@ -467,9 +466,29 @@ seepal <- function(pal = "all",     # which palette to output?
          cex = cex_lbl, pos = 2, xpd = TRUE,
          offset = 1  # 1 character.
     )
-    text(x = seq(0.5, (max_ncol - 0.5), by = 1), y = -1, 
-         labels = paste0("[", 1:max_ncol, "]"), pos = 3, xpd = TRUE,
-         cex = (cex_lbl - .10))
+    
+    
+    txt_ind <- paste0("[", 1:max_ncol, "]")
+    cex_ind <- par("cex")
+    wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))
+    pos_ind <- seq(0.5, (max_ncol - 0.5), by = 1)
+    while (wdth_ind > xlim[2]) {
+      
+      txt_ind <- txt_ind[seq(1, length(txt_ind), by = 2)]  # only show every second index.
+      pos_ind <- pos_ind[seq(1, length(pos_ind), by = 2)]
+      wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))  # is the width small enough?
+      
+      
+    }
+    
+    # TODO: Also adjust cex!
+    
+    # Color indices:
+    text(x = pos_ind, y = -1, labels = txt_ind, pos = 3, xpd = TRUE,
+         cex = 0.9)
+    # text(x = seq(0.5, (max_ncol - 0.5), by = 1), y = -1, 
+    #      labels = paste0("[", 1:max_ncol, "]"), pos = 3, xpd = TRUE,
+    #      cex = (cex_lbl - .10))
     
   } else {  # if length(pal_tmp) list is NOT > 1:
     
@@ -532,7 +551,7 @@ seepal <- function(pal = "all",     # which palette to output?
     
     # Determine, whether to display rgb values:
     cex_rgb <- par("cex")
-    wdth_rgb <- strwidth("999", cex = cex_rgb) * max_ncol
+    wdth_rgb <- strwidth(" 999 ", cex = cex_rgb) * max_ncol
     while (wdth_rgb > xlim[2]) {
       
       cex_rgb <- cex_rgb - 0.1
@@ -563,8 +582,22 @@ seepal <- function(pal = "all",     # which palette to output?
          srt = 45, xpd = TRUE, offset = 1,
          adj = c(0, 0))
     
+    # TODO: Spacing of indices:
+    txt_ind <- paste0("[", 1:length(pal_tmp), "]")
+    cex_ind <- par("cex")
+    wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))
+    pos_ind <- txt_pos
+    while (wdth_ind > xlim[2]) {
+      
+      txt_ind <- txt_ind[seq(1, length(txt_ind), by = 2)]  # only show every second index.
+      pos_ind <- pos_ind[seq(1, length(pos_ind), by = 2)]
+      wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))  # is the width small enough?
+       
+      
+    }
+    
     # Color indices:
-    text(x = txt_pos, y = 0, labels = paste0("[", 1:length(pal_tmp), "]"), pos = 3, xpd = TRUE,
+    text(x = pos_ind, y = 0, labels = txt_ind, pos = 3, xpd = TRUE,
          cex = 1)
     
     # Hex values:
