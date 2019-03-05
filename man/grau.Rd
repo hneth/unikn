@@ -3,52 +3,30 @@
 \docType{data}
 \name{Grau}
 \alias{Grau}
-\title{uni.kn color grau (as df).}
+\title{uni.kn color Grau.}
 \format{An object of class \code{character} of length 1.}
 \usage{
 Grau
 }
 \description{
-\code{grau} provides the preferred color of \code{\link{pal_grau}}
-(as an atomic data frame) and is defined as
-\code{\link{pal_grau}[3]}.
+\code{Grau} provides the preferred color of \code{\link{pal_grau}} 
+(as an atomic HEX character value) and is defined as 
+\code{\link{pal_grau}[[3]]}.
 }
 \details{
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
-# grau  # name "grau3" and color value "#9AA0A7" (as df)
-# all.equal(grau, pal_grau[3])  # TRUE (both df)
-
 Grau  # HEX character "#9AA0A7" (as value)
 all.equal(Grau, pal_grau[[3]])  # TRUE (same HEX values)
 
 }
 \seealso{
-\code{\link{pal_grau}} for the corresponding color palette;
-\code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors;
-\code{\link{pal_unikn}} for the default uni.kn color palette;
-\code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}};
-\code{\link{seepal}} to show and use color palettes. 
-uni.kn color Grau.  
-
-\code{Grau} provides the preferred color of \code{\link{pal_grau}} 
-(as an atomic HEX character value) and is defined as 
-\code{\link{pal_grau}[[3]]}. 
-
-See \url{https://www.uni-konstanz.de} for details.
-
 \code{\link{pal_grau}} for the corresponding color palette; 
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
 \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 \code{\link{seepal}} to show and use color palettes.
-
-Other named colors (as df): \code{\link{Bordeaux}},
-  \code{\link{Karpfenblau}}, \code{\link{Peach}},
-  \code{\link{Petrol}}, \code{\link{Pinky}},
-  \code{\link{Seeblau}}, \code{\link{Seegruen}},
-  \code{\link{Signal}}
 
 Other preferred colors: \code{\link{Bordeaux}},
   \code{\link{Karpfenblau}}, \code{\link{Peach}},
@@ -56,6 +34,5 @@ Other preferred colors: \code{\link{Bordeaux}},
   \code{\link{Seeblau}}, \code{\link{Seegruen}},
   \code{\link{Signal}}
 }
-\concept{named colors (as df)}
 \concept{preferred colors}
 \keyword{datasets}

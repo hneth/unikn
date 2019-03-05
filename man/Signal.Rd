@@ -3,29 +3,26 @@
 \docType{data}
 \name{Signal}
 \alias{Signal}
-\title{uni.kn color alert signal (as df).}
+\title{uni.kn color Signal or alert.}
 \format{An object of class \code{character} of length 1.}
 \usage{
 Signal
 }
 \description{
-\code{signal} provides the alert color of \code{\link{pal_signal}} 
-(as an atomic data frame) and is defined as 
+\code{Signal} provides the alert color of \code{\link{pal_signal}} 
+(as an atomic HEX character value) and is defined as 
 \code{\link{pal_signal}[2]}.
 }
 \details{
 The official specification of \code{\link{pal_signal}} 
 does not identify a preferred color. 
-We provide \code{\link{pal_signal}[2]} as a dedicated color 
+We provide \code{Signal} as a dedicated color 
 as it is suited for creating color gradients 
 (see \code{\link{col_scale}}). 
  
 See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
-# signal  # name "signal2" and color value "#EFDC60" (as df)
-# all.equal(signal, pal_signal[2])  # TRUE (both df)
-
 Signal  # HEX character "#EFDC60" (as value)
 all.equal(Signal, pal_signal[[2]])  # TRUE (same HEX values)
 
@@ -35,32 +32,7 @@ all.equal(Signal, pal_signal[[2]])  # TRUE (same HEX values)
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
 \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-\code{\link{seepal}} to show and use color palettes. 
-uni.kn color Signal or alert.    
-
-\code{Signal} provides the alert color of \code{\link{pal_signal}} 
-(as an atomic HEX character value) and is defined as 
-\code{\link{pal_signal}[2]}. 
-
-The official specification of \code{\link{pal_signal}} 
-does not identify a preferred color. 
-We provide \code{Signal} as a dedicated color 
-as it is suited for creating color gradients 
-(see \code{\link{col_scale}}). 
- 
-See \url{https://www.uni-konstanz.de} for details.
-
-\code{\link{pal_signal}} for the corresponding color palette; 
-\code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-\code{\link{pal_unikn}} for the default uni.kn color palette; 
-\code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 \code{\link{seepal}} to show and use color palettes.
-
-Other named colors (as df): \code{\link{Bordeaux}},
-  \code{\link{Grau}}, \code{\link{Karpfenblau}},
-  \code{\link{Peach}}, \code{\link{Petrol}},
-  \code{\link{Pinky}}, \code{\link{Seeblau}},
-  \code{\link{Seegruen}}
 
 Other preferred colors: \code{\link{Bordeaux}},
   \code{\link{Grau}}, \code{\link{Karpfenblau}},
@@ -68,6 +40,5 @@ Other preferred colors: \code{\link{Bordeaux}},
   \code{\link{Pinky}}, \code{\link{Seeblau}},
   \code{\link{Seegruen}}
 }
-\concept{named colors (as df)}
 \concept{preferred colors}
 \keyword{datasets}
