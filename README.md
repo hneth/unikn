@@ -333,7 +333,7 @@ For `mark` and `line`: Versions that allow to arrange multiple character strings
 post(lbls = c("Bitte beachten:", "Dies hier ist wichtig."), y = c(.5, .4), cex = c(1.5, 1.2), font = c(2, 1))
 mark(lbls = c("Markieren", "geht über Studieren."), y_layout = .05, col_bg = c(Seeblau, Peach), new_plot = "slide")
 line(lbls = c("Ewig", "währt", "am längsten"), y = .8, y_layout = .1, font = 2, new_plot = "blank")
-heading(lbls = c("Studieren", "geht praktisch über", "ins Probieren"))
+heading(lbls = c("Studieren", "geht faktisch über", "ins Probieren"))
 ```
 
 Post: Generating logo
