@@ -202,6 +202,19 @@ isHexCol <- function(color) {
 
 # - Definition: ------- 
 
+# TODO:
+# - allow to either collapse palettes or compare them like pal = "all"
+# - group colors
+# - allow selective output of color groups
+# - handle n > length(pal) > n
+# - how to select colors in pal_n
+
+# - do not remove pal_ prefix
+# - allow aliases without pal_prefix
+# - collapse warnings
+# - more compact display
+#  - display fewer indices for large n
+
 seepal <- function(pal = "all",     # which palette to output?
                    n = "all",
                    hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
