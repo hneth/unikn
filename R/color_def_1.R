@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## hn |  uni.kn  |  2019 03 04
+## hn |  uni.kn  |  2019 03 05
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -226,26 +226,26 @@ pal_seeblau <- data.frame(                               #  element:
 
 #   (d) Named color seeblau (as df): ---- 
 
-#' uni.kn color seeblau (as df).
-#' 
-#' \code{seeblau} provides the preferred color of \code{\link{pal_seeblau}}
-#' (as an atomic data frame) and is defined as
-#' \code{\link{pal_seeblau}[3]}.
-#' 
-#' See \url{https://www.uni-konstanz.de} for details.
-#' 
-#' @examples
-#' # seeblau  # "seeblau3" with value "#59C7EB" (as df)
-#' # all.equal(seeblau, pal_seeblau[3])  # TRUE (both df)
-#' 
-#' @family named colors (as df)
-#' 
-#' @seealso
-#' \code{\link{pal_seeblau}} for the corresponding color palette;
-#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors;
-#' \code{\link{pal_unikn}} for the default uni.kn color palette;
-#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}};
-#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette. 
+##|  uni.kn color seeblau (as df).
+##|  
+##|  \code{seeblau} provides the preferred color of \code{\link{pal_seeblau}}
+##|  (as an atomic data frame) and is defined as
+##|  \code{\link{pal_seeblau}[3]}.
+##|  
+##|  See \url{https://www.uni-konstanz.de} for details.
+##|  
+##|  @examples
+##|  # seeblau  # "seeblau3" with value "#59C7EB" (as df)
+##|  # all.equal(seeblau, pal_seeblau[3])  # TRUE (both df)
+##|  
+##|  @family named colors (as df)
+##|  
+##|  @seealso
+##|  \code{\link{pal_seeblau}} for the corresponding color palette;
+##|  \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors;
+##|  \code{\link{pal_unikn}} for the default uni.kn color palette;
+##|  \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}};
+##|  \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette.
 
 # seeblau <- pal_seeblau[3]  # == seeblau.3 of pal_seeblau OR pal_unikn 
 
@@ -337,26 +337,26 @@ pal_peach <- data.frame(                               #  Element:
 
 #   (d) Named color peach (as df): ---- 
 
-#' uni.kn color peach (as df).
-#' 
-#' \code{peach} provides the preferred color of \code{\link{pal_peach}}
-#' (as an atomic data frame) and is defined as
-#' \code{\link{pal_peach}[4]}.
-#' 
-#' See \url{https://www.uni-konstanz.de} for details.
-#' 
-#' @examples
-#' # peach  # name "peach4" with color value "#FEA090" (as df)
-#' # all.equal(peach, pal_peach[4])  # TRUE (both df)
-#' 
-#' @family named colors (as df)
-#' 
-#' @seealso
-#' \code{\link{pal_peach}} for the corresponding color palette;
-#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors;
-#' \code{\link{pal_unikn}} for the default uni.kn color palette;
-#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}};
-#' \code{\link{seepal}} to show and use color palettes.
+##| uni.kn color peach (as df).
+##| 
+##| \code{peach} provides the preferred color of \code{\link{pal_peach}}
+##| (as an atomic data frame) and is defined as
+##| \code{\link{pal_peach}[4]}.
+##| 
+##| See \url{https://www.uni-konstanz.de} for details.
+##| 
+##| @examples
+##| # peach  # name "peach4" with color value "#FEA090" (as df)
+##| # all.equal(peach, pal_peach[4])  # TRUE (both df)
+##| 
+##| @family named colors (as df)
+##| 
+##| @seealso
+##| \code{\link{pal_peach}} for the corresponding color palette;
+##| \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors;
+##| \code{\link{pal_unikn}} for the default uni.kn color palette;
+##| \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}};
+##| \code{\link{seepal}} to show and use color palettes.
 
 # peach <- pal_peach[4]  # == peach.4 of pal_peach 
 
@@ -446,26 +446,26 @@ pal_grau <- data.frame(                               #  element:
 
 #   (d) Named color grau (as df): ---- 
 
-#' uni.kn color grau (as df).
-#' 
-#' \code{grau} provides the preferred color of \code{\link{pal_grau}}
-#' (as an atomic data frame) and is defined as
-#' \code{\link{pal_grau}[3]}.
-#' 
-#' See \url{https://www.uni-konstanz.de} for details.
-#' 
-#' @examples
-#' # grau  # name "grau3" and color value "#9AA0A7" (as df)
-#' # all.equal(grau, pal_grau[3])  # TRUE (both df)
-#' 
-#' @family named colors (as df)
-#' 
-#' @seealso
-#' \code{\link{pal_grau}} for the corresponding color palette;
-#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors;
-#' \code{\link{pal_unikn}} for the default uni.kn color palette;
-#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}};
-#' \code{\link{seepal}} to show and use color palettes. 
+##| uni.kn color grau (as df).
+##| 
+##| \code{grau} provides the preferred color of \code{\link{pal_grau}}
+##| (as an atomic data frame) and is defined as
+##| \code{\link{pal_grau}[3]}.
+##| 
+##| See \url{https://www.uni-konstanz.de} for details.
+##| 
+##| @examples
+##| # grau  # name "grau3" and color value "#9AA0A7" (as df)
+##| # all.equal(grau, pal_grau[3])  # TRUE (both df)
+##| 
+##| @family named colors (as df)
+##| 
+##| @seealso
+##| \code{\link{pal_grau}} for the corresponding color palette;
+##| \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors;
+##| \code{\link{pal_unikn}} for the default uni.kn color palette;
+##| \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}};
+##| \code{\link{seepal}} to show and use color palettes. 
 
 # grau <- pal_grau[3]  # == grau.3 of pal_grau: "grau3" OR "#9AA0A7"
 
@@ -560,26 +560,26 @@ pal_petrol <- data.frame(                               #  element:
 
 #   (d) Named color petrol (as df): ---- 
 
-#' uni.kn color petrol (as df). 
-#' 
-#' \code{petrol} provides the preferred color of \code{\link{pal_petrol}} 
-#' (as an atomic data frame) and is defined as 
-#' \code{\link{pal_petrol}[4]}. 
-#'
-#' See \url{https://www.uni-konstanz.de} for details.
-#'
-#' @examples
-#' # petrol  # name "petrol" and color value "#077187" (as df)
-#' # all.equal(petrol, pal_petrol[4])  # TRUE (both df)
-#' 
-#' @family named colors (as df) 
-#'
-#' @seealso
-#' \code{\link{pal_petrol}} for the corresponding color palette; 
-#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{seepal}} to show and use color palettes.  
+##| uni.kn color petrol (as df). 
+##| 
+##| \code{petrol} provides the preferred color of \code{\link{pal_petrol}} 
+##| (as an atomic data frame) and is defined as 
+##| \code{\link{pal_petrol}[4]}. 
+##| 
+##| See \url{https://www.uni-konstanz.de} for details.
+##|
+##| @examples
+##| # petrol  # name "petrol" and color value "#077187" (as df)
+##| # all.equal(petrol, pal_petrol[4])  # TRUE (both df)
+##| 
+##| @family named colors (as df) 
+##|
+##| @seealso
+##| \code{\link{pal_petrol}} for the corresponding color palette; 
+##| \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+##| \code{\link{pal_unikn}} for the default uni.kn color palette; 
+##| \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+##| \code{\link{seepal}} to show and use color palettes.  
 
 # petrol <- pal_petrol[4]  # == petrol.4 of pal_petrol: "petrol4" OR "#077187"
 
@@ -673,26 +673,26 @@ pal_seegruen <- data.frame(                               #  element:
 
 #   (d) Named color seegruen (as df): ---- 
 
-#' uni.kn color seegruen (as df).
-#' 
-#' \code{seegruen} provides the preferred color of \code{\link{pal_seegruen}} 
-#' (as an atomic data frame) and is defined as 
-#' \code{\link{pal_seegruen}[4]}. 
-#'
-#' See \url{https://www.uni-konstanz.de} for details.
-#'
-#' @examples
-#' # seegruen  # name "seegruen4" and color value "#0A9086" (as df)
-#' # all.equal(seegruen, pal_seegruen[4])  # TRUE (both df)
-#'
-#' @family named colors (as df) 
-#'
-#' @seealso
-#' \code{\link{pal_seegruen}} for the corresponding color palette; 
-#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{seepal}} to show and use color palettes. 
+##| uni.kn color seegruen (as df).
+##| 
+##| \code{seegruen} provides the preferred color of \code{\link{pal_seegruen}} 
+##| (as an atomic data frame) and is defined as 
+##| \code{\link{pal_seegruen}[4]}. 
+##|
+##| See \url{https://www.uni-konstanz.de} for details.
+##|
+##| @examples
+##| # seegruen  # name "seegruen4" and color value "#0A9086" (as df)
+##| # all.equal(seegruen, pal_seegruen[4])  # TRUE (both df)
+##|
+##| @family named colors (as df) 
+##|
+##| @seealso
+##| \code{\link{pal_seegruen}} for the corresponding color palette; 
+##| \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+##| \code{\link{pal_unikn}} for the default uni.kn color palette; 
+##| \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+##| \code{\link{seepal}} to show and use color palettes. 
 
 # seegruen <- pal_seegruen[4]  # == seegruen.4 of pal_seegruen: "seegruen4" OR "#0A9086"
 
@@ -784,26 +784,26 @@ pal_karpfenblau <- data.frame(                               #  element:
 
 #   (d) Named color karpfenblau (as df): ---- 
 
-#' uni.kn color karpfenblau (as df).  
-#' 
-#' \code{karpfenblau} provides the preferred color of \code{\link{pal_karpfenblau}} 
-#' (as an atomic data) frame and is defined as 
-#' \code{\link{pal_karpfenblau}[4]}. 
-#'
-#' See \url{https://www.uni-konstanz.de} for details.
-#'
-#' @examples
-#' # karpfenblau  # name "karpfenblau4" and color value "#3E5496" (as df)
-#' # all.equal(karpfenblau, pal_karpfenblau[4])  # TRUE (both df)
-#' 
-#' @family named colors (as df) 
-#'
-#' @seealso
-#' \code{\link{pal_karpfenblau}} for the corresponding color palette; 
-#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{seepal}} to show and use color palettes. 
+##| uni.kn color karpfenblau (as df).  
+##| 
+##| \code{karpfenblau} provides the preferred color of \code{\link{pal_karpfenblau}} 
+##| (as an atomic data) frame and is defined as 
+##| \code{\link{pal_karpfenblau}[4]}. 
+##|
+##| See \url{https://www.uni-konstanz.de} for details.
+##|
+##| @examples
+##| # karpfenblau  # name "karpfenblau4" and color value "#3E5496" (as df)
+##| # all.equal(karpfenblau, pal_karpfenblau[4])  # TRUE (both df)
+##| 
+##| @family named colors (as df) 
+##|
+##| @seealso
+##| \code{\link{pal_karpfenblau}} for the corresponding color palette; 
+##| \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+##| \code{\link{pal_unikn}} for the default uni.kn color palette; 
+##| \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+##| \code{\link{seepal}} to show and use color palettes. 
 
 # karpfenblau <- pal_karpfenblau[4]  # == karpfenblau4 of pal_karpfenblau: "karpfenblau4" OR "#3E5496"
 
@@ -895,26 +895,26 @@ pal_pinky <- data.frame(                               #  Element:
 
 #   (d) Named color pinky (as df): ---- 
 
-#' uni.kn color pinky (as df).   
-#' 
-#' \code{pinky} provides the preferred color of \code{\link{pal_pinky}} 
-#' (as an atomic data frame) and is defined as 
-#' \code{\link{pal_pinky}[4]}. 
-#'
-#' See \url{https://www.uni-konstanz.de} for details.
-#'
-#' @examples
-#' # pinky  # name "pinky4" and color value "#E0607E" (as df)
-#' # all.equal(pinky, pal_pinky[4])  # TRUE (both df)
-#' 
-#' @family named colors (as df) 
-#'
-#' @seealso
-#' \code{\link{pal_pinky}} for the corresponding color palette; 
-#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{seepal}} to show and use color palettes. 
+##| uni.kn color pinky (as df).   
+##| 
+##| \code{pinky} provides the preferred color of \code{\link{pal_pinky}} 
+##| (as an atomic data frame) and is defined as 
+##| \code{\link{pal_pinky}[4]}. 
+##|
+##| See \url{https://www.uni-konstanz.de} for details.
+##|
+##| @examples
+##| # pinky  # name "pinky4" and color value "#E0607E" (as df)
+##| # all.equal(pinky, pal_pinky[4])  # TRUE (both df)
+##| 
+##| @family named colors (as df) 
+##|
+##| @seealso
+##| \code{\link{pal_pinky}} for the corresponding color palette; 
+##| \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+##| \code{\link{pal_unikn}} for the default uni.kn color palette; 
+##| \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+##| \code{\link{seepal}} to show and use color palettes. 
 
 # pinky <- pal_pinky[4]  # == pinky4 of pal_pinky: "pinky4" OR "#E0607E"
 
@@ -1005,26 +1005,26 @@ pal_bordeaux <- data.frame(                               #  Element:
 
 #   (d) Named color bordeaux (as df): ---- 
 
-#' uni.kn color bordeaux (as df).    
-#' 
-#' \code{bordeaux} provides the preferred color of \code{\link{pal_bordeaux}} 
-#' (as an atomic data frame) and is defined as 
-#' \code{\link{pal_bordeaux}[4]}. 
-#'
-#' See \url{https://www.uni-konstanz.de} for details.
-#'
-#' @examples
-#' # bordeaux  # name "bordeaux4" and color value "#8E2043" (as df)
-#' # all.equal(bordeaux, pal_bordeaux[4])  # TRUE (both df)
-#' 
-#' @family named colors (as df) 
-#'
-#' @seealso
-#' \code{\link{pal_bordeaux}} for the corresponding color palette; 
-#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{seepal}} to show and use color palettes. 
+##| uni.kn color bordeaux (as df).    
+##| 
+##| \code{bordeaux} provides the preferred color of \code{\link{pal_bordeaux}} 
+##| (as an atomic data frame) and is defined as 
+##| \code{\link{pal_bordeaux}[4]}. 
+##|
+##| See \url{https://www.uni-konstanz.de} for details.
+##|
+##| @examples
+##| # bordeaux  # name "bordeaux4" and color value "#8E2043" (as df)
+##| # all.equal(bordeaux, pal_bordeaux[4])  # TRUE (both df)
+##| 
+##| @family named colors (as df) 
+##|
+##| @seealso
+##| \code{\link{pal_bordeaux}} for the corresponding color palette; 
+##| \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+##| \code{\link{pal_unikn}} for the default uni.kn color palette; 
+##| \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+##| \code{\link{seepal}} to show and use color palettes. 
 
 # bordeaux <- pal_bordeaux[4]  # == bordeaux4 of pal_bordeaux: "bordeaux4" OR "#8E2043"
 
@@ -1124,32 +1124,32 @@ pal_signal <- data.frame(                               #  Element:
 # Note: As the Ampel palette specification does NOT identify a preferred color,  
 #       using "signal" as a dedicated color is NOT part of the official definition. 
 
-#' uni.kn color alert signal (as df).    
-#' 
-#' \code{signal} provides the alert color of \code{\link{pal_signal}} 
-#' (as an atomic data frame) and is defined as 
-#' \code{\link{pal_signal}[2]}. 
-#' 
-#' The official specification of \code{\link{pal_signal}} 
-#' does not identify a preferred color. 
-#' We provide \code{\link{pal_signal}[2]} as a dedicated color 
-#' as it is suited for creating color gradients 
-#' (see \code{\link{col_scale}}). 
-#'  
-#' See \url{https://www.uni-konstanz.de} for details.
-#'
-#' @examples
-#' # signal  # name "signal2" and color value "#EFDC60" (as df)
-#' # all.equal(signal, pal_signal[2])  # TRUE (both df)
-#' 
-#' @family named colors (as df) 
-#'
-#' @seealso
-#' \code{\link{pal_signal}} for the corresponding color palette; 
-#' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
-#' \code{\link{seepal}} to show and use color palettes. 
+##| uni.kn color alert signal (as df).    
+##| 
+##| \code{signal} provides the alert color of \code{\link{pal_signal}} 
+##| (as an atomic data frame) and is defined as 
+##| \code{\link{pal_signal}[2]}. 
+##| 
+##| The official specification of \code{\link{pal_signal}} 
+##| does not identify a preferred color. 
+##| We provide \code{\link{pal_signal}[2]} as a dedicated color 
+##| as it is suited for creating color gradients 
+##| (see \code{\link{col_scale}}). 
+##|  
+##| See \url{https://www.uni-konstanz.de} for details.
+##|
+##| @examples
+##| # signal  # name "signal2" and color value "#EFDC60" (as df)
+##| # all.equal(signal, pal_signal[2])  # TRUE (both df)
+##| 
+##| @family named colors (as df) 
+##|
+##| @seealso
+##| \code{\link{pal_signal}} for the corresponding color palette; 
+##| \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
+##| \code{\link{pal_unikn}} for the default uni.kn color palette; 
+##| \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
+##| \code{\link{seepal}} to show and use color palettes. 
 
 # signal <- pal_signal[2]  # == signal2 of pal_signal: "signal2" OR "#EFDC60"
 
