@@ -1,0 +1,106 @@
+---
+title: "Text boxes and text decorations"
+author: "Hansjörg Neth, SPDS, uni.kn"
+date: "2019 03 05"
+output: 
+  rmarkdown::html_vignette: 
+    fig_caption: yes
+vignette: > 
+  %\VignetteIndexEntry{Text}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Beyond providing support for [colors](colors.html), `unikn` provides some functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining). 
+
+Some important caveats:
+
+- Plotting text (i.e., graphically rendering characters) is rarely a good idea. It typically doesn't scale (when changing the size of images) and cannot be recognized automatically (e.g., copied, indexed, or scraped). 
+Hence, the following functions should only be used in contexts in which no better solutions are available (e.g., when specifically creating images, or needing to add text to graphs). 
+
+- Like all other templates, our renderings are subject to constraints and limitations. As a standard installation of R lacks the official "Theinhardt" fonts, we can only mimic the design specifications (in Arial, sans serif). 
+Nevertheless, the `unikn` package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line titles) and can be customized and improved by expert users. 
+
+Overall, we hope that the following functions are useful for plotting graphical elements (e.g., boxes, logos, etc.) and help you achieve a uniform look when styling your visualizations.
+
+```{r load_pkg, message = FALSE, warning = FALSE}
+library(unikn)  # load unikn package
+```
+
+## Plotting empty slides and boxes
+
+As the text functions of `unikn` add styled text to an existing plot, we need to create a plot to which we can add text. 
+`unikn` provides 2 functions to begin a new plot:
+
+1. `slide` plots an empty canvass or frame:
+
+```{r slide_def, fig.align = 'center', fig.width = 4, fig.height = 3}
+slide()  # plot default slide
+```
+
+2. `xbox` plots a colored box with an X in its top right corner:
+
+```{r xbox_def, fig.align = 'center', fig.width = 2, fig.height = 2}
+xbox()  # plot default xbox
+```
+
+### Colors
+
+The background and border colors of slides can be changed by setting their `col`, `border`, and `lwd` arguments:
+
+```{r slide_col, fig.align = 'center', fig.width = 4, fig.height = 3}
+slide(col = pal_seeblau[[1]], border = Petrol, lwd = 5)  # set colors of slide and border
+slide(col = pal_peach[[2]], border = NA)  # colored slide without border
+```
+
+Similarly, the background color of xboxes can be changed by the `col` argument:
+
+```{r xbox_col, fig.align = 'center', fig.width = 2, fig.height = 2}
+xbox(col = Pinky)  # set color of xbox
+```
+
+### Dimensions
+
+By default, both `slide` and `xbox` fill the entire plotting region (i.e., all margins are set to 0).
+
+The width of a slide is set to 4/3 of its height (of 1). 
+To change this default, use the `dim` argument for specifying the slide's x- and y-dimensions, respectively:
+
+```{r slide_dim, fig.align = 'center', fig.width = 6, fig.height = 2}
+slide(dim = c(3, 1))  # a slide 3 times wider than high
+```
+
+Similarly, an xbox has the default dimensions of a unit square (i.e., `dim = c(1, 1)`). 
+To change this default, use the `dim` argument for specifying the xbox's x- and y-dimensions, respectively:
+
+```{r xbox_dim, fig.align = 'center', fig.width = 2, fig.height = 4}
+xbox(col = Petrol, dim  = c(1, 2))  # an xbox 2 times higher than wide
+```
+
+
+## Plotting styled text
+
+
+## All unikn vignettes
+
+<!-- unikn pkg logo and link: -->
+<a href = "https://github.com/hneth/unikn/">
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
+</a>
+
+<!-- Index of vignettes: -->
+
+| Nr.  | Vignette | Content    |        
+| ---: |:---------|:-----------|
+| 1. | [Colors](colors.html) | Colors and color palettes | 
+| 2. | [Text](text.html)     | Text boxes and text decorations | 
+
+
+<!-- eof. -->
