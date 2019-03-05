@@ -1,5 +1,5 @@
 ## color_pal.R  |  unikn
-## ng/hn | uni.kn | 2019 03 02
+## ng/hn | uni.kn | 2019 03 05
 ## ---------------------------
 
 ## Main functions to access and plot color palettes. 
@@ -283,12 +283,14 @@ seepal <- function(pal = "all",     # which palette to output?
       ## NOTE: is.character can pertain to a single color or a palette name!
       
       ## No single color but palette (note: length == 1 is already tested!):
-      if ( !isHexCol(pal) ) {  # TODO: Allow for other color models!
-        
+      if ( !isHexCol(pal) & !pal %in% colors()) {  # TODO: Allow for other color models!
+
         # Test, whether the palette name exists:
         pal_tmp <- tryCatch(
           
-          expr = {get(pal)},
+          expr = {
+            get(pal)  # try to find the palette in namespace.
+            },
           
           error = function(error) {
             err_msg <- paste0(error, "The specified palette is not defined in the current namespace.")
@@ -354,7 +356,7 @@ seepal <- function(pal = "all",     # which palette to output?
   ## 3.1 Plot an overview for a list of palettes: 
   ## TODO: How to handle inputs of multiple palettes?  Merge them or display them for comparison.
   ## Possible solution: (a) 1 list entry --> details; (b) more than 1 list entry --> comparison:
-  if (length(pal_tmp) > 1) {
+  if ( length(pal_tmp) > 1 ) {
     
     # Set margins:
     par(mar = c(3, 6, 3, 1))
@@ -369,7 +371,7 @@ seepal <- function(pal = "all",     # which palette to output?
     # Grid:
     grid <- TRUE  # 4debugging
     
-    if (grid) {
+    if ( grid ) {
       
       x_vals <- 0:max(ylim)
       y_vals <- 1:max_ncol
