@@ -222,8 +222,7 @@ isHexCol <- function(color) {
 # rmp2(5) %in% pal_unikn_pair
 
 # TODO:
-# - allow to either collapse palettes or compare them like pal = "all"
-# - group colors
+
 # - allow selective output of color groups
 # - handle n > length(pal) > n
 # - how to select colors in pal_n
@@ -233,6 +232,8 @@ isHexCol <- function(color) {
 # - collapse warnings
 # - more compact display
 #  - display fewer indices for large n
+
+# - allow to either collapse palettes or compare them like pal = "all"
 
 seepal <- function(pal = "all",     # which palette to output?
                    n = "all",
@@ -305,7 +306,16 @@ seepal <- function(pal = "all",     # which palette to output?
       
       # Select the number of colors:
       # TODO!  ColorRamp oä?
-      pal_tmp <- lapply(pal_tmp, FUN = pal_n, n = n)  # get n colors of each. 
+      if (n != "all") {
+        pal_tmp <- lapply(pal_tmp, FUN = function(pal) {
+          out <- colorRampPalette(pal)
+          # print(out(n))
+          return(out(n))
+        })
+      }
+     
+      
+      # pal_tmp <- lapply(pal_tmp, FUN = pal_n, n = n)  # get n colors of each. 
       
       pal_nm <- gsub("pal_", "", names(pal_tmp))  # get palette names from listnames. 
       
