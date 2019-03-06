@@ -102,6 +102,6 @@ barplot(1/sqrt(11:1), col = seepal(pal = c(rev(pal_seeblau), "white", pal_seegru
 | Nr.  | Vignette | Content    |        
 | ---: |:---------|:-----------|
 | 1. | [Colors](colors.html) | Colors and color palettes | 
-| 2. | [Text](text.html)     | Text boxes and text decorations | 
+| 2. | [Text](text.html)     | Text boxes and decorations | 
 
 <!-- eof. -->

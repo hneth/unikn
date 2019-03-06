@@ -68,6 +68,7 @@ line(lbls = "(which is why we underline it).", y = .40)  # add to plot
 
 Other text functions: \code{\link{box_text}},
   \code{\link{heading}}, \code{\link{mark}},
-  \code{\link{plot_box_txt}}, \code{\link{post}}
+  \code{\link{plot_box_txt}}, \code{\link{post}},
+  \code{\link{url_unikn}}
 }
 \concept{text functions}
