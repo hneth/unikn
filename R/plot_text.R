@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 03 02
+## hn  |  uni.kn |  2019 03 06
 ## ---------------------------
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
