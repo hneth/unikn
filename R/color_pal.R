@@ -287,7 +287,7 @@ get_pal <- function(pal, n = "all") {
   } else { # eof. length == 1. 
 
     tmp <- list(tmp)
-    nm <- deparse(substitute(pal))
+    nm <- deparse(substitute(pal))  # This needs to be done in the other function as well. 
     names(tmp) <- nm  # name the list. 
     
   }  
@@ -320,8 +320,8 @@ get_pal <- function(pal, n = "all") {
   #   
   # }
   
-  print(tmp)  # TODO: Rather create a print method for this!
-  invisible(tmp)  # return the whole object invisibly!
+  # print(tmp)  # TODO: Rather create a print method for this!
+  return(tmp)  # return the whole object invisibly!
   # return(pal_tmp)
   
 }
@@ -431,6 +431,7 @@ seepal <- function(pal = "all",     # which palette to output?
   
   ## Get palette:
   pal_tmp <- get_pal(pal = pal, n = n)
+  # TODO: Names get lost in translation if n is specified! 
   
   keys <- c("all", "pal_unikn", "pal")
   if ( all(pal %in% keys )) {
@@ -441,8 +442,12 @@ seepal <- function(pal = "all",     # which palette to output?
       
   } else {
     
-    nm <- names(pal)
-    title <- paste0("See palette ", nm)
+    # nm <- names(pal_tmp)
+    nm <- deparse(substitute(pal))
+    title <- ifelse(n == "all", 
+                    paste0("See palette ", nm),
+                    paste0("See palette ", nm, " (n = ", n, ")")
+    )
     
   }
   
@@ -549,9 +554,10 @@ seepal <- function(pal = "all",     # which palette to output?
     
     # 3.2 Detail view of 1 palette: ------------
     
-    # NOTE: Only necessary as long palettes are lists!
+    names(pal_tmp) <- NULL  # remove first order names! 
     
-    pal_tmp <- unlist(pal_tmp)  # TODO: This essentially changes the length of the color vector.  FInd better solution!
+    pal_tmp <- unlist(pal_tmp)  # HERE!
+    # TODO: This essentially changes the length of the color vector.  FInd better solution!
     
     # Set margins:
     par(mar = c(3, 2, 3, 1))
@@ -622,7 +628,7 @@ seepal <- function(pal = "all",     # which palette to output?
     
     # Plot rectangles:
     plot_col(x = pal_tmp, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = 1,
-             ...
+            ...
     )
     
     # Plot circles:
@@ -630,7 +636,8 @@ seepal <- function(pal = "all",     # which palette to output?
     circle_len <- ifelse(xlim[2] / 10 < 0.5, xlim[2] / 10, 0.5)
     
     plot_col(x = pal_tmp, ypos = 1.2, plot.new = FALSE, xlen = circle_len, shape = "circle",
-             ...)
+             ...
+             )
     
     # Color names:
     text(x = txt_pos, y = 1.6, labels = names(pal_tmp), # pos = 3, 
