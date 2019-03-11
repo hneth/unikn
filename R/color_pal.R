@@ -401,17 +401,16 @@ get_pal <- function(pal, n = "all") {
 
 # TODO:
 
-# - allow selective output of color groups
+# - allow selective output of color groups --> Adjust groups?
 # - handle n > length(pal) > n
-# - how to select colors in pal_n
+# - how to select colors in pal_n? For known palettes create a clear selection!
 
 # - do not remove pal_ prefix
 # - allow aliases without pal_prefix
 # - collapse warnings
 # - more compact display
-#  - display fewer indices for large n
 
-# - allow to either collapse palettes or compare them like pal = "all"
+# - allow to either collapse palettes or compare them like pal = "all"; or provide the palettes as matrix?
 
 seepal <- function(pal = "all",     # which palette to output?
                    n = "all",
@@ -432,6 +431,8 @@ seepal <- function(pal = "all",     # which palette to output?
   ## Get palette:
   pal_tmp <- get_pal(pal = pal, n = n)
   # TODO: Names get lost in translation if n is specified! 
+  
+  print(substitute(pal))
   
   keys <- c("all", "pal_unikn", "pal")
   if ( all(pal %in% keys )) {
@@ -591,7 +592,7 @@ seepal <- function(pal = "all",     # which palette to output?
     cex_lim <- 0.7  # lower limit for cex. 
     
     # Determine whether to display hex values:
-    cex_hex <- par("cex")
+    cex_hex <- 0.9  # was par("cex")
     wdth_hex <- strwidth("#XXXXXX", cex = cex_hex) * max_ncol + strwidth("Hex")  # is the width small enough?
     
     while (wdth_hex > xlim[2]) {
@@ -613,7 +614,7 @@ seepal <- function(pal = "all",     # which palette to output?
     } 
     
     # Determine, whether to display rgb values:
-    cex_rgb <- par("cex")
+    cex_rgb <- 0.9
     wdth_rgb <- strwidth(" 999 ", cex = cex_rgb) * max_ncol
     while (wdth_rgb > xlim[2]) {
       
@@ -673,9 +674,10 @@ seepal <- function(pal = "all",     # which palette to output?
       }
       
       ## Plot the values: 
-      text(x = 0, y = -0.35, labels = "Hex:", font = 2, pos = 3, xpd = TRUE, 
+      yhex <- -0.25
+      text(x = 0, y = yhex, labels = "Hex:", font = 2, pos = 2, offset = 0, xpd = TRUE, 
            cex = cex_hex)
-      text(x = txt_pos, y = -0.35, labels = pal_tmp, pos = 3, xpd = TRUE,
+      text(x = txt_pos, y = yhex, labels = pal_tmp, pos = NULL, xpd = TRUE,
            cex = cex_hex, srt = 0)
       
     } # if (hex) etc.
