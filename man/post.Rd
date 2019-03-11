@@ -74,6 +74,7 @@ post(lbls = c("More text follows here,",
 
 Other text functions: \code{\link{box_text}},
   \code{\link{heading}}, \code{\link{line}},
-  \code{\link{mark}}, \code{\link{plot_box_txt}}
+  \code{\link{mark}}, \code{\link{plot_box_txt}},
+  \code{\link{url_unikn}}
 }
 \concept{text functions}

@@ -66,6 +66,7 @@ mark(lbls = "More testing here.", y = .45, col_bg = pal_pinky[[2]])  # add to pl
 
 Other text functions: \code{\link{box_text}},
   \code{\link{heading}}, \code{\link{line}},
-  \code{\link{plot_box_txt}}, \code{\link{post}}
+  \code{\link{plot_box_txt}}, \code{\link{post}},
+  \code{\link{url_unikn}}
 }
 \concept{text functions}

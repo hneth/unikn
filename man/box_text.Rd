@@ -95,7 +95,8 @@ plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20,
 
 Other text functions: \code{\link{heading}},
   \code{\link{line}}, \code{\link{mark}},
-  \code{\link{plot_box_txt}}, \code{\link{post}}
+  \code{\link{plot_box_txt}}, \code{\link{post}},
+  \code{\link{url_unikn}}
 }
 \author{
 Adapted from code by Ian Kopacka.

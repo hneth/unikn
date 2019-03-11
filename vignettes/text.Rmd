@@ -1,5 +1,5 @@
 ---
-title: "Text boxes and text decorations"
+title: "Text boxes and decorations"
 author: "Hansjörg Neth, SPDS, uni.kn"
 date: "2019 03 05"
 output: 
@@ -18,17 +18,21 @@ knitr::opts_chunk$set(
 )
 ```
 
-Beyond providing support for [colors](colors.html), `unikn` provides some functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining). 
+Beyond providing support for [colors](colors.html), `unikn` provides functions for plotting graphical elements (like boxes) and text decorations (with colored backgrounds or underlining). 
+Before we illustrate these functions through examples, it's important to note some caveats: 
 
-Some important caveats:
+- Plotting text (i.e., graphically rendering characters) is rarely a good idea. 
+Plotted text typically doesn't scale (when changing the size of images) and cannot be recognized automatically (e.g., copied, indexed, or scraped). 
+Hence, the following functions should only be used in contexts in which no better solutions are available 
+(e.g., when specifically creating images, or when having to add text to graphs). 
 
-- Plotting text (i.e., graphically rendering characters) is rarely a good idea. It typically doesn't scale (when changing the size of images) and cannot be recognized automatically (e.g., copied, indexed, or scraped). 
-Hence, the following functions should only be used in contexts in which no better solutions are available (e.g., when specifically creating images, or needing to add text to graphs). 
+- Like all other templates, our renderings are subject to constraints and limitations. 
+As a standard installation of R lacks the prescribed "Theinhardt" fonts, we can only mimic the official design specifications (in Arial, sans serif). 
 
-- Like all other templates, our renderings are subject to constraints and limitations. As a standard installation of R lacks the official "Theinhardt" fonts, we can only mimic the design specifications (in Arial, sans serif). 
-Nevertheless, the `unikn` package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line titles) and can be customized and improved by expert users. 
+That said, it's sometimes useful to create digital fluff. Provided that decorative elements can be produced easily and at low cost, they can help to structure and emphasize information. 
+The `unikn` package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line titles) and can be customized and improved by expert users. Hence, we hope that the following functions are useful for plotting graphical elements (e.g., boxes, logos, etc.) and help you achieve a uniform look when styling your presentations and visualizations. 
 
-Overall, we hope that the following functions are useful for plotting graphical elements (e.g., boxes, logos, etc.) and help you achieve a uniform look when styling your visualizations.
+Please load the `unikn` package to get started: 
 
 ```{r load_pkg, message = FALSE, warning = FALSE}
 library(unikn)  # load unikn package
@@ -84,8 +88,45 @@ To change this default, use the `dim` argument for specifying the xbox's x- and 
 xbox(col = Petrol, dim  = c(1, 2))  # an xbox 2 times higher than wide
 ```
 
-
 ## Plotting styled text
+
+Three main functions:
+
+- `mark`
+- `line`
+- `post`
+
+In addition, two helper functions: 
+
+- `headline`
+- `url_unikn`
+
+### Mark text
+
+"Markieren"
+
+### Underline text
+
+"Unterstreichen"
+
+### Post it
+
+"Merken"
+
+### Headlines
+
+Titels
+
+### URLs
+
+One of the more obscure rules (in p. 31 of the CD manual) concerns the rendering of URLs, in which typical web patterns (like "http" or "www") are to be omitted and replaced by a typographical dash (which is longer than a hyphen). The `url_unikn` utility function allows formatting URLs the uni.kn way:
+
+```{r url_post, fig.align = 'center', fig.width = 2, fig.height = 2}
+my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from web browser
+my_url  # formatted URL
+
+post(lbls = my_url, y = .1, font = 4, new_plot = "xbox")  # post at bottom of an xbox
+```
 
 
 ## All unikn vignettes
@@ -100,7 +141,7 @@ xbox(col = Petrol, dim  = c(1, 2))  # an xbox 2 times higher than wide
 | Nr.  | Vignette | Content    |        
 | ---: |:---------|:-----------|
 | 1. | [Colors](colors.html) | Colors and color palettes | 
-| 2. | [Text](text.html)     | Text boxes and text decorations | 
+| 2. | [Text](text.html)     | Text boxes and decorations | 
 
 
 <!-- eof. -->

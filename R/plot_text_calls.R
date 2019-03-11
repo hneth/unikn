@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 03 04
+## hn  |  uni.kn |  2019 03 06
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -398,7 +398,8 @@ post <- function(lbls,               # labels of text element(s)
 #              "Office F101",
 #              "Tel.: +49 7531 88-0815",
 #              "Fax: +49 7531 88-0810",
-#              "b.f.skin@uni-konstanz.de")
+#              "b.f.skin@uni-konstanz.de",
+#              "\u2013 uni-konstanz.de")
 # 
 # post(lbls = "Contact",
 #      y = .75,
@@ -410,6 +411,9 @@ post <- function(lbls,               # labels of text element(s)
 #      y = .55, y_layout = .03,
 #      new_plot = "none")
 
+## URLs:
+# my_url <- url_unikn("https://www.uni-konstanz.de/")
+# post(lbls = my_url, y = .1, font = 4)
 
 
 # (4) heading: Arrange headings (according to title specifications): ------ 

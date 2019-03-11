@@ -73,6 +73,7 @@ This is an earlier version of the more powerful
 
 Other text functions: \code{\link{box_text}},
   \code{\link{heading}}, \code{\link{line}},
-  \code{\link{mark}}, \code{\link{post}}
+  \code{\link{mark}}, \code{\link{post}},
+  \code{\link{url_unikn}}
 }
 \concept{text functions}

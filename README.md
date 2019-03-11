@@ -264,7 +264,6 @@ barplot(1/sqrt(10:25), col = seepal(pal_unikn_pair))
 
 # Using n colors of a palette:
 barplot(1/sqrt(1:5), col = seepal(pal_unikn, n = 5)) 
-# barplot(1/sqrt(1:5), col = seepal(pal_n(n = 5, pal = pal_unikn)))  # OLD
 
 # Scatterplot:
 plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = 1))   # 0 transparency
@@ -288,18 +287,19 @@ image(m, col = seepal(pal_bordeaux))
 # Geometric images:
 x <- y <- seq(-4 * pi, 4 * pi, len = 30)
 r <- sqrt(outer(x^2, y^2, "+"))
-image(z = cos(r^2) * exp(-r/6), col = gray((0:32)/32))
+z <- cos(r^2) * exp(-r/6)
+image(z,, col = gray((0:32)/32))
 image(z, axes = FALSE, main = "Math is hot...", xlab = expression(cos(r^2) * e^{-r/6}))
 
 # pal_seeblau:
-x <- y <- seq(-4 * pi, 4 * pi, len = 150)
+x <- y <- seq(-4 * pi, 4 * pi, len = 15)
 r <- sqrt(outer(x^2, y^2, "+"))
 image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_seegruen))(10), main = "Shades of seeblau/seegruen", axes = FALSE)
 # contour(z, add = TRUE, drawlabels = FALSE)
 
-x <- y <- seq(-4 * pi, 4 * pi, len = 50)
+x <- y <- seq(-4 * pi, 4 * pi, len = 75)
 r <- sqrt(outer(x^2, y^2, "+"))
-image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, rev(pal_peach)))(10), main = "Shades of seeblau/peach", axes = FALSE)
+image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_pinky))(20), main = "Shades of seeblau/pinky", axes = FALSE)
 # contour(z, add = TRUE, drawlabels = FALSE)
 ```
 

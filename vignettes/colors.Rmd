@@ -20,19 +20,22 @@ knitr::opts_chunk$set(
 
 Explain which colors and color palettes exist in `unikn` and how to use them.
 
+Please load the `unikn` package to get started: 
+
 ```{r load_pkg, message = FALSE, warning = FALSE}
 library(unikn)  # load unikn package
 ```
+
 
 ## Viewing color palettes
 
 Viewing all available color palettes:
 
-```{r seepal_all, fig.align = 'center', fig.width = 7.2, fig.height = 7}
+```{r seepal_all, fig.align = 'center', fig.width = 7.2, fig.height = 6}
 seepal()
 ```
 
-Viewing a particular color palette:
+Viewing the colors and details of a particular color palette:
 
 ```{r view_pal, fig.align = 'center', fig.width = 7.2, fig.height = 5}
 seepal(pal = pal_unikn_plus)
@@ -40,9 +43,16 @@ seepal(pal = pal_unikn_plus)
 
 ## Using colors and color palettes
 
-```{r pref_cols, fig.align = 'center', fig.width = 7.2, fig.height = 5}
-seepal(pal_unikn_pref)
+Using colors in a graph:
+
+```{r}
+# Using a color palette:
+barplot(1/sqrt(1:11), col = seepal(pal_unikn_plus))
 ```
+
+
+
+
 
 ## Modifying color palettes
 
@@ -63,11 +73,22 @@ Extending a palette to a larger number of colors than contained in the palette:
 Combining color palettes: 
 
 ```{r, fig.align = 'center', fig.width = 7.2, fig.height = 5}
-seepal(pal = c(rev(pal_seeblau), "white", pal_pinky))
 seepal(pal = c(rev(pal_seeblau), "white", pal_petrol))
 seepal(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 ```
 
+Mixing palettes:
+
+```{r}
+seepal(pal = col_scale(c(Karpfenblau, Seeblau, "gold"))(10))
+```
+
+Examples of combining colors and color palettes into new color palettes:
+
+```{r bar_seeblau_pinky, fig.align = 'center', fig.width = 7.2, fig.height = 4}
+barplot((-5:5)^2+5, col = seepal(pal = c(rev(pal_seeblau), "white", pal_pinky)))
+barplot(1/sqrt(11:1), col = seepal(pal = c(rev(pal_seeblau), "white", pal_seegruen)))
+```
 
 ## All unikn vignettes
 
@@ -81,6 +102,6 @@ seepal(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 | Nr.  | Vignette | Content    |        
 | ---: |:---------|:-----------|
 | 1. | [Colors](colors.html) | Colors and color palettes | 
-| 2. | [Text](text.html)     | Text boxes and text decorations | 
+| 2. | [Text](text.html)     | Text boxes and decorations | 
 
 <!-- eof. -->

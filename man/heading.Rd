@@ -75,6 +75,7 @@ heading(lbls = c("Headlines with", "3 or more lines should not",
 
 Other text functions: \code{\link{box_text}},
   \code{\link{line}}, \code{\link{mark}},
-  \code{\link{plot_box_txt}}, \code{\link{post}}
+  \code{\link{plot_box_txt}}, \code{\link{post}},
+  \code{\link{url_unikn}}
 }
 \concept{text functions}
