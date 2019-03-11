@@ -158,76 +158,68 @@ get_pal <- function(pal, n = "all") {
   
   stopifnot(len_pal > 0)  # stop if no palette is specified. 
   
-  pal_tmp <- pal  # specify temporary palette for processing (to retain input). 
+  tmp <- pal  # specify temporary palette for processing (to retain input). 
   pal_name <- deparse(substitute(pal)) # name of pal (as df)
   
   ## 1.2 Check, whether palette is of length 1 (keyword or single color; potentially also list): 
   if ( len_pal == 1 ) {
     
-    if ( pal == "pal_tmp" ) stop("Palettes may not be named pal_tmp.")  # TODO: Nicer solution possible?
+    # TODO: Test for list of colors of legth 1? 
+    
+    if ( pal == "tmp" ) stop("Palettes may not be named tmp.")  # TODO: Nicer solution possible?
     
     ## 1.2.1 Getting by keyword: -------------------
-    keys <- c("all", "uni_kn", "pal")
+    keys <- c("all", "pal_unikn", "pal")
     
     if ( pal %in% keys ) {
       
       # Get all color palettes with the prefix "pal_" from the environment:
       all_pal <- utils::apropos("pal_")  # get all unikn palettes.
       
-      ix_unikn <- grepl("unikn", all_pal)  # index for all unikn palettes. 
+      ix_unikn <- grepl("pal_unikn", all_pal)  # index for all unikn palettes. 
       
       ## The three cases: -----
-      if ( pal == "all" ) pal_names <- all_pal[all_pal != "pal_tmp"]
-      if ( pal == "uni_kn") pal_names <- all_pal[ix_unikn]
+      if ( pal == "all" ) pal_names <- all_pal[all_pal != "tmp"]
+      if ( pal == "pal_unikn") pal_names <- all_pal[ix_unikn]
       if ( pal == "pal") pal_names <- all_pal[!ix_unikn]
         
         
-        # TODO: Problem, that pal_tmp may not be in the environment!
-        pal_ls <- sapply(pal_names, get)
+        # TODO: Problem, that tmp may not be in the environment!
+      # Get all palettes specified by keyword:
+      lst_pal <- sapply(pal_names, get)
         
-        # Indicator, whether these are color palettes: 
-        is_pal <- lapply(pal_ls, FUN = function(x) {
-          
-          if (!typeof(x) %in% c("vector", "list")) {
-            is_color <- FALSE
-          } else {
-            is_color <- isHexCol(color = x)
-          } 
-          return(all(is_color))  # are all entries colors? 
-          
-        })
+      # Indicator, whether these are color palettes: 
+      is_pal <- lapply(lst_pal, FUN = function(x) {
         
-        # Get the palettes:
-        pal_tmp <- pal_ls[unlist(is_pal)]
+        if (!typeof(x) %in% c("vector", "list")) {
+          is_color <- FALSE
+        } else {
+          is_color <- isHexCol(color = x)
+        } 
+        return(all(is_color))  # are all entries colors? 
         
-        # Check if palette is non-empty:
-        if (length(pal_tmp) == 0) {
-          stop("No palettes defined in the environment.")
-          # return(NULL)
-        }
+      })
         
-        ## Order palettes:
-        ix <- c(grep("pal_unikn", names(pal_tmp)), grep("pal_signal", names(pal_tmp)))
-        
-        pal_tmp <- c(pal_tmp[ix], pal_tmp[-ix])
-        
-        # Select the number of colors:
-        # TODO!  ColorRamp oä?
-        if (n != "all") {
-          pal_tmp <- lapply(pal_tmp, FUN = function(pal) {
-            out <- colorRampPalette(pal)
-            # print(out(n))
-            return(out(n))
-          })
-        }
-        
-        # pal_tmp <- lapply(pal_tmp, FUN = pal_n, n = n)  # get n colors of each. 
-        
-        pal_nm <- gsub("pal_", "", names(pal_tmp))  # get palette names from listnames. 
-        
-        title <- "See all unikn palettes"  # specify title.
-    }
+      # Get the palettes:
+      tmp <- lst_pal[unlist(is_pal)]
       
+      # Check if palette is non-empty:
+      if (length(tmp) == 0) {
+        stop("No palettes defined in the environment.")
+        # return(NULL)
+      }
+      
+      ## Order palettes:
+      if ( pal == "all ") {
+        ix <- c(grep("pal_unikn", names(tmp)), grep("pal_signal", names(tmp)))
+        
+        tmp <- c(tmp[ix], tmp[-ix])
+      }
+      
+      # tmp <- lapply(tmp, FUN = pal_n, n = n)  # get n colors of each. 
+      
+      pal_nm <- gsub("pal_", "", names(tmp))  # get palette names from listnames. 
+
     ## 1.2.2 Single palette name: ------
     } else {  # if pal not defined by keyword.
       
@@ -240,10 +232,10 @@ get_pal <- function(pal, n = "all") {
       # TODO: Create function for getting(vectors of) palettes!  
       
       ## No single color but palette (note: length == 1 is already tested!):
-      if ( !isHexCol(pal) & !pal %in% colors()) {  # TODO: Allow for other color models!
+      if ( !isHexCol(pal) & !pal %in% colors() ) {  # TODO: Allow for other color models!
         
         # Test, whether the palette name exists:
-        pal_tmp <- tryCatch(
+        tmp <- tryCatch(
           
           expr = {
             get(pal)  # try to find the palette in namespace.
@@ -269,41 +261,58 @@ get_pal <- function(pal, n = "all") {
           }
         )
         
-        pal_tmp <- list(pal_tmp)  # bind palette into list of length 1. 
-        title <- paste0("See palette ", gsub("pal_", "", pal))
-        
-      } else {  # if it is a hex color or a color defined in colors():
-        
-        title <- paste0("See color ", pal)  # TODO: Does a single color need any further processing? 
-        
-        ## TODO: Translate to name if possible? 
+        tmp <- list(tmp)  # bind palette into list of length 1. 
+        names(tmp) <- paste0(pal)
+        # title <- paste0("See palette ", gsub("pal_", "", pal))
         
       } 
+      # else {  # if it is a hex color or a color defined in colors():
+      #   
+      #   title <- paste0("See color ", pal)  # TODO: Does a single color need any further processing? 
+      #   
+      #   ## TODO: Translate to name if possible? 
+      #   
+      # } 
       
     }
-  }  # eof. length == 1. 
+  } else { # eof. length == 1. 
+
+    tmp <- list(tmp)
+    nm <- deparse(substitute(pal))
+    names(tmp) <- nm  # name the list. 
+    
+  }  
   
   
   ## Color selection: --------
-  if ( n != "all") {
-    pal_tmp <- pal_n(n = n, pal_tmp)
+  if ( n != "all" ) {
+    # tmp <- pal_n(n = n, tmp)
+    # If we have a list of palettes (currently by keywords only):
+      tmp <- lapply(tmp, FUN = function(pal) {
+        out <- colorRampPalette(pal)
+        # print(out(n))
+        return(out(n))
+      })
+    
   }
   
   ## 1.3 Palette as list or vector: -------
-  if ( length(pal_tmp) > 1 & !all(pal == "all")) {  # test again, if a palette has been retrieved before! 
-    
-    # pal_tmp <- pal_n(n = n, pal_tmp)  # include the color selection (if there is more than one color).
-    
-    ## Wrap in list:
-    # TODO: Neater solution? 
-    pal_tmp <- list(pal_tmp)
-    nm <- deparse(substitute(pal))
-    names(pal_tmp) <- nm  # name the list. 
-    
-  }
+  # if ( length(tmp) > 1 & !all(pal %in% keys)) {  # test again, if a palette has been retrieved before! 
+  #   
+  #   # tmp <- pal_n(n = n, tmp)  # include the color selection (if there is more than one color).
+  #   
+  #   ## Wrap in list:
+  #   # TODO: Neater solution? 
+  #   # tmp <- list(tmp)
+  #   # nm <- deparse(substitute(pal))
+  #   # names(tmp) <- nm  # name the list. 
+  #   
+  #   # TODO: Do I even need this anymore?
+  #   
+  # }
   
-  print(unlist(pal_tmp))  # TODO: Rather create a print method for this!
-  invisible(pal_tmp)  # return the whole object invisibly!
+  print(tmp)  # TODO: Rather create a print method for this!
+  invisible(tmp)  # return the whole object invisibly!
   # return(pal_tmp)
   
 }
@@ -363,23 +372,23 @@ get_pal <- function(pal, n = "all") {
 # - Definition: ------- 
 
 # How does color ramp work?
-pal_tst <- grey(c(0.1, 0.2, 0.3, 0.4, 0.9), 1)
-seepal(pal_tst)
-
-pal_tst[2] <- "red"
-
-rmp <- colorRampPalette(pal_tst)
-
-
-seepal(pal_tst)
-seepal(rmp(10))  # the original color poles appear to be always included!
-seepal(rmp(3))
+# pal_tst <- grey(c(0.1, 0.2, 0.3, 0.4, 0.9), 1)
+# seepal(pal_tst)
 # 
-# # TODO: Use a two-step procedure to retain all original colors?
+# pal_tst[2] <- "red"
 # 
-rmp2 <- colorRampPalette(pal_unikn_pair)
-seepal(pal_unikn_pair, hex = TRUE)
-rmp2(5) %in% pal_unikn_pair
+# rmp <- colorRampPalette(pal_tst)
+# 
+# 
+# seepal(pal_tst)
+# seepal(rmp(10))  # the original color poles appear to be always included!
+# seepal(rmp(3))
+# # 
+# # # TODO: Use a two-step procedure to retain all original colors?
+# # 
+# rmp2 <- colorRampPalette(pal_unikn_pair)
+# seepal(pal_unikn_pair, hex = TRUE)
+# rmp2(5) %in% pal_unikn_pair
 
 # TODO:
 
