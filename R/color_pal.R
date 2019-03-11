@@ -166,6 +166,14 @@ get_pal <- function(pal, n = "all") {
   # TODO: A single color of type list
   # - a character vector of length > 0
   
+  # pal <- tolower(pal)  # TODO: tolower() is problematic, as one cannot access the single colors in uppercase. 
+  
+  # TODO: Testing for existence with exists():
+  dep_pal <- deparse(substitute(pal))
+  print(dep_pal)
+  print(exists(dep_pal))
+  print(exists(pal))
+  
   len_pal <- length(pal)  # get length of the specified palette. 
   typ_pal <- typeof(pal)  # get type of the specified palette. 
   
@@ -188,7 +196,7 @@ get_pal <- function(pal, n = "all") {
       
       # Get all color palettes with the prefix "pal_" from the environment.
       
-      all_pal <- utils::apropos("pal_")
+      all_pal <- utils::apropos("pal_")  # all palettes in the environment. 
       ix_unikn <- grepl("pal_unikn", all_pal)  # index for all unikn palettes. 
       
       ## The three cases: -----
@@ -218,8 +226,7 @@ get_pal <- function(pal, n = "all") {
       
       # Check if palette is non-empty:
       if (length(tmp) == 0) {
-        stop("No palettes defined in the environment.")
-        # return(NULL)
+        stop("No palettes defined in the current environment.")
       }
       
       ## Order palettes:
@@ -228,10 +235,9 @@ get_pal <- function(pal, n = "all") {
         
         tmp <- c(tmp[ix], tmp[-ix])
       }
+  
       
-      # tmp <- lapply(tmp, FUN = pal_n, n = n)  # get n colors of each. 
-      
-      pal_nm <- gsub("pal_", "", names(tmp))  # get palette names from listnames. 
+      pal_nm <- names(tmp)  # get palette names from listnames. 
 
     ## 1.2.2 Single palette name: ------
     } else {  # if pal not defined by keyword.
@@ -239,10 +245,6 @@ get_pal <- function(pal, n = "all") {
       ## TODO: Function to test for colors in general!
       
       ## NOTE: is.character can pertain to a single color or a palette name!
-      
-      ## Try to get name with "pal_" prefix:
-      
-      # TODO: Create function for getting(vectors of) palettes!  
       
       ## No single color but palette (note: length == 1 is already tested!):
       if ( !isHexCol(pal) & !pal %in% colors() ) {  # TODO: Allow for other color models!
@@ -310,22 +312,7 @@ get_pal <- function(pal, n = "all") {
       })
     
   }
-  
-  ## 1.3 Palette as list or vector: -------
-  # if ( length(tmp) > 1 & !all(pal %in% keys)) {  # test again, if a palette has been retrieved before! 
-  #   
-  #   # tmp <- pal_n(n = n, tmp)  # include the color selection (if there is more than one color).
-  #   
-  #   ## Wrap in list:
-  #   # TODO: Neater solution? 
-  #   # tmp <- list(tmp)
-  #   # nm <- deparse(substitute(pal))
-  #   # names(tmp) <- nm  # name the list. 
-  #   
-  #   # TODO: Do I even need this anymore?
-  #   
-  # }
-  
+
   # print(tmp)  # TODO: Rather create a print method for this!
   return(tmp)  # return the whole object invisibly!
   # return(pal_tmp)
