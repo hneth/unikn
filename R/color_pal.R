@@ -443,12 +443,14 @@ seepal <- function(pal = "all",     # which palette to output?
   } else {
     
     # nm <- names(pal_tmp)
-    nm <- deparse(substitute(pal))
-    title <- ifelse(n == "all", 
-                    paste0("See palette ", nm),
-                    paste0("See palette ", nm, " (n = ", n, ")")
-    )
+    nm <- ifelse(is.character(pal), pal, deparse(substitute(pal)))
+    title <- paste0("See palette ", nm)
+
     
+  }
+  
+  if (n != "all") {
+    title <- paste0(title, " (n = ", n, ")")
   }
   
   
