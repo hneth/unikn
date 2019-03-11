@@ -149,6 +149,10 @@ isHexCol <- function(color) {
 }
 
 
+## Helper lookup_pal: A list of all unikn palette names which is not changed by user input and generated on load:
+# lookup_pal <- utils::apropos("pal_")  # get all unikn palettes.
+# TODO: Where to put this?
+
 ## get_pal(): Get a palette or list of palettes by keyword, n argument uses colorRamp(): -------
 
 get_pal <- function(pal, n = "all") {
@@ -182,9 +186,9 @@ get_pal <- function(pal, n = "all") {
     
     if ( pal %in% keys ) {
       
-      # Get all color palettes with the prefix "pal_" from the environment:
-      all_pal <- utils::apropos("pal_")  # get all unikn palettes.
+      # Get all color palettes with the prefix "pal_" from the environment.
       
+      all_pal <- utils::apropos("pal_")
       ix_unikn <- grepl("pal_unikn", all_pal)  # index for all unikn palettes. 
       
       ## The three cases: -----
@@ -285,6 +289,8 @@ get_pal <- function(pal, n = "all") {
       
     }
   } else { # eof. length == 1. 
+    
+    # TODO: Allow to mix palettes! (e.g., c("pal_bordeaux", "pal_unikn"))?
 
     tmp <- list(tmp)
     nm <- deparse(substitute(pal))  # This needs to be done in the other function as well. 
@@ -401,11 +407,17 @@ get_pal <- function(pal, n = "all") {
 
 # TODO:
 
-# - allow selective output of color groups --> Adjust groups?
+# - allow selective output of color groups --> Are groups fine?
+# Examples: 
+  # seepal("pal_unikn")
+  # seepal("pal")
 # - handle n > length(pal) > n
+  # seepal(pal_bordeaux, n = 2)
+  # seepal(pal_bordeaux, n = 10)
+  # seepal(n = 20)  # all palettesextended to 20 colors.
 # - how to select colors in pal_n? For known palettes create a clear selection!
+# TODO!
 
-# - do not remove pal_ prefix
 # - allow aliases without pal_prefix
 # - collapse warnings
 # - more compact display
