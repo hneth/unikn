@@ -175,7 +175,7 @@ get_pal <- function(pal, n = "all") {
     
     # TODO: Test for list of colors of legth 1? 
     
-    if ( pal == "tmp" ) stop("Palettes may not be named tmp.")  # TODO: Nicer solution possible?
+    if ( pal == "tmp" ) stop("Palettes must not be named tmp.")  # TODO: Nicer solution possible?
     
     ## 1.2.1 Getting by keyword: -------------------
     keys <- c("all", "pal_unikn", "pal")
@@ -219,7 +219,7 @@ get_pal <- function(pal, n = "all") {
       }
       
       ## Order palettes:
-      if ( pal == "all ") {
+      if ( pal == "all" ) {
         ix <- c(grep("pal_unikn", names(tmp)), grep("pal_signal", names(tmp)))
         
         tmp <- c(tmp[ix], tmp[-ix])
@@ -470,7 +470,7 @@ seepal <- function(pal = "all",     # which palette to output?
   # print(paste0("xlim = ", xlim))
   
   # Determine ylim as number of colors in the palette:
-  ylim <- c(0, length(pal_tmp))   
+  ylim <- c(0, length(pal_tmp) + 0.2)   
   # print(paste0("ylim = ", ylim))
   
   # Bind palette(s) to their color index:
