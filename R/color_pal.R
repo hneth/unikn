@@ -182,7 +182,7 @@ get_pal <- function(pal, n = "all") {
     if ( pal == "tmp" ) stop("Palettes must not be named tmp.")  # TODO: Nicer solution possible?
     
     ## 1.2.1 Getting by keyword: -------------------
-    keys <- c("all", "pal_unikn", "pal")
+    keys <- c("all", "unikn_all", "grad_all")
     
     if ( pal %in% keys ) {
       
@@ -192,12 +192,12 @@ get_pal <- function(pal, n = "all") {
       ix_unikn <- grepl("pal_unikn", all_pal)  # index for all unikn palettes. 
       
       ## The three cases: -----
-      if ( pal == "all" ) pal_names <- all_pal[all_pal != "tmp"]
-      if ( pal == "pal_unikn") pal_names <- all_pal[ix_unikn]
-      if ( pal == "pal") pal_names <- all_pal[!ix_unikn]
-        
-        
-        # TODO: Problem, that tmp may not be in the environment!
+      pal_names <- switch( pal, 
+              all = all_pal[all_pal != "tmp"],
+              unikn_all = all_pal[ix_unikn],
+              grad_all = all_pal[!ix_unikn]
+                )
+
       # Get all palettes specified by keyword:
       lst_pal <- sapply(pal_names, get)
         
@@ -332,11 +332,7 @@ get_pal <- function(pal, n = "all") {
   
 }
 
-# TODO: General color function! 
 
-# TODO: Determine sizing of boxed, circles and text dynamically! 
-# - For hex and rgb: below critical cex do not plot.
-# - for shapes and text: prevent overlap. 
 
 ## seepal: Main interface to color palettes: ---------- 
 
@@ -444,9 +440,8 @@ seepal <- function(pal = "all",     # which palette to output?
   pal_tmp <- get_pal(pal = pal, n = n)
   # TODO: Names get lost in translation if n is specified! 
   
-  print(substitute(pal))
   
-  keys <- c("all", "pal_unikn", "pal")
+  keys <- c("all", "pal_unikn", "pal")  # pal_unikn is a stupid keyword to use.
   if ( all(pal %in% keys )) {
     
     if ( pal == "all") title <- "See all unikn palettes"
