@@ -329,8 +329,8 @@ get_pal <- function(pal, n = "all") {
     
     # Correct order: First test for non-character argument(s) then for character inputs:
     dep_pal <- deparse(substitute(pal))
-    print(dep_pal)
-    print(exists(dep_pal))
+    # print(dep_pal)
+    # print(exists(dep_pal))
     # print(exists(pal))
     
 
@@ -461,9 +461,13 @@ seepal <- function(pal = "all",     # which palette to output?
   # Robustify inputs: 
   ## Palette: 
   ## Test, whether the palette exists:
-  dep_pal <- deparse(substitute(pal))   #deparse palette to check for existence.
+  dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
+  
+  print(dep_pal)
   
   if ( !exists(dep_pal) ) {
+    
+    print("Nonexistent")
     
     dep_pal_exists <- tryCatch(
       
@@ -480,18 +484,49 @@ seepal <- function(pal = "all",     # which palette to output?
           
           error = function(e) {
             
-            stop(pste0("No matching palette found for input", dep_pal))
+            stop(paste0("No matching palette found for input", dep_pal))
             
           })
       }
     )
+    
+    print(dep_pal_exists)
     
     ## If the palette has been found to exist:
     if ( dep_pal_exists ) {
       
       pal <- paste0("pal_", dep_pal)
       
+      print(pal)
+      print(names(pal))
+      
+    }  else {
+      
+      if ( !exists(pal) ) {
+        
+        if ( exists(paste0("pal_", pal)) ) {
+          
+          pal <- paste0("pal_", pal)
+          
+        } else {
+          
+          # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
+          
+          are_colors <- all(pal %in% colors() | isHexCol(pal))
+          print(are_colors)
+          
+          if ( !are_colors ) {
+            stop(paste0("The palette ", pal, " you specified appears not to be defined in the current namespace."))
+          }
+          
+          
+        }
+        
+      }
+      
     }
+    
+    
     
   }  # eof. existence check.
   
