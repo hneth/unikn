@@ -392,13 +392,13 @@ get_pal <- function(pal, n = "all") {
 
 # - allow selective output of color groups --> Are groups fine?
 # Examples: 
-  # seepal("pal_unikn")
-  # seepal("pal")
+  # seepal("unikn_all")
+  # seepal("grad_all")
 # - handle n > length(pal) > n
   # seepal(pal_bordeaux, n = 2)
   # seepal(pal_bordeaux, n = 10)
-  # seepal(n = 20)  # all palettesextended to 20 colors.
-# - how to select colors in pal_n? For known palettes create a clear selection!
+  # seepal(n = 20)  # all palettes extended to 20 colors.
+# - how to select colors in pal_n? For known palettes create a clear selection?
 # TODO!
 
 # - allow aliases without pal_prefix
@@ -428,12 +428,12 @@ seepal <- function(pal = "all",     # which palette to output?
   # TODO: Names get lost in translation if n is specified! 
   
   
-  keys <- c("all", "pal_unikn", "pal")  # pal_unikn is a stupid keyword to use.
+  keys <- c("all", "unikn_all", "grad_all")  # pal_unikn is a stupid keyword to use.
   if ( all(pal %in% keys )) {
     
     if ( pal == "all") title <- "See all unikn palettes"
-    if ( pal == "pal_unikn") title <- "See all unikn basic palettes"
-    if ( pal == "pal") title <- "See all unikn gradients"
+    if ( pal == "unikn_all") title <- "See all unikn basic palettes"
+    if ( pal == "grad_all") title <- "See all unikn gradients"
       
   } else {
     
