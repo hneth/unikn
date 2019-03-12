@@ -459,6 +459,43 @@ seepal <- function(pal = "all",     # which palette to output?
   op <- par(no.readonly = TRUE)  # save original plotting settings.
   
   # Robustify inputs: 
+  ## Palette: 
+  ## Test, whether the palette exists:
+  dep_pal <- deparse(substitute(pal))   #deparse palette to check for existence.
+  
+  if ( !exists(dep_pal) ) {
+    
+    dep_pal_exists <- tryCatch(
+      
+      {
+        exists(paste0("pal_", dep_pal))
+        # print("here")
+        # print(exists(paste0("pal_", dep_pal)))
+      },
+      
+      error = function(e) {
+        
+        tryCatch( 
+          {exists(pal)}          , 
+          
+          error = function(e) {
+            
+            stop(pste0("No matching palette found for input", dep_pal))
+            
+          })
+      }
+    )
+    
+    ## If the palette has been found to exist:
+    if ( dep_pal_exists ) {
+      
+      pal <- paste0("pal_", dep_pal)
+      
+    }
+    
+  }  # eof. existence check.
+  
+  ## Plotting parameters:
   if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
   
