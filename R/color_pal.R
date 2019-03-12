@@ -168,11 +168,44 @@ get_pal <- function(pal, n = "all") {
   
   # pal <- tolower(pal)  # TODO: tolower() is problematic, as one cannot access the single colors in uppercase. 
   
-  # TODO: Testing for existence with exists():
-  dep_pal <- deparse(substitute(pal))
-  print(dep_pal)
-  print(exists(dep_pal))
-  print(exists(pal))
+  # # Correct order: First test for non-character argument(s) then for character inputs:
+  # print(dep_pal)
+  # print(exists(dep_pal))
+  
+  ## Test, whether the palette exists:
+  dep_pal <- deparse(substitute(pal))   #deparse palette to check for existence.
+  
+  if ( !exists(dep_pal) ) {
+    
+    dep_pal_exists <- tryCatch(
+      
+      {
+      exists(paste0("pal_", dep_pal))
+        # print("here")
+        # print(exists(paste0("pal_", dep_pal)))
+        },
+      
+      error = function(e) {
+        
+        tryCatch( 
+          {exists(pal)}          , 
+                  
+                  error = function(e) {
+                    
+                    stop(pste0("No matching palette found for input", dep_pal))
+                    
+                  })
+      }
+    )
+    
+    ## If the palette has been found to exist:
+    if ( dep_pal_exists ) {
+      
+      pal <- paste0("pal_", dep_pal)
+      
+    }
+    
+  }  # eof. existence check.
   
   len_pal <- length(pal)  # get length of the specified palette. 
   typ_pal <- typeof(pal)  # get type of the specified palette. 
@@ -192,7 +225,7 @@ get_pal <- function(pal, n = "all") {
     ## 1.2.1 Getting by keyword: -------------------
     keys <- c("all", "unikn_all", "grad_all")
     
-    if ( pal %in% keys ) {
+    if ( pal %in% keys ) {  # is pal in keys?
       
       # Get all color palettes with the prefix "pal_" from the environment.
       
@@ -242,11 +275,11 @@ get_pal <- function(pal, n = "all") {
     ## 1.2.2 Single palette name: ------
     } else {  # if pal not defined by keyword.
       
-      ## TODO: Function to test for colors in general!
+      ## TODO: Function to test for colors in general?
       
       ## NOTE: is.character can pertain to a single color or a palette name!
       
-      ## No single color but palette (note: length == 1 is already tested!):
+      ## No single color but specification of a palette (note: length == 1 is already tested!):
       if ( !isHexCol(pal) & !pal %in% colors() ) {  # TODO: Allow for other color models!
         
         # Test, whether the palette name exists:
@@ -290,9 +323,16 @@ get_pal <- function(pal, n = "all") {
       # } 
       
     }
-  } else { # eof. length == 1. 
+  } else { # eof. length == 1; call, if a full palette has been specified. 
     
     # TODO: Allow to mix palettes! (e.g., c("pal_bordeaux", "pal_unikn"))?
+    
+    # Correct order: First test for non-character argument(s) then for character inputs:
+    dep_pal <- deparse(substitute(pal))
+    print(dep_pal)
+    print(exists(dep_pal))
+    # print(exists(pal))
+    
 
     tmp <- list(tmp)
     nm <- deparse(substitute(pal))  # This needs to be done in the other function as well. 
