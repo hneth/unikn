@@ -574,8 +574,8 @@ seepal <- function(pal = "all",     # which palette to output?
     
     if (grid) {
       
-      y_rgb <- c(-0.60, -0.75, -0.90)
-      abline(h = c(c(0.6, 1.2, 1.6, -0.1), c(-0.45, y_rgb) + 0.03),
+      y_rgb <- c(-0.50, -0.65, -0.80)
+      abline(h = c(c(0.6, 1.2, 1.6, -0.1), c(y_rgb, -0.95) + 0.07),
              v = txt_pos,
              col = grey(.50, .25),
              lwd = .5)
