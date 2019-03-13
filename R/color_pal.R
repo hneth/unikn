@@ -515,6 +515,8 @@ seepal <- function(pal = "all",     # which palette to output?
           are_colors <- all(pal %in% colors() | isHexCol(pal))
           print(are_colors)
           
+          ## TODO: Handle naming and multiple palettes
+          
           if ( !are_colors ) {
             stop(paste0("The palette ", pal, " you specified appears not to be defined in the current namespace."))
           }
@@ -525,8 +527,6 @@ seepal <- function(pal = "all",     # which palette to output?
       }
       
     }
-    
-    
     
   }  # eof. existence check.
   
@@ -840,6 +840,8 @@ seepal <- function(pal = "all",     # which palette to output?
 ## (b) 1 palette: ---- 
 
 # seepal(pal_unikn)
+# seepal("pal_unikn")
+# seepal(unikn)  # allow also abbreviated palettes. 
 # seepal(pal_unikn_plus, hex = TRUE)
 
 # seepal(pal = "seblau")  # raise error.
