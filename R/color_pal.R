@@ -169,9 +169,6 @@ get_pal <- function(pal, n = "all") {
   # pal <- tolower(pal)  # TODO: tolower() is problematic, as one cannot access the single colors in uppercase. 
   
   # # Correct order: First test for non-character argument(s) then for character inputs:
-  # print(dep_pal)
-  # print(exists(dep_pal))
-  
   ## Test, whether the palette exists:
   dep_pal <- deparse(substitute(pal))   #deparse palette to check for existence.
   
@@ -314,13 +311,7 @@ get_pal <- function(pal, n = "all") {
         # title <- paste0("See palette ", gsub("pal_", "", pal))
         
       } 
-      # else {  # if it is a hex color or a color defined in colors():
-      #   
-      #   title <- paste0("See color ", pal)  # TODO: Does a single color need any further processing? 
-      #   
-      #   ## TODO: Translate to name if possible? 
-      #   
-      # } 
+
       
     }
   } else { # eof. length == 1; call, if a full palette has been specified. 
@@ -358,9 +349,6 @@ get_pal <- function(pal, n = "all") {
   # return(pal_tmp)
   
 }
-
-
-
 
 
 
@@ -548,11 +536,11 @@ seepal <- function(pal = "all",     # which palette to output?
   pal_tmp <- get_pal(pal = pal, n = n)
   # print(pal_tmp)
   
-  if ( all(pal_tmp %in% keys )) {
+  if ( all(pal %in% keys )) {
     
-    if ( pal_tmp == "all") title <- "See all unikn palettes"
-    if ( pal_tmp == "unikn_all") title <- "See all unikn basic palettes"
-    if ( pal_tmp == "grad_all") title <- "See all unikn gradients"
+    if ( pal == "all") title <- "See all unikn palettes"
+    if ( pal %in% c("unikn_all", "all_unikn")) title <- "See all unikn basic palettes"
+    if ( pal %in% c("grad_all", "all_grad")) title <- "See all unikn gradients"
       
   } else {
     
