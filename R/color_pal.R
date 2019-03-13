@@ -452,7 +452,7 @@ seepal <- function(pal = "all",     # which palette to output?
   op <- par(no.readonly = TRUE)  # save original plotting settings.
   
   # Robustify inputs: 
-  ## Palette: 
+  ## Palette:
   ## Test, whether the palette exists:
   ## TODO: Own function (e.g., format_pal_name)?
   dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
@@ -700,12 +700,12 @@ seepal <- function(pal = "all",     # which palette to output?
     
     # Determine whether to display hex values:
     cex_hex <- 0.9  # was par("cex")
-    wdth_hex <- strwidth("#XXXXXX", cex = cex_hex) * max_ncol + strwidth("Hex")  # is the width small enough?
+    wdth_hex <- strwidth(" #XXXXXX", cex = cex_hex) * max_ncol + strwidth("Hex: ")  # is the width small enough?
     
     while (wdth_hex > xlim[2]) {
       
       cex_hex <- cex_hex - 0.1
-      wdth_hex <- strwidth("#XXXXXX", cex = cex_hex) * max_ncol + strwidth("Hex")  # is the width small enough?
+      wdth_hex <- strwidth(" #XXXXXX", cex = cex_hex) * max_ncol + strwidth("Hex: ")  # is the width small enough?
       
     }
     
@@ -726,7 +726,7 @@ seepal <- function(pal = "all",     # which palette to output?
     while (wdth_rgb > xlim[2]) {
       
       cex_rgb <- cex_rgb - 0.1
-      wdth_rgb <- strwidth("999", cex = cex_rgb) * max_ncol  # is the width small enough?
+      wdth_rgb <- strwidth(" 999 ", cex = cex_rgb) * max_ncol  # is the width small enough?
       
     }
     
