@@ -442,6 +442,7 @@ seepal <- function(pal = "all",     # which palette to output?
   
   ## 0. Preparations: ---------
   op <- par(no.readonly = TRUE)  # save original plotting settings.
+  keys <- c("all", "unikn_all", "grad_all") # keywwords to return multiple palettes. 
   
   # Robustify inputs: 
   ## Palette:
@@ -506,11 +507,12 @@ seepal <- function(pal = "all",     # which palette to output?
           # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
           
           are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
+          is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
           # print(are_colors)
           
           ## TODO: Handle naming and multiple palettes
           
-          if ( !are_colors ) {
+          if ( !are_colors & !is_key) {
             stop(paste0("The palette ", pal, " you specified appears not to be defined in the current namespace."))
           }
           
@@ -532,8 +534,6 @@ seepal <- function(pal = "all",     # which palette to output?
   pal_tmp <- get_pal(pal = pal, n = n)
   # TODO: Names get lost in translation if n is specified! 
   
-  
-  keys <- c("all", "unikn_all", "grad_all")  # pal_unikn is a stupid keyword to use.
   if ( all(pal %in% keys )) {
     
     if ( pal == "all") title <- "See all unikn palettes"
@@ -820,11 +820,11 @@ seepal <- function(pal = "all",     # which palette to output?
 # seepal(pal = "all", n = 2)  
 # seepal(pal_bordeaux, n = 2)
 # seepal(pal_bordeaux, n = 10)
-# seepal(n = 20)  # all palettes extended to 20 colors.
+# seepal(pal = "unikn_all", n = 20)  # all bsic palettes extended to 20 colors.
 
 ## Critical calls: 
-# seepal("all", n =  4)  # works, but many messages
-# seepal("all", n = 12)  # works, but even more messages
+# seepal("all", n =  4)  
+# seepal("all", n = 12) 
 
 ## 2 palettes: 
 # seepal(c(rev(pal_unikn_light), pal_unikn_dark), hex = TRUE)
@@ -837,11 +837,11 @@ seepal <- function(pal = "all",     # which palette to output?
 
 ## (b) 1 palette: ---- 
 
-# seepal(pal_unikn)
-# seepal("pal_unikn")
-# seepal(unikn)  # allow also abbreviated palettes. 
+# seepal(pal_unikn)  # allow both, palette objects and 
+# seepal("pal_unikn")  # palette names;
+# seepal(unikn_pair)  # allow also abbreviated palette objects w/o pal_ prefix. 
 # seepal(pal_unikn_plus, hex = TRUE)
-# seepal(c("blue", "green"))
+# seepal(c("blue", "green"))  # allow any color vector. 
 
 # seepal(pal = "seblau")  # raise error.
 
