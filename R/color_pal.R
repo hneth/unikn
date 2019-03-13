@@ -220,7 +220,7 @@ get_pal <- function(pal, n = "all") {
     if ( pal == "tmp" ) stop("Palettes must not be named tmp.")  # TODO: Nicer solution possible?
     
     ## 1.2.1 Getting by keyword: -------------------
-    keys <- c("all", "unikn_all", "grad_all")
+    keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad")
     
     if ( pal %in% keys ) {  # is pal in keys?
       
@@ -233,7 +233,9 @@ get_pal <- function(pal, n = "all") {
       pal_names <- switch( pal, 
               all = all_pal[all_pal != "tmp"],
               unikn_all = all_pal[ix_unikn],
-              grad_all = all_pal[!ix_unikn]
+              all_unikn = all_pal[ix_unikn],
+              grad_all = all_pal[!ix_unikn],
+              all_grad = all_pal[!ix_unikn]
                 )
 
       # Get all palettes specified by keyword:
@@ -253,7 +255,7 @@ get_pal <- function(pal, n = "all") {
         
       # Get the palettes:
       tmp <- lst_pal[unlist(is_pal)]
-      
+
       # Check if palette is non-empty:
       if (length(tmp) == 0) {
         stop("No palettes defined in the current environment.")
@@ -445,7 +447,7 @@ seepal <- function(pal = "all",     # which palette to output?
   #----
   if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
 
-    print("Nonexistent")
+    # print("Nonexistent")
 
     ## If the deparsed argument does not exist, add a pal prefix and test again.
     dep_pal_exists <- tryCatch(
@@ -505,7 +507,7 @@ seepal <- function(pal = "all",     # which palette to output?
 
           # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
 
-          print("Undefined")
+          # print("Undefined")
 
           are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
           is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
