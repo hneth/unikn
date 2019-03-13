@@ -362,7 +362,7 @@ get_pal <- function(pal, n = "all") {
 
 ## Helper function to format color inputs: ---------
 ## Function format_pal_name start:
-format_pal_name <- function (pal, dep_pal = NULL) {
+format_pal_name <- function (pal, dep_pal = NULL, collapse = FALSE) {
   
   ## If no deparsed input is given, deparse pal: 
   if ( is.null(dep_pal) ) {
@@ -421,7 +421,7 @@ format_pal_name <- function (pal, dep_pal = NULL) {
   
   colnames(dep_types)[dep_types[3, ]] <- paste0("pal_", colnames(dep_types)[dep_types[3, ]])
   
-  print(dep_types)
+  # print(dep_types)
   
   ## Stop if something is undefined:
   if ( any(colSums(dep_types[1:2, ] ) < 1) ) {
@@ -439,11 +439,11 @@ format_pal_name <- function (pal, dep_pal = NULL) {
   out <- colnames(dep_types)
   lst <- lapply(out[dep_types[3, ]], FUN = get)
   names(lst) <- out[dep_types[3, ]]  # rename the list. 
-  print(names(lst))
-  
   
   out[dep_types[3, ]] <- lst
   names(out) <- colnames(dep_types)
+  
+  if(collapse) names(out) <- NULL; out <- unlist(out)
   
   return(out)                             
   
@@ -547,118 +547,135 @@ seepal <- function(pal = "all",     # which palette to output?
   ## Test, whether the palette exists:
   dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
   
-  ## TODO: Own function (e.g., format_pal_name)?
-  ## Inputs: dep_pal & pa
   
-  format_pal_name(pal = pal, dep_pal = dep_pal)
-  
-  if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
-    
-    print("Nonexistent")
-    
-    ## If the deparsed argument does not exist, add a pal prefix and test again. 
-    dep_pal_exists <- tryCatch(
+  ## TODO: Reinstantiate getting palettes by keyword:
+  pal_tmp <- tryCatch(
+    {
+      key <- all(pal %in% keys)
       
-      {
-        exists(paste0("pal_", dep_pal))
-        # print("here")
-        # print(exists(paste0("pal_", dep_pal)))
+      if (key) {
+        pal
+      } else {
+        list(format_pal_name(pal = pal, dep_pal = dep_pal, collapse = TRUE))
+      }
+      
       },
-      
-      ## If exists(dep_pal) raises an error:
-      error = function(e) {
-        
-        tryCatch( 
-          {exists(pal)},   # test whether the input exists. 
-          
-          error = function(e) {
-            
-            stop(paste0("No matching palette found for input", dep_pal))
-            
-          })
-      }
-    )
-    
-    # print(dep_pal_exists)
-    
-    ## If the palette has been found to exist:
-    # TODO: Here the function stumbles over multiple keywords!
-    
-    if ( dep_pal_exists ) {  # if the deparsed argument exists after parsing:
-      
-      pal <- paste0("pal_", dep_pal)
-      
-      # print(pal)
-      # print(names(pal))
-      
-    }  else {  # if it does not exist:
-      
-      pal_exists <- tryCatch(
-        {
-          exists(pal)  # evaluates to TRUE for vector of palette names. 
-          },
-        error = function(e) {
-          return(FALSE)
-          }
-      )
-      
-      if ( !pal_exists ) {  # does also the input not exist?
-        
-        # TODO: Here it stumbles with more than one palette.
-        
-        if ( exists(paste0("pal_", pal)) ) {  # does it exist but was specified without prefix?
-          
-          pal <- paste0("pal_", pal)
-          
-        } else {  # if the palette name is not defined:
-          
-          # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
-          
-          print("Undefined")
-          
-          are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
-          is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
-          # print(are_colors)
-          
-          ## TODO: Handle naming and multiple palettes
-          
-          if ( !are_colors & !is_key) {
-            stop(paste0("The palette ", pal, " you specified appears not to be defined in the current namespace."))
-          }
-          
-          
-        }
-        
-      }
-      
+    error = function(e) {
+      list(format_pal_name(pal = pal, dep_pal = dep_pal, collapse = TRUE))
     }
-    
-  }  # eof. existence check.
+  )
+  
+  ## Inputs: dep_pal & pa
+  # pal_tmp <- format_pal_name(pal = pal, dep_pal = dep_pal, collapse = TRUE)  # get the palettes from inputs. 
+  print(pal_tmp)
+  
+  #----
+  # if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
+  #   
+  #   print("Nonexistent")
+  #   
+  #   ## If the deparsed argument does not exist, add a pal prefix and test again. 
+  #   dep_pal_exists <- tryCatch(
+  #     
+  #     {
+  #       exists(paste0("pal_", dep_pal))
+  #       # print("here")
+  #       # print(exists(paste0("pal_", dep_pal)))
+  #     },
+  #     
+  #     ## If exists(dep_pal) raises an error:
+  #     error = function(e) {
+  #       
+  #       tryCatch( 
+  #         {exists(pal)},   # test whether the input exists. 
+  #         
+  #         error = function(e) {
+  #           
+  #           stop(paste0("No matching palette found for input", dep_pal))
+  #           
+  #         })
+  #     }
+  #   )
+  #   
+  #   # print(dep_pal_exists)
+  #   
+  #   ## If the palette has been found to exist:
+  #   # TODO: Here the function stumbles over multiple keywords!
+  #   
+  #   if ( dep_pal_exists ) {  # if the deparsed argument exists after parsing:
+  #     
+  #     pal <- paste0("pal_", dep_pal)
+  #     
+  #     # print(pal)
+  #     # print(names(pal))
+  #     
+  #   }  else {  # if it does not exist:
+  #     
+  #     pal_exists <- tryCatch(
+  #       {
+  #         exists(pal)  # evaluates to TRUE for vector of palette names. 
+  #         },
+  #       error = function(e) {
+  #         return(FALSE)
+  #         }
+  #     )
+  #     
+  #     if ( !pal_exists ) {  # does also the input not exist?
+  #       
+  #       # TODO: Here it stumbles with more than one palette.
+  #       
+  #       if ( exists(paste0("pal_", pal)) ) {  # does it exist but was specified without prefix?
+  #         
+  #         pal <- paste0("pal_", pal)
+  #         
+  #       } else {  # if the palette name is not defined:
+  #         
+  #         # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
+  #         
+  #         print("Undefined")
+  #         
+  #         are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
+  #         is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
+  #         # print(are_colors)
+  #         
+  #         ## TODO: Handle naming and multiple palettes
+  #         
+  #         if ( !are_colors & !is_key) {
+  #           stop(paste0("The palette ", pal, " you specified appears not to be defined in the current namespace."))
+  #         }
+  #         
+  #         
+  #       }
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }  # eof. existence check.
   
   
-  ## Plotting parameters:
+  ## Plotting parameters: ----
   if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
   
   
   ## Get palette:
-  pal_tmp <- get_pal(pal = pal, n = n)
-  # TODO: Names get lost in translation if n is specified! 
+  # pal_tmp <- get_pal(pal = pal, n = n)
+  # print(pal_tmp)
   
-  if ( all(pal %in% keys )) {
+  if ( all(pal_tmp %in% keys )) {
     
-    if ( pal == "all") title <- "See all unikn palettes"
-    if ( pal == "unikn_all") title <- "See all unikn basic palettes"
-    if ( pal == "grad_all") title <- "See all unikn gradients"
+    if ( pal_tmp == "all") title <- "See all unikn palettes"
+    if ( pal_tmp == "unikn_all") title <- "See all unikn basic palettes"
+    if ( pal_tmp == "grad_all") title <- "See all unikn gradients"
       
   } else {
     
     # nm <- names(pal_tmp)
-    nm <- ifelse(is.character(pal) & length(pal) == 1, pal, noquote(deparse(substitute(pal))))  # get name elsewhere!
+    nm <- ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!
     title <- paste0("See palette ", nm)
-
-    
   }
+  
   
   if (n != "all") {
     title <- paste0(title, " (n = ", n, ")")
