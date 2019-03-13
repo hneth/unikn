@@ -436,8 +436,6 @@ get_pal <- function(pal, n = "all") {
 # - how to select colors in pal_n? For known palettes create a clear selection?
 # TODO!
 
-# - Overlapping hex values. 
-
 # - allow to either collapse palettes or compare them like pal = "all"; or provide the palettes as matrix?
 
 seepal <- function(pal = "all",     # which palette to output?
@@ -457,11 +455,11 @@ seepal <- function(pal = "all",     # which palette to output?
   ## TODO: Own function (e.g., format_pal_name)?
   dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
   
-  print(dep_pal)
+  # print(dep_pal)
   
   if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
     
-    print("Nonexistent")
+    # print("Nonexistent")
     
     dep_pal_exists <- tryCatch(
       
@@ -514,7 +512,7 @@ seepal <- function(pal = "all",     # which palette to output?
           # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
           
           are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
-          print(are_colors)
+          # print(are_colors)
           
           ## TODO: Handle naming and multiple palettes
           
@@ -832,7 +830,7 @@ seepal <- function(pal = "all",     # which palette to output?
 # seepal("all", n = 12)  # works, but even more messages
 
 ## 2 palettes: 
-# seepal(c(pal_unikn_light, pal_unikn_dark), hex = TRUE)
+# seepal(c(rev(pal_unikn_light), pal_unikn_dark), hex = TRUE)
 
 # ToDo: 
 # - group in 2 sets: "unikn" vs. "others"
