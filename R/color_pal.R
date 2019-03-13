@@ -369,6 +369,8 @@ format_pal_name <- function (pal, dep_pal = NULL, collapse = FALSE) {
     dep_pal <- deparse(substitute(pal))
   }
   
+  print(dep_pal)
+  
   len_pal <- 0  # initialize argument length with 0 (if pal consists of an undefined object). 
   ncomma <- nchar(as.character(dep_pal)) - nchar( gsub(",", "", dep_pal)) 
   ## counting commas to asses deparsed length. 
@@ -396,6 +398,8 @@ format_pal_name <- function (pal, dep_pal = NULL, collapse = FALSE) {
   } else {
     dep_parts <- gsub("\"", "", dep_pal)
   }
+  
+  print(dep_parts)
 
   # TODO: Also get indices!
   
@@ -540,7 +544,7 @@ seepal <- function(pal = "all",     # which palette to output?
   
   ## 0. Preparations: ---------
   op <- par(no.readonly = TRUE)  # save original plotting settings.
-  keys <- c("all", "unikn_all", "grad_all") # keywords to return multiple palettes. 
+  keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad") # keywords to return multiple palettes. 
   
   # Robustify inputs: 
   ## Palette:
@@ -549,109 +553,107 @@ seepal <- function(pal = "all",     # which palette to output?
   
   
   ## TODO: Reinstantiate getting palettes by keyword:
-  pal_tmp <- tryCatch(
-    {
-      key <- all(pal %in% keys)
-      
-      if (key) {
-        pal
-      } else {
-        list(format_pal_name(pal = pal, dep_pal = dep_pal, collapse = TRUE))
-      }
-      
-      },
-    error = function(e) {
-      list(format_pal_name(pal = pal, dep_pal = dep_pal, collapse = TRUE))
-    }
-  )
-  
-  ## Inputs: dep_pal & pa
-  # pal_tmp <- format_pal_name(pal = pal, dep_pal = dep_pal, collapse = TRUE)  # get the palettes from inputs. 
-  print(pal_tmp)
-  
-  #----
-  # if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
-  #   
-  #   print("Nonexistent")
-  #   
-  #   ## If the deparsed argument does not exist, add a pal prefix and test again. 
-  #   dep_pal_exists <- tryCatch(
+  # pal_tmp <- tryCatch(
+  #   {
+  #     key <- all(pal %in% keys)
   #     
-  #     {
-  #       exists(paste0("pal_", dep_pal))
-  #       # print("here")
-  #       # print(exists(paste0("pal_", dep_pal)))
+  #     if (key) {
+  #       pal
+  #     } else {
+  #       list(format_pal_name(pal = pal, dep_pal = dep_pal, collapse = TRUE))
+  #     }
+  #     
   #     },
-  #     
-  #     ## If exists(dep_pal) raises an error:
-  #     error = function(e) {
-  #       
-  #       tryCatch( 
-  #         {exists(pal)},   # test whether the input exists. 
-  #         
-  #         error = function(e) {
-  #           
-  #           stop(paste0("No matching palette found for input", dep_pal))
-  #           
-  #         })
-  #     }
-  #   )
-  #   
-  #   # print(dep_pal_exists)
-  #   
-  #   ## If the palette has been found to exist:
-  #   # TODO: Here the function stumbles over multiple keywords!
-  #   
-  #   if ( dep_pal_exists ) {  # if the deparsed argument exists after parsing:
-  #     
-  #     pal <- paste0("pal_", dep_pal)
-  #     
-  #     # print(pal)
-  #     # print(names(pal))
-  #     
-  #   }  else {  # if it does not exist:
-  #     
-  #     pal_exists <- tryCatch(
-  #       {
-  #         exists(pal)  # evaluates to TRUE for vector of palette names. 
-  #         },
-  #       error = function(e) {
-  #         return(FALSE)
-  #         }
-  #     )
-  #     
-  #     if ( !pal_exists ) {  # does also the input not exist?
-  #       
-  #       # TODO: Here it stumbles with more than one palette.
-  #       
-  #       if ( exists(paste0("pal_", pal)) ) {  # does it exist but was specified without prefix?
-  #         
-  #         pal <- paste0("pal_", pal)
-  #         
-  #       } else {  # if the palette name is not defined:
-  #         
-  #         # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
-  #         
-  #         print("Undefined")
-  #         
-  #         are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
-  #         is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
-  #         # print(are_colors)
-  #         
-  #         ## TODO: Handle naming and multiple palettes
-  #         
-  #         if ( !are_colors & !is_key) {
-  #           stop(paste0("The palette ", pal, " you specified appears not to be defined in the current namespace."))
-  #         }
-  #         
-  #         
-  #       }
-  #       
-  #     }
-  #     
+  #   error = function(e) {
+  #     list(format_pal_name(pal = pal, dep_pal = dep_pal, collapse = TRUE))
   #   }
-  #   
-  # }  # eof. existence check.
+  # )
+  
+  ## Currently, function does not allow reversal or indices!
+
+  #----
+  if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
+
+    print("Nonexistent")
+
+    ## If the deparsed argument does not exist, add a pal prefix and test again.
+    dep_pal_exists <- tryCatch(
+
+      {
+        exists(paste0("pal_", dep_pal))
+        # print("here")
+        # print(exists(paste0("pal_", dep_pal)))
+      },
+
+      ## If exists(dep_pal) raises an error:
+      error = function(e) {
+
+        tryCatch(
+          {exists(pal)},   # test whether the input exists.
+
+          error = function(e) {
+
+            stop(paste0("No matching palette found for input", dep_pal))
+
+          })
+      }
+    )
+
+    # print(dep_pal_exists)
+
+    ## If the palette has been found to exist:
+    # TODO: Here the function stumbles over multiple keywords!
+
+    if ( dep_pal_exists ) {  # if the deparsed argument exists after parsing:
+
+      pal <- paste0("pal_", dep_pal)
+
+      # print(pal)
+      # print(names(pal))
+
+    }  else {  # if it does not exist:
+
+      pal_exists <- tryCatch(
+        {
+          exists(pal)  # evaluates to TRUE for vector of palette names.
+          },
+        error = function(e) {
+          return(FALSE)
+          }
+      )
+
+      if ( !pal_exists ) {  # does also the input not exist?
+
+        # TODO: Here it stumbles with more than one palette.
+
+        if ( exists(paste0("pal_", pal)) ) {  # does it exist but was specified without prefix?
+
+          pal <- paste0("pal_", pal)
+
+        } else {  # if the palette name is not defined:
+
+          # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
+
+          print("Undefined")
+
+          are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
+          is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
+          # print(are_colors)
+
+          ## TODO: Handle naming and multiple palettes
+
+          if ( !are_colors & !is_key) {
+            stop(paste0("The palette ", pal, " you specified appears not to be defined in the current namespace."))
+          }
+
+
+        }
+
+      }
+
+    }
+
+  }  # eof. existence check.
   
   
   ## Plotting parameters: ----
@@ -660,7 +662,7 @@ seepal <- function(pal = "all",     # which palette to output?
   
   
   ## Get palette:
-  # pal_tmp <- get_pal(pal = pal, n = n)
+  pal_tmp <- get_pal(pal = pal, n = n)
   # print(pal_tmp)
   
   if ( all(pal_tmp %in% keys )) {
@@ -685,7 +687,7 @@ seepal <- function(pal = "all",     # which palette to output?
   ## 2. Plotting parameters: ---------
   
   ## Plotting preparations: 
-  distance <- 0   # set distance OF WHAT?
+  distance <- 0   # set distance of boxes?
   xlen <- 1       # set x length of color boxes.
   # TODO: Allow user to set these inputs? 
   
@@ -771,8 +773,6 @@ seepal <- function(pal = "all",     # which palette to output?
       
     }
     
-    # TODO: Also adjust cex!
-    
     # Color indices:
     text(x = pos_ind, y = -1, labels = txt_ind, pos = 3, xpd = TRUE,
          cex = 0.9)
@@ -836,8 +836,7 @@ seepal <- function(pal = "all",     # which palette to output?
     if ( is.null(hex) ) {
       
       hex <- ifelse(wdth_hex > xlim[2] | cex_hex < cex_lim, FALSE, TRUE)  # test, whether hex can be displayed.
-      
-      # TODO: Is the width even needed? 
+
     } 
     
     # Determine, whether to display rgb values:
@@ -862,7 +861,6 @@ seepal <- function(pal = "all",     # which palette to output?
     )
     
     # Plot circles:
-    # TODO: Dynamically determine xlen:
     circle_len <- ifelse(xlim[2] / 10 < 0.5, xlim[2] / 10, 0.5)
     
     plot_col(x = pal_tmp, ypos = 1.2, plot.new = FALSE, xlen = circle_len, shape = "circle",
@@ -948,7 +946,7 @@ seepal <- function(pal = "all",     # which palette to output?
 # seepal(pal = "all", n = 2)  
 # seepal(pal_bordeaux, n = 2)
 # seepal(pal_bordeaux, n = 10)
-# seepal(pal = "unikn_all", n = 20)  # all bsic palettes extended to 20 colors.
+# seepal(pal = "unikn_all", n = 20)  # all basic palettes extended to 20 colors.
 
 ## Critical calls: 
 # seepal("all", n =  4)  
