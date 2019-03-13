@@ -498,7 +498,7 @@ seepal <- function(pal = "all",     # which palette to output?
       
       pal_exists <- tryCatch(
         {exists(pal)},
-        error = function(e) return {FALSE}
+        error = function(e) {return(FALSE)}
       )
       
       if ( !pal_exists ) {  # does also the input not exist?
