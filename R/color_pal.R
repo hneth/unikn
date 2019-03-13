@@ -428,12 +428,7 @@ get_pal <- function(pal, n = "all") {
 # seepal(pal_unikn_pair, hex = TRUE)
 # rmp2(5) %in% pal_unikn_pair
 
-# TODO:
 
-# - allow selective output of color groups --> Are groups fine?
-# Examples: 
-  # seepal("unikn_all")
-  # seepal("grad_all")
 # - handle n > length(pal) > n
   # seepal(pal_bordeaux, n = 2)
   # seepal(pal_bordeaux, n = 10)
@@ -441,9 +436,7 @@ get_pal <- function(pal, n = "all") {
 # - how to select colors in pal_n? For known palettes create a clear selection?
 # TODO!
 
-# - allow aliases without pal_prefix
-# - collapse warnings
-# - more compact display
+# - Overlapping hex values. 
 
 # - allow to either collapse palettes or compare them like pal = "all"; or provide the palettes as matrix?
 
@@ -461,11 +454,12 @@ seepal <- function(pal = "all",     # which palette to output?
   # Robustify inputs: 
   ## Palette: 
   ## Test, whether the palette exists:
+  ## TODO: Own function (e.g., format_pal_name)?
   dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
   
   print(dep_pal)
   
-  if ( !exists(dep_pal) ) {
+  if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
     
     print("Nonexistent")
     
@@ -490,29 +484,36 @@ seepal <- function(pal = "all",     # which palette to output?
       }
     )
     
-    print(dep_pal_exists)
+    # print(dep_pal_exists)
     
     ## If the palette has been found to exist:
-    if ( dep_pal_exists ) {
+    if ( dep_pal_exists ) {  # if the deparsed argument exists after parsing:
       
       pal <- paste0("pal_", dep_pal)
       
-      print(pal)
-      print(names(pal))
+      # print(pal)
+      # print(names(pal))
       
-    }  else {
+    }  else {  # if it does not exist:
       
-      if ( !exists(pal) ) {
+      pal_exists <- tryCatch(
+        {exists(pal)},
+        error = function(e) return {FALSE}
+      )
+      
+      if ( !pal_exists ) {  # does also the input not exist?
         
-        if ( exists(paste0("pal_", pal)) ) {
+        # TODO: Here it stumbles with more than one palette.
+        
+        if ( exists(paste0("pal_", pal)) ) {  # does it exist but was specified without prefix?
           
           pal <- paste0("pal_", pal)
           
-        } else {
+        } else {  # if the palette name is not defined:
           
           # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
           
-          are_colors <- all(pal %in% colors() | isHexCol(pal))
+          are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
           print(are_colors)
           
           ## TODO: Handle naming and multiple palettes
@@ -820,6 +821,8 @@ seepal <- function(pal = "all",     # which palette to output?
 
 # seepal("all")
 # seepal("all", col_brd = grey(0, .25), lwd = .1)
+# seepal("unikn_all")  # all basic palettes. 
+# seepal("grad_all")  # all gradients. 
 
 ## Return a subset of colors:
 # seepal(pal = "all", n = 2)  
@@ -843,6 +846,7 @@ seepal <- function(pal = "all",     # which palette to output?
 # seepal("pal_unikn")
 # seepal(unikn)  # allow also abbreviated palettes. 
 # seepal(pal_unikn_plus, hex = TRUE)
+# seepal(c("blue", "green"))
 
 # seepal(pal = "seblau")  # raise error.
 
