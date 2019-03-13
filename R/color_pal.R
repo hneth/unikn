@@ -429,12 +429,6 @@ get_pal <- function(pal, n = "all") {
 # rmp2(5) %in% pal_unikn_pair
 
 
-# - handle n > length(pal) > n
-  # seepal(pal_bordeaux, n = 2)
-  # seepal(pal_bordeaux, n = 10)
-  # seepal(n = 20)  # all palettes extended to 20 colors.
-# - how to select colors in pal_n? For known palettes create a clear selection?
-# TODO!
 
 # - allow to either collapse palettes or compare them like pal = "all"; or provide the palettes as matrix?
 
@@ -822,8 +816,11 @@ seepal <- function(pal = "all",     # which palette to output?
 # seepal("unikn_all")  # all basic palettes. 
 # seepal("grad_all")  # all gradients. 
 
-## Return a subset of colors:
+## Return a subset or extended set of colors:
 # seepal(pal = "all", n = 2)  
+# seepal(pal_bordeaux, n = 2)
+# seepal(pal_bordeaux, n = 10)
+# seepal(n = 20)  # all palettes extended to 20 colors.
 
 ## Critical calls: 
 # seepal("all", n =  4)  # works, but many messages
