@@ -818,7 +818,7 @@ seepal <- function(pal = "all",     # which palette to output?
 ## Return a subset or extended set of colors:
 # seepal(pal = "all", n = 2)  
 # seepal(pal_bordeaux, n = 2)
-# seepal(pal_bordeaux, n = 10)
+# seepal(rev(pal_bordeaux), n = 10)
 # seepal(pal = "unikn_all", n = 20)  # all basic palettes extended to 20 colors.
 
 ## Critical calls: 
