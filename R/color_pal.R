@@ -360,6 +360,102 @@ get_pal <- function(pal, n = "all") {
 }
 
 
+## Helper function to format color inputs: ---------
+## Function format_pal_name start:
+format_pal_name <- function (pal, dep_pal = NULL) {
+  
+  ## If no deparsed input is given, deparse pal: 
+  if ( is.null(dep_pal) ) {
+    dep_pal <- deparse(substitute(pal))
+  }
+  
+  len_pal <- 0  # initialize argument length with 0 (if pal consists of an undefined object). 
+  ncomma <- nchar(as.character(dep_pal)) - nchar( gsub(",", "", dep_pal)) 
+  ## counting commas to asses deparsed length. 
+  # print(length(pal))
+  
+  
+  ## Check for undefined input *objects*:
+  len_pal <- tryCatch(
+    {
+      length(pal)
+    },
+    error = function(e) {return(NA)}
+  )
+  
+  ## If there is any undefined input object (len_pal is NA):
+  # TODO!
+  if ( is.na(len_pal) ) {
+    
+  }
+  
+  ## Splitting the deparsed string:
+  if ( ncomma > 0 ) {  # if there is a comma, there are parentheses. 
+    dep_parts <- regmatches(dep_pal, gregexpr("(?<=\\().*?(?=\\))", dep_pal, perl=T))[[1]]
+    dep_parts <- strsplit(gsub("\"", "", dep_parts), split = ", ")
+  } else {
+    dep_parts <- gsub("\"", "", dep_pal)
+  }
+
+  # TODO: Also get indices!
+  
+  ## Classify the parts: 
+  ## Color name, palette name, undefined:
+  
+  dep_types <- sapply(unlist(dep_parts), FUN = function(x) {
+    ## Test whether a part is a singular color:
+    is_color <- isHexCol(x) | x %in% colors()
+    
+    ## Test whether a part is a palette in the environment:
+    in_env <- exists(x) | exists(paste0("pal_", x))
+    out <- cbind(#name = ifelse(!exists(x) & in_env, paste0("pal_", x), x),
+                 col = is_color, 
+                 env = in_env, 
+                 exst = !exists(x) & in_env
+                 )  # define output.
+    # names(out) <- ifelse(is_palette & !exists(x), paste0("pal_", x), x)  # add appropriate names.
+    
+    return(out)
+  }
+  )
+  
+  colnames(dep_types)[dep_types[3, ]] <- paste0("pal_", colnames(dep_types)[dep_types[3, ]])
+  
+  print(dep_types)
+  
+  ## Stop if something is undefined:
+  if ( any(colSums(dep_types[1:2, ] ) < 1) ) {
+    ndf_col <- colnames(dep_types)[colSums(dep_types) < 1]
+    stop(paste0("Input, \"", ndf_col, "\" is not defined."))
+  }
+  
+  ## Warn for ambigous colors and palettes:
+  if ( any(colSums(dep_types[1:2, ]) > 1) ) {
+    amb_col <- colnames(dep_types)[colSums(dep_types) > 1]
+    stop(paste0("Input, \"", amb_col, "\" is ambigous."))
+  }
+  
+  ## get a list of color palettes:
+  out <- colnames(dep_types)
+  lst <- lapply(out[dep_types[3, ]], FUN = get)
+  names(lst) <- out[dep_types[3, ]]  # rename the list. 
+  print(names(lst))
+  
+  
+  out[dep_types[3, ]] <- lst
+  names(out) <- colnames(dep_types)
+  
+  return(out)                             
+  
+  ## Return:
+  # TODO: Return a useful representation of a palette or several palettes. 
+  # - list
+  # - named vector
+  # - name from the environment
+  
+}  # eof.
+
+
 
 ## seepal: Main interface to color palettes: ---------- 
 
@@ -431,6 +527,8 @@ get_pal <- function(pal, n = "all") {
 # TODO: 
 # - allow to supply vectors of palette and/or color names. 
 # - allow to either collapse palettes or compare them like pal = "all"; or provide the palettes as matrix?
+    # - potential solution: Vector of names (character) --> compare; vector of objects --> merge
+    # - alternatively also provide a collapse argument (with default NULL) 
 
 seepal <- function(pal = "all",     # which palette to output?
                    n = "all",
@@ -442,20 +540,23 @@ seepal <- function(pal = "all",     # which palette to output?
   
   ## 0. Preparations: ---------
   op <- par(no.readonly = TRUE)  # save original plotting settings.
-  keys <- c("all", "unikn_all", "grad_all") # keywwords to return multiple palettes. 
+  keys <- c("all", "unikn_all", "grad_all") # keywords to return multiple palettes. 
   
   # Robustify inputs: 
   ## Palette:
   ## Test, whether the palette exists:
-  ## TODO: Own function (e.g., format_pal_name)?
   dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
   
-  # print(dep_pal)
+  ## TODO: Own function (e.g., format_pal_name)?
+  ## Inputs: dep_pal & pa
+  
+  format_pal_name(pal = pal, dep_pal = dep_pal)
   
   if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
     
-    # print("Nonexistent")
+    print("Nonexistent")
     
+    ## If the deparsed argument does not exist, add a pal prefix and test again. 
     dep_pal_exists <- tryCatch(
       
       {
@@ -464,10 +565,11 @@ seepal <- function(pal = "all",     # which palette to output?
         # print(exists(paste0("pal_", dep_pal)))
       },
       
+      ## If exists(dep_pal) raises an error:
       error = function(e) {
         
         tryCatch( 
-          {exists(pal)}          , 
+          {exists(pal)},   # test whether the input exists. 
           
           error = function(e) {
             
@@ -480,6 +582,8 @@ seepal <- function(pal = "all",     # which palette to output?
     # print(dep_pal_exists)
     
     ## If the palette has been found to exist:
+    # TODO: Here the function stumbles over multiple keywords!
+    
     if ( dep_pal_exists ) {  # if the deparsed argument exists after parsing:
       
       pal <- paste0("pal_", dep_pal)
@@ -490,8 +594,12 @@ seepal <- function(pal = "all",     # which palette to output?
     }  else {  # if it does not exist:
       
       pal_exists <- tryCatch(
-        {exists(pal)},
-        error = function(e) {return(FALSE)}
+        {
+          exists(pal)  # evaluates to TRUE for vector of palette names. 
+          },
+        error = function(e) {
+          return(FALSE)
+          }
       )
       
       if ( !pal_exists ) {  # does also the input not exist?
@@ -505,6 +613,8 @@ seepal <- function(pal = "all",     # which palette to output?
         } else {  # if the palette name is not defined:
           
           # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
+          
+          print("Undefined")
           
           are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
           is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
