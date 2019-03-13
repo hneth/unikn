@@ -428,8 +428,8 @@ get_pal <- function(pal, n = "all") {
 # seepal(pal_unikn_pair, hex = TRUE)
 # rmp2(5) %in% pal_unikn_pair
 
-
-
+# TODO: 
+# - allow to supply vectors of palette and/or color names. 
 # - allow to either collapse palettes or compare them like pal = "all"; or provide the palettes as matrix?
 
 seepal <- function(pal = "all",     # which palette to output?
@@ -525,6 +525,7 @@ seepal <- function(pal = "all",     # which palette to output?
     
   }  # eof. existence check.
   
+  
   ## Plotting parameters:
   if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
@@ -543,7 +544,7 @@ seepal <- function(pal = "all",     # which palette to output?
   } else {
     
     # nm <- names(pal_tmp)
-    nm <- ifelse(is.character(pal), pal, deparse(substitute(pal)))
+    nm <- ifelse(is.character(pal) & length(pal) == 1, pal, noquote(deparse(substitute(pal))))  # get name elsewhere!
     title <- paste0("See palette ", nm)
 
     
