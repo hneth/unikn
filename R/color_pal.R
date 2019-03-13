@@ -360,104 +360,7 @@ get_pal <- function(pal, n = "all") {
 }
 
 
-## Helper function to format color inputs: ---------
-## Function format_pal_name start:
-format_pal_name <- function (pal, dep_pal = NULL, collapse = FALSE) {
-  
-  ## If no deparsed input is given, deparse pal: 
-  if ( is.null(dep_pal) ) {
-    dep_pal <- deparse(substitute(pal))
-  }
-  
-  print(dep_pal)
-  
-  len_pal <- 0  # initialize argument length with 0 (if pal consists of an undefined object). 
-  ncomma <- nchar(as.character(dep_pal)) - nchar( gsub(",", "", dep_pal)) 
-  ## counting commas to asses deparsed length. 
-  # print(length(pal))
-  
-  
-  ## Check for undefined input *objects*:
-  len_pal <- tryCatch(
-    {
-      length(pal)
-    },
-    error = function(e) {return(NA)}
-  )
-  
-  ## If there is any undefined input object (len_pal is NA):
-  # TODO!
-  if ( is.na(len_pal) ) {
-    
-  }
-  
-  ## Splitting the deparsed string:
-  if ( ncomma > 0 ) {  # if there is a comma, there are parentheses. 
-    dep_parts <- regmatches(dep_pal, gregexpr("(?<=\\().*?(?=\\))", dep_pal, perl=T))[[1]]
-    dep_parts <- strsplit(gsub("\"", "", dep_parts), split = ", ")
-  } else {
-    dep_parts <- gsub("\"", "", dep_pal)
-  }
-  
-  print(dep_parts)
 
-  # TODO: Also get indices!
-  
-  ## Classify the parts: 
-  ## Color name, palette name, undefined:
-  
-  dep_types <- sapply(unlist(dep_parts), FUN = function(x) {
-    ## Test whether a part is a singular color:
-    is_color <- isHexCol(x) | x %in% colors()
-    
-    ## Test whether a part is a palette in the environment:
-    in_env <- exists(x) | exists(paste0("pal_", x))
-    out <- cbind(#name = ifelse(!exists(x) & in_env, paste0("pal_", x), x),
-                 col = is_color, 
-                 env = in_env, 
-                 exst = !exists(x) & in_env
-                 )  # define output.
-    # names(out) <- ifelse(is_palette & !exists(x), paste0("pal_", x), x)  # add appropriate names.
-    
-    return(out)
-  }
-  )
-  
-  colnames(dep_types)[dep_types[3, ]] <- paste0("pal_", colnames(dep_types)[dep_types[3, ]])
-  
-  # print(dep_types)
-  
-  ## Stop if something is undefined:
-  if ( any(colSums(dep_types[1:2, ] ) < 1) ) {
-    ndf_col <- colnames(dep_types)[colSums(dep_types) < 1]
-    stop(paste0("Input, \"", ndf_col, "\" is not defined."))
-  }
-  
-  ## Warn for ambigous colors and palettes:
-  if ( any(colSums(dep_types[1:2, ]) > 1) ) {
-    amb_col <- colnames(dep_types)[colSums(dep_types) > 1]
-    stop(paste0("Input, \"", amb_col, "\" is ambigous."))
-  }
-  
-  ## get a list of color palettes:
-  out <- colnames(dep_types)
-  lst <- lapply(out[dep_types[3, ]], FUN = get)
-  names(lst) <- out[dep_types[3, ]]  # rename the list. 
-  
-  out[dep_types[3, ]] <- lst
-  names(out) <- colnames(dep_types)
-  
-  if(collapse) names(out) <- NULL; out <- unlist(out)
-  
-  return(out)                             
-  
-  ## Return:
-  # TODO: Return a useful representation of a palette or several palettes. 
-  # - list
-  # - named vector
-  # - name from the environment
-  
-}  # eof.
 
 
 
@@ -550,26 +453,6 @@ seepal <- function(pal = "all",     # which palette to output?
   ## Palette:
   ## Test, whether the palette exists:
   dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
-  
-  
-  ## TODO: Reinstantiate getting palettes by keyword:
-  # pal_tmp <- tryCatch(
-  #   {
-  #     key <- all(pal %in% keys)
-  #     
-  #     if (key) {
-  #       pal
-  #     } else {
-  #       list(format_pal_name(pal = pal, dep_pal = dep_pal, collapse = TRUE))
-  #     }
-  #     
-  #     },
-  #   error = function(e) {
-  #     list(format_pal_name(pal = pal, dep_pal = dep_pal, collapse = TRUE))
-  #   }
-  # )
-  
-  ## Currently, function does not allow reversal or indices!
 
   #----
   if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
