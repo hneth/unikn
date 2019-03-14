@@ -1,5 +1,5 @@
 ## color_pal.R  |  unikn
-## ng/hn | uni.kn | 2019 03 05
+## ng/hn | uni.kn | 2019 03 14
 ## ---------------------------
 
 ## Main functions to access and plot color palettes. 
@@ -681,12 +681,13 @@ seepal <- function(pal = "all",     # which palette to output?
     # Text elements:
     txt_pos <- seq(0.5, length(pal_tmp) - 0.5)
     
+    y_rgb <- c(-0.50, -0.65, -0.80)
+    
     # Grid:
-    grid <- TRUE  # 4debugging
+    grid <- FALSE  # 4debugging
     
     if (grid) {
       
-      y_rgb <- c(-0.50, -0.65, -0.80)
       abline(h = c(c(0.6, 1.2, 1.6, -0.1), c(y_rgb, -0.95) + 0.07),
              v = txt_pos,
              col = grey(.50, .25),
@@ -742,7 +743,9 @@ seepal <- function(pal = "all",     # which palette to output?
     
     # Plot circles:
     # TODO: Dynamically determine xlen:
-    circle_len <- ifelse(xlim[2] / 10 < 0.5, xlim[2] / 10, 0.5)
+    circle_len <- ifelse(((xlim[2] / 10) < 0.5), (xlim[2] / 10), .70)
+    
+    print(paste0("circle_len = ", circle_len))
     
     plot_col(x = pal_tmp, ypos = 1.2, plot.new = FALSE, xlen = circle_len, shape = "circle",
              ...
