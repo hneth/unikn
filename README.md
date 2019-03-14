@@ -40,7 +40,7 @@ The current development version can be installed from its [GitHub](https://githu
 # install.packages('devtools')
 devtools::install_github('hneth/unikn')
 
-library(unikn)  # loads package
+library(unikn)  # load the package
 ```
 
 Colors
@@ -421,7 +421,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-03-05 by [hn](https://neth.de).\]
+\[Updated 2019-03-14 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 

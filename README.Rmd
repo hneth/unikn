@@ -64,7 +64,7 @@ The current development version can be installed from its [GitHub](https://githu
 # install.packages('devtools')
 devtools::install_github('hneth/unikn')
 
-library(unikn)  # loads package
+library(unikn)  # load the package
 ```
 
 ## Colors
