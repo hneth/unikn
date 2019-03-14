@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 03 06
+## hn  |  uni.kn |  2019 03 14
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -414,6 +414,10 @@ post <- function(lbls,               # labels of text element(s)
 ## URLs:
 # my_url <- url_unikn("https://www.uni-konstanz.de/")
 # post(lbls = my_url, y = .1, font = 4)
+
+## Logos:
+# post(lbls = c("SPDS", "Social Psychology and Decision Sciences"), font = c(2, 1), 
+#      cex = c(2.8, .85), y = c(.28, .15), col_bg = pal_seeblau[[5]])
 
 
 # (4) heading: Arrange headings (according to title specifications): ------ 
