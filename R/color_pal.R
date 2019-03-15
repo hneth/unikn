@@ -1,5 +1,5 @@
 ## color_pal.R  |  unikn
-## ng/hn | uni.kn | 2019 03 14
+## ng/hn | uni.kn | 2019 03 15
 ## ---------------------------
 
 ## Main functions to access and plot color palettes. 
@@ -385,7 +385,11 @@ get_pal <- function(pal, n = "all") {
 #' Default: \code{rgb = NULL} (i.e., show RGB color values 
 #' when there is sufficient space to print them). 
 #' 
-#' @param col_brd Color of box borders (if shown).
+#' @param col_brd Color of box borders (if shown). 
+#' Default: \code{col_brd = NULL}. 
+#' 
+#' @param grid Show grid? 
+#' Default: \code{grid = TRUE}. 
 #' 
 #' @param ... Other graphical parameters 
 #' (passed to \code{plot_col}). 
@@ -452,6 +456,7 @@ seepal <- function(pal = "all",     # which palette to output?
                    hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
                    rgb = NULL,      # determine, whether rgb values should be shown in detail view (defaults to TRUE)
                    col_brd = NULL,  # border color of the boxes. 
+                   grid = TRUE,     # show grid? 
                    ...              # additional arguments to plot.default().
 ) {
   
@@ -467,7 +472,7 @@ seepal <- function(pal = "all",     # which palette to output?
   
   if ( !exists(dep_pal) ) {
     
-    print("Nonexistent")
+    print("Nonexistent pal.")
     
     dep_pal_exists <- tryCatch(
       
@@ -519,14 +524,11 @@ seepal <- function(pal = "all",     # which palette to output?
             stop(paste0("The palette ", pal, " you specified appears not to be defined in the current namespace."))
           }
           
-          
         }
         
       }
       
     }
-    
-    
     
   }  # eof. existence check.
   
@@ -534,11 +536,9 @@ seepal <- function(pal = "all",     # which palette to output?
   if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
   
-  
   ## Get palette:
   pal_tmp <- get_pal(pal = pal, n = n)
   # TODO: Names get lost in translation if n is specified! 
-  
   
   keys <- c("all", "unikn_all", "grad_all")  # pal_unikn is a stupid keyword to use.
   if ( all(pal %in% keys )) {
@@ -553,13 +553,11 @@ seepal <- function(pal = "all",     # which palette to output?
     nm <- ifelse(is.character(pal), pal, deparse(substitute(pal)))
     title <- paste0("See palette ", nm)
     
-    
   }
   
   if (n != "all") {
     title <- paste0(title, " (n = ", n, ")")
   }
-  
   
   ## 2. Plotting parameters: ---------
   
@@ -601,9 +599,9 @@ seepal <- function(pal = "all",     # which palette to output?
          bty = "n")  
     
     # Grid:
-    grid <- TRUE  # 4debugging
+    # grid <- TRUE  # 4debugging
     
-    if ( grid ) {
+    if (grid) {
       
       x_vals <- 0:max(ylim)
       y_vals <- 1:max_ncol
@@ -636,7 +634,6 @@ seepal <- function(pal = "all",     # which palette to output?
          offset = 1  # 1 character.
     )
     
-    
     txt_ind <- paste0("[", 1:max_ncol, "]")
     cex_ind <- par("cex")
     wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))
@@ -646,7 +643,6 @@ seepal <- function(pal = "all",     # which palette to output?
       txt_ind <- txt_ind[seq(1, length(txt_ind), by = 2)]  # only show every second index.
       pos_ind <- pos_ind[seq(1, length(pos_ind), by = 2)]
       wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))  # is the width small enough?
-      
       
     }
     
@@ -661,7 +657,7 @@ seepal <- function(pal = "all",     # which palette to output?
     
   } else {  # if length(pal_tmp) list is NOT > 1:
     
-    # 3.2 Detail view of 1 palette: ------------
+    # 3.2 Detailed view of 1 palette: ------------
     
     names(pal_tmp) <- NULL  # remove first order names! 
     
@@ -681,17 +677,23 @@ seepal <- function(pal = "all",     # which palette to output?
     # Text elements:
     txt_pos <- seq(0.5, length(pal_tmp) - 0.5)
     
-    y_rgb <- c(-0.50, -0.65, -0.80)
+    # y positions: 
+    y_names <- 1.6
+    y_circ  <- 1.2 
+    y_rect  <- 0.6
+    y_rgb   <- c(-0.50, -0.65, -0.80)
     
     # Grid:
-    grid <- FALSE  # 4debugging
+    # grid <- TRUE  # 4debugging
     
     if (grid) {
       
-      abline(h = c(c(0.6, 1.2, 1.6, -0.1), c(y_rgb, -0.95) + 0.07),
-             v = txt_pos,
-             col = grey(.50, .25),
-             lwd = .5)
+      abline(# h = c(c(0.6, 1.2, 1.6, -0.1), c(y_rgb, -0.95) + 0.07),
+        # h = c(-.88, -.43, -.10, y_rect, y_circ),
+        h = c(-1, -.05, y_rect, y_circ),
+        v = txt_pos,
+        col = grey(.3, .8),
+        lwd = .3)
       
     } # if (grid) etc. 
     
@@ -737,7 +739,7 @@ seepal <- function(pal = "all",     # which palette to output?
     }
     
     # Plot rectangles:
-    plot_col(x = pal_tmp, ypos = 0.6, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = 1,
+    plot_col(x = pal_tmp, ypos = y_rect, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = 1,
              ...
     )
     
@@ -745,14 +747,14 @@ seepal <- function(pal = "all",     # which palette to output?
     # TODO: Dynamically determine xlen:
     circle_len <- ifelse(((xlim[2] / 10) < 0.5), (xlim[2] / 10), .70)
     
-    print(paste0("circle_len = ", circle_len))
+    # print(paste0("circle_len = ", circle_len))
     
-    plot_col(x = pal_tmp, ypos = 1.2, plot.new = FALSE, xlen = circle_len, shape = "circle",
+    plot_col(x = pal_tmp, ypos = y_circ, plot.new = FALSE, xlen = circle_len, shape = "circle",
              ...
     )
     
     # Color names:
-    text(x = txt_pos, y = 1.6, labels = names(pal_tmp), # pos = 3, 
+    text(x = txt_pos, y = y_names, labels = names(pal_tmp), # pos = 3, 
          srt = 45, xpd = TRUE, offset = 1,
          adj = c(0, 0))
     
