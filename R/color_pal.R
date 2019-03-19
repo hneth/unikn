@@ -153,9 +153,9 @@ isHexCol <- function(color) {
 # lookup_pal <- utils::apropos("pal_")  # get all unikn palettes.
 # TODO: Where to put this?
 
-## get_pal(): Get a palette or list of palettes by keyword, n argument uses colorRamp(): -------
+## get_col(): Get a palette or list of palettes by keyword, n argument uses colorRamp(): -------
 
-get_pal <- function(pal, n = "all") {
+get_col <- function(pal, n = "all") {
   
   ## 1. Process the 'pal' argument: ------------------------
   ## 1.1 Test, whether a valid argument was specified: --------
@@ -189,7 +189,7 @@ get_pal <- function(pal, n = "all") {
           
           error = function(e) {
             
-            stop(pste0("No matching palette found for input", dep_pal))
+            stop(pste0("No matching color palette found for input", dep_pal))
             
           })
       }
@@ -217,7 +217,7 @@ get_pal <- function(pal, n = "all") {
     
     # TODO: Test for list of colors of legth 1? 
     
-    if ( pal == "tmp" ) stop("Palettes must not be named tmp.")  # TODO: Nicer solution possible?
+    if ( pal == "tmp" ) stop("Color palettes must not be named tmp.")  # TODO: Nicer solution possible?
     
     ## 1.2.1 Getting by keyword: -------------------
     keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad")
@@ -258,7 +258,7 @@ get_pal <- function(pal, n = "all") {
 
       # Check if palette is non-empty:
       if (length(tmp) == 0) {
-        stop("No palettes defined in the current environment.")
+        stop("No color palettes defined in the current environment.")
       }
       
       ## Order palettes:
@@ -299,7 +299,7 @@ get_pal <- function(pal, n = "all") {
               },
               
               error = function(error) {
-                err_msg <- paste0(error, "The specified palette is not defined in the current namespace.")
+                err_msg <- paste0(error, "The specified color palette is not defined in the current namespace.")
                 stop(err_msg)
               }
             )
@@ -434,13 +434,7 @@ get_pal <- function(pal, n = "all") {
 # - handle n > length(pal) > n
 # seecol(pal_bordeaux, n = 2)
 # seecol(pal_bordeaux, n = 10)
-# seecol(n = 20)  # all palettes extended to 20 colors.
-
-
-
-# - allow to either collapse palettes or compare them like pal = "all"; or provide the palettes as matrix?
-    # - potential solution: Vector of names (character) --> compare; vector of objects --> merge
-    # - alternatively also provide a collapse argument (with default NULL) 
+# seecol(n = 20)  # all color palettes extended to 20 colors.
 
 seecol <- function(pal = "all",     # which palette to output?
                    n = "all",
@@ -483,7 +477,7 @@ seecol <- function(pal = "all",     # which palette to output?
 
           error = function(e) {
 
-            stop(paste0("No matching palette found for input", dep_pal))
+            stop(paste0("No matching color palette found for input", dep_pal))
 
           })
       }
@@ -533,7 +527,7 @@ seecol <- function(pal = "all",     # which palette to output?
           ## TODO: Handle naming and multiple palettes
 
           if ( !are_colors & !is_key) {
-            stop(paste0("The palette ", pal, " you specified appears not to be defined in the current namespace."))
+            stop(paste0("The color palette ", pal, " you specified appears not to be defined in the current namespace."))
           }
 
         }
@@ -550,7 +544,7 @@ seecol <- function(pal = "all",     # which palette to output?
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
   
   ## Get palette:
-  pal_tmp <- get_pal(pal = pal, n = n)
+  pal_tmp <- get_col(pal = pal, n = n)
   # print(pal_tmp)
   
   if ( all(pal %in% keys )) {
@@ -563,10 +557,10 @@ seecol <- function(pal = "all",     # which palette to output?
     
     # nm <- names(pal_tmp)
     nm <- ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!
-    title <- paste0("See color palette ", nm)
+    pl <- ifelse(length(unlist(pal_tmp)) == 1, "", "palette ")  # classify as palette or not.
+    title <- paste0("See color ", pl, nm)
 
   }
-  
   
   if (n != "all") {
     title <- paste0(title, " (n = ", n, ")")
@@ -627,8 +621,7 @@ seecol <- function(pal = "all",     # which palette to output?
              lwd = .5)
       
     } # if (grid) etc. 
-    
-    ## TODO: Add fancy KN-design stuff!
+
     
     # Add the color vectors:
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
