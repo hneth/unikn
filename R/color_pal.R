@@ -354,13 +354,13 @@ get_pal <- function(pal, n = "all") {
 
 
 
-## seepal: Main interface to color palettes: ---------- 
+## seecol: Main interface to color palettes: ---------- 
 
 # - Documentation: ---- 
 
 #' Show and use color palettes.
 #'
-#' \code{seepal} provides an interface to color palettes.
+#' \code{seecol} provides an interface to color palettes.
 #'
 #' @param pal A color palette (as a data frame) or 
 #' the character string \code{"all"} (to show all 
@@ -388,7 +388,7 @@ get_pal <- function(pal, n = "all") {
 #' (passed to \code{plot_col}). 
 #' 
 #' @examples
-#' seepal()  # shows all color palettes
+#' seecol()  # shows all color palettes
 #'
 #' @family color palettes
 #'
@@ -408,33 +408,33 @@ get_pal <- function(pal, n = "all") {
 
 # How does color ramp work?
 # pal_tst <- grey(c(0.1, 0.2, 0.3, 0.4, 0.9), 1)
-# seepal(pal_tst)
+# seecol(pal_tst)
 # 
 # pal_tst[2] <- "red"
 # 
 # rmp <- colorRampPalette(pal_tst)
 # 
 # 
-# seepal(pal_tst)
-# seepal(rmp(10))  # the original color poles appear to be always included!
-# seepal(rmp(3))
+# seecol(pal_tst)
+# seecol(rmp(10))  # the original color poles appear to be always included!
+# seecol(rmp(3))
 # # 
 # # # TODO: Use a two-step procedure to retain all original colors?
 # # 
 # rmp2 <- colorRampPalette(pal_unikn_pair)
-# seepal(pal_unikn_pair, hex = TRUE)
+# seecol(pal_unikn_pair, hex = TRUE)
 # rmp2(5) %in% pal_unikn_pair
 
 # TODO:
 
 # - allow selective output of color groups --> Are groups fine?
 # Examples: 
-# seepal("unikn_all")
-# seepal("grad_all")
+# seecol("unikn_all")
+# seecol("grad_all")
 # - handle n > length(pal) > n
-# seepal(pal_bordeaux, n = 2)
-# seepal(pal_bordeaux, n = 10)
-# seepal(n = 20)  # all palettes extended to 20 colors.
+# seecol(pal_bordeaux, n = 2)
+# seecol(pal_bordeaux, n = 10)
+# seecol(n = 20)  # all palettes extended to 20 colors.
 
 
 
@@ -442,7 +442,7 @@ get_pal <- function(pal, n = "all") {
     # - potential solution: Vector of names (character) --> compare; vector of objects --> merge
     # - alternatively also provide a collapse argument (with default NULL) 
 
-seepal <- function(pal = "all",     # which palette to output?
+seecol <- function(pal = "all",     # which palette to output?
                    n = "all",
                    hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
                    rgb = NULL,      # determine, whether rgb values should be shown in detail view (defaults to TRUE)
@@ -838,23 +838,23 @@ seepal <- function(pal = "all",     # which palette to output?
 
 ## (a) Multiple palettes: ---- 
 
-# seepal("all")
-# seepal("all", col_brd = grey(0, .25), lwd = .1)
-# seepal("unikn_all")  # all basic palettes. 
-# seepal("grad_all")  # all gradients. 
+# seecol("all")
+# seecol("all", col_brd = grey(0, .25), lwd = .1)
+# seecol("unikn_all")  # all basic palettes. 
+# seecol("grad_all")  # all gradients. 
 
 ## Return a subset or extended set of colors:
-# seepal(pal = "all", n = 2)  
-# seepal(pal_bordeaux, n = 2)
-# seepal(rev(pal_bordeaux), n = 10)
-# seepal(pal = "unikn_all", n = 20)  # all basic palettes extended to 20 colors.
+# seecol(pal = "all", n = 2)  
+# seecol(pal_bordeaux, n = 2)
+# seecol(rev(pal_bordeaux), n = 10)
+# seecol(pal = "unikn_all", n = 20)  # all basic palettes extended to 20 colors.
 
 ## Critical calls: 
-# seepal("all", n =  4)  
-# seepal("all", n = 12) 
+# seecol("all", n =  4)  
+# seecol("all", n = 12) 
 
 ## 2 palettes: 
-# seepal(c(rev(pal_unikn_light), pal_unikn_dark), hex = TRUE)
+# seecol(c(rev(pal_unikn_light), pal_unikn_dark), hex = TRUE)
 
 # ToDo: 
 # - group in 2 sets: "unikn" vs. "others"
@@ -864,27 +864,27 @@ seepal <- function(pal = "all",     # which palette to output?
 
 ## (b) 1 palette: ---- 
 
-# seepal(pal_unikn)  # allow both, palette objects and 
-# seepal("pal_unikn")  # palette names;
-# seepal(unikn_pair)  # allow also abbreviated palette objects w/o pal_ prefix. 
-# seepal(pal_unikn_plus, hex = TRUE)
-# seepal(c("blue", "green"))  # allow any color vector. 
+# seecol(pal_unikn)  # allow both, palette objects and 
+# seecol("pal_unikn")  # palette names;
+# seecol(unikn_pair)  # allow also abbreviated palette objects w/o pal_ prefix. 
+# seecol(pal_unikn_plus, hex = TRUE)
+# seecol(c("blue", "green"))  # allow any color vector. 
 
-# seepal(pal = "seblau")  # raise error.
+# seecol(pal = "seblau")  # raise error.
 
 ## Return a subset of colors:
-# seepal(pal = pal_petrol, n = 3)
-# seepal(pal = pal_unikn_light, n = 3)
+# seecol(pal = pal_petrol, n = 3)
+# seecol(pal = pal_unikn_light, n = 3)
 
 ## Critical calls:
-# seepal(pal_unikn, n =  4)  # works (4 selected)
-# seepal(pal_unikn, n = 20)  # fails (max n = 11 of pal_unikn_plus selected)
+# seecol(pal_unikn, n =  4)  # works (4 selected)
+# seecol(pal_unikn, n = 20)  # fails (max n = 11 of pal_unikn_plus selected)
 
-# seepal(pal_bordeaux, n =  3)  # works (3 selected)
-# seepal(pal_bordeaux, n = 10)  # fails (max n = 5 returned)
+# seecol(pal_bordeaux, n =  3)  # works (3 selected)
+# seecol(pal_bordeaux, n = 10)  # fails (max n = 5 returned)
 
-# seepal(pal_unikn_light, n = 3)   # mostly works (first 3 chosen)
-# seepal(pal_unikn_light, n = 10)  # mostly fails (max n = 10 returned)
+# seecol(pal_unikn_light, n = 3)   # mostly works (first 3 chosen)
+# seecol(pal_unikn_light, n = 10)  # mostly fails (max n = 10 returned)
 
 
 
@@ -897,29 +897,27 @@ seepal <- function(pal = "all",     # which palette to output?
 
 ## Color gradients: 
 # gradient <- col_scale(c(rev(pal_seeblau), "white", pal_peach))
-# seepal(gradient(50))
+# seecol(gradient(50))
 
 ## ToDo: 2 main cases: 
 # - n < available colors in palettes: Select some from available colors (rather than generating new ones)
 # - n > available colors in palettes: Extend/stretch color palettes (rather than individual colors)
 
 ## Currently to be commented out for building (probably no palettes loaded before the function is executed):
-# a <- seepal(pal = "all")  # return all palettes.
+# a <- seecol(pal = "all")  # return all palettes.
 # a
 
-# b <- seepal(pal = pal_unikn_pair)  # return one long palette (hex not displayed by default.)
-# seepal(pal = pal_unikn_pair, hex = TRUE)  # display hex independent of fontsize.
-# seepal(pal = pal_unikn_pair)  
+# b <- seecol(pal = pal_unikn_pair)  # return one long palette (hex not displayed by default.)
+# seecol(pal = pal_unikn_pair, hex = TRUE)  # display hex independent of fontsize.
+# seecol(pal = pal_unikn_pair)  
 
-# c <- seepal(pal = pal_bordeaux, hex = TRUE)
+# c <- seecol(pal = pal_bordeaux, hex = TRUE)
 
-
-## TODO: Function to select colors differently!
 
 # rmp <- colorRampPalette(c(pal_seeblau, "white", pal_grau, pal_peach))
 
-# seepal(rmp(.5))
-# seepal(c("black", "yellow", "green"))
+# seecol(rmp(.5))
+# seecol(c("black", "yellow", "green"))
 
 
 ## ToDo: ------
