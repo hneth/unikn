@@ -695,9 +695,20 @@ seecol <- function(pal = "all",     # which palette to output?
       abline(# h = c(c(0.6, 1.2, 1.6, -0.1), c(y_rgb, -0.95) + 0.07),
         # h = c(-.88, -.43, -.10, y_rect, y_circ),
         h = c(-1, -.05, y_rect, y_circ),
-        v = txt_pos,
+        # v = txt_pos,
         col = grey(.3, .8),
         lwd = .3)
+      
+      xpos <- txt_pos
+      # print(xpos)
+      if ( length(xpos) > 10 ) xpos <- xpos[xpos %% 5 == 0.5]  # steps of five.
+      
+      segments(
+        x0 = xpos,
+        y0 = 2, y1 = -0.2,
+        col = grey(.3, .8),
+        lwd = .3
+      )
       
     } # if (grid) etc. 
     
