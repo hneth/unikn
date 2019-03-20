@@ -1,5 +1,5 @@
 ## color_functions.R  |  unikn
-## hn  |  uni.kn |  2019 02 28
+## hn  |  uni.kn |  2019 03 18
 ## ---------------------------
 
 ## Define color-related functions 
