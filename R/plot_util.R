@@ -366,7 +366,16 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
 # layout_y(y_top = 1, y_bot = 0, height_seq = rep(.10, 5), layout_type = "odd")  # warning and return 0.
 
 
+## kill_all: empty current environment -------- 
 
+kill_all <- function(){
+  
+  rm(list = ls())
+  
+}
+
+## Check: 
+# kill_all()
 
 ## Test: Testbed for code above: ------ 
 
