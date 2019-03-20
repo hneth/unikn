@@ -41,7 +41,7 @@
 #' pal_unikn_plus[["seeblau5"]] # new color value "#008ECE"
 #' 
 #' # Plotting palette:
-#' seepal(pal_unikn_plus)
+#' seecol(pal_unikn_plus)
 #' 
 #' # Note:
 #' pal_unikn_plus[6] # "white" or "#FFFFFF" as central of 11 colors
@@ -51,7 +51,7 @@
 #' @seealso
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
 #' \code{\link{pal_seeblau}} for the uni.kn seeblau color palette; 
-#' \code{\link{seepal}} to show and use color palettes.  
+#' \code{\link{seecol}} to show and use color palettes.  
 #'
 #' @export
 
@@ -91,13 +91,13 @@ pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
 #' pal_unikn_pref[["Seeblau"]] # color value "#59C7EB" 
 #' 
 #' # Plotting palette:
-#' seepal(pal_unikn_pref)
+#' seecol(pal_unikn_pref)
 #' 
 #' @family color palettes
 #'
 #' @seealso
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{seepal}} to show and use color palettes.  
+#' \code{\link{seecol}} to show and use color palettes.  
 #'
 #' @export
 
@@ -117,7 +117,7 @@ pal_unikn_pref <- data.frame(            # Element:
 
 ## Check:
 # pal_unikn_pref
-# seepal(pal_unikn_pref)
+# seecol(pal_unikn_pref)
 
 #  (3) pal_unikn_light: Scale of 8 light colors (in 4 pairs) from other palettes: ------ 
 
@@ -144,7 +144,7 @@ pal_unikn_pref <- data.frame(            # Element:
 #' pal_unikn_light[["seeblau3"]] # color value "#59C7EB"  
 #' 
 #' # Plotting palette:
-#' seepal(pal_unikn_light)
+#' seecol(pal_unikn_light)
 #' 
 #' @family color palettes
 #'
@@ -152,7 +152,7 @@ pal_unikn_pref <- data.frame(            # Element:
 #' \code{\link{pal_unikn_dark}} for a darker uni.kn color palette; 
 #' \code{\link{pal_unikn_pair}} for a pairwise uni.kn color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{seepal}} to show and use color palettes.  
+#' \code{\link{seecol}} to show and use color palettes.  
 #'
 #' @export
 
@@ -167,7 +167,7 @@ pal_unikn_light <- data.frame(
 
 ## Check:
 # pal_unikn_light
-# seepal(pal_unikn_light)
+# seecol(pal_unikn_light)
 
 #  (4) pal_unikn_dark: Scale of 8 dark colors (in 4 pairs) from other palettes: ------ 
 
@@ -189,7 +189,7 @@ pal_unikn_light <- data.frame(
 #' pal_unikn_dark["karpfenblau5"]  # color value by name
 #' 
 #' # Plotting palette:
-#' seepal(pal_unikn_dark)
+#' seecol(pal_unikn_dark)
 #' 
 #' @family color palettes
 #'
@@ -197,7 +197,7 @@ pal_unikn_light <- data.frame(
 #' \code{\link{pal_unikn_light}} for a lighter uni.kn color palette; 
 #' \code{\link{pal_unikn_pair}} for a pairwise uni.kn color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{seepal}} to show and use color palettes.  
+#' \code{\link{seecol}} to show and use color palettes.  
 #'
 #' @export
 
@@ -212,7 +212,7 @@ pal_unikn_dark <- data.frame(
 
 ## Check:
 # pal_unikn_dark
-# seepal(pal_unikn_dark)
+# seecol(pal_unikn_dark)
 
 
 #  (5) pal_unikn_pair: Scale of 16 paired colors (in 8 pairs) from other palettes: ------ 
@@ -235,7 +235,7 @@ pal_unikn_dark <- data.frame(
 #' pal_unikn_pair["karpfenblau4"]  # color value by name
 #' 
 #' # Plotting palette:
-#' seepal(pal_unikn_pair)
+#' seecol(pal_unikn_pair)
 #' 
 #' @family color palettes
 #'
@@ -243,7 +243,7 @@ pal_unikn_dark <- data.frame(
 #' \code{\link{pal_unikn_light}} for a lighter uni.kn color palette; 
 #' \code{\link{pal_unikn_dark}} for a darker uni.kn color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{seepal}} to show and use color palettes. 
+#' \code{\link{seecol}} to show and use color palettes. 
 #'
 #' @export
 
@@ -262,7 +262,7 @@ pal_unikn_pair <- data.frame(
 
 ## Check:
 # pal_unikn_pair
-# seepal(pal_unikn_pair)
+# seecol(pal_unikn_pair)
 
 
 

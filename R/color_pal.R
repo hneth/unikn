@@ -189,7 +189,7 @@ get_col <- function(pal, n = "all") {
           
           error = function(e) {
             
-            stop(pste0("No matching color palette found for input", dep_pal))
+            stop(paste0("No matching color palette found for input", dep_pal))
             
           })
       }

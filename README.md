@@ -60,7 +60,7 @@ pal_unikn  # 10 default colors (web/sRGB)
 
 # Plot color palette: ----- 
 plot_pal(pal_unikn)
-seepal(pal_unikn)
+seecol(pal_unikn)
 ```
 
 <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/>
@@ -77,7 +77,7 @@ pal_unikn_plus  # 11 colors (white in middle)
 
 # Plot color palette: ----- 
 plot_pal(pal_unikn_plus)
-seepal(pal_unikn_plus)
+seecol(pal_unikn_plus)
 ```
 
 <img src = "./inst/pix/README-pal_unikn_plus-1.png" align = "center" alt = "pal_unikn_plus" style = "border:10;"/>
@@ -88,7 +88,7 @@ The following dedicated color palettes are defined in an Excel file on [Colours 
 
 ``` r
 # All palettes:
-seepal("all")
+seecol("all")
 
 # 8 mono-tone palettes: ----- 
 # Name:          Nr:           Tone:          
@@ -119,10 +119,10 @@ Additional pre-defined color palettes include:
 
 ``` r
 # Plot additional color palettes: ----- 
-seepal(pal_unikn_pref)   # palette of  9 preferred colors
-seepal(pal_unikn_light)  # palette of  8 light colors (in 4 pairs)
-seepal(pal_unikn_dark)   # palette of  8 dark colors (in 4 pairs)
-seepal(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
+seecol(pal_unikn_pref)   # palette of  9 preferred colors
+seecol(pal_unikn_light)  # palette of  8 light colors (in 4 pairs)
+seecol(pal_unikn_dark)   # palette of  8 dark colors (in 4 pairs)
+seecol(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
 ```
 
 More flexible and complex color palettes can be created by using the `col_scale()` function.
@@ -136,7 +136,7 @@ The `plot_pal()` function provides a quick overview over the contents of a color
 
 ``` r
 # Plot a color palette: ----- 
-seepal(pal_unikn_pref)
+seecol(pal_unikn_pref)
 # plot_pal(pal_unikn_pref)  # OLDER
 ```
 
@@ -259,11 +259,11 @@ Examples for using color palettes in graphs:
 
 ``` r
 # Using color palettes:
-barplot(1/sqrt(1:11),  col = seepal(pal_unikn_plus))
-barplot(1/sqrt(10:25), col = seepal(pal_unikn_pair))
+barplot(1/sqrt(1:11),  col = seecol(pal_unikn_plus))
+barplot(1/sqrt(10:25), col = seecol(pal_unikn_pair))
 
 # Using n colors of a palette:
-barplot(1/sqrt(1:5), col = seepal(pal_unikn, n = 5)) 
+barplot(1/sqrt(1:5), col = seecol(pal_unikn, n = 5)) 
 
 # Scatterplot:
 plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = 1))   # 0 transparency
@@ -277,12 +277,12 @@ Visualizing data with `image`:
 set.seed(1)
 n <- 20
 m <- matrix(rnorm(n*n), ncol = n, nrow = n)
-image(m, col = seepal(pal_seeblau))
-image(m, col = seepal(pal_peach))
-image(m, col = seepal(pal_seegruen))
-image(m, col = seepal(pal_petrol))
-image(m, col = seepal(pal_pinky))
-image(m, col = seepal(pal_bordeaux))
+image(m, col = seecol(pal_seeblau))
+image(m, col = seecol(pal_peach))
+image(m, col = seecol(pal_seegruen))
+image(m, col = seecol(pal_petrol))
+image(m, col = seecol(pal_pinky))
+image(m, col = seecol(pal_bordeaux))
 
 # Geometric images:
 x <- y <- seq(-4 * pi, 4 * pi, len = 30)
@@ -421,7 +421,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-03-14 by [hn](https://neth.de).\]
+\[Updated 2019-03-20 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 
