@@ -24,14 +24,14 @@ pal_unikn_pair[[1]]  # color value by position: #3E5496"
 pal_unikn_pair["karpfenblau4"]  # color value by name
 
 # Plotting palette:
-seepal(pal_unikn_pair)
+seecol(pal_unikn_pair)
 
 }
 \seealso{
 \code{\link{pal_unikn_light}} for a lighter uni.kn color palette; 
 \code{\link{pal_unikn_dark}} for a darker uni.kn color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
-\code{\link{seepal}} to show and use color palettes.
+\code{\link{seecol}} to show and use color palettes.
 
 Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_bordeaux}}, \code{\link{pal_grau}},

@@ -33,12 +33,12 @@ pal_unikn_pref["Seeblau"]   # color "seeblau3" (as df)
 pal_unikn_pref[["Seeblau"]] # color value "#59C7EB" 
 
 # Plotting palette:
-seepal(pal_unikn_pref)
+seecol(pal_unikn_pref)
 
 }
 \seealso{
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
-\code{\link{seepal}} to show and use color palettes.
+\code{\link{seecol}} to show and use color palettes.
 
 Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_bordeaux}}, \code{\link{pal_grau}},

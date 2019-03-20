@@ -39,7 +39,7 @@ pal_unikn_plus["seeblau5"]   # new color "seeblau5" (as df)
 pal_unikn_plus[["seeblau5"]] # new color value "#008ECE"
 
 # Plotting palette:
-seepal(pal_unikn_plus)
+seecol(pal_unikn_plus)
 
 # Note:
 pal_unikn_plus[6] # "white" or "#FFFFFF" as central of 11 colors
@@ -48,7 +48,7 @@ pal_unikn_plus[6] # "white" or "#FFFFFF" as central of 11 colors
 \seealso{
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
 \code{\link{pal_seeblau}} for the uni.kn seeblau color palette; 
-\code{\link{seepal}} to show and use color palettes.
+\code{\link{seecol}} to show and use color palettes.
 
 Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_bordeaux}}, \code{\link{pal_grau}},
