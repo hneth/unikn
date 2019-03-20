@@ -1,5 +1,5 @@
 ## color_pal.R  |  unikn
-## ng/hn | uni.kn | 2019 03 15
+## ng/hn | uni.kn | 2019 03 20
 ## ---------------------------
 
 ## Main functions to access and plot color palettes. 
@@ -231,13 +231,13 @@ get_col <- function(pal, n = "all") {
       
       ## The three cases: -----
       pal_names <- switch( pal, 
-              all = all_pal[all_pal != "tmp"],
-              unikn_all = all_pal[ix_unikn],
-              all_unikn = all_pal[ix_unikn],
-              grad_all = all_pal[!ix_unikn],
-              all_grad = all_pal[!ix_unikn]
-                )
-
+                           all = all_pal[all_pal != "tmp"],
+                           unikn_all = all_pal[ix_unikn],
+                           all_unikn = all_pal[ix_unikn],
+                           grad_all = all_pal[!ix_unikn],
+                           all_grad = all_pal[!ix_unikn]
+      )
+      
       # Get all palettes specified by keyword:
       lst_pal <- sapply(pal_names, get)
       
@@ -255,7 +255,7 @@ get_col <- function(pal, n = "all") {
       
       # Get the palettes:
       tmp <- lst_pal[unlist(is_pal)]
-
+      
       # Check if palette is non-empty:
       if (length(tmp) == 0) {
         stop("No color palettes defined in the current environment.")
@@ -313,7 +313,7 @@ get_col <- function(pal, n = "all") {
         # title <- paste0("See palette ", gsub("pal_", "", pal))
         
       } 
-
+      
       
     }
   } else { # eof. length == 1; call, if a full palette has been specified. 
@@ -453,89 +453,89 @@ seecol <- function(pal = "all",     # which palette to output?
   ## Palette:
   ## Test, whether the palette exists:
   dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
-
+  
   #----
   if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
-
+    
     # print("Nonexistent")
-
+    
     ## If the deparsed argument does not exist, add a pal prefix and test again.
-
+    
     dep_pal_exists <- tryCatch(
-
+      
       {
         exists(paste0("pal_", dep_pal))
         # print("here")
         # print(exists(paste0("pal_", dep_pal)))
       },
-
+      
       ## If exists(dep_pal) raises an error:
       error = function(e) {
-
+        
         tryCatch(
           {exists(pal)},   # test whether the input exists.
-
+          
           error = function(e) {
-
+            
             stop(paste0("No matching color palette found for input", dep_pal))
-
+            
           })
       }
     )
-
+    
     # print(dep_pal_exists)
-
+    
     ## If the palette has been found to exist:
     # TODO: Here the function stumbles over multiple keywords!
-
+    
     if ( dep_pal_exists ) {  # if the deparsed argument exists after parsing:
-
+      
       pal <- paste0("pal_", dep_pal)
-
+      
       # print(pal)
       # print(names(pal))
-
+      
     }  else {  # if it does not exist:
-
+      
       pal_exists <- tryCatch(
         {
           exists(pal)  # evaluates to TRUE for vector of palette names.
-          },
+        },
         error = function(e) {
           return(FALSE)
-          }
+        }
       )
-
+      
       if ( !pal_exists ) {  # does also the input not exist?
-
+        
         # TODO: Here it stumbles with more than one palette.
-
+        
         if ( exists(paste0("pal_", pal)) ) {  # does it exist but was specified without prefix?
-
+          
           pal <- paste0("pal_", pal)
-
+          
         } else {  # if the palette name is not defined:
-
+          
           # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
-
+          
           # print("Undefined")
-
+          
           are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
           is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
           # print(are_colors)
-
+          
           ## TODO: Handle naming and multiple palettes
-
+          
           if ( !are_colors & !is_key) {
             stop(paste0("The color palette ", pal, " you specified appears not to be defined in the current namespace."))
           }
-
+          
         }
-
+        
       }
-
+      
     }
-
+    
   }  # eof. existence check.
   
   
@@ -559,7 +559,7 @@ seecol <- function(pal = "all",     # which palette to output?
     nm <- ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!
     pl <- ifelse(length(unlist(pal_tmp)) == 1, "", "palette ")  # classify as palette or not.
     title <- paste0("See color ", pl, nm)
-
+    
   }
   
   if (n != "all") {
@@ -621,7 +621,7 @@ seecol <- function(pal = "all",     # which palette to output?
              lwd = .5)
       
     } # if (grid) etc. 
-
+    
     
     # Add the color vectors:
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
@@ -666,7 +666,7 @@ seecol <- function(pal = "all",     # which palette to output?
     names(pal_tmp) <- NULL  # remove first order names! 
     
     pal_tmp <- unlist(pal_tmp)  # HERE!
-    # TODO: This essentially changes the length of the color vector.  FInd better solution!
+    # TODO: This essentially changes the length of the color vector.  Find better solution!
     
     # Set margins:
     par(mar = c(3, 2, 3, 1))
@@ -733,7 +733,7 @@ seecol <- function(pal = "all",     # which palette to output?
     if ( is.null(hex) ) {
       
       hex <- ifelse(wdth_hex > xlim[2] | cex_hex < cex_lim, FALSE, TRUE)  # test, whether hex can be displayed.
-
+      
     } 
     
     # Determine, whether to display rgb values:
@@ -758,9 +758,9 @@ seecol <- function(pal = "all",     # which palette to output?
     )
     
     # Plot circles:
-# <<<<<<< HEAD
-#     circle_len <- ifelse(xlim[2] / 10 < 0.5, xlim[2] / 10, 0.5)
-# =======
+    # <<<<<<< HEAD
+    #     circle_len <- ifelse(xlim[2] / 10 < 0.5, xlim[2] / 10, 0.5)
+    # =======
     # TODO: Dynamically determine xlen:
     circle_len <- ifelse(((xlim[2] / 10) < 0.5), (xlim[2] / 10), .70)
     
@@ -833,7 +833,7 @@ seecol <- function(pal = "all",     # which palette to output?
   
   # Invisibly return pal_tmp palette(s):
   invisible(pal_tmp)
-
+  
 }
 
 
