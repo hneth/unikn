@@ -73,8 +73,8 @@ Extending a palette to a larger number of colors than contained in the palette:
 Combining color palettes: 
 
 ```{r, fig.align = 'center', fig.width = 7.2, fig.height = 5}
-seepal(pal = c(rev(pal_seeblau), "white", pal_petrol))
-seepal(pal = c(rev(pal_petrol), "white", pal_bordeaux))
+# seepal(pal = c(rev(pal_seeblau), "white", pal_petrol))
+# seepal(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 ```
 
 Mixing palettes:
@@ -86,8 +86,8 @@ seepal(pal = col_scale(c(Karpfenblau, Seeblau, "gold"))(10))
 Examples of combining colors and color palettes into new color palettes:
 
 ```{r bar_seeblau_pinky, fig.align = 'center', fig.width = 7.2, fig.height = 4}
-barplot((-5:5)^2+5, col = seepal(pal = c(rev(pal_seeblau), "white", pal_pinky)))
-barplot(1/sqrt(11:1), col = seepal(pal = c(rev(pal_seeblau), "white", pal_seegruen)))
+# barplot((-5:5)^2+5, col = seepal(pal = c(rev(pal_seeblau), "white", pal_pinky)))
+# barplot(1/sqrt(11:1), col = seepal(pal = c(rev(pal_seeblau), "white", pal_seegruen)))
 ```
 
 ## All unikn vignettes
