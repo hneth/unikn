@@ -153,9 +153,9 @@ isHexCol <- function(color) {
 # lookup_pal <- utils::apropos("pal_")  # get all unikn palettes.
 # TODO: Where to put this?
 
-## get_pal(): Get a palette or list of palettes by keyword, n argument uses colorRamp(): -------
+## get_col(): Get a palette or list of palettes by keyword, n argument uses colorRamp(): -------
 
-get_pal <- function(pal, n = "all") {
+get_col <- function(pal, n = "all") {
   
   ## 1. Process the 'pal' argument: ------------------------
   ## 1.1 Test, whether a valid argument was specified: --------
@@ -169,9 +169,6 @@ get_pal <- function(pal, n = "all") {
   # pal <- tolower(pal)  # TODO: tolower() is problematic, as one cannot access the single colors in uppercase. 
   
   # # Correct order: First test for non-character argument(s) then for character inputs:
-  # print(dep_pal)
-  # print(exists(dep_pal))
-  
   ## Test, whether the palette exists:
   dep_pal <- deparse(substitute(pal))   #deparse palette to check for existence.
   
@@ -192,7 +189,7 @@ get_pal <- function(pal, n = "all") {
           
           error = function(e) {
             
-            stop(pste0("No matching palette found for input", dep_pal))
+            stop(pste0("No matching color palette found for input", dep_pal))
             
           })
       }
@@ -220,10 +217,10 @@ get_pal <- function(pal, n = "all") {
     
     # TODO: Test for list of colors of legth 1? 
     
-    if ( pal == "tmp" ) stop("Palettes must not be named tmp.")  # TODO: Nicer solution possible?
+    if ( pal == "tmp" ) stop("Color palettes must not be named tmp.")  # TODO: Nicer solution possible?
     
     ## 1.2.1 Getting by keyword: -------------------
-    keys <- c("all", "unikn_all", "grad_all")
+    keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad")
     
     if ( pal %in% keys ) {  # is pal in keys?
       
@@ -234,11 +231,13 @@ get_pal <- function(pal, n = "all") {
       
       ## The three cases: -----
       pal_names <- switch( pal, 
-                           all = all_pal[all_pal != "tmp"],
-                           unikn_all = all_pal[ix_unikn],
-                           grad_all = all_pal[!ix_unikn]
-      )
-      
+              all = all_pal[all_pal != "tmp"],
+              unikn_all = all_pal[ix_unikn],
+              all_unikn = all_pal[ix_unikn],
+              grad_all = all_pal[!ix_unikn],
+              all_grad = all_pal[!ix_unikn]
+                )
+
       # Get all palettes specified by keyword:
       lst_pal <- sapply(pal_names, get)
       
@@ -256,10 +255,10 @@ get_pal <- function(pal, n = "all") {
       
       # Get the palettes:
       tmp <- lst_pal[unlist(is_pal)]
-      
+
       # Check if palette is non-empty:
       if (length(tmp) == 0) {
-        stop("No palettes defined in the current environment.")
+        stop("No color palettes defined in the current environment.")
       }
       
       ## Order palettes:
@@ -300,7 +299,7 @@ get_pal <- function(pal, n = "all") {
               },
               
               error = function(error) {
-                err_msg <- paste0(error, "The specified palette is not defined in the current namespace.")
+                err_msg <- paste0(error, "The specified color palette is not defined in the current namespace.")
                 stop(err_msg)
               }
             )
@@ -314,13 +313,7 @@ get_pal <- function(pal, n = "all") {
         # title <- paste0("See palette ", gsub("pal_", "", pal))
         
       } 
-      # else {  # if it is a hex color or a color defined in colors():
-      #   
-      #   title <- paste0("See color ", pal)  # TODO: Does a single color need any further processing? 
-      #   
-      #   ## TODO: Translate to name if possible? 
-      #   
-      # } 
+
       
     }
   } else { # eof. length == 1; call, if a full palette has been specified. 
@@ -361,13 +354,13 @@ get_pal <- function(pal, n = "all") {
 
 
 
-## seepal: Main interface to color palettes: ---------- 
+## seecol: Main interface to color palettes: ---------- 
 
 # - Documentation: ---- 
 
 #' Show and use color palettes.
 #'
-#' \code{seepal} provides an interface to color palettes.
+#' \code{seecol} provides an interface to color palettes.
 #'
 #' @param pal A color palette (as a data frame) or 
 #' the character string \code{"all"} (to show all 
@@ -395,7 +388,7 @@ get_pal <- function(pal, n = "all") {
 #' (passed to \code{plot_col}). 
 #' 
 #' @examples
-#' seepal()  # shows all color palettes
+#' seecol()  # shows all color palettes
 #'
 #' @family color palettes
 #'
@@ -415,43 +408,35 @@ get_pal <- function(pal, n = "all") {
 
 # How does color ramp work?
 # pal_tst <- grey(c(0.1, 0.2, 0.3, 0.4, 0.9), 1)
-# seepal(pal_tst)
+# seecol(pal_tst)
 # 
 # pal_tst[2] <- "red"
 # 
 # rmp <- colorRampPalette(pal_tst)
 # 
 # 
-# seepal(pal_tst)
-# seepal(rmp(10))  # the original color poles appear to be always included!
-# seepal(rmp(3))
+# seecol(pal_tst)
+# seecol(rmp(10))  # the original color poles appear to be always included!
+# seecol(rmp(3))
 # # 
 # # # TODO: Use a two-step procedure to retain all original colors?
 # # 
 # rmp2 <- colorRampPalette(pal_unikn_pair)
-# seepal(pal_unikn_pair, hex = TRUE)
+# seecol(pal_unikn_pair, hex = TRUE)
 # rmp2(5) %in% pal_unikn_pair
 
 # TODO:
 
 # - allow selective output of color groups --> Are groups fine?
 # Examples: 
-# seepal("unikn_all")
-# seepal("grad_all")
+# seecol("unikn_all")
+# seecol("grad_all")
 # - handle n > length(pal) > n
-# seepal(pal_bordeaux, n = 2)
-# seepal(pal_bordeaux, n = 10)
-# seepal(n = 20)  # all palettes extended to 20 colors.
-# - how to select colors in pal_n? For known palettes create a clear selection?
-# TODO!
+# seecol(pal_bordeaux, n = 2)
+# seecol(pal_bordeaux, n = 10)
+# seecol(n = 20)  # all color palettes extended to 20 colors.
 
-# - allow aliases without pal_prefix
-# - collapse warnings
-# - more compact display
-
-# - allow to either collapse palettes or compare them like pal = "all"; or provide the palettes as matrix?
-
-seepal <- function(pal = "all",     # which palette to output?
+seecol <- function(pal = "all",     # which palette to output?
                    n = "all",
                    hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
                    rgb = NULL,      # determine, whether rgb values should be shown in detail view (defaults to TRUE)
@@ -462,97 +447,119 @@ seepal <- function(pal = "all",     # which palette to output?
   
   ## 0. Preparations: ---------
   op <- par(no.readonly = TRUE)  # save original plotting settings.
+  keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad") # keywords to return multiple palettes. 
   
   # Robustify inputs: 
-  ## Palette: 
+  ## Palette:
   ## Test, whether the palette exists:
   dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
-  
-  print(dep_pal)
-  
-  if ( !exists(dep_pal) ) {
-    
-    print("Nonexistent pal.")
-    
+
+  #----
+  if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
+
+    # print("Nonexistent")
+
+    ## If the deparsed argument does not exist, add a pal prefix and test again.
+
     dep_pal_exists <- tryCatch(
-      
+
       {
         exists(paste0("pal_", dep_pal))
         # print("here")
         # print(exists(paste0("pal_", dep_pal)))
       },
-      
+
+      ## If exists(dep_pal) raises an error:
       error = function(e) {
-        
-        tryCatch( 
-          {exists(pal)}          , 
-          
+
+        tryCatch(
+          {exists(pal)},   # test whether the input exists.
+
           error = function(e) {
-            
-            stop(paste0("No matching palette found for input", dep_pal))
-            
+
+            stop(paste0("No matching color palette found for input", dep_pal))
+
           })
       }
     )
-    
-    print(dep_pal_exists)
-    
+
+    # print(dep_pal_exists)
+
     ## If the palette has been found to exist:
-    if ( dep_pal_exists ) {
-      
+    # TODO: Here the function stumbles over multiple keywords!
+
+    if ( dep_pal_exists ) {  # if the deparsed argument exists after parsing:
+
       pal <- paste0("pal_", dep_pal)
-      
-      print(pal)
-      print(names(pal))
-      
-    }  else {
-      
-      if ( !exists(pal) ) {
-        
-        if ( exists(paste0("pal_", pal)) ) {
-          
-          pal <- paste0("pal_", pal)
-          
-        } else {
-          
-          # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
-          
-          are_colors <- all(pal %in% colors() | isHexCol(pal))
-          print(are_colors)
-          
-          if ( !are_colors ) {
-            stop(paste0("The palette ", pal, " you specified appears not to be defined in the current namespace."))
+
+      # print(pal)
+      # print(names(pal))
+
+    }  else {  # if it does not exist:
+
+      pal_exists <- tryCatch(
+        {
+          exists(pal)  # evaluates to TRUE for vector of palette names.
+          },
+        error = function(e) {
+          return(FALSE)
           }
-          
+      )
+
+      if ( !pal_exists ) {  # does also the input not exist?
+
+        # TODO: Here it stumbles with more than one palette.
+
+        if ( exists(paste0("pal_", pal)) ) {  # does it exist but was specified without prefix?
+
+          pal <- paste0("pal_", pal)
+
+        } else {  # if the palette name is not defined:
+
+          # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
+
+          # print("Undefined")
+
+          are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
+          is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
+          # print(are_colors)
+
+          ## TODO: Handle naming and multiple palettes
+
+          if ( !are_colors & !is_key) {
+            stop(paste0("The color palette ", pal, " you specified appears not to be defined in the current namespace."))
+          }
+
         }
-        
+
       }
-      
+
     }
-    
+
   }  # eof. existence check.
   
-  ## Plotting parameters:
+  
+  ## Plotting parameters: ----
   if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
   
   ## Get palette:
-  pal_tmp <- get_pal(pal = pal, n = n)
-  # TODO: Names get lost in translation if n is specified! 
+  pal_tmp <- get_col(pal = pal, n = n)
+  # print(pal_tmp)
   
-  keys <- c("all", "unikn_all", "grad_all")  # pal_unikn is a stupid keyword to use.
   if ( all(pal %in% keys )) {
     
-    if ( pal == "all") title <- "See all unikn palettes"
-    if ( pal == "unikn_all") title <- "See all unikn basic palettes"
-    if ( pal == "grad_all") title <- "See all unikn gradients"
+    if ( pal == "all") title <- "See all unikn color palettes"
+    if ( pal %in% c("unikn_all", "all_unikn")) title <- "See all basic unikn color palettes"
+    if ( pal %in% c("grad_all", "all_grad")) title <- "See all unikn color gradients"
     
   } else {
     
     # nm <- names(pal_tmp)
-    nm <- ifelse(is.character(pal), pal, deparse(substitute(pal)))
-    title <- paste0("See palette ", nm)
-    
+    nm <- ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!
+    pl <- ifelse(length(unlist(pal_tmp)) == 1, "", "palette ")  # classify as palette or not.
+    title <- paste0("See color ", pl, nm)
+
   }
   
   if (n != "all") {
@@ -562,7 +569,7 @@ seepal <- function(pal = "all",     # which palette to output?
   ## 2. Plotting parameters: ---------
   
   ## Plotting preparations: 
-  distance <- 0   # set distance OF WHAT?
+  distance <- 0   # set distance of boxes?
   xlen <- 1       # set x length of color boxes.
   # TODO: Allow user to set these inputs? 
   
@@ -614,8 +621,7 @@ seepal <- function(pal = "all",     # which palette to output?
              lwd = .5)
       
     } # if (grid) etc. 
-    
-    ## TODO: Add fancy KN-design stuff!
+
     
     # Add the color vectors:
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
@@ -645,8 +651,6 @@ seepal <- function(pal = "all",     # which palette to output?
       wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))  # is the width small enough?
       
     }
-    
-    # TODO: Also adjust cex!
     
     # Color indices:
     text(x = pos_ind, y = -1, labels = txt_ind, pos = 3, xpd = TRUE,
@@ -691,9 +695,20 @@ seepal <- function(pal = "all",     # which palette to output?
       abline(# h = c(c(0.6, 1.2, 1.6, -0.1), c(y_rgb, -0.95) + 0.07),
         # h = c(-.88, -.43, -.10, y_rect, y_circ),
         h = c(-1, -.05, y_rect, y_circ),
-        v = txt_pos,
+        # v = txt_pos,
         col = grey(.3, .8),
         lwd = .3)
+      
+      xpos <- txt_pos
+      # print(xpos)
+      if ( length(xpos) > 10 ) xpos <- xpos[xpos %% 5 == 0.5]  # steps of five.
+      
+      segments(
+        x0 = xpos,
+        y0 = 2, y1 = -0.2,
+        col = grey(.3, .8),
+        lwd = .3
+      )
       
     } # if (grid) etc. 
     
@@ -702,12 +717,12 @@ seepal <- function(pal = "all",     # which palette to output?
     
     # Determine whether to display hex values:
     cex_hex <- 0.9  # was par("cex")
-    wdth_hex <- strwidth("#XXXXXX", cex = cex_hex) * max_ncol + strwidth("Hex")  # is the width small enough?
+    wdth_hex <- strwidth(" #XXXXXX", cex = cex_hex) * max_ncol + strwidth("Hex: ")  # is the width small enough?
     
     while (wdth_hex > xlim[2]) {
       
       cex_hex <- cex_hex - 0.1
-      wdth_hex <- strwidth("#XXXXXX", cex = cex_hex) * max_ncol + strwidth("Hex")  # is the width small enough?
+      wdth_hex <- strwidth(" #XXXXXX", cex = cex_hex) * max_ncol + strwidth("Hex: ")  # is the width small enough?
       
     }
     
@@ -718,8 +733,7 @@ seepal <- function(pal = "all",     # which palette to output?
     if ( is.null(hex) ) {
       
       hex <- ifelse(wdth_hex > xlim[2] | cex_hex < cex_lim, FALSE, TRUE)  # test, whether hex can be displayed.
-      
-      # TODO: Is the width even needed? 
+
     } 
     
     # Determine, whether to display rgb values:
@@ -728,7 +742,7 @@ seepal <- function(pal = "all",     # which palette to output?
     while (wdth_rgb > xlim[2]) {
       
       cex_rgb <- cex_rgb - 0.1
-      wdth_rgb <- strwidth("999", cex = cex_rgb) * max_ncol  # is the width small enough?
+      wdth_rgb <- strwidth(" 999 ", cex = cex_rgb) * max_ncol  # is the width small enough?
       
     }
     
@@ -744,6 +758,9 @@ seepal <- function(pal = "all",     # which palette to output?
     )
     
     # Plot circles:
+# <<<<<<< HEAD
+#     circle_len <- ifelse(xlim[2] / 10 < 0.5, xlim[2] / 10, 0.5)
+# =======
     # TODO: Dynamically determine xlen:
     circle_len <- ifelse(((xlim[2] / 10) < 0.5), (xlim[2] / 10), .70)
     
@@ -816,25 +833,32 @@ seepal <- function(pal = "all",     # which palette to output?
   
   # Invisibly return pal_tmp palette(s):
   invisible(pal_tmp)
+
 }
+
 
 
 # - Check: ------- 
 
 ## (a) Multiple palettes: ---- 
 
-# seepal("all")
-# seepal("all", col_brd = grey(0, .25), lwd = .1)
+# seecol("all")
+# seecol("all", col_brd = grey(0, .25), lwd = .1)
+# seecol("unikn_all")  # all basic palettes. 
+# seecol("grad_all")  # all gradients. 
 
-## Return a subset of colors:
-# seepal(pal = "all", n = 2)  
+## Return a subset or extended set of colors:
+# seecol(pal = "all", n = 2)  
+# seecol(pal_bordeaux, n = 2)
+# seecol(rev(pal_bordeaux), n = 10)
+# seecol(pal = "unikn_all", n = 20)  # all basic palettes extended to 20 colors.
 
 ## Critical calls: 
-# seepal("all", n =  4)  # works, but many messages
-# seepal("all", n = 12)  # works, but even more messages
+# seecol("all", n =  4)  
+# seecol("all", n = 12) 
 
 ## 2 palettes: 
-# seepal(c(pal_unikn_light, pal_unikn_dark), hex = TRUE)
+# seecol(c(rev(pal_unikn_light), pal_unikn_dark), hex = TRUE)
 
 # ToDo: 
 # - group in 2 sets: "unikn" vs. "others"
@@ -844,24 +868,27 @@ seepal <- function(pal = "all",     # which palette to output?
 
 ## (b) 1 palette: ---- 
 
-# seepal(pal_unikn)
-# seepal(pal_unikn_plus, hex = TRUE)
+# seecol(pal_unikn)  # allow both, palette objects and 
+# seecol("pal_unikn")  # palette names;
+# seecol(unikn_pair)  # allow also abbreviated palette objects w/o pal_ prefix. 
+# seecol(pal_unikn_plus, hex = TRUE)
+# seecol(c("blue", "green"))  # allow any color vector. 
 
-# seepal(pal = "seblau")  # raise error.
+# seecol(pal = "seblau")  # raise error.
 
 ## Return a subset of colors:
-# seepal(pal = pal_petrol, n = 3)
-# seepal(pal = pal_unikn_light, n = 3)
+# seecol(pal = pal_petrol, n = 3)
+# seecol(pal = pal_unikn_light, n = 3)
 
 ## Critical calls:
-# seepal(pal_unikn, n =  4)  # works (4 selected)
-# seepal(pal_unikn, n = 20)  # fails (max n = 11 of pal_unikn_plus selected)
+# seecol(pal_unikn, n =  4)  # works (4 selected)
+# seecol(pal_unikn, n = 20)  # fails (max n = 11 of pal_unikn_plus selected)
 
-# seepal(pal_bordeaux, n =  3)  # works (3 selected)
-# seepal(pal_bordeaux, n = 10)  # fails (max n = 5 returned)
+# seecol(pal_bordeaux, n =  3)  # works (3 selected)
+# seecol(pal_bordeaux, n = 10)  # fails (max n = 5 returned)
 
-# seepal(pal_unikn_light, n = 3)   # mostly works (first 3 chosen)
-# seepal(pal_unikn_light, n = 10)  # mostly fails (max n = 10 returned)
+# seecol(pal_unikn_light, n = 3)   # mostly works (first 3 chosen)
+# seecol(pal_unikn_light, n = 10)  # mostly fails (max n = 10 returned)
 
 
 
@@ -874,29 +901,27 @@ seepal <- function(pal = "all",     # which palette to output?
 
 ## Color gradients: 
 # gradient <- col_scale(c(rev(pal_seeblau), "white", pal_peach))
-# seepal(gradient(50))
+# seecol(gradient(50))
 
 ## ToDo: 2 main cases: 
 # - n < available colors in palettes: Select some from available colors (rather than generating new ones)
 # - n > available colors in palettes: Extend/stretch color palettes (rather than individual colors)
 
 ## Currently to be commented out for building (probably no palettes loaded before the function is executed):
-# a <- seepal(pal = "all")  # return all palettes.
+# a <- seecol(pal = "all")  # return all palettes.
 # a
 
-# b <- seepal(pal = pal_unikn_pair)  # return one long palette (hex not displayed by default.)
-# seepal(pal = pal_unikn_pair, hex = TRUE)  # display hex independent of fontsize.
-# seepal(pal = pal_unikn_pair)  
+# b <- seecol(pal = pal_unikn_pair)  # return one long palette (hex not displayed by default.)
+# seecol(pal = pal_unikn_pair, hex = TRUE)  # display hex independent of fontsize.
+# seecol(pal = pal_unikn_pair)  
 
-# c <- seepal(pal = pal_bordeaux, hex = TRUE)
+# c <- seecol(pal = pal_bordeaux, hex = TRUE)
 
-
-## TODO: Function to select colors differently!
 
 # rmp <- colorRampPalette(c(pal_seeblau, "white", pal_grau, pal_peach))
 
-# seepal(rmp(.5))
-# seepal(c("black", "yellow", "green"))
+# seecol(rmp(.5))
+# seecol(c("black", "yellow", "green"))
 
 
 ## ToDo: ------
