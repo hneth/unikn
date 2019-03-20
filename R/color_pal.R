@@ -622,7 +622,6 @@ seecol <- function(pal = "all",     # which palette to output?
       
     } # if (grid) etc. 
     
-    
     # Add the color vectors:
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
       # print(row[[2]])
@@ -630,10 +629,11 @@ seecol <- function(pal = "all",     # which palette to output?
     })
     # TODO: Can I allow to plot the matrix in a vectorized way (unlisting somewhere)?
     
-    ## Add color names and indices:
+    # Add color names and indices:
     cex_lbl <- .90
     
     pal_nm <- names(pal_tmp)  # get palette names.
+    # print(paste0("pal_nm = ", pal_nm))  # 4debugging
     
     text(x = 0, y = 1:length(pal_tmp), labels = rev(pal_nm), 
          cex = cex_lbl, pos = 2, xpd = TRUE,
@@ -660,6 +660,7 @@ seecol <- function(pal = "all",     # which palette to output?
     #      cex = (cex_lbl - .10))
     
   } else {  # if length(pal_tmp) list is NOT > 1:
+    
     
     # 3.2 Detailed view of 1 palette: ------------
     
@@ -728,8 +729,8 @@ seecol <- function(pal = "all",     # which palette to output?
     
     # print(cex_hex)  # 4debugging
     
-    ## If it is NULL, determine based on width and max cex.
-    ## Otherwise use the provided value.
+    # If hex is NULL, determine based on width and max cex.
+    # Otherwise use the provided value: 
     if ( is.null(hex) ) {
       
       hex <- ifelse(wdth_hex > xlim[2] | cex_hex < cex_lim, FALSE, TRUE)  # test, whether hex can be displayed.
@@ -746,8 +747,8 @@ seecol <- function(pal = "all",     # which palette to output?
       
     }
     
-    ## If it is NULL, determine based on width and max cex.
-    ## Otherwise use the provided value.
+    # If rgb is NULL, determine based on width and max cex.
+    # Otherwise use the provided value: 
     if ( is.null(rgb) ) {
       rgb <- ifelse(wdth_rgb > xlim[2] | cex_rgb < cex_lim, FALSE, TRUE)
     }
@@ -758,9 +759,6 @@ seecol <- function(pal = "all",     # which palette to output?
     )
     
     # Plot circles:
-    # <<<<<<< HEAD
-    #     circle_len <- ifelse(xlim[2] / 10 < 0.5, xlim[2] / 10, 0.5)
-    # =======
     # TODO: Dynamically determine xlen:
     circle_len <- ifelse(((xlim[2] / 10) < 0.5), (xlim[2] / 10), .70)
     
@@ -771,7 +769,15 @@ seecol <- function(pal = "all",     # which palette to output?
     )
     
     # Color names:
-    text(x = txt_pos, y = y_names, labels = names(pal_tmp), # pos = 3, 
+    
+    # TODO: How to include the names of colors specified by their name (like "black")?
+    # print(paste0("pal_tmp = ", pal_tmp))  # 4debugging
+    col_names <- names(pal_tmp)
+    # print(paste0("col_names = ", col_names))  # 4debugging
+    # col_names[is.null(col_names)] <- as.character(col_names[is.null(col_names)]) 
+    # print(paste0("col_names = ", col_names))  # 4debugging
+    
+    text(x = txt_pos, y = y_names, labels = col_names, # pos = 3, 
          srt = 45, xpd = TRUE, offset = 1,
          adj = c(0, 0))
     
@@ -780,12 +786,12 @@ seecol <- function(pal = "all",     # which palette to output?
     cex_ind <- par("cex")
     wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))
     pos_ind <- txt_pos
+    
     while (wdth_ind > xlim[2]) {
       
       txt_ind <- txt_ind[seq(1, length(txt_ind), by = 2)]  # only show every second index.
       pos_ind <- pos_ind[seq(1, length(pos_ind), by = 2)]
       wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))  # is the width small enough?
-      
       
     }
     
@@ -801,10 +807,12 @@ seecol <- function(pal = "all",     # which palette to output?
         pal_tmp <- rgb(t(col2rgb(pal_tmp)), maxColorValue = 255)
       }
       
-      ## Plot the values: 
       yhex <- -0.25
+      
+      # Plot the values: 
       text(x = 0, y = yhex, labels = "Hex:", font = 2, pos = 2, offset = 0, xpd = TRUE, 
            cex = cex_hex)
+      
       text(x = txt_pos, y = yhex, labels = pal_tmp, pos = NULL, xpd = TRUE,
            cex = cex_hex, srt = 0)
       
@@ -818,6 +826,7 @@ seecol <- function(pal = "all",     # which palette to output?
            labels = c("R:", "G:", "B:"), font = 2, 
            pos = 2, offset = 0, xpd = TRUE,
            cex = cex_rgb)
+      
       text(x = matrix(rep(txt_pos, 3), nrow = 3, byrow = TRUE),
            y = matrix(rep(y_rgb, length(txt_pos) + 1), nrow = 3),
            labels = col2rgb(pal_tmp),
@@ -835,7 +844,6 @@ seecol <- function(pal = "all",     # which palette to output?
   invisible(pal_tmp)
   
 }
-
 
 
 # - Check: ------- 
