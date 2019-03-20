@@ -46,7 +46,7 @@ Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
   \code{\link{pal_which}}, \code{\link{plot_pal}},
-  \code{\link{seepal}}
+  \code{\link{seecol}}
 }
 \concept{color palettes}
 \keyword{datasets}
