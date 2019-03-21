@@ -1,6 +1,6 @@
 ---
 title: "Colors and color palettes"
-author: "Hansjörg Neth, SPDS, uni.kn"
+author: "SPDS, uni.kn"
 date: "2019 03 21"
 output: 
   rmarkdown::html_vignette: 
@@ -12,10 +12,21 @@ vignette: >
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+options(max.print = "75")
+knitr::opts_chunk$set(echo = TRUE,
+	             cache = FALSE,
+               prompt = FALSE,
+               tidy = FALSE,
+               collapse = TRUE, 
+               comment = "#>",
+               message = FALSE,
+               warning = FALSE,
+               ## Default figure options:
+               # fig.width = 7.2, 
+               # fig.asp = .618, # golden ratio
+               # out.width = "75%",
+               fig.align = "center"
+               )
 ```
 
 Explain which colors and color palettes exist in `unikn` and how to use them.
@@ -26,68 +37,65 @@ Please load the `unikn` package to get started:
 library(unikn)  # load unikn package
 ```
 
-
 ## Viewing color palettes
 
 Viewing all available color palettes:
 
-```{r seecol_all, fig.align = 'center', fig.width = 7.2, fig.height = 6}
-seecol()
+```{r seecol_all, fig.width = 7, fig.height = 6}
+seecol()  # same as seecol("all")
 ```
 
 Viewing the colors and details of a particular color palette:
 
-```{r view_pal, fig.align = 'center', fig.width = 7.2, fig.height = 5}
-seecol(pal = pal_unikn_plus)
+```{r view_pal, fig.width = 7, fig.asp = .618}
+seecol(pal_unikn_plus)
 ```
 
 ## Using colors and color palettes
 
 Using colors in a graph:
 
-```{r}
+```{r use_col, fig.width = 7, fig.asp = .618}
 # Using a color palette:
 barplot(1/sqrt(1:11), col = seecol(pal_unikn_plus))
 ```
-
-
-
-
 
 ## Modifying color palettes
 
 Using only a subset of colors:
 
-```{r, fig.align = 'center', fig.width = 6, fig.height = 5}
+```{r use_subset, fig.width = 7, fig.height = 6}
 seecol(n = 4)
 seecol(pal_unikn_plus, 4)
 ```
 
 Extending a palette to a larger number of colors than contained in the palette:
 
-```{r}
-# seecol(n = 12)
-# seecol(pal_unikn_plus, 12)
+```{r use_superset, fig.width = 7, fig.height = 6}
+seecol(pal = "all", n = 12)
+seecol(pal_seeblau, 12)
 ```
 
-Combining color palettes: 
+## Mixing color palettes
 
-```{r, fig.align = 'center', fig.width = 7.2, fig.height = 5}
-# seecol(pal = c(rev(pal_seeblau), "white", pal_petrol))
-# seecol(pal = c(rev(pal_petrol), "white", pal_bordeaux))
+Combining colors and color palettes: 
+
+```{r combine_pals, fig.width = 7, fig.asp = .618}
+seecol(pal = c(rev(pal_seeblau), "white", pal_pinky))
+seecol(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 ```
 
-Mixing palettes:
+Combining colors and color palettes to get a specific number of colors: 
 
-```{r}
+```{r combine_pals_n, fig.width = 7, fig.asp = .618}
 seecol(pal = col_scale(c(Karpfenblau, Seeblau, "gold"))(10))
 ```
 
 Examples of combining colors and color palettes into new color palettes:
 
-```{r bar_seeblau_pinky, fig.align = 'center', fig.width = 7.2, fig.height = 4}
-# barplot((-5:5)^2+5, col = seecol(pal = c(rev(pal_seeblau), "white", pal_pinky)))
-# barplot(1/sqrt(11:1), col = seecol(pal = c(rev(pal_seeblau), "white", pal_seegruen)))
+```{r bar_seeblau_pinky, fig.width = 7, fig.asp = .618}
+barplot((-5:5)^2+5, col = seecol(pal = c(rev(pal_seeblau), "white", pal_pinky)))
+barplot(1/sqrt(11:1), col = seecol(pal = c(rev(pal_seeblau), "white", pal_seegruen)))
 ```
 
 ## All unikn vignettes

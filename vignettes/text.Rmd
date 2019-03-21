@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
-author: "Hansjörg Neth, SPDS, uni.kn"
-date: "2019 03 05"
+author: "SPDS, uni.kn"
+date: "2019 03 20"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -12,10 +12,21 @@ vignette: >
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+options(max.print = "75")
+knitr::opts_chunk$set(echo = TRUE,
+	             cache = FALSE,
+               prompt = FALSE,
+               tidy = FALSE,
+               collapse = TRUE, 
+               comment = "#>",
+               message = FALSE,
+               warning = FALSE#,
+               # ## Default figure options:
+               # fig.width = 7.2, 
+               # fig.asp = .618, # golden ratio
+               # out.width = "75%",
+               # fig.align = "center"
+               )
 ```
 
 Beyond providing support for [colors](colors.html), `unikn` provides functions for plotting graphical elements (like boxes) and text decorations (with colored backgrounds or underlining). 
