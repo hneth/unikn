@@ -158,6 +158,7 @@ isHexCol <- function(color) {
 get_col <- function(pal, n = "all") {
   
   ## 1. Process the 'pal' argument: ------------------------
+  
   ## 1.1 Test, whether a valid argument was specified: --------
   # Valid arguments comprise: 
   # - "all" (the default); plots all palettes in the environment.
@@ -268,7 +269,6 @@ get_col <- function(pal, n = "all") {
         tmp <- c(tmp[ix], tmp[-ix])
       }
       
-      
       pal_nm <- names(tmp)  # get palette names from listnames. 
       
       ## 1.2.2 Single palette name: ------
@@ -313,9 +313,8 @@ get_col <- function(pal, n = "all") {
         # title <- paste0("See palette ", gsub("pal_", "", pal))
         
       } 
-      
-      
     }
+    
   } else { # eof. length == 1; call, if a full palette has been specified. 
     
     # TODO: Allow to mix palettes! (e.g., c("pal_bordeaux", "pal_unikn"))?
@@ -339,7 +338,7 @@ get_col <- function(pal, n = "all") {
     tmp <- list(tmp)
     nm <- deparse(substitute(pal))  # This needs to be done in the other function as well. 
     names(tmp) <- nm  # name the list. 
-
+    
   }  
   
   
@@ -369,14 +368,34 @@ get_col <- function(pal, n = "all") {
 
 #' Show and use color palettes.
 #'
-#' \code{seecol} provides an interface to color palettes.
+#' \code{seecol} provides an interface to seeing colors 
+#' or color palettes. 
+#' 
+#' \code{seecol} has 2 main modes, based on the contents of its \code{pal} argument:
+#' 
+#' \enumerate{
+#'
+#'   \item \code{pal} is "all" (or another list of multiple color palettes): 
+#'
+#'   Plot vectors of all current color palettes for comparing them. 
+#'
+#'   \item \code{pal} is one specific color palette (or a vector of multiple colors or color palettes):
+#'
+#'   Plot the current color palette and optional details on its colors.
+#'
+#' }
+#' 
+#' 
 #'
 #' @param pal A color palette (as a data frame) or 
 #' the character string \code{"all"} (to show all 
 #' color palettes in the current environment). 
 #' Default: \code{pal = "all"}. 
 #' 
-#' @param n Number of colors to show or use.
+#' @param n Number of colors to show or use. 
+#' If \code{n} is lower or higher than the length of the current 
+#' color palette \code{pal}, the color palette 
+#' is reduced or extrapolated (via \code{colorRampPalette}). 
 #' Default: \code{n = "all"}. 
 #' 
 #' @param hex Should HEX color values be shown?
@@ -390,15 +409,34 @@ get_col <- function(pal, n = "all") {
 #' @param col_brd Color of box borders (if shown). 
 #' Default: \code{col_brd = NULL}. 
 #' 
-#' @param grid Show grid? 
+#' @param grid Show grid?  
 #' Default: \code{grid = TRUE}. 
 #' 
 #' @param ... Other graphical parameters 
 #' (passed to \code{plot_col}). 
 #' 
 #' @examples
-#' seecol()  # shows all color palettes
-#'
+#' # See all color palettes: 
+#' seecol()  # same as seecol(pal = "all") 
+#' 
+#' # See details of a color palette: 
+#' seecol(pal_unikn_plus)  # see a specific color palette
+#' 
+#' # Combining colors or color palettes: 
+#' seecol(c("black", "firebrick", "gold"))
+#' seecol(c(rev(pal_seeblau), pal_seegruen))
+#' seecol(c(rev(pal_seeblau), "white", pal_pinky))
+#' 
+#' # Using n to reduce or extend color palettes:
+#' seecol(n =  3)  
+#' seecol(n = 12)
+#' 
+#' seecol(pal_unikn_plus, n = 5)
+#' seecol(pal_seeblau, n = 10)
+#' 
+#' # Combining and extending color palettes: 
+#' seecol(c(pal_seeblau, "white", pal_bordeaux), n = 21)
+#' 
 #' @family color palettes
 #' 
 #' @aliases seepal 
@@ -456,7 +494,8 @@ seecol <- function(pal = "all",     # which palette to output?
                    ...              # additional arguments to plot.default().
 ) {
   
-  ## 0. Preparations: ---------
+  ## 0. Preparations: ----- 
+  
   op <- par(no.readonly = TRUE)  # save original plotting settings.
   keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad") # keywords to return multiple palettes. 
   
@@ -465,7 +504,7 @@ seecol <- function(pal = "all",     # which palette to output?
   ## Test, whether the palette exists:
   dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
   
-  #----
+  # ----
   if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
     
     # print("Nonexistent")
@@ -480,7 +519,7 @@ seecol <- function(pal = "all",     # which palette to output?
         # print(exists(paste0("pal_", dep_pal)))
       },
       
-      ## If exists(dep_pal) raises an error:
+      # If exists(dep_pal) raises an error:
       error = function(e) {
         
         tryCatch(
@@ -541,13 +580,10 @@ seecol <- function(pal = "all",     # which palette to output?
             stop(paste0("The color palette ", pal, " you specified appears not to be defined in the current namespace."))
           }
           
-        }
-        
-      }
-      
-    }
-    
-  }  # eof. existence check.
+        } # else 2.
+      } # if ( !pal_exists ).
+    } # else 1. 
+  } # existence check.
   
   
   ## Plotting parameters: ----
@@ -577,7 +613,7 @@ seecol <- function(pal = "all",     # which palette to output?
     title <- paste0(title, " (n = ", n, ")")
   }
   
-  ## 2. Plotting parameters: ---------
+  ## 2. Plotting parameters: ------ 
   
   ## Plotting preparations: 
   distance <- 0   # set distance of boxes?
@@ -599,7 +635,7 @@ seecol <- function(pal = "all",     # which palette to output?
   pal_mat <- cbind(pal_tmp, length(pal_tmp):1)  # TODO: Note, that a single palette needs to be a list of length 1!
   
   
-  ## 3. Plotting: ------------------
+  ## 3. Plotting: ------ 
   
   ## 3.1 Plot an overview for a list of palettes: 
   ## TODO: How to handle inputs of multiple palettes?  Merge them or display them for comparison.
@@ -673,7 +709,7 @@ seecol <- function(pal = "all",     # which palette to output?
   } else {  # if length(pal_tmp) list is NOT > 1:
     
     
-    # 3.2 Detailed view of 1 palette: ------------
+    # 3.2 Detailed view of 1 palette: ------ 
     
     names(pal_tmp) <- NULL  # remove first order names! 
     

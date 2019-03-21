@@ -14,7 +14,10 @@ the character string \code{"all"} (to show all
 color palettes in the current environment). 
 Default: \code{pal = "all"}.}
 
-\item{n}{Number of colors to show or use.
+\item{n}{Number of colors to show or use. 
+If \code{n} is lower or higher than the length of the current 
+color palette \code{pal}, the color palette 
+is reduced or extrapolated (via \code{colorRampPalette}). 
 Default: \code{n = "all"}.}
 
 \item{hex}{Should HEX color values be shown?
@@ -28,17 +31,52 @@ when there is sufficient space to print them).}
 \item{col_brd}{Color of box borders (if shown). 
 Default: \code{col_brd = NULL}.}
 
-\item{grid}{Show grid? 
+\item{grid}{Show grid?
 Default: \code{grid = TRUE}.}
 
 \item{...}{Other graphical parameters 
 (passed to \code{plot_col}).}
 }
 \description{
-\code{seecol} provides an interface to color palettes.
+\code{seecol} provides an interface to seeing colors 
+or color palettes.
+}
+\details{
+\code{seecol} has 2 main modes, based on the contents of its \code{pal} argument:
+
+\enumerate{
+
+\item \code{pal} is "all" (or another list of multiple color palettes):
+
+Plot vectors of all current color palettes for comparing them.
+
+\item \code{pal} is one specific color palette (or a vector of multiple colors or color palettes):
+
+Plot the current color palette and optional details on its colors.
+
+}
 }
 \examples{
-seecol()  # shows all color palettes
+# See all color palettes: 
+seecol()  # same as seecol(pal = "all") 
+
+# See details of a color palette: 
+seecol(pal_unikn_plus)  # see a specific color palette
+
+# Combining colors or color palettes: 
+seecol(c("black", "firebrick", "gold"))
+seecol(c(rev(pal_seeblau), pal_seegruen))
+seecol(c(rev(pal_seeblau), "white", pal_pinky))
+
+# Using n to reduce or extend color palettes:
+seecol(n =  3)  
+seecol(n = 12)
+
+seecol(pal_unikn_plus, n = 5)
+seecol(pal_seeblau, n = 10)
+
+# Combining and extending color palettes: 
+seecol(c(pal_seeblau, "white", pal_bordeaux), n = 21)
 
 }
 \seealso{
