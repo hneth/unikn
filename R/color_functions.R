@@ -340,10 +340,10 @@ pal_n <- function(n = "all", pal = pal_unikn){
 #' Default: \code{pal = \link{pal_unikn}}. 
 #'
 #' @examples
-#' pal_n_sq(1) #  1 color: seeblau3
-#' pal_n_sq(2) #  4 colors
-#' pal_n_sq(3) #  9 colors (5: white)
-#' pal_n_sq(4) # 11 colors of pal_unikn_plus (6: white)
+#' # pal_n_sq(1) #  1 color: seeblau3
+#' # pal_n_sq(2) #  4 colors
+#' # pal_n_sq(3) #  9 colors (5: white)
+#' # pal_n_sq(4) # 11 colors of pal_unikn_plus (6: white)
 #' 
 #' @family color palettes
 #'
@@ -353,8 +353,8 @@ pal_n <- function(n = "all", pal = pal_unikn){
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
 #' \code{\link{pal_which}} to get specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
-#'
-#'
+#' 
+#' 
 
 # - Definition: ---- 
 
@@ -416,13 +416,15 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #' Plot a color palette.
 #'
 #' \code{plot_pal} plots information on a color palette \code{pal}.
+#' 
+#' \code{plot_pal} is now replaced by \code{\link{seecol}}. 
 #'
 #' @param pal A color palette (as a data frame). 
 #' Default: \code{pal = \link{pal_unikn}}. 
 #'
 #' @examples
-#' plot_pal()  # plots default color palette 
-#' plot_pal(pal_unikn_plus) 
+#' # plot_pal()  # plots default color palette 
+#' # plot_pal(pal_unikn_plus) 
 #' 
 #' ## Not run: 
 #' 

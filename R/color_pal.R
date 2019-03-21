@@ -153,7 +153,8 @@ isHexCol <- function(color) {
 # lookup_pal <- utils::apropos("pal_")  # get all unikn palettes.
 # TODO: Where to put this?
 
-## get_col(): Get a palette or list of palettes by keyword, n argument uses colorRamp(): -------
+## get_col(): Get a palette or list of palettes by keyword, 
+##            n argument uses grDevices::colorRampPalette(): -------
 
 get_col <- function(pal, n = "all") {
   
@@ -347,7 +348,7 @@ get_col <- function(pal, n = "all") {
     # tmp <- pal_n(n = n, tmp)
     # If we have a list of palettes (currently by keywords only):
     tmp <- lapply(tmp, FUN = function(pal) {
-      out <- colorRampPalette(pal)
+      out <- grDevices::colorRampPalette(pal)
       # print(out(n))
       return(out(n))
     })
@@ -385,17 +386,15 @@ get_col <- function(pal, n = "all") {
 #'
 #' }
 #' 
-#' 
-#'
-#' @param pal A color palette (as a data frame) or 
-#' the character string \code{"all"} (to show all 
+#' @param pal A color palette (as a list of colors) or 
+#' the character string \code{"all"} (for showing all 
 #' color palettes in the current environment). 
 #' Default: \code{pal = "all"}. 
 #' 
 #' @param n Number of colors to show or use. 
 #' If \code{n} is lower or higher than the length of the current 
-#' color palette \code{pal}, the color palette 
-#' is reduced or extrapolated (via \code{colorRampPalette}). 
+#' color palette \code{pal}, the color palette is reduced or extrapolated 
+#' (using \code{grDevices::colorRampPalette}). 
 #' Default: \code{n = "all"}. 
 #' 
 #' @param hex Should HEX color values be shown?
