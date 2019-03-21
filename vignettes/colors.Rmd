@@ -34,7 +34,8 @@ Explain which colors and color palettes exist in `unikn` and how to use them.
 Please load the `unikn` package to get started: 
 
 ```{r load_pkg, message = FALSE, warning = FALSE}
-library(unikn)  # load unikn package
+# library(unikn)  # load unikn package
+devtools::load_all(".")
 ```
 
 ## Viewing color palettes
@@ -44,6 +45,23 @@ Viewing all available color palettes:
 ```{r seecol_all, fig.width = 7, fig.height = 6}
 seecol()  # same as seecol("all")
 ```
+
+
+Viewing subsets of the available color palettes: 
+
+Basic palettes:
+
+```{r seecol_unikn_all, fig.width = 7, fig.height = 6}
+seecol("unikn_all")
+```
+
+Existing gradients:
+
+```{r seecol_grad_all, fig.width = 7, fig.height = 6}
+seecol("grad_all")
+```
+
+
 
 Viewing the colors and details of a particular color palette:
 
@@ -88,7 +106,7 @@ seecol(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 Combining colors and color palettes to get a specific number of colors: 
 
 ```{r combine_pals_n, fig.width = 7, fig.asp = .618}
-seecol(pal = col_scale(c(Karpfenblau, Seeblau, "gold"))(10))
+seecol(pal = col_scale(c(Karpfenblau, Seeblau, "gold"), n = 10))
 ```
 
 Examples of combining colors and color palettes into new color palettes:
