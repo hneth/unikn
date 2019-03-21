@@ -323,13 +323,20 @@ get_col <- function(pal, n = "all") {
     # Correct order: First test for non-character argument(s) then for character inputs:
     dep_pal <- deparse(substitute(pal))
     # print(dep_pal)
+    # print(names(pal))
+    print(tmp)
     # print(exists(dep_pal))
     # print(exists(pal))
     
+    if (is.null(names(tmp))) {
+      names(tmp) <- pal 
+      }  # if no names are there assign color names. 
     
     tmp <- list(tmp)
     nm <- deparse(substitute(pal))  # This needs to be done in the other function as well. 
     names(tmp) <- nm  # name the list. 
+    
+    # print(tmp)
     
   }  
   
