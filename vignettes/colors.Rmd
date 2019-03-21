@@ -34,8 +34,7 @@ Explain which colors and color palettes exist in `unikn` and how to use them.
 Please load the `unikn` package to get started: 
 
 ```{r load_pkg, message = FALSE, warning = FALSE}
-# library(unikn)  # load unikn package
-devtools::load_all(".")
+library(unikn)  # load unikn package
 ```
 
 ## Viewing color palettes
