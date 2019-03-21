@@ -4,7 +4,7 @@
 \alias{col_scale}
 \title{Provide a color gradient scale.}
 \usage{
-col_scale(col = pal_unikn, ...)
+col_scale(col = pal_unikn, n = length(col), ...)
 }
 \arguments{
 \item{col}{A list of colors or color palettes. 
