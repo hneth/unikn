@@ -42,6 +42,8 @@
 
 # - Definition: ---- 
 
+# TODO: Necessary?  Simple indexing works as well... 
+
 pal_which <- function(which = "all", pal = pal_unikn){
   
   # handle inputs:
@@ -111,6 +113,8 @@ pal_which <- function(which = "all", pal = pal_unikn){
 #' @export
 
 # - Definition: ---- 
+
+# TODO: Not implemented in seecol() but provides additional functionality... could be retained.
 
 pal_n <- function(n = "all", pal = pal_unikn){
   
@@ -358,6 +362,8 @@ pal_n <- function(n = "all", pal = pal_unikn){
 
 # - Definition: ---- 
 
+# TODO: See pal_n; can be retained but then should be exported.
+
 pal_n_sq <- function(n = "all", pal = pal_unikn){
   
   # handle inputs:
@@ -549,7 +555,7 @@ plot_pal <- function(pal = pal_unikn) {
 # 
 # col_gradient <- colorRampPalette(colors = c(seeblau, grau, peach))  # 3 colors
 # col_gradient <- colorRampPalette(colors = c(pal_seeblau[4], pal_grau[2], pal_peach[5]))  # 3 colors from palettes
-col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_grau, pal_peach))  # 3 palettes
+# col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_grau, pal_peach))  # 3 palettes
 
 # ## Demo: 
 # n <- 10
@@ -656,9 +662,12 @@ col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_grau, pal_peach))  
 
 # - Definition: ---- 
 
-col_scale <- function(col = pal_unikn, ...){
+# TODO: A wrapper for a function everyone has is not too useful;
+# Suggestion: Integrate the n-parameter to output a scale instead of a function? (implemented below)
+
+col_scale <- function(col = pal_unikn, n = length(col), ...){
   
-  out_gradient <- colorRampPalette(colors = col, ...)
+  out_gradient <- colorRampPalette(colors = col, ...)(n)
   
   return(out_gradient)
   
