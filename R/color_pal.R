@@ -771,7 +771,7 @@ seecol <- function(pal = "all",     # which palette to output?
     
     # Plot circles:
     # TODO: Dynamically determine xlen:
-    circle_len <- ifelse(((xlim[2] / 10) < 0.5), (xlim[2] / 10), .70)
+    circle_len <- ifelse(((xlim[2] / 10) < 0.7), (xlim[2] / 10), .70)
     
     # print(paste0("circle_len = ", circle_len))
     
