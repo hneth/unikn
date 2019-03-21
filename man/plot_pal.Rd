@@ -56,6 +56,10 @@ Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
-  \code{\link{pal_which}}, \code{\link{seecol}}
+  \code{\link{seecol}}
+
+Other color functions: \code{\link{pal_n}},
+  \code{\link{pal_which}}
 }
+\concept{color functions}
 \concept{color palettes}

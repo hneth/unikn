@@ -2,6 +2,7 @@
 % Please edit documentation in R/color_pal.R
 \name{seecol}
 \alias{seecol}
+\alias{seepal}
 \title{Show and use color palettes.}
 \usage{
 seecol(pal = "all", n = "all", hex = NULL, rgb = NULL,
@@ -58,6 +59,6 @@ Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
-  \code{\link{pal_which}}, \code{\link{plot_pal}}
+  \code{\link{plot_pal}}
 }
 \concept{color palettes}

@@ -38,7 +38,6 @@ pal_n(99)  # returns maximal number of colors: pal_unikn_plus (11)
 
 }
 \seealso{
-\code{\link{pal_n_sq}} for \code{n^2} dedicated colors of a color palette; 
 \code{\link{pal_which}} for specific colors of a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
@@ -54,7 +53,10 @@ Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
-  \code{\link{pal_which}}, \code{\link{plot_pal}},
-  \code{\link{seecol}}
+  \code{\link{plot_pal}}, \code{\link{seecol}}
+
+Other color functions: \code{\link{pal_which}},
+  \code{\link{plot_pal}}
 }
+\concept{color functions}
 \concept{color palettes}
