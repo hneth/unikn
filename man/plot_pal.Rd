@@ -13,9 +13,12 @@ Default: \code{pal = \link{pal_unikn}}.}
 \description{
 \code{plot_pal} plots information on a color palette \code{pal}.
 }
+\details{
+\code{plot_pal} is now replaced by \code{\link{seecol}}.
+}
 \examples{
-plot_pal()  # plots default color palette 
-plot_pal(pal_unikn_plus) 
+# plot_pal()  # plots default color palette 
+# plot_pal(pal_unikn_plus) 
 
 ## Not run: 
 

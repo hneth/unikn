@@ -9,15 +9,15 @@ seecol(pal = "all", n = "all", hex = NULL, rgb = NULL,
   col_brd = NULL, grid = TRUE, ...)
 }
 \arguments{
-\item{pal}{A color palette (as a data frame) or 
-the character string \code{"all"} (to show all 
+\item{pal}{A color palette (as a list of colors) or 
+the character string \code{"all"} (for showing all 
 color palettes in the current environment). 
 Default: \code{pal = "all"}.}
 
 \item{n}{Number of colors to show or use. 
 If \code{n} is lower or higher than the length of the current 
-color palette \code{pal}, the color palette 
-is reduced or extrapolated (via \code{colorRampPalette}). 
+color palette \code{pal}, the color palette is reduced or extrapolated 
+(using \code{grDevices::colorRampPalette}). 
 Default: \code{n = "all"}.}
 
 \item{hex}{Should HEX color values be shown?
