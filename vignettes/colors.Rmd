@@ -39,55 +39,43 @@ library(unikn)  # load unikn package
 
 ## Viewing color palettes
 
-Viewing all available color palettes:
+Distinguish between 2 main modes: 
+
+1. Viewing all available color palettes:
 
 ```{r seecol_all, fig.width = 7, fig.height = 6}
 seecol()  # same as seecol("all")
 ```
 
+There are 2 subsets of the available color palettes: 
 
-Viewing subsets of the available color palettes: 
-
-Basic palettes:
+a. All basic color palettes:
 
 ```{r seecol_unikn_all, fig.width = 7, fig.height = 6}
 seecol("unikn_all")
 ```
 
-Existing gradients:
+b. all pre-defined color gradients:
 
 ```{r seecol_grad_all, fig.width = 7, fig.height = 6}
 seecol("grad_all")
 ```
 
-
-
-Viewing the colors and details of a particular color palette:
+2. Viewing the colors and details of a particular color palette:
 
 ```{r view_pal, fig.width = 7, fig.asp = .618}
 seecol(pal_unikn_plus)
 ```
 
-This cannot only be done by palette object but also by 
+Note that the `seecol` function is quite permissive with respect to specifying its `pal` argument: 
+A particular color palette (e.g., `pal_seegruen`) can not only be displayed by providing it (as an object) but also by providing its name (i.e., `"pal_seegruen"`) or even its incomplete object name or name (i.e., `"seegruen"` or `seegruen`). 
+Hence, the following all yield the same result: 
 
-
-* incomplete object name:  __[SHOULD WE EVEN DOCUMENT THE INCOMPLETE CASES?]__
-
-```{r}
-seecol(bordeaux)
-```
-
-
-* name: 
-
-```{r}
-seecol("pal_bordeaux")
-```
-
-* incomplete name: 
-
-```{r}
-seecol("bordeaux")
+```{r, eval = FALSE}
+seecol(pal_seegruen)
+seecol(seegruen)
+seecol("pal_seegruen")
+seecol("seegruen")
 ```
 
 ## Using colors and color palettes
