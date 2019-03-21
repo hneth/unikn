@@ -69,6 +69,28 @@ Viewing the colors and details of a particular color palette:
 seecol(pal_unikn_plus)
 ```
 
+This cannot only be done by palette object but also by 
+
+
+* incomplete object name:  __[SHOULD WE EVEN DOCUMENT THE INCOMPLETE CASES?]__
+
+```{r}
+seecol(bordeaux)
+```
+
+
+* name: 
+
+```{r}
+seecol("pal_bordeaux")
+```
+
+* incomplete name: 
+
+```{r}
+seecol("bordeaux")
+```
+
 ## Using colors and color palettes
 
 Using colors in a graph:
