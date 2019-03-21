@@ -1,5 +1,5 @@
 ## color_functions.R  |  unikn
-## hn  |  uni.kn |  2019 03 18
+## hn  |  uni.kn |  2019 03 21
 ## ---------------------------
 
 ## Define color-related functions 
@@ -30,7 +30,7 @@
 #' pal_which(which = 1:3)
 #' pal_which(which = rep(1, 20))
 #'
-#' @family color palettes
+#' @family color functions
 #'
 #' @seealso
 #' \code{\link{pal_unikn}} for the default uni.kn color palette; 
@@ -102,9 +102,9 @@ pal_which <- function(which = "all", pal = pal_unikn){
 #' # pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 #' 
 #' @family color palettes
+#' @family color functions
 #'
 #' @seealso
-#' \code{\link{pal_n_sq}} for \code{n^2} dedicated colors of a color palette; 
 #' \code{\link{pal_which}} for specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #'
@@ -348,13 +348,13 @@ pal_n <- function(n = "all", pal = pal_unikn){
 #' @family color palettes
 #'
 #' @seealso
-#' \code{\link{plot_pal}} to plot color palettes; 
+#' \code{\link{seecol}} to plot color palettes; 
 #' \code{\link{col_scale}} to create color scales (gradients);  
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
 #' \code{\link{pal_which}} to get specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #'
-#' @export
+#'
 
 # - Definition: ---- 
 
@@ -445,6 +445,7 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #' ## End(Not run)
 #'
 #' @family color palettes
+#' @family color functions 
 #'
 #' @seealso 
 #' \code{\link{col_scale}} to extend color palettes (by creating gradients);  
@@ -455,7 +456,7 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #' @import ggplot2
 #' @import grDevices 
 #'
-#' @export
+#'
 
 # - Definition: ---- 
 
@@ -612,39 +613,39 @@ col_gradient <- colorRampPalette(colors = c(pal_seeblau, pal_grau, pal_peach))  
 #' ## Creating and plotting color gradients: ------ 
 #' 
 #' # (1) Extending color palettes: ----
-#' plot_pal(col_scale()(20))
-#' plot_pal(col_scale(pal_seeblau)(10))
-#' plot_pal(col_scale(pal_bordeaux)(10))
+#' seecol(col_scale()(20))
+#' seecol(col_scale(pal_seeblau)(10))
+#' seecol(col_scale(pal_bordeaux)(10))
 #'
 #' # (2) Combining colors or palettes: ---- 
 #' 
 #' # Combining 2+ colors to create new palettes:
-#' plot_pal(col_scale(c(Seeblau, Signal))(10))
-#' plot_pal(col_scale(c(Signal, Petrol))(10))
-#' plot_pal(col_scale(c(Seeblau, "white", Pinky))(10))
-#' plot_pal(col_scale(c(Karpfenblau, Seeblau, "white"))(10))
-#' plot_pal(col_scale(c(Bordeaux, "white", Petrol))(10))
-#' plot_pal(col_scale(c(Seeblau, "white", Petrol))(10))
-#' plot_pal(col_scale(c(Karpfenblau, Seeblau, "gold"))(10))  # "gold" shines brighter than signal
+#' seecol(col_scale(c(Seeblau, Signal))(10))
+#' seecol(col_scale(c(Signal, Petrol))(10))
+#' seecol(col_scale(c(Seeblau, "white", Pinky))(10))
+#' seecol(col_scale(c(Karpfenblau, Seeblau, "white"))(10))
+#' seecol(col_scale(c(Bordeaux, "white", Petrol))(10))
+#' seecol(col_scale(c(Seeblau, "white", Petrol))(10))
+#' seecol(col_scale(c(Karpfenblau, Seeblau, "gold"))(10))  # "gold" shines brighter than signal
 #'   
 #' # Combining 2+ color palettes into new palettes:
-#' plot_pal(col_scale(c(rev(pal_seeblau), pal_petrol))(10))
-#' plot_pal(col_scale(c(rev(pal_seeblau), pal_peach))(10))
-#' plot_pal(col_scale(c(rev(pal_karpfenblau), pal_bordeaux))(10))
-#' plot_pal(col_scale(c(rev(pal_seegruen), pal_pinky))(10))
-#' plot_pal(col_scale(c(rev(pal_petrol), pal_bordeaux))(10))
+#' seecol(col_scale(c(rev(pal_seeblau), pal_petrol))(10))
+#' seecol(col_scale(c(rev(pal_seeblau), pal_peach))(10))
+#' seecol(col_scale(c(rev(pal_karpfenblau), pal_bordeaux))(10))
+#' seecol(col_scale(c(rev(pal_seegruen), pal_pinky))(10))
+#' seecol(col_scale(c(rev(pal_petrol), pal_bordeaux))(10))
 #' 
 #' #' # Combining 2 palettes and mid-color "white" to new palettes:
-#' plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
-#' plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
-#' plot_pal(col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux))(11))
-#' plot_pal(col_scale(c(rev(pal_seegruen), "white", pal_peach))(11))
-#' plot_pal(col_scale(c(rev(pal_petrol), "white", pal_bordeaux))(11))
+#' seecol(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
+#' seecol(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
+#' seecol(col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux))(11))
+#' seecol(col_scale(c(rev(pal_seegruen), "white", pal_peach))(11))
+#' seecol(col_scale(c(rev(pal_petrol), "white", pal_bordeaux))(11))
 #' 
 #' @family color palettes
 #'
 #' @seealso
-#' \code{\link{plot_pal}} to plot color palettes; 
+#' \code{\link{seecol}} to plot color palettes; 
 #' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
 #' \code{\link{pal_which}} to get specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette. 

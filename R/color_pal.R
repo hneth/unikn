@@ -1,5 +1,5 @@
 ## color_pal.R  |  unikn
-## ng/hn | uni.kn | 2019 03 20
+## ng/hn | uni.kn | 2019 03 21
 ## ---------------------------
 
 ## Main functions to access and plot color palettes. 
@@ -391,6 +391,8 @@ get_col <- function(pal, n = "all") {
 #' seecol()  # shows all color palettes
 #'
 #' @family color palettes
+#' 
+#' @aliases seepal 
 #'
 #' @seealso 
 #' \code{\link{col_scale}} to extend color palettes (by creating gradients);  
@@ -770,7 +772,7 @@ seecol <- function(pal = "all",     # which palette to output?
     
     # Color names:
     
-    # TODO: How to include the names of colors specified by their name (like "black")?
+    # TODO: How to include the names of colors specified by their name (like "white")?
     # print(paste0("pal_tmp = ", pal_tmp))  # 4debugging
     col_names <- names(pal_tmp)
     # print(paste0("col_names = ", col_names))  # 4debugging
