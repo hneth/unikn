@@ -115,7 +115,8 @@ seecol(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 Combining colors and color palettes to get a specific number of colors: 
 
 ```{r combine_pals_n, fig.width = 7, fig.asp = .618}
-seecol(pal = col_scale(c(Karpfenblau, Seeblau, "gold"), n = 10))
+seecol(pal = c(Karpfenblau, Seeblau, "gold"), n = 10)             # no names
+seecol(pal = col_scale(c(Karpfenblau, Seeblau, "gold"), n = 10))  # shows HEX values as names
 ```
 
 Examples of combining colors and color palettes into new color palettes:
