@@ -80,15 +80,14 @@ seecol(c(pal_seeblau, "white", pal_bordeaux), n = 21)
 
 }
 \seealso{
-\code{\link{col_scale}} to extend color palettes (by creating gradients);  
-\code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+\code{\link{mixcol}} to mix and extend color palettes (by creating gradients);  
 \code{\link{pal_which}} to get specific colors of a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color palettes: \code{\link{col_scale}},
-  \code{\link{pal_bordeaux}}, \code{\link{pal_grau}},
-  \code{\link{pal_karpfenblau}}, \code{\link{pal_n_sq}},
-  \code{\link{pal_n}}, \code{\link{pal_peach}},
+  \code{\link{mixcol}}, \code{\link{pal_bordeaux}},
+  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
+  \code{\link{pal_n_sq}}, \code{\link{pal_peach}},
   \code{\link{pal_petrol}}, \code{\link{pal_pinky}},
   \code{\link{pal_seeblau}}, \code{\link{pal_seegruen}},
   \code{\link{pal_signal}}, \code{\link{pal_unikn_dark}},
@@ -97,6 +96,7 @@ Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
-  \code{\link{plot_pal}}
+  \code{\link{plot_pal}}, \code{\link{use_pal_n}},
+  \code{\link{usecol}}
 }
 \concept{color palettes}

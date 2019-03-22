@@ -279,9 +279,11 @@ pal_seeblau <- data.frame(                               #  element:
 
 Seeblau <- pal_seeblau[[3]]  # HEX color value of seeblau.3 of pal_seeblau OR pal_unikn 
 
+names(Seeblau) <- "Seeblau"
+
 ## Check:
 # Seeblau # "#59C7EB"
-
+# names(Seeblau)
 
 #  (2) peach: -----
 

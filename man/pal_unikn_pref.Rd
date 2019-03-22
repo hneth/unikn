@@ -41,9 +41,9 @@ seecol(pal_unikn_pref)
 \code{\link{seecol}} to show and use color palettes.
 
 Other color palettes: \code{\link{col_scale}},
-  \code{\link{pal_bordeaux}}, \code{\link{pal_grau}},
-  \code{\link{pal_karpfenblau}}, \code{\link{pal_n_sq}},
-  \code{\link{pal_n}}, \code{\link{pal_peach}},
+  \code{\link{mixcol}}, \code{\link{pal_bordeaux}},
+  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
+  \code{\link{pal_n_sq}}, \code{\link{pal_peach}},
   \code{\link{pal_petrol}}, \code{\link{pal_pinky}},
   \code{\link{pal_seeblau}}, \code{\link{pal_seegruen}},
   \code{\link{pal_signal}}, \code{\link{pal_unikn_dark}},
@@ -51,7 +51,8 @@ Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_unikn_pair}},
   \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}}, \code{\link{pal_unikn}},
-  \code{\link{plot_pal}}, \code{\link{seecol}}
+  \code{\link{plot_pal}}, \code{\link{seecol}},
+  \code{\link{use_pal_n}}, \code{\link{usecol}}
 }
 \concept{color palettes}
 \keyword{datasets}

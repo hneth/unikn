@@ -1,5 +1,5 @@
 ## color_pal.R  |  unikn
-## ng/hn | uni.kn | 2019 03 21
+## ng/hn | uni.kn | 2019 03 22
 ## ---------------------------
 
 ## Main functions to access and plot color palettes. 
@@ -153,8 +153,8 @@ isHexCol <- function(color) {
 # lookup_pal <- utils::apropos("pal_")  # get all unikn palettes.
 # TODO: Where to put this?
 
-## get_col(): Get a palette or list of palettes by keyword, 
-##            n argument uses grDevices::colorRampPalette(): -------
+
+## get_col(): Get a palette or list of palettes by keyword, n argument uses grDevices::colorRampPalette(): -------
 
 get_col <- function(pal, n = "all") {
   
@@ -345,7 +345,7 @@ get_col <- function(pal, n = "all") {
   
   ## Color selection: --------
   if ( n != "all" ) {
-    # tmp <- pal_n(n = n, tmp)
+    # tmp <- use_pal_n(n = n, tmp)
     # If we have a list of palettes (currently by keywords only):
     tmp <- lapply(tmp, FUN = function(pal) {
       out <- grDevices::colorRampPalette(pal)
@@ -360,6 +360,137 @@ get_col <- function(pal, n = "all") {
   # return(pal_tmp)
   
 }
+
+
+## mixcol: Provide a color gradient based on given colors or color palettes: -------- 
+
+# - Documentation: ---- 
+
+#' Provide a color gradient scale. 
+#'
+#' \code{mixcol} provides a color gradient 
+#' based on a vector of input colors or color palettes 
+#' defined by \code{pal}.
+#' 
+#' \code{mixcol} uses \code{grDevices::colorRampPalette} to  
+#' provide a function that takes an integer argument 
+#' (the required number of colors) to  
+#' return a character vector of (rgb) colors 
+#' interpolating color sequence provided by \code{col}.
+#' 
+#' For best results, consider combining existing color palettes 
+#' with base color "white" (see Examples).
+#' 
+#' @param pal A color palette (as a vector of colors or color palettes). 
+#' Default: \code{pal = \link{pal_unikn}}. 
+#' 
+#' @param n Number of desired colors. 
+#' Default: \code{n = length(col)}. 
+#' 
+#' @param ... Additional parameters 
+#' (passed to \code{grDevices::colorRampPalette}). 
+#'
+#' @examples
+#' ## Creating color gradients: ------ 
+#' 
+#' # Gradients extending 1 color palette:
+#' mixcol(n = 5)  # 5 colors of default scale pal_unikn
+#' mixcol(pal_petrol, n = 10)  # 10 colors of pal_petrol
+#' 
+#' # Gradients over 2+ colors:
+#' mixcol(c(Seeblau, Peach), n = 10)
+#' mixcol(c(Signal, Petrol), n = 10)  
+#' mixcol(c(Seeblau, "white", Pinky), n = 10)
+#' mixcol(c(Karpfenblau, Seeblau, "gold"), n = 10)  # "gold" shines brighter than signal
+#' 
+#' # Gradients over 2+ color palettes:
+#' mixcol(c(pal_seeblau, pal_peach), n = 10)
+#' mixcol(c(pal_seeblau, pal_karpfenblau), n = 10)
+#' mixcol(c(pal_seeblau, pal_grau, pal_petrol), n = 10)
+#' 
+#' # Gradients over 3+ color palettes and colors:
+#' mixcol(c(rev(pal_seeblau), "white", pal_pinky), n = 11)
+#' mixcol(c(rev(pal_seeblau), "white", pal_petrol), n = 11)
+#' mixcol(c(rev(pal_karpfenblau), "white", pal_bordeaux), n = 11) 
+#' 
+#' ## Creating and plotting color gradients: ------ 
+#' 
+#' # (1) Extending color palettes: ----
+#' seecol(mixcol(n = 20))
+#' seecol(mixcol(pal_seeblau, n = 10))
+#' seecol(mixcol(pal_bordeaux, n = 10))
+#'
+#' # (2) Combining colors or palettes: ---- 
+#' 
+#' # Combining 2+ colors to create new palettes:
+#' seecol(mixcol(c(Seeblau, Signal), n = 10))
+#' seecol(mixcol(c(Signal, Petrol), n = 10))
+#' seecol(mixcol(c(Seeblau, "white", Pinky), n = 10))
+#' seecol(mixcol(c(Karpfenblau, Seeblau, "white"), n = 10))
+#' seecol(mixcol(c(Bordeaux, "white", Petrol), n = 10))
+#' seecol(mixcol(c(Seeblau, "white", Petrol), n = 10))
+#' seecol(mixcol(c(Karpfenblau, Seeblau, "gold"), n = 10))  # "gold" shines brighter than signal
+#'   
+#' # Combining 2+ color palettes into new palettes:
+#' seecol(mixcol(c(rev(pal_seeblau), pal_petrol), n = 10))
+#' seecol(mixcol(c(rev(pal_seeblau), pal_peach), n = 10))
+#' seecol(mixcol(c(rev(pal_karpfenblau), pal_bordeaux), n = 10))
+#' seecol(mixcol(c(rev(pal_seegruen), pal_pinky), n = 10))
+#' seecol(mixcol(c(rev(pal_petrol), pal_bordeaux), n = 10))
+#' 
+#' #' # Combining 2 palettes and mid-color "white" to new palettes:
+#' seecol(mixcol(c(rev(pal_seeblau), "white", pal_pinky), n = 11))
+#' seecol(mixcol(c(rev(pal_seeblau), "white", pal_petrol), n = 11))
+#' seecol(mixcol(c(rev(pal_karpfenblau), "white", pal_bordeaux), n = 11))
+#' seecol(mixcol(c(rev(pal_seegruen), "white", pal_peach), n = 11))
+#' seecol(mixcol(c(rev(pal_petrol), "white", pal_bordeaux), n = 11))
+#' 
+#' @family color palettes
+#' @family color functions 
+#'
+#' @seealso
+#' \code{\link{seecol}} to plot color palettes; 
+#' \code{\link{pal_which}} to get specific colors of a color palette; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette. 
+#'
+#' @import grDevices 
+#'
+#' @export
+
+# - Definition: ---- 
+
+# TODO: A wrapper for a function everyone has is not too useful;
+# Suggestion: Integrate the n-parameter to output a scale instead of a function? (implemented below)
+
+mixcol <- function(pal = pal_unikn, n = length(pal), ...){
+  
+  out_gradient <- grDevices::colorRampPalette(colors = pal, ...)(n)
+  
+  return(out_gradient)
+  
+}
+
+## Check:
+
+# # Gradients over 1 color palette:
+# mixcol(n = 5)  # 5 colors of default scale pal_unikn
+# mixcol(pal_petrol, n = 12)  # 12 colors of pal_petrol
+# 
+# # Gradients over 2 colors:
+# mixcol(c(Seeblau, Peach), n = 10)
+# mixcol(c(Seegruen, Petrol), n = 10)
+# 
+# # Gradients over 2 color palettes:
+# mixcol(c(pal_seeblau, pal_peach), n = 10)
+# mixcol(c(pal_seeblau, pal_karpfenblau), n = 10)
+# 
+# # Gradients over 3+ colors:
+# seecol(mixcol(c("black", Seeblau, Seegruen, "white"), n = 10))
+# 
+## Gradients over 3+ color palettes:
+# seecol(mixcol(c(rev(pal_seeblau), pal_grau, pal_pinky), n = 12))
+
+
 
 
 
@@ -441,8 +572,7 @@ get_col <- function(pal, n = "all") {
 #' @aliases seepal 
 #'
 #' @seealso 
-#' \code{\link{col_scale}} to extend color palettes (by creating gradients);  
-#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
+#' \code{\link{mixcol}} to mix and extend color palettes (by creating gradients);  
 #' \code{\link{pal_which}} to get specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #'
@@ -894,7 +1024,7 @@ seecol <- function(pal = "all",     # which palette to output?
 
 # - Check: ------- 
 
-## (a) Multiple palettes: ---- 
+## (a) Multiple palettes: 
 
 # seecol("all")
 # seecol("all", col_brd = grey(0, .25), lwd = .1)
@@ -920,7 +1050,7 @@ seecol <- function(pal = "all",     # which palette to output?
 # - allow grep for palette properties (e.g., > 5 colors)? 
 # - default/random palette?
 
-## (b) 1 palette: ---- 
+## (b) 1 palette: 
 
 # seecol(pal_unikn)  # allow both, palette objects and 
 # seecol("pal_unikn")  # palette names;
@@ -945,8 +1075,7 @@ seecol <- function(pal = "all",     # which palette to output?
 # seecol(pal_unikn_light, n = 10)  # mostly fails (max n = 10 returned)
 
 
-
-## (c) Creating new palettes: ---- 
+## (c) Creating new palettes: 
 
 # see colorRampPalette() to extend/stretch color palettes
 # ?: What happens when only subsets are selected
@@ -954,7 +1083,7 @@ seecol <- function(pal = "all",     # which palette to output?
 #    (b) choose existing colors for as long as possible
 
 ## Color gradients: 
-# gradient <- col_scale(c(rev(pal_seeblau), "white", pal_peach))
+# gradient <- mixcol(c(rev(pal_seeblau), "white", pal_peach))
 # seecol(gradient(50))
 
 ## ToDo: 2 main cases: 
@@ -976,6 +1105,37 @@ seecol <- function(pal = "all",     # which palette to output?
 
 # seecol(rmp(.5))
 # seecol(c("black", "yellow", "green"))
+
+
+
+
+## usecol: Use a color palette (as is): ---------  
+
+#' Use a color palette. 
+#'
+#' \code{usecol} allows using a color palette \code{pal}.
+#' 
+#' @param pal A color palette (as a vector of colors or color palettes). 
+#' Default: \code{pal = \link{pal_unikn}}. 
+#' 
+#' @family color palettes
+#' @family color functions 
+#'
+#' @seealso
+#' \code{\link{seecol}} to plot color palettes. 
+#'
+#' @export
+
+usecol <- function(pal = pal_unikn){
+  
+  out_col <- NA
+  
+  out_col <- mixcol(pal = pal)
+  
+  return(out_col)
+  
+}
+
 
 
 ## ToDo: ------

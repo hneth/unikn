@@ -26,11 +26,10 @@ pal_which(which = rep(1, 20))
 
 }
 \seealso{
-\code{\link{pal_unikn}} for the default uni.kn color palette; 
-\code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
-\code{\link{col_scale}} to extend color palettes (by creating gradients).
+\code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{pal_n}},
-  \code{\link{plot_pal}}
+Other color functions: \code{\link{mixcol}},
+  \code{\link{plot_pal}}, \code{\link{use_pal_n}},
+  \code{\link{usecol}}
 }
 \concept{color functions}

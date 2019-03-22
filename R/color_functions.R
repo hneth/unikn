@@ -1,5 +1,5 @@
 ## color_functions.R  |  unikn
-## hn  |  uni.kn |  2019 03 21
+## hn  |  uni.kn |  2019 03 22
 ## ---------------------------
 
 ## Define color-related functions 
@@ -33,10 +33,7 @@
 #' @family color functions
 #'
 #' @seealso
-#' \code{\link{pal_unikn}} for the default uni.kn color palette; 
-#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
-#' \code{\link{col_scale}} to extend color palettes (by creating gradients). 
-#'
+#' \code{\link{pal_unikn}} for the default uni.kn color palette. 
 #'
 #' @export
 
@@ -69,13 +66,13 @@ pal_which <- function(which = "all", pal = pal_unikn){
 
 
 
-# pal_n: Function to get [n] (specific, suitable) colors of a known palette [pal]: ------ 
+# use_pal_n: Function to get [n] (specific, suitable) colors of a known palette [pal]: ------ 
 
 # - Documentation: ---- 
 
 #' Get n dedicated colors of a known color palette.
 #'
-#' \code{pal_n} returns \code{n} dedicated colors of a known color palette \code{pal}. 
+#' \code{use_pal_n} returns \code{n} dedicated colors of a known color palette \code{pal}. 
 #' 
 #' @param n A number specifying the desired number colors of pal (as a number) 
 #' or the character string \code{"all"} (to get all colors of \code{pal}). 
@@ -85,38 +82,36 @@ pal_which <- function(which = "all", pal = pal_unikn){
 #' Default: \code{pal = \link{pal_unikn}}. 
 #'
 #' @examples
-#' pal_n()                   # all colors of default color palette
-#' pal_n(n = 4)              # 4 colors of default color palette
-#' pal_n(pal = pal_seeblau)  # all colors of another color palette
+#' # use_pal_n()                   # all colors of default color palette
+#' # use_pal_n(n = 4)              # 4 colors of default color palette
+#' # use_pal_n(pal = pal_seeblau)  # all colors of another color palette
 #' 
-#' # Default pal:
-#' pal_n(1)   # n = 1 color of default color pal
-#' pal_n(2)
-#' pal_n(4)
-#' pal_n(6)
-#' pal_n(8)
-#' pal_n(10)  # n = 10 colors of default color pal
+#' ## Default pal:
+#' # use_pal_n(1)   # n = 1 color of default color pal
+#' # use_pal_n(2)
+#' # use_pal_n(4)
+#' # use_pal_n(6)
+#' # use_pal_n(8)
+#' # use_pal_n(10)  # n = 10 colors of default color pal
 #' 
-#' pal_n(99)  # returns maximal number of colors: pal_unikn_plus (11)
+#' # use_pal_n(99)  # returns maximal number of colors: pal_unikn_plus (11)
 #' 
 #' ## Other color palettes:
-#' # pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))
-#' # pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
+#' # use_pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))
+#' # use_pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 #' 
 #' @family color palettes
 #' @family color functions
 #'
 #' @seealso
 #' \code{\link{pal_which}} for specific colors of a color palette; 
-#' \code{\link{pal_unikn}} for the default uni.kn color palette.
-#'
-#' @export
+#' \code{\link{pal_unikn}} for the default uni.kn color palette. 
 
 # - Definition: ---- 
 
 # TODO: Not implemented in seecol() but provides additional functionality... could be retained.
 
-pal_n <- function(n = "all", pal = pal_unikn){
+use_pal_n <- function(pal = pal_unikn, n = "all"){
   
   # Handle inputs:
   stopifnot(length(pal) > 0)
@@ -153,7 +148,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
   
   ## Select colors based on current pal and n: ------ 
   
-  # print(paste0("pal_n: pal_name = ", pal_name))  # 4debugging
+  # print(paste0("use_pal_n: pal_name = ", pal_name))  # 4debugging
   
   # (A) Basic color palettes: 
   if (isTRUE(all.equal(pal, pal_unikn))) {  # (1) pal == pal_unikn:
@@ -301,21 +296,21 @@ pal_n <- function(n = "all", pal = pal_unikn){
 }
 
 # ## Check:
-# pal_n()    # all default colors
+# use_pal_n()    # all default colors
 # 
 # # Default palette pal:
-# pal_n(1)   # n = 1 color of default color pal
-# pal_n(2)
-# pal_n(4)
-# pal_n(6)
-# pal_n(8)
-# pal_n(10)  # n = 10 colors of default color pal
+# use_pal_n(1)   # n = 1 color of default color pal
+# use_pal_n(2)
+# use_pal_n(4)
+# use_pal_n(6)
+# use_pal_n(8)
+# use_pal_n(10)  # n = 10 colors of default color pal
 # 
-# pal_n(11)  # return maximal number of colors
+# use_pal_n(11)  # return maximal number of colors
 # 
 # ## Other color palettes:
-# # pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))
-# # pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
+# # use_pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))
+# # use_pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 
 
 
@@ -333,7 +328,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
 #' for small values of \code{n} (\code{n = 1, 2, 3}) and 
 #' returns the 11 colors of \code{\link{pal_unikn_plus}} for any \code{n > 3}. 
 #' 
-#' Use the more specialized function \code{\link{pal_n}} for choosing 
+#' Use the more specialized function \code{use_pal_n} for choosing 
 #' \code{n} dedicated colors of a known color palette. 
 #' 
 #' @param n A number specifying the desired number colors of pal (as a number) 
@@ -354,7 +349,6 @@ pal_n <- function(n = "all", pal = pal_unikn){
 #' @seealso
 #' \code{\link{seecol}} to plot color palettes; 
 #' \code{\link{col_scale}} to create color scales (gradients);  
-#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
 #' \code{\link{pal_which}} to get specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #' 
@@ -362,7 +356,7 @@ pal_n <- function(n = "all", pal = pal_unikn){
 
 # - Definition: ---- 
 
-# TODO: See pal_n; can be retained but then should be exported.
+# TODO: See use_pal_n; can be retained but then should be exported.
 
 pal_n_sq <- function(n = "all", pal = pal_unikn){
   
@@ -457,7 +451,6 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 #'
 #' @seealso 
 #' \code{\link{col_scale}} to extend color palettes (by creating gradients);  
-#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
 #' \code{\link{pal_which}} to get specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #'
@@ -574,7 +567,7 @@ plot_pal <- function(pal = pal_unikn) {
 
 # - Documentation: ---- 
 
-#' Provide a color gradient scale.
+#' Provide a color gradient scale. 
 #'
 #' \code{col_scale} provides a color gradient 
 #' based on a sequence of input colors or color palettes 
@@ -592,6 +585,9 @@ plot_pal <- function(pal = pal_unikn) {
 #' @param col A list of colors or color palettes. 
 #' Default: \code{col = \link{pal_unikn}}. 
 #' 
+#' @param n Number of desired colors. 
+#' Default: \code{n = length(col)}. 
+#' 
 #' @param ... Additional parameters 
 #' (passed to \code{grDevices::colorRampPalette}). 
 #'
@@ -599,62 +595,61 @@ plot_pal <- function(pal = pal_unikn) {
 #' ## Creating color gradients: ------ 
 #' 
 #' # Gradients extending 1 color palette:
-#' col_scale()(5)  # 5 colors of default scale pal_unikn
-#' col_scale(pal_petrol)(10)  # 10 colors of pal_petrol
+#' col_scale(n = 5)  # 5 colors of default scale pal_unikn
+#' col_scale(pal_petrol, n = 10)  # 10 colors of pal_petrol
 #' 
 #' # Gradients over 2+ colors:
-#' col_scale(c(Seeblau, Peach))(10)
-#' col_scale(c(Signal, Petrol))(10)  
-#' col_scale(c(Seeblau, "white", Pinky))(10)
-#' col_scale(c(Karpfenblau, Seeblau, "gold"))(10)  # "gold" shines brighter than signal
+#' col_scale(c(Seeblau, Peach), n = 10)
+#' col_scale(c(Signal, Petrol), n = 10)  
+#' col_scale(c(Seeblau, "white", Pinky), n = 10)
+#' col_scale(c(Karpfenblau, Seeblau, "gold"), n = 10)  # "gold" shines brighter than signal
 #' 
 #' # Gradients over 2+ color palettes:
-#' col_scale(c(pal_seeblau, pal_peach))(10)
-#' col_scale(c(pal_seeblau, pal_karpfenblau))(10)
-#' col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
+#' col_scale(c(pal_seeblau, pal_peach), n = 10)
+#' col_scale(c(pal_seeblau, pal_karpfenblau), n = 10)
+#' col_scale(c(pal_seeblau, pal_grau, pal_petrol), n = 10)
 #' 
 #' # Gradients over 3+ color palettes and colors:
-#' col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11)
-#' col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11)
-#' col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux))(11) 
+#' col_scale(c(rev(pal_seeblau), "white", pal_pinky), n = 11)
+#' col_scale(c(rev(pal_seeblau), "white", pal_petrol), n = 11)
+#' col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux), n = 11) 
 #' 
 #' ## Creating and plotting color gradients: ------ 
 #' 
 #' # (1) Extending color palettes: ----
-#' seecol(col_scale()(20))
-#' seecol(col_scale(pal_seeblau)(10))
-#' seecol(col_scale(pal_bordeaux)(10))
+#' seecol(col_scale(, n = 20))
+#' seecol(col_scale(pal_seeblau, n = 10))
+#' seecol(col_scale(pal_bordeaux, n = 10))
 #'
 #' # (2) Combining colors or palettes: ---- 
 #' 
 #' # Combining 2+ colors to create new palettes:
-#' seecol(col_scale(c(Seeblau, Signal))(10))
-#' seecol(col_scale(c(Signal, Petrol))(10))
-#' seecol(col_scale(c(Seeblau, "white", Pinky))(10))
-#' seecol(col_scale(c(Karpfenblau, Seeblau, "white"))(10))
-#' seecol(col_scale(c(Bordeaux, "white", Petrol))(10))
-#' seecol(col_scale(c(Seeblau, "white", Petrol))(10))
-#' seecol(col_scale(c(Karpfenblau, Seeblau, "gold"))(10))  # "gold" shines brighter than signal
+#' seecol(col_scale(c(Seeblau, Signal), n = 10))
+#' seecol(col_scale(c(Signal, Petrol), n = 10))
+#' seecol(col_scale(c(Seeblau, "white", Pinky), n = 10))
+#' seecol(col_scale(c(Karpfenblau, Seeblau, "white"), n = 10))
+#' seecol(col_scale(c(Bordeaux, "white", Petrol), n = 10))
+#' seecol(col_scale(c(Seeblau, "white", Petrol), n = 10))
+#' seecol(col_scale(c(Karpfenblau, Seeblau, "gold"), n = 10))  # "gold" shines brighter than signal
 #'   
 #' # Combining 2+ color palettes into new palettes:
-#' seecol(col_scale(c(rev(pal_seeblau), pal_petrol))(10))
-#' seecol(col_scale(c(rev(pal_seeblau), pal_peach))(10))
-#' seecol(col_scale(c(rev(pal_karpfenblau), pal_bordeaux))(10))
-#' seecol(col_scale(c(rev(pal_seegruen), pal_pinky))(10))
-#' seecol(col_scale(c(rev(pal_petrol), pal_bordeaux))(10))
+#' seecol(col_scale(c(rev(pal_seeblau), pal_petrol), n = 10))
+#' seecol(col_scale(c(rev(pal_seeblau), pal_peach), n = 10))
+#' seecol(col_scale(c(rev(pal_karpfenblau), pal_bordeaux), n = 10))
+#' seecol(col_scale(c(rev(pal_seegruen), pal_pinky), n = 10))
+#' seecol(col_scale(c(rev(pal_petrol), pal_bordeaux), n = 10))
 #' 
 #' #' # Combining 2 palettes and mid-color "white" to new palettes:
-#' seecol(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
-#' seecol(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
-#' seecol(col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux))(11))
-#' seecol(col_scale(c(rev(pal_seegruen), "white", pal_peach))(11))
-#' seecol(col_scale(c(rev(pal_petrol), "white", pal_bordeaux))(11))
+#' seecol(col_scale(c(rev(pal_seeblau), "white", pal_pinky), n = 11))
+#' seecol(col_scale(c(rev(pal_seeblau), "white", pal_petrol), n = 11))
+#' seecol(col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux), n = 11))
+#' seecol(col_scale(c(rev(pal_seegruen), "white", pal_peach), n = 11))
+#' seecol(col_scale(c(rev(pal_petrol), "white", pal_bordeaux), n = 11))
 #' 
 #' @family color palettes
 #'
 #' @seealso
 #' \code{\link{seecol}} to plot color palettes; 
-#' \code{\link{pal_n}} to get \code{n} dedicated colors of a known color palette; 
 #' \code{\link{pal_which}} to get specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette. 
 #'
@@ -678,22 +673,22 @@ col_scale <- function(col = pal_unikn, n = length(col), ...){
 ## Check:
 
 # # Gradients over 1 color palette:
-# col_scale()(5)  # 5 colors of default scale pal_unikn
-# col_scale(pal_petrol)(12)  # 12 colors of pal_petrol
+# col_scale(n = 5)  # 5 colors of default scale pal_unikn
+# col_scale(pal_petrol, n = 12)  # 12 colors of pal_petrol
 # 
 # # Gradients over 2 colors:
-# col_scale(c(Seeblau, Peach))(10)
-# col_scale(c(Seegruen, Petrol))(10)
+# col_scale(c(Seeblau, Peach), n = 10)
+# col_scale(c(Seegruen, Petrol), n = 10)
 # 
 # # Gradients over 2 color palettes:
-# col_scale(c(pal_seeblau, pal_peach))(10)
-# col_scale(c(pal_seeblau, pal_karpfenblau))(10)
+# col_scale(c(pal_seeblau, pal_peach), n = 10)
+# col_scale(c(pal_seeblau, pal_karpfenblau), n = 10)
 # 
 # # Gradients over 3+ colors:
-# col_scale(c(Seeblau, Grau, Seegruen, Peach))(10)
+# seecol(col_scale(c("black", Seeblau, Seegruen, "white"), n = 10))
 # 
-# # Gradients over 3+ color palettes:
-# col_scale(c(pal_seeblau, pal_grau, pal_petrol))(10)
+## Gradients over 3+ color palettes:
+# seecol(col_scale(c(rev(pal_seeblau), pal_grau, pal_pinky), n = 12))
 
 
 ## ToDo: ------
@@ -708,7 +703,7 @@ col_scale <- function(col = pal_unikn, n = length(col), ...){
 
 # (1) Functions: 
 #   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
-#   - improve function pal_n to get n (good) colors (and consider integrating it into palettes)
+#   - improve function use_pal_n to get n (good) colors (and consider integrating it into palettes)
 #   - provide color gradient function(s) (to return an arbitrary number of colors)
 
 # (+) Additional elements:

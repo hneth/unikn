@@ -84,7 +84,10 @@ Using colors in a graph:
 
 ```{r use_col, fig.width = 7, fig.asp = .618}
 # Using a color palette:
-barplot(1/sqrt(1:11), col = seecol(pal_unikn_plus))
+barplot(1/sqrt(1:11), col = usecol(pal_unikn_plus))
+
+barplot(1/sqrt(1:11), col = mixcol(pal_bordeaux, n = 11))
+barplot(1/sqrt(1:11), col = mixcol(c(rev(pal_seegruen), "white", pal_bordeaux), n = 11))
 ```
 
 ## Modifying color palettes
@@ -115,15 +118,15 @@ seecol(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 Combining colors and color palettes to get a specific number of colors: 
 
 ```{r combine_pals_n, fig.width = 7, fig.asp = .618}
-seecol(pal = c(Karpfenblau, Seeblau, "gold"), n = 10)             # no names
-seecol(pal = col_scale(c(Karpfenblau, Seeblau, "gold"), n = 10))  # shows HEX values as names
+seecol(pal = c(Karpfenblau, Seeblau, "gold"), n = 10)          # no names
+seecol(pal = mixcol(c(Karpfenblau, Seeblau, "gold"), n = 10))  # shows HEX values as names
 ```
 
 Examples of combining colors and color palettes into new color palettes:
 
 ```{r bar_seeblau_pinky, fig.width = 7, fig.asp = .618}
-barplot((-5:5)^2+5, col = seecol(pal = c(rev(pal_seeblau), "white", pal_pinky)))
-barplot(1/sqrt(11:1), col = seecol(pal = c(rev(pal_seeblau), "white", pal_seegruen)))
+barplot((-5:5)^2+5, col = mixcol(pal = c(rev(pal_seeblau), "white", pal_pinky)))
+barplot(1/sqrt(11:1), col = mixcol(pal = c(rev(pal_seeblau), "white", pal_seegruen)))
 ```
 
 ## All unikn vignettes
