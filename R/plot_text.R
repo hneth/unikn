@@ -25,14 +25,14 @@
 
 # - Definition: ---- 
 
-plot_text <- function(lbls = NA,          # labels of text element(s) 
-                      x = 0, y = .55,     # coordinates of text lbls 
-                      y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w lbls (y-space between subsequent labels)
+plot_text <- function(labels = NA,        # labels of text element(s) 
+                      x = 0, y = .55,     # coordinates of text labels 
+                      y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w labels (y-space between subsequent labels)
                       
                       # Text parameters:
-                      col = NA,      # col of text lbls 
-                      cex = 1.5,     # text size(s), recycled or truncated to length of lbls
-                      font = 2,      # font type(s), recycled or truncated to length of lbls
+                      col = NA,      # col of text labels 
+                      cex = 1.5,     # text size(s), recycled or truncated to length of labels
+                      font = 2,      # font type(s), recycled or truncated to length of labels
                       adj = NULL, pos = NULL, offset = 0,  # text position   
                       padding = NA,  # set padding (around text, in marking) # padding = NA (default padding) OR: 2 numeric values = c(.5, .5), 
                       
@@ -61,7 +61,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   
   ## Interpret inputs (for robustness): ----
   
-  N_lbls <- length(lbls)
+  N_labels <- length(labels)
   
   # y coordinates: 
   # if (missing(y)) {y <- x}    # use x as y if no y provided
@@ -75,17 +75,17 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   
   # cex: Truncate or recycle cur_cex: ----  
   
-  if (N_lbls != length(cur_cex)){   
+  if (N_labels != length(cur_cex)){   
     
     l_cex <- length(cur_cex)
     
-    if (l_cex > N_lbls){ # truncate cur_cex to a length of N_lbls: 
+    if (l_cex > N_labels){ # truncate cur_cex to a length of N_labels: 
       
-      cur_cex <- cur_cex[1:N_lbls]
+      cur_cex <- cur_cex[1:N_labels]
       
-    } else { # recycle cur_cex to a length of N_lbls: 
+    } else { # recycle cur_cex to a length of N_labels: 
       
-      cur_cex <- rep(cur_cex, ceiling(N_lbls/l_cex))[1:N_lbls]
+      cur_cex <- rep(cur_cex, ceiling(N_labels/l_cex))[1:N_labels]
       
     }
     
@@ -95,17 +95,17 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   
   # font: Truncate or recycle font: ----  
   
-  if (N_lbls != length(font)){   
+  if (N_labels != length(font)){   
     
     l_font <- length(font)
     
-    if (l_font > N_lbls){ # truncate font to a length of N_lbls: 
+    if (l_font > N_labels){ # truncate font to a length of N_labels: 
       
-      font <- font[1:N_lbls]
+      font <- font[1:N_labels]
       
-    } else { # recycle font to a length of N_lbls: 
+    } else { # recycle font to a length of N_labels: 
       
-      font <- rep(font, ceiling(N_lbls/l_font))[1:N_lbls]
+      font <- rep(font, ceiling(N_labels/l_font))[1:N_labels]
       
     }
     
@@ -144,9 +144,9 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
     
   }
   
-  # (b) col (of lbls): 
+  # (b) col (of labels): 
   if ( is.na(col) && (new_plot == "xbox")) {col <- "white"}
-  if ( is.na(col) && any(!is.na(lbls)) ) { col <- "black"} 
+  if ( is.na(col) && any(!is.na(labels)) ) { col <- "black"} 
   
   # (c) col_bg: 
   if (is.na(col_bg) && mark) { col_bg <- pal_seeblau[[2]]} # default mark color: pal_seeblau[[3]]
@@ -238,47 +238,47 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   
   # Get the REAL char dimensions by scaling key_width/key_height values (for each font size) 
   # by the vector of cur_cex values (at corresponding font size):
-  char_width <- rep(NA, length(lbls))  # initialize
+  char_width <- rep(NA, length(labels))  # initialize
   char_width[font == 1] <- key_width_f1 * cur_cex[font == 1]
   char_width[font == 2] <- key_width_f2 * cur_cex[font == 2]
   char_width[font == 3] <- key_width_f3 * cur_cex[font == 3]
   char_width[font == 4] <- key_width_f4 * cur_cex[font == 4]
   # print(char_width)   # 4debugging
   
-  char_height <- rep(NA, length(lbls))  # initialize
+  char_height <- rep(NA, length(labels))  # initialize
   char_height[font == 1] <- key_height_f1 * cur_cex[font == 1]
   char_height[font == 2] <- key_height_f2 * cur_cex[font == 2]
   char_height[font == 3] <- key_height_f3 * cur_cex[font == 3]
   char_height[font == 4] <- key_height_f4 * cur_cex[font == 4]
   
-  # (B) Measure dimensions of text lbls: ---- 
+  # (B) Measure dimensions of text labels: ---- 
   
-  # Measure dimensions of lbls (for cex = 1 only, but different fonts 1-4): 
-  lbls_width_f1  <-  graphics::strwidth(s = lbls, cex = 1, font = 1)  # width(s) of lbls for cex = 1, font = 1 (only)
-  lbls_width_f2  <-  graphics::strwidth(s = lbls, cex = 1, font = 2)  # width(s) of lbls for cex = 1, font = 2 (only)
-  lbls_width_f3  <-  graphics::strwidth(s = lbls, cex = 1, font = 3)  # width(s) of lbls for cex = 1, font = 3 (only)
-  lbls_width_f4  <-  graphics::strwidth(s = lbls, cex = 1, font = 4)  # width(s) of lbls for cex = 1, font = 4 (only)
-  # print(lbls_width_f2)  # 4debugging
+  # Measure dimensions of labels (for cex = 1 only, but different fonts 1-4): 
+  labels_width_f1  <-  graphics::strwidth(s = labels, cex = 1, font = 1)  # width(s) of labels for cex = 1, font = 1 (only)
+  labels_width_f2  <-  graphics::strwidth(s = labels, cex = 1, font = 2)  # width(s) of labels for cex = 1, font = 2 (only)
+  labels_width_f3  <-  graphics::strwidth(s = labels, cex = 1, font = 3)  # width(s) of labels for cex = 1, font = 3 (only)
+  labels_width_f4  <-  graphics::strwidth(s = labels, cex = 1, font = 4)  # width(s) of labels for cex = 1, font = 4 (only)
+  # print(labels_width_f2)  # 4debugging
   
-  lbls_height_f1 <- graphics::strheight(s = lbls, cex = 1, font = 1)  # height(s) of lbls for cex = 1, font = 1 (only)
-  lbls_height_f2 <- graphics::strheight(s = lbls, cex = 1, font = 2)  # height(s) of lbls for cex = 1, font = 2 (only)
-  lbls_height_f3 <- graphics::strheight(s = lbls, cex = 1, font = 3)  # height(s) of lbls for cex = 1, font = 3 (only)
-  lbls_height_f4 <- graphics::strheight(s = lbls, cex = 1, font = 4)  # height(s) of lbls for cex = 1, font = 4 (only)
+  labels_height_f1 <- graphics::strheight(s = labels, cex = 1, font = 1)  # height(s) of labels for cex = 1, font = 1 (only)
+  labels_height_f2 <- graphics::strheight(s = labels, cex = 1, font = 2)  # height(s) of labels for cex = 1, font = 2 (only)
+  labels_height_f3 <- graphics::strheight(s = labels, cex = 1, font = 3)  # height(s) of labels for cex = 1, font = 3 (only)
+  labels_height_f4 <- graphics::strheight(s = labels, cex = 1, font = 4)  # height(s) of labels for cex = 1, font = 4 (only)
   
-  # Get the REAL text dimensions by scaling lbls_width/lbls_height values (for each font size) 
+  # Get the REAL text dimensions by scaling labels_width/labels_height values (for each font size) 
   # by the vector of cur_cex values (at corresponding font size):
-  text_width <- rep(NA, length(lbls))  # initialize
-  text_width[font == 1] <- lbls_width_f1[font == 1] * cur_cex[font == 1]
-  text_width[font == 2] <- lbls_width_f2[font == 2] * cur_cex[font == 2]
-  text_width[font == 3] <- lbls_width_f3[font == 3] * cur_cex[font == 3]
-  text_width[font == 4] <- lbls_width_f4[font == 4] * cur_cex[font == 4]
+  text_width <- rep(NA, length(labels))  # initialize
+  text_width[font == 1] <- labels_width_f1[font == 1] * cur_cex[font == 1]
+  text_width[font == 2] <- labels_width_f2[font == 2] * cur_cex[font == 2]
+  text_width[font == 3] <- labels_width_f3[font == 3] * cur_cex[font == 3]
+  text_width[font == 4] <- labels_width_f4[font == 4] * cur_cex[font == 4]
   # print(text_width)   # 4debugging
   
-  text_height <- rep(NA, length(lbls))  # initialize
-  text_height[font == 1] <- lbls_height_f1[font == 1] * cur_cex[font == 1]
-  text_height[font == 2] <- lbls_height_f2[font == 2] * cur_cex[font == 2]
-  text_height[font == 3] <- lbls_height_f3[font == 3] * cur_cex[font == 3]
-  text_height[font == 4] <- lbls_height_f4[font == 4] * cur_cex[font == 4]
+  text_height <- rep(NA, length(labels))  # initialize
+  text_height[font == 1] <- labels_height_f1[font == 1] * cur_cex[font == 1]
+  text_height[font == 2] <- labels_height_f2[font == 2] * cur_cex[font == 2]
+  text_height[font == 3] <- labels_height_f3[font == 3] * cur_cex[font == 3]
+  text_height[font == 4] <- labels_height_f4[font == 4] * cur_cex[font == 4]
   
   # (C) Measure dimension of desired padding (around text): ---- 
   
@@ -339,22 +339,22 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   plot_dim <- par("usr")  # actual dimensions (of current plot): 4 values: x_min, x_max, y_min, y_max. 
   # print(paste0("Current plot_dim = ", plot_dim))  # 4debugging  
   
-  y_top <- min(plot_dim[4], y[1])  # Min of highest possible y value (of current plot) and 1st actual y coordinate (of lbls)
-  y_bot <- min(plot_dim[3], y[1])  # Min of  lowest possible y value (of current plot) and 1st actual y coordinate (of lbls)
+  y_top <- min(plot_dim[4], y[1])  # Min of highest possible y value (of current plot) and 1st actual y coordinate (of labels)
+  y_bot <- min(plot_dim[3], y[1])  # Min of  lowest possible y value (of current plot) and 1st actual y coordinate (of labels)
   y_bot_blank_space <- .10  # proportion of required blank space at bottom (in % of available y_range/y_top)
   y_bot <- (y_bot_blank_space * abs(y_top - y_bot))  # lowest actual y coordinate tolerated
   # print(paste0("y_bot = ", y_bot))  # 4debugging
   
-  # Adjust y values (if fewer y's than lbls): ---- 
+  # Adjust y values (if fewer y's than labels): ---- 
   
-  if (N_lbls > length(y)) { # If there are more lbls than y coordinates: 
+  if (N_labels > length(y)) { # If there are more labels than y coordinates: 
     
-    # message(paste0("N_lbls > N(y): Automatic ", as.character(y_layout), " label layout..."))
+    # message(paste0("N_labels > N(y): Automatic ", as.character(y_layout), " label layout..."))
     
     if (mark) { 
       
       # (a) Adjust y by rect_height (NOT text_height) sequence: 
-      # print(paste0("rect_height", 1:N_lbls, " = ", rect_height))  # 4debugging
+      # print(paste0("rect_height", 1:N_labels, " = ", rect_height))  # 4debugging
       
       y <- layout_y(y_top = y_top, y_bot = y_bot, height_seq = rect_height, # !
                     layout_type = y_layout)
@@ -362,18 +362,18 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
     } else {  # NOT mark: line or only txt 
       
       # (b) Adjust y by text_height (NOT rect_height) sequence: 
-      # print(paste0("text_height", 1:N_lbls, " = ", text_height))  # 4debugging
+      # print(paste0("text_height", 1:N_labels, " = ", text_height))  # 4debugging
       
       y <- layout_y(y_top = y_top, y_bot = y_bot, height_seq = text_height, # !
                     layout_type = y_layout)
       
     }
     
-    # print(paste0("y", 1:N_lbls, " = ", y))  # 4debugging
+    # print(paste0("y", 1:N_labels, " = ", y))  # 4debugging
     
   } else {
     
-    # message("N(y) >= N_lbls: Using y-values provided for label layout...")
+    # message("N(y) >= N_labels: Using y-values provided for label layout...")
     
   }
   
@@ -462,7 +462,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   #   
   #   print(y_add)
   #   
-  #   y_addends <- c(0, y_add)[1:N_lbls]
+  #   y_addends <- c(0, y_add)[1:N_labels]
   #   cum_y_add <- cumsum(y_addends)
   #   
   #   y <- y + cum_y_add
@@ -557,7 +557,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   } # if (line) etc.
   
   
-  #  C. txt: Plot text lbls: ---- 
+  #  C. txt: Plot text labels: ---- 
   
   txt <- TRUE  # default 
   
@@ -565,7 +565,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
     
     # Plot text lbl(s):
     graphics::text(x = x_mid, y = y_mid, 
-                   labels = lbls, 
+                   labels = labels, 
                    col = col, 
                    cex = cur_cex, font = font, 
                    # pos = pos,      # pos was used above (to compute x and y)
@@ -645,7 +645,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #               "                                                      ",
 #               "                                                ",
 #               "                              ")
-# plot_text(lbls = lbl_mark,
+# plot_text(labels = lbl_mark,
 #           x = 0, y = .90, y_layout = c(.03),
 #           col_bg = Seeblau, col_bg_border = NA,
 #           cex = 1.0, pos = 4,
@@ -657,7 +657,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 ## (4) mark + flush: Formatting headlines/titles:
 
 # lbl_hl1 <- c("Ich bin", "eine", "Headline.")
-# plot_text(lbls = lbl_hl1,
+# plot_text(labels = lbl_hl1,
 #           x = 0, y = .8, y_layout = "flush",
 #           col_bg = c(pal_seeblau[[1]], pal_seeblau[[3]], pal_seeblau[[4]]),
 #           cex = 2.5, pos = 4,
@@ -665,7 +665,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #           new_plot = "blank")
 
 # lbl_hl2 <- c("Ich", "bin keine", "gute Headline.")
-# plot_text(lbls = lbl_hl2,
+# plot_text(labels = lbl_hl2,
 #           x = 0, y = .80, y_layout = "flush",
 #           col_bg = c(pal_seeblau[[1]], pal_seeblau[[3]], pal_seeblau[[4]]),
 #           cex = 2.5, pos = 4,
@@ -673,7 +673,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #           new_plot = "blank")
 # 
 # lbl_hl3 <- c("Ich bin", "eine alternative", "Headline.")
-# plot_text(lbls = lbl_hl3,
+# plot_text(labels = lbl_hl3,
 #           x = 0, y = .80, y_layout = "flush",
 #           col_bg = c(pal_seeblau[[1]], pal_seeblau[[3]], pal_seeblau[[4]]),
 #           cex = 2.5, pos = 4,
@@ -684,7 +684,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 # ## (2) Unterstreichen: 
 # lbl_line <- c("Teaching", "This is a line of text", "Learning and studying", "Test")
 # lbl_line <- c("Das ist korrekt, wahr und wahnsinnig wichtig.")
-# plot_text(lbls = lbl_line, font = 1,
+# plot_text(labels = lbl_line, font = 1,
 #           x = 0, y = .90, y_layout = c(.05),
 #           col_bg = Seeblau, col_bg_border = NA,
 #           cex = 1.5, pos = 4,
@@ -692,7 +692,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #           line = TRUE)
 # 
 # slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
-# plot_text(lbls = slogan, font = 2,
+# plot_text(labels = slogan, font = 2,
 #           x = 0, y = .85, y_layout = "even",
 #           col = "black", col_bg = Seeblau, col_bg_border = NA,
 #           cex = 1.2, pos = 4,
@@ -710,11 +710,11 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 # # (a) xbox with text:
 # lbl_1 <- c("Erste Zeile", "Zweite Zeile", "Dritte steile Zeile", "Vierte Zeile zum Verweilen",
 #            "Ziemlich ausgefeilte Zeilen", "Wichtig mitzuteilen!")
-# plot_text(lbls = lbl_1,
+# plot_text(labels = lbl_1,
 #           x = .05,
 #           y = NA,  # fewer y-coords than labels
-#           # y = c(.65, .50, .4, .3, .2, .1), # fixed y-coords for all lbls
-#           y_layout = "even",  # "even", "flush", OR fixed numeric value for distance b/w lbls (e.g., c(.02, .05), recycled)!
+#           # y = c(.65, .50, .4, .3, .2, .1), # fixed y-coords for all labels
+#           y_layout = "even",  # "even", "flush", OR fixed numeric value for distance b/w labels (e.g., c(.02, .05), recycled)!
 #           cex = c(1, 1, 2, 2, 3, 3),
 #           font = c(2, 1, 2, 1, 2, 1),
 #           col_bg = c(unlist(seeblau), "gold"), lwd_bg = NA,
@@ -727,11 +727,11 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 
 # # # (b) slide with text and line: 
 # lbl_2 <- rep("l Eine durch zwei `l` begrenzte Zeile l", 6)
-# plot_text(lbls = lbl_2,
+# plot_text(labels = lbl_2,
 #           x = .00,
 #           y = .80,  # fewer y-coords than labels
-#           # y = c(.77, .7, .55, .45, .25, .1), # fixed y-coords for all lbls
-#           y_layout = c(.05, .10), # "even" or fixed numeric value(s) for distance b/w lbls (e.g., c(.02, .05), recycled)!
+#           # y = c(.77, .7, .55, .45, .25, .1), # fixed y-coords for all labels
+#           y_layout = c(.05, .10), # "even" or fixed numeric value(s) for distance b/w labels (e.g., c(.02, .05), recycled)!
 #           cex = c(1, 1, 1.5, 1.5, 2, 2),
 #           font = c(2, 1, 2, 1, 2, 1),
 #           col_bg = c(unlist(seeblau), "gold"), lwd_bg = 0,
@@ -745,11 +745,11 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 
 # # (c) slide with text and mark:
 # lbl_3 <- rep("In Schrift und Grösse variable Zeilen", 6)
-# plot_text(lbls = lbl_3,
+# plot_text(labels = lbl_3,
 #           x = 0,
 #           y = .80,  # fewer y-coords than labels
-#           # y = c(.80, .70, .55, .35, .15), # fixed y-coords for all lbls
-#           y_layout = c(0, .08), # "even", "flush", or fixed numeric value(s) for distance b/w lbls (e.g., c(.02, .05), recycled)!
+#           # y = c(.80, .70, .55, .35, .15), # fixed y-coords for all labels
+#           y_layout = c(0, .08), # "even", "flush", or fixed numeric value(s) for distance b/w labels (e.g., c(.02, .05), recycled)!
 #           cex = c(1.5, 1, 2, 1.5, 2, 2.5), font = c(2, 1),
 #           col_bg = c(grey(0, .10), grey(0, .20)),
 #           lwd_bg = 1/3, col_bg_border = "red2",
@@ -781,35 +781,35 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
 # 
 # ## Multiple cex values:
-# plot_text(lbls = c("m", "m"), x = 0, y = .8, cex = c(1, 5),
+# plot_text(labels = c("m", "m"), x = 0, y = .8, cex = c(1, 5),
 #           col_bg = "red1", mark = TRUE)
 # =>  works (i.e., different cex sizes are supported)
 
 # ## Multiple font values:
-# plot_text(lbls = rep("m", 4), x = 0, y = .9, y_layout = "flush",  
+# plot_text(labels = rep("m", 4), x = 0, y = .9, y_layout = "flush",  
 #           cex = 5, font = c(2, 1), pos = 4, 
 #           col_bg = "gold", mark = TRUE, new_plot = "slide")
 # => works (i.e., different font sizes are supported)
 
 # # What fails: 
-# # - Rotation of lbls is not supported:
-# plot_text(lbls = "This is a test", x = .20, col = "black", 
+# # - Rotation of labels is not supported:
+# plot_text(labels = "This is a test", x = .20, col = "black", 
 #           new_plot = "blank", srt = 45, mark = TRUE)
-# plot_text(lbls = "This is a test", x = .60, col = "black", 
+# plot_text(labels = "This is a test", x = .60, col = "black", 
 #           new_plot = "none", srt = -45, line = TRUE)
 
 ## Example 0: Plot box
 
-# plot_text(x = 0.02, y = c(.5, .4), lbls = c("ToDo", "Something else here"), xbox = TRUE)
+# plot_text(x = 0.02, y = c(.5, .4), labels = c("ToDo", "Something else here"), xbox = TRUE)
 
 # ## Example 1: Underlining text 
 # 
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
 # 
-# plot_text(x = 0, y = .9, lbls = "Related matters", adj = 0, line = TRUE, col_bg = pal_seeblau[[4]])
-# plot_text(x = 0, y = .6, lbls = "Underlining text can be straightforward", line = TRUE, cex = 1.2, col_bg = pal_seeblau[[4]])
-# plot_text(x = 0, y = .5, lbls = "and strikingly effective", line = TRUE, cex = 1.2, col_bg = pal_seeblau[[4]])
-# plot_text(x = .55, y = .1, lbls = "Please handle with care", adj = 0, line = TRUE, cex = 1.0, col_lbl = "black", col_bg = pal_signal[[1]])
+# plot_text(x = 0, y = .9, labels = "Related matters", adj = 0, line = TRUE, col_bg = pal_seeblau[[4]])
+# plot_text(x = 0, y = .6, labels = "Underlining text can be straightforward", line = TRUE, cex = 1.2, col_bg = pal_seeblau[[4]])
+# plot_text(x = 0, y = .5, labels = "and strikingly effective", line = TRUE, cex = 1.2, col_bg = pal_seeblau[[4]])
+# plot_text(x = .55, y = .1, labels = "Please handle with care", adj = 0, line = TRUE, cex = 1.0, col_lbl = "black", col_bg = pal_signal[[1]])
 
 # ## Example 2: Marking text in messy plot
 # n <- 20
@@ -818,39 +818,39 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #      axes = FALSE, xlab = "", ylab = "")
 # 
 # # Adjust cex, font and adj:
-# plot_text(x = .05, y = .90, lbls = "What a messy plot", mark = TRUE,
+# plot_text(x = .05, y = .90, labels = "What a messy plot", mark = TRUE,
 #          col_bg = seeblau[[1]], adj = c(0, 0), padding = c(.25, .85), cex = 2)
 # 
-# # Vector of 2 lbls, using argument 'pos' to position right of coordinates:
+# # Vector of 2 labels, using argument 'pos' to position right of coordinates:
 # plot_text(x = c(.30, .62), y = c(.20, .42), mark = TRUE,
-#          lbls = c("Note something here", "More highlighting here"),
+#          labels = c("Note something here", "More highlighting here"),
 #          col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
 
 
 
 
 
-# (2) box_text: Add text (with a colored background box) to a plot: ------
+# (2) box_text: Add text labels (with a colored background box) to a plot: ------
 
 ## Adapted from Ian Kopacka's solution to a question at: 
 ## https://stackoverflow.com/questions/45366243/text-labels-with-background-colour-in-r
 
 # - Documentation: ---- 
 
-#' \code{box_text} places 1 or more text strings (of a character vector \code{lbls}) 
+#' \code{box_text} places 1 or more text strings (of a character vector \code{labels}) 
 #' onto a plot and places a colored box behind
 #' each label to highlight it (i.e., make it stand out from the background).
 #' 
 #' \code{box_text} uses the base graphics system \code{graphics::}. 
 #' 
 #' @param x A numeric vector of x-coordinates at which the 
-#' text labels in \code{lbls} should be written. 
+#' text labels in \code{labels} should be written. 
 #' If the length of \code{x} and \code{y} differs, the shorter one is recycled.
 #' 
 #' @param y A numeric vector of y-coordinates at which the 
-#' text labels in \code{lbls} should be written.
+#' text labels in \code{labels} should be written.
 #' 
-#' @param lbls A character vector specifying the text labels 
+#' @param labels A character vector specifying the text labels 
 #' to be written.
 #' 
 #' @param col_lbl The color(s) of the text label(s). 
@@ -900,9 +900,9 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #' @examples
 #' ## Example 1: Simple highlights
 #' plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1))
-#' # box_text(x = 0, y = .9, lbls = "Something to notice", col_bg = Seeblau)
-#' # box_text(x = 0, y = .7, lbls = "Highlighting text is really simple", cex = 1.5, col_bg = "gold")
-#' # box_text(x = 0, y = .6, lbls = "and strikingly effective", cex = 1.5, col_bg = pal_seeblau[[1]])
+#' # box_text(x = 0, y = .9, labels = "Something to notice", col_bg = Seeblau)
+#' # box_text(x = 0, y = .7, labels = "Highlighting text is really simple", cex = 1.5, col_bg = "gold")
+#' # box_text(x = 0, y = .6, labels = "and strikingly effective", cex = 1.5, col_bg = pal_seeblau[[1]])
 #' 
 #' ## Example 2: Messy plot
 #' n <- 20
@@ -911,12 +911,12 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 #'      col = grey(0, .20), axes = FALSE, xlab = "", ylab = "")
 #' 
 #' ## Adjust cex, font and adj:
-#' # box_text(x = .05, y = .90, lbls = "What a messy plot",
+#' # box_text(x = .05, y = .90, labels = "What a messy plot",
 #' #          col_bg = seeblau[[1]], adj = c(0, 0), padding = c(.25, .85), cex = 2)
 #' 
-#' ## Vector of 2 lbls, using argument 'pos' to position right of coordinates:
+#' ## Vector of 2 labels, using argument 'pos' to position right of coordinates:
 #' # box_text(x = c(.30, .60), y = c(.20, .40),
-#' #          lbls = c("Note something here", "Some highlighting here"),
+#' #          labels = c("Note something here", "Some highlighting here"),
 #' #          col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
 #' 
 #' @family text functions
@@ -930,7 +930,8 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
 
 # - Definition: ---- 
 
-box_text <- function(x, y, lbls = NA,             # coordinates and labels of text element(s) 
+box_text <- function(labels = NA,     # labels of text element(s) 
+                     x, y,            # coordinates of text element(s) 
                      col_lbl = "black", col_bg = NA, col_bg_brd = NA,         # colors
                      adj = NULL, pos = 4, offset = 0, padding = c(.20, .80),  # positions 
                      cex = 2, font = 2                                        # text size and font
@@ -959,8 +960,8 @@ box_text <- function(x, y, lbls = NA,             # coordinates and labels of te
   
   # Measure dimensions of text elements:
   char_width  <- graphics::strwidth(s = "n", cex = cur_cex, font = font)    # width of letter "n" 
-  text_height <- graphics::strheight(s = lbls, cex = cur_cex, font = font)  # text height(s)
-  text_width  <- graphics::strwidth(s = lbls, cex = cur_cex, font = font)   # text width(s)
+  text_height <- graphics::strheight(s = labels, cex = cur_cex, font = font)  # text height(s)
+  text_width  <- graphics::strwidth(s = labels, cex = cur_cex, font = font)   # text width(s)
   
   # Is 'adj' of length 1 or 2?
   if (!is.null(adj)){
@@ -1014,7 +1015,7 @@ box_text <- function(x, y, lbls = NA,             # coordinates and labels of te
                  border  = col_bg_brd)
   
   # Draw text lbl(s):
-  graphics::text(x = x_mid, y = y_mid, labels = lbls, col = col_lbl, 
+  graphics::text(x = x_mid, y = y_mid, labels = labels, col = col_lbl, 
                  cex = cur_cex, font = font, 
                  adj = c(.5, .5) # center text in x and y 
   )
@@ -1034,9 +1035,9 @@ box_text <- function(x, y, lbls = NA,             # coordinates and labels of te
 #
 # ## Example 1: Simple highlights 
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1))
-# box_text(x = 0, y = .9, lbls = "Something to notice", col_bg = unlist(seeblau))
-# box_text(x = 0, y = .7, lbls = "Highlighting text is really simple", cex = 1.5, col_bg = "gold")
-# box_text(x = 0, y = .6, lbls = "and strikingly effective", cex = 1.5, col_bg = pal_seeblau[[1]])
+# box_text(x = 0, y = .9, labels = "Something to notice", col_bg = unlist(seeblau))
+# box_text(x = 0, y = .7, labels = "Highlighting text is really simple", cex = 1.5, col_bg = "gold")
+# box_text(x = 0, y = .6, labels = "and strikingly effective", cex = 1.5, col_bg = pal_seeblau[[1]])
 # 
 # ## Example 2: Messy plot 
 # n <- 20
@@ -1045,12 +1046,12 @@ box_text <- function(x, y, lbls = NA,             # coordinates and labels of te
 #      axes = FALSE, xlab = "", ylab = "")
 # 
 # # Adjust cex, font and adj:
-# box_text(x = .05, y = .90, lbls = "What a messy plot",
+# box_text(x = .05, y = .90, labels = "What a messy plot",
 #          col_bg = seeblau[[1]], adj = c(0, 0), padding = c(.25, .85), cex = 2)
 # 
-# # Vector of 2 lbls, using argument 'pos' to position right of coordinates:
+# # Vector of 2 labels, using argument 'pos' to position right of coordinates:
 # box_text(x = c(.30, .60), y = c(.20, .40),
-#          lbls = c("Note something here", "Some highlighting here"),
+#          labels = c("Note something here", "Some highlighting here"),
 #          col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
 
 
