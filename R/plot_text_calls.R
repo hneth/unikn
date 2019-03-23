@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 03 14
+## hn  |  uni.kn |  2019 03 23
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -18,9 +18,15 @@
 
 # - Documentation: ---- 
 
+#' Plot marked (or highlighted) text elements. 
+#' 
 #' \code{mark} plots 1 or more text strings (provided as a character vector \code{lbls}) 
 #' to an (existing or new) plot and places a colored box behind
 #' each label to mark it (i.e., highlight or make it stand out from the background).
+#' 
+#' The positions of the text elements in \code{lbls} can be specified by 
+#' providing their coordinates (as \code{x} and \code{y} arguments) or 
+#' by providing an initial position and an \code{y_layout} (see below). 
 #' 
 #' Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
 #' are recycled to match \code{length(lbls)}. 
@@ -62,14 +68,32 @@
 #' @param font The font type(s) to be used. 
 #' Default: \code{font = 2} (i.e., bold). 
 #' 
-#' @param new_plot Boolean: Should a new plot be generated?   
+#' @param new_plot Should a new plot be generated?   
 #' Set to \code{"blank"} or \code{"slide"} to create a new plot. 
 #' Default: \code{new_plot = "none"} (i.e., add to an existing plot). 
 #' 
 #' @examples 
-#' mark(lbls = "Just testing.", new_plot = "blank")  # create a new plot
-#' mark(lbls = "More testing here.", y = .45, col_bg = pal_pinky[[2]])  # add to plot
-#'                         
+#' # Basics: 
+#' mark(lbls = "This is a test.", new_plot = "blank")  # create a new blank plot
+#' mark(lbls = "More testing here...", y = .45, col_bg = pal_pinky[[2]])  # add to plot
+#'
+#' # Example: 
+#' # (a) Mark text on an existing plot:
+#' plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
+#' mark(x = 0, y = .8, lbls = "Mark (on an existing plot)")  # uses existing plot
+#' 
+#' # (b) Mark text on a new plot:
+#' mark(x = 0, y = .8, lbls = "Mark (and create a new plot)", new_plot = "slide")  # starts a new plot
+#' 
+#' # (c) More text and decorations:
+#' mark(x = 0, y = c(.60, .50), 
+#'      lbls = c("Highlighting text is simple", "and effective"),
+#'      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
+#' 
+#' mark(lbls = c("It is also flexible", "but to be handled with care"),
+#'      x = .4, y = .3, y_layout = "flush", cex = 1.2,
+#'      col = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
+#' 
 #' @family text functions
 #' 
 #' @seealso
@@ -91,6 +115,12 @@ mark <- function(lbls,               # labels of text element(s)
                  new_plot = "none"                 # type of new plot (if desired)
 ){
   
+  ## Robustify:
+  if (new_plot == FALSE || tolower(new_plot) == "false" || substr(tolower(new_plot), 1, 2) == "no") {
+    new_plot <- "none"
+  } 
+  
+  
   ## Pass on (to older box_text function):
   # box_text(x = x, y = y, lbls = lbls, col_lbl = col_lbl, col_bg = col_bg, cex = cex, font = font)
   
@@ -111,39 +141,45 @@ mark <- function(lbls,               # labels of text element(s)
 
 ## Check:
 
-# Basics:
+# # Basics:
 # mark(lbls = "Test text", new_plot = "blank")
-
-# ## Example 1: Simple highlights
+# 
+# # Example 1:
+# # (a) Mark text on an existing plot:
 # plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
+# mark(x = 0, y = .8, lbls = "Mark (on an existing plot)")  # uses existing plot
 # 
-# mark(x = 0, y = .8, lbls = "Please note")  # uses existing plot
-# mark(x = 0, y = .8, lbls = "Please note", new_plot = "slide")  # starts a new plot
+# # (b) Mark text on a new plot:
+# mark(x = 0, y = .8, lbls = "Mark (and create a new plot)", new_plot = "slide")  # starts a new plot
 # 
-# mark(x = 0, y = c(.60, .55),
+# # (c) Adding more text and decorations:
+# mark(x = 0, y = c(.60, .50), 
 #      lbls = c("Highlighting text is simple", "and effective"),
 #      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
 # 
 # mark(lbls = c("It is also flexible", "but to be handled with care"),
-#      x = .4, y = .3, y_layout = 0, cex = 1.2,
+#      x = .4, y = .3, y_layout = "flush", cex = 1.2,
 #      col = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
 
-# ## Example 2: Messy plot
+
+# ## Example 2: Messy plot:  
+# # A messy background plot: 
 # n <- 20
 # set.seed(1)
-# plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20), 
+# plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .20),
 #      axes = FALSE, xlab = "", ylab = "")
 # 
-# # Only 1 label:
-# mark(x = .05, y = .85, lbls = "What a messy plot")
+# # add 1 marked label:
+# mark(lbls = "Some messy plot", x = .05, y = .85)
 # 
-# # 2 labels at once:
-# mark(x = c(.35, .55), y = c(.15, .40),
-#      lbls = c("Note something here", "More highlighting here"),
+# # add 2 marked labels at once:
+# mark(lbls = c("Note something here", "More highlighting here"), 
+#      x = c(.35, .55), y = c(.15, .40),
 #      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
 
+
 # ## Example 3: Create a new plot vs. mark on existing plot:
-# lbl_mark <- c("                                                ",
+# lbl_blank <- c("                                                ",
 #               "                                      ",
 #               "                                                      ",
 #               "                                                ",
@@ -171,9 +207,15 @@ mark <- function(lbls,               # labels of text element(s)
 
 # - Documentation: ---- 
 
+#' Plot underlined text elements. 
+#' 
 #' \code{line} plots 1 or more text strings (provided as a character vector \code{lbls}) 
 #' to an (existing or new) plot and places a colored line beneath  
-#' each label to underline it.
+#' each label to underline it. 
+#' 
+#' The positions of the text elements in \code{lbls} can be specified by 
+#' providing their coordinates (as \code{x} and \code{y} arguments) or 
+#' by providing an initial position and an \code{y_layout} (see below). 
 #' 
 #' Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
 #' are recycled to match \code{length(lbls)}. 
@@ -283,8 +325,14 @@ line <- function(lbls,               # labels of text element(s)
 
 # - Documentation: ---- 
 
+#' Plot a post it (i.e., text in an xbox). 
+#' 
 #' \code{post} plots 1 or more text strings (provided as a character vector \code{lbls}) 
 #' to an (existing or new) \code{\link{xbox}}.
+#' 
+#' The positions of the text elements in \code{lbls} can be specified by 
+#' providing their coordinates (as \code{x} and \code{y} arguments) or 
+#' by providing an initial position and an \code{y_layout} (see below). 
 #' 
 #' Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
 #' are recycled to match \code{length(lbls)}. 
@@ -424,6 +472,8 @@ post <- function(lbls,               # labels of text element(s)
 
 # - Documentation: ---- 
 
+#' Plot a heading (i.e., marked text elements). 
+#' 
 #' \code{heading} plots 1 or more text strings (provided as a character vector \code{lbls}) 
 #' as a heading to an (existing or new) plot and places a colored box behind
 #' each label to mark it (i.e., highlighting the heading).
