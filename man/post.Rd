@@ -4,27 +4,27 @@
 \alias{post}
 \title{Plot a post it (i.e., text in an xbox).}
 \usage{
-post(lbls, x = 0.03, y = 0.55, y_layout = "even", col = "white",
+post(labels, x = 0.03, y = 0.55, y_layout = "even", col = "white",
   col_bg = Seeblau, cex = 1, font = 1, new_plot = "xbox")
 }
 \arguments{
-\item{lbls}{A character vector specifying the text labels 
+\item{labels}{A character vector specifying the text labels 
 to be written.}
 
 \item{x}{A numeric vector of x-coordinates at which the 
-text labels in \code{lbls} should be written. 
+text labels in \code{labels} should be written. 
 If the lengths of \code{x} and \code{y} differ, 
 the shorter one is recycled. 
 Default: \code{x = .03}.}
 
 \item{y}{A numeric vector of y-coordinates at which the 
-text labels in \code{lbls} should be written. 
+text labels in \code{labels} should be written. 
 If the lengths of \code{x} and \code{y} differ, 
 the shorter one is recycled. 
 Default: \code{y = .55}.}
 
 \item{y_layout}{A numeric value or vector for the vertical 
-spacing of labels in \code{lbls}. 
+spacing of labels in \code{labels}. 
 2 special values are 
 \code{"even"} (i.e., even distribution of labels across available y-space) and 
 \code{"flush"} (i.e., no space between adjacent labels, or \code{y_layout = 0}). 
@@ -48,27 +48,27 @@ Set to \code{"none"} to plot to an existing \code{\link{xbox}}.
 Default: \code{new_plot = "xbox"} (i.e., create a new \code{\link{xbox}}).}
 }
 \description{
-\code{post} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+\code{post} plots 1 or more text strings (provided as a character vector \code{labels}) 
 to an (existing or new) \code{\link{xbox}}.
 }
 \details{
-The positions of the text elements in \code{lbls} can be specified by 
+The positions of the text elements in \code{labels} can be specified by 
 providing their coordinates (as \code{x} and \code{y} arguments) or 
 by providing an initial position and an \code{y_layout} (see below).
 
 Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
-are recycled to match \code{length(lbls)}.
+are recycled to match \code{length(labels)}.
 
 \code{post} uses the base graphics system \code{graphics::}.
 }
 \examples{
-post(lbls = "Calling post() with default settings.")
+post(labels = "Calling post() with default settings.")
 
 # Create a new xbox: 
-post(lbls = "This is a test.", cex = 1.1, font = 2, col_bg = pal_seeblau[[5]])
+post(labels = "This is a test.", cex = 1.1, font = 2, col_bg = pal_seeblau[[5]])
 
 # Add to existing xbox: 
-post(lbls = c("More text follows here,",
+post(labels = c("More text follows here,",
               "yet another line here,",
               "and even more here."), 
               y = .4, y_layout = .04, 

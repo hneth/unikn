@@ -116,9 +116,9 @@ The following examples illustrate each command.
 
 ### Mark text
 
-The `mark` command allows highlighting text by plotting it with colored background boxes (to provide the functionality of "Markieren"):
+The `mark` command allows highlighting text by plotting it with colored background boxes (to provide the functionality of "Markieren"): 
 
-```{r mark, echo = FALSE, fig.width = 3, fig.height = 3}
+```{r mark_demo, echo = FALSE, fig.width = 3, fig.height = 3}
 lbl_blank <- c("                                                ",
               "                                      ",
               "                                                      ",
@@ -126,7 +126,7 @@ lbl_blank <- c("                                                ",
               "                              ")
 
 # (a) Create a new plot (of type "slide"):
-mark(lbls = lbl_blank,
+mark(labels = lbl_blank,
      x = 0, y = .85, y_layout = .03,
      col_bg = Seeblau,
      cex = 1.0,
@@ -134,7 +134,7 @@ mark(lbls = lbl_blank,
 ```
 
 By default, `mark` assumes that we want to add highlighted text to an already existing plot. 
-The text labels to be added are provided (as a character vector) by the `lbls` argument, their coordinates as the corresponding `x` and `y` arguments. 
+The text labels to be added are provided (as a character vector) by the `labels` argument, their coordinates as the corresponding `x` and `y` arguments. 
 Various text decorations (i.e., text and background colors, text sizes, and font types) can be set by specifying additional arguments (i.e., `col`, `col_bg`, `cex`, and `font`, respectively): 
 
 ```{r mark_messy_plot, echo = TRUE, fig.width = 7, fig.height = 5}
@@ -145,15 +145,15 @@ plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .
      axes = FALSE, xlab = "", ylab = "", mar = c(0, 0, 0, 0), oma = c(0, 0, 0, 0))
 
 # Add 1 marked label:
-mark(lbls = "Some messy plot", x = .05, y = .85)
+mark(labels = "Some messy plot", x = .05, y = .85)
 
 # Add 2 more marked labels:
-mark(lbls = c("Note something here", "More highlighting here"), 
+mark(labels = c("Note something here", "More highlighting here"), 
      x = c(.35, .55), y = c(.15, .40),
      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
 ```
 
-If no pre-existing plot is available, setting the `new_plot` argument to either `"blank"` or `"slide"` will generate a new default plot (by using the `slide` function described above). Instead of providing explicit `x` and `y` coordinates for all text elements in `lbls`, the following examples define an initial coordinate and use a numeric `y_layout` argument to fix the distance between consecutive text labels: 
+If no pre-existing plot is available, setting the `new_plot` argument to either `"blank"` or `"slide"` will generate a new default plot (by using the `slide` function described above):
 
 ```{r mark_new_plot, echo = TRUE, fig.width = 4, fig.height = 4}
 # A sentence to plot: 
@@ -162,33 +162,64 @@ s <- c("Markieren",
        "von Studieren.")
 
 # Create a new plot (of type "slide"):
-mark(lbls = s,
+mark(labels = s,
      x = 0, y = .85, y_layout = .03,
      col_bg = Seeblau,
      cex = 1.5,
      new_plot = "slide")
 
 # Add text to the same plot:
-mark(lbls = s,
+mark(labels = s,
      x = 0, y = .40, y_layout = .03,
      col_bg = pal_pinky[[2]],
      cex = 1.5, 
      new_plot = "none")
 ```
 
-Two special values for `y_layout` are 
+Instead of providing explicit `x` and `y` coordinates for all text elements in `labels`, the calls above defined an initial coordinate and used a numeric `y_layout` argument to fix the distance between consecutive text labels (to a value of `.03`). Special values for `y_layout` are: 
 
 - `y_layout = "even"` for an even distribution of labels across the available y-space, and 
 - `y_layout = "flush"` to omit space between adjacent labels (as in `y_layout = 0`).  
 
 See `?mark` for details. 
 
+### Underline text
+
+The `line` command allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"): 
+
+```{r line_demo, echo = FALSE, fig.width = 3, fig.height = 3}
+slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
+line(labels = slogan,
+     x = 0, y = .9, y_layout = "even",
+     cex = 1.1, font = 2,
+     new_plot = "blank")
+```
+
+As with `mark` above, the `line` command distinguishes between creating a new plot (by setting `new_plot` to either `"blank"` or "`slide`") or 
+adding to a pre-existing plot (by using the default `new_plot = "none"`): 
+
+```{r line_ex1, echo = TRUE, fig.width = 4, fig.height = 3}
+lbl_line <- c("This is neat, true, and terribly important.")
+line(labels = lbl_line, new_plot = "blank")  # create a new plot
+line(labels = "(which is why we underline it).", y = .40, cex = 1.2)  # add to plot
+```
+
+The arguments for text elements (`labels`), text positions (`x`, `y`, `y_layout`), and text properties and decorations (`col`, `col_bg`, `cex`, and `font`) work as they do for `mark`. For instance, shorter vectors are recycled to match the length of `labels`: 
+
+```{r line_ex2, echo = FALSE, fig.width = 3, fig.height = 3}
+slogan <- c("Geradlinig", "Farbenfroh", "Beweglich", "Bunt", "Paradiesisch")
+line(labels = slogan,
+     x = c(0, .45), y = .9, y_layout = "even",
+     col = c("black", Bordeaux), col_bg = c(Seeblau, Seegruen), 
+     cex = 1.1, font = 2,
+     new_plot = "blank")
+```
+
+
+"Unterstreichen"
 
 +++ here now +++
 
-### Underline text
-
-"Unterstreichen"
 
 ### Post it
 
@@ -206,7 +237,7 @@ One of the more obscure rules (in p. 31 of the CD manual) concerns the rendering
 my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from web browser
 my_url  # formatted URL
 
-post(lbls = my_url, y = .1, font = 4, new_plot = "xbox")  # post at bottom of an xbox
+post(labels = my_url, y = .1, font = 4, new_plot = "xbox")  # post at bottom of an xbox
 ```
 
 

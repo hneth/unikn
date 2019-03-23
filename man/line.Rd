@@ -4,27 +4,27 @@
 \alias{line}
 \title{Plot underlined text elements.}
 \usage{
-line(lbls, x = 0, y = 0.55, y_layout = "even", col = "black",
+line(labels, x = 0, y = 0.55, y_layout = "even", col = "black",
   col_bg = Seeblau, cex = 1.5, font = 1, new_plot = "none")
 }
 \arguments{
-\item{lbls}{A character vector specifying the text labels 
+\item{labels}{A character vector specifying the text labels 
 to be written.}
 
 \item{x}{A numeric vector of x-coordinates at which the 
-text labels in \code{lbls} should be written. 
+text labels in \code{labels} should be written. 
 If the lengths of \code{x} and \code{y} differ, 
 the shorter one is recycled. 
 Default: \code{x = 0}.}
 
 \item{y}{A numeric vector of y-coordinates at which the 
-text labels in \code{lbls} should be written. 
+text labels in \code{labels} should be written. 
 If the lengths of \code{x} and \code{y} differ, 
 the shorter one is recycled. 
 Default: \code{y = .55}.}
 
 \item{y_layout}{A numeric value or vector for the vertical 
-spacing of labels in \code{lbls}. 
+spacing of labels in \code{labels}. 
 2 special values are 
 \code{"even"} (i.e., even distribution of labels across available y-space) and 
 \code{"flush"} (i.e., no space between adjacent labels, or \code{y_layout = 0}). 
@@ -34,7 +34,7 @@ Default: \code{y_layout = "even"}.}
 Default: \code{col_lbl = "black"}.}
 
 \item{col_bg}{The color(s) of the line (under the text labels 
-of \code{lbls}). 
+of \code{labels}). 
 Default: \code{col_bg = Seeblau}.}
 
 \item{cex}{Numeric character expansion factor(s), 
@@ -49,24 +49,37 @@ Set to \code{"blank"} or \code{"slide"} to create a new plot.
 Default: \code{new_plot = "none"} (i.e., add to an existing plot).}
 }
 \description{
-\code{line} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+\code{line} plots 1 or more text strings (provided as a character vector \code{labels}) 
 to an (existing or new) plot and places a colored line beneath  
 each label to underline it.
 }
 \details{
-The positions of the text elements in \code{lbls} can be specified by 
+The positions of the text elements in \code{labels} can be specified by 
 providing their coordinates (as \code{x} and \code{y} arguments) or 
 by providing an initial position and an \code{y_layout} (see below).
 
 Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
-are recycled to match \code{length(lbls)}.
+are recycled to match \code{length(labels)}.
 
 \code{line} uses the base graphics system \code{graphics::}.
 }
 \examples{
+line(labels = "This is a test.", new_plot = "blank")  # create a new blank plot
+line(labels = "More testing here...", y = .33, col_bg = pal_pinky[[2]])  # add to plot
+
+# 2 basic cases: 
+# (a) Underline text on an existing plot:
+plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
+line(x = 0, y = .8, labels = "Underline text (on an existing plot)")  # add to plot
+
+# (b) Underline text on a new plot:
+line(x = .02, y = .80, labels = "Underline text (on a new plot)", 
+     new_plot = "slide")  # create a new plot
+
+# Example:
 lbl_line <- c("This is neat, true, and terribly important.")
-line(lbls = lbl_line, new_plot = "blank")                # create a new plot
-line(lbls = "(which is why we underline it).", y = .40)  # add to plot
+line(labels = lbl_line, new_plot = "blank")  # create a new plot
+line(labels = "(which is why we underline it).", y = .40, cex = 1.2)  # add to plot
                         
 }
 \seealso{

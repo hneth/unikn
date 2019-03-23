@@ -4,27 +4,27 @@
 \alias{heading}
 \title{Plot a heading (i.e., marked text elements).}
 \usage{
-heading(lbls, x = 0, y = 0.8, y_layout = "flush", col = "black",
+heading(labels, x = 0, y = 0.8, y_layout = "flush", col = "black",
   col_bg = "default", cex = 2, font = 2, new_plot = "slide")
 }
 \arguments{
-\item{lbls}{A character vector specifying the text labels 
+\item{labels}{A character vector specifying the text labels 
 to be written.}
 
 \item{x}{A numeric vector of x-coordinates at which the 
-text labels in \code{lbls} should be written. 
+text labels in \code{labels} should be written. 
 If the lengths of \code{x} and \code{y} differ, 
 the shorter one is recycled. 
 Default: \code{x = 0}.}
 
 \item{y}{A numeric vector of y-coordinates at which the 
-text labels in \code{lbls} should be written. 
+text labels in \code{labels} should be written. 
 If the lengths of \code{x} and \code{y} differ, 
 the shorter one is recycled. 
 Default: \code{y = .8}.}
 
 \item{y_layout}{A numeric value or vector for the vertical 
-spacing of labels in \code{lbls}. 
+spacing of labels in \code{labels}. 
 2 special values are 
 \code{"even"} (i.e., even distribution of labels across available y-space) and 
 \code{"flush"} (i.e., no space between adjacent labels, or \code{y_layout = 0}). 
@@ -50,25 +50,25 @@ and to \code{"none"} to add to an existing plot.
 Default: \code{new_plot = "slide"} (i.e., create a new \code{\link{slide}}).}
 }
 \description{
-\code{heading} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+\code{heading} plots 1 or more text strings (provided as a character vector \code{labels}) 
 as a heading to an (existing or new) plot and places a colored box behind
 each label to mark it (i.e., highlighting the heading).
 }
 \details{
 Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
-are recycled to match \code{length(lbls)}.
+are recycled to match \code{length(labels)}.
 
 \code{heading} uses the base graphics system \code{graphics::}.
 }
 \examples{
-heading(lbls = c("This is a headline", "containing two lines."))
+heading(labels = c("This is a headline", "containing two lines."))
 
 # Note the warning:
-heading(lbls = c("Headlines", "with 3 or more lines", 
+heading(labels = c("Headlines", "with 3 or more lines", 
                  "should not be arranged", "in such a step-wise fashion.")) 
 
 # Avoiding warning:
-heading(lbls = c("Headlines with", "3 or more lines should not", 
+heading(labels = c("Headlines with", "3 or more lines should not", 
                  "be arranged in", "a step-wise fashion."))
  
 }

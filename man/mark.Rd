@@ -4,27 +4,27 @@
 \alias{mark}
 \title{Plot marked (or highlighted) text elements.}
 \usage{
-mark(lbls, x = 0, y = 0.55, y_layout = "even", col = "black",
+mark(labels, x = 0, y = 0.55, y_layout = "even", col = "black",
   col_bg = Seeblau, cex = 2, font = 2, new_plot = "none")
 }
 \arguments{
-\item{lbls}{A character vector specifying the text labels 
+\item{labels}{A character vector specifying the text labels 
 to be written.}
 
 \item{x}{A numeric vector of x-coordinates at which the 
-text labels in \code{lbls} should be written. 
+text labels in \code{labels} should be written. 
 If the lengths of \code{x} and \code{y} differ, 
 the shorter one is recycled. 
 Default: \code{x = 0}.}
 
 \item{y}{A numeric vector of y-coordinates at which the 
-text labels in \code{lbls} should be written. 
+text labels in \code{labels} should be written. 
 If the lengths of \code{x} and \code{y} differ, 
 the shorter one is recycled. 
 Default: \code{y = .55}.}
 
 \item{y_layout}{A numeric value or vector for the vertical 
-spacing of labels in \code{lbls}. 
+spacing of labels in \code{labels}. 
 2 special values are 
 \code{"even"} (i.e., even distribution of labels across available y-space) and 
 \code{"flush"} (i.e., no space between adjacent labels, or \code{y_layout = 0}). 
@@ -48,39 +48,40 @@ Set to \code{"blank"} or \code{"slide"} to create a new plot.
 Default: \code{new_plot = "none"} (i.e., add to an existing plot).}
 }
 \description{
-\code{mark} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+\code{mark} plots 1 or more text strings (provided as a character vector \code{labels}) 
 to an (existing or new) plot and places a colored box behind
 each label to mark it (i.e., highlight or make it stand out from the background).
 }
 \details{
-The positions of the text elements in \code{lbls} can be specified by 
+The positions of the text elements in \code{labels} can be specified by 
 providing their coordinates (as \code{x} and \code{y} arguments) or 
 by providing an initial position and an \code{y_layout} (see below).
 
 Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
-are recycled to match \code{length(lbls)}.
+are recycled to match \code{length(labels)}.
 
 \code{mark} uses the base graphics system \code{graphics::}.
 }
 \examples{
 # Basics: 
-mark(lbls = "This is a test.", new_plot = "blank")  # create a new blank plot
-mark(lbls = "More testing here...", y = .45, col_bg = pal_pinky[[2]])  # add to plot
+mark(labels = "This is a test.", new_plot = "blank")  # create a new blank plot
+mark(labels = "More testing here...", y = .45, col_bg = pal_pinky[[2]])  # add to plot
 
 # Example: 
 # (a) Mark text on an existing plot:
 plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
-mark(x = 0, y = .8, lbls = "Mark (on an existing plot)")  # uses existing plot
+mark(x = 0, y = .8, labels = "Mark (on an existing plot)")  # uses existing plot
 
 # (b) Mark text on a new plot:
-mark(x = 0, y = .8, lbls = "Mark (and create a new plot)", new_plot = "slide")  # starts a new plot
+mark(x = 0, y = .8, labels = "Mark (and create a new plot)", 
+     new_plot = "slide")  # starts a new plot
 
 # (c) More text and decorations:
 mark(x = 0, y = c(.60, .50), 
-     lbls = c("Highlighting text is simple", "and effective"),
+     labels = c("Highlighting text is simple", "and effective"),
      cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
 
-mark(lbls = c("It is also flexible", "but to be handled with care"),
+mark(labels = c("It is also flexible", "but to be handled with care"),
      x = .4, y = .3, y_layout = "flush", cex = 1.2,
      col = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
 

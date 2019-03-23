@@ -2,24 +2,24 @@
 % Please edit documentation in R/plot_text.R
 \name{box_text}
 \alias{box_text}
-\title{\code{box_text} places 1 or more text strings (of a character vector \code{lbls}) 
+\title{\code{box_text} places 1 or more text strings (of a character vector \code{labels}) 
 onto a plot and places a colored box behind
 each label to highlight it (i.e., make it stand out from the background).}
 \usage{
-box_text(x, y, lbls = NA, col_lbl = "black", col_bg = NA,
+box_text(labels = NA, x, y, col_lbl = "black", col_bg = NA,
   col_bg_brd = NA, adj = NULL, pos = 4, offset = 0,
   padding = c(0.2, 0.8), cex = 2, font = 2)
 }
 \arguments{
+\item{labels}{A character vector specifying the text labels 
+to be written.}
+
 \item{x}{A numeric vector of x-coordinates at which the 
-text labels in \code{lbls} should be written. 
+text labels in \code{labels} should be written. 
 If the length of \code{x} and \code{y} differs, the shorter one is recycled.}
 
 \item{y}{A numeric vector of y-coordinates at which the 
-text labels in \code{lbls} should be written.}
-
-\item{lbls}{A character vector specifying the text labels 
-to be written.}
+text labels in \code{labels} should be written.}
 
 \item{col_lbl}{The color(s) of the text label(s). 
 Default: \code{col_lbl = "black"}.}
@@ -70,9 +70,9 @@ If only one label is placed, its coordinates are returned as a vector.
 \examples{
 ## Example 1: Simple highlights
 plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1))
-# box_text(x = 0, y = .9, lbls = "Something to notice", col_bg = Seeblau)
-# box_text(x = 0, y = .7, lbls = "Highlighting text is really simple", cex = 1.5, col_bg = "gold")
-# box_text(x = 0, y = .6, lbls = "and strikingly effective", cex = 1.5, col_bg = pal_seeblau[[1]])
+# box_text(x = 0, y = .9, labels = "Something to notice", col_bg = Seeblau)
+# box_text(x = 0, y = .7, labels = "Highlighting text is really simple", cex = 1.5, col_bg = "gold")
+# box_text(x = 0, y = .6, labels = "and strikingly effective", cex = 1.5, col_bg = pal_seeblau[[1]])
 
 ## Example 2: Messy plot
 n <- 20
@@ -81,12 +81,12 @@ plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20,
      col = grey(0, .20), axes = FALSE, xlab = "", ylab = "")
 
 ## Adjust cex, font and adj:
-# box_text(x = .05, y = .90, lbls = "What a messy plot",
+# box_text(x = .05, y = .90, labels = "What a messy plot",
 #          col_bg = seeblau[[1]], adj = c(0, 0), padding = c(.25, .85), cex = 2)
 
-## Vector of 2 lbls, using argument 'pos' to position right of coordinates:
+## Vector of 2 labels, using argument 'pos' to position right of coordinates:
 # box_text(x = c(.30, .60), y = c(.20, .40),
-#          lbls = c("Note something here", "Some highlighting here"),
+#          labels = c("Note something here", "Some highlighting here"),
 #          col_bg = c(pal_seeblau[[2]], "gold"), pos = 4, padding = c(.25, .85), cex = 1.2)
 
 }
