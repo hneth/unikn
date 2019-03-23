@@ -23,7 +23,7 @@ Note that \code{pal_n_sq} was created for \code{pal = \link{pal_unikn}}
 for small values of \code{n} (\code{n = 1, 2, 3}) and 
 returns the 11 colors of \code{\link{pal_unikn_plus}} for any \code{n > 3}.
 
-Use the more specialized function \code{\link{use_pal_n}} for choosing 
+Use the more specialized function \code{use_pal_n} for choosing 
 \code{n} dedicated colors of a known color palette.
 }
 \examples{
@@ -36,7 +36,6 @@ Use the more specialized function \code{\link{use_pal_n}} for choosing
 \seealso{
 \code{\link{seecol}} to plot color palettes; 
 \code{\link{col_scale}} to create color scales (gradients);  
-\code{\link{use_pal_n}} to get \code{n} dedicated colors of a known color palette; 
 \code{\link{pal_which}} to get specific colors of a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 

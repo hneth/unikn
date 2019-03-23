@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_text_calls.R
 \name{heading}
 \alias{heading}
-\title{\code{heading} plots 1 or more text strings (provided as a character vector \code{lbls}) 
-as a heading to an (existing or new) plot and places a colored box behind
-each label to mark it (i.e., highlighting the heading).}
+\title{Plot a heading (i.e., marked text elements).}
 \usage{
 heading(lbls, x = 0, y = 0.8, y_layout = "flush", col = "black",
   col_bg = "default", cex = 2, font = 2, new_plot = "slide")
@@ -52,10 +50,14 @@ and to \code{"none"} to add to an existing plot.
 Default: \code{new_plot = "slide"} (i.e., create a new \code{\link{slide}}).}
 }
 \description{
-Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
-are recycled to match \code{length(lbls)}.
+\code{heading} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+as a heading to an (existing or new) plot and places a colored box behind
+each label to mark it (i.e., highlighting the heading).
 }
 \details{
+Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
+are recycled to match \code{length(lbls)}.
+
 \code{heading} uses the base graphics system \code{graphics::}.
 }
 \examples{

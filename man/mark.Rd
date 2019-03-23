@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_text_calls.R
 \name{mark}
 \alias{mark}
-\title{\code{mark} plots 1 or more text strings (provided as a character vector \code{lbls}) 
-to an (existing or new) plot and places a colored box behind
-each label to mark it (i.e., highlight or make it stand out from the background).}
+\title{Plot marked (or highlighted) text elements.}
 \usage{
 mark(lbls, x = 0, y = 0.55, y_layout = "even", col = "black",
   col_bg = Seeblau, cex = 2, font = 2, new_plot = "none")
@@ -45,21 +43,47 @@ Default: \code{cex = 2}.}
 \item{font}{The font type(s) to be used. 
 Default: \code{font = 2} (i.e., bold).}
 
-\item{new_plot}{Boolean: Should a new plot be generated?
+\item{new_plot}{Should a new plot be generated?
 Set to \code{"blank"} or \code{"slide"} to create a new plot. 
 Default: \code{new_plot = "none"} (i.e., add to an existing plot).}
 }
 \description{
-Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
-are recycled to match \code{length(lbls)}.
+\code{mark} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+to an (existing or new) plot and places a colored box behind
+each label to mark it (i.e., highlight or make it stand out from the background).
 }
 \details{
+The positions of the text elements in \code{lbls} can be specified by 
+providing their coordinates (as \code{x} and \code{y} arguments) or 
+by providing an initial position and an \code{y_layout} (see below).
+
+Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
+are recycled to match \code{length(lbls)}.
+
 \code{mark} uses the base graphics system \code{graphics::}.
 }
 \examples{
-mark(lbls = "Just testing.", new_plot = "blank")  # create a new plot
-mark(lbls = "More testing here.", y = .45, col_bg = pal_pinky[[2]])  # add to plot
-                        
+# Basics: 
+mark(lbls = "This is a test.", new_plot = "blank")  # create a new blank plot
+mark(lbls = "More testing here...", y = .45, col_bg = pal_pinky[[2]])  # add to plot
+
+# Example: 
+# (a) Mark text on an existing plot:
+plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
+mark(x = 0, y = .8, lbls = "Mark (on an existing plot)")  # uses existing plot
+
+# (b) Mark text on a new plot:
+mark(x = 0, y = .8, lbls = "Mark (and create a new plot)", new_plot = "slide")  # starts a new plot
+
+# (c) More text and decorations:
+mark(x = 0, y = c(.60, .50), 
+     lbls = c("Highlighting text is simple", "and effective"),
+     cex = 1.5, col_bg = c(pal_seeblau[[2]], pal_seeblau[[1]]))
+
+mark(lbls = c("It is also flexible", "but to be handled with care"),
+     x = .4, y = .3, y_layout = "flush", cex = 1.2,
+     col = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
+
 }
 \seealso{
 \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).

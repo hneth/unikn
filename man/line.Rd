@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_text_calls.R
 \name{line}
 \alias{line}
-\title{\code{line} plots 1 or more text strings (provided as a character vector \code{lbls}) 
-to an (existing or new) plot and places a colored line beneath  
-each label to underline it.}
+\title{Plot underlined text elements.}
 \usage{
 line(lbls, x = 0, y = 0.55, y_layout = "even", col = "black",
   col_bg = Seeblau, cex = 1.5, font = 1, new_plot = "none")
@@ -51,10 +49,18 @@ Set to \code{"blank"} or \code{"slide"} to create a new plot.
 Default: \code{new_plot = "none"} (i.e., add to an existing plot).}
 }
 \description{
-Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
-are recycled to match \code{length(lbls)}.
+\code{line} plots 1 or more text strings (provided as a character vector \code{lbls}) 
+to an (existing or new) plot and places a colored line beneath  
+each label to underline it.
 }
 \details{
+The positions of the text elements in \code{lbls} can be specified by 
+providing their coordinates (as \code{x} and \code{y} arguments) or 
+by providing an initial position and an \code{y_layout} (see below).
+
+Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
+are recycled to match \code{length(lbls)}.
+
 \code{line} uses the base graphics system \code{graphics::}.
 }
 \examples{

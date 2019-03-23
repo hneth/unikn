@@ -18,19 +18,19 @@ Default: \code{n = "all"}.}
 \code{use_pal_n} returns \code{n} dedicated colors of a known color palette \code{pal}.
 }
 \examples{
-use_pal_n()                   # all colors of default color palette
-use_pal_n(n = 4)              # 4 colors of default color palette
-use_pal_n(pal = pal_seeblau)  # all colors of another color palette
+# use_pal_n()                   # all colors of default color palette
+# use_pal_n(n = 4)              # 4 colors of default color palette
+# use_pal_n(pal = pal_seeblau)  # all colors of another color palette
 
-# Default pal:
-use_pal_n(1)   # n = 1 color of default color pal
-use_pal_n(2)
-use_pal_n(4)
-use_pal_n(6)
-use_pal_n(8)
-use_pal_n(10)  # n = 10 colors of default color pal
+## Default pal:
+# use_pal_n(1)   # n = 1 color of default color pal
+# use_pal_n(2)
+# use_pal_n(4)
+# use_pal_n(6)
+# use_pal_n(8)
+# use_pal_n(10)  # n = 10 colors of default color pal
 
-use_pal_n(99)  # returns maximal number of colors: pal_unikn_plus (11)
+# use_pal_n(99)  # returns maximal number of colors: pal_unikn_plus (11)
 
 ## Other color palettes:
 # use_pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))

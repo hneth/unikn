@@ -89,7 +89,6 @@ seecol(col_scale(c(rev(pal_petrol), "white", pal_bordeaux), n = 11))
 }
 \seealso{
 \code{\link{seecol}} to plot color palettes; 
-\code{\link{use_pal_n}} to get \code{n} dedicated colors of a known color palette; 
 \code{\link{pal_which}} to get specific colors of a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
