@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 03 06
+## hn  |  uni.kn |  2019 03 23
 ## ---------------------------
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
@@ -59,7 +59,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
                       ...  # etc. arguments, passed to text()
 ){
   
-  ## Interpret inputs: ----
+  ## Interpret inputs (for robustness): ----
   
   N_lbls <- length(lbls)
   
@@ -113,11 +113,30 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
     
   }
   
-  # Set sensible defaults (for robustness):
+  # Set sensible defaults:
   
   # (a) new_plot:
   if (is.na(new_plot)) {new_plot <- "none"}  # adding to an existing plot
-  if (!new_plot %in% c("none", "xbox", "box", "slide", "frame", "blank", "empty")){
+  
+  # map different inputs to 4 main cases: 
+  if (new_plot == FALSE || tolower(new_plot) == "false" || substr(tolower(new_plot), 1, 2) == "no") {
+    new_plot <- "none"
+  } 
+  
+  if ((substr(tolower(new_plot), 1, 5) == "blank") || (substr(tolower(new_plot), 1, 5)  == "empty")) {
+    new_plot <- "blank"
+  } 
+  
+  if ((substr(tolower(new_plot), 1, 5) == "slide") || (substr(tolower(new_plot), 1, 5)  == "frame")) {
+    new_plot <- "slide"
+  } 
+  
+  if ((substr(tolower(new_plot), 1, 4) == "xbox") || (substr(tolower(new_plot), 1, 3)  == "box")) {
+    new_plot <- "xbox"
+  } 
+  
+  # handle other/non-recognized cases: 
+  if (!new_plot %in% c("none", "blank", "slide", "xbox")){
     
     message(paste0("Unknown new_plot = ", new_plot, ": Using 'blank' instead..."))
     
@@ -154,14 +173,14 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
   
   # (c) Create a new plot (if desired or needed):  
   
-  if (new_plot == "xbox" || new_plot == "box") { # plot xbox:
+  if (new_plot == "xbox") { # plot xbox:
     
     # message("Plotting desired xbox...") 
     
     if (is.na(col_bg_plot)) {col_box <- col_bg} else {col_box <- col_bg_plot} 
     xbox(col = col_box)
     
-  } else if (new_plot == "slide" || new_plot == "frame") {  # plot slide (or frame):
+  } else if (new_plot == "slide") {  # plot slide (or frame):
     
     # message("Plotting desired slide...") 
     
@@ -171,7 +190,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
     
     slide(col = col_slide, border = col_slide_border, lwd = lwd_slide_border)
     
-  } else if (new_plot == "blank" || new_plot == "empty") {  # plot borderless slide (or frame):
+  } else if (new_plot == "blank") {  # plot borderless slide (or frame):
     
     # message("Plotting desired slide...") 
     
@@ -566,7 +585,7 @@ plot_text <- function(lbls = NA,          # labels of text element(s)
       message("Some x-values are beyond current plot dimensions.") 
       # print(paste0("max(y_mid + text_width/2) = ", max(y_mid + text_width/2)))  # 4debugging
     }
-
+    
     if ( (min(y_mid - text_height/2) < plot_dim[3]) ||
          (max(y_mid + text_height/2) > plot_dim[4]) ) {
       message("Some y-values are beyond current plot dimensions.")  
