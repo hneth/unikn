@@ -56,7 +56,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
   
   # Record graphical parameters (par):
   opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
-  # on.exit(par(opar))               # restore upon exit
+  # on.exit(par(opar))             # restore upon exit
   
   if (!is.na(mar_all)) {  # reset all mar values:
     par(mar = c(0, 0, 0, 0) + mar_all)  # margins; default: par("mar") = 5.1 4.1 4.1 2.1.  
