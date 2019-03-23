@@ -104,8 +104,9 @@ pal_which <- function(which = "all", pal = pal_unikn){
 #' @family color functions
 #'
 #' @seealso
-#' \code{\link{pal_which}} for specific colors of a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette. 
+#' 
+#' 
 
 # - Definition: ---- 
 
