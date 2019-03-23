@@ -144,37 +144,29 @@ seecol(pal_unikn_pref)
 
 ### Partial color palettes
 
-When only a subset of a color palette are needed, the `pal_n()` function provides a reasonable subset of a known color palette:
+When only a subset of a color palette are needed, the `use_pal_n()` function provides a reasonable subset of a known color palette:
 
 ``` r
 # From pal_unikn (default): ----- 
-pal_n(n = 2)
-#>   seeblau4 seeblau2
-#> 1  #00A9E0  #A6E1F4
-pal_n(n = 4)
-#>   seeblau4 seeblau2   white   black
-#> 1  #00A9E0  #A6E1F4 #FFFFFF #000000
+use_pal_n(n = 2)
+use_pal_n(n = 4)
 
 # From pal_seeblau: ----- 
-pal_n(n = 1, pal = pal_seeblau)
-#>   seeblau3
-#> 1  #59C7EB
-pal_n(n = 4, pal = pal_seeblau)
-#>   seeblau4 seeblau3 seeblau2 seeblau1
-#> 1  #00A9E0  #59C7EB  #A6E1F4  #CCEEF9
+use_pal_n(n = 1, pal = pal_seeblau)
+use_pal_n(n = 4, pal = pal_seeblau)
 ```
 
 ### Extending and creating color palettes
 
-The `col_scale()` function provides color gradients based on given colors or color palettes. This serves 2 main functions:
+The `mi()` function provides color gradients based on given colors or color palettes. This serves 2 main functions:
 
 1.  Extending existing color palettes (to arbitrary lengths):
 
 ``` r
 # Extending color palettes: ----- 
-plot_pal(col_scale()(20))
-plot_pal(col_scale(pal_seeblau)(10))
-plot_pal(col_scale(pal_bordeaux)(10))
+seecol(mixcol(n = 20))  
+seecol(mixcol(pal_seeblau, 10))
+seecol(mixcol(pal_bordeaux, 10))
 ```
 
 <img src = "./inst/pix/README-col_scale_1-1.png" align = "center" alt = "col_scale" style = "border:10;"/>
@@ -330,30 +322,30 @@ For `mark` and `line`: Versions that allow to arrange multiple character strings
 
 <!-- Demo of text functions: -->
 ``` r
-post(lbls = c("Bitte beachten:", "Dies hier ist wichtig."), y = c(.5, .4), cex = c(1.5, 1.2), font = c(2, 1))
-mark(lbls = c("Markieren", "geht über Studieren."), y_layout = .05, col_bg = c(Seeblau, Peach), new_plot = "slide")
-line(lbls = c("Ewig", "währt", "am längsten"), y = .8, y_layout = .1, font = 2, new_plot = "blank")
-heading(lbls = c("Studieren", "geht faktisch über", "ins Probieren"))
+post(labels = c("Bitte beachten:", "Dies hier ist wichtig."), y = c(.5, .4), cex = c(1.5, 1.2), font = c(2, 1))
+mark(labels = c("Markieren", "geht über Studieren."), y_layout = .05, col_bg = c(Seeblau, Peach), new_plot = "slide")
+line(labels = c("Ewig", "währt", "am längsten"), y = .8, y_layout = .1, font = 2, new_plot = "blank")
+heading(labels = c("Studieren", "ist Theorie und Praxis", "und Probieren"))
 ```
 
 Post: Generating logo
 
 ``` r
 # unikn: 
-post(lbls = "unikn::", cex = 2.5, font = 2, y = .4)  # save in size: 250 x 250 pixel
+post(labels = "unikn::", cex = 2.5, font = 2, y = .4)  # save in size: 250 x 250 pixel
 
 # R: 
-post(lbls = "R", col_bg = pal_seeblau[[5]], 
+post(labels = "R", col_bg = pal_seeblau[[5]], 
      cex = 10, font = 2, y = .33)  # save in size: 250 x 250 pixel
 
 # ToDo: 
-post(lbls = "ToDo", col_bg = pal_signal[[1]], 
+post(labels = "ToDo", col_bg = pal_signal[[1]], 
      cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
-post(lbls = "ToDo", col_bg = pal_petrol[[4]], 
+post(labels = "ToDo", col_bg = pal_petrol[[4]], 
      cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
-post(lbls = "ToDo", col_bg = pal_pinky[[4]], 
+post(labels = "ToDo", col_bg = pal_pinky[[4]], 
      cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
-post(lbls = "ToDo", col_bg = pal_seegruen[[4]], 
+post(labels = "ToDo", col_bg = pal_seegruen[[4]], 
      cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
 ```
 
@@ -421,7 +413,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-03-20 by [hn](https://neth.de).\]
+\[Updated 2019-03-23 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 
