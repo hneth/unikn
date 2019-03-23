@@ -20,12 +20,12 @@ knitr::opts_chunk$set(echo = TRUE,
                collapse = TRUE, 
                comment = "#>",
                message = FALSE,
-               warning = FALSE#,
+               warning = FALSE,
                # ## Default figure options:
                # fig.width = 7.2, 
                # fig.asp = .618, # golden ratio
                # out.width = "75%",
-               # fig.align = "center"
+               fig.align = "center"
                )
 ```
 
@@ -99,23 +99,92 @@ xbox(col = Petrol, dim  = c(1, 2))  # an xbox 2 times higher than wide
 
 The 2 strokes of the X (in the top right corner) are orthogonal when viewing the `xbox` at the aspect ratio indicated by `dim` (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X is distorted. Hence, viewing and printing the image at the desired aspect ratio is crucial for designing an xbox.
 
-
 ## Plotting styled text
 
-Three main functions:
+There are 3 main functions for plotting text with decorations: 
 
-- `mark`
-- `line`
-- `post`
+- `mark` allows highlighting text with colored background boxes; 
+- `line` allows underlining text with colored lines; 
+- `post` allows posting text in rectangular `xbox` elements.
 
-In addition, two helper functions: 
+In addition, there are 2 helper functions: 
 
 - `headline`
 - `url_unikn`
 
+The following examples illustrate each command.
+
 ### Mark text
 
-"Markieren"
+The `mark` command allows highlighting text by plotting it with colored background boxes (to provide the functionality of "Markieren"):
+
+```{r mark, echo = FALSE, fig.width = 3, fig.height = 3}
+lbl_blank <- c("                                                ",
+              "                                      ",
+              "                                                      ",
+              "                                                ",
+              "                              ")
+
+# (a) Create a new plot (of type "slide"):
+mark(lbls = lbl_blank,
+     x = 0, y = .85, y_layout = .03,
+     col_bg = Seeblau,
+     cex = 1.0,
+     new_plot = "slide")
+```
+
+By default, `mark` assumes that we want to add highlighted text to an already existing plot. 
+The text labels to be added are provided (as a character vector) by the `lbls` argument, their coordinates as the corresponding `x` and `y` arguments. 
+Various text decorations (i.e., text and background colors, text sizes, and font types) can be set by specifying additional arguments (i.e., `col`, `col_bg`, `cex`, and `font`, respectively): 
+
+```{r mark_messy_plot, echo = TRUE, fig.width = 7, fig.height = 5}
+# Some pre-existing plot: 
+n <- 20
+set.seed(1)
+plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .2),
+     axes = FALSE, xlab = "", ylab = "", mar = c(0, 0, 0, 0), oma = c(0, 0, 0, 0))
+
+# Add 1 marked label:
+mark(lbls = "Some messy plot", x = .05, y = .85)
+
+# Add 2 more marked labels:
+mark(lbls = c("Note something here", "More highlighting here"), 
+     x = c(.35, .55), y = c(.15, .40),
+     col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
+```
+
+If no pre-existing plot is available, setting the `new_plot` argument to either `"blank"` or `"slide"` will generate a new default plot (by using the `slide` function described above). Instead of providing explicit `x` and `y` coordinates for all text elements in `lbls`, the following examples define an initial coordinate and use a numeric `y_layout` argument to fix the distance between consecutive text labels: 
+
+```{r mark_new_plot, echo = TRUE, fig.width = 4, fig.height = 4}
+# A sentence to plot: 
+s <- c("Markieren",
+       "ist ein Bestandteil",
+       "von Studieren.")
+
+# Create a new plot (of type "slide"):
+mark(lbls = s,
+     x = 0, y = .85, y_layout = .03,
+     col_bg = Seeblau,
+     cex = 1.5,
+     new_plot = "slide")
+
+# Add text to the same plot:
+mark(lbls = s,
+     x = 0, y = .40, y_layout = .03,
+     col_bg = pal_pinky[[2]],
+     cex = 1.5, 
+     new_plot = "none")
+```
+
+Two special values for `y_layout` are 
+
+- `y_layout = "even"` for an even distribution of labels across the available y-space, and 
+- `y_layout = "flush"` to omit space between adjacent labels (as in `y_layout = 0`).  
+
+See `?mark` for details. 
+
+
++++ here now +++
 
 ### Underline text
 
