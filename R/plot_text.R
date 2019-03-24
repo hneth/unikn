@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 03 23
+## hn  |  uni.kn |  2019 03 24
 ## ---------------------------
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
@@ -49,7 +49,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
                       
                       ## Plotting parameters:
                       # WAS: xbox = FALSE, slide = FALSE,  # flags for creating a new plot
-                      new_plot = "none",  # Default: "none" (add to currently existing plot). Options: "xbox", "slide", "blank" (borderless slide)
+                      new_plot = "none",  # Default: "none" (add to currently existing plot). Options: "blank" (borderless slide), "slide", "xbox"
                       col_bg_plot = NA,   # Color of background of new plot: Defaults: "white" for blank/slide, Seeblau for xbox.
                       mar_all = NA,  # option to reset all mar values (in nr. of line units)
                       oma_all = NA,  # option to reset all oma values (in nr. of line units)

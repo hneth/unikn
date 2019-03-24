@@ -1,5 +1,5 @@
 ## plot_box_calls.R | unikn
-## spds  |  uni.kn |  2019 03 23
+## spds | uni.kn |  2019 03 23
 ## ---------------------------
 
 ## Specialized functions to plot rectangular boxes (e.g., frames, slides, etc.)
