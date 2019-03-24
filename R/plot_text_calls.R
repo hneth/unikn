@@ -34,7 +34,7 @@
 #' \code{mark} uses the base graphics system \code{graphics::}.  
 #' 
 #' @param labels A character vector specifying the text labels 
-#' to be written.
+#' to be plotted. 
 #' 
 #' @param x A numeric vector of x-coordinates at which the 
 #' text labels in \code{labels} should be written. 
@@ -225,7 +225,7 @@ mark <- function(labels,             # labels of text element(s) to plot
 #' \code{line} uses the base graphics system \code{graphics::}.  
 #' 
 #' @param labels A character vector specifying the text labels 
-#' to be written.
+#' to be plotted. 
 #' 
 #' @param x A numeric vector of x-coordinates at which the 
 #' text labels in \code{labels} should be written. 
@@ -340,7 +340,7 @@ line <- function(labels,             # labels of text element(s) to plot
 
 # - Documentation: ---- 
 
-#' Plot a post it (i.e., text in an xbox). 
+#' Post text (in an xbox). 
 #' 
 #' \code{post} plots 1 or more text strings (provided as a character vector \code{labels}) 
 #' to an (existing or new) \code{\link{xbox}}.
@@ -355,7 +355,7 @@ line <- function(labels,             # labels of text element(s) to plot
 #' \code{post} uses the base graphics system \code{graphics::}.  
 #' 
 #' @param labels A character vector specifying the text labels 
-#' to be written.
+#' to be plotted. 
 #' 
 #' @param x A numeric vector of x-coordinates at which the 
 #' text labels in \code{labels} should be written. 
@@ -389,17 +389,19 @@ line <- function(labels,             # labels of text element(s) to plot
 #' @param font The font type(s) to be used. 
 #' Default: \code{font = 1} (i.e., plain text). 
 #' 
-#' @param new_plot Boolean: Should a new plot be generated?   
-#' Set to \code{"none"} to plot to an existing \code{\link{xbox}}. 
-#' Default: \code{new_plot = "xbox"} (i.e., create a new \code{\link{xbox}}). 
+#' @param new_plot Should a new plot be generated?   
+#' Set to \code{"xbox"} to plot to a basic \code{\link{xbox}} 
+#' (with square dimensions, i.e., \code{dim = c(1, 1)}).  
+#' Default: \code{new_plot = "none"} (i.e., assumes a pre-existing \code{\link{xbox}}). 
 #' 
 #' @examples 
-#' post(labels = "Calling post() with default settings.")
+#' post(labels = "Post this line with default settings.", new_plot = "xbox")
 #' 
 #' # Create a new xbox: 
-#' post(labels = "This is a test.", cex = 1.1, font = 2, col_bg = pal_seeblau[[5]])
+#' post(labels = "This is a test.", new_plot = "xbox", 
+#'      cex = 1.2, font = 2, col_bg = pal_seeblau[[5]])
 #' 
-#' # Add to existing xbox: 
+#' # Add text to an existing xbox: 
 #' post(labels = c("More text follows here,",
 #'               "yet another line here,",
 #'               "and even more here."), 
@@ -424,7 +426,7 @@ post <- function(labels,             # labels of text element(s) to plot
                  col = "white", col_bg = Seeblau,  # default color(s)
                  cex = 1.0, font = 1,              # default text size and font
                  # Others: 
-                 new_plot = "xbox"                 # type of new plot (if desired)
+                 new_plot = "none"                 # type of new plot (if desired). Set to "xbox" to create a square box (with dim = c(1, 1)).
 ){
   
   # Pass on (to newer plot_text function):
@@ -443,9 +445,9 @@ post <- function(labels,             # labels of text element(s) to plot
 
 ## Check:
 
-# post(labels = "Calling post() with default settings")
+# post(labels = "Calling post() with default settings", new_plot = "xbox")
 # 
-# post(labels = "This is a test",
+# post(labels = "This is a test", new_plot = "xbox", 
 #      cex = 1.1, font = 2,
 #      col_bg = pal_seeblau[[5]])
 # 
@@ -455,7 +457,21 @@ post <- function(labels,             # labels of text element(s) to plot
 #      y = .4, y_layout = .04,
 #      font = 1, new_plot = "none")
 # 
-# # ## Box with address/contact details:
+
+# ## Logos:
+# # R: 
+# post(labels = "R", col_bg = pal_seeblau[[5]], new_plot = "xbox", 
+#      cex = 10, font = 2, y = .33)  # save in size: 250 x 250 pixel
+# 
+# # ToDo: 
+# post(labels = "ToDo", col_bg = pal_signal[[1]], new_plot = "xbox", 
+#      cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
+# 
+# # SPDS: 
+# post(labels = c("SPDS", "Social Psychology and Decision Sciences"), font = c(2, 1), 
+#      new_plot = "xbox", cex = c(2.8, .85), y = c(.28, .15), col_bg = Petrol)
+
+# ## Contact details: Box with name and address:
 # address <- c("Dr. B. F. Skinner", " ",
 #              "Department of Psychology",
 #              "Office F101",
@@ -476,18 +492,16 @@ post <- function(labels,             # labels of text element(s) to plot
 
 ## URLs:
 # my_url <- url_unikn("https://www.uni-konstanz.de/")
-# post(labels = my_url, y = .1, font = 4)
+# post(labels = my_url, y = .1, font = 4, new_plot = "xbox")
 
-## Logos:
-# post(labels = c("SPDS", "Social Psychology and Decision Sciences"), font = c(2, 1), 
-#      cex = c(2.8, .85), y = c(.28, .15), col_bg = pal_seeblau[[5]])
+
 
 
 # (4) heading: Arrange headings (according to title specifications): ------ 
 
 # - Documentation: ---- 
 
-#' Plot a heading (i.e., marked text elements). 
+#' Plot a heading (as marked text elements). 
 #' 
 #' \code{heading} plots 1 or more text strings (provided as a character vector \code{labels}) 
 #' as a heading to an (existing or new) plot and places a colored box behind
@@ -499,7 +513,7 @@ post <- function(labels,             # labels of text element(s) to plot
 #' \code{heading} uses the base graphics system \code{graphics::}.  
 #' 
 #' @param labels A character vector specifying the text labels 
-#' to be written.
+#' to be plotted. 
 #' 
 #' @param x A numeric vector of x-coordinates at which the 
 #' text labels in \code{labels} should be written. 
