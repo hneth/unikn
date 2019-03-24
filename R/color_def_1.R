@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## hn |  uni.kn  |  2019 03 05
+## hn |  uni.kn  |  2019 03 24
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -392,9 +392,11 @@ pal_peach <- data.frame(                               #  Element:
 
 Peach <- pal_peach[[4]]  # HEX color value of peach.4 of pal_peach 
 
+names(Peach) <- "Peach"
+
 ## Check:
 # Peach  # "#FEA090"
-
+# names(Peach)
 
 #  (3) grau: ----- 
 
@@ -500,6 +502,8 @@ pal_grau <- data.frame(                               #  element:
 #' @export
 
 Grau <- pal_grau[[3]]  # HEX color value of grau.3 of pal_grau 
+
+names(Grau) <- "Grau"
 
 ## Check:
 # Grau  # "#9AA0A7"
@@ -615,6 +619,8 @@ pal_petrol <- data.frame(                               #  element:
 
 Petrol <- pal_petrol[[4]]  # HEX color value of petrol.4 of pal_petrol 
 
+names(Petrol) <- "Petrol"
+
 ## Check:
 # Petrol  #  "#077187"
 
@@ -728,6 +734,8 @@ pal_seegruen <- data.frame(                               #  element:
 
 Seegruen <- pal_seegruen[[4]]  # HEX color value of seegruen.4 of pal_seegruen 
 
+names(Seegruen) <- "Seegruen"
+
 ## Check:
 # Seegruen  #  "#0A9086"
 
@@ -838,6 +846,8 @@ pal_karpfenblau <- data.frame(                               #  element:
 #' @export
 
 Karpfenblau <- pal_karpfenblau[[4]]  # HEX color value of karpfenblau.4 of pal_karpfenblau 
+
+names(Karpfenblau) <- "Karpfenblau"
 
 ## Check:
 # Karpfenblau  #  "#3E5496"
@@ -950,6 +960,8 @@ pal_pinky <- data.frame(                               #  Element:
 
 Pinky <- pal_pinky[[4]]  # HEX color value of pinky.4 of pal_pinky 
 
+names(Pinky) <- "Pinky"
+
 ## Check:
 Pinky  #  "#E0607E"
 
@@ -1060,13 +1072,10 @@ pal_bordeaux <- data.frame(                               #  Element:
 
 Bordeaux <- pal_bordeaux[[4]]  # HEX color value of bordeaux.4 of pal_bordeaux 
 
+names(Bordeaux) <- "Bordeaux"
+
 ## Check:
 # Bordeaux  #  "#8E2043"
-
-
-
-
-
 
 
 #  (9) Ampeltöne: pal_signal -----
@@ -1194,12 +1203,12 @@ pal_signal <- data.frame(                               #  Element:
 
 Signal <- pal_signal[[2]]  # == signal2 of pal_signal: "signal2" OR "#EFDC60"
 
+names(Signal) <- "Signal"
+
 ## Check:
 # Signal  # "#EFDC60"
 
 # +++ here now +++ 
-
-
 
 ## ToDo: ------
 
