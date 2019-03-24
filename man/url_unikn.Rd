@@ -23,8 +23,7 @@ url_unikn("https://www.uni-konstanz.de/")
 \code{\link{xbox}} to create a new xbox (without text).
 
 Other text functions: \code{\link{box_text}},
-  \code{\link{heading}}, \code{\link{line}},
-  \code{\link{mark}}, \code{\link{plot_box_txt}},
-  \code{\link{post}}
+  \code{\link{line}}, \code{\link{mark}},
+  \code{\link{plot_box_txt}}, \code{\link{post}}
 }
 \concept{text functions}

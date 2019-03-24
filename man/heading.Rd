@@ -67,17 +67,17 @@ heading(labels = c("This is a headline", "containing two lines."))
 heading(labels = c("Headlines", "with 3 or more lines", 
                  "should not be arranged", "in such a step-wise fashion.")) 
 
-# Avoiding warning:
-heading(labels = c("Headlines with", "3 or more lines should not", 
-                 "be arranged in", "a step-wise fashion."))
- 
+# Avoiding the warning:
+heading(labels = c("Headlines with", "3 or more lines should", 
+                   "not be arranged", "in a step-wise fashion."))
+
+# Using non-default colors:
+heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
+        cex = 1.6, col = "white", col_bg = usecol(c(Pinky, Seegruen, Bordeaux, Karpfenblau)))
+
+#' @family text functions
+
 }
 \seealso{
 \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).
-
-Other text functions: \code{\link{box_text}},
-  \code{\link{line}}, \code{\link{mark}},
-  \code{\link{plot_box_txt}}, \code{\link{post}},
-  \code{\link{url_unikn}}
 }
-\concept{text functions}
