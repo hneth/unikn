@@ -177,14 +177,14 @@ plot_text <- function(labels = NA,        # labels of text element(s)
     
     # message("Plotting desired xbox...") 
     
-    if (is.na(col_bg_plot)) {col_box <- col_bg} else {col_box <- col_bg_plot} 
+    if (is.na(col_bg_plot) || col_bg_plot == "default") {col_box <- col_bg} else {col_box <- col_bg_plot} 
     xbox(col = col_box)
     
   } else if (new_plot == "slide") {  # plot slide (or frame):
     
     # message("Plotting desired slide...") 
     
-    if (is.na(col_bg_plot)) {col_slide <- NA} else {col_slide <- col_bg_plot} 
+    if (is.na(col_bg_plot) || col_bg_plot == "default") {col_slide <- NA} else {col_slide <- col_bg_plot} 
     col_slide_border <- grey(.33, 1)
     lwd_slide_border <- 1.0
     
@@ -194,7 +194,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
     
     # message("Plotting desired slide...") 
     
-    if (is.na(col_bg_plot)) {col_slide <- NA} else {col_slide <- col_bg_plot} 
+    if (is.na(col_bg_plot) || col_bg_plot == "default") {col_slide <- NA} else {col_slide <- col_bg_plot} 
     col_slide_border <- NA
     lwd_slide_border <- 0
     
@@ -204,7 +204,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
     
     message("No existing plot: Plotting default slide...")  
     
-    if (is.na(col_bg_plot)) {col_slide <- NA} else {col_slide <- col_bg_plot} 
+    if (is.na(col_bg_plot) || col_bg_plot == "default") {col_slide <- NA} else {col_slide <- col_bg_plot} 
     col_slide_border <- grey(.33, 1)
     lwd_slide_border <- 1.0
     
