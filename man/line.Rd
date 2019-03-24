@@ -9,7 +9,7 @@ line(labels, x = 0, y = 0.55, y_layout = "even", col = "black",
 }
 \arguments{
 \item{labels}{A character vector specifying the text labels 
-to be written.}
+to be plotted.}
 
 \item{x}{A numeric vector of x-coordinates at which the 
 text labels in \code{labels} should be written. 

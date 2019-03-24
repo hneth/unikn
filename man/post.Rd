@@ -2,14 +2,14 @@
 % Please edit documentation in R/plot_text_calls.R
 \name{post}
 \alias{post}
-\title{Plot a post it (i.e., text in an xbox).}
+\title{Post text (in an xbox).}
 \usage{
 post(labels, x = 0.03, y = 0.55, y_layout = "even", col = "white",
-  col_bg = Seeblau, cex = 1, font = 1, new_plot = "xbox")
+  col_bg = Seeblau, cex = 1, font = 1, new_plot = "none")
 }
 \arguments{
 \item{labels}{A character vector specifying the text labels 
-to be written.}
+to be plotted.}
 
 \item{x}{A numeric vector of x-coordinates at which the 
 text labels in \code{labels} should be written. 
@@ -43,9 +43,10 @@ Default: \code{cex = 1.0}.}
 \item{font}{The font type(s) to be used. 
 Default: \code{font = 1} (i.e., plain text).}
 
-\item{new_plot}{Boolean: Should a new plot be generated?
-Set to \code{"none"} to plot to an existing \code{\link{xbox}}. 
-Default: \code{new_plot = "xbox"} (i.e., create a new \code{\link{xbox}}).}
+\item{new_plot}{Should a new plot be generated?
+Set to \code{"xbox"} to plot to a basic \code{\link{xbox}} 
+(with square dimensions, i.e., \code{dim = c(1, 1)}).  
+Default: \code{new_plot = "none"} (i.e., assumes a pre-existing \code{\link{xbox}}).}
 }
 \description{
 \code{post} plots 1 or more text strings (provided as a character vector \code{labels}) 
@@ -62,12 +63,13 @@ are recycled to match \code{length(labels)}.
 \code{post} uses the base graphics system \code{graphics::}.
 }
 \examples{
-post(labels = "Calling post() with default settings.")
+post(labels = "Post this line with default settings.", new_plot = "xbox")
 
 # Create a new xbox: 
-post(labels = "This is a test.", cex = 1.1, font = 2, col_bg = pal_seeblau[[5]])
+post(labels = "This is a test.", new_plot = "xbox", 
+     cex = 1.2, font = 2, col_bg = pal_seeblau[[5]])
 
-# Add to existing xbox: 
+# Add text to an existing xbox: 
 post(labels = c("More text follows here,",
               "yet another line here,",
               "and even more here."), 

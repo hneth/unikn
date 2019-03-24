@@ -38,7 +38,6 @@ Default: \code{n = "all"}.}
 
 }
 \seealso{
-\code{\link{pal_which}} for specific colors of a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color palettes: \code{\link{col_scale}},

@@ -2,14 +2,14 @@
 % Please edit documentation in R/plot_text_calls.R
 \name{heading}
 \alias{heading}
-\title{Plot a heading (i.e., marked text elements).}
+\title{Plot a heading (as marked text elements).}
 \usage{
 heading(labels, x = 0, y = 0.8, y_layout = "flush", col = "black",
   col_bg = "default", cex = 2, font = 2, new_plot = "slide")
 }
 \arguments{
 \item{labels}{A character vector specifying the text labels 
-to be written.}
+to be plotted.}
 
 \item{x}{A numeric vector of x-coordinates at which the 
 text labels in \code{labels} should be written. 
