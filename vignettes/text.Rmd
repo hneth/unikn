@@ -263,12 +263,38 @@ post(labels = address,
      new_plot = "none")  # add to plot
 ```
 
-### Headlines
+### Headings
 
-Titels
+The `heading` function makes it easy to create recognizable headings: 
 
-+++ here now +++
+```{r heading_demo, echo = FALSE, fig.width = 4, fig.height = 3}
+heading(labels = c("Ich bin", "eine", "Headline."))
+ 
+# hl_1b <- c("Ich", "bin keine", "gute Headline.")
+# heading(labels = hl_1b)  # issues a warning: Avoid step-wise titles...
+# 
+# hl_1c <- c("Ich bin", "eine alternative", "Headline.")
+# heading(labels = hl_1c)  # no warning
+```
 
+By default, the function creates a new slide (i.e., `new_plot = "slide"`) and positions the text elements of `labels` on its left edge (i.e., `x = 0`, `y = .8` and `y_layout = "flush"`). Headings violating the recommendations (see p. 25 of the CD manual) will generate a message, for instance: 
+
+```{r heading_warn, echo = TRUE, message = TRUE, fig.width = 4, fig.height = 3}
+# Beware of step-wise arrangements:
+heading(labels = c("Ich", "bin keine", "gute Headline."))
+
+# To avoid warning:
+heading(labels = c("Ich bin", "eine alternative", "Headline."))
+```
+
+When colors are left unspecified, `heading` selects colors that are appropriate 
+for the number of elements in `labels` (i.e., shades of `Seeblau` for `col_bg = "default"`). 
+However, default colors can be overwritten by setting the `col` and `col_bg` arguments:
+
+```{r heading_col, echo = TRUE, fig.width = 4, fig.height = 3}
+heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
+        col = "white", col_bg = c(Pinky, Seegruen, Bordeaux, Karpfenblau))
+```
 
 ### URLs
 
@@ -278,9 +304,12 @@ One of the more obscure rules (in p. 31 of the CD manual) concerns the rendering
 my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from web browser
 my_url  # formatted URL
 
-post(labels = my_url, y = .1, font = 4, new_plot = "xbox")  # post at bottom of an xbox
+# Put URL at bottom of an xbox:
+post(labels = my_url, y = .1, font = 4, 
+     new_plot = "xbox")
 ```
 
++++ here now +++
 
 ## All unikn vignettes
 
