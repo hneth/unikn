@@ -495,8 +495,6 @@ post <- function(labels,             # labels of text element(s) to plot
 # post(labels = my_url, y = .1, font = 4, new_plot = "xbox")
 
 
-
-
 # (4) heading: Arrange headings (according to title specifications): ------ 
 
 # - Documentation: ---- 
@@ -560,11 +558,15 @@ post <- function(labels,             # labels of text element(s) to plot
 #' heading(labels = c("Headlines", "with 3 or more lines", 
 #'                  "should not be arranged", "in such a step-wise fashion.")) 
 #' 
-#' # Avoiding warning:
-#' heading(labels = c("Headlines with", "3 or more lines should not", 
-#'                  "be arranged in", "a step-wise fashion."))
-#'  
-#' @family text functions
+#' # Avoiding the warning:
+#' heading(labels = c("Headlines with", "3 or more lines should", 
+#'                    "not be arranged", "in a step-wise fashion."))
+#' 
+#' # Using non-default colors:
+#' heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
+#'         cex = 1.6, col = "white", col_bg = usecol(c(Pinky, Seegruen, Bordeaux, Karpfenblau)))
+#' 
+#' #' @family text functions
 #' 
 #' @seealso 
 #' \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).  
@@ -579,7 +581,7 @@ heading <- function(labels,             # labels of text element(s) to plot
                     x = 0, y = .8,      # coordinates of text labels 
                     y_layout = "flush", # "even", "flush", or numeric value(s) for distance b/w labels (y-space between subsequent labels)
                     # Colors and text parameters: 
-                    col = "black", col_bg = "default",  # default color(s)
+                    col = "black", col_bg = "default",  # default color(s) 
                     cex = 2.0, font = 2,                # default text size and font
                     # Others: 
                     new_plot = "slide"                  # type of new plot (if desired)
@@ -595,17 +597,27 @@ heading <- function(labels,             # labels of text element(s) to plot
     message("Headlines should not exceed 4 lines.")
   }
   
-  # Defaults for col_bg:
-  if (col_bg == "default"){
+  # Set defaults for col_bg:
+  if ((length(col_bg) == 1) && (is.na(col_bg) || col_bg == "default")){
     
+    # (a) better default:
+    col_bg <- pal_seeblau[[2]] 
+    
+    # (b) 5 standard cases:
     switch(N_labels,
            col_bg <- Seeblau,  # 1:
            col_bg <- c(pal_seeblau[[2]], pal_seeblau[[4]]), # 2:
            col_bg <- c(pal_seeblau[[1]], pal_seeblau[[3]], pal_seeblau[[4]]), # 3:
            col_bg <- c(pal_seeblau[[1]], pal_seeblau[[2]], pal_seeblau[[3]], pal_seeblau[[4]]), # 4: 
-           col_bg <- c(pal_seeblau[[1]], pal_seeblau[[2]], pal_seeblau[[3]], pal_seeblau[[4]], pal_seeblau[[5]]) # 5: 
+           col_bg <- c(pal_seeblau[[1]], pal_seeblau[[2]], pal_seeblau[[3]], pal_seeblau[[4]], pal_seeblau[[5]]) # 5:
     )
-  }
+    
+    # (c) More than 5 lines: 
+    if (N_labels > 5) { col_bg <- mixcol(pal = pal_seeblau, n = N_labels) }  # default colors for N_labels > 5.
+    
+  } # (col_bg == "default") etc. 
+  
+  # print(paste0("col_bg = ", col_bg))  # 4debugging
   
   # Pass on (to newer plot_text function):
   plot_text(labels = labels, 
@@ -625,7 +637,7 @@ heading <- function(labels,             # labels of text element(s) to plot
 
 ## Check:
 
-# heading(labels = "Calling heading() with default settings.") 
+# heading(labels = "A heading with default settings.") 
 # heading(labels = c("This is a headline", "containing two lines."))
 
 # ## (a) Step-wise arrangements:
@@ -650,16 +662,18 @@ heading <- function(labels,             # labels of text element(s) to plot
 # hl_3 <- c("Ich bin", "eine Headline", "mit drei Zeilen.")
 # heading(labels = hl_3)  # 3 lines/colors, but warning
 # 
-# hl_3b <- c("Ich bin", "eine andere Headline", "mit drei Zeilen.")
+# hl_3b <- c("Ich bin", "eine alternative Headline", "mit drei Zeilen.")
 # heading(labels = hl_3b)  # 3 lines/colors, no warning
 # 
 # hl_4 <- c("Ich bin", "eine weitere", "Headline", "mit vier Zeilen.")
-# heading(labels = hl_4)  # 4 colors
+# heading(labels = hl_4)  # 4 lines/colors
 # 
-# hl_5 <- c("Ich bin", "eine weitere", "Headline", "aber umfasse", "ganze fünf Zeilen.")
-# heading(labels = hl_5)  # 4 colors
+# hl_5 <- c("Ich bin", "eine weitere", "Headline", "aber umfasse", "sogar fünf Zeilen.")
+# heading(labels = hl_5)  # 5 lines/colors, and warning
 
-
+# # Non-default colors:
+# heading(labels = c("Ene, mene, miste,", "es rappelt", "in der Kiste."), 
+#         col = "white", col_bg = usecol(rev(pal_bordeaux)))
 
 ## Test: Testbed for code snippets (used above) ------
 
