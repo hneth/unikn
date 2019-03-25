@@ -79,10 +79,14 @@ parse_pal <- function(pal) {
   
   
   ## Split the input string; getting everything within the parentheses:
-  mtc <- regmatches(tmp, gregexpr("(?<=\\().*?(?=\\))", tmp, perl = TRUE))[[1]]
-  print(mtc)
+  if ( grepl("\\(", tmp)) {  # only if any parenthesis exists.
+    
+    tmp <- regmatches(tmp, gregexpr("(?<=\\().*?(?=\\))", tmp, perl = TRUE))[[1]]
+    print(tmp)
+    
+  } 
   
-  elem <- gsub(" |\"", "", unlist(strsplit(mtc, split = ",")))  
+  elem <- gsub(" |\"", "", unlist(strsplit(tmp, split = ",")))  
   # Split get elements of the input at ',' and remove whitespace and quotes.
   print(elem)
   
@@ -134,6 +138,8 @@ b
 
 parse_pal(c("#BC7A8F", "lü"))
 parse_pal(c("la", "lü"))
+
+parse_pal(c("bordeaux", "karpfenblau"))
 
 parse_pal(rev(pal_bordeaux))  # TODO: Incorporate any functions. 
 ## Therefore: get outer function (is it c()? if ntot, execute / retain)
