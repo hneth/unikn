@@ -89,35 +89,43 @@ parse_pal <- function(pal) {
   
   ## Now ask for every element, whether it exists:
   elemex <- sapply(elem, exists)
-  print(paste0("pal_", noquote(elem[!elemex])))
-  
-  ## Prefix those which do not exist with "pal_
-  elemex[!elemex] <- sapply(paste0("pal_", elem[!elemex]), exists)
   
   ## Those which are still unknown: are those colors? 
   elemex[!elemex] <- sapply(elem[!elemex], isCol)
   print(elemex)
   
+  ## Prefix those which do not exist with "pal_
+  print(paste0("pal_", noquote(elem[!elemex])))
+  elem[!elemex] <- paste0("pal_", elem[!elemex])
+  elemex[!elemex] <- sapply(elem[!elemex], exists)
+  
+  
+  # Handle undefined palettes: 
   if (!all(elemex)) {
     
-    nex <- elem[!elemex]
+    nex <- gsub("pal_", "", elem[!elemex])
     
     if ( length(nex) > 1) {
       
-      errmsg <- paste0("Inputs ", paste0(nex, collapse = ", "), " do not exist")
+      errmsg <- paste0("Inputs ", paste0("\"", nex, "\"", collapse = ", "), " do not exist")
       
     } else {
       
-      errmsg <- paste0("Input ", nex, " does not exist")
+      errmsg <- paste0("Input \"", nex, "\" does not exist")
       
     }
     
     stop(errmsg)
     
-    }
+  }
+  
+  
+  ## Get all palettes:
+  out <- sapply(elem, function(x) if( isCol(x) ) x else get(x) )
+  print(out)
   
   ## Return the elements:
-  invisible(tmp)
+  return(out)
   
 }
 
@@ -125,6 +133,10 @@ b <- parse_pal(pal = c("karpfenblau", bordeaux, "green"))
 b
 
 parse_pal(c("#BC7A8F", "lü"))
+parse_pal(c("la", "lü"))
+
+parse_pal(rev(pal_bordeaux))  # TODO: Incorporate any functions. 
+## Therefore: get outer function (is it c()? if ntot, execute / retain)
 
 c <- eval(expression("rev(pal_bordeaux)"))
 c
@@ -132,216 +144,166 @@ c
 # TODO: Add function compcol to compare color palettes with seepal? 
 
 
-## get_col(): Get a palette or list of palettes by keyword, n argument uses grDevices::colorRampPalette(): -------
+## get_col(): Get a palette or list of palettes by keyword: -------
 
-get_col <- function(pal, n = "all") {
+getcol <- function(pal = "all") {
   
   ## 1. Process the 'pal' argument: ------------------------
   
-  ## 1.1 Test, whether a valid argument was specified: --------
-  # Valid arguments comprise: 
-  # - "all" (the default); plots all palettes in the environment.
-  # - a single palette name as character.
-  # - a list of length > 0  
-  # TODO: A single color of type list
-  # - a character vector of length > 0
+  ## 1.1 Getting by keyword: -----
   
-  # pal <- tolower(pal)  # TODO: tolower() is problematic, as one cannot access the single colors in uppercase. 
+  print(deparse(substitute(pal)))
   
-  # # Correct order: First test for non-character argument(s) then for character inputs:
-  ## Test, whether the palette exists:
-  dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
+  keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad")
   
-  print(dep_pal)
-  print(exists(dep_pal))
-  
-  if ( !exists(dep_pal) ) {
+  if ( pal %in% keys ) {
+    # Get all color palettes with the prefix "pal_" from the environment.
+    all_pal <- utils::apropos("pal_")  # all palettes in the environment. 
+    ix_unikn <- grepl("pal_unikn", all_pal)  # index for all unikn palettes. 
     
-    dep_pal_exists <- tryCatch(
-      
-      {
-        exists(paste0("pal_", dep_pal))
-        # print("here")
-        # print(exists(paste0("pal_", dep_pal)))
-      },
-      
-      error = function(e) {
-        
-        tryCatch( 
-          {exists(pal)}          , 
-          
-          error = function(e) {
-            
-            stop(paste0("No matching color palette found for input", dep_pal))
-            
-          })
-      }
+    ## The three cases: -----
+    pal_names <- switch( pal, 
+                         all = all_pal[all_pal != "tmp"],
+                         unikn_all = all_pal[ix_unikn],
+                         all_unikn = all_pal[ix_unikn],
+                         grad_all = all_pal[!ix_unikn],
+                         all_grad = all_pal[!ix_unikn]
     )
     
-    ## If the palette has been found to exist:
-    if ( dep_pal_exists ) {
-      
-      pal <- paste0("pal_", dep_pal)
-      
-    }
+    # Get all palettes specified by keyword:
+    lst_pal <- sapply(pal_names, get)
     
-  }  # eof. existence check.
-  
-  len_pal <- length(pal)  # get length of the specified palette. 
-  typ_pal <- typeof(pal)  # get type of the specified palette. 
-  
-  stopifnot(len_pal > 0)  # stop if no palette is specified. 
-  
-  tmp <- pal  # specify temporary palette for processing (to retain input). 
-  pal_name <- deparse(substitute(pal)) # name of pal (as df)
-  
-  ## 1.2 Check, whether palette is of length 1 (keyword or single color; potentially also list): 
-  if ( len_pal == 1 ) {
-    
-    # TODO: Test for list of colors of legth 1? 
-    
-    if ( pal == "tmp" ) stop("Color palettes must not be named tmp.")  # TODO: Nicer solution possible?
-    
-    ## 1.2.1 Getting by keyword: -------------------
-    keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad")
-    
-    if ( pal %in% keys ) {  # is pal in keys?
+    # Indicator, whether these are color palettes: 
+    is_pal <- lapply(lst_pal, FUN = function(x) {
       
-      # Get all color palettes with the prefix "pal_" from the environment.
-      
-      all_pal <- utils::apropos("pal_")  # all palettes in the environment. 
-      ix_unikn <- grepl("pal_unikn", all_pal)  # index for all unikn palettes. 
-      
-      ## The three cases: -----
-      pal_names <- switch( pal, 
-                           all = all_pal[all_pal != "tmp"],
-                           unikn_all = all_pal[ix_unikn],
-                           all_unikn = all_pal[ix_unikn],
-                           grad_all = all_pal[!ix_unikn],
-                           all_grad = all_pal[!ix_unikn]
-      )
-      
-      # Get all palettes specified by keyword:
-      lst_pal <- sapply(pal_names, get)
-      
-      # Indicator, whether these are color palettes: 
-      is_pal <- lapply(lst_pal, FUN = function(x) {
-        
-        if (!typeof(x) %in% c("vector", "list")) {
-          is_color <- FALSE
-        } else {
-          is_color <- isHexCol(color = x)
-        } 
-        return(all(is_color))  # are all entries colors? 
-        
-      })
-      
-      # Get the palettes:
-      tmp <- lst_pal[unlist(is_pal)]
-      
-      # Check if palette is non-empty:
-      if (length(tmp) == 0) {
-        stop("No color palettes defined in the current environment.")
-      }
-      
-      ## Order palettes:
-      if ( pal == "all" ) {
-        ix <- c(grep("pal_unikn", names(tmp)), grep("pal_signal", names(tmp)))
-        
-        tmp <- c(tmp[ix], tmp[-ix])
-      }
-      
-      pal_nm <- names(tmp)  # get palette names from listnames. 
-      
-      ## 1.2.2 Single palette name: ------
-    } else {  # if pal not defined by keyword.
-      
-      ## TODO: Function to test for colors in general?
-      
-      ## NOTE: is.character can pertain to a single color or a palette name!
-      
-      ## No single color but specification of a palette (note: length == 1 is already tested!):
-      if ( !isHexCol(pal) & !pal %in% colors() ) {  # TODO: Allow for other color models!
-        
-        # Test, whether the palette name exists:
-        tmp <- tryCatch(
-          
-          expr = {
-            get(pal)  # try to find the palette in namespace.
-          },
-          
-          error = function(error) {
-            
-            ## Allow color aliases:
-            out <- tryCatch(
-              expr = {
-                # TODO!
-                input <- sub("[[:punct:]]", "", pal)  # Substitute first puctuation sign # TODO: What to substitute?
-                get(paste0("pal_", input))  # try to find the palette in namespace.
-              },
-              
-              error = function(error) {
-                err_msg <- paste0(error, "The specified color palette is not defined in the current namespace.")
-                stop(err_msg)
-              }
-            )
-            
-            
-          }
-        )
-        
-        tmp <- list(tmp)  # bind palette into list of length 1. 
-        names(tmp) <- paste0(pal)
-        # title <- paste0("See palette ", gsub("pal_", "", pal))
-        
+      if (!typeof(x) %in% c("vector", "list")) {
+        is_color <- FALSE
+      } else {
+        is_color <- isHexCol(color = x)
       } 
+      return(all(is_color))  # are all entries colors? 
+      
+    })
+    
+    # Get the palettes:
+    tmp <- lst_pal[unlist(is_pal)]
+    
+    # Check if palette is non-empty:
+    if (length(tmp) == 0) {
+      stop("No color palettes defined in the current environment.")
     }
     
-  } else { # eof. length == 1; call, if a full palette has been specified. 
-    
-    # TODO: Allow to mix palettes! (e.g., c("pal_bordeaux", "pal_unikn"))?
-    
-    # Correct order: First test for non-character argument(s) then for character inputs:
-    dep_pal <- deparse(substitute(pal))
-    # print(dep_pal)
-    
-    if ( is.null(names(tmp))) {
+    ## Order palettes:
+    if ( pal == "all" ) {
+      ix <- c(grep("pal_unikn", names(tmp)), grep("pal_signal", names(tmp)))
       
-      names(tmp) <- pal
-      # if no names are provided assign color names. 
-      
-    } else if (any(names(tmp) == "")) {
-      
-      names(tmp)[names(tmp) == ""] <- pal[names(tmp) == ""] 
-      # if some names are not provided, replace with color names. 
-      
-    } 
+      tmp <- c(tmp[ix], tmp[-ix])
+    }
     
-    tmp <- list(tmp)
-    nm <- deparse(substitute(pal))  # This needs to be done in the other function as well. 
-    names(tmp) <- nm  # name the list. 
+    pal_nm <- names(tmp)  # get palette names from listnames. 
     
-  }  
+    
+  } else {  # if no keyword is specified:
+    
+    tmp <- parse_pal(pal)
+    print("tmp")
+    print(tmp)
+    
   
-  
-  ## Color selection: --------
-  if ( n != "all" ) {
-    # tmp <- use_pal_n(n = n, tmp)
-    # If we have a list of palettes (currently by keywords only):
-    tmp <- lapply(tmp, FUN = function(pal) {
-      out <- grDevices::colorRampPalette(pal)
-      # print(out(n))
-      return(out(n))
-    })
     
   }
   
-  # print(tmp)  # TODO: Rather create a print method for this!
-  return(tmp)  # return the whole object invisibly!
-  # return(pal_tmp)
+      
+      ## 1.2.2 Single palette name: ------
+  #   } else {  # if pal not defined by keyword.
+  #     
+  #     ## TODO: Function to test for colors in general?
+  #     
+  #     ## NOTE: is.character can pertain to a single color or a palette name!
+  #     
+  #     ## No single color but specification of a palette (note: length == 1 is already tested!):
+  #     if ( !isHexCol(pal) & !pal %in% colors() ) {  # TODO: Allow for other color models!
+  #       
+  #       # Test, whether the palette name exists:
+  #       tmp <- tryCatch(
+  #         
+  #         expr = {
+  #           get(pal)  # try to find the palette in namespace.
+  #         },
+  #         
+  #         error = function(error) {
+  #           
+  #           ## Allow color aliases:
+  #           out <- tryCatch(
+  #             expr = {
+  #               # TODO!
+  #               input <- sub("[[:punct:]]", "", pal)  # Substitute first puctuation sign # TODO: What to substitute?
+  #               get(paste0("pal_", input))  # try to find the palette in namespace.
+  #             },
+  #             
+  #             error = function(error) {
+  #               err_msg <- paste0(error, "The specified color palette is not defined in the current namespace.")
+  #               stop(err_msg)
+  #             }
+  #           )
+  #           
+  #           
+  #         }
+  #       )
+  #       
+  #       tmp <- list(tmp)  # bind palette into list of length 1. 
+  #       names(tmp) <- paste0(pal)
+  #       # title <- paste0("See palette ", gsub("pal_", "", pal))
+  #       
+  #     } 
+  #   }
+  #   
+  # } else { # eof. length == 1; call, if a full palette has been specified. 
+  #   
+  #   # TODO: Allow to mix palettes! (e.g., c("pal_bordeaux", "pal_unikn"))?
+  #   
+  #   # Correct order: First test for non-character argument(s) then for character inputs:
+  #   dep_pal <- deparse(substitute(pal))
+  #   # print(dep_pal)
+  #   
+  #   if ( is.null(names(tmp))) {
+  #     
+  #     names(tmp) <- pal
+  #     # if no names are provided assign color names. 
+  #     
+  #   } else if (any(names(tmp) == "")) {
+  #     
+  #     names(tmp)[names(tmp) == ""] <- pal[names(tmp) == ""] 
+  #     # if some names are not provided, replace with color names. 
+  #     
+  #   } 
+  #   
+  #   tmp <- list(tmp)
+  #   nm <- deparse(substitute(pal))  # This needs to be done in the other function as well. 
+  #   names(tmp) <- nm  # name the list. 
+  #   
+  # }  
+  # 
+  # 
+  # ## Color selection: --------
+  # if ( n != "all" ) {
+  #   # tmp <- use_pal_n(n = n, tmp)
+  #   # If we have a list of palettes (currently by keywords only):
+  #   tmp <- lapply(tmp, FUN = function(pal) {
+  #     out <- grDevices::colorRampPalette(pal)
+  #     # print(out(n))
+  #     return(out(n))
+  #   })
+  #   
+  # }
+  # 
+  # # print(tmp)  # TODO: Rather create a print method for this!
+  # return(tmp)  # return the whole object invisibly!
+  # # return(pal_tmp)
   
 }
 
+getcol("bordeaux")
 
 
 ## 3. Plotting functions: ------
