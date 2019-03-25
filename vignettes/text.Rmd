@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
 author: "SPDS, uni.kn"
-date: "2019 03 24"
+date: "2019 03 25"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -37,7 +37,7 @@ Hence, the following functions should only be used when no better solutions are 
 
 - Like all other templates, our renderings are subject to constraints and limitations. For instance, as any standard installation of [R](https://www.r-project.org/) lacks the prescribed "Theinhardt" fonts, we only mimic the official design specifications (in Arial, sans serif). 
 
-That said, creating digital fluff can sometimes be useful. Provided that decorative elements can be produced easily and flexibly, they can be used to emphasize or structure information. The `unikn` package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line titles) and can be customized and improved by expert users. Hence, we hope that the following functions are useful for plotting graphical elements (e.g., boxes, logos, etc.) and help you achieve a uniform look when styling presentations or visualizations.
+That said, digital decorations can be useful to emphasize or structure information, provided that they can be produced easily and flexibly. The `unikn` package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line headings) and can be customized and improved by expert users. Hence, we hope that the following functions are useful for plotting graphical elements (e.g., boxes, logos, etc.) and help you achieve a uniform look when styling presentations or visualizations. 
 
 Please load the `unikn` package to get started: 
 
@@ -100,7 +100,6 @@ xbox(col = Petrol, dim  = c(1, 2))  # an xbox 2 times higher than wide
 
 The 2 strokes of the X (in the top right corner) are orthogonal when viewing the `xbox` at the aspect ratio indicated by `dim` (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X seems distorted. Hence, viewing and printing plots at the desired aspect ratio is crucial for designing an xbox.
 
-
 ## Plotting styled text
 
 There are 3 main functions for plotting text with decorations: 
@@ -139,20 +138,33 @@ By default, `mark` assumes that we want to add highlighted text to an already ex
 The text labels to be added are provided (as a character vector) by the `labels` argument, their coordinates as the corresponding `x` and `y` arguments. 
 Various text decorations (i.e., text and background colors, text sizes, and font types) can be set by specifying additional arguments (i.e., `col`, `col_bg`, `cex`, and `font`, respectively): 
 
-```{r mark_messy_plot, echo = TRUE, fig.width = 7, fig.height = 5}
+```{r set_par, echo = FALSE}
+# Set par:
+opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
+par(mar = c(1, 1, 1, 1))
+```
+
+
+```{r mark_messy_plot, echo = TRUE, fig.width = 6, fig.height = 4}
 # Some pre-existing plot: 
 n <- 20
 set.seed(1)
+par(mar = c(0, 0, 0, 0))
 plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .2),
-     axes = FALSE, xlab = "", ylab = "", mar = c(0, 0, 0, 0), oma = c(0, 0, 0, 0))
+     axes = FALSE, xlab = "", ylab = "")
 
 # Add 1 marked label:
-mark(labels = "Some messy plot", x = .05, y = .85)
+mark(labels = "Some messy plot", x = .02, y = .9)
 
 # Add 2 more marked labels:
 mark(labels = c("Note something here", "More highlighting here"), 
-     x = c(.35, .55), y = c(.15, .40),
+     x = c(.1, .6), y = c(.2, .4),
      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
+```
+
+```{r reset_opar, echo = FALSE}
+# Restore plot settings:
+par(opar)
 ```
 
 If no pre-existing plot is available, setting the `new_plot` argument to either `"blank"` or `"slide"` will generate a new default plot (by using the `slide` function described above):
@@ -211,7 +223,7 @@ The arguments for text elements (`labels`), text positions (`x`, `y`, `y_layout`
 ```{r line_ex2, echo = TRUE, fig.width = 3, fig.height = 3}
 slogan <- c("Geradlinig", "Farbenfroh", "Beweglich", "Bunt", "Paradiesisch")
 line(labels = slogan,
-     x = c(0, .45), y = .9, y_layout = "even",
+     x = c(0, .5), y = .9, y_layout = "even",
      col = c("black", Bordeaux), col_bg = c(Seeblau, Seegruen), 
      cex = 1.1, font = 2, new_plot = "blank")
 ```
@@ -270,12 +282,6 @@ The `heading` function makes it easy to create recognizable headings:
 
 ```{r heading_demo, echo = FALSE, fig.width = 4, fig.height = 3}
 heading(labels = c("Ich bin", "eine", "Headline."))
- 
-# hl_1b <- c("Ich", "bin keine", "gute Headline.")
-# heading(labels = hl_1b)  # issues a warning: Avoid step-wise titles...
-# 
-# hl_1c <- c("Ich bin", "eine alternative", "Headline.")
-# heading(labels = hl_1c)  # no warning
 ```
 
 By default, the function creates a new slide (i.e., `new_plot = "slide"`) and positions the text elements of `labels` on its left edge (i.e., `x = 0`, `y = .8` and `y_layout = "flush"`). Headings violating the recommendations (see p. 25 of the CD manual) will generate a message, for instance: 
@@ -306,7 +312,7 @@ my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from 
 my_url  # formatted URL
 
 # Put URL at bottom of an xbox:
-post(labels = my_url, y = .1, font = 4, 
+post(labels = my_url, x = .05, y = .1, font = 4, 
      col_bg = pal_seeblau[[5]], new_plot = "xbox")
 ```
 
