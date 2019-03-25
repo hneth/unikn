@@ -19,6 +19,63 @@ isHexCol <- function(color) {
 
 ## 2. Color getting functions: ------
 
+
+tst1 <- function(input) {
+  
+  print("parent:")
+  print(deparse(substitute(expr = input, env = parent.frame())))
+}
+
+tst1(input = "a")
+tst1(input = c(a, 1, "b"))
+
+tst2 <- function(input) {
+  
+  print(deparse(input))
+  input <- deparse(substitute(expr = input, env = parent.frame()))
+  tst1(input = input)
+  
+  
+}
+
+a <- 1
+
+tst2(input = a)
+
+tst3 <- function(input) {
+  
+  z <- input
+  print(tst2(input = z))
+}
+
+tst3(c(a, 1, "b"))
+
+
+## parse_pal(): Parse a palette input -----------
+parse_pal <- function(pal) {
+  
+  parenv <- parent.frame()  # get the calling environment. 
+  
+  if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
+    
+    tmp <- deparse(pal)
+    
+  } else {  # if the calling environment is another function:
+    
+    tmp <- deparse(substitute(expr = pal, env = parent.frame()))
+    
+  }
+
+  print("parse_pal:")
+  print(tmp)
+  
+  invisible(tmp)
+  
+}
+
+parse_pal(pal = "a")
+
+
 ## get_col(): Get a palette or list of palettes by keyword, n argument uses grDevices::colorRampPalette(): -------
 
 get_col <- function(pal, n = "all") {
@@ -37,7 +94,7 @@ get_col <- function(pal, n = "all") {
   
   # # Correct order: First test for non-character argument(s) then for character inputs:
   ## Test, whether the palette exists:
-  dep_pal <- deparse(substitute(pal))   #deparse palette to check for existence.
+  dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
   
   if ( !exists(dep_pal) ) {
     
