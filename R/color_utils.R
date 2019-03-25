@@ -11,6 +11,12 @@ isHexCol <- function(color) {
   return(grepl(pattern = "#[0-9A-F]+", color))
 }
 
+
+## isCol: Helper function to detect any color:
+isCol <- function(color) {
+  return(isHexCol(color) | color %in% colors())
+}
+
 ## Helper lookup_pal: A list of all unikn palette names  ------
 # which is not changed by user input and generated on load:
 # lookup_pal <- utils::apropos("pal_")  # get all unikn palettes.
@@ -56,24 +62,74 @@ parse_pal <- function(pal) {
   
   parenv <- parent.frame()  # get the calling environment. 
   
+  ## Deparse the argument: 
   if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
     
-    tmp <- deparse(pal)
+    tmp <- noquote(deparse(substitute(pal)))
     
   } else {  # if the calling environment is another function:
     
-    tmp <- deparse(substitute(expr = pal, env = parent.frame()))
+    tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
     
   }
 
+  ## Printouts for testing: 
   print("parse_pal:")
   print(tmp)
   
+  
+  ## Split the input string; getting everything within the parentheses:
+  mtc <- regmatches(tmp, gregexpr("(?<=\\().*?(?=\\))", tmp, perl = TRUE))[[1]]
+  print(mtc)
+  
+  elem <- gsub(" |\"", "", unlist(strsplit(mtc, split = ",")))  
+  # Split get elements of the input at ',' and remove whitespace and quotes.
+  print(elem)
+  
+  
+  ## Now ask for every element, whether it exists:
+  elemex <- sapply(elem, exists)
+  print(paste0("pal_", noquote(elem[!elemex])))
+  
+  ## Prefix those which do not exist with "pal_
+  elemex[!elemex] <- sapply(paste0("pal_", elem[!elemex]), exists)
+  
+  ## Those which are still unknown: are those colors? 
+  elemex[!elemex] <- sapply(elem[!elemex], isCol)
+  print(elemex)
+  
+  if (!all(elemex)) {
+    
+    nex <- elem[!elemex]
+    
+    if ( length(nex) > 1) {
+      
+      errmsg <- paste0("Inputs ", paste0(nex, collapse = ", "), " do not exist")
+      
+    } else {
+      
+      errmsg <- paste0("Input ", nex, " does not exist")
+      
+    }
+    
+    stop(errmsg)
+    
+    }
+  
+  ## Return the elements:
   invisible(tmp)
   
 }
 
-parse_pal(pal = "a")
+b <- parse_pal(pal = c("karpfenblau", bordeaux, "green"))
+b
+
+parse_pal(c("#BC7A8F", "lü"))
+
+c <- eval(expression("rev(pal_bordeaux)"))
+c
+
+# TODO: Add function compcol to compare color palettes with seepal? 
 
 
 ## get_col(): Get a palette or list of palettes by keyword, n argument uses grDevices::colorRampPalette(): -------
@@ -95,6 +151,9 @@ get_col <- function(pal, n = "all") {
   # # Correct order: First test for non-character argument(s) then for character inputs:
   ## Test, whether the palette exists:
   dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
+  
+  print(dep_pal)
+  print(exists(dep_pal))
   
   if ( !exists(dep_pal) ) {
     
