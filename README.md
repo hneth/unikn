@@ -400,20 +400,22 @@ We strive for an authentic representation of a highly-specified corporate design
 References
 ----------
 
-The copyrights to all design elements remain with their original creators:
+The copyrights to all designs remain with their original creators:
 
--   Universität Konstanz, © 2015, Version 1.6, 21. September 2015, [-uni-konstanz.de](https://www.uni-konstanz.de)
+-   Universität Konstanz, © 2015, Version 1.6, 21. September 2015, [‒ uni-konstanz.de](https://www.uni-konstanz.de/)
 
--   Strichpunkt GmbH, [-strichpunkt-design.de](https://www.strichpunkt-design.de/)
+-   Strichpunkt GmbH, [‒ strichpunkt-design.de](https://www.strichpunkt-design.de/)
 
 Color definitions are based on the following sources:
 
--   [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf)
+-   [Corporate design at uni.kn](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/)
+
+-   [Corporate design manual (PDF)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf)
 
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-03-23 by [hn](https://neth.de).\]
+\[Updated 2019-03-25 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 
