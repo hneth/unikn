@@ -209,11 +209,17 @@ parse_pal <- function(pal) {
     
     
     ## Create the output: 
-    out <- unlist(unname(out))  # finish the palette by removing upper level (palette) names.
+    out <- unname(out)  # finish the palette by removing upper level (palette) names.
     
   }
   
   ## TODO: Add missing names here?
+  
+  out <- unlist(out)
+
+  # Provide missing names, by using the color:
+  ix_nameless <- is.null(names(out)) | names(out) == ""
+  names(out)[ix_nameless] <- out[ix_nameless]
   
   ## Return the elements:
   return(out)
