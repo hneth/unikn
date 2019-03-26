@@ -62,7 +62,7 @@ parse_pal <- function(pal) {
   
   parenv <- parent.frame()  # get the calling environment. 
   
-  print("START...")
+  # print("START...")
   
   ## Check if pal is legible (already a color palette): 
   vector_input <- tryCatch(
@@ -80,12 +80,12 @@ parse_pal <- function(pal) {
     }
   )
   
-  print("VECTOR")
-  print(vector_input)
+  # print("VECTOR")
+  # print(vector_input)
   
   if ( vector_input ) {  # if the input is a color vector (or list).
     
-    print("Regular color vector!")
+    # print("Regular color vector!")
     out <- pal
     
   } else {  # otherwise:
@@ -103,8 +103,8 @@ parse_pal <- function(pal) {
     }
     
     ## Printouts for testing: 
-    print("parse_pal:")
-    print(tmp)
+    # print("parse_pal:")
+    # print(tmp)
     
     
     ## Split the input string; getting everything within the parentheses:
@@ -112,8 +112,8 @@ parse_pal <- function(pal) {
       
       # tmp <- regmatches(tmp, gregexpr("(?<=\\().*?(?=\\))", tmp, perl = TRUE))[[1]]
       tmp <- sub(".*?\\(+(.*)\\).*", "\\1", tmp, perl=TRUE)
-      print("TMP:")
-      print(tmp)
+      # print("TMP:")
+      # print(tmp)
       
       # .\*?   matches anything but stops at the first match of what follows
       # \\s+   matches one or more blank spaces
@@ -126,20 +126,20 @@ parse_pal <- function(pal) {
     
     elem <- gsub(" |\"", "", unlist(strsplit(tmp, split = ",")))  
     # Split get elements of the input at ',' and remove whitespace and quotes.
-    print("ELEM:")
-    print(elem)
+    # print("ELEM:")
+    # print(elem)
     
     ## Check, whether any element is warpped in one or more functions: 
     parens <- grepl("\\(", elem)   # are there any parentheses left?
     funs <- rep(NA, length(elem))  # initialize vector. 
     funs[parens] <- gsub(" *\\(.*", "", elem[parens])  # get any functions.
     ## TODO: Do so recursively? 
-    cat("FUNS: ", funs, "\n")
+    # cat("FUNS: ", funs, "\n")
     
     ## Now remove the funs: 
     elem <- sub(".*?\\(+(.*)\\).*", "\\1", elem, perl=TRUE)
-    print("ELEM:")
-    print(elem)
+    # print("ELEM:")
+    # print(elem)
     
     
     
@@ -151,7 +151,7 @@ parse_pal <- function(pal) {
       
       ## Those which are still unknown: are those colors? 
       elemex[!elemex] <- sapply(elem[!elemex], isCol)
-      print(elemex)
+      # print(elemex)
       
     }
     
@@ -159,7 +159,7 @@ parse_pal <- function(pal) {
     
     if ( any(!elemex) ) {  # only if not all inputs have been resolved
       
-      print(paste0("pal_", noquote(elem[!elemex])))
+      # print(paste0("pal_", noquote(elem[!elemex])))
       elem[!elemex] <- paste0("pal_", elem[!elemex])
       elemex[!elemex] <- sapply(elem[!elemex], exists)
       
@@ -188,7 +188,7 @@ parse_pal <- function(pal) {
     
     ## Get all palettes:
     out <- lapply(elem, function(x) if( isCol(x) ) x else get(x) )
-    print(out)
+    # print(out)
     
     ## Apply any previously detected functions: 
     # funs <- c("rev", "rev", NA)
@@ -204,7 +204,7 @@ parse_pal <- function(pal) {
       
     }
     
-    print(out)
+    # print(out)
     
     
     
@@ -256,70 +256,82 @@ c
 ## get_col(): Get a palette or list of palettes by keyword: -------
 
 getcol <- function(pal = "all") {
-  
   ## 1. Process the 'pal' argument: ------------------------
   
   ## 1.1 Getting by keyword: -----
   
-  print(deparse(substitute(pal)))
+  # print(deparse(substitute(pal)))
   
   keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad")
   
-  if ( length(pal) == 1 & pal %in% keys ) {
-    # Get all color palettes with the prefix "pal_" from the environment.
-    all_pal <- utils::apropos("pal_")  # all palettes in the environment. 
-    ix_unikn <- grepl("pal_unikn", all_pal)  # index for all unikn palettes. 
-    
-    ## The three cases: -----
-    pal_names <- switch( pal, 
-                         all = all_pal[all_pal != "tmp"],
-                         unikn_all = all_pal[ix_unikn],
-                         all_unikn = all_pal[ix_unikn],
-                         grad_all = all_pal[!ix_unikn],
-                         all_grad = all_pal[!ix_unikn]
-    )
-    
-    # Get all palettes specified by keyword:
-    lst_pal <- sapply(pal_names, get)
-    
-    # Indicator, whether these are color palettes: 
-    is_pal <- lapply(lst_pal, FUN = function(x) {
+  if (length(pal) == 1) {
+    if (pal %in% keys) {
+      # Get all color palettes with the prefix "pal_" from the environment.
+      all_pal <-
+        utils::apropos("pal_")  # all palettes in the environment.
+      ix_unikn <-
+        grepl("pal_unikn", all_pal)  # index for all unikn palettes.
       
-      if (!typeof(x) %in% c("vector", "list")) {
-        is_color <- FALSE
-      } else {
-        is_color <- isHexCol(color = x)
-      } 
-      return(all(is_color))  # are all entries colors? 
+      ## The three cases: -----
+      pal_names <- switch(
+        pal,
+        all = all_pal[all_pal != "tmp"],
+        unikn_all = all_pal[ix_unikn],
+        all_unikn = all_pal[ix_unikn],
+        grad_all = all_pal[!ix_unikn],
+        all_grad = all_pal[!ix_unikn]
+      )
       
-    })
-    
-    # Get the palettes:
-    tmp <- lst_pal[unlist(is_pal)]
-    
-    # Check if palette is non-empty:
-    if (length(tmp) == 0) {
-      stop("No color palettes defined in the current environment.")
+      # Get all palettes specified by keyword:
+      lst_pal <- sapply(pal_names, get)
+      
+      # Indicator, whether these are color palettes:
+      is_pal <- lapply(
+        lst_pal,
+        FUN = function(x) {
+          if (!typeof(x) %in% c("vector", "list")) {
+            is_color <- FALSE
+          } else {
+            is_color <- isHexCol(color = x)
+          }
+          return(all(is_color))  # are all entries colors?
+          
+        }
+      )
+      
+      # Get the palettes:
+      tmp <- lst_pal[unlist(is_pal)]
+      
+      # Check if palette is non-empty:
+      if (length(tmp) == 0) {
+        stop("No color palettes defined in the current environment.")
+      }
+      
+      ## Order palettes:
+      if (pal == "all") {
+        ix <-
+          c(grep("pal_unikn", names(tmp)), grep("pal_signal", names(tmp)))
+        
+        tmp <- c(tmp[ix], tmp[-ix])
+      }
+      
+      pal_nm <- names(tmp)  # get palette names from listnames.
     }
     
-    ## Order palettes:
-    if ( pal == "all" ) {
-      ix <- c(grep("pal_unikn", names(tmp)), grep("pal_signal", names(tmp)))
-      
-      tmp <- c(tmp[ix], tmp[-ix])
-    }
-    
-    pal_nm <- names(tmp)  # get palette names from listnames. 
     
     
-  } else {  # if no keyword is specified:
+  } else {
+    # if no keyword is specified:
     
     tmp <- parse_pal(pal)
     # print("tmp")
     # print(tmp)
-  
+    
+    
+    
   }
   
+  return(tmp)
   
 }
 
