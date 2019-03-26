@@ -131,10 +131,19 @@ parse_pal <- function(pal) {
     
     ## Check, whether any element is warpped in one or more functions: 
     parens <- grepl("\\(", elem)   # are there any parentheses left?
-    funs <- gsub(" *\\(.*", "", elem[parens])  # get any functions.
+    funs <- rep(NA, length(elem))  # initialize vector. 
+    funs[parens] <- gsub(" *\\(.*", "", elem[parens])  # get any functions.
+    ## TODO: Do so recursively? 
     cat("FUNS: ", funs, "\n")
     
+    ## Now remove the funs: 
+    elem <- sub(".*?\\(+(.*)\\).*", "\\1", elem, perl=TRUE)
+    print("ELEM:")
+    print(elem)
     
+    
+    
+    # Existence checks: ------------
     ## Now ask for every element, whether it exists:
     elemex <- sapply(elem, exists)
     
@@ -181,11 +190,30 @@ parse_pal <- function(pal) {
     out <- lapply(elem, function(x) if( isCol(x) ) x else get(x) )
     print(out)
     
-    out <- unlist(unname(out))  # finish the palette.
+    ## Apply any previously detected functions: 
+    # funs <- c("rev", "rev", NA)
+    # funs <- rep(NA, 3)
+    # out <- list(pal_bordeaux, pal_karpfenblau, "yellow")
     
-    ## TODO: Add missing names here?
+    # If any function needs to be applied:
+    if ( any(!is.na(funs)) ) {
+      
+      out[!is.na(funs)] <- apply(rbind(out, funs), MAR = 2, FUN = function(x) {
+        if(!is.na(x$funs)) eval(call(x$funs, x$out)) # apply function to all non-NA elements. 
+      })[!is.na(funs)] 
+      
+    }
+    
+    print(out)
+    
+    
+    
+    ## Create the output: 
+    out <- unlist(unname(out))  # finish the palette by removing upper level (palette) names.
     
   }
+  
+  ## TODO: Add missing names here?
   
   ## Return the elements:
   return(out)
@@ -200,7 +228,9 @@ parse_pal(c("la", "lü"))
 
 parse_pal(c("bordeaux", "karpfenblau"))
 
-parse_pal(c(rev(c(pal_bordeaux)), rev(pal_karpfenblau), "yellow"))  # TODO: Incorporate any functions.
+parse_pal(c(rev(bordeaux), rev(pal_karpfenblau), "yellow"))  # TODO: Incorporate any functions.
+
+parse_pal(rev(bordeaux))  # note: getting all parentheses includes this case!  (capture via, length 1?)
 ## Therefore: get outer function (is it c()? if ntot, execute / retain)
 
 parse_pal(pal_bordeaux)
