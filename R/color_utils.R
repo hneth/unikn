@@ -62,19 +62,21 @@ parse_pal <- function(pal) {
   
   parenv <- parent.frame()  # get the calling environment. 
   
+  print("START...")
   
   ## Check if pal is legible (already a color palette): 
-  # print(pal)
-  
   vector_input <- tryCatch(
     {
-      colCheck <- sapply(pal, isCol)
+      all(sapply(pal, isCol))
       # print(colCheck)
-      return(all(colCheck))  # are all elements colors?
+      # all(colCheck)  # are all elements colors?
+      
       },
     
     error = function(e) {
-      return(FALSE)  # return FALSE if not all are colors. 
+      
+      FALSE  # return FALSE if not all are colors. 
+      
     }
   )
   
@@ -176,11 +178,14 @@ parse_pal <- function(pal) {
     
     
     ## Get all palettes:
-    out <- sapply(elem, function(x) if( isCol(x) ) x else get(x) )
+    out <- lapply(elem, function(x) if( isCol(x) ) x else get(x) )
     print(out)
     
+    out <- unlist(unname(out))  # finish the palette.
+    
+    ## TODO: Add missing names here?
+    
   }
-  
   
   ## Return the elements:
   return(out)
@@ -190,13 +195,17 @@ parse_pal <- function(pal) {
 b <- parse_pal(pal = c("karpfenblau", bordeaux, "green"))
 b
 
-parse_pal(c("#BC7A8F", "lü"))
+parse_pal(pal = c("#BC7A8F", "lü"))
 parse_pal(c("la", "lü"))
 
 parse_pal(c("bordeaux", "karpfenblau"))
 
 parse_pal(c(rev(c(pal_bordeaux)), rev(pal_karpfenblau), "yellow"))  # TODO: Incorporate any functions.
 ## Therefore: get outer function (is it c()? if ntot, execute / retain)
+
+parse_pal(pal_bordeaux)
+
+parse_pal(bordeaux)
 
 c <- eval(call("rev", pal_bordeaux))
 c
