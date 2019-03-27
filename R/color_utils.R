@@ -226,25 +226,25 @@ parse_pal <- function(pal) {
   
 }
 
-b <- parse_pal(pal = c("karpfenblau", bordeaux, "green"))
-b
-
-parse_pal(pal = c("#BC7A8F", "lü"))
-parse_pal(c("la", "lü"))
-
-parse_pal(c("bordeaux", "karpfenblau"))
-
-parse_pal(c(rev(bordeaux), rev(pal_karpfenblau), "yellow"))  # TODO: Incorporate any functions.
-
-parse_pal(rev(bordeaux))  # note: getting all parentheses includes this case!  (capture via, length 1?)
-## Therefore: get outer function (is it c()? if ntot, execute / retain)
-
-parse_pal(pal_bordeaux)
-
-parse_pal(bordeaux)
-
-c <- eval(call("rev", pal_bordeaux))
-c
+# b <- parse_pal(pal = c("karpfenblau", bordeaux, "green"))
+# b
+# 
+# parse_pal(pal = c("#BC7A8F", "lü"))
+# parse_pal(c("la", "lü"))
+# 
+# parse_pal(c("bordeaux", "karpfenblau"))
+# 
+# parse_pal(c(rev(bordeaux), rev(pal_karpfenblau), "yellow"))  # TODO: Incorporate any functions.
+# 
+# parse_pal(rev(bordeaux))  # note: getting all parentheses includes this case!  (capture via, length 1?)
+# ## Therefore: get outer function (is it c()? if ntot, execute / retain)
+# 
+# parse_pal(pal_bordeaux)
+# 
+# parse_pal(bordeaux)
+# 
+# c <- eval(call("rev", pal_bordeaux))
+# c
 
 
 
