@@ -292,7 +292,11 @@ usecol <- function(pal = pal_unikn, n = "all", use_col_ramp = FALSE){
     pal_ix <- sapply(all_pals1, function(x) isTRUE(all.equal(pal, x)))  # Test, whether specified palette is there.
     
     ## If none fits, test for reversed palettes:
-    if ( !any(pal_ix) ) pal_ix <- sapply(all_pals1, function(x) isTRUE(all.equal(rev(pal), x)))
+    rev_pal <- FALSE  # should the palette be reversed? 
+    if ( !any(pal_ix) ) {
+      pal_ix <- sapply(all_pals1, function(x) isTRUE(all.equal(rev(pal), x)))
+      if ( any(pal_ix) ) pal_rev <- TRUE  # if palette is reversed, set pal_rev to TRUE. 
+    }
     
     pal_name <- all_pal_names1[pal_ix]  # get name of the palette. 
     
