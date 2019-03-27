@@ -126,8 +126,8 @@ parse_pal <- function(pal) {
     
     elem <- gsub(" |\"", "", unlist(strsplit(tmp, split = ",")))  
     # Split get elements of the input at ',' and remove whitespace and quotes.
-    # print("ELEM:")
-    # print(elem)
+    print("ELEM:")
+    print(elem)
     
     ## Check, whether any element is warpped in one or more functions: 
     parens <- grepl("\\(", elem)   # are there any parentheses left?

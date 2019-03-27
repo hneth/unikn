@@ -258,138 +258,217 @@ use_pal_n <- function(pal = pal_unikn, n = "all"){
 
 ## usecol: Use a color palette (as is): ---------  
 
-#' Use a color palette. 
+
+#' Use a color palette.
 #'
 #' \code{usecol} allows using a color palette \code{pal}.
-#' 
-#' @param pal A color palette (as a vector of colors or color palettes). 
-#' Default: \code{pal = \link{pal_unikn}}. 
-#' 
+#'
+#' @param pal A color palette (as a vector of colors or color palettes).
+#' Default: \code{pal = \link{pal_unikn}}.
+#'
 #' @family color palettes
-#' @family color functions 
+#' @family color functions
 #'
 #' @seealso
-#' \code{\link{seecol}} to plot color palettes. 
+#' \code{\link{seecol}} to plot color palettes.
 #'
 #' @export
 
-usecol <- function(pal = pal_unikn, n = "all", use_col_ramp = FALSE){
-  
-  ## Parse the input: 
-  pal_inp <- parse_pal(pal = pal)
-  # print(pal_inp)
-  
-  ## Set n to length pal_inp, if == "all":
-  if ( n == "all") n <- length(pal_inp)
-  
-  
-  pal_def <- FALSE  # assume default, that an undefined palette is used.
-  # Check this in the next step (this variable serves to control flow).
-  
-  ## Is the input one of the defined palettes?
-  if ( !use_col_ramp & n <= length(pal_inp) ) {  # if not always the colorRamp should be used.
+usecol <-
+  function(pal = pal_unikn,
+           n = "all",
+           use_col_ramp = FALSE) {
+    ## Parse the input:
+    pal_inp <- parse_pal(pal = pal)
+    # print(pal_inp)
     
-    ## Test whether equal to any palette:
-    all_pals1 <- lapply(unikn:::all_pal_names1, get)  # get all palettes from the first part. 
+    ## Set n to length pal_inp, if == "all":
+    if (n == "all")
+      n <- length(pal_inp)
     
-    pal_ix <- sapply(all_pals1, function(x) isTRUE(all.equal(pal_inp, x)))  # Test, whether specified palette is there.
     
-    ## If none fits, test for reversed palettes:
-    rev_pal <- FALSE  # should the palette be reversed? 
-    if ( !any(pal_ix) ) {
+    pal_def <-
+      FALSE  # assume default, that an undefined palette is used.
+    # Check this in the next step (this variable serves to control flow).
+    
+    ## Is the input one of the defined palettes?
+    if (!use_col_ramp &
+        n <= length(pal_inp)) {
+      # if not always the colorRamp should be used.
       
-      pal_ix <- sapply(all_pals1, function(x) isTRUE(all.equal(rev(pal_inp), x)))
-      if ( any(pal_ix) ) pal_rev <- TRUE  # if palette is reversed, set pal_rev to TRUE. 
+      ## Test whether equal to any palette:
+      all_pals1 <-
+        lapply(unikn:::all_pal_names1, get)  # get all palettes from the first part.
+      
+      pal_ix <-
+        sapply(all_pals1, function(x)
+          isTRUE(all.equal(pal_inp, x)))  # Test, whether specified palette is there.
+      
+      ## If none fits, test for reversed palettes:
+      rev_pal <- FALSE  # should the palette be reversed?
+      if (!any(pal_ix)) {
+        pal_ix <-
+          sapply(all_pals1, function(x)
+            isTRUE(all.equal(rev(pal_inp), x)))
+        if (any(pal_ix))
+          pal_rev <- TRUE  # if palette is reversed, set pal_rev to TRUE.
+        
+      }
+      
+      ## If input fits with any palette:
+      if (any(pal_ix)) {
+        pal_name <- all_pal_names1[pal_ix]  # get name of the palette.
+        
+        
+        # Define sets of palettes:
+        set1 <-
+          pal_name %in% c("pal_peach",
+                          "pal_peach",
+                          "pal_pinky",
+                          "pal_karpfenblau",
+                          "pal_bordeaux")
+        set2 <- pal_name %in% c("pal_grau", "pal_seeblau")
+        pal3 <- pal_name %in% "pal_unikn"
+        pal4 <- pal_name %in% "pal_unikn_plus"
+        
+        pal_set <-
+          which(c(set1, set2, pal3, pal4))  # define a set number.
+        
+        
+        out_col <- switch(pal_set,
+                          ## Get the indices for pal_set:
+                          # TODO: WHY reverse?
+                          # Set1:
+                          switch(n,
+                                 pal[4],
+                                 pal[c(4, 2)],
+                                 pal[c(5, 3, 1)],
+                                 pal[c(5, 4, 2, 1)],
+                                 pal),
+                          # Set2:
+                          switch(n,
+                                 pal[3],
+                                 pal[c(4, 2)],
+                                 pal[c(5, 3, 1)],
+                                 pal[c(5, 4, 2, 1)],
+                                 pal),
+                          # Set3:
+                          switch(n,
+                                 pal[2],  # 1
+                                 pal[c(1, 3)],  # 2
+                                 pal[c(1, 3, 5)],  # 3
+                                 pal[c(1, 3, 5, 10)],  # 4
+                                 pal[c(1, 3, 5, 8, 10)],  # 5
+                                 pal[c(1, 2, 4, 5, 8, 10)],  # 6
+                                 pal[c(1, 2, 4, 5, 7, 9, 10)],  # 7
+                                 pal[c(1, 2, 3, 4, 5, 7, 9, 10)],  # 8
+                                 pal[c(1, 2, 3, 4, 5, 7, 8, 9, 10)],  # 9
+                                 pal),
+                          # Set4:
+                          switch(
+                            n,
+                            pal[c("seeblau3")],
+                            # 1 preferred color
+                            pal[c("seeblau4", "seeblau2")],
+                            # 2
+                            pal[c("seeblau4", "seeblau2", "white")],
+                            # 3
+                            pal[c("seeblau4", "seeblau2", "white", "black")],
+                            # 4
+                            pal[c("seeblau4", "seeblau2", "white", "seegrau3", "black")],
+                            # 5
+                            pal[c("seeblau4",
+                                  "seeblau3",
+                                  "seeblau1",
+                                  "white",
+                                  "seegrau3",
+                                  "black")],
+                            # 6
+                            pal[c("seeblau4",
+                                  "seeblau3",
+                                  "seeblau1",
+                                  "white",
+                                  "seegrau2",
+                                  "seegrau4",
+                                  "black")],
+                            # 7
+                            pal[c(
+                              "seeblau4",
+                              "seeblau3",
+                              "seeblau2",
+                              "seeblau1",
+                              "white",
+                              "seegrau2",
+                              "seegrau4",
+                              "black"
+                            )],
+                            # 8
+                            pal[c(
+                              "seeblau4",
+                              "seeblau3",
+                              "seeblau2",
+                              "seeblau1",
+                              "white",
+                              "seegrau1",
+                              "seegrau2",
+                              "seegrau3",
+                              "black"
+                            )],
+                            # 9
+                            pal[c(
+                              "seeblau5",
+                              "seeblau4",
+                              "seeblau3",
+                              "seeblau2",
+                              "seeblau1",
+                              "white",
+                              "seegrau1",
+                              "seegrau2",
+                              "seegrau3",
+                              "black"
+                            )],
+                            # 10
+                            pal  # all 11 colors of pal_unikn_plus
+                          ))
+        
+        ## Currently not implemented:
+        # pal_unikn_dark, pal_unikn_light, pal_unikn_pair, pal_unikn_ppt, pal_unikn_pref.
+        
+        
+        if (rev_pal) {
+          out_col <-
+            rev(out_col)
+        }  # if palette was reversed, reverse result as well.
+        
+        pal_def <- TRUE  # set flag that palette is defined.
+        
+      }
       
     }
     
-    ## If input fits with any palette: 
-    if ( any(pal_ix) ) {
+    ## If no defined palette is used or the number exceeds the number of colors simply use colorRamp:
+    if (!pal_def) {
+      # print(pal_inp)
       
-      pal_name <- all_pal_names1[pal_ix]  # get name of the palette. 
-      
-      
-      # Define sets of palettes: 
-      set1 <- pal_name %in% c("pal_peach", "pal_peach", "pal_pinky", "pal_karpfenblau", "pal_bordeaux")
-      set2 <- pal_name %in% c("pal_grau", "pal_seeblau")
-      pal3 <- pal_name %in% "pal_unikn"
-      pal4 <- pal_name %in% "pal_unikn_plus"
-      
-      pal_set <- which(c(set1, set2, pal3, pal4))  # define a set number. 
-      
-      
-      out_col <- switch(pal_set,
-                        ## Get the indices for pal_set:
-                        # TODO: WHY reverse?
-                        # Set1:
-                        switch(n,
-                               pal[4],
-                               pal[c(4, 2)],
-                               pal[c(5, 3, 1)],
-                               pal[c(5, 4, 2, 1)],
-                               pal
-                        ),
-                        # Set2:
-                        switch(n,
-                               pal[3],
-                               pal[c(4, 2)],
-                               pal[c(5, 3, 1)],
-                               pal[c(5, 4, 2, 1)],
-                               pal),
-                        # Set3:
-                        switch(n,
-                               pal[2],  # 1
-                               pal[c(1, 3)],  # 2
-                               pal[c(1, 3, 5)],  # 3
-                               pal[c(1, 3, 5, 10)],  # 4
-                               pal[c(1, 3, 5, 8, 10)],  # 5
-                               pal[c(1, 2, 4, 5, 8, 10)],  # 6
-                               pal[c(1, 2, 4, 5, 7, 9, 10)],  # 7
-                               pal[c(1, 2, 3, 4, 5, 7, 9, 10)],  # 8
-                               pal[c(1, 2, 3, 4, 5, 7, 8, 9, 10)],  # 9
-                               pal),
-                        # Set4:
-                        switch(n,
-                               pal[c("seeblau3")],  # 1 preferred color
-                               pal[c("seeblau4", "seeblau2")],  # 2
-                               pal[c("seeblau4", "seeblau2", "white")],  # 3   
-                               pal[c("seeblau4", "seeblau2", "white", "black")],  # 4
-                               pal[c("seeblau4", "seeblau2", "white", "seegrau3", "black")],  # 5
-                               pal[c("seeblau4", "seeblau3", "seeblau1", "white", "seegrau3", "black")],  # 6
-                               pal[c("seeblau4", "seeblau3", "seeblau1", "white", "seegrau2", "seegrau4", "black")],  # 7
-                               pal[c("seeblau4", "seeblau3", "seeblau2", "seeblau1", "white", "seegrau2", "seegrau4", "black")],  # 8
-                               pal[c("seeblau4", "seeblau3", "seeblau2", "seeblau1", "white", "seegrau1", "seegrau2", "seegrau3", "black")],  # 9
-                               pal[c("seeblau5", "seeblau4", "seeblau3", "seeblau2", "seeblau1", "white", "seegrau1", "seegrau2", "seegrau3", "black")],  # 10
-                               pal  # all 11 colors of pal_unikn_plus
-                        )
-      )
-
-      ## Currently not implemented:
-      # pal_unikn_dark, pal_unikn_light, pal_unikn_pair, pal_unikn_ppt, pal_unikn_pref.
+      ## Decide, whether to use colorRamp or not:
+      if (n == length(pal_inp)) {
+        out_col <- pal_inp
+        
+      } else {
+        out_col <-
+          colorRampPalette(pal_inp)(n)  # use the colorRamp (this swallows all names).
+        
+      }
       
       
-      if ( rev_pal ) { out_col <- rev(out_col) }  # if palette was reversed, reverse result as well. 
       
-      pal_def <- TRUE  # set flag that palette is defined. 
-      
-    } 
-    
-  } 
-  
-  ## If no defined palette is used or the number exceeds the number of colors simply use colorRamp:
-  if ( !pal_def ) { 
-    
-    print(pal_inp)
-    
-    out_col <- colorRampPalette(pal_inp)(n)  # use the colorRamp (this swallows all names). 
-    
     }
-  
-  
-  
-  return(out_col)
-  
-}
+    
+    
+    
+    return(out_col)
+    
+  }
 
 
 ## Test behavior of usecol(): 
@@ -398,10 +477,11 @@ usecol(pal_unikn, n = 4)  # defined palette.
 usecol(pal_unikn_pair)  # defined palette with all colors used. 
 usecol(pal_unikn, n = 11)  # defined palette, but n > length. 
 usecol(rev(pal_bordeaux))  # using a reversed palette. 
+usecol(rev("bordeaux"))  # using reversed, misspecified palette (reversal does not work properly). 
+usecol(c(bordeaux, pal_grau))  # use mixed palette.
+usecol(c("yellow", pal_karpfenblau))  # use palette with own color. 
+usecol(c(bordeaux, pal_grau), n = 3)  # use abbreviated mixed palette.
 
-usecol(rev("bordeaux"))  # using reversed, misspecified palette (Does not work properly). 
-
-usecol(c(bordeaux, pal_grau))  # concatenated palettes lose their names!
 
 ## seecol: Main interface to color palettes: ---------- 
 
@@ -532,88 +612,88 @@ seecol <- function(pal = "all",     # which palette to output?
   # Robustify inputs: 
   ## Palette:
   ## Test, whether the palette exists:
-  dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
-  
-  # ----
-  if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
-    
-    # print("Nonexistent")
-    
-    ## If the deparsed argument does not exist, add a pal prefix and test again.
-    
-    dep_pal_exists <- tryCatch(
-      
-      {
-        exists(paste0("pal_", dep_pal))
-        # print("here")
-        # print(exists(paste0("pal_", dep_pal)))
-      },
-      
-      # If exists(dep_pal) raises an error:
-      error = function(e) {
-        
-        tryCatch(
-          {exists(pal)},   # test whether the input exists.
-          
-          error = function(e) {
-            
-            stop(paste0("No matching color palette found for input", dep_pal))
-            
-          })
-      }
-    )
-    
-    # print(dep_pal_exists)
-    
-    ## If the palette has been found to exist:
-    # TODO: Here the function stumbles over multiple keywords!
-    
-    if ( dep_pal_exists ) {  # if the deparsed argument exists after parsing:
-      
-      pal <- paste0("pal_", dep_pal)
-      
-      # print(pal)
-      # print(names(pal))
-      
-    }  else {  # if it does not exist:
-      
-      pal_exists <- tryCatch(
-        {
-          exists(pal)  # evaluates to TRUE for vector of palette names.
-        },
-        error = function(e) {
-          return(FALSE)
-        }
-      )
-      
-      if ( !pal_exists ) {  # does also the input not exist?
-        
-        # TODO: Here it stumbles with more than one palette.
-        
-        if ( exists(paste0("pal_", pal)) ) {  # does it exist but was specified without prefix?
-          
-          pal <- paste0("pal_", pal)
-          
-        } else {  # if the palette name is not defined:
-          
-          # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
-          
-          # print("Undefined")
-          
-          are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
-          is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
-          # print(are_colors)
-          
-          ## TODO: Handle naming and multiple palettes
-          
-          if ( !are_colors & !is_key) {
-            stop(paste0("The color palette ", pal, " you specified appears not to be defined in the current namespace."))
-          }
-          
-        } # else 2.
-      } # if ( !pal_exists ).
-    } # else 1. 
-  } # existence check.
+  # dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
+  # 
+  # # ----
+  # if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
+  #   
+  #   # print("Nonexistent")
+  #   
+  #   ## If the deparsed argument does not exist, add a pal prefix and test again.
+  #   
+  #   dep_pal_exists <- tryCatch(
+  #     
+  #     {
+  #       exists(paste0("pal_", dep_pal))
+  #       # print("here")
+  #       # print(exists(paste0("pal_", dep_pal)))
+  #     },
+  #     
+  #     # If exists(dep_pal) raises an error:
+  #     error = function(e) {
+  #       
+  #       tryCatch(
+  #         {exists(pal)},   # test whether the input exists.
+  #         
+  #         error = function(e) {
+  #           
+  #           stop(paste0("No matching color palette found for input", dep_pal))
+  #           
+  #         })
+  #     }
+  #   )
+  #   
+  #   # print(dep_pal_exists)
+  #   
+  #   ## If the palette has been found to exist:
+  #   # TODO: Here the function stumbles over multiple keywords!
+  #   
+  #   if ( dep_pal_exists ) {  # if the deparsed argument exists after parsing:
+  #     
+  #     pal <- paste0("pal_", dep_pal)
+  #     
+  #     # print(pal)
+  #     # print(names(pal))
+  #     
+  #   }  else {  # if it does not exist:
+  #     
+  #     pal_exists <- tryCatch(
+  #       {
+  #         exists(pal)  # evaluates to TRUE for vector of palette names.
+  #       },
+  #       error = function(e) {
+  #         return(FALSE)
+  #       }
+  #     )
+  #     
+  #     if ( !pal_exists ) {  # does also the input not exist?
+  #       
+  #       # TODO: Here it stumbles with more than one palette.
+  #       
+  #       if ( exists(paste0("pal_", pal)) ) {  # does it exist but was specified without prefix?
+  #         
+  #         pal <- paste0("pal_", pal)
+  #         
+  #       } else {  # if the palette name is not defined:
+  #         
+  #         # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
+  #         
+  #         # print("Undefined")
+  #         
+  #         are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
+  #         is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
+  #         # print(are_colors)
+  #         
+  #         ## TODO: Handle naming and multiple palettes
+  #         
+  #         if ( !are_colors & !is_key) {
+  #           stop(paste0("The color palette ", pal, " you specified appears not to be defined in the current namespace."))
+  #         }
+  #         
+  #       } # else 2.
+  #     } # if ( !pal_exists ).
+  #   } # else 1. 
+  # } # existence check.
   
   
   ## Plotting parameters: ----
@@ -621,19 +701,19 @@ seecol <- function(pal = "all",     # which palette to output?
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
   
   ## Get palette:
-  pal_tmp <- get_col(pal = pal, n = n)
+  pal_tmp <- usecol(pal = pal, n = n)
   # print(pal_tmp)
   
   if ( all(pal %in% keys )) {
     
-    if ( pal == "all") title <- "See all unikn color palettes"
-    if ( pal %in% c("unikn_all", "all_unikn")) title <- "See all basic unikn color palettes"
-    if ( pal %in% c("grad_all", "all_grad")) title <- "See all unikn color gradients"
+    if ( pal_tmp == "all") title <- "See all unikn color palettes"
+    if ( pal_tmp %in% c("unikn_all", "all_unikn")) title <- "See all basic unikn color palettes"
+    if ( pal_tmp %in% c("grad_all", "all_grad")) title <- "See all unikn color gradients"
     
   } else {
     
     # nm <- names(pal_tmp)
-    nm <- ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!
+    nm <- names(pal_tmp)  # ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!
     pl <- ifelse(length(unlist(pal_tmp)) == 1, "", "palette ")  # classify as palette or not.
     title <- paste0("See color ", pl, nm)
     
