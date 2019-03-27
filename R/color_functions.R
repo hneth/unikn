@@ -278,32 +278,72 @@ usecol <- function(pal = pal_unikn, n = "all", use_col_ramp = FALSE){
   ## Parse the input: 
   pal_inp <- parse_pal(pal = pal)
   
-  unikn:::all_pals
+  ## Set n to length pal_inp, if == "all":
+  if ( n == "all") n <- length(pal_inp)
+  
   
   ## Is the input one of the defined palettes?
   if ( !use_col_ramp ) {  # if not always the colorRamp should be used.
     
     ## Test whether equal to any palette:
     
-    # TODO: Rather create a static list, to avoid clashing with newly defined palettes? 
+    all_pals1 <- lapply(unikn:::all_pal_names1, get)  # get all palettes from the first part. 
     
-    # lapply(all_pals, get)
+    pal_ix <- sapply(all_pals1, function(x) isTRUE(all.equal(pal, x)))  # Test, whether specified palette is there.
     
-    ## Palettes for which indices should be the same:
+    ## If none fits, test for reversed palettes:
+    if ( !any(pal_ix) ) pal_ix <- sapply(all_pals1, function(x) isTRUE(all.equal(rev(pal), x)))
     
-    if (isTRUE(all.equal(pal, pal_peach)) | isTRUE(all.equal(pal, rev(pal_peach)))) {  # (2) pal_peach:
-      
-      # message("Get n specific colors of pal_peach:")
-      
-      switch(n,
-             out <- pal[c("peach4")],  # 1 preferred color
-             out <- pal[c("peach4", "peach2")],  # 2
-             out <- pal[c("peach5", "peach3", "peach1")],  # 3   
-             out <- pal[c("peach5", "peach4", "peach2", "peach1")],  # 4              
-             out <- pal  # all 5 colors of pal_peach
-      )
-      
-    }
+    pal_name <- all_pal_names1[pal_ix]  # get name of the palette. 
+    
+    
+    # Define sets of palettes: 
+    set1 <- pal_name %in% c("pal_peach", "pal_peach", "pal_pinky", "pal_karpfenblau", "pal_bordeaux")
+    set2 <- pal_name %in% c("pal_grau", "pal_seeblau")
+    pal3 <- pal_name %in% "pal_unikn"
+    pal4 <- pal_name %in% "pal_unikn_plus"
+    
+    pal_set <- which(c(set1, set2, pal3, pal4))  # define a set number. 
+    
+    
+    out_col <- switch(pal_set,
+           ## Get the indices for pal_set:
+           # TODO: WHY reverse?
+           # Set1:
+           switch(n,
+                  pal[4],
+                  pal[c(4, 2)],
+                  pal[c(5, 3, 1)],
+                  pal[c(5, 4, 2, 1)],
+                  pal
+                  ),
+           # Set2:
+           switch(n,
+                  pal[3],
+                  pal[c(4, 2)],
+                  pal[c(5, 3, 1)],
+                  pal[c(5, 4, 2, 1)],
+                  pal),
+           # Set3:
+           switch(n,
+                  pal[2],  # 1
+                  pal[c(1, 3)],  # 2
+                  pal[c(1, 3, 5)],  # 3
+                  pal[c(1, 3, 5, 10)],  # 4
+                  pal[c(1, 3, 5, 8, 10)],  # 5
+                  pal[c(1, 2, 4, 5, 8, 10)],  # 6
+                  pal[c(1, 2, 4, 5, 7, 9, 10)],  # 7
+                  pal[c(1, 2, 3, 4, 5, 7, 9, 10)],  # 8
+                  pal[c(1, 2, 3, 4, 5, 7, 8, 9, 10)],  # 9
+                  pal),
+           # Set4:
+           switch(n,
+                  pal[3],
+                  pal[c(4, 2)],
+                  pal[c(5, 3, 1)],
+                  pal[c(5, 4, 2, 1)],
+                  pal)
+           )
     
     
     ## The others are:

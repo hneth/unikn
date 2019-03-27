@@ -1212,7 +1212,7 @@ names(Signal) <- "Signal"
 ## Lookup list of palettes: ----------
 
 ## Definition: -------
-all_pals <- ls()[grepl("pal_", ls())]  # utils::apropos("pal_")  
+all_pal_names1 <- ls()[grepl("pal_", ls())]  # utils::apropos("pal_")  
 
 
 
