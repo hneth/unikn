@@ -5,9 +5,7 @@
 ## Define color-related functions 
 ## (e.g., for choosing from, plotting, and creating color palettes). 
 
-## Functions: ------
-
-# use_pal_n: Function to get [n] (specific, suitable) colors of a known palette [pal]: ------ 
+## use_pal_n: Function to get [n] (specific, suitable) colors of a known palette [pal]: ------ 
 
 # TODO: Integrate with usecol!
 
@@ -257,6 +255,8 @@ use_pal_n <- function(pal = pal_unikn, n = "all"){
 
 ## usecol: Use a color palette (as is): ---------  
 
+# - Documentation: ---- 
+
 #' Use a color palette.
 #'
 #' \code{usecol} allows using a color palette \code{pal}.
@@ -264,13 +264,15 @@ use_pal_n <- function(pal = pal_unikn, n = "all"){
 #' @param pal A color palette (as a vector of colors or color palettes).
 #' Default: \code{pal = \link{pal_unikn}}.
 #'
-#' @family color palettes
 #' @family color functions
 #'
 #' @seealso
-#' \code{\link{seecol}} to plot color palettes.
+#' \code{\link{seecol}} to plot color palettes; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette. 
 #'
 #' @export
+
+# - Definition: ---- 
 
 usecol <- function(pal = pal_unikn,
                    n = "all",
@@ -472,24 +474,24 @@ usecol <- function(pal = pal_unikn,
 # usecol(c(bordeaux, pal_grau), n = 3)  # use abbreviated mixed palette.
 
 
-## seecol: Main interface to color palettes: ---------- 
+## seecol: Plot the colors of a palette or multiple palettes: ---------- 
 
 # - Documentation: ---- 
 
-#' Show and use color palettes.
+#' Plot color palettes (to see their colors).
 #'
-#' \code{seecol} provides an interface to seeing colors 
-#' or color palettes. 
+#' \code{seecol} provides an interface to plotting (or "seeing") 
+#' the colors of a palette or comparing multiple color palettes. 
 #' 
 #' \code{seecol} has 2 main modes, based on the contents of its \code{pal} argument:
 #' 
 #' \enumerate{
 #'
-#'   \item \code{pal} is "all" (or another list of multiple color palettes): 
+#'   \item if \code{pal = "all"} (or a list of multiple color palettes): 
 #'
-#'   Plot vectors of all current color palettes for comparing them. 
+#'   Plot visual vectors of all current color palettes for comparing them. 
 #'
-#'   \item \code{pal} is one specific color palette (or a vector of multiple colors or color palettes):
+#'   \item if \code{pal} is set to a specific color palette (or a vector of multiple colors or color palettes):
 #'
 #'   Plot the current color palette and optional details on its colors.
 #'
@@ -545,13 +547,12 @@ usecol <- function(pal = pal_unikn,
 #' # Combining and extending color palettes: 
 #' seecol(c(pal_seeblau, "white", pal_bordeaux), n = 21)
 #' 
-#' @family color palettes
+#' @family color functions
 #' 
 #' @aliases seepal 
 #'
 #' @seealso 
-#' \code{\link{mixcol}} to mix and extend color palettes (by creating gradients);  
-#' \code{\link{pal_which}} to get specific colors of a color palette; 
+#' \code{\link{usecol}} to use a color palette; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #'
 #' @import graphics 
