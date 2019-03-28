@@ -87,14 +87,18 @@ parse_pal <- function(pal) {
     
   } else {  # otherwise:
     
+    cat("No vector input")
     
     ## Deparse the argument: 
     if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
       
+      print("From global")
       tmp <- noquote(deparse(substitute(pal)))
       
     } else {  # if the calling environment is another function:
       
+      print("From function")
+      print(parent.frame(n = 2))
       tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
       
     }
@@ -252,8 +256,10 @@ getcol <- function(pal = "all") {
   
   keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad")
   
-  if (length(pal) == 1) {
+  if (length(pal) == 1) {  # check for length of palette.
+    
     if (pal %in% keys) {
+      
       # Get all color palettes with the prefix "pal_" from the environment.
       all_pal <-
         utils::apropos("pal_")  # all palettes in the environment.
@@ -304,18 +310,19 @@ getcol <- function(pal = "all") {
       }
       
       pal_nm <- names(tmp)  # get palette names from listnames.
+      
+    } else {  # eof. palette is in keys.
+      
+      # if no keyword is specified:
+      tmp <- parse_pal(pal)
+      
     }
+  } else {  # for palettes longer than 1.
     
-    
-    
-  } else {
-    # if no keyword is specified:
-    
+    # If the palette is longer than 1:
     tmp <- parse_pal(pal)
     # print("tmp")
     # print(tmp)
-    
-    
     
   }
   
