@@ -279,15 +279,22 @@ usecol <- function(pal = pal_unikn,
   ## Parse the input:
   # Test, whether a pal defined in this environment is parsed properly: 
   # pal <- "pal_bordeaux"  # here it is used correctly; include the same snippet as in parse_pal?
-  pal_inp <- parse_pal(pal = pal)
+  
+  pal_inp <- tryCatch(
+    parse_pal(pal = pal),
+    error = function(e) {
+      
+      cat(deparse(substitute(expr = pal, env = parent.frame())))
+      
+    })
+  
+  # pal_inp <- parse_pal(pal = pal)
   # print(pal_inp)
   
   ## Set n to length pal_inp, if == "all":
-  if (n == "all")
-    n <- length(pal_inp)
+  if (n == "all") { n <- length(pal_inp) }
   
-  pal_def <-
-    FALSE  # assume default, that an undefined palette is used.
+  pal_def <- FALSE  # assume default, that an undefined palette is used.
   # Check this in the next step (this variable serves to control flow).
   
   ## Is the input one of the defined palettes?

@@ -92,7 +92,7 @@ parse_pal <- function(pal) {
     ## Deparse the argument: 
     if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
       
-      print("From global")
+      # print("From global")
       tmp <- noquote(deparse(substitute(pal)))
       
     } else {  # if the calling environment is another function:
@@ -100,7 +100,7 @@ parse_pal <- function(pal) {
       # print("From function")
       # print(parent.frame(n = 2))
       tmp <- get("pal", parent.frame())
-      #tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
+      # tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
       # print(tmp)
     }
     
@@ -256,6 +256,18 @@ getcol <- function(pal = "all") {
   # print(deparse(substitute(pal)))
   
   keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad")
+  
+  # TODO: Here the function stumbles over nonexistent objects! (e.g., bordeaux)
+  
+  pal <- tryCatch(
+    parse_pal(pal = pal),
+    error = function(e) {
+      
+      cat("Hey!")
+      
+    }
+                  )
+  print(pal)
   
   if (length(pal) == 1) {  # check for length of palette.
     
