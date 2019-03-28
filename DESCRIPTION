@@ -1,8 +1,8 @@
 Package: unikn
 Type: Package
 Title: Graphical Elements of the University of Konstanz's Corporate Design
-Version: 0.0.0.9014
-Date: 2018-03-24
+Version: 0.0.0.9015
+Date: 2018-03-28
 Authors@R: c(person("Hansjoerg", "Neth", role = c("aut", "cre"), email = "h.neth@uni.kn"), 
              person("Nico", "Gradwohl", role = "aut"))
 Author: Hansjoerg Neth [aut, cre], Nico Gradwohl [aut] 
@@ -23,13 +23,14 @@ Suggests:
     roxygen2
 Collate: 'color_def_1.R'
          'color_def_2.R'
-         'color_functions.R'
-         'color_pal.R' 
+         'color_util.R'
+         'color_fun.R'
+         'deprecated_color_fun.R'
          'plot_util.R'
          'plot_box.R'
          'plot_box_calls.R'
          'plot_text.R'
-         'plot_text_calls.R'    
+         'plot_text_calls.R'  
 Encoding: UTF-8
 LazyData: true
 License: none
