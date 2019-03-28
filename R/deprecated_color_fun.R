@@ -1,12 +1,11 @@
-## deprecated_color_functions.R  |  unikn
-## ng | uni.kn |  2019 03 27
+## deprecated_color_fun.R  |  unikn
+## ng | uni.kn |  2019 03 28
 ## ---------------------------
 
 ## Functions from color_functions and color_pal I suggest for retirement.
 ## Only the files color_utils and color functions are to be retained.
 
 ## Functions: ------
-
 
 # pal_which: Get some [which] specific colors of a palette [pal]: ------ 
 
@@ -287,8 +286,6 @@ pal_n_sq <- function(n = "all", pal = pal_unikn){
 # pal_n_sq(3) #  9 colors
 # pal_n_sq(4) # 11 colors = maximum of (n + 1) colors.
 
-
-
 # plot_pal: Plot information on a given color palette [pal]: ------ 
 
 # - Documentation: ---- 
@@ -545,3 +542,8 @@ col_scale <- function(col = pal_unikn, n = length(col), ...){
 ## Gradients over 3+ color palettes:
 # seecol(col_scale(c(rev(pal_seeblau), pal_grau, pal_pinky), n = 12))
 
+## ToDo: ------
+
+# - etc.
+
+## eof. ----------

@@ -1,5 +1,5 @@
-## color_utils.R  |  unikn
-## ng | uni.kn | 2019 03 25
+## color_util.R  |  unikn
+## ng | uni.kn | 2019 03 28
 ## ---------------------------
 
 ## Utility functions to access and plot color palettes. 
@@ -10,7 +10,6 @@
 isHexCol <- function(color) {
   return(grepl(pattern = "#[0-9A-F]+", color))
 }
-
 
 ## isCol: Helper function to detect any color:
 isCol <- function(color) {
@@ -24,7 +23,6 @@ isCol <- function(color) {
 
 
 ## 2. Color getting functions: ------
-
 
 # tst1 <- function(input) {
 #   
@@ -55,7 +53,6 @@ isCol <- function(color) {
 # }
 # 
 # tst3(c(a, 1, "b"))
-
 
 ## parse_pal(): Parse a palette input -----------
 parse_pal <- function(pal) {
@@ -141,8 +138,6 @@ parse_pal <- function(pal) {
     # print("ELEM:")
     # print(elem)
     
-    
-    
     # Existence checks: ------------
     ## Now ask for every element, whether it exists:
     elemex <- sapply(elem, exists)
@@ -165,7 +160,6 @@ parse_pal <- function(pal) {
       
     }
     
-    
     # Handle undefined palettes: 
     if (!all(elemex)) {
       
@@ -184,7 +178,6 @@ parse_pal <- function(pal) {
       stop(errmsg)
       
     }
-    
     
     ## Get all palettes:
     out <- lapply(elem, function(x) if( isCol(x) ) x else get(x) )
@@ -205,8 +198,6 @@ parse_pal <- function(pal) {
     }
     
     # print(out)
-    
-    
     
     ## Create the output: 
     out <- unname(out)  # finish the palette by removing upper level (palette) names.
@@ -247,10 +238,7 @@ parse_pal <- function(pal) {
 # c
 
 
-
-
-
-# TODO: Add function compcol to compare color palettes with seepal? 
+## TODO: Add function compcol to compare color palettes with seepal? 
 
 
 ## get_col(): Get a palette or list of palettes by keyword: -------
@@ -474,3 +462,10 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
   ## Vectorize in previous function? (i.e., sapply over vectors of input values?)
   
 } # plot_col end. 
+
+## ToDo: ------
+
+# - Add function compcol to compare color palettes with seepal? 
+# - Various TODO items in code above. 
+
+## eof. ----------
