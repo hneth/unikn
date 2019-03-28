@@ -277,6 +277,8 @@ usecol <- function(pal = pal_unikn,
                    n = "all",
                    use_col_ramp = FALSE) {
   ## Parse the input:
+  # Test, whether a pal defined in this environment is parsed properly: 
+  # pal <- "pal_bordeaux"  # here it is used correctly; include the same snippet as in parse_pal?
   pal_inp <- parse_pal(pal = pal)
   # print(pal_inp)
   

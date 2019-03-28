@@ -87,7 +87,7 @@ parse_pal <- function(pal) {
     
   } else {  # otherwise:
     
-    cat("No vector input")
+    # cat("No vector input")
     
     ## Deparse the argument: 
     if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
@@ -97,10 +97,11 @@ parse_pal <- function(pal) {
       
     } else {  # if the calling environment is another function:
       
-      print("From function")
-      print(parent.frame(n = 2))
-      tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
-      
+      # print("From function")
+      # print(parent.frame(n = 2))
+      tmp <- get("pal", parent.frame())
+      #tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
+      # print(tmp)
     }
     
     ## Printouts for testing: 
@@ -127,8 +128,8 @@ parse_pal <- function(pal) {
     
     elem <- gsub(" |\"", "", unlist(strsplit(tmp, split = ",")))  
     # Split get elements of the input at ',' and remove whitespace and quotes.
-    print("ELEM:")
-    print(elem)
+    # print("ELEM:")
+    # print(elem)
     
     ## Check, whether any element is warpped in one or more functions: 
     parens <- grepl("\\(", elem)   # are there any parentheses left?
