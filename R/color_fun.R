@@ -11,7 +11,7 @@
 
 # - Documentation: ---- 
 
-#' Get n dedicated colors of a known color palette.
+#' Use n dedicated colors of a known color palette.
 #'
 #' \code{use_pal_n} returns \code{n} dedicated colors of a known color palette \code{pal}. 
 #' 
@@ -41,7 +41,6 @@
 #' # use_pal_n(3,  RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 #' # use_pal_n(10, RColorBrewer::brewer.pal(n = 5, name = "Blues"))
 #' 
-#' @family color palettes
 #' @family color functions
 #'
 #' @seealso
