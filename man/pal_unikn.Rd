@@ -50,9 +50,7 @@ Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_unikn_pair}},
   \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
-  \code{\link{pal_unikn_pref}}, \code{\link{plot_pal}},
-  \code{\link{seecol}}, \code{\link{use_pal_n}},
-  \code{\link{usecol}}
+  \code{\link{pal_unikn_pref}}, \code{\link{plot_pal}}
 }
 \concept{color palettes}
 \keyword{datasets}
