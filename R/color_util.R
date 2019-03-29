@@ -55,6 +55,7 @@ isCol <- function(color) {
 # tst3(c(a, 1, "b"))
 
 ## parse_pal(): Parse a palette input -----------
+
 parse_pal <- function(pal) {
   
   parenv <- parent.frame()  # get the calling environment. 
@@ -134,7 +135,7 @@ parse_pal <- function(pal) {
     # cat("FUNS: ", funs, "\n")
     
     ## Now remove the funs: 
-    elem <- sub(".*?\\(+(.*)\\).*", "\\1", elem, perl=TRUE)
+    elem <- sub(".*?\\(+(.*)\\).*", "\\1", elem, perl = TRUE)
     # print("ELEM:")
     # print(elem)
     
