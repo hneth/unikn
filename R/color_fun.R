@@ -278,7 +278,10 @@ usecol <- function(pal = pal_unikn,
   
   ## Give the palette a name (as attribute):
   # print(pal_def)
-  comment(out_col) <- ifelse(pal_def, pal_name, "Custom palette")
+  comment(out_col) <- ifelse(pal_def, pal_name, "custom")
+  
+  print("NAMES")
+  print(names(out_col))
   
   return(out_col)
   
@@ -460,9 +463,14 @@ seecol <- function(pal = "all",     # which palette to output?
     ## TODO: List output (to create length of 1)? 
     
     # nm <- names(pal_tmp)
-    nm <- names(pal_tmp)  # ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!
-    pl <- ifelse(length(unlist(pal_tmp)) == 1, "", "palette ")  # classify as palette or not.
-    title <- paste0("See color ", pl, nm)
+    nm <- ifelse(length(unlist(pal_tmp)) == 1 | comment(pal_tmp) == "custom", 
+                 "", paste0(" ", comment(pal_tmp)))  # ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!
+    
+    pl <- ifelse(length(unlist(pal_tmp)) == 1, names(pal_tmp), "palette")  # classify as palette or not.
+    cst <- ifelse(comment(pal_tmp) == "custom" & length(unlist(pal_tmp)) != 1, " custom ", "")
+    title <- paste0("See ", cst, "color ", pl, nm)
+    
+    print("NAMES GIVEN")
     
   }
   
