@@ -90,24 +90,25 @@ usecol <- function(pal = pal_unikn,
   #   
   # }
   
-  ## Set n to length pal_inp, if == "all": -----
+  ## Set n to length pal_inp, if n == "all": -----
   if (n == "all") { n <- length(pal_inp) }
   
   pal_def <- FALSE  # assume default, that an undefined palette is used.
   # Check this in the next step (this variable serves to control flow).
   
   ## Is the input one of the defined palettes?
-  if (!use_col_ramp &
-      n <= length(pal_inp)) {
+  if ( !use_col_ramp ) {
     # if not always the colorRamp should be used.
     
     ## Test whether equal to any palette:
     all_pals1 <-
       lapply(unikn:::all_pal_names1, get)  # get all palettes from the first part.
     
+    print(pal_inp)
+    
     pal_ix <-
-      sapply(all_pals1, function(x)
-        isTRUE(all.equal(pal_inp, x)))  # Test, whether specified palette is there.
+      sapply(all_pals1, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }
+        )  # Test, whether specified palette is there.
     
     ## If none fits, test for reversed palettes:
     rev_pal <- FALSE  # should the palette be reversed?
@@ -120,9 +121,16 @@ usecol <- function(pal = pal_unikn,
       
     }
     
+
+    
     ## If input fits with any palette:
-    if (any(pal_ix)) {
+    if ( any(pal_ix) ) {
+      
       pal_name <- all_pal_names1[pal_ix]  # get name of the palette.
+      
+      # print("DEFINED!")
+      # print(pal_name)
+      pal <- pal_inp  # redefine. 
       
       
       # Define sets of palettes:
@@ -235,8 +243,8 @@ usecol <- function(pal = pal_unikn,
                           pal  # all 11 colors of pal_unikn_plus
                         ))
       
-      print("OUT_COL")
-      print(out_col)
+      # print("OUT_COL")
+      # print(out_col)
       
       ## Currently not implemented:
       # pal_unikn_dark, pal_unikn_light, pal_unikn_pair, pal_unikn_ppt, pal_unikn_pref.
@@ -268,6 +276,9 @@ usecol <- function(pal = pal_unikn,
     
   }
   
+  ## Give the palette a name (as attribute):
+  # print(pal_def)
+  attr(out_col, "pal_name") <- ifelse(pal_def, pal_name, "Custom palette")
   
   return(out_col)
   
