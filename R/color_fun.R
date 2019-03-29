@@ -452,17 +452,36 @@ seecol <- function(pal = "all",     # which palette to output?
   if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
   
-  ## Get palette:
-  pal_tmp <- usecol(pal = pal, n = n)
-  # print(pal_tmp)
   
-  if ( all(pal %in% keys )) {
+  ## Check, whether keyword is used:
+  by_key <- tryCatch(
+    { 
+      all(pal %in% keys)
+      },
+    error = function(e) {
+      FALSE
+    }
+  )
+  
+  # print(by_key)
+  
+  ## Getting a list of palettes by keyword: 
+  if ( by_key ) {
     
-    if ( pal_tmp == "all") title <- "See all unikn color palettes"
-    if ( pal_tmp %in% c("unikn_all", "all_unikn")) title <- "See all basic unikn color palettes"
-    if ( pal_tmp %in% c("grad_all", "all_grad")) title <- "See all unikn color gradients"
+    ## Define title given keyword:
+    if ( pal == "all") title <- "See all unikn color palettes"
+    if ( pal %in% c("unikn_all", "all_unikn")) title <- "See all basic unikn color palettes"
+    if ( pal %in% c("grad_all", "all_grad")) title <- "See all unikn color gradients"
+    
+    pal_tmp <- getcol(pal)
     
   } else {
+    
+    ## Get palette:
+    pal_tmp <- usecol(pal = pal, n = n)
+    print(pal_tmp)
+    
+    ## TODO: List output (to create length of 1)? 
     
     # nm <- names(pal_tmp)
     nm <- names(pal_tmp)  # ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!

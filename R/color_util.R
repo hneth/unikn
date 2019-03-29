@@ -259,84 +259,75 @@ getcol <- function(pal = "all") {
   
   # TODO: Here the function stumbles over nonexistent objects! (e.g., bordeaux)
   
-  pal <- tryCatch(
-    parse_pal(pal = pal),
+  ## Check, whether keyword is used:
+  by_key <- tryCatch(
+    { 
+      all(pal %in% keys)
+    },
     error = function(e) {
-      
-      parse_pal(pal = pal)
-      # cat(pal, "\n")
-      
+      FALSE
     }
-                  )
-  print(pal)
+  )
   
-  if (length(pal) == 1) {  # check for length of palette.
+  # print(pal)
     
-    if (pal %in% keys) {
-      
-      # Get all color palettes with the prefix "pal_" from the environment.
-      all_pal <-
-        utils::apropos("pal_")  # all palettes in the environment.
-      ix_unikn <-
-        grepl("pal_unikn", all_pal)  # index for all unikn palettes.
-      
-      ## The three cases: -----
-      pal_names <- switch(
-        pal,
-        all = all_pal[all_pal != "tmp"],
-        unikn_all = all_pal[ix_unikn],
-        all_unikn = all_pal[ix_unikn],
-        grad_all = all_pal[!ix_unikn],
-        all_grad = all_pal[!ix_unikn]
-      )
-      
-      # Get all palettes specified by keyword:
-      lst_pal <- sapply(pal_names, get)
-      
-      # Indicator, whether these are color palettes:
-      is_pal <- lapply(
-        lst_pal,
-        FUN = function(x) {
-          if (!typeof(x) %in% c("vector", "list")) {
-            is_color <- FALSE
-          } else {
-            is_color <- isHexCol(color = x)
-          }
-          return(all(is_color))  # are all entries colors?
-          
+  if ( by_key ) {
+    # Get all color palettes with the prefix "pal_" from the environment.
+    all_pal <-
+      utils::apropos("pal_")  # all palettes in the environment.
+    ix_unikn <-
+      grepl("pal_unikn", all_pal)  # index for all unikn palettes.
+    
+    ## The three cases: -----
+    pal_names <- switch(
+      pal,
+      all = all_pal[all_pal != "tmp"],
+      unikn_all = all_pal[ix_unikn],
+      all_unikn = all_pal[ix_unikn],
+      grad_all = all_pal[!ix_unikn],
+      all_grad = all_pal[!ix_unikn]
+    )
+    
+    # Get all palettes specified by keyword:
+    lst_pal <- sapply(pal_names, get)
+    
+    # Indicator, whether these are color palettes:
+    is_pal <- lapply(
+      lst_pal,
+      FUN = function(x) {
+        if ( !typeof(x) %in% c("vector", "list") ) {
+          is_color <- FALSE
+        } else {
+          is_color <- isHexCol(color = x)
         }
-      )
-      
-      # Get the palettes:
-      tmp <- lst_pal[unlist(is_pal)]
-      
-      # Check if palette is non-empty:
-      if (length(tmp) == 0) {
-        stop("No color palettes defined in the current environment.")
-      }
-      
-      ## Order palettes:
-      if (pal == "all") {
-        ix <-
-          c(grep("pal_unikn", names(tmp)), grep("pal_signal", names(tmp)))
+        return(all(is_color))  # are all entries colors?
         
-        tmp <- c(tmp[ix], tmp[-ix])
       }
-      
-      pal_nm <- names(tmp)  # get palette names from listnames.
-      
-    } else {  # eof. palette is in keys.
-      
-      # if no keyword is specified:
-      tmp <- parse_pal(pal)
-      
-    }
-  } else {  # for palettes longer than 1.
+    )
     
-    # If the palette is longer than 1:
+    # Get the palettes:
+    tmp <- lst_pal[unlist(is_pal)]
+    
+    # Check if palette is non-empty:
+    if (length(tmp) == 0) {
+      stop("No color palettes defined in the current environment.")
+    }
+    
+    ## Order palettes:
+    if (pal == "all") {
+      ix <-
+        c(grep("pal_unikn", names(tmp)), grep("pal_signal", names(tmp)))
+      
+      tmp <- c(tmp[ix], tmp[-ix])
+    }
+    
+    pal_nm <- names(tmp)  # get palette names from listnames.
+    
+  } else {
+    # eof. palette is in keys.
+    
+    # if no keyword is specified:
     tmp <- parse_pal(pal)
-    # print("tmp")
-    # print(tmp)
     
   }
   
