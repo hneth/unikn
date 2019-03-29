@@ -59,9 +59,10 @@ usecol <- function(pal = pal_unikn,
 
     })
   
-  # pal_inp <- parse_pal(pal = pal)
-  # print("PAL INP:")
-  # print(pal_inp)
+  # pal_inp <- 
+  # print(parse_pal(pal = pal))
+  print("PAL INP:")
+  print(pal_inp)
   
   ## alternatively: ----
   # parenv <- parent.frame()  # get the calling environment. 
@@ -281,6 +282,7 @@ usecol <- function(pal = pal_unikn,
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
   
   print("NAMES")
+  print(out_col)
   print(names(out_col))
   
   return(out_col)

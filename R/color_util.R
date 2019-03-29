@@ -105,24 +105,10 @@ parse_pal <- function(pal) {
       # print(parent.frame(n = 2))
       
       print("GETTING:")
-      
-      tmp_def <- tryCatch(
-        {
-          length(get("pal", parent.frame()) > 0)
-        },
         
-        error = function(e) {
-          
-          print("ERROR IN GETTING:")
-          return(FALSE)
-          # return(noquote(deparse(substitute(expr = pal, env = parent.frame(n = 3)))))
-            }
-      )
+        tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
       
-      if (tmp_def) { 
-        tmp <- get("pal", parent.frame()) 
-      } else { 
-          tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))}
+      }
       
       # tmp <- get("pal", parent.frame())
       # tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
@@ -130,7 +116,6 @@ parse_pal <- function(pal) {
       
       # TODO: If pal is an undefined object (e.g., bordeaux) the function crashes. 
 
-    }
     
     ## Printouts for testing: 
     # print("parse_pal:")
