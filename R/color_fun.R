@@ -278,7 +278,7 @@ usecol <- function(pal = pal_unikn,
   
   ## Give the palette a name (as attribute):
   # print(pal_def)
-  attr(out_col, "pal_name") <- ifelse(pal_def, pal_name, "Custom palette")
+  comment(out_col) <- ifelse(pal_def, pal_name, "Custom palette")
   
   return(out_col)
   
