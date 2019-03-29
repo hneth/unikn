@@ -77,6 +77,9 @@ parse_pal <- function(pal) {
     }
   )
   
+  print("PAL PARSE:")
+  print(pal)
+  
   # print("VECTOR")
   # print(vector_input)
   

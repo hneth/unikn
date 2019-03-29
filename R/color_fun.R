@@ -361,97 +361,11 @@ seecol <- function(pal = "all",     # which palette to output?
   op <- par(no.readonly = TRUE)  # save original plotting settings.
   keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad") # keywords to return multiple palettes. 
   
-  # Robustify inputs: 
-  ## Palette:
-  ## Test, whether the palette exists:
-  # dep_pal <- deparse(substitute(pal))   # deparse palette to check for existence.
-  # 
-  # # ----
-  # if ( !exists(dep_pal) ) {  # does the deparsed pal argument exist?
-  #   
-  #   # print("Nonexistent")
-  #   
-  #   ## If the deparsed argument does not exist, add a pal prefix and test again.
-  #   
-  #   dep_pal_exists <- tryCatch(
-  #     
-  #     {
-  #       exists(paste0("pal_", dep_pal))
-  #       # print("here")
-  #       # print(exists(paste0("pal_", dep_pal)))
-  #     },
-  #     
-  #     # If exists(dep_pal) raises an error:
-  #     error = function(e) {
-  #       
-  #       tryCatch(
-  #         {exists(pal)},   # test whether the input exists.
-  #         
-  #         error = function(e) {
-  #           
-  #           stop(paste0("No matching color palette found for input", dep_pal))
-  #           
-  #         })
-  #     }
-  #   )
-  #   
-  #   # print(dep_pal_exists)
-  #   
-  #   ## If the palette has been found to exist:
-  #   # TODO: Here the function stumbles over multiple keywords!
-  #   
-  #   if ( dep_pal_exists ) {  # if the deparsed argument exists after parsing:
-  #     
-  #     pal <- paste0("pal_", dep_pal)
-  #     
-  #     # print(pal)
-  #     # print(names(pal))
-  #     
-  #   }  else {  # if it does not exist:
-  #     
-  #     pal_exists <- tryCatch(
-  #       {
-  #         exists(pal)  # evaluates to TRUE for vector of palette names.
-  #       },
-  #       error = function(e) {
-  #         return(FALSE)
-  #       }
-  #     )
-  #     
-  #     if ( !pal_exists ) {  # does also the input not exist?
-  #       
-  #       # TODO: Here it stumbles with more than one palette.
-  #       
-  #       if ( exists(paste0("pal_", pal)) ) {  # does it exist but was specified without prefix?
-  #         
-  #         pal <- paste0("pal_", pal)
-  #         
-  #       } else {  # if the palette name is not defined:
-  #         
-  #         # TODO: Account for multiple palettes/colors (e.g., are components defined?)!
-  #         
-  #         # print("Undefined")
-  #         
-  #         are_colors <- all(pal %in% colors() | isHexCol(pal))  # are all inputs colors?
-  #         is_key <- all(pal %in% keys)  # are the inputs (the input) a keyword?
-  #         # print(are_colors)
-  #         
-  #         ## TODO: Handle naming and multiple palettes
-  #         
-  #         if ( !are_colors & !is_key) {
-  #           stop(paste0("The color palette ", pal, " you specified appears not to be defined in the current namespace."))
-  #         }
-  #         
-  #       } # else 2.
-  #     } # if ( !pal_exists ).
-  #   } # else 1. 
-  # } # existence check.
-  
+  # Robustify inputs:
   
   ## Plotting parameters: ----
   if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
-  
   
   ## Check, whether keyword is used:
   by_key <- tryCatch(
@@ -463,7 +377,7 @@ seecol <- function(pal = "all",     # which palette to output?
     }
   )
   
-  # print(by_key)
+  print(by_key)
   
   ## Getting a list of palettes by keyword: 
   if ( by_key ) {
@@ -479,7 +393,9 @@ seecol <- function(pal = "all",     # which palette to output?
     
     ## Get palette:
     pal_tmp <- usecol(pal = pal, n = n)
-    print(pal_tmp)
+    print("PAL:")
+    print(pal)
+    print(pal_tmp)  # TODO: Why does this not output anything?
     
     ## TODO: List output (to create length of 1)? 
     
