@@ -34,9 +34,19 @@ usecol <- function(pal = pal_unikn,
   # Test, whether a pal defined in this environment is parsed properly: 
   # pal <- "pal_bordeaux"  # here it is used correctly; include the same snippet as in parse_pal?
   
+  # print(deparse(substitute(expr = pal, env = parent.frame())))  # here this works. 
+  print("BEGIN USECOL")
+  
+  parenv <- parent.frame()
+  
   pal_inp <- tryCatch(
 
-      parse_pal(pal = pal),
+    {
+      print("USECOL PARSE:")
+      # print(pal)
+      # print(noquote(deparse(substitute(expr = pal))))
+      parse_pal(pal = pal)
+      },
 
     # TODO: Catching this warning here crashes functionality...
     # warning = function(w) {
@@ -47,21 +57,25 @@ usecol <- function(pal = pal_unikn,
 
     error = function(e) {
 
+      # seecol always triggers this part
       ## TODO: Fix error here!
-      print("ERROR!")
-      # tmp <-
-      # print(deparse(substitute(pal, env = parent.frame(n = 3))))
-      return(FALSE)
-      # print(noquote(deparse(substitute(expr = pal))))
-      # print(deparse(pal))
-      # parse_pal(pal = deparse(pal))
       # message(e)
+      # print("ERROR IN USECOL PARSE!")
+      # Note, that the parent environment of tryCatch is a different one than seecol!
+      # print(parent.frame())
+      # print(deparse(substitute(expr = pal, env = parenv)))
+      # deparse(substitute(expr = pal, env = parent.frame()))  #deparse(substitute(expr = pal, env = parenv))
+      pal <- deparse(substitute(expr = pal, env = parenv))
+      parse_pal(pal = pal)
+      # Here it does not. 
+      
+      # TODO: Parsing in usecol creates other errors.
 
     })
   
   # pal_inp <- 
   # print(parse_pal(pal = pal))
-  print("PAL INP:")
+  print("PAL INP IN USECOL:")
   print(pal_inp)
   
   ## alternatively: ----
@@ -279,11 +293,13 @@ usecol <- function(pal = pal_unikn,
   
   ## Give the palette a name (as attribute):
   # print(pal_def)
+  
+  
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
   
-  print("NAMES")
-  print(out_col)
-  print(names(out_col))
+  # print("NAMES")
+  # print(out_col)
+  # print(names(out_col))
   
   return(out_col)
   

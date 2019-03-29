@@ -91,12 +91,12 @@ parse_pal <- function(pal) {
     
   } else {  # otherwise:
     
-    # cat("No vector input")
+    # print("No vector input")
     
     ## Deparse the argument: 
     if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
       
-      print("From global")
+      # print("From global")
       tmp <- noquote(deparse(substitute(pal)))
       
     } else {  # if the calling environment is another function:
@@ -104,9 +104,11 @@ parse_pal <- function(pal) {
       # print("From function")
       # print(parent.frame(n = 2))
       
-      print("GETTING:")
+      print("GETTING IN PARSE:")
+      print(pal)
+      print(noquote(deparse(substitute(pal))))
         
-        tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
+      tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
       
       }
       
