@@ -104,17 +104,17 @@ parse_pal <- function(pal) {
       # print("From function")
       # print(parent.frame(n = 2))
       
-      print("GETTING IN PARSE:")
+      # print("GETTING IN PARSE:")
       # print(pal)
       # print(noquote(deparse(substitute(pal))))
         
       tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
       
-      print(tmp)
+      # print(tmp)
       
       tmp <- noquote(tmp)
       
-      print(tmp)
+      # print(tmp)
       
       }
       

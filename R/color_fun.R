@@ -41,7 +41,7 @@ usecol <- function(pal = pal_unikn,
   pal_inp <- tryCatch(
 
     {
-      print("USECOL PARSE:")
+      # print("USECOL PARSE:")
       # print(pal)
       # print(noquote(deparse(substitute(expr = pal))))
       parse_pal(pal = pal)
@@ -59,18 +59,19 @@ usecol <- function(pal = pal_unikn,
       # seecol always triggers this part
       ## TODO: Fix error here!
       # message(e)
-      print("ERROR IN USECOL PARSE!")
+      # print("ERROR IN USECOL PARSE!")
       # Note, that the parent environment of tryCatch is a different one than seecol!
       # print(parent.frame())
       # print(deparse(substitute(expr = pal, env = parenv)))
       # deparse(substitute(expr = pal, env = parent.frame()))  #deparse(substitute(expr = pal, env = parenv))
       pal <- deparse(substitute(expr = pal, env = parenv))
-      print(pal)
+      # print(pal)
       
+      ## Remove slashes and quotes:
       pal <- gsub("\\\\", "", pal)
       pal <- gsub("\"", "", pal)
       
-      print(pal)
+      # print(pal)
       
       parse_pal(pal = pal)
       # Here it does not. 
@@ -81,8 +82,8 @@ usecol <- function(pal = pal_unikn,
   
   # pal_inp <- 
   # print(parse_pal(pal = pal))
-  print("PAL INP IN USECOL:")
-  print(pal_inp)
+  # print("PAL INP IN USECOL:")
+  # print(pal_inp)
   
   ## alternatively: ----
   # parenv <- parent.frame()  # get the calling environment. 
@@ -125,7 +126,7 @@ usecol <- function(pal = pal_unikn,
     all_pals1 <-
       lapply(unikn:::all_pal_names1, get)  # get all palettes from the first part.
     
-    print(pal_inp)
+    # print(pal_inp)
     
     pal_ix <-
       sapply(all_pals1, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }
@@ -306,6 +307,29 @@ usecol <- function(pal = pal_unikn,
   # print("NAMES")
   # print(out_col)
   # print(names(out_col))
+  # print(comment(out_col))
+  
+  ## Do a quick name search if no names are given:
+  if ( all(is.null(names(out_col))) ) {
+    
+    tst <- out_col  # c(rev(pal_bordeaux), "yellow")
+    
+    # Names from defined kn palettes:
+    kn_names <-  names(unlist(all_pals1))[match(tst, unlist(all_pals1))]
+     # TODO: Not necessarily in the correct order.
+  
+    col_names <- colors()[match(
+      rgb(t(col2rgb(tst)), maxColorValue = 255), 
+      c(rgb(t(col2rgb(colors())), maxColorValue = 255))
+      )]
+    
+    kn_names[is.na(kn_names)] <- ""
+    col_names[is.na(col_names)] <- ""
+    
+    names(out_col) <- paste0(kn_names, col_names)
+    
+    
+  }
   
   return(out_col)
   
@@ -479,22 +503,23 @@ seecol <- function(pal = "all",     # which palette to output?
   } else {
     
     ## Get palette:
-    pal_tmp <- usecol(pal = pal, n = n)
+    pal_tmp <- usecol(pal = pal, n = n)  # create a list of length 1.
     print("PAL:")
-    # print(pal)
-    print(pal_tmp)  # TODO: Why does this not output anything?
+    print(pal_tmp)
+    print(comment(pal_tmp))
     
-    ## TODO: List output (to create length of 1)? 
-    
-    # nm <- names(pal_tmp)
     nm <- ifelse(length(unlist(pal_tmp)) == 1 | comment(pal_tmp) == "custom", 
                  "", paste0(" ", comment(pal_tmp)))  # ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!
     
     pl <- ifelse(length(unlist(pal_tmp)) == 1, names(pal_tmp), "palette")  # classify as palette or not.
-    cst <- ifelse(comment(pal_tmp) == "custom" & length(unlist(pal_tmp)) != 1, " custom ", "")
-    title <- paste0("See ", cst, "color ", pl, nm)
+    
+    cst <- ifelse(comment(pal_tmp) == "custom" & length(unlist(pal_tmp)) != 1, "custom ", "")
+    
+    title <- paste0("See ", cst, "color ", pl, nm)  # assemble title. 
     
     print("NAMES GIVEN")
+    
+    pal_tmp <- list(pal_tmp)  # now list the palette and leave the comment attribute.
     
   }
   
