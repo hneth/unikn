@@ -63,22 +63,22 @@ parse_pal <- function(pal) {
   
   ## Check if pal is legible (already a color palette): 
   vector_input <- tryCatch(
-    {
+      {
+      # message("VECTOR")
       all(sapply(pal, isCol))
       # print(colCheck)
       # all(colCheck)  # are all elements colors?
-      
       },
     
     error = function(e) {
       
-      FALSE  # return FALSE if not all are colors. 
+      return(FALSE)  # return FALSE if not all are colors. 
       
     }
   )
   
-  print("PAL PARSE:")
-  print(pal)
+  # print("PAL PARSE:")
+  # print(pal)
   
   # print("VECTOR")
   # print(vector_input)
@@ -95,16 +95,40 @@ parse_pal <- function(pal) {
     ## Deparse the argument: 
     if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
       
-      # print("From global")
+      print("From global")
       tmp <- noquote(deparse(substitute(pal)))
       
     } else {  # if the calling environment is another function:
       
       # print("From function")
       # print(parent.frame(n = 2))
+      
+      print("GETTING:")
+      
+      tmp_def <- tryCatch(
+        {
+          length(get("pal", parent.frame()) > 0)
+        },
+        
+        error = function(e) {
+          
+          print("ERROR IN GETTING:")
+          return(FALSE)
+          # return(noquote(deparse(substitute(expr = pal, env = parent.frame(n = 3)))))
+            }
+      )
+      
+      if (tmp_def) { 
+        tmp <- get("pal", parent.frame()) 
+      } else { 
+          tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))}
+      
       # tmp <- get("pal", parent.frame())
-      tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
-      # print(tmp)
+      # tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
+      print(tmp)
+      
+      # TODO: If pal is an undefined object (e.g., bordeaux) the function crashes. 
+
     }
     
     ## Printouts for testing: 
@@ -325,6 +349,10 @@ getpal_key <- function(pal = "all", n = "all") {
     if (n != "all" ) {
 
       out <- lapply(tmp, usecol, n = n)
+      
+    } else {
+      
+      out <- tmp  # if n n is specified return list as si.
       
     }
     

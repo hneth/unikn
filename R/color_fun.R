@@ -35,17 +35,62 @@ usecol <- function(pal = pal_unikn,
   # pal <- "pal_bordeaux"  # here it is used correctly; include the same snippet as in parse_pal?
   
   pal_inp <- tryCatch(
-    parse_pal(pal = pal),
+
+      parse_pal(pal = pal),
+
+    # TODO: Catching this warning here crashes functionality...
+    # warning = function(w) {
+    #
+    #   print("WARNING")
+    #   message(w)
+    # },
+
     error = function(e) {
-      
-      cat(deparse(substitute(expr = pal, env = parent.frame())))
-      
+
+      ## TODO: Fix error here!
+      print("ERROR!")
+      # tmp <-
+      # print(deparse(substitute(pal, env = parent.frame(n = 3))))
+      return(FALSE)
+      # print(noquote(deparse(substitute(expr = pal))))
+      # print(deparse(pal))
+      # parse_pal(pal = deparse(pal))
+      # message(e)
+
     })
   
   # pal_inp <- parse_pal(pal = pal)
+  # print("PAL INP:")
   # print(pal_inp)
   
-  ## Set n to length pal_inp, if == "all":
+  ## alternatively: ----
+  # parenv <- parent.frame()  # get the calling environment. 
+  # 
+  # if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
+  #   
+  # if ( !pal_inp ) {
+  #   print("After error")
+  #   print(deparse(substitute(pal)))
+  #   pal_inp <- parse_pal(pal = deparse(substitute(pal)))
+  # }
+    
+  # 
+  #   
+  # } else {  # if the calling environment is another function:
+  #   
+  #   # print("From function")
+  #   # print(parent.frame(n = 2))
+  #   
+  #   print("GETTING:")
+  #   pal_inp <- parse_pal(pal = get("pal", parent.frame()))
+  #   # tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
+  #   # print(tmp)
+  #   
+  #   # TODO: If pal is an undefined object (e.g., bordeaux) the function crashes. 
+  #   
+  # }
+  
+  ## Set n to length pal_inp, if == "all": -----
   if (n == "all") { n <- length(pal_inp) }
   
   pal_def <- FALSE  # assume default, that an undefined palette is used.
@@ -190,6 +235,9 @@ usecol <- function(pal = pal_unikn,
                           pal  # all 11 colors of pal_unikn_plus
                         ))
       
+      print("OUT_COL")
+      print(out_col)
+      
       ## Currently not implemented:
       # pal_unikn_dark, pal_unikn_light, pal_unikn_pair, pal_unikn_ppt, pal_unikn_pref.
       
@@ -205,7 +253,7 @@ usecol <- function(pal = pal_unikn,
   }
   
   ## If no defined palette is used or the number exceeds the number of colors simply use colorRamp:
-  if (!pal_def) {
+  if ( !pal_def ) {
     # print(pal_inp)
     
     ## Decide, whether to use colorRamp or not:
@@ -220,9 +268,10 @@ usecol <- function(pal = pal_unikn,
     
   }
   
+  
   return(out_col)
   
-} # usecol end.
+}  # usecol end.
 
 ## Check:
 # usecol(pal_bordeaux, n = 2)  # defined palette. 
@@ -377,7 +426,7 @@ seecol <- function(pal = "all",     # which palette to output?
     }
   )
   
-  print(by_key)
+  # print(by_key)
   
   ## Getting a list of palettes by keyword: 
   if ( by_key ) {
@@ -394,7 +443,7 @@ seecol <- function(pal = "all",     # which palette to output?
     ## Get palette:
     pal_tmp <- usecol(pal = pal, n = n)
     print("PAL:")
-    print(pal)
+    # print(pal)
     print(pal_tmp)  # TODO: Why does this not output anything?
     
     ## TODO: List output (to create length of 1)? 
