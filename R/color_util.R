@@ -246,9 +246,9 @@ parse_pal <- function(pal) {
 ## TODO: Add function compcol to compare color palettes with seepal? 
 
 
-## get_col(): Get a palette or list of palettes by keyword: -------
+## getpal_key(): Get a palette or list of palettes by keyword: -------
 
-getcol <- function(pal = "all") {
+getpal_key <- function(pal = "all", n = "all") {
   ## 1. Process the 'pal' argument: ------------------------
   
   ## 1.1 Getting by keyword: -----
@@ -257,22 +257,19 @@ getcol <- function(pal = "all") {
   
   keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad")
   
-  # TODO: Here the function stumbles over nonexistent objects! (e.g., bordeaux)
-  
   ## Check, whether keyword is used:
-  by_key <- tryCatch(
-    { 
-      all(pal %in% keys)
-    },
-    error = function(e) {
-      FALSE
-    }
-  )
+  # by_key <- tryCatch(
+  #   { 
+  #     all(pal %in% keys)
+  #   },
+  #   error = function(e) {
+  #     FALSE
+  #   }
+  # )
   
   # print(pal)
-    
-  if ( by_key ) {
-    # Get all color palettes with the prefix "pal_" from the environment.
+  
+  # Get all color palettes with the prefix "pal_" from the environment.
     all_pal <-
       utils::apropos("pal_")  # all palettes in the environment.
     ix_unikn <-
@@ -321,17 +318,17 @@ getcol <- function(pal = "all") {
       tmp <- c(tmp[ix], tmp[-ix])
     }
     
-    pal_nm <- names(tmp)  # get palette names from listnames.
+    ## If only color subsets should be displayed:
+    if (n != "all" ) {
+
+      out <- lapply(tmp, usecol, n = n)
+      
+    }
     
-  } else {
-    # eof. palette is in keys.
+    pal_nm <- names(out)  # get palette names from listnames.
     
-    # if no keyword is specified:
-    tmp <- parse_pal(pal)
-    
-  }
   
-  return(tmp)
+  return(out)
   
 }
 

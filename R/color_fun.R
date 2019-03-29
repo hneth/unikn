@@ -473,7 +473,7 @@ seecol <- function(pal = "all",     # which palette to output?
     if ( pal %in% c("unikn_all", "all_unikn")) title <- "See all basic unikn color palettes"
     if ( pal %in% c("grad_all", "all_grad")) title <- "See all unikn color gradients"
     
-    pal_tmp <- getcol(pal)
+    pal_tmp <- getpal_key(pal = pal, n = n)  # get the color by key.
     
   } else {
     
