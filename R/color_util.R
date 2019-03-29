@@ -99,8 +99,8 @@ parse_pal <- function(pal) {
       
       # print("From function")
       # print(parent.frame(n = 2))
-      tmp <- get("pal", parent.frame())
-      # tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
+      # tmp <- get("pal", parent.frame())
+      tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
       # print(tmp)
     }
     
@@ -263,7 +263,8 @@ getcol <- function(pal = "all") {
     parse_pal(pal = pal),
     error = function(e) {
       
-      cat("Hey!")
+      parse_pal(pal = pal)
+      # cat(pal, "\n")
       
     }
                   )
