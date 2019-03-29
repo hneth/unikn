@@ -35,8 +35,7 @@ usecol <- function(pal = pal_unikn,
   # pal <- "pal_bordeaux"  # here it is used correctly; include the same snippet as in parse_pal?
   
   # print(deparse(substitute(expr = pal, env = parent.frame())))  # here this works. 
-  print("BEGIN USECOL")
-  
+
   parenv <- parent.frame()
   
   pal_inp <- tryCatch(
@@ -60,12 +59,19 @@ usecol <- function(pal = pal_unikn,
       # seecol always triggers this part
       ## TODO: Fix error here!
       # message(e)
-      # print("ERROR IN USECOL PARSE!")
+      print("ERROR IN USECOL PARSE!")
       # Note, that the parent environment of tryCatch is a different one than seecol!
       # print(parent.frame())
       # print(deparse(substitute(expr = pal, env = parenv)))
       # deparse(substitute(expr = pal, env = parent.frame()))  #deparse(substitute(expr = pal, env = parenv))
       pal <- deparse(substitute(expr = pal, env = parenv))
+      print(pal)
+      
+      pal <- gsub("\\\\", "", pal)
+      pal <- gsub("\"", "", pal)
+      
+      print(pal)
+      
       parse_pal(pal = pal)
       # Here it does not. 
       

@@ -105,16 +105,22 @@ parse_pal <- function(pal) {
       # print(parent.frame(n = 2))
       
       print("GETTING IN PARSE:")
-      print(pal)
-      print(noquote(deparse(substitute(pal))))
+      # print(pal)
+      # print(noquote(deparse(substitute(pal))))
         
       tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
+      
+      print(tmp)
+      
+      tmp <- noquote(tmp)
+      
+      print(tmp)
       
       }
       
       # tmp <- get("pal", parent.frame())
       # tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
-      print(tmp)
+      
       
       # TODO: If pal is an undefined object (e.g., bordeaux) the function crashes. 
 
