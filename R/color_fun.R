@@ -48,22 +48,16 @@ usecol <- function(pal = pal_unikn,
       },
 
     # TODO: Catching this warning here crashes functionality...
-    # warning = function(w) {
-    #
-    #   print("WARNING")
-    #   message(w)
-    # },
+    warning = function(w) {
+
+      print("WARNING")
+      message(w)
+      # TODO: Here, the interrupted promise evaluation waring appears to occur!
+    },
 
     error = function(e) {
 
       # seecol always triggers this part
-      ## TODO: Fix error here!
-      # message(e)
-      # print("ERROR IN USECOL PARSE!")
-      # Note, that the parent environment of tryCatch is a different one than seecol!
-      # print(parent.frame())
-      # print(deparse(substitute(expr = pal, env = parenv)))
-      # deparse(substitute(expr = pal, env = parent.frame()))  #deparse(substitute(expr = pal, env = parenv))
       pal <- deparse(substitute(expr = pal, env = parenv))
       # print(pal)
       
@@ -75,10 +69,9 @@ usecol <- function(pal = pal_unikn,
       
       parse_pal(pal = pal)
       # Here it does not. 
-      
-      # TODO: Parsing in usecol creates other errors.
 
-    })
+    },
+    silent = TRUE)
   
   # pal_inp <- 
   # print(parse_pal(pal = pal))
@@ -298,10 +291,8 @@ usecol <- function(pal = pal_unikn,
     
   }
   
-  ## Give the palette a name (as attribute):
-  print(pal_def)
-  
-  
+  ## Give the palette a name (as comment attribute):
+  # print(pal_def)
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
   
   # print("NAMES")
@@ -485,7 +476,8 @@ seecol <- function(pal = "all",     # which palette to output?
       },
     error = function(e) {
       FALSE
-    }
+    },
+    silent = TRUE
   )
   
   # print(by_key)
@@ -504,9 +496,9 @@ seecol <- function(pal = "all",     # which palette to output?
     
     ## Get palette:
     pal_tmp <- usecol(pal = pal, n = n)  # create a list of length 1.
-    print("PAL:")
-    print(pal_tmp)
-    print(comment(pal_tmp))
+    # print("PAL:")
+    # print(pal_tmp)
+    # print(comment(pal_tmp))
     
     nm <- ifelse(length(unlist(pal_tmp)) == 1 | comment(pal_tmp) == "custom", 
                  "", paste0(" ", comment(pal_tmp)))  # ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!
@@ -517,7 +509,7 @@ seecol <- function(pal = "all",     # which palette to output?
     
     title <- paste0("See ", cst, "color ", pl, nm)  # assemble title. 
     
-    print("NAMES GIVEN")
+    # print("NAMES GIVEN")
     
     pal_tmp <- list(pal_tmp)  # now list the palette and leave the comment attribute.
     

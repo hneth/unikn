@@ -75,7 +75,8 @@ parse_pal <- function(pal) {
       
       return(FALSE)  # return FALSE if not all are colors. 
       
-    }
+    },
+    silent = TRUE
   )
   
   # print("PAL PARSE:")
