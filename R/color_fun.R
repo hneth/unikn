@@ -44,66 +44,34 @@ usecol <- function(pal = pal_unikn,
       # print("USECOL PARSE:")
       # print(pal)
       # print(noquote(deparse(substitute(expr = pal))))
-      parse_pal(pal = pal)
+      suppressWarnings(parse_pal(pal = pal))
+      # This is not totally nice, but it does the job...
       },
-
-    # TODO: Catching this warning here crashes functionality...
-    warning = function(w) {
-
-      print("WARNING")
-      message(w)
-      # TODO: Here, the interrupted promise evaluation waring appears to occur!
-    },
 
     error = function(e) {
 
       # seecol always triggers this part
       pal <- deparse(substitute(expr = pal, env = parenv))
-      # print(pal)
+      print(pal)
       
       ## Remove slashes and quotes:
       pal <- gsub("\\\\", "", pal)
       pal <- gsub("\"", "", pal)
-      
-      # print(pal)
-      
-      parse_pal(pal = pal)
-      # Here it does not. 
 
-    },
-    silent = TRUE)
+      ## Reparse with new input: 
+      parse_pal(pal = pal)
+
+    }
+    # TODO: Catching this warning here crashes functionality...
+    # , warning = function(w) {
+    # 
+    #   # print("WARNING")
+    #   # message(w)
+    #   # TODO: Here, the interrupted promise evaluation warning appears to occur!
+    # 
+    # }
+    )
   
-  # pal_inp <- 
-  # print(parse_pal(pal = pal))
-  # print("PAL INP IN USECOL:")
-  # print(pal_inp)
-  
-  ## alternatively: ----
-  # parenv <- parent.frame()  # get the calling environment. 
-  # 
-  # if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
-  #   
-  # if ( !pal_inp ) {
-  #   print("After error")
-  #   print(deparse(substitute(pal)))
-  #   pal_inp <- parse_pal(pal = deparse(substitute(pal)))
-  # }
-    
-  # 
-  #   
-  # } else {  # if the calling environment is another function:
-  #   
-  #   # print("From function")
-  #   # print(parent.frame(n = 2))
-  #   
-  #   print("GETTING:")
-  #   pal_inp <- parse_pal(pal = get("pal", parent.frame()))
-  #   # tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
-  #   # print(tmp)
-  #   
-  #   # TODO: If pal is an undefined object (e.g., bordeaux) the function crashes. 
-  #   
-  # }
   
   ## Set n to length pal_inp, if n == "all": -----
   if (n == "all") { n <- length(pal_inp) }
@@ -292,7 +260,8 @@ usecol <- function(pal = pal_unikn,
   }
   
   ## Give the palette a name (as comment attribute):
-  # print(pal_def)
+  print(pal_def)
+  print(out_col)
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
   
   # print("NAMES")

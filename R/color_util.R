@@ -278,18 +278,7 @@ getpal_key <- function(pal = "all", n = "all") {
   # print(deparse(substitute(pal)))
   
   keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad")
-  
-  ## Check, whether keyword is used:
-  # by_key <- tryCatch(
-  #   { 
-  #     all(pal %in% keys)
-  #   },
-  #   error = function(e) {
-  #     FALSE
-  #   }
-  # )
-  
-  # print(pal)
+
   
   # Get all color palettes with the prefix "pal_" from the environment.
     all_pal <-
