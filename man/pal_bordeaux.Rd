@@ -23,7 +23,7 @@ pal_bordeaux[4]    # preferred (named) color "bordeaux4"
 pal_bordeaux[[4]]  # preferred color "bordeaux4" OR "#8E2043"
 
 # Plotting palette:
-seepal(pal_bordeaux)
+seecol(pal_bordeaux)
 
 }
 \seealso{
@@ -31,11 +31,11 @@ seepal(pal_bordeaux)
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
 \code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-\code{\link{seepal}} to show and use color palettes.
+\code{\link{seecol}} to show and use color palettes.
 
 Other color palettes: \code{\link{col_scale}},
-  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
-  \code{\link{pal_n_sq}}, \code{\link{pal_n}},
+  \code{\link{mixcol}}, \code{\link{pal_grau}},
+  \code{\link{pal_karpfenblau}}, \code{\link{pal_n_sq}},
   \code{\link{pal_peach}}, \code{\link{pal_petrol}},
   \code{\link{pal_pinky}}, \code{\link{pal_seeblau}},
   \code{\link{pal_seegruen}}, \code{\link{pal_signal}},
@@ -45,8 +45,7 @@ Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
-  \code{\link{pal_which}}, \code{\link{plot_pal}},
-  \code{\link{seepal}}
+  \code{\link{plot_pal}}
 }
 \concept{color palettes}
 \keyword{datasets}

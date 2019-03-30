@@ -52,7 +52,7 @@ usecol <- function(pal = pal_unikn,
 
       # seecol always triggers this part
       pal <- deparse(substitute(expr = pal, env = parenv))
-      print(pal)
+      # print(pal)
       
       ## Remove slashes and quotes:
       pal <- gsub("\\\\", "", pal)
@@ -260,8 +260,8 @@ usecol <- function(pal = pal_unikn,
   }
   
   ## Give the palette a name (as comment attribute):
-  print(pal_def)
-  print(out_col)
+  # print(pal_def)
+  # print(out_col)
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
   
   # print("NAMES")
