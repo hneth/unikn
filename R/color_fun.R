@@ -106,7 +106,7 @@ usecol <- function(pal = pal_unikn,
 
     
     ## If input fits with any palette:
-    if ( any(pal_ix) & length(pal_ix) >= n) {
+    if ( any(pal_ix) & length(pal_inp) >= n) {
       
       pal_name <- all_pal_names1[pal_ix]  # get name of the palette.
       
