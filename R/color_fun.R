@@ -146,7 +146,7 @@ usecol <- function(pal = pal_unikn,
 
     
     ## If input fits with any palette:
-    if ( any(pal_ix) ) {
+    if ( any(pal_ix) & length(pal_ix) <= n) {
       
       pal_name <- all_pal_names1[pal_ix]  # get name of the palette.
       
@@ -299,7 +299,7 @@ usecol <- function(pal = pal_unikn,
   }
   
   ## Give the palette a name (as attribute):
-  # print(pal_def)
+  print(pal_def)
   
   
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
