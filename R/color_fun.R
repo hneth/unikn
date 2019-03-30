@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 03 28
+## spds | uni.kn |  2019 03 30
 ## ---------------------------
 
 ## Define color-related functions 
@@ -96,7 +96,7 @@ usecol <- function(pal = pal_unikn,
     # print(all_pal_names1)
     all_pals1 <-
       lapply(unikn:::all_pal_names1, get)  # get all palettes from the first part.
-    # Three dots are neccessary if object is not expeorted!
+       # Three dots are neccessary if object is not exported!
     
     # print(pal_inp)
 
