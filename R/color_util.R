@@ -218,7 +218,7 @@ parse_pal <- function(pal) {
     # If any function needs to be applied:
     if ( any(!is.na(funs)) ) {
       
-      out[!is.na(funs)] <- apply(rbind(out, funs), MAR = 2, FUN = function(x) {
+      out[!is.na(funs)] <- apply(rbind(out, funs), MARGIN = 2, FUN = function(x) {
         if(!is.na(x$funs)) eval(call(x$funs, x$out)) # apply function to all non-NA elements. 
       })[!is.na(funs)] 
       

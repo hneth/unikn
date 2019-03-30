@@ -1213,8 +1213,8 @@ names(Signal) <- "Signal"
 
 ## Definition: -------
 all_pal_names1 <- ls()[grepl("pal_", ls())]  # utils::apropos("pal_")
-all_pal_names1 <- all_pal_names1[all_pal_names1 != "pal_unikn_ppt"]  
-# remove ppt to avoid crashing on inconsistency in usecol (defined but not with color selection).
+all_pal_names1 <- all_pal_names1[!all_pal_names1 %in% c("pal_signal", "pal_unikn_ppt")]  
+# remove ppt and signal to avoid crashing on inconsistency in usecol (defined but not with color selection).
 
 
 

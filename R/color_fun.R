@@ -16,6 +16,15 @@
 #'
 #' @param pal A color palette (as a vector of colors or color palettes).
 #' Default: \code{pal = \link{pal_unikn}}.
+#' 
+#' @param n An integer value specifying the desired number of colors from the palette.
+#' For most palettes defined within unikn it uses a predefined selection of 
+#' colors if the desired number of colors is smaller than the available number.  
+#' For all other palettes and \code{n} larger than \code{length(pal)} it uses
+#' \code{\link{colorRampPalette}}.
+#' 
+#' @param use_col_ramp A logical value specifying, whether the default of using preselected colors
+#' should be overridden and \code{\link{colorRampPalette}} should always be used to process \code{n}.
 #'
 #' @family color functions
 #'
@@ -87,8 +96,10 @@ usecol <- function(pal = pal_unikn,
     # print(all_pal_names1)
     all_pals1 <-
       lapply(unikn:::all_pal_names1, get)  # get all palettes from the first part.
+    # Three dots are neccessary if object is not expeorted!
     
     # print(pal_inp)
+
     
     pal_ix <-
       sapply(all_pals1, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }
@@ -109,6 +120,7 @@ usecol <- function(pal = pal_unikn,
     # print("n:")
     # print(n)
     # print(pal_inp)
+
     
     ## If input fits with any palette:
     if ( any(pal_ix) & length(pal_inp) >= n) {

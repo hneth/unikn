@@ -9,6 +9,15 @@ usecol(pal = pal_unikn, n = "all", use_col_ramp = FALSE)
 \arguments{
 \item{pal}{A color palette (as a vector of colors or color palettes).
 Default: \code{pal = \link{pal_unikn}}.}
+
+\item{n}{An integer value specifying the desired number of colors from the palette.
+For most palettes defined within unikn it uses a predefined selection of 
+colors if the desired number of colors is smaller than the available number.  
+For all other palettes and \code{n} larger than \code{length(pal)} it uses
+\code{\link{colorRampPalette}}.}
+
+\item{use_col_ramp}{A logical value specifying, whether the default of using preselected colors
+should be overridden and \code{\link{colorRampPalette}} should always be used to process \code{n}.}
 }
 \description{
 \code{usecol} allows using a color palette \code{pal}.
