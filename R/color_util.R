@@ -283,6 +283,8 @@ getpal_key <- function(pal = "all", n = "all") {
   # Get all color palettes with the prefix "pal_" from the environment.
     all_pal <-
       utils::apropos("pal_")  # all palettes in the environment.
+    # all_pals1 <-
+    #   lapply(unikn:::all_pal_names1, get)  # all predefined palettes. 
     ix_unikn <-
       grepl("pal_unikn", all_pal)  # index for all unikn palettes.
     
@@ -333,6 +335,8 @@ getpal_key <- function(pal = "all", n = "all") {
     if (n != "all" ) {
 
       # Get the subset of each palette , as defined in usecol():
+      # print("TMP:")
+      # print(tmp)
       out <- lapply(tmp, FUN = usecol, n = n)
       
     } else {

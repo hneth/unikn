@@ -84,6 +84,7 @@ usecol <- function(pal = pal_unikn,
     # execute, if not always the colorRamp should be used.
     
     ## Test whether equal to any palette:
+    # print(all_pal_names1)
     all_pals1 <-
       lapply(unikn:::all_pal_names1, get)  # get all palettes from the first part.
     
@@ -105,6 +106,10 @@ usecol <- function(pal = pal_unikn,
     }
 
     
+    # print("n:")
+    # print(n)
+    # print(pal_inp)
+    
     ## If input fits with any palette:
     if ( any(pal_ix) & length(pal_inp) >= n) {
       
@@ -118,16 +123,19 @@ usecol <- function(pal = pal_unikn,
       set1 <-
         pal_name %in% c("pal_peach",
                         "pal_peach",
+                        "pal_petrol",
                         "pal_pinky",
                         "pal_karpfenblau",
-                        "pal_bordeaux")
+                        "pal_bordeaux",
+                        "pal_seegruen")
       set2 <- pal_name %in% c("pal_grau", "pal_seeblau")
       pal3 <- pal_name %in% "pal_unikn"
       pal4 <- pal_name %in% "pal_unikn_plus"
       
       pal_set <-
         which(c(set1, set2, pal3, pal4))  # define a set number.
-      
+
+      ## Determine the color output:
       out_col <- switch(pal_set,
                         ## Get the indices for pal_set:
                         # TODO: WHY reverse?
