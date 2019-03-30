@@ -81,7 +81,7 @@ usecol <- function(pal = pal_unikn,
   
   ## Is the input one of the defined palettes?
   if ( !use_col_ramp ) {
-    # if not always the colorRamp should be used.
+    # execute, if not always the colorRamp should be used.
     
     ## Test whether equal to any palette:
     all_pals1 <-
@@ -92,7 +92,7 @@ usecol <- function(pal = pal_unikn,
     pal_ix <-
       sapply(all_pals1, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }
         )  # Test, whether specified palette is there.
-    
+
     ## If none fits, test for reversed palettes:
     rev_pal <- FALSE  # should the palette be reversed?
     if (!any(pal_ix)) {
@@ -100,21 +100,19 @@ usecol <- function(pal = pal_unikn,
         sapply(all_pals1, function(x)
           isTRUE(all.equal(rev(pal_inp), x)))
       if (any(pal_ix))
-        pal_rev <- TRUE  # if palette is reversed, set pal_rev to TRUE.
+        rev_pal <- TRUE  # if palette is reversed, set pal_rev to TRUE.
       
     }
-    
 
     
     ## If input fits with any palette:
-    if ( any(pal_ix) & length(pal_ix) <= n) {
+    if ( any(pal_ix) & length(pal_ix) >= n) {
       
       pal_name <- all_pal_names1[pal_ix]  # get name of the palette.
       
       # print("DEFINED!")
       # print(pal_name)
       pal <- pal_inp  # redefine. 
-      
       
       # Define sets of palettes:
       set1 <-

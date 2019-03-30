@@ -86,8 +86,8 @@ Using colors in a graph:
 # Using a color palette:
 barplot(1/sqrt(1:11), col = usecol(pal_unikn_plus))
 
-barplot(1/sqrt(1:11), col = mixcol(pal_bordeaux, n = 11))
-barplot(1/sqrt(1:11), col = mixcol(c(rev(pal_seegruen), "white", pal_bordeaux), n = 11))
+barplot(1/sqrt(1:11), col = usecol(pal_bordeaux, n = 11))
+barplot(1/sqrt(1:11), col = usecol(c(rev(pal_seegruen), "white", pal_bordeaux), n = 11))
 ```
 
 ## Modifying color palettes

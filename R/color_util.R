@@ -332,7 +332,8 @@ getpal_key <- function(pal = "all", n = "all") {
     ## If only color subsets should be displayed:
     if (n != "all" ) {
 
-      out <- lapply(tmp, usecol, n = n)
+      # Get the subset of each palette , as defined in usecol():
+      out <- lapply(tmp, FUN = usecol, n = n)
       
     } else {
       
