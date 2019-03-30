@@ -2,4 +2,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^_gitless$
-^_.git
+^.git$
+^.PowerFolder$
+^desktop.ini$
