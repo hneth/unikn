@@ -470,6 +470,9 @@ post <- function(labels,             # labels of text element(s) to plot
 # # SPDS: 
 # post(labels = c("SPDS", "Social Psychology and Decision Sciences"), font = c(2, 1), 
 #      new_plot = "xbox", cex = c(2.8, .85), y = c(.28, .15), col_bg = Petrol)
+#
+# ## ABC@See:
+# post(labels = c("ABC@See"), cex = 2, font = 2, col_bg = Petrol, new_plot = "xbox")
 
 # ## Contact details: Box with name and address:
 # address <- c("Dr. B. F. Skinner", " ",
