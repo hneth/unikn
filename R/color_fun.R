@@ -414,28 +414,6 @@ usecol <- function(pal = pal_unikn,
 
 # - Definition: ------- 
 
-# How does color ramp work?
-# pal_tst <- grey(c(0.1, 0.2, 0.3, 0.4, 0.9), 1)
-# seecol(pal_tst)
-# 
-# pal_tst[2] <- "red"
-# 
-# rmp <- colorRampPalette(pal_tst)
-# 
-# 
-# seecol(pal_tst)
-# seecol(rmp(10))  # the original color poles appear to be always included!
-# seecol(rmp(3))
-# # 
-# # # TODO: Use a two-step procedure to retain all original colors?
-# # 
-# rmp2 <- colorRampPalette(pal_unikn_pair)
-# seecol(pal_unikn_pair, hex = TRUE)
-# rmp2(5) %in% pal_unikn_pair
-
-# TODO:
-# Adjust seecol to new getcol / parse_pal.
-
 seecol <- function(pal = "all",     # which palette to output?
                    n = "all",
                    hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
@@ -467,7 +445,18 @@ seecol <- function(pal = "all",     # which palette to output?
     silent = TRUE
   )
   
-  # print(by_key)
+  
+  ## Check, whether input is a list: 
+  compare <- tryCatch(
+    {
+      is.list(pal) & any(lapply(pal, length) > 1)   # get length of each component. 
+    },
+    error = function(e) {
+      FALSE
+    },
+    silent = TRUE
+  )
+
   
   ## Getting a list of palettes by keyword: 
   if ( by_key ) {
@@ -479,7 +468,26 @@ seecol <- function(pal = "all",     # which palette to output?
     
     pal_tmp <- getpal_key(pal = pal, n = n)  # get the color by key.
     
-  } else {
+  } else if ( compare ){
+    
+    pal_tmp <- lapply(X = pal, usecol, n = n)  # get all palettes seperately. 
+    
+    title <- "Compare custom color palettes"
+    
+    names(pal_tmp) <- lapply(pal_tmp, comment)  # assign names from comment attribute. 
+    
+    ## Check for names: 
+    if ( is.null(names(pal_tmp)) ) {
+      
+      names(pal_tmp) <- paste0("pal", 1:length(pal_tmp))
+      
+    } else if ( any(names(pal_tmp) == "custom") ) {
+      
+      names(pal_tmp)[names(pal_tmp) == "custom"] <- paste0("pal", which(names(pal_tmp) == "custom"))
+      
+    }
+
+  } else {  # if no keyword or list for comparison was given:
     
     ## Get palette:
     pal_tmp <- usecol(pal = pal, n = n)  # create a list of length 1.
@@ -488,15 +496,13 @@ seecol <- function(pal = "all",     # which palette to output?
     # print(comment(pal_tmp))
     
     nm <- ifelse(length(unlist(pal_tmp)) == 1 | comment(pal_tmp) == "custom", 
-                 "", paste0(" ", comment(pal_tmp)))  # ifelse(is.character(pal) & length(pal) == 1, pal, noquote(dep_pal))  # get name elsewhere!
+                 "", paste0(" ", comment(pal_tmp)))   
     
     pl <- ifelse(length(unlist(pal_tmp)) == 1, names(pal_tmp), "palette")  # classify as palette or not.
     
     cst <- ifelse(comment(pal_tmp) == "custom" & length(unlist(pal_tmp)) != 1, "custom ", "")
     
     title <- paste0("See ", cst, "color ", pl, nm)  # assemble title. 
-    
-    # print("NAMES GIVEN")
     
     pal_tmp <- list(pal_tmp)  # now list the palette and leave the comment attribute.
     
