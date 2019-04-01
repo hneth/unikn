@@ -472,7 +472,15 @@ post <- function(labels,             # labels of text element(s) to plot
 #      new_plot = "xbox", cex = c(2.8, .85), y = c(.28, .15), col_bg = Petrol)
 #
 # ## ABC@See:
+# ABC19 <- c("ABC Retreat 2019", 
+#            "Schloss Marbach, Bodensee", 
+#            "May 29 to June 2, 2019")
+# post(labels = ABC19, 
+#      y = .33,  cex = c(1.4, 1.0, 1.0), font = c(2, 1, 1), col_bg = Petrol, new_plot = "xbox")
+# 
+# 
 # post(labels = c("ABC@See"), cex = 2, font = 2, col_bg = Petrol, new_plot = "xbox")
+
 
 # ## Contact details: Box with name and address:
 # address <- c("Dr. B. F. Skinner", " ",
