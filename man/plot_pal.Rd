@@ -42,8 +42,8 @@ Default: \code{pal = \link{pal_unikn}}.}
 
 }
 \seealso{
-\code{\link{col_scale}} to extend color palettes (by creating gradients);  
-\code{\link{pal_which}} to get specific colors of a color palette; 
+\code{\link{seecol}} to plot color palettes; 
+\code{\link{usecol}} to use color palettes; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color palettes: \code{\link{col_scale}},
@@ -59,9 +59,10 @@ Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}}
 
-Other color functions: \code{\link{mixcol}},
-  \code{\link{pal_which}}, \code{\link{seecol}},
-  \code{\link{use_pal_n}}, \code{\link{usecol}}
+Other color functions: \code{\link{col_scale}},
+  \code{\link{mixcol}}, \code{\link{pal_which}},
+  \code{\link{seecol}}, \code{\link{use_pal_n}},
+  \code{\link{usecol}}
 }
 \concept{color functions}
 \concept{color palettes}

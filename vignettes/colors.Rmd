@@ -126,8 +126,8 @@ seecol(pal = usecol(c(Karpfenblau, Seeblau, "gold"), n = 10))  # shows HEX value
 Examples of combining colors and color palettes into new color palettes:
 
 ```{r bar_seeblau_pinky, fig.width = 7, fig.asp = .618}
-barplot((-5:5)^2+5, col = mixcol(pal = c(rev(pal_seeblau), "white", pal_pinky)))
-barplot(1/sqrt(11:1), col = mixcol(pal = c(rev(pal_seeblau), "white", pal_seegruen)))
+barplot((-5:5)^2+5, col = usecol(pal = c(rev(pal_seeblau), "white", pal_pinky)))
+barplot(1/sqrt(11:1), col = usecol(pal = c(rev(pal_seeblau), "white", pal_seegruen)))
 ```
 
 

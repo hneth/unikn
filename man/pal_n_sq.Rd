@@ -35,8 +35,7 @@ Use the more specialized function \code{use_pal_n} for choosing
 }
 \seealso{
 \code{\link{seecol}} to plot color palettes; 
-\code{\link{col_scale}} to create color scales (gradients);  
-\code{\link{pal_which}} to get specific colors of a color palette; 
+\code{\link{usecol}} to use color palettes; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color palettes: \code{\link{col_scale}},

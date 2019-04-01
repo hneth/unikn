@@ -26,8 +26,9 @@ should be overridden and \code{\link{colorRampPalette}} should always be used to
 \code{\link{seecol}} to plot color palettes; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{mixcol}},
-  \code{\link{pal_which}}, \code{\link{plot_pal}},
-  \code{\link{seecol}}, \code{\link{use_pal_n}}
+Other color functions: \code{\link{col_scale}},
+  \code{\link{mixcol}}, \code{\link{pal_which}},
+  \code{\link{plot_pal}}, \code{\link{seecol}},
+  \code{\link{use_pal_n}}
 }
 \concept{color functions}

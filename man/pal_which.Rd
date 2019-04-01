@@ -19,17 +19,18 @@ Default: \code{pal = \link{pal_unikn}}.}
 that are specified in a numeric vector \code{which}.
 }
 \examples{
-pal_which()  # returns default color palette
-pal_which(which = "all")
-pal_which(which = 1:3)
-pal_which(which = rep(1, 20))
+# pal_which()  # returns default color palette
+# pal_which(which = "all")
+# pal_which(which = 1:3)
+# pal_which(which = rep(1, 20))
 
 }
 \seealso{
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{mixcol}},
-  \code{\link{plot_pal}}, \code{\link{seecol}},
-  \code{\link{use_pal_n}}, \code{\link{usecol}}
+Other color functions: \code{\link{col_scale}},
+  \code{\link{mixcol}}, \code{\link{plot_pal}},
+  \code{\link{seecol}}, \code{\link{use_pal_n}},
+  \code{\link{usecol}}
 }
 \concept{color functions}

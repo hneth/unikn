@@ -38,10 +38,13 @@ Default: \code{n = "all"}.}
 
 }
 \seealso{
+\code{\link{seecol}} to plot color palettes; 
+\code{\link{usecol}} to use color palettes; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{mixcol}},
-  \code{\link{pal_which}}, \code{\link{plot_pal}},
-  \code{\link{seecol}}, \code{\link{usecol}}
+Other color functions: \code{\link{col_scale}},
+  \code{\link{mixcol}}, \code{\link{pal_which}},
+  \code{\link{plot_pal}}, \code{\link{seecol}},
+  \code{\link{usecol}}
 }
 \concept{color functions}

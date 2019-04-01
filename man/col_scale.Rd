@@ -34,62 +34,62 @@ with base color "white" (see Examples).
 \examples{
 ## Creating color gradients: ------ 
 
-# Gradients extending 1 color palette:
-col_scale(n = 5)  # 5 colors of default scale pal_unikn
-col_scale(pal_petrol, n = 10)  # 10 colors of pal_petrol
+## Gradients extending 1 color palette:
+# col_scale(n = 5)  # 5 colors of default scale pal_unikn
+# col_scale(pal_petrol, n = 10)  # 10 colors of pal_petrol
 
-# Gradients over 2+ colors:
-col_scale(c(Seeblau, Peach), n = 10)
-col_scale(c(Signal, Petrol), n = 10)  
-col_scale(c(Seeblau, "white", Pinky), n = 10)
-col_scale(c(Karpfenblau, Seeblau, "gold"), n = 10)  # "gold" shines brighter than signal
+## Gradients over 2+ colors:
+# col_scale(c(Seeblau, Peach), n = 10)
+# col_scale(c(Signal, Petrol), n = 10)  
+# col_scale(c(Seeblau, "white", Pinky), n = 10)
+# col_scale(c(Karpfenblau, Seeblau, "gold"), n = 10)  # "gold" shines brighter than signal
 
-# Gradients over 2+ color palettes:
-col_scale(c(pal_seeblau, pal_peach), n = 10)
-col_scale(c(pal_seeblau, pal_karpfenblau), n = 10)
-col_scale(c(pal_seeblau, pal_grau, pal_petrol), n = 10)
+## Gradients over 2+ color palettes:
+# col_scale(c(pal_seeblau, pal_peach), n = 10)
+# col_scale(c(pal_seeblau, pal_karpfenblau), n = 10)
+# col_scale(c(pal_seeblau, pal_grau, pal_petrol), n = 10)
 
-# Gradients over 3+ color palettes and colors:
-col_scale(c(rev(pal_seeblau), "white", pal_pinky), n = 11)
-col_scale(c(rev(pal_seeblau), "white", pal_petrol), n = 11)
-col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux), n = 11) 
+## Gradients over 3+ color palettes and colors:
+# col_scale(c(rev(pal_seeblau), "white", pal_pinky), n = 11)
+# col_scale(c(rev(pal_seeblau), "white", pal_petrol), n = 11)
+# col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux), n = 11) 
 
 ## Creating and plotting color gradients: ------ 
 
-# (1) Extending color palettes: ----
-seecol(col_scale(, n = 20))
-seecol(col_scale(pal_seeblau, n = 10))
-seecol(col_scale(pal_bordeaux, n = 10))
+## (1) Extending color palettes: ----
+# seecol(col_scale(, n = 20))
+# seecol(col_scale(pal_seeblau, n = 10))
+# seecol(col_scale(pal_bordeaux, n = 10))
 
 # (2) Combining colors or palettes: ---- 
 
-# Combining 2+ colors to create new palettes:
-seecol(col_scale(c(Seeblau, Signal), n = 10))
-seecol(col_scale(c(Signal, Petrol), n = 10))
-seecol(col_scale(c(Seeblau, "white", Pinky), n = 10))
-seecol(col_scale(c(Karpfenblau, Seeblau, "white"), n = 10))
-seecol(col_scale(c(Bordeaux, "white", Petrol), n = 10))
-seecol(col_scale(c(Seeblau, "white", Petrol), n = 10))
-seecol(col_scale(c(Karpfenblau, Seeblau, "gold"), n = 10))  # "gold" shines brighter than signal
+## Combining 2+ colors to create new palettes:
+# seecol(col_scale(c(Seeblau, Signal), n = 10))
+# seecol(col_scale(c(Signal, Petrol), n = 10))
+# seecol(col_scale(c(Seeblau, "white", Pinky), n = 10))
+# seecol(col_scale(c(Karpfenblau, Seeblau, "white"), n = 10))
+# seecol(col_scale(c(Bordeaux, "white", Petrol), n = 10))
+# seecol(col_scale(c(Seeblau, "white", Petrol), n = 10))
+# seecol(col_scale(c(Karpfenblau, Seeblau, "gold"), n = 10))  # "gold" shines brighter than signal
   
-# Combining 2+ color palettes into new palettes:
-seecol(col_scale(c(rev(pal_seeblau), pal_petrol), n = 10))
-seecol(col_scale(c(rev(pal_seeblau), pal_peach), n = 10))
-seecol(col_scale(c(rev(pal_karpfenblau), pal_bordeaux), n = 10))
-seecol(col_scale(c(rev(pal_seegruen), pal_pinky), n = 10))
-seecol(col_scale(c(rev(pal_petrol), pal_bordeaux), n = 10))
+## Combining 2+ color palettes into new palettes:
+# seecol(col_scale(c(rev(pal_seeblau), pal_petrol), n = 10))
+# seecol(col_scale(c(rev(pal_seeblau), pal_peach), n = 10))
+# seecol(col_scale(c(rev(pal_karpfenblau), pal_bordeaux), n = 10))
+# seecol(col_scale(c(rev(pal_seegruen), pal_pinky), n = 10))
+# seecol(col_scale(c(rev(pal_petrol), pal_bordeaux), n = 10))
 
-#' # Combining 2 palettes and mid-color "white" to new palettes:
-seecol(col_scale(c(rev(pal_seeblau), "white", pal_pinky), n = 11))
-seecol(col_scale(c(rev(pal_seeblau), "white", pal_petrol), n = 11))
-seecol(col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux), n = 11))
-seecol(col_scale(c(rev(pal_seegruen), "white", pal_peach), n = 11))
-seecol(col_scale(c(rev(pal_petrol), "white", pal_bordeaux), n = 11))
+## Combining 2 palettes and mid-color "white" to new palettes:
+# seecol(col_scale(c(rev(pal_seeblau), "white", pal_pinky), n = 11))
+# seecol(col_scale(c(rev(pal_seeblau), "white", pal_petrol), n = 11))
+# seecol(col_scale(c(rev(pal_karpfenblau), "white", pal_bordeaux), n = 11))
+# seecol(col_scale(c(rev(pal_seegruen), "white", pal_peach), n = 11))
+# seecol(col_scale(c(rev(pal_petrol), "white", pal_bordeaux), n = 11))
 
 }
 \seealso{
 \code{\link{seecol}} to plot color palettes; 
-\code{\link{pal_which}} to get specific colors of a color palette; 
+\code{\link{usecol}} to use color palettes; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color palettes: \code{\link{mixcol}},
@@ -105,5 +105,11 @@ Other color palettes: \code{\link{mixcol}},
   \code{\link{pal_unikn_ppt}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
   \code{\link{plot_pal}}
+
+Other color functions: \code{\link{mixcol}},
+  \code{\link{pal_which}}, \code{\link{plot_pal}},
+  \code{\link{seecol}}, \code{\link{use_pal_n}},
+  \code{\link{usecol}}
 }
+\concept{color functions}
 \concept{color palettes}

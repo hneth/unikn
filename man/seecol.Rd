@@ -83,8 +83,9 @@ seecol(c(pal_seeblau, "white", pal_bordeaux), n = 21)
 \code{\link{usecol}} to use a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{mixcol}},
-  \code{\link{pal_which}}, \code{\link{plot_pal}},
-  \code{\link{use_pal_n}}, \code{\link{usecol}}
+Other color functions: \code{\link{col_scale}},
+  \code{\link{mixcol}}, \code{\link{pal_which}},
+  \code{\link{plot_pal}}, \code{\link{use_pal_n}},
+  \code{\link{usecol}}
 }
 \concept{color functions}
