@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2019 03 23"
+date: "2019 04 01"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -133,9 +133,9 @@ barplot(1/sqrt(11:1), col = mixcol(pal = c(rev(pal_seeblau), "white", pal_seegru
 
 ## Comparing custom palettes 
 
-With `seecol` you can also disply different custom palettes for comparison, when passign the argument as a list:
+Advanced users can also use `seecol` for displaying and comparing different custom palette. The `pal` argument is a list of colors or color palettes:
 
-```{r}
+```{r compare_custom_palettes, fig.width = 7, fig.height = 3}
 pal1 <- c(rev(pal_seeblau), "white", pal_pinky)
 pal2 <- usecol(c(Karpfenblau, Seeblau, "gold"), n = 10)
 
