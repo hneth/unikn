@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
 author: "SPDS, uni.kn"
-date: "2019 03 25"
+date: "2019 04 01"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -105,7 +105,7 @@ The 2 strokes of the X (in the top right corner) are orthogonal when viewing the
 There are 3 main functions for plotting text with decorations: 
 
 - `mark` allows highlighting text with colored background boxes; 
-- `line` allows underlining text with colored lines; 
+- `uline` allows underlining text with colored lines; 
 - `post` allows posting text in rectangular `xbox` elements.
 
 In addition, there are 2 auxiliary functions: 
@@ -199,33 +199,33 @@ See `?mark` for details.
 
 ### Underline text
 
-The `line` function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"): 
+The `uline` function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"): 
 
-```{r line_demo, echo = FALSE, fig.width = 3, fig.height = 3}
+```{r uline_demo, echo = FALSE, fig.width = 3, fig.height = 3}
 slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
-line(labels = slogan,
-     x = 0, y = .9, y_layout = "even",
-     cex = 1.1, font = 2,
-     new_plot = "blank")
+uline(labels = slogan,
+      x = 0, y = .9, y_layout = "even",
+      cex = 1.1, font = 2,
+      new_plot = "blank")
 ```
 
-As with `mark` above, the `line` command distinguishes between creating a new plot (by setting `new_plot` to either `"blank"` or "`slide`") or 
+As with `mark` above, the `uline` command distinguishes between creating a new plot (by setting `new_plot` to either `"blank"` or "`slide`") or 
 adding to a pre-existing plot (by using the default `new_plot = "none"`): 
 
-```{r line_ex1, echo = TRUE, fig.width = 4.5, fig.height = 3}
-lbl_line <- c("This is neat, true, and terribly important")
-line(labels = lbl_line, new_plot = "blank", y = .6, cex = 1.1)  # create a new plot
-line(labels = "(which is why we underline it).", y = .45, cex = 1)  # add to plot
+```{r uline_ex1, echo = TRUE, fig.width = 4.5, fig.height = 3}
+lbl_uline <- c("This is neat, true, and terribly important")
+uline(labels = lbl_uline, new_plot = "blank", y = .6, cex = 1.1)  # create a new plot
+uline(labels = "(which is why we underline it).", y = .45, cex = 1)  # add to plot
 ```
 
 The arguments for text elements (`labels`), text positions (`x`, `y`, `y_layout`), and text properties and decorations (`col`, `col_bg`, `cex`, and `font`) work as they do for `mark`. For instance, shorter vectors are recycled to match the length of `labels`: 
 
-```{r line_ex2, echo = TRUE, fig.width = 3, fig.height = 3}
+```{r uline_ex2, echo = TRUE, fig.width = 3, fig.height = 3}
 slogan <- c("Geradlinig", "Farbenfroh", "Beweglich", "Bunt", "Paradiesisch")
-line(labels = slogan,
-     x = c(0, .5), y = .9, y_layout = "even",
-     col = c("black", Bordeaux), col_bg = c(Seeblau, Seegruen), 
-     cex = 1.1, font = 2, new_plot = "blank")
+uline(labels = slogan,
+      x = c(0, .5), y = .9, y_layout = "even",
+      col = c("black", Bordeaux), col_bg = c(Seeblau, Seegruen), 
+      cex = 1.1, font = 2, new_plot = "blank")
 ```
 
 ### Post text

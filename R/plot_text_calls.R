@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## hn  |  uni.kn |  2019 03 23
+## spds | uni.kn |  2019 04 01
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -205,15 +205,15 @@ mark <- function(labels,             # labels of text element(s) to plot
 #      cex = 1.5)
 
 
-# (2) line: Underline text on a plot: ------ 
+# (2) uline: Underline text on a plot: ------ 
 
 # - Documentation: ---- 
 
 #' Plot underlined text elements. 
 #' 
-#' \code{line} plots 1 or more text strings (provided as a character vector \code{labels}) 
-#' to an (existing or new) plot and places a colored line beneath  
-#' each label to underline it. 
+#' \code{uline} plots 1 or more text strings (provided as a character vector \code{labels}) 
+#' to an (existing or new) plot and places a colored line underneath   
+#' each label (to underline it). 
 #' 
 #' The positions of the text elements in \code{labels} can be specified by 
 #' providing their coordinates (as \code{x} and \code{y} arguments) or 
@@ -222,7 +222,7 @@ mark <- function(labels,             # labels of text element(s) to plot
 #' Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
 #' are recycled to match \code{length(labels)}. 
 #' 
-#' \code{line} uses the base graphics system \code{graphics::}.  
+#' \code{uline} uses the base graphics system \code{graphics::}.  
 #' 
 #' @param labels A character vector specifying the text labels 
 #' to be plotted. 
@@ -265,22 +265,22 @@ mark <- function(labels,             # labels of text element(s) to plot
 #' Default: \code{new_plot = "none"} (i.e., add to an existing plot). 
 #' 
 #' @examples
-#' line(labels = "This is a test.", new_plot = "blank")  # create a new blank plot
-#' line(labels = "More testing here...", y = .33, col_bg = pal_pinky[[2]])  # add to plot
+#' uline(labels = "This is a test.", new_plot = "blank")  # create a new blank plot
+#' uline(labels = "More testing here...", y = .33, col_bg = pal_pinky[[2]])  # add to plot
 #'
 #' # 2 basic cases: 
 #' # (a) Underline text on an existing plot:
 #' plot(x = 0, y = 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "")
-#' line(x = 0, y = .8, labels = "Underline text (on an existing plot)")  # add to plot
+#' uline(x = 0, y = .8, labels = "Underline text (on an existing plot)")  # add to plot
 #' 
 #' # (b) Underline text on a new plot:
-#' line(x = .02, y = .80, labels = "Underline text (on a new plot)", 
+#' uline(x = .02, y = .80, labels = "Underline text (on a new plot)", 
 #'      new_plot = "slide")  # create a new plot
 #' 
 #' # Example:
 #' lbl_line <- c("This is neat, true, and terribly important.")
-#' line(labels = lbl_line, new_plot = "blank")  # create a new plot
-#' line(labels = "(which is why we underline it).", y = .40, cex = 1.2)  # add to plot
+#' uline(labels = lbl_line, new_plot = "blank")  # create a new plot
+#' uline(labels = "(which is why we underline it).", y = .40, cex = 1.2)  # add to plot
 #'                         
 #' @family text functions
 #' 
@@ -293,14 +293,14 @@ mark <- function(labels,             # labels of text element(s) to plot
 
 # - Definition: ---- 
 
-line <- function(labels,             # labels of text element(s) to plot
-                 x = 0, y = .55,     # coordinates of text labels 
-                 y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w labels (y-space between subsequent labels)
-                 # Colors and text parameters:
-                 col = "black", col_bg = Seeblau,  # default color(s)
-                 cex = 1.5, font = 1,              # default text size and font
-                 # Others: 
-                 new_plot = "none"                 # type of new plot (if desired)
+uline <- function(labels,             # labels of text element(s) to plot
+                  x = 0, y = .55,     # coordinates of text labels 
+                  y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w labels (y-space between subsequent labels)
+                  # Colors and text parameters:
+                  col = "black", col_bg = Seeblau,  # default color(s)
+                  cex = 1.5, font = 1,              # default text size and font
+                  # Others: 
+                  new_plot = "none"                 # type of new plot (if desired)
 ){
   
   # Pass on (to newer plot_text function):
@@ -321,16 +321,16 @@ line <- function(labels,             # labels of text element(s) to plot
 
 # # Example 1: 
 # lbl_line <- c("This is neat, true, and terribly important.")
-# line(labels = lbl_line, new_plot = "blank")  # create a new plot
-# line(labels = "(which is why we underline it).", y = .40, cex = 1.2)  # add to plot
+# uline(labels = lbl_line, new_plot = "blank")  # create a new plot
+# uline(labels = "(which is why we underline it).", y = .40, cex = 1.2)  # add to plot
 
 # lbl_line <- c("Das ist korrekt, wahr und wahnsinnig wichtig.")
-# line(labels = lbl_line, new_plot = "blank")
-# line(labels = "(und wird daher unterstrichen)", y = .30)
+# uline(labels = lbl_line, new_plot = "blank")
+# uline(labels = "(und wird daher unterstrichen)", y = .30)
 
 # # Example 2: 
 # slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
-# line(labels = slogan,
+# uline(labels = slogan,
 #      x = 0, y = .85, y_layout = "even",
 #      cex = 1.2, font = 2,
 #      new_plot = "blank")
