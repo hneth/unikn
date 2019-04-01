@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## hn |  uni.kn  |  2019 03 04
+## spds | uni.kn  | 2019 04 01
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -249,6 +249,8 @@ pal_unikn_dark <- data.frame(
 
 #   (b) Definition: ----  
 
+# darker/brighter pairs:
+
 pal_unikn_pair <- data.frame(
   pal_karpfenblau[c(4, 2)],
   pal_seeblau[c(5, 3)],
@@ -259,6 +261,19 @@ pal_unikn_pair <- data.frame(
   pal_peach[c(4, 2)],
   pal_grau[c(2, 1)],
   stringsAsFactors = FALSE)
+
+# # brighter/darker pairs:
+# 
+# pal_unikn_pair <- data.frame(
+#   pal_karpfenblau[c(2, 4)],
+#   pal_seeblau[c(3, 5)],
+#   pal_petrol[c(2, 4)],
+#   pal_seegruen[c(2, 4)],
+#   pal_bordeaux[c(2, 4)],
+#   pal_pinky[c(2, 4)],
+#   pal_peach[c(2, 4)],
+#   pal_grau[c(1, 2)],
+#   stringsAsFactors = FALSE)
 
 ## Check:
 # pal_unikn_pair
