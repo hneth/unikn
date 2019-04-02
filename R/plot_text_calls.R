@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## spds | uni.kn |  2019 04 01
+## spds | uni.kn |  2019 04 02
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -478,8 +478,14 @@ post <- function(labels,             # labels of text element(s) to plot
 # post(labels = ABC19, 
 #      y = .33,  cex = c(1.4, 1.0, 1.0), font = c(2, 1, 1), col_bg = Petrol, new_plot = "xbox")
 # 
+# # tiny versions (135 x 135): 
+# post(labels = c("ABC@See", "May 29 \u2013 Jun 2, 2019"), 
+#      x = .03, y = c(.30, .12), 
+#      cex = c(1.4, .75), font = c(2, 1), col_bg = pal_seeblau[[5]], new_plot = "xbox")
 # 
-# post(labels = c("ABC@See"), cex = 2, font = 2, col_bg = Petrol, new_plot = "xbox")
+# post(labels = c("ABC@See"), 
+#      x = .06, y = c(.4), 
+#      cex = c(1.4), font = c(2, 1), col_bg = pal_seeblau[[5]], new_plot = "xbox")
 
 
 # ## Contact details: Box with name and address:
