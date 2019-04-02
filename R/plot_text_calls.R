@@ -624,7 +624,7 @@ heading <- function(labels,             # labels of text element(s) to plot
     )
     
     # (c) More than 5 lines: 
-    if (N_labels > 5) { col_bg <- mixcol(pal = pal_seeblau, n = N_labels) }  # default colors for N_labels > 5.
+    if (N_labels > 5) { col_bg <- usecol(pal = pal_seeblau, n = N_labels) }  # default colors for N_labels > 5.
     
   } # (col_bg == "default") etc. 
   
