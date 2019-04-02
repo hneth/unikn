@@ -36,7 +36,8 @@ seecol(pal_unikn_light)
 \code{\link{pal_unikn_dark}} for a darker uni.kn color palette; 
 \code{\link{pal_unikn_pair}} for a pairwise uni.kn color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
-\code{\link{seecol}} to show and use color palettes.
+\code{\link{seecol}} to show color palettes;
+\code{\link{usecol}} to use color palettes.
 
 Other color palettes: \code{\link{pal_bordeaux}},
   \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},

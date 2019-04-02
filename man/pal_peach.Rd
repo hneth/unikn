@@ -30,7 +30,8 @@ seecol(pal_peach)
 \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_pinky}} and \code{\link{pal_bordeaux}} for alternative redish uni.kn color palettes;  
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-\code{\link{seecol}} to show and use color palettes.
+\code{\link{seecol}} to show color palettes;
+\code{\link{usecol}} to use color palettes.
 
 Other color palettes: \code{\link{pal_bordeaux}},
   \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
