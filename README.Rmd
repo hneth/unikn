@@ -193,9 +193,9 @@ This serves 2 main functions:
 
 ```{r col_scale_1, eval = FALSE}
 # Extending color palettes: ----- 
-seecol(mixcol(n = 20))  
-seecol(mixcol(pal_seeblau, 10))
-seecol(mixcol(pal_bordeaux, 10))
+seecol(usecol(n = 20))  
+seecol(usecol(pal_seeblau, 10))
+seecol(usecol(pal_bordeaux, 10))
 ```
 
 <img src = "./inst/pix/README-col_scale_1-1.png" align = "center" alt = "col_scale" style = "border:10;"/>

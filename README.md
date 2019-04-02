@@ -164,9 +164,9 @@ The `mi()` function provides color gradients based on given colors or color pale
 
 ``` r
 # Extending color palettes: ----- 
-seecol(mixcol(n = 20))  
-seecol(mixcol(pal_seeblau, 10))
-seecol(mixcol(pal_bordeaux, 10))
+seecol(usecol(n = 20))  
+seecol(usecol(pal_seeblau, 10))
+seecol(usecol(pal_bordeaux, 10))
 ```
 
 <img src = "./inst/pix/README-col_scale_1-1.png" align = "center" alt = "col_scale" style = "border:10;"/>
@@ -415,7 +415,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-03-25 by [hn](https://neth.de).\]
+\[Updated 2019-04-02 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 
