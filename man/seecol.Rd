@@ -72,20 +72,17 @@ seecol(c(rev(pal_seeblau), "white", pal_pinky))
 seecol(n =  3)  
 seecol(n = 12)
 
-seecol(pal_unikn_plus, n = 5)
+seecol(pal_unikn, n = 5)
 seecol(pal_seeblau, n = 10)
 
 # Combining and extending color palettes: 
-seecol(c(pal_seeblau, "white", pal_bordeaux), n = 21)
+seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17)
 
 }
 \seealso{
 \code{\link{usecol}} to use a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{col_scale}},
-  \code{\link{mixcol}}, \code{\link{pal_which}},
-  \code{\link{plot_pal}}, \code{\link{use_pal_n}},
-  \code{\link{usecol}}
+Other color functions: \code{\link{usecol}}
 }
 \concept{color functions}

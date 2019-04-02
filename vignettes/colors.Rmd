@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2019 04 01"
+date: "2019 04 02"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -64,7 +64,7 @@ seecol("grad_all")
 2. Viewing the colors and details of a particular color palette:
 
 ```{r view_pal, fig.width = 7, fig.asp = .618}
-seecol(pal_unikn_plus)
+seecol(pal_unikn)
 ```
 
 Note that the `seecol` function is quite permissive with respect to specifying its `pal` argument: 
@@ -85,7 +85,7 @@ Using colors in a graph:
 
 ```{r use_col, fig.width = 7, fig.asp = .618}
 # Using a color palette:
-barplot(1/sqrt(1:11), col = usecol(pal_unikn_plus))
+barplot(1/sqrt(1:11), col = usecol(pal_unikn))
 
 barplot(1/sqrt(1:11), col = usecol(pal_bordeaux, n = 11))
 barplot(1/sqrt(1:11), col = usecol(c(rev(pal_seegruen), "white", pal_bordeaux), n = 11))
@@ -97,7 +97,7 @@ Using only a subset of colors:
 
 ```{r use_subset, fig.width = 7, fig.height = 6}
 seecol("all", n = 4)
-seecol(pal_unikn_plus, 4)
+seecol(pal_unikn, 4)
 ```
 
 Extending a palette to a larger number of colors than contained in the palette:

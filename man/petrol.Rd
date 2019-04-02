@@ -22,10 +22,9 @@ all.equal(Petrol, pal_petrol[[4]])  # TRUE (same HEX values)
 
 }
 \seealso{
+\code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_petrol}} for the corresponding color palette; 
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-\code{\link{pal_unikn}} for the default uni.kn color palette; 
-\code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 \code{\link{seecol}} to show and use color palettes.
 
 Other preferred colors: \code{\link{Bordeaux}},
