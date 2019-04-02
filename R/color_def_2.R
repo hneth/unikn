@@ -1,18 +1,18 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2019 04 01
+## spds | uni.kn  | 2019 04 02
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
 
 # (C) Other combinations of unikn color palettes: -------- 
 
-#  (1) pal_unikn_plus: Combination of pal_seeblau and pal_unikn (11): ------ 
+#  (1) pal_unikn: Combination of pal_seeblau [5] and pal_unikn_web (11): ------ 
 
 #   (a) Documentation: ----  
 
-#' uni.kn 11 colors in a color palette.
+#' unikn default color palette (11 colors).
 #'
-#' \code{pal_unikn_plus} combines the 5 blue colors 
+#' \code{pal_unikn} combines the 5 blue colors 
 #' from color palette \code{\link{pal_seeblau}} 
 #' with the 6 non-blue colors of \code{\link{pal_unikn}} 
 #' to a palette containing 11 color values. 
@@ -22,29 +22,29 @@
 #' also puts \code{white} at the central (middle) 
 #' position of a palette with 11 values:
 #' 
-#' \code{pal_unikn_plus[[6]]} is \code{white} or \code{"#FFFFFF"}.  
+#' \code{pal_unikn[[6]]} is \code{white} or \code{"#FFFFFF"}.  
 #'
 #' This is useful when creating color gradients. 
 #'
 #' See \url{https://www.uni-konstanz.de} for details.
 #'
 #' @examples
-#' pal_unikn_plus
-#' dim(pal_unikn_plus)         # 1 11
+#' pal_unikn
+#' dim(pal_unikn)         # 1 11
 #' 
 #' # Access by position:
-#' pal_unikn_plus[1]    # new color "seeblau5" (as df)
-#' pal_unikn_plus[[1]]  # new color value "#008ECE"
+#' pal_unikn[1]    # new color "seeblau5" (as df)
+#' pal_unikn[[1]]  # new color value "#008ECE"
 #' 
 #' # Access by name: 
-#' pal_unikn_plus["seeblau5"]   # new color "seeblau5" (as df) 
-#' pal_unikn_plus[["seeblau5"]] # new color value "#008ECE"
+#' pal_unikn["seeblau5"]   # new color "seeblau5" (as df) 
+#' pal_unikn[["seeblau5"]] # new color value "#008ECE"
 #' 
 #' # Plotting palette:
-#' seecol(pal_unikn_plus)
+#' seecol(pal_unikn)
 #' 
 #' # Note:
-#' pal_unikn_plus[6] # "white" or "#FFFFFF" as central of 11 colors
+#' pal_unikn[6] # "white" or "#FFFFFF" as central of 11 colors
 #' 
 #' @family color palettes
 #'
@@ -57,10 +57,10 @@
 
 #   (b) Definition: ----  
 
-pal_unikn_plus <- cbind(rev(pal_seeblau), pal_unikn[5:10])
+pal_unikn <- cbind(rev(pal_seeblau), pal_unikn_web[5:10])
 
 # Check: 
-# pal_unikn_plus
+# pal_unikn
 
 #  (2) pal_unikn_pref: Scale of all 9 (or 8 + 1) preferred colors: ------
 
@@ -160,8 +160,9 @@ pal_unikn_pref <- data.frame(            # Element:
 
 pal_unikn_light <- data.frame(
   pal_seeblau[c(3, 1)],
-  pal_seegruen[c(3, 1)],
   pal_peach[c(3, 1)],
+  pal_seegruen[c(3, 1)], 
+  pal_pinky[c(2, 1)],
   pal_grau[c(2, 1)],
   stringsAsFactors = FALSE)
 
@@ -205,9 +206,10 @@ pal_unikn_light <- data.frame(
 
 pal_unikn_dark <- data.frame(
   pal_karpfenblau[c(5, 3)],
-  pal_petrol[c(5, 3)],
   pal_bordeaux[c(5, 3)],
+  pal_petrol[c(5, 3)], 
   pal_pinky[c(5, 3)],
+  pal_grau[c(5, 3)],
   stringsAsFactors = FALSE)
 
 ## Check:
