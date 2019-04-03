@@ -1,10 +1,10 @@
 ## plot_util.R | unikn
-## hn  |  uni.kn |  2019 03 06
+## spds | uni.kn |  2019 04 03
 ## ---------------------------
 
 ## Utility functions (for internal use, not exported).
 
-## (A) General utility functions: ------- 
+## (A) Generic utility functions: ------- 
 
 # url_unikn: Format an URL the unikn way: ------ 
 
