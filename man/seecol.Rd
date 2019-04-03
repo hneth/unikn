@@ -61,7 +61,7 @@ Plot the current color palette and optional details on its colors.
 seecol()  # same as seecol(pal = "all") 
 
 # See details of a color palette: 
-seecol(pal_unikn_plus)  # see a specific color palette
+seecol(pal_unikn)  # see a specific color palette
 
 # Combining colors or color palettes: 
 seecol(c("black", "firebrick", "gold"))
