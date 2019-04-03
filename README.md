@@ -52,35 +52,28 @@ A distinctive and recognizable color scheme is the most obvious element of the [
 
 Basic color palettes are specified according to the **Corporate Design Manual** [(pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf):
 
+We added the darkest seeblau color (from `pal_seeblau[5]`) to the front of `pal_unikn` and place `white` into the middle of a symmetrical color palette `pal_unikn` (with 11 colors):
+
 -   Primary and default color palette (`pal_unikn`):
 
 ``` r
 # Default color palette: ----- 
 pal_unikn  # 10 default colors (web/sRGB)
 
-# Plot color palette: ----- 
-plot_pal(pal_unikn)
+# See color palett (by plotting it): ----- 
 seecol(pal_unikn)
 ```
 
-<img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/>
-
+<!-- <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/> -->
 -   Secondary color palette (`pal_unikn_ppt`): An alternative color palette with more muted colors (intended for PowerPoint presentations) is provided as `pal_unikn_ppt`.
 
-### Extension
-
-Adding the darkest seeblau color (from `pal_seeblau[5]`) to the front of `pal_unikn` places `white` into the middle of a symmetrical color palette `pal_unikn_plus` (with 11 colors):
+### All color palettes
 
 ``` r
-# Extended unikn color palette: ----- 
-pal_unikn_plus  # 11 colors (white in middle)
-
-# Plot color palette: ----- 
-plot_pal(pal_unikn_plus)
-seecol(pal_unikn_plus)
+seecol("all")
 ```
 
-<img src = "./inst/pix/README-pal_unikn_plus-1.png" align = "center" alt = "pal_unikn_plus" style = "border:10;"/>
+![](inst/pix/README-pal_all-1.png)
 
 ### Additional color palettes
 
@@ -227,7 +220,7 @@ typeof(unlist(pal_unikn)) # "character"
 unlist(pal_unikn)["seeblau3"]  # call by name
 unlist(pal_unikn)[2]  # call by index
 
-barplot(rep(6:3, 4), col = colorRampPalette(pal_unikn_plus)(7))
+barplot(rep(6:3, 4), col = colorRampPalette(pal_unikn)(7))
 ```
 
 ### ToDo <img src = "./inst/pix/todo.png" alt = "ToDo" align = "right" width = "120px" style = "width: 120px; float: right; border:10;"/>
@@ -251,7 +244,7 @@ Examples for using color palettes in graphs:
 
 ``` r
 # Using color palettes:
-barplot(1/sqrt(1:11),  col = seecol(pal_unikn_plus))
+barplot(1/sqrt(1:11),  col = seecol(pal_unikn))
 barplot(1/sqrt(10:25), col = seecol(pal_unikn_pair))
 
 # Using n colors of a palette:
@@ -415,7 +408,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-04-02 by [hn](https://neth.de).\]
+\[Updated 2019-04-03 by [hn](https://neth.de).\]
 
 <!-- eof. -->
 
