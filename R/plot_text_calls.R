@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## spds | uni.kn |  2019 04 02
+## spds | uni.kn |  2019 04 03
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -471,12 +471,13 @@ post <- function(labels,             # labels of text element(s) to plot
 # post(labels = c("SPDS", "Social Psychology and Decision Sciences"), font = c(2, 1), 
 #      new_plot = "xbox", cex = c(2.8, .85), y = c(.28, .15), col_bg = Petrol)
 #
-# ## ABC@See:
-# ABC19 <- c("ABC Retreat 2019", 
-#            "Schloss Marbach, Bodensee", 
-#            "May 29 to June 2, 2019")
-# post(labels = ABC19, 
-#      y = .33,  cex = c(1.4, 1.0, 1.0), font = c(2, 1, 1), col_bg = Petrol, new_plot = "xbox")
+# ## ABC@See (250 x 250): 
+# ABC_2019 <- c("ABC Retreat 2019",
+#               "Schloss Marbach, Bodensee",
+#               "May 29 to June 2, 2019")
+# post(labels = ABC_2019,
+#      y = .33,  cex = c(1.3, 1.0, 1.0), font = c(2, 1, 1), 
+#      col_bg = pal_seeblau[[5]], new_plot = "xbox")
 # 
 # # tiny versions (135 x 135): 
 # post(labels = c("ABC@See", "May 29 \u2013 Jun 2, 2019"), 
