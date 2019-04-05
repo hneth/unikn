@@ -669,7 +669,7 @@ seecol <- function(pal = "all",     # which palette to output?
     txt_pos <- seq(0.5, length(pal_tmp) - 0.5)
     
     # y positions: 
-    y_names <- 1.6
+    y_names <- 1.5
     y_circ  <- 1.2 
     y_rect  <- 0.6
     y_rgb   <- c(-0.50, -0.65, -0.80)
@@ -753,16 +753,13 @@ seecol <- function(pal = "all",     # which palette to output?
     )
     
     # Color names:
-    
-    # TODO: How to include the names of colors specified by their name (like "white")?
-    # print(paste0("pal_tmp = ", pal_tmp))  # 4debugging
     col_names <- names(pal_tmp)
     # print(paste0("col_names = ", col_names))  # 4debugging
     # col_names[is.null(col_names)] <- as.character(col_names[is.null(col_names)]) 
     # print(paste0("col_names = ", col_names))  # 4debugging
     
     text(x = txt_pos, y = y_names, labels = col_names, # pos = 3, 
-         srt = 45, xpd = TRUE, offset = 1,
+         srt = 45, xpd = TRUE, offset = 1, cex = 0.8, 
          adj = c(0, 0))
     
     # TODO: Spacing of indices:
