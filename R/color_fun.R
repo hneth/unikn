@@ -502,7 +502,7 @@ seecol <- function(pal = "all",     # which palette to output?
     
     pal_tmp <- lapply(X = pal, usecol, n = n)  # get all palettes seperately. 
     
-    title <- "Compare custom color palettes"
+    title <- "Compare a custom set of color palettes"
     
     names(pal_tmp) <- lapply(pal_tmp, comment)  # assign names from comment attribute. 
     
@@ -586,9 +586,15 @@ seecol <- function(pal = "all",     # which palette to output?
     
     if (grid) {
       
+      print(max(ylim) * max_ncol)
+      
       x_vals <- 0:max(ylim)
+      
+      dims <- max(ylim) * max_ncol
+      grfac <- c(3, 4, 5)[c(dims < 100, dims > 100 & dims < 150, dims > 150)]
+        #  min(max(ylim) / 5, 5)  # ensure an appropriate number of vertical lines using gridfactor. 
       y_vals <- 1:max_ncol
-      y_vals <- y_vals[(y_vals %% 5) == 0]  # steps of 5
+      y_vals <- y_vals[(y_vals %% grfac) == 0]  # steps of 5
       y_vals <- y_vals - xlen/2
       
       abline(h = x_vals,
