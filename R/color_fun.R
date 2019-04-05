@@ -142,28 +142,31 @@ usecol <- function(pal = pal_unikn,
       set2 <- pal_name %in% c("pal_grau", "pal_seeblau")
       set3 <- pal_name %in% c("pal_unikn_web", "pal_unikn_ppt") 
       set4 <- pal_name %in% "pal_unikn"
+      set5 <- pal_name %in% "pal_unikn_pair"
+      set6 <- pal_name %in% c("pal_unikn_dark", "pal_unikn_light", "pal_unikn_pref") 
+      set7 <- pal_name %in% "pal_signal"
       
-      pal_set <- which(c(set1, set2, set3, set4))  # define a set number.
+      pal_set <- which(c(set1, set2, set3, set4, set5, set6, set7))  # define a set number.
       
       ## Determine the color output:
       out_col <- switch(pal_set,
                         ## Get the indices for pal_set:
                         # TODO: WHY reverse?
-                        # Set1:
+                        # Set1: -----
                         switch(n,
                                pal[4],
                                pal[c(4, 2)],
                                pal[c(5, 3, 1)],
                                pal[c(5, 4, 2, 1)],
                                pal),
-                        # Set2:
+                        # Set2: -----
                         switch(n,
                                pal[3],
                                pal[c(4, 2)],
                                pal[c(5, 3, 1)],
                                pal[c(5, 4, 2, 1)],
                                pal),
-                        # Set3:
+                        # Set3: -----
                         switch(n,
                                pal[2],  # 1
                                pal[c(1, 3)],  # 2
@@ -175,7 +178,7 @@ usecol <- function(pal = pal_unikn,
                                pal[c(1, 2, 3, 4, 5, 7, 9, 10)],  # 8
                                pal[c(1, 2, 3, 4, 5, 7, 8, 9, 10)],  # 9
                                pal),
-                        # Set4:
+                        # Set4: -----
                         switch(
                           n,
                           pal[c("seeblau3")],
@@ -240,13 +243,23 @@ usecol <- function(pal = pal_unikn,
                           )],
                           # 10
                           pal  # all 11 colors of pal_unikn (previously known as pal_unikn_plus) 
-                        ))
+                        ),
+                        # Set 5: -----
+                        pal[c("seeblau5", "seeblau3", "pinky4", "pinky2", "petrol4", 
+                                         "petrol2", "bordeaux4", "bordeaux2", "seegruen4", "seegruen2",
+                                         "peach4", "peach2", "karpfenblau4", "karpfenblau2", "grau2", "grau1")[1:n]],
+                        # Set 6: -----
+                        pal[1:n],
+                        # Set 7: -----
+                        pal[c("signal1", "signal3", "signal2")[1:n]]
+                        # Set 8: -----
+                        )
       
       # print("OUT_COL")
       # print(out_col)
       
       ## Currently not implemented:
-      # pal_unikn_dark, pal_unikn_light, pal_unikn_pair, pal_unikn_ppt, pal_unikn_pref.
+      # pal_unikn_dark, pal_unikn_light, pal_unikn_pair, pal_unikn_pref.
       
       if (rev_pal) {
         out_col <-
