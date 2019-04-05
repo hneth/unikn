@@ -743,11 +743,8 @@ seecol <- function(pal = "all",     # which palette to output?
     )
     
     # Plot circles:
-    # TODO: Dynamically determine xlen:
     circle_len <- ifelse(((xlim[2] / 10) < 0.7), (xlim[2] / 10), .70)
-    
-    # print(paste0("circle_len = ", circle_len))
-    
+
     plot_col(x = pal_tmp, ypos = y_circ, plot.new = FALSE, xlen = circle_len, shape = "circle",
              ...
     )
@@ -757,6 +754,8 @@ seecol <- function(pal = "all",     # which palette to output?
     # print(paste0("col_names = ", col_names))  # 4debugging
     # col_names[is.null(col_names)] <- as.character(col_names[is.null(col_names)]) 
     # print(paste0("col_names = ", col_names))  # 4debugging
+    
+    y_names <- y_circ + (circle_len * 4 / max_ncol)  # determine y_names based on circle position and size.
     
     text(x = txt_pos, y = y_names, labels = col_names, # pos = 3, 
          srt = 45, xpd = TRUE, offset = 1, cex = 0.8, 
