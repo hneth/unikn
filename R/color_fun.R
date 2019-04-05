@@ -94,8 +94,7 @@ usecol <- function(pal = pal_unikn,
     
     ## Test whether equal to any palette:
     # print(all_pal_names1)
-    all_pals1 <-
-      lapply(unikn:::all_pal_names1, get)  # get all palettes from the first part.
+    all_pals1 <- lapply(unikn:::all_palkn, get)  # get all palettes from the first part.
     # Three dots are neccessary if object is not exported!
     
     # print(pal_inp)
@@ -125,7 +124,7 @@ usecol <- function(pal = pal_unikn,
     ## If input fits with any palette:
     if ( any(pal_ix) & length(pal_inp) >= n) {
       
-      pal_name <- all_pal_names1[pal_ix]  # get name of the palette.
+      pal_name <- all_palkn[pal_ix]  # get name of the palette.
       
       # print("DEFINED!")
       # print(pal_name)
