@@ -598,10 +598,13 @@ seecol <- function(pal = "all",     # which palette to output?
       
     } # if (grid) etc. 
     
+    ## Dynamic updating of ylen on number of palettes: 
+    ylen <- 0.8  # (0.8 / length(unikn:::all_palkn)) * length(pal_tmp)
+    
     # Add the color vectors:
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
       # print(row[[2]])
-      plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = 0.8, col_brd = col_brd, lwd = 0)
+      plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = ylen, col_brd = col_brd, lwd = 0)
     })
     # TODO: Can I allow to plot the matrix in a vectorized way (unlisting somewhere)?
     
@@ -630,8 +633,9 @@ seecol <- function(pal = "all",     # which palette to output?
     
     # Color indices:
     cex_ixs <- .80
+    yix <- -0.02 * length(pal_tmp)  # dnamic positioning of indices. 
     
-    text(x = pos_ind, y = -1, labels = txt_ind, pos = 3, xpd = TRUE,
+    text(x = pos_ind, y = yix, labels = txt_ind, pos = 1, xpd = TRUE,
          cex = cex_ixs, col = grey(0, 2/3))
     # text(x = seq(0.5, (max_ncol - 0.5), by = 1), y = -1, 
     #      labels = paste0("[", 1:max_ncol, "]"), pos = 3, xpd = TRUE,
