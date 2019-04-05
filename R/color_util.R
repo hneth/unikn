@@ -277,7 +277,25 @@ getpal_key <- function(pal = "all", n = "all") {
   
   # print(deparse(substitute(pal)))
   
-  keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad")
+  keys <- c("all", "unikn_all", "all_unikn",  # all palettes
+            "basic", "unikn_basic", "basic_unikn",  # the basic palettes. 
+            "pair", "all_pair", "pair_all",  # all paired palettes. 
+            "pref", "pref_all", "all_pref",  # the preferred palettes and gradients. 
+            "grad", "grad_all", "all_grad"  # the gradients.
+            )
+  
+  if ( !pal %in% keys ) {
+    stop('Invalid keyword specified. Allowed keywords are 
+                            c("all", "unikn_all", "all_unikn", "pref_all", "all_pref", "grad_all", "all_grad")')
+  } else {
+    
+    if ( pal %in% keys[1:3] ) key <- "all"
+    if ( pal %in% keys [4:6] ) key <- "basic"
+    if ( pal %in% keys[7:9] ) key <- "pair"
+    if ( pal %in% keys[10:12] ) key <- "pref"
+    if ( pal %in% keys[13:15] ) key <- "grad"
+    
+  }
 
   
   # Get all color palettes with the prefix "pal_" from the environment.
@@ -288,17 +306,15 @@ getpal_key <- function(pal = "all", n = "all") {
     #   grepl("pal_unikn", all_pal)  # index for all unikn palettes.
     # 
     # ## The three cases: -----
-    # pal_names <- switch(
-    #   pal,
-    #   all = all_pal[all_pal != "tmp"],
-    #   unikn_all = all_pal[ix_unikn],
-    #   all_unikn = all_pal[ix_unikn],
-    #   grad_all = all_pal[!ix_unikn],
-    #   all_grad = all_pal[!ix_unikn]
-    # )
-    
-    pal_names <- all_pal_names1
-    
+    pal_names <- switch(
+      pal,
+      all = unikn:::all_palkn,
+      basic = unikn:::all_palkn_basic,
+      pair = unikn:::all_palkn_pair,
+      pref = unikn:::all_palkn_pref,
+      grad = unikn:::all_palkn_grad
+    )
+
     # Get all palettes specified by keyword:
     lst_pal <- sapply(pal_names, get)
     
@@ -325,12 +341,12 @@ getpal_key <- function(pal = "all", n = "all") {
     }
     
     ## Order palettes:
-    if (pal == "all") {
-      ix <-
-        c(grep("pal_unikn", names(tmp)), grep("pal_signal", names(tmp)))
-      
-      tmp <- c(tmp[ix], tmp[-ix])
-    }
+    # if (pal == "all") {
+    #   ix <-
+    #     c(grep("pal_unikn", names(tmp)), grep("pal_signal", names(tmp)))
+    #   
+    #   tmp <- c(tmp[ix], tmp[-ix])
+    # }
     
     ## If only color subsets should be displayed:
     if (n != "all" ) {

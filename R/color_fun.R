@@ -450,7 +450,12 @@ seecol <- function(pal = "all",     # which palette to output?
   ## 0. Preparations: ----- 
   
   op <- par(no.readonly = TRUE)  # save original plotting settings.
-  keys <- c("all", "unikn_all", "all_unikn", "grad_all", "all_grad") # keywords to return multiple palettes. 
+  keys <- c("all", "unikn_all", "all_unikn",  # all palettes
+            "basic", "unikn_basic", "basic_unikn",  # the basic palettes. 
+            "pair", "all_pair", "pair_all",  # all paired palettes. 
+            "pref", "pref_all", "all_pref",  # the preferred palettes and gradients. 
+            "grad", "grad_all", "all_grad"  # the gradients.
+  )
   
   # Robustify inputs:
   
@@ -486,9 +491,11 @@ seecol <- function(pal = "all",     # which palette to output?
   if ( by_key ) {
     
     ## Define title given keyword:
-    if ( pal == "all") title <- "See all unikn color palettes"
-    if ( pal %in% c("unikn_all", "all_unikn")) title <- "See all basic unikn color palettes"
-    if ( pal %in% c("grad_all", "all_grad")) title <- "See all unikn color gradients"
+    if ( pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
+    if ( pal %in% c("basic", "unikn_basic", "basic_unikn")) title <- "See all basic unikn color palettes"
+    if ( pal %in% c("pair", "all_pair", "pair_all")) title <- "See all pairwise unikn color palettes"
+    if ( pal %in% c("pref", "pref_all", "all_pref")) title <- "See all preferred unikn colors and gradients"
+    if ( pal %in% c("grad", "grad_all", "all_grad")) title <- "See all unikn color gradients"
     
     pal_tmp <- getpal_key(pal = pal, n = n)  # get the color by key.
     

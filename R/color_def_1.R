@@ -1205,12 +1205,14 @@ names(Signal) <- "Signal"
 # all_pal_names1 <- ls()[grepl("pal_", ls())]  # utils::apropos("pal_")
 # all_pal_names1 <- all_pal_names1[!all_pal_names1 %in% c("pal_signal", "pal_unikn_ppt")]  
 # remove ppt and signal to avoid crashing on inconsistency in usecol (defined but not with color selection).
-all_pal_names1 <- c("pal_unikn", "pal_unikn_web", "pal_unikn_ppt",
-                    "pal_unikn_light", "pal_unikn_dark", "pal_unikn_pair",
-                    "pal_unikn_pref",
-                    "pal_seeblau", "pal_peach", "pal_grau", "pal_petrol", "pal_seegruen",
+all_palkn_basic <- c("pal_unikn", "pal_unikn_web", "pal_unikn_ppt")
+all_palkn_pair <- c("pal_unikn_light", "pal_unikn_dark", "pal_unikn_pair")
+all_palkn_grad <- c("pal_seeblau", "pal_peach", "pal_grau", "pal_petrol", "pal_seegruen",
                     "pal_karpfenblau", "pal_pinky", "pal_bordeaux",
                     "pal_signal")
+all_palkn_pref <- c("pal_unikn_pref", all_palkn_grad)
+all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
+                    
 
 # +++ here now +++ 
 
