@@ -52,7 +52,7 @@ There are 2 subsets of the available color palettes:
 a. All basic color palettes:
 
 ```{r seecol_unikn_all, fig.width = 7, fig.height = 3}
-seecol("unikn_all")
+seecol("unikn_basic")
 ```
 
 b. all pre-defined color gradients:
@@ -72,12 +72,12 @@ A particular color palette (e.g., `pal_seegruen`) can not only be displayed by p
 Hence, the following all yield the same result: 
 
 ```{r, eval = FALSE}
-# TODO: Run them all? 
 seecol(pal_seegruen)
 seecol(seegruen)
 seecol("pal_seegruen")
 seecol("seegruen")
 ```
+
 
 ## Using colors and color palettes with `usecol`
 
@@ -90,6 +90,22 @@ barplot(1/sqrt(1:11), col = usecol(pal_unikn))
 barplot(1/sqrt(1:11), col = usecol(pal_bordeaux, n = 11))
 barplot(1/sqrt(1:11), col = usecol(c(rev(pal_seegruen), "white", pal_bordeaux), n = 11))
 ```
+
+
+Alternatively you can use `seecol` to view, save and subesequently use a color palette in a graph: 
+
+So you can first view a color palette, whether you like it... 
+
+```{r save_view, fig.width = 7, fig.height = 6}
+mypal <- seecol(pal_unikn_pair)  # save and view the palette. 
+```
+
+... and then use it in a plot: 
+
+```{r, fig.width = 7, fig.height = 4}
+barplot(matrix(sample(5:10, size = 16, replace = TRUE), ncol = 8), beside = TRUE, col = mypal)
+```
+
 
 ## Modifying color palettes
 
@@ -106,6 +122,7 @@ Extending a palette to a larger number of colors than contained in the palette:
 seecol("all", n = 12)
 seecol(pal_seeblau, 12)
 ```
+
 
 ## Mixing color palettes
 
