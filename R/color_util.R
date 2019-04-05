@@ -308,11 +308,11 @@ getpal_key <- function(pal = "all", n = "all") {
     # ## The three cases: -----
     pal_names <- switch(
       key,
-      all = unikn:::all_palkn,
-      basic = unikn:::all_palkn_basic,
-      pair = unikn:::all_palkn_pair,
-      pref = unikn:::all_palkn_pref,
-      grad = unikn:::all_palkn_grad
+      all = all_palkn,
+      basic = all_palkn_basic,
+      pair = all_palkn_pair,
+      pref = all_palkn_pref,
+      grad = all_palkn_grad
     )
 
     # Get all palettes specified by keyword:

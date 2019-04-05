@@ -94,7 +94,7 @@ usecol <- function(pal = pal_unikn,
     
     ## Test whether equal to any palette:
     # print(all_pal_names1)
-    all_pals1 <- lapply(unikn:::all_palkn, get)  # get all palettes from the first part.
+    all_pals1 <- lapply(all_palkn, get)  # get all palettes from the first part.
     # Three dots are neccessary if object is not exported!
     
     # print(pal_inp)
