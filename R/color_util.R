@@ -307,7 +307,7 @@ getpal_key <- function(pal = "all", n = "all") {
     # 
     # ## The three cases: -----
     pal_names <- switch(
-      pal,
+      key,
       all = unikn:::all_palkn,
       basic = unikn:::all_palkn_basic,
       pair = unikn:::all_palkn_pair,
@@ -317,6 +317,8 @@ getpal_key <- function(pal = "all", n = "all") {
 
     # Get all palettes specified by keyword:
     lst_pal <- sapply(pal_names, get)
+    
+    # print(pal)
     
     # Indicator, whether these are color palettes:
     is_pal <- lapply(

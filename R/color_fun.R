@@ -585,9 +585,7 @@ seecol <- function(pal = "all",     # which palette to output?
     # grid <- TRUE  # 4debugging
     
     if (grid) {
-      
-      print(max(ylim) * max_ncol)
-      
+
       x_vals <- 0:max(ylim)
       
       dims <- max(ylim) * max_ncol
