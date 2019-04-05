@@ -281,22 +281,23 @@ getpal_key <- function(pal = "all", n = "all") {
 
   
   # Get all color palettes with the prefix "pal_" from the environment.
-    all_pal <-
-      utils::apropos("pal_")  # all palettes in the environment.
+    # all_pal <- utils::apropos("pal_")  # all palettes in the environment.
     # all_pals1 <-
     #   lapply(unikn:::all_pal_names1, get)  # all predefined palettes. 
-    ix_unikn <-
-      grepl("pal_unikn", all_pal)  # index for all unikn palettes.
+    # ix_unikn <-
+    #   grepl("pal_unikn", all_pal)  # index for all unikn palettes.
+    # 
+    # ## The three cases: -----
+    # pal_names <- switch(
+    #   pal,
+    #   all = all_pal[all_pal != "tmp"],
+    #   unikn_all = all_pal[ix_unikn],
+    #   all_unikn = all_pal[ix_unikn],
+    #   grad_all = all_pal[!ix_unikn],
+    #   all_grad = all_pal[!ix_unikn]
+    # )
     
-    ## The three cases: -----
-    pal_names <- switch(
-      pal,
-      all = all_pal[all_pal != "tmp"],
-      unikn_all = all_pal[ix_unikn],
-      all_unikn = all_pal[ix_unikn],
-      grad_all = all_pal[!ix_unikn],
-      all_grad = all_pal[!ix_unikn]
-    )
+    pal_names <- all_pal_names1
     
     # Get all palettes specified by keyword:
     lst_pal <- sapply(pal_names, get)

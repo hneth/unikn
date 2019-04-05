@@ -1209,7 +1209,7 @@ all_pal_names1 <- c("pal_unikn", "pal_unikn_web", "pal_unikn_ppt",
                     "pal_unikn_light", "pal_unikn_dark", "pal_unikn_pair",
                     "pal_unikn_pref",
                     "pal_seeblau", "pal_peach", "pal_grau", "pal_petrol", "pal_seegruen",
-                    "pal_karpfenblau", "pal_pinky", "pal_bordeeaux",
+                    "pal_karpfenblau", "pal_pinky", "pal_bordeaux",
                     "pal_signal")
 
 # +++ here now +++ 
