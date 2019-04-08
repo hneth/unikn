@@ -112,8 +112,6 @@ Using an exising color palette in a graph:
 barplot(1/sqrt(1:11), col = usecol(pal_unikn))
 ```
 
-
-
 Alternatively we can use `seecol` to view, save and subesequently use a color palette in a graph: 
 
 We can first view a color palette (to _see_ whether we like it):  

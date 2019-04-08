@@ -72,7 +72,6 @@ library(unikn)  # load the package
 A distinctive and recognizable color scheme is the most obvious element of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design. 
 
 
-
 ### Basic color palettes
 
 Basic color palettes are specified according to the **Corporate Design Manual** [(pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf):
@@ -192,12 +191,13 @@ seecol(usecol(pal_seeblau, 10))
 seecol(usecol(pal_bordeaux, 10))
 ```
 
+<!--
 <img src = "./inst/pix/README-col_scale_1-1.png" align = "center" alt = "col_scale" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_1-2.png" align = "center" alt = "pal_seeblau" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_1-3.png" align = "center" alt = "pal_Bordeaux" style = "border:10;"/>
-
+-->
 
 2. Combining colors to create new color palettes:
 
@@ -212,6 +212,7 @@ plot_pal(col_scale(c(Bordeaux, "white", Petrol))(10))
 plot_pal(col_scale(c(Karpfenblau, Seeblau, "gold"))(10)) 
 ```
 
+<!--
 <img src = "./inst/pix/README-col_scale_2-1.png" align = "center" alt = "col_scale: seeblau white pinky" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_2-2.png" align = "center" alt = "col_scale: signal petrol" style = "border:10;"/>
@@ -219,7 +220,7 @@ plot_pal(col_scale(c(Karpfenblau, Seeblau, "gold"))(10))
 <img src = "./inst/pix/README-col_scale_2-3.png" align = "center" alt = "col_scale: Bordeaux white petrol" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_2-4.png" align = "center" alt = "col_scale: karpfenblau seeblau gold" style = "border:10;"/>
-
+-->
 
 For best results, consider combining existing color palettes and individual colors into new color palettes: 
 
@@ -232,11 +233,13 @@ plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_seegruen))(11))
 plot_pal(col_scale(c(rev(pal_petrol),  "white", pal_Bordeaux))(11))
 ```
 
+<!--
 <img src = "./inst/pix/README-col_scale_3-1.png" align = "center" alt = "col_scale: pal_seeblau white pal_pinky" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_3-2.png" align = "center" alt = "col_scale: pal_seeblau white pal_petrol" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_3-3.png" align = "center" alt = "col_scale: pal_petrol white pal_Bordeaux" style = "border:10;"/>
+-->
 
 ## Using color palettes
 
@@ -456,6 +459,6 @@ Color definitions are based on the following sources:
 
 <!-- Update: -->
 
-[Updated `r format(Sys.time(), "%Y-%m-%d")` by [hn](https://neth.de).]  
+[Updated on `r format(Sys.time(), "%Y-%m-%d")`.]  
 
 <!-- eof. -->

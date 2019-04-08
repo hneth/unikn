@@ -162,12 +162,13 @@ seecol(usecol(pal_seeblau, 10))
 seecol(usecol(pal_bordeaux, 10))
 ```
 
+<!--
 <img src = "./inst/pix/README-col_scale_1-1.png" align = "center" alt = "col_scale" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_1-2.png" align = "center" alt = "pal_seeblau" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_1-3.png" align = "center" alt = "pal_Bordeaux" style = "border:10;"/>
-
+-->
 1.  Combining colors to create new color palettes:
 
 New color palettes of arbitrary length can be created by combining colors (from `unikn` or base R) and the desired resolution of the color gradient (as an integer argument):
@@ -180,6 +181,7 @@ plot_pal(col_scale(c(Bordeaux, "white", Petrol))(10))
 plot_pal(col_scale(c(Karpfenblau, Seeblau, "gold"))(10)) 
 ```
 
+<!--
 <img src = "./inst/pix/README-col_scale_2-1.png" align = "center" alt = "col_scale: seeblau white pinky" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_2-2.png" align = "center" alt = "col_scale: signal petrol" style = "border:10;"/>
@@ -187,7 +189,7 @@ plot_pal(col_scale(c(Karpfenblau, Seeblau, "gold"))(10))
 <img src = "./inst/pix/README-col_scale_2-3.png" align = "center" alt = "col_scale: Bordeaux white petrol" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_2-4.png" align = "center" alt = "col_scale: karpfenblau seeblau gold" style = "border:10;"/>
-
+-->
 For best results, consider combining existing color palettes and individual colors into new color palettes:
 
 ``` r
@@ -199,12 +201,13 @@ plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_seegruen))(11))
 plot_pal(col_scale(c(rev(pal_petrol),  "white", pal_Bordeaux))(11))
 ```
 
+<!--
 <img src = "./inst/pix/README-col_scale_3-1.png" align = "center" alt = "col_scale: pal_seeblau white pal_pinky" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_3-2.png" align = "center" alt = "col_scale: pal_seeblau white pal_petrol" style = "border:10;"/>
 
 <img src = "./inst/pix/README-col_scale_3-3.png" align = "center" alt = "col_scale: pal_petrol white pal_Bordeaux" style = "border:10;"/>
-
+-->
 Using color palettes
 --------------------
 
@@ -408,7 +411,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated 2019-04-03 by [hn](https://neth.de).\]
+\[Updated on 2019-04-08.\]
 
 <!-- eof. -->
 
