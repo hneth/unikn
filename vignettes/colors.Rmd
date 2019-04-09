@@ -77,6 +77,8 @@ seecol("unikn_all")  # same as seecol("all")
 seecol("unikn_basic")
 ```
 
+Note, that `pal_unikn_web` and `pal_unikn_ppt` are almost identical but differ in how vibrant their colors are.  
+
 2. all _paired_ color palettes:
 
 ```{r seecol_pair_all, fig.width = 7, fig.height = 4}
