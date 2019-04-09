@@ -224,14 +224,29 @@ barplot(dat, beside = TRUE, col = mypair)
 
 ### Comparing custom palettes 
 
-Advanced users can also use `seecol` for displaying and comparing different custom palette. The `pal` argument is a list of colors or color palettes:
+Sometimes you may want to compare a palette you created to your other or the existing palettes.  Therefore, advanced users can also use `seecol` for displaying and comparing different custom palettes. Seecol will output a _comparison_ of the inputs if you specify the `pal` argument as a list of colors or color palettes:
 
 ```{r compare_custom_palettes, fig.width = 7, fig.height = 3}
-pal1 <- c(rev(pal_seeblau), "white", pal_pinky)
+# Define two palettes: 
+pal1 <- c(rev(pal_seeblau), "white", pal_bordeaux)
 pal2 <- usecol(c(Karpfenblau, Seeblau, "gold"), n = 10)
 
-seecol(list(pal1, pal2, pal_unikn, pal_unikn_pair))
-# TODO: Does currently not work for unikn_pair, unikn_ppt, as no defaults are defined there. 
+# Show the mypair palette from above, the two palettes just defined, and two of the existing palettes:  
+seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair))
+```
+
+Note, unknown palettes wil be named `pal`n in increasing order.  Palettes known to `seecol` will be shown with their respective names.  
+
+You can again either use subsets of these palettes: 
+
+```{r subset_compare}
+seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 5)
+```
+
+Or extend them: 
+
+```{r superset_compare}
+seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
 ```
 
 
