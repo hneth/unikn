@@ -29,13 +29,31 @@ knitr::opts_chunk$set(echo = TRUE,
                )
 ```
 
-Explain which colors and color palettes exist in `unikn` and how to use them.
+The purpose of this vignette is to explain which colors and color palettes exist in `unikn` and how to use them.
+
+
+## Overview 
 
 Please load the `unikn` package to get started: 
 
 ```{r load_pkg, message = FALSE, warning = FALSE}
 library(unikn)  # load unikn package
 ```
+
+There are two functions to interact with the color palettes in the `unikn` package:  `seecol` and `usecol`
+
+* `seecol` is a general-purpose tool for viewing (or _seeing_) color palettes and saving them to an object.  It offers two functionalities: 
+    + _comparing_ a set of color palettes by passing a keyword or `list`-object
+    + viewing _details_ of a single color palette 
+* `usecol` allows you to use a color palette without showing a plot of the palette 
+
+
+## An exemplary workflow 
+
+
+
+
+# OLD STUFF 
 
 ## Viewing color palettes
 
