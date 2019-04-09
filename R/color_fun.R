@@ -361,7 +361,7 @@ usecol <- function(pal = pal_unikn,
 #' 
 #' \enumerate{
 #'
-#'   \item if \code{pal = "all"} (or a list of multiple color palettes): 
+#'   \item if \code{pal = "unikn_all"} (or a list of multiple color palettes): 
 #'
 #'   Plot visual vectors of all current color palettes for comparing them. 
 #'
@@ -371,10 +371,29 @@ usecol <- function(pal = pal_unikn,
 #'
 #' }
 #' 
-#' @param pal A color palette (as a list of colors) or 
-#' the character string \code{"all"} (for showing all 
-#' color palettes in the current environment). 
-#' Default: \code{pal = "all"}. 
+#' @param pal A color palette (as a vector of colors), 
+#' a character string recognized as keyword by seecol or
+#' multiple palettes specified as list. 
+#' Default: \code{pal = "unikn_all"}. 
+#' 
+#' Recognized keywords are: 
+#' 
+#' \enumerate{
+#'
+#'   \item \code{"unikn_all"}: All color palettes defined in \code{unikn}
+#'
+#'   \item \code{"unikn_basic"}: All basic palettes. 
+#'   
+#'   \item \code{"pair_all"}: All palettes with pairwise colors. 
+#'   
+#'   \item \code{"pref_all"}: All preferred colors and their gradients. 
+#'   
+#'   \item \code{"grad_all"}: 
+#'
+#' }
+#' 
+#' \code{seecol} does also recognize reverse keywords (e.g., \code{"all_unikn"}) or 
+#' keywords without \code{"unikn"} (e.g., \code{"basic"}).
 #' 
 #' @param n Number of colors to show or use. 
 #' If \code{n} is lower or higher than the length of the current 
@@ -393,7 +412,7 @@ usecol <- function(pal = pal_unikn,
 #' @param col_brd Color of box borders (if shown). 
 #' Default: \code{col_brd = NULL}. 
 #' 
-#' @param grid Show grid?  
+#' @param grid Show grid in the color plot?  
 #' Default: \code{grid = TRUE}. 
 #' 
 #' @param ... Other graphical parameters 
@@ -437,7 +456,7 @@ usecol <- function(pal = pal_unikn,
 
 # - Definition: ------- 
 
-seecol <- function(pal = "all",     # which palette to output?
+seecol <- function(pal = "unikn_all",     # which palette to output?
                    n = "all",
                    hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
                    rgb = NULL,      # determine, whether rgb values should be shown in detail view (defaults to TRUE)
