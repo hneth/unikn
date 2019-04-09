@@ -107,6 +107,12 @@ When the `pal` argument specifies a single color palette, `seecol` plots a more 
 seecol(pal_unikn)
 ```
 
+You can see 
+
+* the color names 
+* indices in the color palette 
+* the hex values of each color 
+* the RGB values for each color 
 
 A typical workflow may include _seeing_ a color palette, saving it and using it in a plot.  
 
