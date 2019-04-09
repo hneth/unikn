@@ -279,7 +279,7 @@ getpal_key <- function(pal = "all", n = "all") {
   
   keys <- c("all", "unikn_all", "all_unikn",  # all palettes
             "basic", "unikn_basic", "basic_unikn",  # the basic palettes. 
-            "pair", "all_pair", "pair_all",  # all paired palettes. 
+            "pair", "pair_all", "all_pair",   # all paired palettes. 
             "pref", "pref_all", "all_pref",  # the preferred palettes and gradients. 
             "grad", "grad_all", "all_grad"  # the gradients.
             )

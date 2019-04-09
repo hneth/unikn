@@ -7,8 +7,10 @@ output:
     fig_caption: yes
 vignette: > 
   %\VignetteIndexEntry{Colors}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE}
@@ -37,20 +39,78 @@ The purpose of this vignette is to explain which colors and color palettes exist
 Please load the `unikn` package to get started: 
 
 ```{r load_pkg, message = FALSE, warning = FALSE}
-library(unikn)  # load unikn package
+# library(unikn)  # load unikn package
+devtools::load_all(".")
 ```
 
 There are two functions to interact with the color palettes in the `unikn` package:  `seecol` and `usecol`
 
-* `seecol` is a general-purpose tool for viewing (or _seeing_) color palettes and saving them to an object.  It offers two functionalities: 
-    + _comparing_ a set of color palettes by passing a keyword or `list`-object
-    + viewing _details_ of a single color palette 
-* `usecol` allows you to use a color palette without showing a plot of the palette 
+The function `seecol` is a general-purpose tool for viewing (or _seeing_) color palettes. 
+`seecol` takes 2 main arguments:
+
+1. `pal` describes either 1 or multiple color palettes (with a default `p = "all"`)
+2. `n` describes the number of desired colors (with a default `n = "all"`).
+
+Based on the setting of `pal`, the `seecol` function distinguishes between 2 modes: 
+
+* _comparing_ a set of color palettes by passing a keyword or `list`-object
+* viewing _details_ of a single color palette 
+
+`usecol` allows you to use a color palette without showing the color palette 
 
 
-## An exemplary workflow 
+## Viewing and comparing available color palettes with `seecol` 
+
+When the `pal` argument specifies (a list of) multiple color palettes, `seecol` plots a vector for each palette to allow comparing these palettes. 
+Some special keywords within the `unikn` package are `"unikn_all"`, `"unikn_basic"`, `pair_all"`, `"pref_all"` and `"grad_all"`.  They allow comparing predefined sets of the color palettes within the `unikn`-package.  
+
+Viewing _all_ available color palettes:
+
+```{r seecol_unikn_all, fig.width = 7, fig.height = 5}
+seecol("unikn_all")  # same as seecol("all")
+```
 
 
+1. All three _basic_ color palettes:
+
+```{r seecol_unikn_basic, fig.width = 7, fig.height = 3}
+seecol("unikn_basic")
+```
+
+2. all _paired_ color palettes:
+
+```{r seecol_pair_all, fig.width = 7, fig.height = 4}
+seecol("pair_all")
+```
+
+3. all _preferred_ colors from the spectrum and their respective _gradients_:
+
+```{r seecol_pref_all, fig.width = 7, fig.height = 4}
+seecol("pref_all")
+```
+
+
+4. only the pre-defined color _gradients_:
+
+```{r seecol_grad_all, fig.width = 7, fig.height = 4}
+seecol("grad_all")
+```
+
+
+## Viewing and saving a palette with `seecol` 
+
+A typical workfolw may include _seeing_ a color palette, saving it and using it in a plot.  
+
+```{r}
+
+```
+
+
+
+## Using a palette with `usecol` without seeing it 
+
+
+## Subsetting, extending and combining color palettes  
 
 
 # OLD STUFF 
