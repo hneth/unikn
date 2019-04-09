@@ -129,7 +129,15 @@ seecol(pal_bordeaux)
 
 ## Using a palette with `usecol` without seeing it 
 
-In many cases you will only want to use a palette without plotting it.  For this purpose the `unikn`-package provides the function `usecol`.  
+If you do not want to plot a palette before using it you can use the function `usecol`.  
+
+The `usecol` function corresponds to `seecol` by taking the same 2 main arguments (`pal` and `n`). 
+However, as its purpose is _using_ the colors specified by `pal`, rather than plotting (or _seeing_) them, the `pal` argument typically contains only one color palette. 
+
+```{r use_col_default, fig.width = 7, fig.asp = .618}
+# Using a color palette:
+barplot(1/sqrt(1:11), col = usecol(pal_unikn))
+```
 
 
 Note that the both the `seecol` and the `usecol` function are quite permissive with respect to specifying their `pal` argument: 
@@ -144,7 +152,104 @@ seecol("seegruen")
 ```
 
 
-## Subsetting, extending and combining color palettes  
+## Customizing color palettes
+
+Both `seecol` and `usecol` allow a flexible on-the-fly customization of color palettes.  
+
+Specifying a value for the `n` argument of `seecol` an `usecol` allows you to 
+
+* specify a subset of colors and compare these subsets for different palettes for `n` _smaller_ than the length of the color palette. 
+* extend a color palette and compare different palettes for `n` _greater_ than the length of the color palette. 
+
+Finally, passing a vector of colors and/or color palettes allows you creating and viewing your own palettes. 
+
+### Selecting subsets
+
+Using only a subset of colors:
+
+```{r use_subset, fig.width = 7, fig.height = 6}
+seecol("unikn_all", n = 4)
+seecol(pal_unikn, 4)
+```
+
+Importantly, when using pre-defined color palettes of `unikn` but a value of `n` that is smaller than the length of the current color palette, `usecol` and `seecol` select a predefined subset of colors:
+
+```{r use_col_small_n, fig.width = 4, fig.asp = .618}
+barplot(1/sqrt(1:2), col = usecol(pal_seeblau, n = 2))
+barplot(1/sqrt(1:3), col = usecol(pal_seeblau, n = 3))
+```
+
+### Extending color palettes
+
+For values of `n` that are larger than the number of available colors in `pal`, the specified color palette is extended using `ColorRampPalette`:
+
+```{r use_superset, fig.width = 7, fig.height = 6}
+seecol("all", n = 12)
+seecol(pal_seeblau, 12)
+```
+
+When using a color palette: 
+
+```{r use_col_big_n, fig.width = 7, fig.asp = .618}
+barplot(1/sqrt(1:11), col = usecol(pal_bordeaux, n = 11))
+```
+
+### Mixing color palettes
+
+By passing a vector, as in the example below, you can for instance concatenate two palettes and connect them with white as the midpoint.  
+
+```{r combine_pals, fig.width = 7, fig.asp = .618}
+seecol(pal = c(rev(pal_petrol), "white", pal_bordeaux))
+```
+
+You can also combine a set of colors and extend this palette by specifying an `n` argument greater than the length of your specified palette. 
+
+```{r combine_pals_n, fig.width = 7, fig.asp = .618}
+seecol(pal = c(Karpfenblau, Seeblau, "gold"), n = 10)          # no names
+seecol(pal = usecol(c(Karpfenblau, Seeblau, "gold"), n = 10))  
+# Note, that redundant use of seecol and usecol shows HEX values as names.
+```
+
+
+These custom palettes you can easily use in a plot.  Here, we define and use a subset of the `pal_unikn_pair` palette: 
+
+```{r use_my_pal, fig.width = 7, fig.height = 4}
+mypair <- seecol(pal_unikn_pair, n = 10)
+
+## Create some data: 
+dat <- matrix(sample(5:10, size = 10, replace = TRUE), ncol = 5)
+barplot(dat, beside = TRUE, col = mypair)
+```
+
+
+### Comparing custom palettes 
+
+Advanced users can also use `seecol` for displaying and comparing different custom palette. The `pal` argument is a list of colors or color palettes:
+
+```{r compare_custom_palettes, fig.width = 7, fig.height = 3}
+pal1 <- c(rev(pal_seeblau), "white", pal_pinky)
+pal2 <- usecol(c(Karpfenblau, Seeblau, "gold"), n = 10)
+
+seecol(list(pal1, pal2, pal_unikn, pal_unikn_pair))
+# TODO: Does currently not work for unikn_pair, unikn_ppt, as no defaults are defined there. 
+```
+
+
+## All unikn vignettes
+
+<!-- unikn pkg logo and link: -->
+<a href = "https://github.com/hneth/unikn/">
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
+</a>
+
+<!-- Index of vignettes: -->
+
+| Nr.  | Vignette | Content    |        
+| ---: |:---------|:-----------|
+| 1. | [Colors](colors.html) | Colors and color palettes | 
+| 2. | [Text](text.html)     | Text boxes and decorations | 
+
+<!-- eof. -->
 
 
 # OLD STUFF 
@@ -326,4 +431,3 @@ seecol(list(pal1, pal2, pal_unikn, pal_unikn_pair))
 | 1. | [Colors](colors.html) | Colors and color palettes | 
 | 2. | [Text](text.html)     | Text boxes and decorations | 
 
-<!-- eof. -->
