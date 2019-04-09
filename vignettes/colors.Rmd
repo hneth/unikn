@@ -99,15 +99,49 @@ seecol("grad_all")
 
 ## Viewing and saving a palette with `seecol` 
 
-A typical workfolw may include _seeing_ a color palette, saving it and using it in a plot.  
+When the `pal` argument specifies a single color palette, `seecol` plots a more detailed view of this particular color palette: 
+
+```{r unikn_palette}
+seecol(pal_unikn)
+```
+
+
+A typical workflow may include _seeing_ a color palette, saving it and using it in a plot.  
+
+```{r save_seecol}
+mypal <- seecol(pal_unikn_dark)  # plot and save pal_unikn to mypal. 
+```
+
+After saving the color palette you can use the palette object in your plot: 
+
+```{r use_col_default, fig.width = 7, fig.asp = .618}
+# Using a color palette:
+barplot(1/sqrt(1:11), col = mypal)
+```
+
+Note, that `seecol` returns the color palette invisibly.  Therefore the following will only plot the palette without returining the color vector.  
 
 ```{r}
-
+seecol(pal_bordeaux)
 ```
 
 
 
 ## Using a palette with `usecol` without seeing it 
+
+In many cases you will only want to use a palette without plotting it.  For this purpose the `unikn`-package provides the function `usecol`.  
+
+
+Note that the both the `seecol` and the `usecol` function are quite permissive with respect to specifying their `pal` argument: 
+A particular color palette (e.g., `pal_seegruen`) can not only be displayed by providing it (as an object) but also by providing its name (i.e., `"pal_seegruen"`) or even its incomplete object name or name (i.e., `"seegruen"` or `seegruen`). 
+Hence, the following all yield the same result: 
+
+```{r, free_pal_args eval = FALSE}
+seecol(pal_seegruen)
+seecol("pal_seegruen")
+seecol(seegruen)  # issues a warning
+seecol("seegruen")
+```
 
 
 ## Subsetting, extending and combining color palettes  
