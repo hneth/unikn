@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 04 02
+## spds | uni.kn |  2019 04 10
 ## ---------------------------
 
 ## Define color-related functions 
@@ -426,19 +426,26 @@ usecol <- function(pal = pal_unikn,
 #' seecol(pal_unikn)  # see a specific color palette
 #' 
 #' # Combining colors or color palettes: 
-#' seecol(c("black", "firebrick", "gold"))
-#' seecol(c(rev(pal_seeblau), pal_seegruen))
-#' seecol(c(rev(pal_seeblau), "white", pal_pinky))
+#' seecol(c(rev(pal_seeblau), pal_seegruen))        # combine color palettes
+#' seecol(c(rev(pal_seeblau), "white", pal_pinky))  # combine color palettes and color names
+#' seecol(c("black", "firebrick", "gold"))          # combine color names
 #' 
 #' # Using n to reduce or extend color palettes:
-#' seecol(n =  3)  
-#' seecol(n = 12)
+#' seecol(n =  3)  # viewing reduced ranges of all palettes
+#' seecol(n = 12)  # viewing extended ranges of all palettes
 #' 
-#' seecol(pal_unikn, n = 5)
-#' seecol(pal_seeblau, n = 10)
+#' seecol(pal_unikn, n = 5)     # reducing/selecting from pal_unikn
+#' seecol(pal_seeblau, n = 10)  # extending pal_seeblau
 #' 
 #' # Combining and extending color palettes: 
 #' seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17)
+#' 
+#' ## Viewing color palettes from other packages: 
+#' # library(RColorBrewer)
+#' # seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
+#' 
+#' ## Extending color palettes:
+#' # seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette from 11 to 15 colors
 #' 
 #' @family color functions
 #' 
@@ -930,8 +937,12 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
 # seecol(rmp(.5))
 # seecol(c("black", "yellow", "green"))
 
+## (d) Viewing palettes from other packages:
+# library(RColorBrewer)
+# seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
 
-
+## Extending color palettes:
+# seecol(brewer.pal(name = "RdBu", n = 11), n = 15)
 
 
 # ToDo: Provide additional info on a color palette: ------ 
