@@ -70,16 +70,15 @@ Viewing _all_ available color palettes:
 seecol("unikn_all")  # same as seecol("all")
 ```
 
+1. three _basic_ color palettes:
 
-1. All three _basic_ color palettes:
-
-```{r seecol_unikn_basic, fig.width = 7, fig.height = 3}
+```{r seecol_unikn_basic_2, fig.width = 7, fig.height = 3}
 seecol("unikn_basic")
 ```
 
-Note, that `pal_unikn_web` and `pal_unikn_ppt` are almost identical but differ in how vibrant their colors are.  
+Note, that `pal_unikn_web` and `pal_unikn_ppt` are almost identical, but differ in how vibrant their colors are.  
 
-2. all _paired_ color palettes:
+2. three _paired_ color palettes:
 
 ```{r seecol_pair_all, fig.width = 7, fig.height = 4}
 seecol("pair_all")
@@ -91,10 +90,9 @@ seecol("pair_all")
 seecol("pref_all")
 ```
 
-
 4. only the pre-defined color _gradients_:
 
-```{r seecol_grad_all, fig.width = 7, fig.height = 4}
+```{r seecol_grad_all_2, fig.width = 7, fig.height = 4}
 seecol("grad_all")
 ```
 
@@ -103,56 +101,52 @@ seecol("grad_all")
 
 When the `pal` argument specifies a single color palette, `seecol` plots a more detailed view of this particular color palette: 
 
-```{r unikn_palette}
-seecol(pal_unikn)
+```{r unikn_palette, fig.width = 7, fig.asp = .618}
+seecol(pal_unikn)  # view details of pal_unikn
 ```
 
-You can see 
+You can _see_ 
 
 * the color names 
 * indices in the color palette 
 * the hex values of each color 
 * the RGB values for each color 
 
-A typical workflow may include _seeing_ a color palette, saving it and using it in a plot.  
+A typical workflow may include _seeing_ a color palette, saving it, and using it in a plot.  
 
-```{r save_seecol}
-mypal <- seecol(pal_unikn_dark)  # plot and save pal_unikn to mypal. 
+```{r save_seecol, fig.width = 7, fig.asp = .618}
+mypal <- seecol(pal_unikn_light)  # view details of AND save pal_unikn_light to mypal  
 ```
 
 After saving the color palette you can use the palette object in your plot: 
 
-```{r use_col_default, fig.width = 7, fig.asp = .618}
-# Using a color palette:
-barplot(1/sqrt(1:11), col = mypal)
+```{r mypal_example, fig.width = 7, fig.asp = .618}
+barplot(1/sqrt(1:10), col = mypal)  # use mypal in a plot
 ```
 
-Note, that `seecol` returns the color palette invisibly.  Therefore the following will only plot the palette without returining the color vector.  
+Note that `seecol` _invisibly_ returns the color palette.  
+Thus, the following will only plot the palette without doing anything else with the color vector:
 
-```{r}
+```{r invisible_seecol, fig.width = 7, fig.asp = .618}
 seecol(pal_bordeaux)
 ```
 
+## Using a palette with `usecol` (without seeing it)
 
-
-## Using a palette with `usecol` without seeing it 
-
-If you do not want to plot a palette before using it you can use the function `usecol`.  
-
-The `usecol` function corresponds to `seecol` by taking the same 2 main arguments (`pal` and `n`). 
+The `usecol` function allows directly using a color palette in a plot (i.e., without first viewing it).
+`usecol` corresponds to `seecol` by taking the same 2 main arguments (`pal` and `n`). 
 However, as its purpose is _using_ the colors specified by `pal`, rather than plotting (or _seeing_) them, the `pal` argument typically contains only one color palette. 
 
-```{r use_col_default, fig.width = 7, fig.asp = .618}
+```{r use_col_default_2, fig.width = 7, fig.asp = .618}
 # Using a color palette:
 barplot(1/sqrt(1:11), col = usecol(pal_unikn))
 ```
-
 
 Note that the both the `seecol` and the `usecol` function are quite permissive with respect to specifying their `pal` argument: 
 A particular color palette (e.g., `pal_seegruen`) can not only be displayed by providing it (as an object) but also by providing its name (i.e., `"pal_seegruen"`) or even its incomplete object name or name (i.e., `"seegruen"` or `seegruen`). 
 Hence, the following all yield the same result: 
 
-```{r, free_pal_args eval = FALSE}
+```{r free_pal_args, eval = FALSE}
 seecol(pal_seegruen)
 seecol("pal_seegruen")
 seecol(seegruen)  # issues a warning
@@ -182,7 +176,7 @@ seecol(pal_unikn, 4)
 
 Importantly, when using pre-defined color palettes of `unikn` but a value of `n` that is smaller than the length of the current color palette, `usecol` and `seecol` select a predefined subset of colors:
 
-```{r use_col_small_n, fig.width = 4, fig.asp = .618}
+```{r use_col_smalln, fig.width = 4, fig.asp = .618}
 barplot(1/sqrt(1:2), col = usecol(pal_seeblau, n = 2))
 barplot(1/sqrt(1:3), col = usecol(pal_seeblau, n = 3))
 ```
@@ -218,10 +212,9 @@ seecol(pal = usecol(c(Karpfenblau, Seeblau, "gold"), n = 10))
 # Note, that redundant use of seecol and usecol shows HEX values as names.
 ```
 
-
 These custom palettes you can easily use in a plot.  Here, we define and use a subset of the `pal_unikn_pair` palette: 
 
-```{r use_my_pal, fig.width = 7, fig.height = 4}
+```{r use_mypair, fig.width = 7, fig.height = 4}
 mypair <- seecol(pal_unikn_pair, n = 10)
 
 ## Create some data: 
@@ -303,7 +296,7 @@ The set of `"all"` color palettes in `unikn` is sub-divided into 2 categories, w
 
 1. All _basic_ color palettes:
 
-```{r seecol_unikn_all, fig.width = 7, fig.height = 3}
+```{r seecol_unikn_basic, fig.width = 7, fig.height = 3}
 seecol("unikn_basic")
 ```
 
@@ -375,7 +368,7 @@ Both `seecol` and `usecol` allow a flexible on-the-fly customization of color pa
 
 Using only a subset of colors:
 
-```{r use_subset, fig.width = 7, fig.height = 6}
+```{r use_subset_4, fig.width = 7, fig.height = 6}
 seecol("all", n = 4)
 seecol(pal_unikn, 4)
 ```
@@ -391,14 +384,14 @@ barplot(1/sqrt(1:3), col = usecol(pal_seeblau, n = 3))
 
 For values of `n` that are larger than the number of available colors in `pal`, the specified color palette is extended:
 
-```{r use_superset, fig.width = 7, fig.height = 6}
+```{r use_superset_2, fig.width = 7, fig.height = 6}
 seecol("all", n = 12)
 seecol(pal_seeblau, 12)
 ```
 
 When using a color palette: 
 
-```{r use_col_big_n, fig.width = 7, fig.asp = .618}
+```{r use_col_big_n_2, fig.width = 7, fig.asp = .618}
 barplot(1/sqrt(1:11), col = usecol(pal_bordeaux, n = 11))
 ```
 
@@ -406,21 +399,21 @@ barplot(1/sqrt(1:11), col = usecol(pal_bordeaux, n = 11))
 
 Combining colors and color palettes: 
 
-```{r combine_pals, fig.width = 7, fig.asp = .618}
+```{r combine_pals_2, fig.width = 7, fig.asp = .618}
 seecol(pal = c(rev(pal_seeblau), "white", pal_pinky))
 seecol(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 ```
 
 Combining colors and color palettes to get a specific number of colors: 
 
-```{r combine_pals_n, fig.width = 7, fig.asp = .618}
+```{r combine_pals_n_2, fig.width = 7, fig.asp = .618}
 seecol(pal = c(Karpfenblau, Seeblau, "gold"), n = 10)          # no names
 seecol(pal = usecol(c(Karpfenblau, Seeblau, "gold"), n = 10))  # shows HEX values as names
 ```
 
 Examples of _using_ combinations of colors and color palettes to create new color palettes:
 
-```{r bar_seeblau_pinky, fig.width = 7, fig.asp = .618}
+```{r bar_seeblau_pinky_2, fig.width = 7, fig.asp = .618}
 barplot(1/sqrt(1:11), col = usecol(c(rev(pal_seegruen), "white", pal_bordeaux), n = 11))
 barplot((-5:5)^2+5,   col = usecol(pal = c(rev(pal_seeblau), "white", pal_pinky)))
 barplot(1/sqrt(11:1), col = usecol(pal = c(rev(pal_seeblau), "white", pal_seegruen)))
@@ -431,7 +424,7 @@ barplot(1/sqrt(11:1), col = usecol(pal = c(rev(pal_seeblau), "white", pal_seegru
 
 Advanced users can also use `seecol` for displaying and comparing different custom palette. The `pal` argument is a list of colors or color palettes:
 
-```{r compare_custom_palettes, fig.width = 7, fig.height = 3}
+```{r compare_custom_palettes_2, fig.width = 7, fig.height = 3}
 pal1 <- c(rev(pal_seeblau), "white", pal_pinky)
 pal2 <- usecol(c(Karpfenblau, Seeblau, "gold"), n = 10)
 
