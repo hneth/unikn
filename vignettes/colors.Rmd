@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2019 04 06"
+date: "2019 04 10"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -176,7 +176,7 @@ seecol(pal_unikn, 4)
 
 Importantly, when using pre-defined color palettes of `unikn` but a value of `n` that is smaller than the length of the current color palette, `usecol` and `seecol` select a predefined subset of colors:
 
-```{r use_col_smalln, fig.width = 4, fig.asp = .618}
+```{r use_col_smalln, fig.height = 5}
 barplot(1/sqrt(1:2), col = usecol(pal_seeblau, n = 2))
 barplot(1/sqrt(1:3), col = usecol(pal_seeblau, n = 3))
 ```
@@ -240,13 +240,13 @@ Note, unknown palettes wil be named `pal`n in increasing order.  Palettes known 
 
 You can again either use subsets of these palettes: 
 
-```{r subset_compare}
+```{r subset_compare, fig.width = 7, fig.height = 3}
 seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 5)
 ```
 
 Or extend them: 
 
-```{r superset_compare}
+```{r superset_compare, fig.width = 7, fig.height = 3}
 seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
 ```
 
