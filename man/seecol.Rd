@@ -5,14 +5,33 @@
 \alias{seepal}
 \title{Plot color palettes (to see their colors).}
 \usage{
-seecol(pal = "all", n = "all", hex = NULL, rgb = NULL,
+seecol(pal = "unikn_all", n = "all", hex = NULL, rgb = NULL,
   col_brd = NULL, grid = TRUE, ...)
 }
 \arguments{
-\item{pal}{A color palette (as a list of colors) or 
-the character string \code{"all"} (for showing all 
-color palettes in the current environment). 
-Default: \code{pal = "all"}.}
+\item{pal}{A color palette (as a vector of colors), 
+a character string recognized as keyword by seecol or
+multiple palettes specified as list. 
+Default: \code{pal = "unikn_all"}. 
+
+Recognized keywords are: 
+
+\enumerate{
+
+  \item \code{"unikn_all"}: All color palettes defined in \code{unikn}
+
+  \item \code{"unikn_basic"}: All basic palettes. 
+  
+  \item \code{"pair_all"}: All palettes with pairwise colors. 
+  
+  \item \code{"pref_all"}: All preferred colors and their gradients. 
+  
+  \item \code{"grad_all"}: 
+
+}
+
+\code{seecol} does also recognize reverse keywords (e.g., \code{"all_unikn"}) or 
+keywords without \code{"unikn"} (e.g., \code{"basic"}).}
 
 \item{n}{Number of colors to show or use. 
 If \code{n} is lower or higher than the length of the current 
@@ -31,7 +50,7 @@ when there is sufficient space to print them).}
 \item{col_brd}{Color of box borders (if shown). 
 Default: \code{col_brd = NULL}.}
 
-\item{grid}{Show grid?
+\item{grid}{Show grid in the color plot?
 Default: \code{grid = TRUE}.}
 
 \item{...}{Other graphical parameters 
@@ -46,7 +65,7 @@ the colors of a palette or comparing multiple color palettes.
 
 \enumerate{
 
-\item if \code{pal = "all"} (or a list of multiple color palettes):
+\item if \code{pal = "unikn_all"} (or a list of multiple color palettes):
 
 Plot visual vectors of all current color palettes for comparing them.
 

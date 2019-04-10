@@ -39,8 +39,7 @@ The purpose of this vignette is to explain which colors and color palettes exist
 Please load the `unikn` package to get started: 
 
 ```{r load_pkg, message = FALSE, warning = FALSE}
-# library(unikn)  # load unikn package
-devtools::load_all(".")
+library(unikn)  # load unikn package
 ```
 
 There are two functions to interact with the color palettes in the `unikn` package:  `seecol` and `usecol`
@@ -122,7 +121,7 @@ mypal <- seecol(pal_unikn_dark)  # plot and save pal_unikn to mypal.
 
 After saving the color palette you can use the palette object in your plot: 
 
-```{r use_col_default, fig.width = 7, fig.asp = .618}
+```{r use_col_default_see, fig.width = 7, fig.asp = .618}
 # Using a color palette:
 barplot(1/sqrt(1:11), col = mypal)
 ```
@@ -142,7 +141,7 @@ If you do not want to plot a palette before using it you can use the function `u
 The `usecol` function corresponds to `seecol` by taking the same 2 main arguments (`pal` and `n`). 
 However, as its purpose is _using_ the colors specified by `pal`, rather than plotting (or _seeing_) them, the `pal` argument typically contains only one color palette. 
 
-```{r use_col_default, fig.width = 7, fig.asp = .618}
+```{r use_col_default_use, fig.width = 7, fig.asp = .618}
 # Using a color palette:
 barplot(1/sqrt(1:11), col = usecol(pal_unikn))
 ```

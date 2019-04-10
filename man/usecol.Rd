@@ -11,16 +11,16 @@ usecol(pal = pal_unikn, n = "all", use_col_ramp = FALSE)
 Default: \code{pal = \link{pal_unikn}}.}
 
 \item{n}{An integer value specifying the desired number of colors from the palette.
-For most palettes defined within unikn it uses a predefined selection of 
+For all palettes defined within unikn by default it uses a predefined selection of 
 colors if the desired number of colors is smaller than the available number.  
-For all other palettes and \code{n} larger than \code{length(pal)} it uses
+For all other palettes and \code{n} larger than \code{length(pal)} it exteds the palette using
 \code{\link{colorRampPalette}}.}
 
 \item{use_col_ramp}{A logical value specifying, whether the default of using preselected colors
 should be overridden and \code{\link{colorRampPalette}} should always be used to process \code{n}.}
 }
 \description{
-\code{usecol} allows using a color palette \code{pal}.
+\code{usecol} allows using a color palette \code{pal} (e.g., for plotting).
 }
 \seealso{
 \code{\link{seecol}} to plot color palettes; 
