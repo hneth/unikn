@@ -68,7 +68,7 @@ pal_unikn  # 10 default colors (web/sRGB)
 seecol(pal_unikn)
 ```
 
-![](inst/pix/README-pal_unikn-1.png)
+<img src="inst/pix/README-pal_unikn-1.png" style="display: block; margin: auto;" />
 
 <!-- <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/> -->
 -   Secondary color palette (`pal_unikn_ppt`): An alternative color palette with more muted colors (intended for PowerPoint presentations) is provided as `pal_unikn_ppt`.
@@ -79,7 +79,7 @@ seecol(pal_unikn)
 seecol("all")
 ```
 
-![](inst/pix/README-pal_all-1.png)
+<img src="inst/pix/README-pal_all-1.png" style="display: block; margin: auto;" />
 
 ### Additional color palettes
 
@@ -138,7 +138,7 @@ The `plot_pal()` function provides a quick overview over the contents of a color
 seecol(pal_unikn_pref)
 ```
 
-![](inst/pix/README-seecol_pref-1.png)
+<img src="inst/pix/README-seecol_pref-1.png" style="display: block; margin: auto;" />
 
 ### Partial color palettes
 
@@ -156,7 +156,7 @@ usecol(pal_seeblau, n = 4)
 
 ### Extending and creating color palettes
 
-The `mi()` function provides color gradients based on given colors or color palettes. This serves 2 main functions:
+The `seecol` function provides color gradients based on given colors or color palettes. This serves 2 main functions:
 
 1.  Extending existing color palettes (to arbitrary lengths):
 
@@ -227,11 +227,11 @@ Examples for using color palettes in graphs:
 
 ``` r
 # Using color palettes:
-barplot(1/sqrt(1:11),  col = seecol(pal_unikn))
-barplot(1/sqrt(10:25), col = seecol(pal_unikn_pair))
+barplot(1/sqrt(1:11),  col = usecol(pal_unikn))
+barplot(1/sqrt(10:25), col = usecol(pal_unikn_pair))
 
 # Using n colors of a palette:
-barplot(1/sqrt(1:5), col = seecol(pal_unikn, n = 5)) 
+barplot(1/sqrt(1:5), col = usecol(pal_unikn, n = 5)) 
 
 # Scatterplot:
 plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = 1))   # 0 transparency
@@ -271,10 +271,65 @@ image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_pinky)
 # contour(z, add = TRUE, drawlabels = FALSE)
 ```
 
-Text
-----
+Text decorations
+----------------
 
-`unikn` also provides some functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining).
+`unikn` also provides some functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining). By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the `new_plot` argument specifies a type of plot to be generated. As the use of these functions is explained in detail in `vignette("Text")`, we only provide some examples here:
+
+### Mark
+
+``` r
+mark(labels = c("Markieren", "ist ein Bestandteil", "von Studieren."), 
+     x = 0, y = .8, y_layout = .03, cex = 1.5, new_plot = "slide")
+```
+
+<img src="inst/pix/README-mark_new_plot-1.png" style="display: block; margin: auto;" />
+
+### Underline
+
+The `uline` function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"):
+
+``` r
+uline(labels = c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch"), 
+      x = .05, y = .9, y_layout = "even", cex = 1.1, font = 2, new_plot = "slide")
+```
+
+<img src="inst/pix/README-uline_demo-1.png" style="display: block; margin: auto;" />
+
+### Post
+
+The `post` function allows adding text to a rectangular `xbox` (to provide the functionality of "Merken"):
+
+``` r
+xbox(col = usecol(pal_seeblau[[5]]), dim = c(2, 2))
+post(labels = c("Für eine", "Kultur der", "Kreativität"), x = .1, y = .8, cex = 1.5, font = 2)
+```
+
+<img src="inst/pix/README-post_demo-1.png" style="display: block; margin: auto;" />
+
+### Headings
+
+The `heading` function is a convenient wrapper around `mark`:
+
+``` r
+heading(labels = c("pa-", "ra-", "die-", "sisch"))
+```
+
+<img src="inst/pix/README-heading_demo-1.png" style="display: block; margin: auto;" />
+
+### URLs
+
+Finally, `url_unikn` allows formatting URLs the uni.kn way:
+
+``` r
+my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from web browser
+
+post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
+```
+
+<img src="inst/pix/README-url_post-1.png" style="display: block; margin: auto;" />
+
++++ here now +++
 
 Some important caveats:
 
@@ -308,7 +363,7 @@ Post: Generating logo
 
 ``` r
 # unikn: 
-post(labels = "unikn::", cex = 2.5, font = 2, y = .4)  # save in size: 250 x 250 pixel
+post(labels = "unikn::", cex = 2.5, font = 2, y = .4, new_plot = "blank")  # save in size: 250 x 250 pixel
 
 # R: 
 post(labels = "R", col_bg = pal_seeblau[[5]], 
