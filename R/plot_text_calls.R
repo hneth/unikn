@@ -484,9 +484,9 @@ post <- function(labels,             # labels of text element(s) to plot
 #      x = .03, y = c(.30, .12), 
 #      cex = c(1.4, .75), font = c(2, 1), col_bg = pal_seeblau[[5]], new_plot = "xbox")
 # 
-# post(labels = c("ABC@See"), 
-#      x = .06, y = c(.4), 
-#      cex = c(1.4), font = c(2, 1), col_bg = pal_seeblau[[5]], new_plot = "xbox")
+# post(labels = c("ABC@See"),
+#      x = .17, y = c(.50),
+#      cex = c(1.2), font = c(2, 1), col_bg = pal_seeblau[[5]], new_plot = "xbox")
 
 
 # ## Contact details: Box with name and address:
