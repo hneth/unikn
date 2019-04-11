@@ -81,7 +81,7 @@ into the middle of a symmetrical color palette `pal_unikn` (with 11 colors):
 
 - Primary and default color palette (`pal_unikn`):
 
-```{r pal_unikn, eval = FALSE}
+```{r pal_unikn, eval = TRUE, fig.width = 7, fig.height = 5}
 # Default color palette: ----- 
 pal_unikn  # 10 default colors (web/sRGB)
 
@@ -95,7 +95,7 @@ seecol(pal_unikn)
 
 ### All color palettes
 
-```{r pal_all, eval = TRUE, fig.width = 7, fig.height = 5}
+```{r pal_all, eval = TRUE, fig.width = 7, fig.height = 6}
 seecol("all")
 ```
 
@@ -155,13 +155,11 @@ More flexible and complex color palettes can be created by using the `col_scale(
 
 The `plot_pal()` function provides a quick overview over the contents of a color palette and allows comparisons between color palettes: 
 
-```{r plot_pal, eval = FALSE}
+```{r seecol_pref, eval = TRUE, fig.width = 7, fig.height = 5}
 # Plot a color palette: ----- 
 seecol(pal_unikn_pref)
-# plot_pal(pal_unikn_pref)  # OLDER
 ```
 
-<img src = "./inst/pix/README-plot_pal-1.png" align = "center" alt = "pal_unikn_pref" style = "border:10;"/>
 
 ### Partial color palettes
 
@@ -169,12 +167,12 @@ When only a subset of a color palette are needed, the `use_pal_n()` function pro
 
 ```{r pal_n, eval = FALSE}
 # From pal_unikn (default): ----- 
-use_pal_n(n = 2)
-use_pal_n(n = 4)
+seecol(n = 4)
+seecol(n = 4)
 
 # From pal_seeblau: ----- 
-use_pal_n(n = 1, pal = pal_seeblau)
-use_pal_n(n = 4, pal = pal_seeblau)
+usecol(pal_seeblau, n = 1)
+usecol(pal_seeblau, n = 4)
 ```
 
 ### Extending and creating color palettes
@@ -186,18 +184,9 @@ This serves 2 main functions:
 
 ```{r col_scale_1, eval = FALSE}
 # Extending color palettes: ----- 
-seecol(usecol(n = 20))  
-seecol(usecol(pal_seeblau, 10))
-seecol(usecol(pal_bordeaux, 10))
+seecol(pal_unikn, n = 21)  
+seecol(pal_seeblau, n = 8)
 ```
-
-<!--
-<img src = "./inst/pix/README-col_scale_1-1.png" align = "center" alt = "col_scale" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_1-2.png" align = "center" alt = "pal_seeblau" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_1-3.png" align = "center" alt = "pal_Bordeaux" style = "border:10;"/>
--->
 
 2. Combining colors to create new color palettes:
 
@@ -206,40 +195,21 @@ and the desired resolution of the color gradient (as an integer argument):
 
 ```{r col_scale_2, eval = FALSE}
 # Combining colors: ----- 
-plot_pal(col_scale(c(Seeblau, "white", Pinky))(10)) 
-plot_pal(col_scale(c(Signal, Petrol))(10))  
-plot_pal(col_scale(c(Bordeaux, "white", Petrol))(10)) 
-plot_pal(col_scale(c(Karpfenblau, Seeblau, "gold"))(10)) 
+seecol(c(Seeblau, "white", Pinky), 11) 
+seecol(c(Signal, Petrol), 10)  
+seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
 ```
-
-<!--
-<img src = "./inst/pix/README-col_scale_2-1.png" align = "center" alt = "col_scale: seeblau white pinky" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_2-2.png" align = "center" alt = "col_scale: signal petrol" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_2-3.png" align = "center" alt = "col_scale: Bordeaux white petrol" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_2-4.png" align = "center" alt = "col_scale: karpfenblau seeblau gold" style = "border:10;"/>
--->
 
 For best results, consider combining existing color palettes and individual colors into new color palettes: 
 
 ```{r col_scale_3, eval = FALSE}
 # Combining color palettes (and colors): ----- 
-plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_peach))(11))
-plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
-plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
-plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_seegruen))(11))
-plot_pal(col_scale(c(rev(pal_petrol),  "white", pal_Bordeaux))(11))
+seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
+seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
+seecol(c(rev(pal_seeblau), "white", pal_petrol), 11)
+seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
+seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11)
 ```
-
-<!--
-<img src = "./inst/pix/README-col_scale_3-1.png" align = "center" alt = "col_scale: pal_seeblau white pal_pinky" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_3-2.png" align = "center" alt = "col_scale: pal_seeblau white pal_petrol" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_3-3.png" align = "center" alt = "col_scale: pal_petrol white pal_Bordeaux" style = "border:10;"/>
--->
 
 ## Using color palettes
 

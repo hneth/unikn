@@ -59,10 +59,16 @@ We added the darkest seeblau color (from `pal_seeblau[5]`) to the front of `pal_
 ``` r
 # Default color palette: ----- 
 pal_unikn  # 10 default colors (web/sRGB)
+#>   seeblau5 seeblau4 seeblau3 seeblau2 seeblau1   white seegrau1 seegrau2
+#> 1  #008ECE  #00A9E0  #59C7EB  #A6E1F4  #CCEEF9 #FFFFFF  #E5E5E5  #CCCCCC
+#>   seegrau3 seegrau4   black
+#> 1  #999999  #666666 #000000
 
 # See color palett (by plotting it): ----- 
 seecol(pal_unikn)
 ```
+
+![](inst/pix/README-pal_unikn-1.png)
 
 <!-- <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/> -->
 -   Secondary color palette (`pal_unikn_ppt`): An alternative color palette with more muted colors (intended for PowerPoint presentations) is provided as `pal_unikn_ppt`.
@@ -130,10 +136,9 @@ The `plot_pal()` function provides a quick overview over the contents of a color
 ``` r
 # Plot a color palette: ----- 
 seecol(pal_unikn_pref)
-# plot_pal(pal_unikn_pref)  # OLDER
 ```
 
-<img src = "./inst/pix/README-plot_pal-1.png" align = "center" alt = "pal_unikn_pref" style = "border:10;"/>
+![](inst/pix/README-seecol_pref-1.png)
 
 ### Partial color palettes
 
@@ -141,12 +146,12 @@ When only a subset of a color palette are needed, the `use_pal_n()` function pro
 
 ``` r
 # From pal_unikn (default): ----- 
-use_pal_n(n = 2)
-use_pal_n(n = 4)
+seecol(n = 4)
+seecol(n = 4)
 
 # From pal_seeblau: ----- 
-use_pal_n(n = 1, pal = pal_seeblau)
-use_pal_n(n = 4, pal = pal_seeblau)
+usecol(pal_seeblau, n = 1)
+usecol(pal_seeblau, n = 4)
 ```
 
 ### Extending and creating color palettes
@@ -157,57 +162,32 @@ The `mi()` function provides color gradients based on given colors or color pale
 
 ``` r
 # Extending color palettes: ----- 
-seecol(usecol(n = 20))  
-seecol(usecol(pal_seeblau, 10))
-seecol(usecol(pal_bordeaux, 10))
+seecol(pal_unikn, n = 21)  
+seecol(pal_seeblau, n = 8)
 ```
 
-<!--
-<img src = "./inst/pix/README-col_scale_1-1.png" align = "center" alt = "col_scale" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_1-2.png" align = "center" alt = "pal_seeblau" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_1-3.png" align = "center" alt = "pal_Bordeaux" style = "border:10;"/>
--->
 1.  Combining colors to create new color palettes:
 
 New color palettes of arbitrary length can be created by combining colors (from `unikn` or base R) and the desired resolution of the color gradient (as an integer argument):
 
 ``` r
 # Combining colors: ----- 
-plot_pal(col_scale(c(Seeblau, "white", Pinky))(10)) 
-plot_pal(col_scale(c(Signal, Petrol))(10))  
-plot_pal(col_scale(c(Bordeaux, "white", Petrol))(10)) 
-plot_pal(col_scale(c(Karpfenblau, Seeblau, "gold"))(10)) 
+seecol(c(Seeblau, "white", Pinky), 11) 
+seecol(c(Signal, Petrol), 10)  
+seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
 ```
 
-<!--
-<img src = "./inst/pix/README-col_scale_2-1.png" align = "center" alt = "col_scale: seeblau white pinky" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_2-2.png" align = "center" alt = "col_scale: signal petrol" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_2-3.png" align = "center" alt = "col_scale: Bordeaux white petrol" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_2-4.png" align = "center" alt = "col_scale: karpfenblau seeblau gold" style = "border:10;"/>
--->
 For best results, consider combining existing color palettes and individual colors into new color palettes:
 
 ``` r
 # Combining color palettes (and colors): ----- 
-plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_peach))(11))
-plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_pinky))(11))
-plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_petrol))(11))
-plot_pal(col_scale(c(rev(pal_seeblau), "white", pal_seegruen))(11))
-plot_pal(col_scale(c(rev(pal_petrol),  "white", pal_Bordeaux))(11))
+seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
+seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
+seecol(c(rev(pal_seeblau), "white", pal_petrol), 11)
+seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
+seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11)
 ```
 
-<!--
-<img src = "./inst/pix/README-col_scale_3-1.png" align = "center" alt = "col_scale: pal_seeblau white pal_pinky" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_3-2.png" align = "center" alt = "col_scale: pal_seeblau white pal_petrol" style = "border:10;"/>
-
-<img src = "./inst/pix/README-col_scale_3-3.png" align = "center" alt = "col_scale: pal_petrol white pal_Bordeaux" style = "border:10;"/>
--->
 Using color palettes
 --------------------
 
@@ -411,7 +391,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-04-08.\]
+\[Updated on 2019-04-11.\]
 
 <!-- eof. -->
 
