@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2019 04 06"
+date: "2019 04 12"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -66,13 +66,13 @@ Some special keywords within the `unikn` package are `"unikn_all"`, `"unikn_basi
 
 Viewing _all_ available color palettes:
 
-```{r seecol_unikn_all, fig.width = 7, fig.height = 5}
+```{r seecol_unikn_all, fig.width = 7, fig.height = 6}
 seecol("unikn_all")  # same as seecol("all")
 ```
 
 1. three _basic_ color palettes:
 
-```{r seecol_unikn_basic_2, fig.width = 7, fig.height = 3}
+```{r seecol_unikn_basic_2, fig.width = 7, fig.height = 2.5}
 seecol("unikn_basic")
 ```
 
@@ -80,7 +80,7 @@ Note, that `pal_unikn_web` and `pal_unikn_ppt` are almost identical, but differ 
 
 2. three _paired_ color palettes:
 
-```{r seecol_pair_all, fig.width = 7, fig.height = 4}
+```{r seecol_pair_all, fig.width = 7, fig.height = 2.5}
 seecol("pair_all")
 ```
 
@@ -92,7 +92,7 @@ seecol("pref_all")
 
 4. only the pre-defined color _gradients_:
 
-```{r seecol_grad_all_2, fig.width = 7, fig.height = 4}
+```{r seecol_grad_all_2, fig.width = 7, fig.height = 3.5}
 seecol("grad_all")
 ```
 
@@ -207,9 +207,9 @@ seecol(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 You can also combine a set of colors and extend this palette by specifying an `n` argument greater than the length of your specified palette. 
 
 ```{r combine_pals_n, fig.width = 7, fig.asp = .618}
-seecol(pal = c(Karpfenblau, Seeblau, "gold"), n = 10)          # no names
 seecol(pal = usecol(c(Karpfenblau, Seeblau, "gold"), n = 10))  
 # Note, that redundant use of seecol and usecol shows HEX values as names.
+# seecol(pal = c(Karpfenblau, Seeblau, "gold"), n = 10)  # would work, but show no intermediate names
 ```
 
 These custom palettes you can easily use in a plot.  Here, we define and use a subset of the `pal_unikn_pair` palette: 
@@ -222,31 +222,30 @@ dat <- matrix(sample(5:10, size = 10, replace = TRUE), ncol = 5)
 barplot(dat, beside = TRUE, col = mypair)
 ```
 
-
 ### Comparing custom palettes 
 
 Sometimes you may want to compare a palette you created to your other or the existing palettes.  Therefore, advanced users can also use `seecol` for displaying and comparing different custom palettes. Seecol will output a _comparison_ of the inputs if you specify the `pal` argument as a list of colors or color palettes:
 
 ```{r compare_custom_palettes, fig.width = 7, fig.height = 3}
-# Define two palettes: 
+# Define 2 palettes: 
 pal1 <- c(rev(pal_seeblau), "white", pal_bordeaux)
 pal2 <- usecol(c(Karpfenblau, Seeblau, "gold"), n = 10)
 
-# Show the mypair palette from above, the two palettes just defined, and two of the existing palettes:  
+# Show the mypair palette from above, the 2 palettes just defined, and 2 pre-defined palettes:  
 seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair))
 ```
 
-Note, unknown palettes wil be named `pal`n in increasing order.  Palettes known to `seecol` will be shown with their respective names.  
+Note that unknown palettes will be named `pal`n in increasing order.  Palettes known to `seecol` will be shown with their respective names.  
 
-You can again either use subsets of these palettes: 
+As before, you can use the `n` argument to use subsets of color palettes: 
 
-```{r subset_compare}
+```{r subset_compare, fig.width = 7, fig.height = 3}
 seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 5)
 ```
 
-Or extend them: 
+or extend color palettes: 
 
-```{r superset_compare}
+```{r superset_compare, fig.width = 7, fig.height = 3}
 seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
 ```
 
