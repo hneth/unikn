@@ -468,8 +468,14 @@ post <- function(labels,             # labels of text element(s) to plot
 #      cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
 # 
 # # SPDS: 
-# post(labels = c("SPDS", "Social Psychology and Decision Sciences"), font = c(2, 1), 
-#      new_plot = "xbox", cex = c(2.8, .85), y = c(.28, .15), col_bg = Petrol)
+# url_spds <- url_unikn("https://www.spds.uni-konstanz.de/")
+# post(labels = c("SPDS Wiki", "Social Psychology and Decision Sciences", url_spds), font = c(2, 1, 4), 
+#      new_plot = "xbox", cex = c(2, .98, 1), x = .02, y = c(.28, .15), col_bg = pal_seeblau[[4]])
+# 
+# # tiny versions (135 x 135): 
+# post(labels = c("SPDS Wiki"), font = c(2), 
+#      new_plot = "xbox", cex = 1.4, x = .07, y = .49, col_bg = pal_seeblau[[4]])
+# 
 #
 # ## ABC@See (250 x 250): 
 # ABC_2019 <- c("ABC Retreat 2019",
