@@ -1,8 +1,8 @@
 Package: unikn
 Type: Package
 Title: Graphical Elements of the University of Konstanz's Corporate Design
-Version: 0.0.0.9019
-Date: 2018-04-09
+Version: 0.0.0.9020
+Date: 2018-04-15
 Authors@R: c(person("Hansjoerg", "Neth", role = c("aut", "cre"), email = "h.neth@uni.kn"), 
              person("Nico", "Gradwohl", role = "aut"))
 Author: Hansjoerg Neth [aut, cre], Nico Gradwohl [aut] 
