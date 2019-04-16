@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## spds | uni.kn |  2019 04 03
+## spds | uni.kn |  2019 04 15
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -459,14 +459,14 @@ post <- function(labels,             # labels of text element(s) to plot
 # 
 
 # ## Logos:
-# # R: 
+# ## R: 
 # post(labels = "R", col_bg = pal_seeblau[[5]], new_plot = "xbox", 
 #      cex = 10, font = 2, y = .33)  # save in size: 250 x 250 pixel
-# 
-# # ToDo: 
+ 
+# ## ToDo: 
 # post(labels = "ToDo", col_bg = pal_signal[[1]], new_plot = "xbox", 
 #      cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
-# 
+ 
 # # SPDS: 
 # url_spds <- url_unikn("https://www.spds.uni-konstanz.de/")
 # post(labels = c("SPDS Wiki", "Social Psychology and Decision Sciences", url_spds), font = c(2, 1, 4), 
@@ -475,8 +475,8 @@ post <- function(labels,             # labels of text element(s) to plot
 # # tiny versions (135 x 135): 
 # post(labels = c("SPDS Wiki"), font = c(2), 
 #      new_plot = "xbox", cex = 1.4, x = .07, y = .49, col_bg = pal_seeblau[[4]])
-# 
-#
+ 
+
 # ## ABC@See (250 x 250): 
 # ABC_2019 <- c("ABC Retreat 2019",
 #               "Schloss Marbach, Bodensee",
@@ -494,6 +494,15 @@ post <- function(labels,             # labels of text element(s) to plot
 #      x = .17, y = c(.50),
 #      cex = c(1.2), font = c(2, 1), col_bg = pal_seeblau[[5]], new_plot = "xbox")
 
+# ## ds4psy: 
+# # in 150 x 150: centered
+# post(labels = c("ds4psy"),
+#      x = .22, y = c(.48),
+#      cex = c(1.5), font = c(2, 1), col_bg = pal_seeblau[[5]], new_plot = "xbox")
+# # in 150 x 150: left
+# post(labels = c("ds4psy"),
+#      x = .05, y = c(.48),
+#      cex = c(1.5), font = c(2, 1), col_bg = pal_seeblau[[5]], new_plot = "xbox")
 
 # ## Contact details: Box with name and address:
 # address <- c("Dr. B. F. Skinner", " ",
