@@ -6,7 +6,7 @@ unikn
 <!-- unikn pkg logo and link: -->
 <a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/> </a>
 
-The `unikn` package enables the use some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design for users of [R](https://www.r-project.org/). For instance, it provides a range of beautiful color palettes for scientific visualizations that are consistent with [corporate design specifications](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/).
+The **unikn** package enables the use some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design for users of [R](https://www.r-project.org/). For instance, it provides a range of beautiful color palettes for scientific visualizations that are consistent with [corporate design specifications](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/).
 
 Motivation
 ----------
@@ -19,7 +19,7 @@ Motivation
 In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. Its key component is the consistent use of a `seeblau` color and a corresponding color palette that blends various shades of `seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.)
 
 <!-- Goals of the unikn pgk: -->
-The `unikn` package aims to facilitate the use of some design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications should be simple and straightforward, we also allow some flexibility for expert users (e.g., for creators of scientific visualizations).
+The **unikn** package aims to facilitate the use of some design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications should be simple and straightforward, we also allow some flexibility for expert users (e.g., for creators of scientific visualizations).
 
 <!-- Overview: -->
 The package currently provides 4 types of objects or functions:
@@ -168,7 +168,7 @@ seecol(pal_seeblau, n = 8)
 
 1.  Combining colors to create new color palettes:
 
-New color palettes of arbitrary length can be created by combining colors (from `unikn` or base R) and the desired resolution of the color gradient (as an integer argument):
+New color palettes of arbitrary length can be created by combining colors (from **unikn** or base R) and the desired resolution of the color gradient (as an integer argument):
 
 ``` r
 # Combining colors: ----- 
@@ -223,7 +223,7 @@ barplot(rep(6:3, 4), col = colorRampPalette(pal_unikn)(7))
 
 ### Demos
 
-Examples for using color palettes in graphs:
+Examples for using **unikn** color palettes and functions in graphs:
 
 ``` r
 # Using color palettes:
@@ -271,10 +271,75 @@ image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_pinky)
 # contour(z, add = TRUE, drawlabels = FALSE)
 ```
 
+Using **unikn** in `ggplot` calls (using **ggplot2**):
+
+``` r
+## Source of original example: 
+## https://www.r-graph-gallery.com/137-spring-shapes-data-art/ 
+
+## Data: ---- 
+ngroup <- 50
+names <- paste("G_", seq(1, ngroup), sep = "")
+DAT <- data.frame()
+
+set.seed(44)
+for(i in seq(1:30)){
+    data=data.frame( matrix(0, ngroup , 3))
+    data[ , 1] = i
+    data[ , 2] = sample(names, nrow(data))
+    data[ , 3] = prop.table(sample( c(rep(0, 100), c(1:ngroup)), nrow(data)))
+    DAT = rbind(DAT,data)
+    }
+colnames(DAT) <- c("Year","Group","Value")
+DAT <- DAT[order(DAT$Year, DAT$Group) , ]
+dim(DAT)
+#> [1] 1500    3
+
+## Colors: ---- 
+
+## (a) using RColorBrewer: 
+library(RColorBrewer)
+cur_col <- brewer.pal(12, "Paired") 
+cur_col <- colorRampPalette(cur_col)(ngroup)
+cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))] # randomize
+
+## (b) using unikn:
+library(unikn)
+cur_col <- usecol(pal = pal_unikn, n = ngroup)
+cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))] # randomize
+cur_col <- unname(cur_col)  # remove names
+
+## Check:
+# cur_col
+# length(cur_col)
+
+# ggplot call: 
+library(ggplot2)
+#> Registered S3 methods overwritten by 'ggplot2':
+#>   method         from 
+#>   [.quosures     rlang
+#>   c.quosures     rlang
+#>   print.quosures rlang
+ggplot(DAT, aes(x = Year, y = Value, fill = Group)) + 
+  geom_area(alpha = 1, color = "white", size = .01 ) +
+  theme_bw() +
+  # scale_fill_brewer(color = "red", breaks = rev(levels(DAT$Group)))+
+  scale_fill_manual(values = cur_col) +
+  theme(text = element_blank(),
+        line = element_blank(),
+        title = element_blank(),
+        legend.position = "none",
+        panel.border = element_blank(),
+        panel.background = element_blank()
+  )
+```
+
+<img src="inst/pix/README-use_pal_ggplot2-1.png" width="75%" style="display: block; margin: auto;" />
+
 Text decorations
 ----------------
 
-`unikn` also provides some functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining). By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the `new_plot` argument specifies a type of plot to be generated. As the use of these functions is explained in detail in `vignette("Text")`, we only provide some examples here:
+**unikn** also provides some functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining). By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the `new_plot` argument specifies a type of plot to be generated. As the use of these functions is explained in detail in `vignette("Text")`, we only provide some examples here:
 
 ### Mark
 
@@ -335,7 +400,7 @@ Some important caveats:
 
 -   Plotting text (i.e., graphically rendering characters) is rarely a good idea. It typically doesn't scale (when changing the size of images) and cannot be recognized automatically (e.g., copied, indexed, or scraped). Hence, the following functions should only be used in contexts in which no better solutions are available or practical (e.g., when specifically creating images, or needing to add text to graphs).
 
--   Like all other templates, our renderings are subject to constraints and limitations. As a standard installation of R lacks the official "Theinhardt" fonts, we can only mimic the design specifications (in Arial, sans serif). Nevertheless, the `unikn` package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line titles) and can be customized and improved by expert users.
+-   Like all other templates, our renderings are subject to constraints and limitations. As a standard installation of R lacks the official "Theinhardt" fonts, we can only mimic the design specifications (in Arial, sans serif). Nevertheless, the **unikn** package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line titles) and can be customized and improved by expert users.
 
 Overall, we hope that the following functions will be useful for plotting graphical elements (e.g., boxes, logos, etc.) and achieving a uniform look when styling visualizations.
 
@@ -415,7 +480,7 @@ However, using a larger image size shows a clear loss of image quality:
 Graphical themes
 ----------------
 
--   `ggplot` theme (using `unikn` color palettes and text elements)
+-   `ggplot` theme (using **unikn** color palettes and text elements)
 
 Copyrights
 ----------
@@ -426,7 +491,7 @@ We strive for an authentic representation of a highly-specified corporate design
 
 -   allowing finer color gradients and flexible combinations of color palettes (via `col_scale`);
 -   providing a designated `signal` color (from `pal_signal`);
--   using the spelling "color" (rather than "colour") throughout the `unikn` package.
+-   using the spelling "color" (rather than "colour") throughout the **unikn** package.
 
 References
 ----------
@@ -446,7 +511,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-04-11.\]
+\[Updated on 2019-05-12.\]
 
 <!-- eof. -->
 
