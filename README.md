@@ -282,7 +282,7 @@ ngroup <- 50
 names <- paste("G_", seq(1, ngroup), sep = "")
 DAT <- data.frame()
 
-set.seed(44)
+set.seed(40)
 for(i in seq(1:30)){
     data=data.frame( matrix(0, ngroup , 3))
     data[ , 1] = i
@@ -299,15 +299,17 @@ dim(DAT)
 
 ## (a) using RColorBrewer: 
 library(RColorBrewer)
-cur_col <- brewer.pal(12, "Paired") 
+cur_col <- brewer.pal(11, "Paired") 
 cur_col <- colorRampPalette(cur_col)(ngroup)
 cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))] # randomize
 
 ## (b) using unikn:
 library(unikn)
 cur_col <- usecol(pal = pal_unikn, n = ngroup)
-cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))] # randomize
+# cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))] # randomize
 cur_col <- unname(cur_col)  # remove names
+
+# cur_col <- rep(cur_col, 5)
 
 ## Check:
 # cur_col
@@ -315,13 +317,8 @@ cur_col <- unname(cur_col)  # remove names
 
 # ggplot call: 
 library(ggplot2)
-#> Registered S3 methods overwritten by 'ggplot2':
-#>   method         from 
-#>   [.quosures     rlang
-#>   c.quosures     rlang
-#>   print.quosures rlang
 ggplot(DAT, aes(x = Year, y = Value, fill = Group)) + 
-  geom_area(alpha = 1, color = "white", size = .01 ) +
+  geom_area(alpha = 1, color = Grau, size = .01 ) +
   theme_bw() +
   # scale_fill_brewer(color = "red", breaks = rev(levels(DAT$Group)))+
   scale_fill_manual(values = cur_col) +
@@ -334,7 +331,7 @@ ggplot(DAT, aes(x = Year, y = Value, fill = Group)) +
   )
 ```
 
-<img src="inst/pix/README-use_pal_ggplot2-1.png" width="75%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-use_pal_ggplot2-1.png" width="80%" style="display: block; margin: auto;" />
 
 Text decorations
 ----------------
@@ -511,7 +508,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-05-12.\]
+\[Updated on 2019-05-14.\]
 
 <!-- eof. -->
 
