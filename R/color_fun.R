@@ -335,8 +335,9 @@ usecol <- function(pal = pal_unikn,
     
     
   }
-  
-  if ( use_names ) { unname(out_col) }
+
+  # Remove names if required (default):
+  if ( !use_names ) { out_col <- unname(out_col) }
   
   return(out_col)
   
