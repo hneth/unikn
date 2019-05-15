@@ -1,11 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-<<<<<<< HEAD
-date: "2019 04 10"
-=======
 date: "2019 04 12"
->>>>>>> d2e9e00975c47e2ce84ecb2003129c6599885cd5
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes

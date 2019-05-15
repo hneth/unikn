@@ -356,7 +356,7 @@ getpal_key <- function(pal = "all", n = "all") {
       # Get the subset of each palette , as defined in usecol():
       # print("TMP:")
       # print(tmp)
-      out <- lapply(tmp, FUN = usecol, n = n)
+      out <- lapply(tmp, FUN = usecol, n = n, use_names = TRUE)
       
     } else {
       

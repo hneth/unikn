@@ -532,7 +532,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     
   } else if ( compare ){
     
-    pal_tmp <- lapply(X = pal, usecol, n = n)  # get all palettes seperately. 
+    pal_tmp <- lapply(X = pal, usecol, n = n, use_names = TRUE)  # get all palettes seperately. 
     
     title <- "Compare a custom set of color palettes"
     
@@ -552,7 +552,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
   } else {  # if no keyword or list for comparison was given:
     
     ## Get palette:
-    pal_tmp <- usecol(pal = pal, n = n)  # create a list of length 1.
+    pal_tmp <- usecol(pal = pal, n = n, use_names = TRUE)  # create a list of length 1.
     # print("PAL:")
     # print(pal_tmp)
     # print(comment(pal_tmp))
