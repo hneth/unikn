@@ -23,6 +23,9 @@
 #' For all other palettes and \code{n} larger than \code{length(pal)} it exteds the palette using
 #' \code{\link{colorRampPalette}}.
 #' 
+#' @param use_names A logical value indicating, whether colors should be returned as a named vector.
+#' (defaults to \code{FALSE} for compatibility with ggplot)
+#' 
 #' @param use_col_ramp A logical value specifying, whether the default of using preselected colors
 #' should be overridden and \code{\link{colorRampPalette}} should always be used to process \code{n}.
 #'
@@ -38,6 +41,7 @@
 
 usecol <- function(pal = pal_unikn,
                    n = "all",
+                   use_names = FALSE,  # should colors be returned as a named vector?
                    use_col_ramp = FALSE) {
   ## Parse the input:
   # Test, whether a pal defined in this environment is parsed properly: 
@@ -331,6 +335,8 @@ usecol <- function(pal = pal_unikn,
     
     
   }
+  
+  if ( use_names ) { unname(out_col) }
   
   return(out_col)
   
