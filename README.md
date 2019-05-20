@@ -223,115 +223,120 @@ barplot(rep(6:3, 4), col = colorRampPalette(pal_unikn)(7))
 
 ### Demos
 
-Examples for using **unikn** color palettes and functions in graphs:
+1.  Examples for using **unikn** color palettes and functions in graphs:
 
 ``` r
-# Using color palettes:
+# (a) Using color palettes:
 barplot(1/sqrt(1:11),  col = usecol(pal_unikn))
+```
+
+<img src="inst/pix/README-use_pal_demo_barplot-1.png" width="75%" style="display: block; margin: auto;" />
+
+``` r
 barplot(1/sqrt(10:25), col = usecol(pal_unikn_pair))
+```
 
-# Using n colors of a palette:
+<img src="inst/pix/README-use_pal_demo_barplot-2.png" width="75%" style="display: block; margin: auto;" />
+
+``` r
+# (b) Using only n colors of a palette:
 barplot(1/sqrt(1:5), col = usecol(pal_unikn, n = 5)) 
+```
 
-# Scatterplot:
-plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = 1))   # 0 transparency
+<img src="inst/pix/README-use_pal_demo_barplot-3.png" width="75%" style="display: block; margin: auto;" />
+
+``` r
+# (c) Scatterplots:
+# plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = 1))   # 0 transparency
 plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = .33)) # +transparency
 ```
 
-Visualizing data with `image`:
+<img src="inst/pix/README-use_pal_demo_barplot-4.png" width="75%" style="display: block; margin: auto;" />
+
+1.  Visualizing **unikn** color palettes with `image`:
 
 ``` r
 # Random images:
 set.seed(1)
 n <- 20
 m <- matrix(rnorm(n*n), ncol = n, nrow = n)
+
 image(m, col = seecol(pal_seeblau))
-image(m, col = seecol(pal_peach))
-image(m, col = seecol(pal_seegruen))
-image(m, col = seecol(pal_petrol))
-image(m, col = seecol(pal_pinky))
-image(m, col = seecol(pal_bordeaux))
 
-# Geometric images:
-x <- y <- seq(-4 * pi, 4 * pi, len = 30)
-r <- sqrt(outer(x^2, y^2, "+"))
-z <- cos(r^2) * exp(-r/6)
-image(z,, col = gray((0:32)/32))
-image(z, axes = FALSE, main = "Math is hot...", xlab = expression(cos(r^2) * e^{-r/6}))
+image(m, col = usecol(pal_peach))
+image(m, col = usecol(pal_seegruen))
+image(m, col = usecol(pal_petrol))
+image(m, col = usecol(pal_pinky))
+image(m, col = usecol(pal_bordeaux))
+```
 
-# pal_seeblau:
+![](inst/pix/README-use_pal_demo_image_1-1.png)![](inst/pix/README-use_pal_demo_image_1-2.png)![](inst/pix/README-use_pal_demo_image_1-3.png)![](inst/pix/README-use_pal_demo_image_1-4.png)![](inst/pix/README-use_pal_demo_image_1-5.png)![](inst/pix/README-use_pal_demo_image_1-6.png)![](inst/pix/README-use_pal_demo_image_1-7.png)
+
+1.  Geometric images with `image`:
+
+``` r
+# (a) pal_seeblau and pal_seegruen:
 x <- y <- seq(-4 * pi, 4 * pi, len = 15)
 r <- sqrt(outer(x^2, y^2, "+"))
-image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_seegruen))(10), main = "Shades of seeblau/seegruen", axes = FALSE)
+image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_seegruen))(10), 
+      main = "Shades of seeblau/seegruen", axes = FALSE)
 # contour(z, add = TRUE, drawlabels = FALSE)
 
+# (b) pal_seeblau and pal_pinky:
 x <- y <- seq(-4 * pi, 4 * pi, len = 75)
 r <- sqrt(outer(x^2, y^2, "+"))
-image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_pinky))(20), main = "Shades of seeblau/pinky", axes = FALSE)
+image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_pinky))(20), 
+      main = "Shades of seeblau/pinky", axes = FALSE)
 # contour(z, add = TRUE, drawlabels = FALSE)
 ```
 
-Using **unikn** in `ggplot` calls (using **ggplot2**):
+![](inst/pix/README-use_pal_demo_image_2-1.png)![](inst/pix/README-use_pal_demo_image_2-2.png)
+
+1.  Using **unikn** in `ggplot` calls (using **ggplot2**):
 
 ``` r
-## Source of original example: 
-## https://www.r-graph-gallery.com/137-spring-shapes-data-art/ 
+# Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/ 
 
-## Data: ---- 
+# (1) Create data: ---- 
 ngroup <- 50
 names <- paste("G_", seq(1, ngroup), sep = "")
-DAT <- data.frame()
+df <- data.frame()
 
-set.seed(40)
+set.seed(3)
 for(i in seq(1:30)){
-    data=data.frame( matrix(0, ngroup , 3))
-    data[ , 1] = i
-    data[ , 2] = sample(names, nrow(data))
-    data[ , 3] = prop.table(sample( c(rep(0, 100), c(1:ngroup)), nrow(data)))
-    DAT = rbind(DAT,data)
-    }
-colnames(DAT) <- c("Year","Group","Value")
-DAT <- DAT[order(DAT$Year, DAT$Group) , ]
-dim(DAT)
-#> [1] 1500    3
+    data = data.frame(matrix(0, ngroup, 3))
+    data[, 1] = i
+    data[, 2] = sample(names, nrow(data))
+    data[, 3] = prop.table(sample( c(rep(0, 100), c(1:ngroup)), nrow(data)))
+    df = rbind(df, data)}
+colnames(df) <- c("X","group","Y")
+df <- df[order(df$X, df$group) , ]
 
-## Colors: ---- 
+# (1) Choose colors: ---- 
 
-## (a) using RColorBrewer: 
+# (a) using RColorBrewer: 
 library(RColorBrewer)
 cur_col <- brewer.pal(11, "Paired") 
 cur_col <- colorRampPalette(cur_col)(ngroup)
-cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))] # randomize
+cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
 
-## (b) using unikn:
+# (b) using unikn:
 library(unikn)
 cur_col <- usecol(pal = pal_unikn, n = ngroup)
-# cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))] # randomize
-cur_col <- unname(cur_col)  # remove names
+# cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
 
-# cur_col <- rep(cur_col, 5)
-
-## Check:
-# cur_col
-# length(cur_col)
-
-# ggplot call: 
+# (3) Use ggplot2: ---- 
 library(ggplot2)
-ggplot(DAT, aes(x = Year, y = Value, fill = Group)) + 
+
+ggplot(df, aes(x = X, y = Y, fill = group)) + 
   geom_area(alpha = 1, color = Grau, size = .01 ) +
-  theme_bw() +
-  # scale_fill_brewer(color = "red", breaks = rev(levels(DAT$Group)))+
+  theme_bw() + 
   scale_fill_manual(values = cur_col) +
-  theme(text = element_blank(),
-        line = element_blank(),
-        title = element_blank(),
-        legend.position = "none",
-        panel.border = element_blank(),
-        panel.background = element_blank()
-  )
+  theme_void() +
+  theme(legend.position = "none")
 ```
 
-<img src="inst/pix/README-use_pal_ggplot2-1.png" width="80%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-use_pal_ggplot2-1.png" width="75%" style="display: block; margin: auto;" />
 
 Text decorations
 ----------------
@@ -339,6 +344,8 @@ Text decorations
 **unikn** also provides some functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining). By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the `new_plot` argument specifies a type of plot to be generated. As the use of these functions is explained in detail in `vignette("Text")`, we only provide some examples here:
 
 ### Mark
+
+The `mark` function allows emphasizing text by plotting it with colored background (to provide the functionality of "Markieren"):
 
 ``` r
 mark(labels = c("Markieren", "ist ein Bestandteil", "von Studieren."), 
@@ -379,9 +386,11 @@ heading(labels = c("pa-", "ra-", "die-", "sisch"))
 
 <img src="inst/pix/README-heading_demo-1.png" style="display: block; margin: auto;" />
 
+Headings violating the official recommendations (e.g., step-wise titles) will generate a message.
+
 ### URLs
 
-Finally, `url_unikn` allows formatting URLs the uni.kn way:
+Finally, the `url_unikn` function allows formatting URLs the uni.kn way:
 
 ``` r
 my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from web browser
@@ -391,9 +400,9 @@ post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
 
 <img src="inst/pix/README-url_post-1.png" style="display: block; margin: auto;" />
 
-+++ here now +++
+### Caveats
 
-Some important caveats:
+Please note the following caveats:
 
 -   Plotting text (i.e., graphically rendering characters) is rarely a good idea. It typically doesn't scale (when changing the size of images) and cannot be recognized automatically (e.g., copied, indexed, or scraped). Hence, the following functions should only be used in contexts in which no better solutions are available or practical (e.g., when specifically creating images, or needing to add text to graphs).
 
@@ -401,94 +410,38 @@ Some important caveats:
 
 Overall, we hope that the following functions will be useful for plotting graphical elements (e.g., boxes, logos, etc.) and achieving a uniform look when styling visualizations.
 
-### ToDo <img src = "./inst/pix/todo.png" alt = "ToDo" align = "right" width = "120px" style = "width: 120px; float: right; border:10;"/>
+ToDo <img src = "./inst/pix/todo.png" alt = "ToDo" align = "right" width = "120px" style = "width: 120px; float: right; border:10;"/>
+-------------------------------------------------------------------------------------------------------------------------------------
 
-Identify key functions:
+The **unikn** package is work in progress. We are still working on:
 
--   `mark` (Markieren)
--   `line` (Anstreichen)
--   `post` (Merken)
+-   Graphical themes for **ggplot2** that use **unikn** color palettes and text elements
 
-For `mark` and `line`: Versions that allow to arrange multiple character strings with fixed spacing and sensible default colors:
-
--   `heading` for arranging headings (sensible defaults, warn in case of step functions)
-
-<!-- Demo of text functions: -->
-``` r
-post(labels = c("Bitte beachten:", "Dies hier ist wichtig."), y = c(.5, .4), cex = c(1.5, 1.2), font = c(2, 1))
-mark(labels = c("Markieren", "geht über Studieren."), y_layout = .05, col_bg = c(Seeblau, Peach), new_plot = "slide")
-line(labels = c("Ewig", "währt", "am längsten"), y = .8, y_layout = .1, font = 2, new_plot = "blank")
-heading(labels = c("Studieren", "ist Theorie und Praxis", "und Probieren"))
-```
-
-Post: Generating logo
-
-``` r
-# unikn: 
-post(labels = "unikn::", cex = 2.5, font = 2, y = .4, new_plot = "blank")  # save in size: 250 x 250 pixel
-
-# R: 
-post(labels = "R", col_bg = pal_seeblau[[5]], 
-     cex = 10, font = 2, y = .33)  # save in size: 250 x 250 pixel
-
-# ToDo: 
-post(labels = "ToDo", col_bg = pal_signal[[1]], 
-     cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
-post(labels = "ToDo", col_bg = pal_petrol[[4]], 
-     cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
-post(labels = "ToDo", col_bg = pal_pinky[[4]], 
-     cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
-post(labels = "ToDo", col_bg = pal_seegruen[[4]], 
-     cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
-```
-
-### Examples
-
-Key text functions include:
-
--   Highlighting text with `mark`:
-
-<img src = "./inst/pix/highlight_text.png" alt = "highlight"       width = "400px" style = "width: 400px; border:0;"/> <img src = "./inst/pix/messy_plot.png"     alt = "messy highlight" width = "400px" style = "width: 400px; border:0;"/>
-
--   Underlining text with `line`:
-
-<img src = "./inst/pix/line_matters.png"   alt = "underline" width = "400px" style = "width: 400px; border:0;"/>
-
--   Boxing text with `post`:
-
-<img src = "./inst/pix/R.png"           alt = "R" width = "150px" style = "width: 150px; border:10;"/> <img src = "./inst/pix/todo_pinky4.png" alt = "ToDo" width = "150px" style = "width: 150px; border:10;"/> <img src = "./inst/pix/unikn.png"       alt = "unikn::" width = "150px" style = "width: 150px; border:10;"/>
-
-### Image sizes
-
-Note that text is rendered graphically and does not scale when merely re-sizing bitmap images. Hence, to preserve the look of the original plots, plots should be generated and viewed in the desired size (in R) and displayed without further scaling (in other media):[2]
-
-For instance, the following image was generated and saved as an image with 250 x 250 pixels. If displayed in this size, it looks crisp and clear:
-
-<img src = "./inst/pix/box_contact.png"  alt = "address box (original size)" width = "250px" style = "width: 250px; border:10;"/>
-
-Using a smaller image size can still work, as long as fonts remain legible:
-
-<img src = "./inst/pix/box_contact.png"  alt = "address box (smaller size)" width = "150px" style = "width: 150px; border:10;"/>
-
-However, using a larger image size shows a clear loss of image quality:
-
-<img src = "./inst/pix/box_contact.png"  alt = "address box (larger size)" width = "350px" style = "width: 350px; border:10;"/>
-
-Graphical themes
-----------------
-
--   `ggplot` theme (using **unikn** color palettes and text elements)
+-   Additional templates for images and slides
 
 Copyrights
 ----------
 
-The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. While we make some graphical elements available to R users (e.g., for creating scientific visualizations), all copyrights remain with the original copyright holders.
+The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (CD) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. While we are affiliated with the [University of Konstanz](http://www.uni-konstanz.de) and make some graphical elements available to R users (e.g., for creating scientific visualizations), all CD copyrights remain with the original copyright holders.
 
 We strive for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we enable some liberties, mostly by imposing fewer restrictions. Examples include:
 
 -   allowing finer color gradients and flexible combinations of color palettes (via `col_scale`);
 -   providing a designated `signal` color (from `pal_signal`);
 -   using the spelling "color" (rather than "colour") throughout the **unikn** package.
+
+License
+-------
+
+<!-- unikn pkg logo and link: -->
+<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/> </a>
+
+<!-- License: CC BY-SA 4.0 (also in Description) -->
+<!-- Image with link: -->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+
+<!-- Text with links: -->
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><strong>unikn</strong></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/hneth/unikn" property="cc:attributionName" rel="cc:attributionURL">Hansjörg Neth and Nico Gradwohl</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. (Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hneth/unikn" rel="dct:source">https://github.com/hneth/unikn</a>).
 
 References
 ----------
@@ -508,10 +461,8 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-05-14.\]
+\[Updated on 2019-05-20.\]
 
 <!-- eof. -->
 
 [1] Whereas the official definition does not identify a preferred color for the Ampel color palette (`pal_signal`), we provide its alert color (i.e., `pal_signal[2]`) as a designated color `signal`.
-
-[2] Depending on the designated output format, scaling down (to smaller image sizes) is possible, whereas scaling up (to larger image sizes) typically causes loss of image quality.
