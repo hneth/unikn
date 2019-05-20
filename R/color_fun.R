@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 04 10
+## spds | uni.kn |  2019 05 20
 ## ---------------------------
 
 ## Define color-related functions 
@@ -18,7 +18,7 @@
 #' Default: \code{pal = \link{pal_unikn}}.
 #' 
 #' @param n An integer value specifying the desired number of colors from the palette.
-#' For all palettes defined within unikn by default it uses a predefined selection of 
+#' For all palettes defined within unikn by default it uses a pre-defined selection of 
 #' colors if the desired number of colors is smaller than the available number.  
 #' For all other palettes and \code{n} larger than \code{length(pal)} it exteds the palette using
 #' \code{\link{colorRampPalette}}.
@@ -26,7 +26,7 @@
 #' @param use_names A logical value indicating, whether colors should be returned as a named vector.
 #' (defaults to \code{FALSE} for compatibility with ggplot)
 #' 
-#' @param use_col_ramp A logical value specifying, whether the default of using preselected colors
+#' @param use_col_ramp A logical value specifying, whether the default of using pre-selected colors
 #' should be overridden and \code{\link{colorRampPalette}} should always be used to process \code{n}.
 #'
 #' @family color functions
