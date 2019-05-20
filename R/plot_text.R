@@ -145,12 +145,12 @@ plot_text <- function(labels = NA,        # labels of text element(s)
   }
   
   # (b) col (of labels): 
-  if ( is.na(col) && (new_plot == "xbox")) {col <- "white"}
-  if ( is.na(col) && any(!is.na(labels)) ) { col <- "black"} 
+  if (any(is.na(col)) && (new_plot == "xbox")) {col <- "white"}
+  if (any(is.na(col)) && any(!is.na(labels)) ) {col <- "black"} 
   
   # (c) col_bg: 
-  if (is.na(col_bg) && mark) { col_bg <- pal_seeblau[[2]]} # default mark color: pal_seeblau[[3]]
-  if (is.na(col_bg) && line) { col_bg <- pal_seeblau[[4]]} # default underline color: pal_seeblau[[4]] 
+  if (any(is.na(col_bg)) && mark) {col_bg <- pal_seeblau[[2]]} # default mark color: pal_seeblau[[3]]
+  if (any(is.na(col_bg)) && line) {col_bg <- pal_seeblau[[4]]} # default underline color: pal_seeblau[[4]] 
   
   # (d) y_layout:
   # Treat "flush" as special case of numeric layout (fixed distance of 0): 
