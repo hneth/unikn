@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2019 04 12"
+date: "2019 05 02"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -247,6 +247,58 @@ or extend color palettes:
 
 ```{r superset_compare, fig.width = 7, fig.height = 3}
 seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
+```
+
+## Demo
+
+1. Using the `plot` function of **base R** for a scatterplot: 
+
+```{r demo_scatterplot, eval = TRUE, fig.width = 6, fig.height = 4, fig.align = 'center', collapse = TRUE}
+plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 4, 
+     col = adjustcolor(pal_unikn, alpha.f = .33))  # with transparency
+```
+
+2. Using the `ggplot` function of **ggplot2** for an area plot: 
+
+```{r use_pal_ggplot2, eval = TRUE, fig.width = 7, fig.asp = .618, fig.align = 'center', collapse = TRUE}
+# Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/ 
+
+# (1) Create data: ---- 
+ngroup <- 50
+names <- paste("G_", seq(1, ngroup), sep = "")
+df <- data.frame()
+
+set.seed(3)
+for(i in seq(1:30)){
+    data = data.frame(matrix(0, ngroup, 3))
+    data[, 1] = i
+    data[, 2] = sample(names, nrow(data))
+    data[, 3] = prop.table(sample( c(rep(0, 100), c(1:ngroup)), nrow(data)))
+    df = rbind(df, data)}
+colnames(df) <- c("X","group","Y")
+df <- df[order(df$X, df$group) , ]
+
+# (1) Choose colors: ---- 
+
+# (a) using RColorBrewer: 
+library(RColorBrewer)
+cur_col <- brewer.pal(11, "Paired") 
+cur_col <- colorRampPalette(cur_col)(ngroup)
+cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
+
+# (b) using unikn:
+library(unikn)
+cur_col <- usecol(pal = pal_unikn, n = ngroup)
+# cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
+
+# (3) Use ggplot2: ---- 
+library(ggplot2)
+
+ggplot(df, aes(x = X, y = Y, fill = group)) + 
+  geom_area(alpha = 1, color = Grau, size = .01 ) +
+  scale_fill_manual(values = cur_col) +
+  theme_void() +
+  theme(legend.position = "none")
 ```
 
 
