@@ -12,7 +12,7 @@ usecol(pal = pal_unikn, n = "all", use_names = FALSE,
 Default: \code{pal = \link{pal_unikn}}.}
 
 \item{n}{An integer value specifying the desired number of colors from the palette.
-For all palettes defined within unikn by default it uses a predefined selection of 
+For all palettes defined within unikn by default it uses a pre-defined selection of 
 colors if the desired number of colors is smaller than the available number.  
 For all other palettes and \code{n} larger than \code{length(pal)} it exteds the palette using
 \code{\link{colorRampPalette}}.}
@@ -20,7 +20,7 @@ For all other palettes and \code{n} larger than \code{length(pal)} it exteds the
 \item{use_names}{A logical value indicating, whether colors should be returned as a named vector.
 (defaults to \code{FALSE} for compatibility with ggplot)}
 
-\item{use_col_ramp}{A logical value specifying, whether the default of using preselected colors
+\item{use_col_ramp}{A logical value specifying, whether the default of using pre-selected colors
 should be overridden and \code{\link{colorRampPalette}} should always be used to process \code{n}.}
 }
 \description{
