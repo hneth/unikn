@@ -266,11 +266,11 @@ image(m, col = seecol(pal_seeblau))
 image(m, col = usecol(pal_peach))
 image(m, col = usecol(pal_seegruen))
 image(m, col = usecol(pal_petrol))
-image(m, col = usecol(pal_pinky))
+# image(m, col = usecol(pal_pinky))
 image(m, col = usecol(pal_bordeaux))
 ```
 
-![](inst/pix/README-use_pal_demo_image_1-1.png)![](inst/pix/README-use_pal_demo_image_1-2.png)![](inst/pix/README-use_pal_demo_image_1-3.png)![](inst/pix/README-use_pal_demo_image_1-4.png)![](inst/pix/README-use_pal_demo_image_1-5.png)![](inst/pix/README-use_pal_demo_image_1-6.png)![](inst/pix/README-use_pal_demo_image_1-7.png)
+![](inst/pix/README-use_pal_demo_image_1-1.png)![](inst/pix/README-use_pal_demo_image_1-2.png)![](inst/pix/README-use_pal_demo_image_1-3.png)![](inst/pix/README-use_pal_demo_image_1-4.png)![](inst/pix/README-use_pal_demo_image_1-5.png)![](inst/pix/README-use_pal_demo_image_1-6.png)
 
 1.  Geometric images with `image`:
 
