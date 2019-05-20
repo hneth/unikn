@@ -346,7 +346,6 @@ cur_col <- usecol(pal = pal_unikn, n = ngroup)
 
 # (3) Use ggplot2: ---- 
 library(ggplot2)
-
 ggplot(df, aes(x = X, y = Y, fill = group)) + 
   geom_area(alpha = 1, color = Grau, size = .01 ) +
   theme_bw() + 
@@ -355,7 +354,7 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
   theme(legend.position = "none")
 ```
 
-<img src="inst/pix/README-use_pal_ggplot2-1.png" width="75%" style="display: block; margin: auto;" />
+<img src = "./inst/pix/README-use_pal_ggplot2-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/>
 
 Text decorations
 ----------------

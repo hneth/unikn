@@ -278,7 +278,7 @@ image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_pinky)
 
 4. Using **unikn** in `ggplot` calls (using **ggplot2**):
 
-```{r use_pal_ggplot2, eval = TRUE, out.width = "75%", fig.asp = .618, fig.align = 'center', collapse = TRUE}
+```{r use_pal_ggplot2, eval = FALSE, out.width = "75%", fig.asp = .618, fig.align = 'center', collapse = TRUE}
 # Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/ 
 
 # (1) Create data: ---- 
@@ -311,7 +311,6 @@ cur_col <- usecol(pal = pal_unikn, n = ngroup)
 
 # (3) Use ggplot2: ---- 
 library(ggplot2)
-
 ggplot(df, aes(x = X, y = Y, fill = group)) + 
   geom_area(alpha = 1, color = Grau, size = .01 ) +
   theme_bw() + 
@@ -320,6 +319,7 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
   theme(legend.position = "none")
 ```
 
+<img src = "./inst/pix/README-use_pal_ggplot2-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/>
 
 ## Text decorations
 
