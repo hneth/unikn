@@ -39,8 +39,7 @@ The purpose of this vignette is to explain which colors and color palettes exist
 Please load the `unikn` package to get started: 
 
 ```{r load_pkg, message = FALSE, warning = FALSE}
-# library(unikn)  # load unikn package
-devtools::load_all(".")
+library(unikn)  # load unikn package
 ```
 
 There are two functions to interact with the color palettes in the `unikn` package:  `seecol` and `usecol`
