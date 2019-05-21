@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 03 24
+## hn  |  uni.kn |  2019 05 20
 ## ---------------------------
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
@@ -1058,7 +1058,7 @@ box_text <- function(labels = NA,     # labels of text element(s)
 
 ## Test: Testbed for code snippets (used above) ------
 
-# 1. Is there an open plot? Does already some plot exist? ----- 
+# 1. Is there an open plot? Does some plot already exist? ----- 
 
 # # See 
 # dev.list() # for a list of current devices
