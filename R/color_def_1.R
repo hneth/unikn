@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## spds | uni.kn |  2019 04 02
+## spds | uni.kn |  2019 05 20
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -621,9 +621,6 @@ names(Petrol) <- "Petrol"
 
 ## Check:
 # Petrol  #  "#077187"
-
-
-
 
 
 #  (5) seegruen: -----
