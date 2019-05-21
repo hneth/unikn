@@ -11,10 +11,6 @@ The **unikn** package enables the use some elements of the [University of Konsta
 Motivation
 ----------
 
-<!-- uni.kn logo and link: -->
-<!-- ![](./inst/pix/logo.svg) -->
-<a href = "https://www.uni.kn/"> <img src = "./inst/pix/logo_min.png" alt = "uni.kn" width = "280px" align = "left" style = "width: 280px; float: left; border:10;"/> </a>
-
 <!-- unikn CD: -->
 In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. Its key component is the consistent use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.)
 
@@ -24,23 +20,29 @@ The **unikn** package aims to facilitate the use of some design elements for use
 <!-- Overview: -->
 The package currently provides 4 types of objects or functions:
 
-1.  Colors, color palettes, and related functions
-2.  Plotting styled graphical objects (e.g., boxes and frames)
-3.  Plotting styled text elements (e.g., highlighting and underlining)
-4.  Graphical support (e.g., commands and themes for creating scientific visualizations)
+1.  Colors, color palettes, and related functions;
+2.  Plotting styled graphical objects (e.g., boxes and frames);
+3.  Plotting styled text elements (e.g., highlighting and underlining);
+4.  Graphical support (e.g., commands and themes for creating scientific visualizations).
 
 Additional elements are added as they become available. Please use responsibly!
 
 Installation
 ------------
 
-The current development version can be installed from its [GitHub](https://github.com) repository at <https://github.com/hneth/unikn/>:
+-   The current release of **unikn** is available from [CRAN](https://CRAN.R-project.org/) at <https://CRAN.R-project.org/package=unikn>:
 
 ``` r
-# install.packages('devtools')
-devtools::install_github('hneth/unikn')
+install.packages('unikn')  # install unikn from CRAN client
+library('unikn')           # load to use the package
+```
 
-library(unikn)  # load the package
+-   The current development version can be installed from its [GitHub](https://github.com) repository at <https://github.com/hneth/unikn/>:
+
+``` r
+# install.packages('devtools')  # (if not installed yet)
+devtools::install_github('hneth/unikn')
+library('unikn')  # load to use the package
 ```
 
 Colors
@@ -52,14 +54,11 @@ A distinctive and recognizable color scheme is the most obvious element of the [
 
 Basic color palettes are specified according to the **Corporate Design Manual** [(pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf):
 
-Our basic color palette `pal_unikn` combines:
+The default color palette `pal_unikn` combines:
 
 -   5 shades of `pal_seeblau` (reversed, i.e., from darker to lighter);
-
 -   the base R color `"white"` (as the center color);
-
 -   4 shades of grey (`pal_grau[1:4]`);
-
 -   the base R color `"black"` (as the last color).
 
 This yields a symmetrical default color palette `pal_unikn` consisting of 11 colors:
@@ -72,7 +71,7 @@ pal_unikn  # 11 default colors
 #>   seegrau3 seegrau4   black
 #> 1  #999999  #666666 #000000
 
-# See color palett (by plotting it): ----- 
+# View color palette (by plotting it): ----- 
 seecol(pal_unikn)
 ```
 
@@ -436,17 +435,22 @@ ToDo
 The **unikn** package is work in progress. We are still working on:
 
 -   Graphical themes for **ggplot2** that use **unikn** color palettes and text elements
-
 -   Additional templates for images and slides
+
+Please [contact us](https://www.spds.uni-konstanz.de/) in case you need additional features or want to help us implementing them.
 
 Copyrights
 ----------
 
-The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (CD) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. While we are affiliated with the [University of Konstanz](http://www.uni-konstanz.de) and make some graphical elements available to R users (e.g., for creating scientific visualizations), all CD copyrights remain with the original copyright holders.
+<!-- uni.kn logo and link: -->
+<!-- ![](./inst/pix/logo.svg) -->
+<a href = "https://www.uni.kn/"> <img src = "./inst/pix/logo_min.png" alt = "uni.kn" width = "280px" align = "left" style = "width: 280px; float: left; border:10;"/> </a>
 
-We strive for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we enable some liberties, mostly by imposing fewer restrictions. Examples include:
+The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (CD) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. We are affiliated with the [University of Konstanz](http://www.uni-konstanz.de) and make some CD elements available to R users (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders.
 
--   allowing finer color gradients and flexible combinations of color palettes (via `col_scale`);
+We aim for an authentic representation of a highly-specified corporate design. Although rigid specifications help to maintain coherence and consistency, they also cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we enable some liberties, mostly by imposing fewer restrictions. Examples include:
+
+-   allowing finer color gradients and flexible combinations of color palettes (by applying the `seecol()` and `usecol()` functions to color palettes);
 -   providing a designated `signal` color (from `pal_signal`);
 -   using the spelling "color" (rather than "colour") throughout the **unikn** package.
 
@@ -481,7 +485,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-05-20.\]
+\[Updated on 2019-05-21.\]
 
 <!-- eof. -->
 
