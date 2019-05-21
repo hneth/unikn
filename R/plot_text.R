@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## hn  |  uni.kn |  2019 03 24
+## hn  |  uni.kn |  2019 05 20
 ## ---------------------------
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
@@ -145,12 +145,12 @@ plot_text <- function(labels = NA,        # labels of text element(s)
   }
   
   # (b) col (of labels): 
-  if ( is.na(col) && (new_plot == "xbox")) {col <- "white"}
-  if ( is.na(col) && any(!is.na(labels)) ) { col <- "black"} 
+  if (any(is.na(col)) && (new_plot == "xbox")) {col <- "white"}
+  if (any(is.na(col)) && any(!is.na(labels)) ) {col <- "black"} 
   
   # (c) col_bg: 
-  if (is.na(col_bg) && mark) { col_bg <- pal_seeblau[[2]]} # default mark color: pal_seeblau[[3]]
-  if (is.na(col_bg) && line) { col_bg <- pal_seeblau[[4]]} # default underline color: pal_seeblau[[4]] 
+  if (any(is.na(col_bg)) && mark) {col_bg <- pal_seeblau[[2]]} # default mark color: pal_seeblau[[3]]
+  if (any(is.na(col_bg)) && line) {col_bg <- pal_seeblau[[4]]} # default underline color: pal_seeblau[[4]] 
   
   # (d) y_layout:
   # Treat "flush" as special case of numeric layout (fixed distance of 0): 
@@ -1058,7 +1058,7 @@ box_text <- function(labels = NA,     # labels of text element(s)
 
 ## Test: Testbed for code snippets (used above) ------
 
-# 1. Is there an open plot? Does already some plot exist? ----- 
+# 1. Is there an open plot? Does some plot already exist? ----- 
 
 # # See 
 # dev.list() # for a list of current devices

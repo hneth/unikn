@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2019 04 12"
+date: "2019 05 05"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -115,14 +115,14 @@ You can _see_
 A typical workflow may include _seeing_ a color palette, saving it, and using it in a plot.  
 
 ```{r save_seecol, fig.width = 7, fig.asp = .618}
-mypal <- seecol(pal_unikn_light)  # view details of AND save pal_unikn_light to mypal  
+my_pal <- seecol(pal_unikn_light)  # view details of AND save pal_unikn_light to my_pal  
 ```
 
 After saving the color palette you can use the palette object in your plot: 
 
 
-```{r mypal_example, fig.width = 7, fig.asp = .618}
-barplot(1/sqrt(1:10), col = mypal)  # use mypal in a plot
+```{r my_pal_example, fig.width = 7, fig.asp = .618}
+barplot(1/sqrt(1:10), col = my_pal)  # use my_pal in a plot
 ```
 
 Note that `seecol` _invisibly_ returns the color palette.  
@@ -170,14 +170,14 @@ Finally, passing a vector of colors and/or color palettes allows you creating an
 
 Using only a subset of colors:
 
-```{r use_subset, fig.width = 7, fig.height = 6}
+```{r use_subset, fig.width = 6, fig.height = 5, fig.align = 'center', collapse = TRUE}
 seecol("unikn_all", n = 4)
 seecol(pal_unikn, 4)
 ```
 
 Importantly, when using pre-defined color palettes of `unikn` but a value of `n` that is smaller than the length of the current color palette, `usecol` and `seecol` select a predefined subset of colors:
 
-```{r use_col_smalln, fig.height = 5}
+```{r use_col_smalln, fig.width = 3.5, fig.height = 3, fig.align = 'center', collapse = TRUE}
 barplot(1/sqrt(1:2), col = usecol(pal_seeblau, n = 2))
 barplot(1/sqrt(1:3), col = usecol(pal_seeblau, n = 3))
 ```
@@ -186,14 +186,14 @@ barplot(1/sqrt(1:3), col = usecol(pal_seeblau, n = 3))
 
 For values of `n` that are larger than the number of available colors in `pal`, the specified color palette is extended using `ColorRampPalette`:
 
-```{r use_superset, fig.width = 7, fig.height = 6}
+```{r use_superset, fig.width = 7, fig.height = 6, fig.align = 'center', collapse = TRUE}
 seecol("all", n = 12)
 seecol(pal_seeblau, 12)
 ```
 
 When using a color palette: 
 
-```{r use_col_big_n, fig.width = 7, fig.asp = .618}
+```{r use_col_big_n, fig.width = 6, fig.asp = .618, fig.align = 'center'}
 barplot(1/sqrt(1:11), col = usecol(pal_bordeaux, n = 11))
 ```
 
@@ -201,13 +201,13 @@ barplot(1/sqrt(1:11), col = usecol(pal_bordeaux, n = 11))
 
 By passing a vector, as in the example below, you can for instance concatenate two palettes and connect them with white as the midpoint.  
 
-```{r combine_pals, fig.width = 7, fig.asp = .618}
+```{r combine_pals, fig.width = 7, fig.asp = .618, fig.align = 'center'}
 seecol(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 ```
 
 You can also combine a set of colors and extend this palette by specifying an `n` argument greater than the length of your specified palette. 
 
-```{r combine_pals_n, fig.width = 7, fig.asp = .618}
+```{r combine_pals_n, fig.width = 7, fig.asp = .618, fig.align = 'center'}
 seecol(pal = usecol(c(Karpfenblau, Seeblau, "gold"), n = 10))  
 # Note, that redundant use of seecol and usecol shows HEX values as names.
 # seecol(pal = c(Karpfenblau, Seeblau, "gold"), n = 10)  # would work, but show no intermediate names
@@ -215,39 +215,100 @@ seecol(pal = usecol(c(Karpfenblau, Seeblau, "gold"), n = 10))
 
 These custom palettes you can easily use in a plot.  Here, we define and use a subset of the `pal_unikn_pair` palette: 
 
-```{r use_mypair, fig.width = 7, fig.height = 4}
-mypair <- seecol(pal_unikn_pair, n = 10)
+```{r use_my_pair, fig.width = 6, fig.height = 4, fig.align = 'center'}
+my_pair <- seecol(pal_unikn_pair, n = 10)
 
-## Create some data: 
+# Create data: 
 dat <- matrix(sample(5:10, size = 10, replace = TRUE), ncol = 5)
-barplot(dat, beside = TRUE, col = mypair)
+
+# Plot in my_pair colors:
+barplot(dat, beside = TRUE, col = my_pair)
 ```
 
 ### Comparing custom palettes 
 
 Sometimes you may want to compare a palette you created to your other or the existing palettes.  Therefore, advanced users can also use `seecol` for displaying and comparing different custom palettes. Seecol will output a _comparison_ of the inputs if you specify the `pal` argument as a list of colors or color palettes:
 
-```{r compare_custom_palettes, fig.width = 7, fig.height = 3}
+```{r compare_custom_palettes, fig.width = 6, fig.height = 3, fig.align = 'center'}
 # Define 2 palettes: 
 pal1 <- c(rev(pal_seeblau), "white", pal_bordeaux)
 pal2 <- usecol(c(Karpfenblau, Seeblau, "gold"), n = 10)
 
-# Show the mypair palette from above, the 2 palettes just defined, and 2 pre-defined palettes:  
-seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair))
+# Show the my_pair palette from above, the 2 palettes just defined, and 2 pre-defined palettes:  
+seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair))
 ```
 
 Note that unknown palettes will be named `pal`n in increasing order.  Palettes known to `seecol` will be shown with their respective names.  
 
 As before, you can use the `n` argument to use subsets of color palettes: 
 
-```{r subset_compare, fig.width = 7, fig.height = 3}
-seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 5)
+```{r subset_compare, fig.width = 6, fig.height = 3, fig.align = 'center'}
+seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 5)
 ```
 
 or extend color palettes: 
 
-```{r superset_compare, fig.width = 7, fig.height = 3}
-seecol(list(mypair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
+```{r superset_compare, fig.width = 6, fig.height = 3, fig.align = 'center'}
+seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
+```
+
+## Examples
+
+The following examples illustrate how plotting functions in R can use the **unikn** color palettes and the `seecol()` and `usecol()` functions. 
+
+1. Using the `plot` function of **base R** for a scatterplot: 
+
+```{r demo_scatterplot, eval = TRUE, fig.width = 6, fig.height = 4, fig.align = 'center', collapse = TRUE}
+plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 4, 
+     col = adjustcolor(pal_unikn, alpha.f = .33))  # with transparency
+```
+
+2. Using the `ggplot` function of **ggplot2** for an area plot: 
+
+```{r use_pal_ggplot2, eval = FALSE, fig.width = 7, fig.asp = .618, fig.align = 'center', collapse = TRUE}
+# Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/ 
+
+# (1) Create data: ---- 
+ngroup <- 50
+names <- paste("G_", seq(1, ngroup), sep = "")
+df <- data.frame()
+
+set.seed(3)
+for(i in seq(1:30)){
+    data = data.frame(matrix(0, ngroup, 3))
+    data[, 1] = i
+    data[, 2] = sample(names, nrow(data))
+    data[, 3] = prop.table(sample( c(rep(0, 100), c(1:ngroup)), nrow(data)))
+    df = rbind(df, data)}
+colnames(df) <- c("X","group","Y")
+df <- df[order(df$X, df$group) , ]
+
+# (1) Choose colors: ---- 
+
+# (a) using RColorBrewer: 
+
+# library(RColorBrewer)
+
+# cur_col <- brewer.pal(11, "Paired") 
+# cur_col <- colorRampPalette(cur_col)(ngroup)
+# cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
+
+# (b) using unikn:
+
+library(unikn)
+
+cur_col <- usecol(pal = pal_unikn, n = ngroup)
+# cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
+
+# (3) Use ggplot2: ---- 
+
+library(ggplot2)
+
+ggplot(df, aes(x = X, y = Y, fill = group)) + 
+  geom_area(alpha = 1, color = Grau, size = .01 ) +
+  scale_fill_manual(values = cur_col) +
+  theme_void() +
+  theme(legend.position = "none")
 ```
 
 
