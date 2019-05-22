@@ -665,12 +665,15 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     
     # Determine whether to display hex values:
     cex_hex <- 0.9  # was par("cex")
-    wdth_hex <- strwidth(" #XXXXXX", cex = cex_hex) * max_ncol + strwidth("Hex: ")  # is the width small enough?
+    
+    placeholder <- ifelse(is.na(alpha), " #XXXXXX", " #XXXXXXXX")
+     
+    wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol + strwidth("Hex: ")  # is the width small enough?
     
     while (wdth_hex > xlim[2]) {
       
       cex_hex <- cex_hex - 0.1
-      wdth_hex <- strwidth(" #XXXXXX", cex = cex_hex) * max_ncol + strwidth("Hex: ")  # is the width small enough?
+      wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol + strwidth("Hex: ")  # is the width small enough?
       
     }
     
