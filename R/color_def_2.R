@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2019 04 02
+## spds | uni.kn  | 2019 05 20
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
