@@ -23,6 +23,9 @@
 #' For all other palettes and \code{n} larger than \code{length(pal)} it exteds the palette using
 #' \code{\link{colorRampPalette}}.
 #' 
+#' #' @param alpha factor to modify the opacity alpha (as in \code{\link{adjustcolor}}); typically in [0,1].
+#' Default: \code{NA}, no modification of opacity.
+#' 
 #' @param use_names A logical value indicating, whether colors should be returned as a named vector.
 #' (defaults to \code{FALSE} for compatibility with ggplot)
 #' 
@@ -344,6 +347,10 @@ usecol <- function(pal = pal_unikn,
 #' color palette \code{pal}, the color palette is reduced or extrapolated 
 #' (using \code{grDevices::colorRampPalette}). 
 #' Default: \code{n = "all"}. 
+#' 
+#' @param alpha factor to modify the opacity alpha (as in \code{\link{adjustcolor}}); typically in [0,1].
+#' The manipulation is shown in the title.
+#' Default: \code{NA}, no modification of opacity.
 #' 
 #' @param hex Should HEX color values be shown?
 #' Default: \code{hex = NULL} (i.e., show HEX color values 
