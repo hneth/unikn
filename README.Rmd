@@ -86,7 +86,7 @@ The default color palette `pal_unikn` combines:
 
 This yields a symmetrical default color palette `pal_unikn` consisting of 11&nbsp;colors: 
 
-```{r pal_unikn, eval = TRUE, fig.align = 'center', fig.width = 7, fig.height = 5}
+```{r pal_unikn, eval = TRUE, fig.align = 'center', fig.width = 6, fig.height = 4.5}
 # Default color palette: ----- 
 pal_unikn  # 11 default colors
 
@@ -106,7 +106,7 @@ Evaluating `seecol(pal = "unikn_basic")` shows these 3 basic unikn color palette
 
 Beyond the 3 variants of `pal_unikn`, the **unikn** package provides the following color palettes: 
 
-```{r pal_all, eval = TRUE, fig.align = 'center', fig.width = 7, fig.height = 6}
+```{r pal_all, eval = TRUE, fig.align = 'center', fig.width = 6, fig.height = 5}
 seecol("all")
 ```
 
@@ -144,7 +144,7 @@ pal_unikn_pref["Seeblau"]  # preferred color by name
 ```
 
 [^1]: Whereas the official definition does not identify a preferred color for the Ampel color palette (`pal_signal`), 
-we provide its alert color (i.e., `pal_signal[2]`) as a designated color `signal`. 
+we provide its alert color (i.e., `pal_signal[2]`) as a designated color `Signal`. 
 
 Additional pre-defined color palettes include:
 
@@ -167,7 +167,7 @@ The `seecol()` and `usecol()` functions provide a convenient interface for _view
 
 The `seecol()` function provides a quick overview over the contents of a color palette and allows comparisons between color palettes: 
 
-```{r seecol_pref, eval = TRUE, fig.align = 'center', fig.width = 7, fig.height = 5}
+```{r seecol_pref, eval = TRUE, fig.align = 'center', fig.width = 6, fig.height = 4}
 # Plot a color palette: ----- 
 seecol(pal_unikn_pref)
 ```
@@ -177,10 +177,10 @@ seecol(pal_unikn_pref)
 When only a subset of a color palette are needed, the `seecol()` and `usecol()` functions provide a reasonable subset of a known color palette:
 
 ```{r pal_n, eval = TRUE, out.width = "75%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
-# From pal_unikn (default): ----- 
+# All color palettes: ----- 
 seecol(n = 4)
 
-# From pal_seeblau: ----- 
+# Only pal_seeblau: ----- 
 seecol(pal_seeblau, n = 4)
 ```
 
@@ -213,10 +213,10 @@ For best results, consider combining existing color palettes and individual colo
 
 ```{r col_scale_3, eval = TRUE, out.width = "75%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
 # Combining color palettes (and colors): ----- 
-seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
 seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
-seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
 seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11)
+# seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
+# seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
 ```
 
 
@@ -233,7 +233,7 @@ Some examples for using
 ```{r use_pal_demo_barplot, eval = TRUE, out.width = "75%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
 # (a) Using color palettes:
 barplot(1/sqrt(1:11),  col = usecol(pal_unikn))
-barplot(1/sqrt(10:25), col = usecol(pal_unikn_pair))
+# barplot(1/sqrt(10:25), col = usecol(pal_unikn_pair))
 # (b) Using only n colors of a palette:
 barplot(1/sqrt(1:5), col = usecol(pal_unikn, n = 5)) 
 # (c) Scatterplots:
@@ -251,10 +251,10 @@ m <- matrix(rnorm(n*n), ncol = n, nrow = n)
 
 image(m, col = seecol(pal_seeblau))  # seecol() shows & use colors 
 
-image(m, col = usecol(pal_peach))    # usecol() only uses colors
-image(m, col = usecol(pal_seegruen))
-image(m, col = usecol(pal_petrol))
-image(m, col = usecol(pal_bordeaux))
+# image(m, col = usecol(pal_peach))    # usecol() only uses colors
+# image(m, col = usecol(pal_seegruen))
+# image(m, col = usecol(pal_petrol))
+# image(m, col = usecol(pal_bordeaux))
 ```
 
 3. More geometric images with `image`: 
@@ -267,12 +267,12 @@ image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_seegru
       main = "Shades of Seeblau/Seegruen", axes = FALSE)
 # contour(z, add = TRUE, drawlabels = FALSE)
 
-# (b) pal_seeblau and pal_pinky:
-x <- y <- seq(-4 * pi, 4 * pi, len = 75)
-r <- sqrt(outer(x^2, y^2, "+"))
-image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_pinky))(20), 
-      main = "Shades of Seeblau/Pinky", axes = FALSE)
-# contour(z, add = TRUE, drawlabels = FALSE)
+## (b) pal_seeblau and pal_pinky:
+# x <- y <- seq(-4 * pi, 4 * pi, len = 75)
+# r <- sqrt(outer(x^2, y^2, "+"))
+# image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_pinky))(20), 
+#       main = "Shades of Seeblau/Pinky", axes = FALSE)
+## contour(z, add = TRUE, drawlabels = FALSE)
 ```
 
 4. Using **unikn** in `ggplot` calls (using **ggplot2**):
@@ -397,20 +397,21 @@ The **unikn** package is work in progress. We are still working on:
    
 Please [contact us](https://www.spds.uni-konstanz.de/) in case you need additional features or want to help us implementing them.  
 
+
 ## Copyrights 
 
 <!-- uni.kn logo and link: -->  
 <!-- ![](./inst/pix/logo.svg) --> 
 <a href = "https://www.uni.kn/">
-<img src = "./inst/pix/logo_min.png" alt = "uni.kn" width = "280px" align = "left" style = "width: 280px; float: left; border:10;"/>
+<img src = "./inst/pix/logo_unikn.png" alt = "uni.kn" width = "280px" align = "left" style = "width: 280px; float: left; border:10;"/>
 </a>
 
-The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (CD) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. We are affiliated with the [University of Konstanz](http://www.uni-konstanz.de) and make some CD elements available to R users (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders. 
+The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (CD) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. We are members of the research group on [Social Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/) at the [University of Konstanz](http://www.uni-konstanz.de) and make some CD elements available to fellow users of R (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders. 
 
-We aim for an authentic representation of a highly-specified corporate design. Although rigid specifications help to maintain coherence and consistency, they also cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we enable some liberties, mostly by imposing fewer restrictions. Examples include: 
+We aim for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also tend to cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we allow for some liberties, mostly by relaxing some restrictions. Examples include: 
 
-- allowing finer color gradients and flexible combinations of color palettes (by applying the `seecol()` and `usecol()` functions to color palettes);  
-- providing a designated `signal` color (from `pal_signal`);  
+- enabling finer color gradients and arbitrary combinations of color palettes (by applying the `seecol()` and `usecol()` functions to color palettes);  
+- providing a designated `Signal` color (from `pal_signal`);  
 - using the spelling "color" (rather than "colour")  throughout the **unikn** package.  
 
 
