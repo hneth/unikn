@@ -4,7 +4,7 @@
 \alias{usecol}
 \title{Use a color palette.}
 \usage{
-usecol(pal = pal_unikn, n = "all", use_names = FALSE,
+usecol(pal = pal_unikn, n = "all", alpha = NULL, use_names = FALSE,
   use_col_ramp = FALSE)
 }
 \arguments{

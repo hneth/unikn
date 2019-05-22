@@ -270,7 +270,7 @@ parse_pal <- function(pal) {
 
 ## getpal_key(): Get a palette or list of palettes by keyword: -------
 
-getpal_key <- function(pal = "all", n = "all") {
+getpal_key <- function(pal = "all", n = "all", alpha = NA) {
   ## 1. Process the 'pal' argument: ------------------------
   
   ## 1.1 Getting by keyword: -----
@@ -341,26 +341,27 @@ getpal_key <- function(pal = "all", n = "all") {
     if (length(tmp) == 0) {
       stop("No color palettes defined in the current environment.")
     }
-    
-    ## Order palettes:
-    # if (pal == "all") {
-    #   ix <-
-    #     c(grep("pal_unikn", names(tmp)), grep("pal_signal", names(tmp)))
-    #   
-    #   tmp <- c(tmp[ix], tmp[-ix])
-    # }
-    
+
     ## If only color subsets should be displayed:
     if (n != "all" ) {
 
       # Get the subset of each palette , as defined in usecol():
-      # print("TMP:")
-      # print(tmp)
-      out <- lapply(tmp, FUN = usecol, n = n, use_names = TRUE)
+      out <- lapply(tmp, FUN = usecol, n = n, alpha = alpha, use_names = TRUE)
       
     } else {
       
-      out <- tmp  # if n n is specified return list as si.
+      
+      if ( !is.na(alpha) ) {
+        
+        out <- lapply(tmp, FUN = adjustcolor, alpha.f = alpha)   # adjust for alpha if specified.
+        
+      } else {
+        
+        out <- tmp  # if n n is specified return list as is.
+        
+      }
+      
+      
       
     }
     
@@ -371,8 +372,6 @@ getpal_key <- function(pal = "all", n = "all") {
   
 }
 
-# getcol("bordeaux")
-# getcol(c(rev("bordeaux"), rev(pal_karpfenblau), "yellow"))
 
 
 ## 3. Plotting functions: ------

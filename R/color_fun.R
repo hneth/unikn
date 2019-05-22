@@ -41,6 +41,7 @@
 
 usecol <- function(pal = pal_unikn,
                    n = "all",
+                   alpha = NA,  # regulate transparency. 
                    use_names = FALSE,  # should colors be returned as a named vector?
                    use_col_ramp = FALSE) {
   
@@ -241,8 +242,7 @@ usecol <- function(pal = pal_unikn,
   
   ## If no defined palette is used or the number exceeds the number of colors simply use colorRamp:
   if ( !pal_def ) {
-    # print(pal_inp)
-    
+
     ## Decide, whether to use colorRamp or not:
     if (n == length(pal_inp)) {
       out_col <- pal_inp
@@ -281,7 +281,14 @@ usecol <- function(pal = pal_unikn,
 
   # Remove names if required (default):
   if ( !use_names ) { out_col <- unname(out_col) }
+
   
+  if ( !(is.null(alpha) | is.na(alpha))) { 
+    cmnt <- comment(out_col)  # save paletten name.
+    out_col <- adjustcolor(out_col, alpha.f = alpha)
+    comment(out_col) <- cmnt  # restor name.
+    }
+
   return(out_col)
   
 }  # usecol end.
@@ -332,7 +339,6 @@ usecol <- function(pal = pal_unikn,
 #' 
 #' \code{seecol} does also recognize reverse keywords (e.g., \code{"all_unikn"}) or 
 #' keywords without \code{"unikn"} (e.g., \code{"basic"}).
-#' 
 #' @param n Number of colors to show or use. 
 #' If \code{n} is lower or higher than the length of the current 
 #' color palette \code{pal}, the color palette is reduced or extrapolated 
@@ -403,6 +409,7 @@ usecol <- function(pal = pal_unikn,
 
 seecol <- function(pal = "unikn_all",     # which palette to output?
                    n = "all",
+                   alpha = NA,
                    hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
                    rgb = NULL,      # determine, whether rgb values should be shown in detail view (defaults to TRUE)
                    col_brd = NULL,  # border color of the boxes. 
@@ -460,11 +467,11 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     if ( pal %in% c("pref", "pref_all", "all_pref")) title <- "See all preferred unikn colors and gradients"
     if ( pal %in% c("grad", "grad_all", "all_grad")) title <- "See all unikn color gradients"
     
-    pal_tmp <- getpal_key(pal = pal, n = n)  # get the color by key.
+    pal_tmp <- getpal_key(pal = pal, n = n, alpha = alpha)  # get the color by key.
     
   } else if ( compare ){
     
-    pal_tmp <- lapply(X = pal, usecol, n = n, use_names = TRUE)  # get all palettes seperately. 
+    pal_tmp <- lapply(X = pal, usecol, n = n, alpha = alpha, use_names = TRUE)  # get all palettes seperately. 
     
     title <- "Compare a custom set of color palettes"
     
@@ -484,7 +491,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
   } else {  # if no keyword or list for comparison was given:
     
     ## Get palette:
-    pal_tmp <- usecol(pal = pal, n = n, use_names = TRUE)  # create a list of length 1.
+    pal_tmp <- usecol(pal = pal, n = n, alpha = alpha, use_names = TRUE)  # create a list of length 1.
     
     nm <- ifelse(length(unlist(pal_tmp)) == 1 | comment(pal_tmp) == "custom", 
                  "", paste0(" ", comment(pal_tmp)))   
@@ -499,8 +506,11 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     
   }
   
-  if (n != "all") {
-    title <- paste0(title, " (n = ", n, ")")
+  if ( n != "all" | !is.na(alpha) ) {
+    n_txt <- ifelse(n != "all", paste0("n = ", n), "")
+    alp_txt <- ifelse(!is.na(alpha), paste0("alpha = ", alpha), "")
+    comma <- ifelse(nchar(n_txt) == 0 | nchar(alp_txt) == 0, "", ", ")
+    title <- paste0(title, " (", alp_txt, comma, n_txt, ")")
   }
   
   ## 2. Plotting parameters: ------ 
@@ -561,7 +571,6 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     
     # Add the color vectors:
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
-      # print(row[[2]])
       plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = ylen, col_brd = col_brd, lwd = 0)
     })
     
