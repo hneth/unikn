@@ -5,8 +5,8 @@
 \alias{seepal}
 \title{Plot color palettes (to see their colors).}
 \usage{
-seecol(pal = "unikn_all", n = "all", hex = NULL, rgb = NULL,
-  col_brd = NULL, grid = TRUE, ...)
+seecol(pal = "unikn_all", n = "all", alpha = NA, hex = NULL,
+  rgb = NULL, col_brd = NULL, grid = TRUE, ...)
 }
 \arguments{
 \item{pal}{A color palette (as a vector of colors), 
@@ -38,6 +38,10 @@ If \code{n} is lower or higher than the length of the current
 color palette \code{pal}, the color palette is reduced or extrapolated 
 (using \code{grDevices::colorRampPalette}). 
 Default: \code{n = "all"}.}
+
+\item{alpha}{factor to modify the opacity alpha (as in \code{\link{adjustcolor}}); typically in [0,1].
+The manipulation is shown in the title.
+Default: \code{NA}, no modification of opacity.}
 
 \item{hex}{Should HEX color values be shown?
 Default: \code{hex = NULL} (i.e., show HEX color values 

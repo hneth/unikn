@@ -4,7 +4,7 @@
 \alias{usecol}
 \title{Use a color palette.}
 \usage{
-usecol(pal = pal_unikn, n = "all", alpha = NULL, use_names = FALSE,
+usecol(pal = pal_unikn, n = "all", alpha = NA, use_names = FALSE,
   use_col_ramp = FALSE)
 }
 \arguments{
@@ -16,6 +16,9 @@ For all palettes defined within unikn by default it uses a pre-defined selection
 colors if the desired number of colors is smaller than the available number.  
 For all other palettes and \code{n} larger than \code{length(pal)} it exteds the palette using
 \code{\link{colorRampPalette}}.}
+
+\item{alpha}{factor to modify the opacity alpha (as in \code{\link{adjustcolor}}); typically in [0,1].
+Default: \code{NA}, no modification of opacity.}
 
 \item{use_names}{A logical value indicating, whether colors should be returned as a named vector.
 (defaults to \code{FALSE} for compatibility with ggplot)}

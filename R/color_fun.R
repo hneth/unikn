@@ -23,7 +23,7 @@
 #' For all other palettes and \code{n} larger than \code{length(pal)} it exteds the palette using
 #' \code{\link{colorRampPalette}}.
 #' 
-#' #' @param alpha factor to modify the opacity alpha (as in \code{\link{adjustcolor}}); typically in [0,1].
+#' @param alpha factor to modify the opacity alpha (as in \code{\link{adjustcolor}}); typically in [0,1].
 #' Default: \code{NA}, no modification of opacity.
 #' 
 #' @param use_names A logical value indicating, whether colors should be returned as a named vector.
