@@ -155,7 +155,7 @@ seecol(pal_unikn_pref)
 
 ### Partial color palettes
 
-When only a subset of a color palette are needed, the `seecol()` and `usecol()` functions provide a reasonable subset of a known color palette:
+When only a subset of a color palette are needed, the `seecol()` and `usecol()` functions provide a reasonable subset of a known \*\* unikn\*\* color palette:
 
 ``` r
 # All color palettes: ----- 
@@ -167,33 +167,33 @@ seecol(n = 4)
 ``` r
 
 # Only pal_seeblau: ----- 
-seecol(pal_seeblau, n = 4)
+# seecol(pal_seeblau, n = 4)
 ```
 
-<img src="inst/pix/README-pal_n-2.png" width="75%" style="display: block; margin: auto;" />
+### Changing and creating color palettes
 
-### Extending and creating color palettes
+The `usecol` and `seecol` functions provide some generic options for manipulating and showing color gradients based on given colors or color palettes. This serves 2 main functions:
 
-The `seecol` function provides color gradients based on given colors or color palettes. This serves 2 main functions:
+1.  Reducing or extending existing color palettes (to arbitrary lengths).
+2.  Mixing and merging colors and color palettes into new color palettes.
 
-1.  Extending existing color palettes (to arbitrary lengths):
+Here are some examples of these functions in action:
+
+-   Extending or reducing an existing color palette:
 
 ``` r
-# Extending color palettes: ----- 
 seecol(pal_unikn, n = 21)  
 ```
 
 <img src="inst/pix/README-col_scale_1-1.png" width="75%" style="display: block; margin: auto;" />
 
 ``` r
-seecol(pal_seeblau, n = 8)
+# seecol(pal_seeblau, n = 8)  # provides a subset of "good" colors
 ```
 
-<img src="inst/pix/README-col_scale_1-2.png" width="75%" style="display: block; margin: auto;" />
+Note that reducing an **unikn** color palette selects a suitable subset of its colors, rather than just truncating the scale.
 
-1.  Combining colors to create new color palettes:
-
-New color palettes of arbitrary length can be created by combining colors (from **unikn** or base R) and the desired resolution of the color gradient (as an integer argument):
+-   Combining colors to create new color palettes (of arbitrary length):
 
 ``` r
 # Combining colors: ----- 
@@ -203,12 +203,10 @@ seecol(c(Seeblau, "white", Pinky), 11)
 <img src="inst/pix/README-col_scale_2-1.png" width="75%" style="display: block; margin: auto;" />
 
 ``` r
-seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
+# seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
 ```
 
-<img src="inst/pix/README-col_scale_2-2.png" width="75%" style="display: block; margin: auto;" />
-
-1.  Mixing and merging colors and color palettes to create new color palettes. For best results, consider combining existing color palettes and individual colors into new color palettes:
+-   Mixing and merging colors and color palettes into new color palettes:
 
 ``` r
 # Combining color palettes (and colors): ----- 
