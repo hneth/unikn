@@ -39,11 +39,11 @@ color palette \code{pal}, the color palette is reduced or extrapolated
 (using \code{grDevices::colorRampPalette}). 
 Default: \code{n = "all"}.}
 
-\item{alpha}{factor to modify the opacity alpha (as in \code{\link{adjustcolor}}); typically in [0,1].
-The manipulation is shown in the title.
-Default: \code{NA}, no modification of opacity.}
+\item{alpha}{A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
+typically in [0,1]. If used, the value is shown in the plot title.
+Default: \code{NA} (i.e., no modification of opacity).}
 
-\item{hex}{Should HEX color values be shown?
+\item{hex}{Should HEX color values be shown? 
 Default: \code{hex = NULL} (i.e., show HEX color values 
 when there is sufficient space to print them).}
 
