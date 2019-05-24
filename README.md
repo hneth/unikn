@@ -252,7 +252,9 @@ Providing an opacity value for `alpha` (in the range `[0, 1]`) allows adding tra
 
 ``` r
 # (c) Scatterplots:
-plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6, col = usecol(pal_unikn, alpha = .5)) # transparency
+plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6, 
+     col = usecol(pal_unikn, alpha = .5),  # transparency
+     main = "99 transparent dots", axes = FALSE, xlab = NA, ylab = NA)
 ```
 
 <img src="inst/pix/README-usepal_demo_scatter-1.png" width="40%" style="display: block; margin: auto;" />
@@ -456,7 +458,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-05-23.\]
+\[Updated on 2019-05-24.\]
 
 <!-- eof. -->
 

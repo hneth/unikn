@@ -254,7 +254,9 @@ Providing an opacity value for `alpha` (in the range `[0, 1]`) allows adding tra
 
 ```{r usepal_demo_scatter, eval = TRUE, out.width = "40%", fig.asp = 1, fig.align = 'center', collapse = TRUE}
 # (c) Scatterplots:
-plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6, col = usecol(pal_unikn, alpha = .5)) # transparency
+plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6, 
+     col = usecol(pal_unikn, alpha = .5),  # transparency
+     main = "99 transparent dots", axes = FALSE, xlab = NA, ylab = NA)
 ```
 
 2. Visualizing **unikn** color palettes with `image`: 
