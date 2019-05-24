@@ -16,59 +16,19 @@ isCol <- function(color) {
   return(isHexCol(color) | color %in% colors())
 }
 
-## Helper lookup_pal: A list of all unikn palette names  ------
-# which is not changed by user input and generated on load:
-# lookup_pal <- utils::apropos("pal_")  # get all unikn palettes.
-# TODO: Where to put this?
-
 
 ## 2. Color getting functions: ------
-
-# tst1 <- function(input) {
-#   
-#   print("parent:")
-#   print(deparse(substitute(expr = input, env = parent.frame())))
-# }
-# 
-# tst1(input = "a")
-# tst1(input = c(a, 1, "b"))
-# 
-# tst2 <- function(input) {
-#   
-#   print(deparse(input))
-#   input <- deparse(substitute(expr = input, env = parent.frame()))
-#   tst1(input = input)
-#   
-#   
-# }
-# 
-# a <- 1
-# 
-# tst2(input = a)
-# 
-# tst3 <- function(input) {
-#   
-#   z <- input
-#   print(tst2(input = z))
-# }
-# 
-# tst3(c(a, 1, "b"))
 
 ## parse_pal(): Parse a palette input -----------
 
 parse_pal <- function(pal) {
   
   parenv <- parent.frame()  # get the calling environment. 
-  
-  # print("START...")
-  
+
   ## Check if pal is legible (already a color palette): 
   vector_input <- tryCatch(
       {
-      # message("VECTOR")
       all(sapply(pal, isCol))
-      # print(colCheck)
-      # all(colCheck)  # are all elements colors?
       },
     
     error = function(e) {
@@ -79,66 +39,29 @@ parse_pal <- function(pal) {
     silent = TRUE
   )
   
-  # print("PAL PARSE:")
-  # print(pal)
-  
-  # print("VECTOR")
-  # print(vector_input)
-  
   if ( vector_input ) {  # if the input is a color vector (or list).
     
-    # print("Regular color vector!")
     out <- pal
     
   } else {  # otherwise:
-    
-    # print("No vector input")
-    
+
     ## Deparse the argument: 
     if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
       
-      # print("From global")
-      tmp <- noquote(deparse(substitute(pal)))
+      tmp <- noquote(deparse(substitute(pal)))  # get the palette. 
       
     } else {  # if the calling environment is another function:
-      
-      # print("From function")
-      # print(parent.frame(n = 2))
-      
-      # print("GETTING IN PARSE:")
-      # print(pal)
-      # print(noquote(deparse(substitute(pal))))
         
-      tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
+      tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))  # get input from function.
       
-      # print(tmp)
-      
-      tmp <- noquote(tmp)
-      
-      # print(tmp)
+      tmp <- noquote(tmp)  # unquote input. 
       
       }
-      
-      # tmp <- get("pal", parent.frame())
-      # tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))
-      
-      
-      # TODO: If pal is an undefined object (e.g., bordeaux) the function crashes. 
 
-    
-    ## Printouts for testing: 
-    # print("parse_pal:")
-    # print(tmp)
-    
-    
     ## Split the input string; getting everything within the parentheses:
     if ( grepl("\\(", tmp) ) {  # only if any parenthesis exists.
       
-      # tmp <- regmatches(tmp, gregexpr("(?<=\\().*?(?=\\))", tmp, perl = TRUE))[[1]]
       tmp <- sub(".*?\\(+(.*)\\).*", "\\1", tmp, perl=TRUE)
-      # print("TMP:")
-      # print(tmp)
-      
       # .\*?   matches anything but stops at the first match of what follows
       # \\s+   matches one or more blank spaces
       # (.\*)  matches any number of characters, because it is in parentheses
@@ -150,20 +73,14 @@ parse_pal <- function(pal) {
     
     elem <- gsub(" |\"", "", unlist(strsplit(tmp, split = ",")))  
     # Split get elements of the input at ',' and remove whitespace and quotes.
-    # print("ELEM:")
-    # print(elem)
     
     ## Check, whether any element is warpped in one or more functions: 
     parens <- grepl("\\(", elem)   # are there any parentheses left?
     funs <- rep(NA, length(elem))  # initialize vector. 
     funs[parens] <- gsub(" *\\(.*", "", elem[parens])  # get any functions.
-    ## TODO: Do so recursively? 
-    # cat("FUNS: ", funs, "\n")
     
-    ## Now remove the funs: 
+    ## Now remove the functions: 
     elem <- sub(".*?\\(+(.*)\\).*", "\\1", elem, perl = TRUE)
-    # print("ELEM:")
-    # print(elem)
     
     # Existence checks: ------------
     ## Now ask for every element, whether it exists:
@@ -173,7 +90,6 @@ parse_pal <- function(pal) {
       
       ## Those which are still unknown: are those colors? 
       elemex[!elemex] <- sapply(elem[!elemex], isCol)
-      # print(elemex)
       
     }
     
@@ -181,7 +97,6 @@ parse_pal <- function(pal) {
     
     if ( any(!elemex) ) {  # only if not all inputs have been resolved
       
-      # print(paste0("pal_", noquote(elem[!elemex])))
       elem[!elemex] <- paste0("pal_", elem[!elemex])
       elemex[!elemex] <- sapply(elem[!elemex], exists)
       
@@ -190,7 +105,7 @@ parse_pal <- function(pal) {
     # Handle undefined palettes: 
     if (!all(elemex)) {
       
-      nex <- gsub("pal_", "", elem[!elemex])
+      nex <- gsub("pal_", "", elem[!elemex])  # remove any "pal_" string parts. 
       
       if ( length(nex) > 1) {
         
@@ -208,14 +123,8 @@ parse_pal <- function(pal) {
     
     ## Get all palettes:
     out <- lapply(elem, function(x) if( isCol(x) ) x else get(x) )
-    # print(out)
     
     ## Apply any previously detected functions: 
-    # funs <- c("rev", "rev", NA)
-    # funs <- rep(NA, 3)
-    # out <- list(pal_bordeaux, pal_karpfenblau, "yellow")
-    
-    # If any function needs to be applied:
     if ( any(!is.na(funs)) ) {
       
       out[!is.na(funs)] <- apply(rbind(out, funs), MARGIN = 2, FUN = function(x) {
@@ -223,16 +132,12 @@ parse_pal <- function(pal) {
       })[!is.na(funs)] 
       
     }
-    
-    # print(out)
-    
+
     ## Create the output: 
     out <- unname(out)  # finish the palette by removing upper level (palette) names.
     
   }
-  
-  ## TODO: Add missing names here?
-  
+
   out <- unlist(out)
 
   # Provide missing names, by using the color:
@@ -244,28 +149,6 @@ parse_pal <- function(pal) {
   
 }
 
-# b <- parse_pal(pal = c("karpfenblau", bordeaux, "green"))
-# b
-# 
-# parse_pal(pal = c("#BC7A8F", "lü"))
-# parse_pal(c("la", "lü"))
-# 
-# parse_pal(c("bordeaux", "karpfenblau"))
-# 
-# parse_pal(c(rev(bordeaux), rev(pal_karpfenblau), "yellow"))  # TODO: Incorporate any functions.
-# 
-# parse_pal(rev(bordeaux))  # note: getting all parentheses includes this case!  (capture via, length 1?)
-# ## Therefore: get outer function (is it c()? if ntot, execute / retain)
-# 
-# parse_pal(pal_bordeaux)
-# 
-# parse_pal(bordeaux)
-# 
-# c <- eval(call("rev", pal_bordeaux))
-# c
-
-
-## TODO: Add function compcol to compare color palettes with seepal? 
 
 
 ## getpal_key(): Get a palette or list of palettes by keyword: -------

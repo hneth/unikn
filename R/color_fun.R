@@ -722,7 +722,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
          srt = 45, xpd = TRUE, offset = 1, cex = 0.8, 
          adj = c(0, 0))
     
-    # TODO: Spacing of indices:
+    # Spacing of indices:
     txt_ind <- paste0("[", 1:length(pal_tmp), "]")
     cex_ind <- par("cex")
     wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))
