@@ -150,7 +150,6 @@ parse_pal <- function(pal) {
 }
 
 
-
 ## getpal_key(): Get a palette or list of palettes by keyword: -------
 
 getpal_key <- function(pal = "all", n = "all", alpha = NA) {
