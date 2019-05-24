@@ -1,17 +1,10 @@
 ## color_def_1.R | unikn
-## spds | uni.kn |  2019 05 20
+## spds | uni.kn |  2019 05 22
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
 
-# Color sources: ------ 
-
-## Sources for color definitions: 
-## https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/ 
-## https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/ 
-
 # Color palettes: ------
-
 
 # (A) Basic color palettes: -----
 
@@ -1210,9 +1203,12 @@ all_palkn_grad <- c("pal_seeblau", "pal_peach", "pal_grau", "pal_petrol", "pal_s
 all_palkn_pref <- c("pal_unikn_pref", all_palkn_grad)
 all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
                     
+## Color sources: ------ 
 
-# +++ here now +++ 
-
+# Defining CD elements according to specifications publicly provided at https://www.uni-konstanz.de. 
+# Sources for color definitions: 
+# https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/ 
+# https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/ 
 
 ## ToDo: ------
 

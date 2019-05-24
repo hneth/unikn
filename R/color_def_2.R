@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2019 05 20
+## spds | uni.kn  | 2019 05 22
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -286,7 +286,12 @@ pal_unikn_pair <- data.frame(
 # pal_unikn_pair
 # seecol(pal_unikn_pair)
 
+## Color sources: ------ 
 
+# Defining CD elements according to specifications publicly provided at https://www.uni-konstanz.de. 
+# Sources for color definitions: 
+# https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/ 
+# https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/ 
 
 ## ToDo: ------
 

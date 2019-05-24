@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 05 20
+## spds | uni.kn |  2019 05 22
 ## ---------------------------
 
 ## Define color-related functions 
@@ -23,14 +23,15 @@
 #' For all other palettes and \code{n} larger than \code{length(pal)} it exteds the palette using
 #' \code{\link{colorRampPalette}}.
 #' 
-#' @param alpha factor to modify the opacity alpha (as in \code{\link{adjustcolor}}); typically in [0,1].
-#' Default: \code{NA}, no modification of opacity.
+#' @param alpha A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
+#' typically in [0,1]. 
+#' Default: \code{NA} (i.e., no modification of opacity).
 #' 
-#' @param use_names A logical value indicating, whether colors should be returned as a named vector.
-#' (defaults to \code{FALSE} for compatibility with ggplot)
+#' @param use_names A logical value indicating whether colors should be returned as a named vector.
+#' (defaults to \code{FALSE} for compatibility with \code{ggplot}). 
 #' 
-#' @param use_col_ramp A logical value specifying, whether the default of using pre-selected colors
-#' should be overridden and \code{\link{colorRampPalette}} should always be used to process \code{n}.
+#' @param use_col_ramp A logical value specifying whether the default of using pre-selected colors
+#' should be overridden and \code{\link{colorRampPalette}} should be used to process \code{n}.
 #'
 #' @family color functions
 #'
@@ -86,7 +87,7 @@ usecol <- function(pal = pal_unikn,
     
     ## Test whether equal to any palette:
     all_pals1 <- lapply(all_palkn, get)  # get all palettes from the first part.
-
+    
     pal_ix <-
       sapply(all_pals1, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }
       )  # Test, whether specified palette is there.
@@ -101,12 +102,12 @@ usecol <- function(pal = pal_unikn,
         rev_pal <- TRUE  # if palette is reversed, set pal_rev to TRUE.
       
     }
-
+    
     ## If input fits with any palette:
     if ( any(pal_ix) & length(pal_inp) >= n) {
       
       pal_name <- all_palkn[pal_ix]  # get name of the palette.
-
+      
       pal <- pal_inp  # redefine. 
       
       # Define sets of palettes:
@@ -223,14 +224,14 @@ usecol <- function(pal = pal_unikn,
                         ),
                         # Set 5: -----
                         pal[c("seeblau5", "seeblau3", "pinky4", "pinky2", "petrol4", 
-                                         "petrol2", "bordeaux4", "bordeaux2", "seegruen4", "seegruen2",
-                                         "peach4", "peach2", "karpfenblau4", "karpfenblau2", "grau2", "grau1")[1:n]],
+                              "petrol2", "bordeaux4", "bordeaux2", "seegruen4", "seegruen2",
+                              "peach4", "peach2", "karpfenblau4", "karpfenblau2", "grau2", "grau1")[1:n]],
                         # Set 6: -----
                         pal[1:n],
                         # Set 7: -----
                         pal[c("signal1", "signal3", "signal2")[1:n]]
                         # Set 8: -----
-                        )
+      )
       
       if (rev_pal) {
         out_col <-
@@ -245,7 +246,7 @@ usecol <- function(pal = pal_unikn,
   
   ## If no defined palette is used or the number exceeds the number of colors simply use colorRamp:
   if ( !pal_def ) {
-
+    
     ## Decide, whether to use colorRamp or not:
     if (n == length(pal_inp)) {
       out_col <- pal_inp
@@ -260,7 +261,7 @@ usecol <- function(pal = pal_unikn,
   
   ## Give the palette a name (as comment attribute):
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
-
+  
   ## Do a quick name search if no names are given:
   if ( all(is.null(names(out_col))) ) {
     
@@ -281,17 +282,17 @@ usecol <- function(pal = pal_unikn,
     
     
   }
-
+  
   # Remove names if required (default):
   if ( !use_names ) { out_col <- unname(out_col) }
-
+  
   
   if ( !(is.null(alpha) | is.na(alpha))) { 
     cmnt <- comment(out_col)  # save paletten name.
     out_col <- adjustcolor(out_col, alpha.f = alpha)
     comment(out_col) <- cmnt  # restor name.
-    }
-
+  }
+  
   return(out_col)
   
 }  # usecol end.
@@ -348,11 +349,11 @@ usecol <- function(pal = pal_unikn,
 #' (using \code{grDevices::colorRampPalette}). 
 #' Default: \code{n = "all"}. 
 #' 
-#' @param alpha factor to modify the opacity alpha (as in \code{\link{adjustcolor}}); typically in [0,1].
-#' The manipulation is shown in the title.
-#' Default: \code{NA}, no modification of opacity.
+#' @param alpha A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
+#' typically in [0,1]. If used, the value is shown in the plot title.
+#' Default: \code{NA} (i.e., no modification of opacity).  
 #' 
-#' @param hex Should HEX color values be shown?
+#' @param hex Should HEX color values be shown? 
 #' Default: \code{hex = NULL} (i.e., show HEX color values 
 #' when there is sufficient space to print them). 
 #' 
@@ -556,12 +557,12 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
          bty = "n")  
     
     if (grid) {
-
+      
       x_vals <- 0:max(ylim)
       
       dims <- max(ylim) * max_ncol
       grfac <- c(3, 4, 5)[c(dims < 100, dims > 100 & dims < 150, dims > 150)]
-       # ensure an appropriate number of vertical lines using gridfactor. 
+      # ensure an appropriate number of vertical lines using gridfactor. 
       y_vals <- 1:max_ncol
       y_vals <- y_vals[(y_vals %% grfac) == 0]  # steps of 5
       y_vals <- y_vals - xlen/2
@@ -667,7 +668,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     cex_hex <- 0.9  # was par("cex")
     
     placeholder <- ifelse(is.na(alpha), " #XXXXXX", " #XXXXXXXX")
-     
+    
     wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol + strwidth("Hex: ")  # is the width small enough?
     
     while (wdth_hex > xlim[2]) {
@@ -708,7 +709,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     
     # Plot circles:
     circle_len <- ifelse(((xlim[2] / 10) < 0.7), (xlim[2] / 10), .70)
-
+    
     plot_col(x = pal_tmp, ypos = y_circ, plot.new = FALSE, xlen = circle_len, shape = "circle",
              ...
     )

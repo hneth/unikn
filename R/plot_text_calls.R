@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## spds | uni.kn |  2019 04 15
+## spds | uni.kn |  2019 05 22
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -754,9 +754,11 @@ heading <- function(labels,             # labels of text element(s) to plot
 # char_heights <- char_height * cex_vals  # multiply (single) height of key_char with (vec of) cex_vals
 # char_widths
 
+## Text sources: ------ 
 
-
-
+# Defining CD elements according to specifications publicly provided at https://www.uni-konstanz.de. 
+# Sources for text specifications: 
+# https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/ 
 
 ## ToDo: ------
 

@@ -18,26 +18,26 @@ In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a
 The **unikn** package aims to facilitate the use of some design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications should be simple and straightforward, we also allow some flexibility for expert users (e.g., for creators of scientific visualizations).
 
 <!-- Overview: -->
-The package currently provides 4 types of objects or functions:
+The package currently provides 3 types of objects or functions:
 
-1.  Colors, color palettes, and related functions;
+1.  Colors, color palettes, and related functions (e.g., `seecol()` and `usecol()`);
 2.  Plotting styled graphical objects (e.g., boxes and frames);
-3.  Plotting styled text elements (e.g., highlighting and underlining);
-4.  Graphical support (e.g., commands and themes for creating scientific visualizations).
+3.  Plotting styled text elements (e.g., highlighting and underlining text).
+    <!-- 4. Graphical support (e.g., commands and themes for creating scientific visualizations). -->
 
 Additional elements are added as they become available. Please use responsibly!
 
 Installation
 ------------
 
--   The current release of **unikn** is available from [CRAN](https://CRAN.R-project.org/) at <https://CRAN.R-project.org/package=unikn>:
+The current release of **unikn** is available from [CRAN](https://CRAN.R-project.org/) at <https://CRAN.R-project.org/package=unikn>:
 
 ``` r
 install.packages('unikn')  # install unikn from CRAN client
 library('unikn')           # load to use the package
 ```
 
--   The current development version can be installed from its [GitHub](https://github.com) repository at <https://github.com/hneth/unikn/>:
+The current development version can be installed from its [GitHub](https://github.com) repository at <https://github.com/hneth/unikn/>:
 
 ``` r
 # install.packages('devtools')  # (if not installed yet)
@@ -65,11 +65,7 @@ This yields a symmetrical default color palette `pal_unikn` consisting of 11 co
 
 ``` r
 # Default color palette: ----- 
-pal_unikn  # 11 default colors
-#>   seeblau5 seeblau4 seeblau3 seeblau2 seeblau1   white seegrau1 seegrau2
-#> 1  #008ECE  #00A9E0  #59C7EB  #A6E1F4  #CCEEF9 #FFFFFF  #E5E5E5  #CCCCCC
-#>   seegrau3 seegrau4   black
-#> 1  #999999  #666666 #000000
+# pal_unikn  # 11 default colors
 
 # View color palette (by plotting it): ----- 
 seecol(pal_unikn)
@@ -99,7 +95,11 @@ Specifically, the Excel file on [Colours for complex graphics](https://www.uni-k
 ``` r
 # Show 9 color gradient palettes:
 seecol(pal = "grad_all")
+```
 
+For details, evaluate or apply `seecol()` on the following color palettes:
+
+``` r
 # 8 mono-tone palettes: ----- 
 # Name:          Nr:           Tone:          
 pal_seeblau      # 5 shades of seeblau
@@ -155,7 +155,7 @@ seecol(pal_unikn_pref)
 
 ### Partial color palettes
 
-When only a subset of a color palette are needed, the `seecol()` and `usecol()` functions provide a reasonable subset of a known color palette:
+When only a subset of a color palette are needed, the `seecol()` and `usecol()` functions provide a reasonable subset of a known \*\* unikn\*\* color palette:
 
 ``` r
 # All color palettes: ----- 
@@ -167,33 +167,33 @@ seecol(n = 4)
 ``` r
 
 # Only pal_seeblau: ----- 
-seecol(pal_seeblau, n = 4)
+# seecol(pal_seeblau, n = 4)
 ```
 
-<img src="inst/pix/README-pal_n-2.png" width="75%" style="display: block; margin: auto;" />
+### Changing and creating color palettes
 
-### Extending and creating color palettes
+The `usecol` and `seecol` functions provide some generic options for manipulating and showing color gradients based on given colors or color palettes. This serves 2 main functions:
 
-The `seecol` function provides color gradients based on given colors or color palettes. This serves 2 main functions:
+1.  Reducing or extending existing color palettes (to arbitrary lengths).
+2.  Mixing and merging colors and color palettes into new color palettes.
 
-1.  Extending existing color palettes (to arbitrary lengths):
+Here are some examples of these functions in action:
+
+-   Extending or reducing an existing color palette:
 
 ``` r
-# Extending color palettes: ----- 
 seecol(pal_unikn, n = 21)  
 ```
 
 <img src="inst/pix/README-col_scale_1-1.png" width="75%" style="display: block; margin: auto;" />
 
 ``` r
-seecol(pal_seeblau, n = 8)
+# seecol(pal_seeblau, n = 8)  # provides a subset of "good" colors
 ```
 
-<img src="inst/pix/README-col_scale_1-2.png" width="75%" style="display: block; margin: auto;" />
+Note that reducing an **unikn** color palette selects a suitable subset of its colors, rather than just truncating the scale.
 
-1.  Combining colors to create new color palettes:
-
-New color palettes of arbitrary length can be created by combining colors (from **unikn** or base R) and the desired resolution of the color gradient (as an integer argument):
+-   Combining colors to create new color palettes (of arbitrary length):
 
 ``` r
 # Combining colors: ----- 
@@ -203,27 +203,20 @@ seecol(c(Seeblau, "white", Pinky), 11)
 <img src="inst/pix/README-col_scale_2-1.png" width="75%" style="display: block; margin: auto;" />
 
 ``` r
-seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
+# seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
 ```
 
-<img src="inst/pix/README-col_scale_2-2.png" width="75%" style="display: block; margin: auto;" />
-
-1.  Mixing and merging colors and color palettes to create new color palettes. For best results, consider combining existing color palettes and individual colors into new color palettes:
+-   Mixing and merging colors and color palettes into new color palettes:
 
 ``` r
 # Combining color palettes (and colors): ----- 
-seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
+seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11)
 ```
 
 <img src="inst/pix/README-col_scale_3-1.png" width="75%" style="display: block; margin: auto;" />
 
 ``` r
-seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11)
-```
-
-<img src="inst/pix/README-col_scale_3-2.png" width="75%" style="display: block; margin: auto;" />
-
-``` r
+# seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
 # seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
 # seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
 ```
@@ -237,30 +230,34 @@ The `usecol()` function provides convenient access and additional options for us
 
 1.  Some examples of using **unikn** color palettes and functions in base R plots:
 
+By default, simply set the color argument of a plot to `usecol()` with some **unikn** color palette:
+
 ``` r
-# (a) Using color palettes:
+# (a) Using a color palette:
 barplot(1/sqrt(1:11),  col = usecol(pal_unikn))
 ```
 
-<img src="inst/pix/README-use_pal_demo_barplot-1.png" width="75%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usepal_demo_barplot_1-1.png" width="60%" style="display: block; margin: auto;" />
+
+Additionally providing a value for `n` either reduces or extends the selected color palette:
 
 ``` r
-# barplot(1/sqrt(10:25), col = usecol(pal_unikn_pair))
 # (b) Using only n colors of a palette:
 barplot(1/sqrt(1:5), col = usecol(pal_unikn, n = 5)) 
 ```
 
-<img src="inst/pix/README-use_pal_demo_barplot-2.png" width="75%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usepal_demo_barplot_2-1.png" width="50%" style="display: block; margin: auto;" />
+
+Providing an opacity value for `alpha` (in the range `[0, 1]`) allows adding transparency to a plot:
 
 ``` r
 # (c) Scatterplots:
-# plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = 1))   # 0 transparency
-plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 5, col = adjustcolor(pal_unikn, alpha.f = .33)) # +transparency
+plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6, col = usecol(pal_unikn, alpha = .5)) # transparency
 ```
 
-<img src="inst/pix/README-use_pal_demo_barplot-3.png" width="75%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usepal_demo_scatter-1.png" width="40%" style="display: block; margin: auto;" />
 
-1.  Visualizing various **unikn** color palettes with `image`:
+1.  Visualizing **unikn** color palettes with `image`:
 
 ``` r
 # Random images:
@@ -268,35 +265,21 @@ set.seed(1)
 n <- 20
 m <- matrix(rnorm(n*n), ncol = n, nrow = n)
 
-image(m, col = seecol(pal_seeblau))  # seecol() shows & use colors 
-
+# image(m, col = seecol(pal_seeblau))  # seecol() shows & use colors 
 # image(m, col = usecol(pal_peach))    # usecol() only uses colors
 # image(m, col = usecol(pal_seegruen))
 # image(m, col = usecol(pal_petrol))
-# image(m, col = usecol(pal_bordeaux))
-```
+image(m, col = usecol(pal_seeblau, n = 50), 
+      main = "50 shades of Seeblau", axes = FALSE)
 
-![](inst/pix/README-use_pal_demo_image_1-1.png)![](inst/pix/README-use_pal_demo_image_1-2.png)
-
-1.  More geometric images with `image`:
-
-``` r
-# (a) pal_seeblau and pal_seegruen:
+# Mix pal_seeblau and pal_seegruen:
 x <- y <- seq(-4 * pi, 4 * pi, len = 15)
 r <- sqrt(outer(x^2, y^2, "+"))
-image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_seegruen))(10), 
-      main = "Shades of Seeblau/Seegruen", axes = FALSE)
-# contour(z, add = TRUE, drawlabels = FALSE)
-
-## (b) pal_seeblau and pal_pinky:
-# x <- y <- seq(-4 * pi, 4 * pi, len = 75)
-# r <- sqrt(outer(x^2, y^2, "+"))
-# image(z = cos(r^2) * exp(-r/6), col = colorRampPalette(c(pal_seeblau, pal_pinky))(20), 
-#       main = "Shades of Seeblau/Pinky", axes = FALSE)
-## contour(z, add = TRUE, drawlabels = FALSE)
+image(z = cos(r^2) * exp(-r/6), col = usecol(c(pal_petrol, pal_seegruen), n = 10), 
+      main = "Shades of Petrol/Seegruen", axes = FALSE)
 ```
 
-![](inst/pix/README-use_pal_demo_image_2-1.png)
+![](inst/pix/README-use_pal_demo_image-1.png)![](inst/pix/README-use_pal_demo_image-2.png)
 
 1.  Using **unikn** in `ggplot` calls (using **ggplot2**):
 
@@ -473,7 +456,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-05-22.\]
+\[Updated on 2019-05-23.\]
 
 <!-- eof. -->
 

@@ -17,14 +17,15 @@ colors if the desired number of colors is smaller than the available number.
 For all other palettes and \code{n} larger than \code{length(pal)} it exteds the palette using
 \code{\link{colorRampPalette}}.}
 
-\item{alpha}{factor to modify the opacity alpha (as in \code{\link{adjustcolor}}); typically in [0,1].
-Default: \code{NA}, no modification of opacity.}
+\item{alpha}{A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
+typically in [0,1]. 
+Default: \code{NA} (i.e., no modification of opacity).}
 
-\item{use_names}{A logical value indicating, whether colors should be returned as a named vector.
-(defaults to \code{FALSE} for compatibility with ggplot)}
+\item{use_names}{A logical value indicating whether colors should be returned as a named vector.
+(defaults to \code{FALSE} for compatibility with \code{ggplot}).}
 
-\item{use_col_ramp}{A logical value specifying, whether the default of using pre-selected colors
-should be overridden and \code{\link{colorRampPalette}} should always be used to process \code{n}.}
+\item{use_col_ramp}{A logical value specifying whether the default of using pre-selected colors
+should be overridden and \code{\link{colorRampPalette}} should be used to process \code{n}.}
 }
 \description{
 \code{usecol} allows using a color palette \code{pal} (e.g., for plotting).

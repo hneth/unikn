@@ -1,5 +1,5 @@
 ## plot_box_calls.R | unikn
-## spds | uni.kn |  2019 05 20
+## spds | uni.kn |  2019 05 22
 ## ---------------------------
 
 ## Specialized functions to plot rectangular boxes (e.g., frames, slides, etc.)
@@ -150,9 +150,6 @@ slide <- function(col = NA,         # default box bg/fill color: none/white/tran
 # slide(col = Seeblau, lwd = 0)  
 # slide(dim = c(18:9))  # larger and 2:1 wider than high
 
-# +++ here now +++
-
-
 ## Test: Testbed for code above: ------ 
 
 # # Aspect ratio of current plot:
@@ -160,6 +157,12 @@ slide <- function(col = NA,         # default box bg/fill color: none/white/tran
 # plot_ratio <- plot_xy[1]/plot_xy[2]  # current aspect ratio
 # scale_x <- 1/plot_ratio              # multiplicative correction factor (for x-widths)
 # scale_x
+
+## Text sources: ------ 
+
+# Defining CD elements according to specifications publicly provided at https://www.uni-konstanz.de. 
+# Sources for text specifications: 
+# https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/ 
 
 ## Done: ------
 
