@@ -156,9 +156,6 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
   ## 1. Process the 'pal' argument: ------------------------
   
   ## 1.1 Getting by keyword: -----
-  
-  # print(deparse(substitute(pal)))
-  
   keys <- c("all", "unikn_all", "all_unikn",  # all palettes
             "basic", "unikn_basic", "basic_unikn",  # the basic palettes. 
             "pair", "pair_all", "all_pair",   # all paired palettes. 
@@ -166,6 +163,7 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
             "grad", "grad_all", "all_grad"  # the gradients.
             )
   
+  # Throw an error, if no valid keyword is specified:
   if ( !pal %in% keys ) {
     stop('Invalid keyword specified. Allowed keywords are 
                             c("all", "unikn_all", "all_unikn", "pref_all", "all_pref", "grad_all", "all_grad")')
@@ -181,13 +179,7 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
 
   
   # Get all color palettes with the prefix "pal_" from the environment.
-    # all_pal <- utils::apropos("pal_")  # all palettes in the environment.
-    # all_pals1 <-
-    #   lapply(unikn:::all_pal_names1, get)  # all predefined palettes. 
-    # ix_unikn <-
-    #   grepl("pal_unikn", all_pal)  # index for all unikn palettes.
-    # 
-    # ## The three cases: -----
+    # ## The five cases: -----
     pal_names <- switch(
       key,
       all = all_palkn,
@@ -197,12 +189,10 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
       grad = all_palkn_grad
     )
 
-    # Get all palettes specified by keyword:
+    # Get list of palettes specified by keyword:
     lst_pal <- sapply(pal_names, get)
-    
-    # print(pal)
-    
-    # Indicator, whether these are color palettes:
+
+    # Indicator, whether these are actually color palettes:
     is_pal <- lapply(
       lst_pal,
       FUN = function(x) {
@@ -216,7 +206,7 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
       }
     )
     
-    # Get the palettes:
+    # Remove all non-colors:
     tmp <- lst_pal[unlist(is_pal)]
     
     # Check if palette is non-empty:
@@ -242,9 +232,7 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
         out <- tmp  # if n n is specified return list as is.
         
       }
-      
-      
-      
+
     }
     
     pal_nm <- names(out)  # get palette names from listnames.
@@ -267,10 +255,6 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle.
                        ...
 ) {
   
-  ## Robustify inputs: -----
-  
-  ## TODO!
-  
   ## Prepare inpust for vectorized solution? -----
   len_max <- max(c(length(pos_y), length(pos_x)))  # get length of longer position vector. 
   
@@ -283,14 +267,6 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle.
   
   ## For rectangular shape: -----
   if (shape == "rect") {
-    
-    # rect(xleft  = (box_x - xlen/2), ybottom = (box_y - ylen/2),
-    #      xright = (box_x + xlen/2), ytop    = (box_y + ylen/2),
-    #      col = unlist(col_fill),
-    #      border = col_brd
-    #      # lwd = box.lwd,
-    #      # ...  # TODO: ... does not work?!
-    # )
     
     symbols(x = pos_x, y = pos_y, rectangles = cbind(xlen, ylen),
             add = TRUE,
