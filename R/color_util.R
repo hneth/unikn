@@ -290,8 +290,6 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle.
   
 }
 
-## TODO: Even use function below?  It may be computationally more 
-## efficient to only use the function above in a higher level function.
 
 ## plot_col: Plot a vector of colors as circles or rectangles: -------
 
@@ -306,10 +304,7 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
   
   
   ## 1. Control inputs: -------------------------------------
-  
-  ## Robustify parameters:
-  # TODO!
-  
+
   ## Get key parameters:
   len_x <- length(x)
   
@@ -345,9 +340,6 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
     c(rev(sub), 0, add)  # include the middle for uneven numbers. 
   
   ## 3. Plot all shapes: --------------------------------------
-  # col_pos <- cbind(color = unlist(x), pos_x = pos_x)  # data to be plotted. 
-  
-  #apply(col_pos, MARGIN = 1, function(colors) {
   
   ypos <- rep(ypos, length.out = len_x)  # length out ypos to the length of x. 
   xlen <- rep(xlen, length.out = len_x)
@@ -361,16 +353,9 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
              shape = shape,  # shape parameter. 
              ...
   )
-  #}
-  # )
-  # TODO: Is there a quicker (vectorized) way?
-  ## Vectorize in previous function? (i.e., sapply over vectors of input values?)
+
   
 } # plot_col end. 
 
-## ToDo: ------
-
-# - Add function compcol to compare color palettes with seepal? 
-# - Various TODO items in code above. 
 
 ## eof. ----------
