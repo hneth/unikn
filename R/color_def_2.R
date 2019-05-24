@@ -295,22 +295,7 @@ pal_unikn_pair <- data.frame(
 
 ## ToDo: ------
 
-# - Export all preferred color values (as HEX character value) with Capital letter names!
-# - Do NOT export the other palettes and values, but use "seecol" function as user-interface. 
-
-# (1) Color definitions: 
-#   - Define additional color palettes: 
-#      - pal_unikn_pair for pairwise colors!
-#      - pal_unikn_light for light uni.kn colors
-#      - pal_unikn_dark for dark uni.kn colors
-
-# (2) ad Functions: 
-#   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
-#   - improve function pal_n to get n (good) colors (and consider integrating it into palettes)
-#   - provide color gradient function(s) (to return an arbitrary number of colors)
-
 # (+) Additional elements:
-#   - add a function to get a boX in seeblau (or another fill color)
 #   - ggplot_addon: provide complete ggplot theme(s)
 #   - text elements: heading and underline (with seeblau color defaults)
 #   - fonts?
