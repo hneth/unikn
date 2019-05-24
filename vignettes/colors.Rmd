@@ -162,7 +162,11 @@ Specifying a value for the `n` argument of `seecol` an `usecol` allows:
 
 Passing a vector of colors and/or color palettes allows you creating and viewing your own palettes. 
 
+<<<<<<< HEAD
 Finally, specifying a value for `alpha` (in a range from 0 to 1) allows controlling the transparency of the color palette(s), with higher values for `alpha` corresponding to higher transparency (i.e., lower opacity). 
+=======
+Finally, specifying a value for `alpha` allows to control the transparency of the color palette(s) with higher values for `alpha` corresponding to higher transparency (lower opacity). 
+>>>>>>> cf28d03afe620266ff16aae023a0d6ade1a45510
 
 ### Selecting subsets
 
@@ -179,6 +183,8 @@ Importantly, when using pre-defined color palettes of **unikn** but a value of `
 barplot(1/sqrt(1:2), col = usecol(pal_seeblau, n = 2))
 barplot(1/sqrt(1:3), col = usecol(pal_seeblau, n = 3))
 ```
+
+
 
 ### Extending color palettes
 
@@ -226,6 +232,27 @@ dat <- matrix(sample(5:10, size = 10, replace = TRUE), ncol = 5)
 barplot(dat, beside = TRUE, col = my_pair)
 ```
 
+<<<<<<< HEAD
+=======
+
+### Controlling transparency
+
+Displaying colors for opacity of 0.5:
+
+```{r transparency1_pal, fig.width = 7, fig.height = 6, fig.align = 'center', collapse = TRUE}
+seecol(pal_unikn, alpha = 0.5)
+```
+
+This also works for displays of multiple palettes: 
+
+```{r transparency_all, fig.width = 6, fig.height = 3, fig.align = 'center'}
+seecol("grad", alpha = 0.4)
+```
+
+
+
+### Comparing custom palettes 
+>>>>>>> cf28d03afe620266ff16aae023a0d6ade1a45510
 
 ### Controlling transparency
 
@@ -278,10 +305,16 @@ The following examples illustrate how plotting functions in R can use the **unik
 
 1. Using the `plot` function of **base R** for a scatterplot: 
 
+<<<<<<< HEAD
 ```{r demo_scatterplot, eval = TRUE, fig.width = 5, fig.height = 5, fig.align = 'center', collapse = TRUE}
 plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 4, 
      col = usecol(pal_unikn, alpha = .50),  # with transparency
      main = "99 transparent dots", axes = FALSE, xlab = NA, ylab = NA)
+=======
+```{r demo_scatterplot, eval = TRUE, fig.width = 6, fig.height = 4, fig.align = 'center', collapse = TRUE}
+plot(x = runif(200), y = runif(200), "p", pch = 16, cex = 4, 
+     col = usecol(pal_unikn, alpha = .33))  # with transparency
+>>>>>>> cf28d03afe620266ff16aae023a0d6ade1a45510
 ```
 
 2. Using the `ggplot` function of **ggplot2** for an area plot: 
