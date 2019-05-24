@@ -1210,14 +1210,5 @@ all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
 # https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/ 
 # https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/ 
 
-## ToDo: ------
-
-# Cleaner version of color_definitions.R, with fewer components and exports:
-# (1) official color palettes: NOT exported, but accessed via "seecol" user-interface function. 
-# (2) official preferred colors: Capitalized and exported (for convenient access).  
-# (3) Additional color palettes (unikn_plus/_pref/_light/_dark/_pair): Move to a separate/later file. 
-
-# - Export all preferred color values (as HEX character value) with Capital letter names!
-# - Do NOT export the other palettes and values, but use "seecol" function as user-interface. 
 
 ## eof. ----------
