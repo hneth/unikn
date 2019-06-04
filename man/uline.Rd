@@ -85,8 +85,7 @@ uline(labels = "(which is why we underline it).", y = .40, cex = 1.2)  # add to 
 \seealso{
 \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).
 
-Other text functions: \code{\link{box_text}},
-  \code{\link{mark}}, \code{\link{plot_box_txt}},
+Other text functions: \code{\link{mark}},
   \code{\link{post}}, \code{\link{url_unikn}}
 }
 \concept{text functions}

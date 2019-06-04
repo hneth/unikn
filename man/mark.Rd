@@ -89,8 +89,7 @@ mark(labels = c("It is also flexible", "but to be handled with care"),
 \seealso{
 \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).
 
-Other text functions: \code{\link{box_text}},
-  \code{\link{plot_box_txt}}, \code{\link{post}},
+Other text functions: \code{\link{post}},
   \code{\link{uline}}, \code{\link{url_unikn}}
 }
 \concept{text functions}

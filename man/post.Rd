@@ -80,8 +80,7 @@ post(labels = c("More text follows here,",
 \seealso{
 \code{\link{xbox}} to create a new xbox (without text).
 
-Other text functions: \code{\link{box_text}},
-  \code{\link{mark}}, \code{\link{plot_box_txt}},
+Other text functions: \code{\link{mark}},
   \code{\link{uline}}, \code{\link{url_unikn}}
 }
 \concept{text functions}
