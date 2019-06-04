@@ -1,5 +1,5 @@
 ## plot_box_calls.R | unikn
-## spds | uni.kn |  2019 05 22
+## spds | uni.kn |  2019 06 04
 ## ---------------------------
 
 ## Specialized functions to plot rectangular boxes (e.g., frames, slides, etc.)
@@ -166,32 +166,10 @@ slide <- function(col = NA,         # default box bg/fill color: none/white/tran
 
 ## Done: ------
 
-# Strategy: Adopt a more modular approach: 
-# 1 - Plot a colored box without text (as full expert vs. naive user function).
-# 2 - Plot text into an existing box with a dedicated plot_text function.
-# 3 - Do NOT combine labels into 1, to allow using a different fonts (and colors) for different character strings:
-#     Instead: Use coordinates for 1st line and place subsequent lines based on text heights (of each string).
-
-## Separated into multiple functions:
-## - plot_box (plots colored box with top "x")
-## - plot_txt (plots lines of text)
-## - plot_both combines both
-## - mark as a reduced version of plot_both
+# - Clean up code.  [2019-06-04]
 
 ## ToDo: ------
 
 # - Consider adding ... argument to simple functions (to provide expert users with additional options).
-
-# (1) Functions: 
-#   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
-#   - improve function pal_n to get n (good) colors (and consider integrating it into palettes)
-#   - provide color gradient function(s) (to return an arbitrary number of colors)
-
-# (+) Additional elements:
-#   - add a function to get a boX in seeblau (or another fill color)
-#   - ggplot_addon: provide complete ggplot theme(s)
-#   - text elements: heading and underline (with seeblau color defaults)
-#   - fonts?
-#   - logo: Merken-boX or hexagon in seeblau with letter "R"
 
 ## eof. ----------

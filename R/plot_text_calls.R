@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## spds | uni.kn |  2019 05 22
+## spds | uni.kn |  2019 06 04
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -462,11 +462,11 @@ post <- function(labels,             # labels of text element(s) to plot
 # ## R: 
 # post(labels = "R", col_bg = pal_seeblau[[5]], new_plot = "xbox", 
 #      cex = 10, font = 2, y = .33)  # save in size: 250 x 250 pixel
- 
+
 # ## ToDo: 
 # post(labels = "ToDo", col_bg = pal_signal[[1]], new_plot = "xbox", 
 #      cex = 3.5, font = 2, y = .35)  # save in size: 250 x 250 pixel
- 
+
 # # SPDS: 
 # url_spds <- url_unikn("https://www.spds.uni-konstanz.de/")
 # post(labels = c("SPDS Wiki", "Social Psychology and Decision Sciences", url_spds), font = c(2, 1, 4), 
@@ -475,7 +475,7 @@ post <- function(labels,             # labels of text element(s) to plot
 # # tiny versions (135 x 135): 
 # post(labels = c("SPDS Wiki"), font = c(2), 
 #      new_plot = "xbox", cex = 1.4, x = .07, y = .49, col_bg = pal_seeblau[[4]])
- 
+
 
 # ## ABC@See (250 x 250): 
 # ABC_2019 <- c("ABC Retreat 2019",
@@ -708,51 +708,6 @@ heading <- function(labels,             # labels of text element(s) to plot
 # heading(labels = c("Ene, mene, miste,", "es rappelt", "in der Kiste."), 
 #         col = "white", col_bg = usecol(rev(pal_bordeaux)))
 
-## Test: Testbed for code snippets (used above) ------
-
-# 1. Is there an open plot? Does already some plot exist? ----- 
-
-# # See 
-# dev.list() # for a list of current devices
-# dev.cur() # evaluates to 1 if null device (no plot).
-# 
-# # A solution: 
-# if (dev.cur() == 1) {
-#   "NO plot exists"  # no graphics device open (null device)
-# } else {
-#   "A plot exists"
-# }  
-
-
-# 2. Are cex and strwidth functions vectorized? -----  
-# plot.new()
-# # cex vectors:
-# text(x = 0, y = c(.8, .5, .2), labels = c("A", "B", "C"), cex = c(1, 2, 3))
-# text(x = 0, y = c(.2, .5, .8), labels = c("A", "B", "C"), cex = c(1, 2, 3))
-# 
-# # font vectors:
-# text(x = .2, y = c(.8, .5, .2), labels = c("A", "B", "C"), font = c(1, 2, 4))
-# 
-# # cex & font vectors:
-# text(x = .4, y = c(.8, .5, .2), labels = c("A", "B", "C"), cex = c(1, 2, 3), font = c(1, 2, 4))
-# 
-# # strwidth:
-# strwidth(s = "x", cex = c(1, 2, 3))  # only returns 1st value
-# strwidth(s = "x", cex = c(1))
-# strwidth(s = "x", cex = c(2))
-# strwidth(s = "x", cex = c(3))
-# 
-# # To get char width values for multiple cex :
-# cex_vals <- c(1, 2, 4)
-# key_char <- "l"
-# char_width <- strwidth(s = key_char, cex = 1) # get width of "l" for cex = 1 (only)
-# char_height <- strheight(s = key_char, cex = 1) # get height of "l" for cex = 1 (only)
-# 
-# char_widths <- char_width * cex_vals  # multiply (single) width of key_char with (vec of) cex_vals
-# char_widths
-# 
-# char_heights <- char_height * cex_vals  # multiply (single) height of key_char with (vec of) cex_vals
-# char_widths
 
 ## Text sources: ------ 
 
@@ -760,18 +715,17 @@ heading <- function(labels,             # labels of text element(s) to plot
 # Sources for text specifications: 
 # https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/ 
 
+## Done: ------
+
+# - Clean up code.  [2019-06-04]
+
 ## ToDo: ------
 
-# (1) Functions: 
-#   - improve function to show colors (and options for full color info: nr, name, HEX, RGB, hsv)
-#   - improve function pal_n to get n (good) colors (and consider integrating it into palettes)
-#   - provide color gradient function(s) (to return an arbitrary number of colors)
+# - Consider adding ... argument to simple functions (to provide expert users with additional options).
 
 # (+) Additional elements:
-#   - add a function to get a boX in seeblau (or another fill color)
 #   - ggplot_addon: provide complete ggplot theme(s)
-#   - text elements: heading and underline (with seeblau color defaults)
-#   - fonts?
-#   - logo: Merken-boX or hexagon in seeblau with letter "R"
+#   - add more slide elements
+#   - official fonts?
 
 ## eof. ----------

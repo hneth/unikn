@@ -1,5 +1,5 @@
 ## plot_util.R | unikn
-## spds | uni.kn |  2019 05 20
+## spds | uni.kn |  2019 06 20
 ## ---------------------------
 
 ## Utility functions (for internal use, not exported).
@@ -370,14 +370,12 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
 
 kill_all <- function(){
   
-  rm(list = ls())
+  rm(list = ls())  # kill all (WITHOUT warning)
   
 }
 
 ## Check: 
 # kill_all()
-
-## Test: Testbed for code above: ------ 
 
 
 ## ToDo: ------
