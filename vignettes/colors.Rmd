@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2019 05 24"
+date: "2019 06 02"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -31,15 +31,22 @@ knitr::opts_chunk$set(echo = TRUE,
                )
 ```
 
+<!-- unikn pkg logo and link: -->
+<a href = "https://github.com/hneth/unikn/">
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
+</a>
+
 This vignette explains which colors and color palettes are provided by **unikn** and how they can be accessed and used. 
+(See the vignette on [text](text.html) for information on text boxes and decorations.) 
+
+Please install and/or load the **unikn** package to get started: 
+
+```{r load_pkg_colors, message = FALSE, warning = FALSE}
+# install.packages('unikn')  # install unikn from CRAN client
+library('unikn')             # load the package
+```
 
 ## Overview 
-
-Please load the **unikn** package to get started: 
-
-```{r load_pkg, message = FALSE, warning = FALSE}
-library(unikn)  # load unikn package
-```
 
 There are 2 functions to interact with the color palettes in the **unikn** package: `seecol()` and `usecol()`. 
 

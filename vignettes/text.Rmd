@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
 author: "SPDS, uni.kn"
-date: "2019 05 20"
+date: "2019 06 02"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -28,6 +28,23 @@ knitr::opts_chunk$set(echo = TRUE,
                fig.align = "center"
                )
 ```
+
+<!-- unikn pkg logo and link: -->
+<a href = "https://github.com/hneth/unikn/">
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
+</a>
+
+This vignette explains the **unikn** functions for plotting graphical elements and text decorations. 
+(See the vignette on [color](colors.html) for information on colors, color palettes, and corresponding functions.) 
+
+Please install and/or load the **unikn** package to get started: 
+
+```{r load_pkg_text, message = FALSE, warning = FALSE}
+# install.packages('unikn')  # install unikn from CRAN client
+library('unikn')             # load the package
+```
+
+## Overview 
 
 Beyond providing support for [colors](colors.html), **unikn** provides functions for plotting graphical elements (like boxes) and text decorations (with colored backgrounds or underlining). 
 Before illustrating these functions, please note some caveats: 
