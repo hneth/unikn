@@ -1,5 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
+<!-- Status badges: 
+
+[![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
+[![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn) 
+[![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
+[![Rdoc](http://www.rdocumentation.org/badges/version/unikn)](http://www.rdocumentation.org/packages/unikn)
+
+-->
 unikn
 =====
 

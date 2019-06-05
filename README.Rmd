@@ -4,6 +4,15 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
 
+<!-- Status badges: 
+
+[![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
+[![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn) 
+[![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
+[![Rdoc](http://www.rdocumentation.org/badges/version/unikn)](http://www.rdocumentation.org/packages/unikn)
+
+-->
+
 ```{r preamble, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -86,7 +95,7 @@ The default color palette `pal_unikn` combines:
 
 This yields a symmetrical default color palette `pal_unikn` consisting of 11&nbsp;colors: 
 
-```{r pal_unikn, eval = TRUE, fig.align = 'center', fig.width = 6, fig.height = 4.5}
+```{r pal_unikn, eval = TRUE, fig.align = 'center', fig.width = 8, fig.height = 6}
 # Default color palette: ----- 
 # pal_unikn  # 11 default colors
 
@@ -171,7 +180,7 @@ The `seecol()` and `usecol()` functions provide a convenient interface for _view
 
 The `seecol()` function provides a quick overview over the contents of a color palette and allows comparisons between color palettes: 
 
-```{r seecol_pref, eval = TRUE, fig.align = 'center', fig.width = 6, fig.height = 4}
+```{r seecol_pref, eval = TRUE, fig.align = 'center', fig.width = 8, fig.height = 5}
 # Plot a color palette: ----- 
 seecol(pal_unikn_pref)
 ```
@@ -187,7 +196,6 @@ seecol(n = 4)
 # Only pal_seeblau: ----- 
 # seecol(pal_seeblau, n = 4)
 ```
-
 
 ### Changing and creating color palettes
 
