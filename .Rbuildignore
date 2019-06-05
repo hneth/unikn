@@ -1,7 +1,9 @@
+^cran-comments\.md$
+^CRAN-RELEASE$
 ^README\.Rmd$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^_gitless$
 ^.git$
 ^.PowerFolder$
-^desktop.ini$
+^desktop.ini$ 
