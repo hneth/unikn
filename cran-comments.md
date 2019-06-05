@@ -1,3 +1,10 @@
+## Resubmission
+
+This is a resubmission. In this version I have:
+
+* writtten the package names in single quotes (e.g. 'unikn') in the description;  
+* added a link to the University to the description field of the DESCRIPTION file in the form <https:...> with angle brackets for auto-linking.  
+
 ## Test environments
 
 * local OS X install, R 3.6.0 
@@ -23,5 +30,3 @@ This is a first submission.
 ## Downstream dependencies
 
 * None (as this is a first release).
-
-

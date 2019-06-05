@@ -7,7 +7,7 @@ Authors@R: c(person("Hansjoerg", "Neth", role = c("aut", "cre"), email = "h.neth
              person("Nico", "Gradwohl", role = "aut"))
 Author: Hansjoerg Neth [aut, cre], Nico Gradwohl [aut] 
 Maintainer: Hansjoerg Neth <h.neth@uni.kn>
-Description: Provide graphical elements of the University of Konstanz's corporate design in R. The unikn package mostly supports color (pre-defined colors and color palettes, plus functions for changing, viewing, and using them), but also provides functions for plotting boxes and styled text elements (colored titles, underlining, etc.). 
+Description: Provide graphical elements of the University of Konstanz's corporate design in R. The 'unikn' package mostly supports color (pre-defined colors and color palettes, plus functions for changing, viewing, and using them), but also provides functions for plotting boxes and styled text elements (colored titles, underlining, etc.). (The University of Konstanz, Germany, is online at <https://www.uni-konstanz.de/>.) 
 Depends:
     R (>= 3.4.0)
 Imports:
