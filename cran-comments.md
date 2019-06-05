@@ -2,7 +2,7 @@
 
 This is a resubmission. In this version I have:
 
-* writtten the package names in single quotes (e.g. 'unikn') in the description;  
+* written the package name in single quotes (e.g. 'unikn') in the description;  
 * added a link to the University to the description field of the DESCRIPTION file in the form <https:...> with angle brackets for auto-linking.  
 
 ## Test environments
