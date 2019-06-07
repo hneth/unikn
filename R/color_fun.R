@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 05 22
+## spds | uni.kn |  2019 06 05
 ## ---------------------------
 
 ## Define color-related functions 
@@ -12,15 +12,15 @@
 
 #' Use a color palette.
 #'
-#' \code{usecol} allows using a color palette \code{pal} (e.g., for plotting).
+#' \code{usecol} allows using a color palette \code{pal} (e.g., for plotting). 
 #'
-#' @param pal A color palette (as a vector of colors or color palettes).
-#' Default: \code{pal = \link{pal_unikn}}.
+#' @param pal A color palette (as a vector of colors or color palettes). 
+#' Default: \code{pal = \link{pal_unikn}}. 
 #' 
 #' @param n An integer value specifying the desired number of colors from the palette.
-#' For all palettes defined within unikn by default it uses a pre-defined selection of 
+#' For all palettes defined within \code{unikn} by default it uses a pre-defined selection of 
 #' colors if the desired number of colors is smaller than the available number.  
-#' For all other palettes and \code{n} larger than \code{length(pal)} it exteds the palette using
+#' For all other palettes and \code{n} larger than \code{length(pal)} it extends the palette using
 #' \code{\link{colorRampPalette}}.
 #' 
 #' @param alpha A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
@@ -28,10 +28,23 @@
 #' Default: \code{NA} (i.e., no modification of opacity).
 #' 
 #' @param use_names A logical value indicating whether colors should be returned as a named vector.
-#' (defaults to \code{FALSE} for compatibility with \code{ggplot}). 
+#' (Defaults to \code{FALSE} for compatibility with \code{ggplot}). 
 #' 
 #' @param use_col_ramp A logical value specifying whether the default of using pre-selected colors
 #' should be overridden and \code{\link{colorRampPalette}} should be used to process \code{n}.
+#' 
+#' @examples 
+#' usecol(pal = pal_unikn, n = "all")  # default color palette 
+#' usecol(pal = pal_unikn, n =  4)     # selecting n dedicated colors
+#' usecol(pal = pal_unikn, n = 20)     # extending color palette  
+#'
+#' # mixing a new color palette: 
+#' new_pal_1 <- usecol(pal = c(rev(pal_seeblau), "white", pal_pinky))  
+#' seecol(new_pal_1)
+#' 
+#' # mixing and extending a new color palette: 
+#' new_pal_2 <- usecol(pal = c(rev(pal_seegruen), "white", pal_bordeaux), n = 20)  
+#' seecol(new_pal_2)
 #'
 #' @family color functions
 #'
