@@ -8,12 +8,14 @@
 [![Rdoc](http://www.rdocumentation.org/badges/version/unikn)](http://www.rdocumentation.org/packages/unikn)
 
 -->
-unikn
-=====
+unikn <img src = "./inst/pix/unikn.png" align = "right" alt = "riskyr" width = "140" />
+=======================================================================================
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/> </a>
-
+<!-- <a href = "https://github.com/hneth/unikn/">
+<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/>
+</a> 
+-->
 The **unikn** package enables the use some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design for users of [R](https://www.r-project.org/). For instance, it provides a range of beautiful color palettes for scientific visualizations that are consistent with the [University of Konstanz](https://www.uni-konstanz.de/)'s [corporate design specifications](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/).
 
 Motivation
@@ -38,13 +40,17 @@ Additional elements are added as they become available. Please use responsibly!
 Installation
 ------------
 
+<!--
+
 The current release of **unikn** is available from [CRAN](https://CRAN.R-project.org/) at <https://CRAN.R-project.org/package=unikn>:
 
-``` r
+
+```r
 install.packages('unikn')  # install unikn from CRAN client
 library('unikn')           # load to use the package
 ```
 
+-->
 The current development version can be installed from its [GitHub](https://github.com) repository at <https://github.com/hneth/unikn/>:
 
 ``` r
@@ -467,7 +473,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-06-05.\]
+\[Updated on 2019-06-07.\]
 
 <!-- eof. -->
 
