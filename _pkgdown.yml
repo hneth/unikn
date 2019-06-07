@@ -1,0 +1,100 @@
+## _pkgdown.yml | unikn
+## spds, uni.kn | 2019 06 05
+## -----------------------------------------------
+
+## site info: ----------
+
+title: unikn
+
+url: https://hneth.github.io/unikn/
+
+authors:
+  Hansjoerg Neth:
+    href: https://www.spds.uni-konstanz.de/hans-neth
+  Nico Gradwohl:
+    href: https://www.spds.uni-konstanz.de/nico-gradwohl 
+  SPDS:
+    href: https://www.spds.uni-konstanz.de/
+
+development:
+  mode: release  # devel OR release
+
+# template:
+#  params:
+#    bootswatch: sandstone
+
+toc:
+  depth: 3
+
+
+## navigation menu: ----------
+
+navbar:
+  title: "unikn"
+  type: default # inverse
+  left:
+    - text: "Home"
+      icon: fa-home
+      href: index.html
+    - text: "All articles"
+      # icon: fa-info
+      menu:
+        - text: "Colors and color palettes"
+          href: articles/colors.html
+        - text: "Text decoration"
+          href: articles/text.html
+    - text: "Reference"
+      # icon: fa-gear
+      href: reference/index.html
+    - text: "News"
+      href: news/index.html
+  right:
+    - icon: fa-github
+      href: https://hneth.github.io/unikn/
+
+
+## reference: ----------
+
+reference:
+- title: Color
+  desc: Using colors, color palettes, and color functions. 
+  contents:
+  - seecol
+  - usecol
+  - Bordeaux
+  - Karpfenblau
+  - Grau
+  - Peach
+  - Petrol
+  - Pinky
+  - Seeblau
+  - Seegruen
+  - Signal
+  - starts_with("pal_")
+- title: Text
+  desc: Text boxes and text decorations. 
+  contents:
+  - heading 
+  - mark 
+  - post
+  - slide
+  - uline
+  - url_unikn
+  - xbox
+- title: Miscellaneous
+  desc: Other functions. 
+  contents:
+  - unikn.guide
+
+## figure settings: ----------
+
+figures:
+  dev: grDevices::png
+  dpi: 96
+  dev.args: []
+  fig.ext: png
+  fig.width: 7.2
+  fig.height: 5.6
+  fig.retina: 2
+
+## eof. ----------
