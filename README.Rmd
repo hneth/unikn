@@ -348,6 +348,7 @@ As the use of these functions is explained in detail in `vignette("Text")`, we o
 ### Mark
 
 The `mark()` function allows emphasizing text by plotting it with colored background (to provide the functionality of "Markieren"):  
+
 ```{r mark_new_plot, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 3, fig.height = 3}
 mark(labels = c("Markieren", "ist ein Bestandteil", "von Studieren."), 
      x = 0, y = .8, y_layout = .03, cex = 1.5, new_plot = "slide")
