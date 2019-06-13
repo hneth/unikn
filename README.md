@@ -40,17 +40,13 @@ Additional elements are added as they become available. Please use responsibly!
 Installation
 ------------
 
-<!--
-
 The current release of **unikn** is available from [CRAN](https://CRAN.R-project.org/) at <https://CRAN.R-project.org/package=unikn>:
 
-
-```r
+``` r
 install.packages('unikn')  # install unikn from CRAN client
 library('unikn')           # load to use the package
 ```
 
--->
 The current development version can be installed from its [GitHub](https://github.com) repository at <https://github.com/hneth/unikn/>:
 
 ``` r
@@ -176,7 +172,7 @@ When only a subset of a color palette are needed, the `seecol()` and `usecol()` 
 seecol(n = 4)
 ```
 
-<img src="inst/pix/README-pal_n-1.png" width="75%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-pal_n-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
 
@@ -199,7 +195,7 @@ Here are some examples of these functions in action:
 seecol(pal_unikn, n = 21)  
 ```
 
-<img src="inst/pix/README-col_scale_1-1.png" width="75%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-col_scale_1-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
 # seecol(pal_seeblau, n = 8)  # provides a subset of "good" colors
@@ -214,7 +210,7 @@ Note that reducing an **unikn** color palette selects a suitable subset of its c
 seecol(c(Seeblau, "white", Pinky), 11) 
 ```
 
-<img src="inst/pix/README-col_scale_2-1.png" width="75%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-col_scale_2-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
 # seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
@@ -227,7 +223,7 @@ seecol(c(Seeblau, "white", Pinky), 11)
 seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11)
 ```
 
-<img src="inst/pix/README-col_scale_3-1.png" width="75%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-col_scale_3-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
 # seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
@@ -342,6 +338,97 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
 ```
 
 <img src = "./inst/pix/README-use_pal_ggplot2-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/>
+
+Generalization
+--------------
+
+The color scales included in the **unikn** package are based on those used by our own institution (the [University of Konstanz](https://uni-konstanz.de), Germany). However, the functionality provided by the package makes it easy and straightforward to define and use your own color schemes. To illustrate this, here are two examples:
+
+### [Max Planck Society](https://www.mpg.de/), Germany:
+
+<img src = "./inst/pix/logo_MPG.png" align = "right" alt = "MPG" width = "200px" style = "border:10;"/>
+
+The design principles specify the use of 2 primary colors:
+
+-   Green as Pantone 328: Using the PANTONE™ color finder at <https://www.pantone.com/color-finder/328-C> yields the following color values:
+
+    -   RGB: `0 115 103`
+    -   HEX/HTML: `#007367`
+    -   CMYK: `100 10 61 38`
+
+-   Grey as Pantone 427: Using the PANTONE™ color finder at <https://www.pantone.com/color-finder/427-C> yields the following color values:
+
+    -   RGB: `208 211 212`
+    -   HEX/HTML: `#D0D3D4`
+    -   CMYK: `7 3 5 8`
+
+``` r
+# Using HEX values:
+mpg_green <- "#007367"
+mpg_grey  <- "#D0D3D4"
+
+# col2rgb(mpg_green)
+# col2rgb(mpg_grey)
+
+pal_mpg <- usecol(pal = c(mpg_green, "white", mpg_grey))
+names(pal_mpg) <- c("mpg green", "white", "mpg grey")
+seecol(pal_mpg)
+```
+
+<img src="inst/pix/README-MPG_hex-1.png" width="67%" style="display: block; margin: auto;" />
+
+### [Princeton University](https://princeton.edu/), USA:
+
+<img src = "./inst/pix/logo_princeton.jpg" align = "right" width = "200px" alt = "Princeton" style = "border:10;"/>
+
+The guide at <https://communications.princeton.edu/guides-tools/logo-graphic-identity> defines "Princeton Orange" as Pantone (PMS) 158 C.
+
+-   The PANTONE™ color finder at <https://www.pantone.com/color-finder/158-C> yields the following color values:
+
+    -   RGB: `232 119 34`
+    -   HEX/HTML: `#E87722`
+    -   CMYK: `0 62 95 0`
+
+-   However, the guide also distinguishes between 2 versions of orange and provides the following HEX/HTML values:
+
+    -   Orange on white: "\#E77500"
+    -   Orange on black: "\#F58025"
+
+These definitions suggest defining 3 separate color palettes:
+
+``` r
+# Source: https://communications.princeton.edu/guides-tools/logo-graphic-identity 
+# e77500 is used on white and #f58025 on black.
+
+# Using HEX values: 
+orange_basic <- "#E87722"
+orange_white <- "#E77500"
+orange_black <- "#F58025"
+
+# Defining 3 color palettes:
+pal_princeton <- c(orange_basic, "black")
+names(pal_princeton) <- c("orange", "black")
+
+pal_princeton_1 <- c(orange_white, "white", "black")
+names(pal_princeton_1) <- c("orange_1", "white", "black")
+
+pal_princeton_2 <- usecol(pal = c(orange_black, "black", "white"))
+names(pal_princeton_2) <- c("orange_2", "black", "white")
+
+# View a palette: 
+seecol(pal_princeton_1)
+```
+
+<img src="inst/pix/README-Princeton-1.png" width="67%" style="display: block; margin: auto;" />
+
+The `seecol()` and `usecol()` functions allow comparing, scaling, and using these custom palettes in the same fashion as the native **unikn** color palettes:
+
+``` r
+# Compare and extend custom color palettes:
+seecol(list(pal_unikn, pal_mpg, pal_princeton_1), n = 9)
+```
+
+<img src="inst/pix/README-compare_custom_pals-1.png" width="75%" style="display: block; margin: auto;" />
 
 Text decorations
 ----------------
@@ -473,7 +560,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-06-08.\]
+\[Updated on 2019-06-13.\]
 
 <!-- eof. -->
 
