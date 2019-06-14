@@ -35,13 +35,20 @@ usecol(pal = pal_unikn, n = "all")  # default color palette
 usecol(pal = pal_unikn, n =  4)     # selecting n dedicated colors
 usecol(pal = pal_unikn, n = 20)     # extending color palette  
 
-# mixing a new color palette: 
-new_pal_1 <- usecol(pal = c(rev(pal_seeblau), "white", pal_pinky))  
-seecol(new_pal_1)
+# Mixing a new color palette: 
+pal_1 <- usecol(pal = c(rev(pal_seeblau), "white", pal_pinky))  
+seecol(pal_1)
 
-# mixing and extending a new color palette: 
-new_pal_2 <- usecol(pal = c(rev(pal_seegruen), "white", pal_bordeaux), n = 20)  
-seecol(new_pal_2)
+# Mixing and extending a color palette: 
+pal_2 <- usecol(pal = c(rev(pal_seegruen), "white", pal_bordeaux), n = 20)  
+seecol(pal_2)
+
+# Defining and using a custom color palette:
+pal_princeton_1 <- c("#E77500", "white", "black")
+names(pal_princeton_1) <- c("orange_w", "white", "black")
+
+pal_3 <- usecol(pal_princeton_1, n = 7)
+seecol(pal_3)
 
 }
 \seealso{

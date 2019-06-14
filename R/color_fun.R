@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 06 13
+## spds | uni.kn |  2019 06 14
 ## ---------------------------
 
 ## Define color-related functions 
@@ -38,14 +38,21 @@
 #' usecol(pal = pal_unikn, n =  4)     # selecting n dedicated colors
 #' usecol(pal = pal_unikn, n = 20)     # extending color palette  
 #'
-#' # mixing a new color palette: 
-#' new_pal_1 <- usecol(pal = c(rev(pal_seeblau), "white", pal_pinky))  
-#' seecol(new_pal_1)
+#' # Mixing a new color palette: 
+#' pal_1 <- usecol(pal = c(rev(pal_seeblau), "white", pal_pinky))  
+#' seecol(pal_1)
 #' 
-#' # mixing and extending a new color palette: 
-#' new_pal_2 <- usecol(pal = c(rev(pal_seegruen), "white", pal_bordeaux), n = 20)  
-#' seecol(new_pal_2)
+#' # Mixing and extending a color palette: 
+#' pal_2 <- usecol(pal = c(rev(pal_seegruen), "white", pal_bordeaux), n = 20)  
+#' seecol(pal_2)
+#' 
+#' # Defining and using a custom color palette:
+#' pal_princeton_1 <- c("#E77500", "white", "black")
+#' names(pal_princeton_1) <- c("orange_w", "white", "black")
 #'
+#' pal_3 <- usecol(pal_princeton_1, n = 7)
+#' seecol(pal_3)
+#' 
 #' @family color functions
 #'
 #' @seealso
@@ -86,7 +93,6 @@ usecol <- function(pal = pal_unikn,
       
     }
   )
-  
   
   ## Set n to length pal_inp, if n == "all": -----
   if (n == "all") { n <- length(pal_inp) }
@@ -405,12 +411,22 @@ usecol <- function(pal = pal_unikn,
 #' # Combining and extending color palettes: 
 #' seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17)
 #' 
+#' # Defining custom color palettes:
+#' pal_mpg <- c("#007367", "white", "#D0D3D4")
+#' names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")
+#' 
+#' # Viewing extended color palette: 
+#' seecol(pal_mpg, n = 9)
+#' 
+#' # Comparing color palettes: 
+#' seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
+#' 
 #' ## Viewing color palettes from other packages: 
 #' # library(RColorBrewer)
 #' # seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
 #' 
 #' ## Extending color palettes:
-#' # seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette from 11 to 15 colors
+#' # seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
 #' 
 #' @family color functions
 #' 

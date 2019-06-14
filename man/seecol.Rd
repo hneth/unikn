@@ -101,12 +101,22 @@ seecol(pal_seeblau, n = 10)  # extending pal_seeblau
 # Combining and extending color palettes: 
 seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17)
 
+# Defining custom color palettes:
+pal_mpg <- c("#007367", "white", "#D0D3D4")
+names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")
+
+# Viewing extended color palette: 
+seecol(pal_mpg, n = 9)
+
+# Comparing color palettes: 
+seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
+
 ## Viewing color palettes from other packages: 
 # library(RColorBrewer)
 # seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
 
 ## Extending color palettes:
-# seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette from 11 to 15 colors
+# seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
 
 }
 \seealso{
