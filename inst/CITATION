@@ -7,7 +7,7 @@ citEntry(entry = "Manual",
          year         = "2019",
          organization = "Social Psychology and Decision Sciences, University of Konstanz",
          address      = "Konstanz, Germany",
-         note         = "R package (version 0.1.0, June 5, 2019)",
+         note         = "R package (version 0.1.0, June 14, 2019)",
          url          = "https://CRAN.R-project.org/package=unikn",
 
          textVersion  =
