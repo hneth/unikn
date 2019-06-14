@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
-<!-- Status badges: 
+<!-- Status badges:
 
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn) 
@@ -8,12 +8,12 @@
 [![Rdoc](http://www.rdocumentation.org/badges/version/unikn)](http://www.rdocumentation.org/packages/unikn)
 
 -->
-unikn <img src = "./inst/pix/unikn.png" align = "right" alt = "riskyr" width = "140" />
-=======================================================================================
+unikn <img src = "./inst/pix/unikn.png" align = "right" alt = "riskyr" width = "125px" />
+=========================================================================================
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://github.com/hneth/unikn/">
-<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/>
+<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
 </a> 
 -->
 The **unikn** package enables using some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design in [R](https://www.r-project.org/). **unikn** currently provides a range of dedicated color palettes for scientific visualizations and defines styled text elements (e.g., for marking, underlining, or plotting colored titles) that are consistent with the official design specifications (see [this link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) for details). Although the package is based on detailed specifications of a particular institution, its functionality can easily be adopted and extended for other purposes and institutions.
@@ -203,19 +203,23 @@ seecol(pal_unikn, n = 21)
 
 Note that reducing an **unikn** color palette selects a suitable subset of its colors, rather than just truncating the scale.
 
--   Combining colors to create new color palettes (of arbitrary length):
+<!-- 
 
-``` r
+- Combining colors to create new color palettes (of arbitrary length): 
+
+
+```r
 # Combining colors: ----- 
 seecol(c(Seeblau, "white", Pinky), 11) 
 ```
 
 <img src="inst/pix/README-col_scale_2-1.png" width="67%" style="display: block; margin: auto;" />
 
-``` r
+```r
 # seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
 ```
 
+-->
 -   Mixing and merging colors and color palettes into new color palettes:
 
 ``` r
@@ -236,9 +240,9 @@ Using color palettes
 
 The **unikn** package exports the color palettes shown by `seecol(pal = "all")` and the 9 preferred colors of `pal_unikn_pref` (e.g., `Seeblau`, `Seegruen`, etc.) as named colors.
 
-The `usecol()` function provides convenient access and additional options for using them in graphs. Some examples for using
+The `usecol()` function provides convenient access and additional options for using them in graphs. Here are some examples:
 
-1.  Some examples of using **unikn** color palettes and functions in base R plots:
+1.  Using **unikn** color palettes and functions in base R plots:
 
 By default, simply set the color argument of a plot to `usecol()` with some **unikn** color palette:
 
@@ -249,18 +253,23 @@ barplot(1/sqrt(1:11),  col = usecol(pal_unikn))
 
 <img src="inst/pix/README-usepal_demo_barplot_1-1.png" width="60%" style="display: block; margin: auto;" />
 
-Additionally providing a value for `n` either reduces or extends the selected color palette:
+Providing an additional value for `n` would reduce or extend the selected color palette and adding an opacity value for `alpha` (in the range `[0, 1]`) would regulate transparency.
 
-``` r
+<!-- 
+Additionally providing a value for `n` either reduces or extends the selected color palette: 
+
+
+```r
 # (b) Using only n colors of a palette:
 barplot(1/sqrt(1:5), col = usecol(pal_unikn, n = 5)) 
 ```
 
 <img src="inst/pix/README-usepal_demo_barplot_2-1.png" width="50%" style="display: block; margin: auto;" />
 
-Providing an opacity value for `alpha` (in the range `[0, 1]`) allows adding transparency to a plot:
+Providing an opacity value for `alpha` (in the range `[0, 1]`) allows adding transparency to a plot:  
 
-``` r
+
+```r
 # (c) Scatterplots:
 set.seed(-99)
 plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6, 
@@ -270,6 +279,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 
 <img src="inst/pix/README-usepal_demo_scatter-1.png" width="40%" style="display: block; margin: auto;" />
 
+-->
 1.  Visualizing **unikn** color palettes with `image`:
 
 ``` r
@@ -284,15 +294,9 @@ m <- matrix(rnorm(n*n), ncol = n, nrow = n)
 # image(m, col = usecol(pal_petrol))
 image(m, col = usecol(pal_seeblau, n = 50), 
       main = "50 shades of Seeblau", axes = FALSE)
-
-# Mix pal_seeblau and pal_seegruen:
-x <- y <- seq(-4 * pi, 4 * pi, len = 15)
-r <- sqrt(outer(x^2, y^2, "+"))
-image(z = cos(r^2) * exp(-r/6), col = usecol(c(pal_petrol, pal_seegruen), n = 10), 
-      main = "Shades of Petrol/Seegruen", axes = FALSE)
 ```
 
-![](inst/pix/README-use_pal_demo_image-1.png)![](inst/pix/README-use_pal_demo_image-2.png)
+<img src="inst/pix/README-use_pal_demo_image-1.png" style="display: block; margin: auto;" />
 
 1.  Using **unikn** in `ggplot` calls (using **ggplot2**):
 
@@ -337,7 +341,7 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
   theme(legend.position = "none")
 ```
 
-<img src = "./inst/pix/README-use_pal_ggplot2-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/>
+<img src = "./inst/pix/README-use_pal_ggplot2-1.png" align = "center" width = "500px" alt = "Using pal_unikn in ggplot" style = "border:10;"/>
 
 Generalization to other institutions
 ------------------------------------
@@ -422,11 +426,27 @@ names(pal_princeton_1) <- c("orange_w", "white", "black")
 
 pal_princeton_2 <- c(pal = c(orange_black, "black", "white"))
 names(pal_princeton_2) <- c("orange_b", "black", "white")
-
-seecol(pal_princeton_1)  # view color palette
 ```
 
-<img src="inst/pix/README-Princeton-1.png" width="67%" style="display: block; margin: auto;" />
+The new color palettes (e.g., `pal_princeton_1`) can now be viewed with `seecol()`, scaled by `usecol()`, and used in graphs (e.g., in `ggplot` commands):
+
+``` r
+# View color palette: 
+# seecol(pal_princeton_1)  
+
+# Scale color palette (using df and ngroup from above):
+my_pal <- usecol(pal = pal_princeton_1, n = ngroup)
+
+# Use my_pal for plotting: 
+ggplot(df, aes(x = X, y = Y, fill = group)) + 
+  geom_area(alpha = 1, color = Grau, size = .01 ) +
+  theme_bw() + 
+  scale_fill_manual(values = my_pal) +
+  theme_void() +
+  theme(legend.position = "none")
+```
+
+<img src = "./inst/pix/README-use_ggplot2_princeton-1.png" align = "center" width = "500px" alt = "pal_unikn" style = "border:10;"/>
 
 #### C. [Max Planck Society](https://www.mpg.de/), Germany:
 
@@ -456,10 +476,17 @@ names(pal_mpg) <- c("mpg green", "white", "mpg grey")
 As before, can now use the `seecol()` and `usecol()` functions to view, modify, and use the new `pal_mpg` color palette:
 
 ``` r
-seecol(pal_mpg)
+# View color palette: 
+# seecol(pal_mpg)
+
+# Use pal_mpg in image:
+x <- y <- seq(-4 * pi, 4 * pi, len = 15)
+r <- sqrt(outer(x^2, y^2, "+"))
+image(z = cos(r^2) * exp(-r/6), col = usecol(pal_mpg, n = 10), 
+      main = "Shades of MPG (using pal_mpg)", axes = FALSE)
 ```
 
-<img src="inst/pix/README-MPG_seecol-1.png" width="67%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-use_pal_demo_mpg-1.png" style="display: block; margin: auto;" />
 
 #### Comparing color palettes
 
@@ -576,7 +603,7 @@ License
 -------
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/> </a>
+<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/> </a>
 
 <!-- License: CC BY-SA 4.0 (also in Description) -->
 <!-- Image with link: -->
