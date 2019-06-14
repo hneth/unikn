@@ -16,7 +16,7 @@ unikn <img src = "./inst/pix/unikn.png" align = "right" alt = "riskyr" width = "
 <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
 </a> 
 -->
-The **unikn** package enables using some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design in [R](https://www.r-project.org/). **unikn** currently provides a range of dedicated color palettes for scientific visualizations and defines styled text elements (e.g., for marking, underlining, or plotting colored titles) that are consistent with the official design specifications (see [this link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) for details). Although the package is based on detailed specifications of a particular institution, its functionality can easily be adopted and extended for other purposes and institutions.
+The **unikn** package enables using some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design in [R](https://www.r-project.org/). **unikn** currently provides a range of dedicated color palettes for scientific visualizations and defines styled text elements (e.g., for marking, underlining, or plotting colored titles) that are consistent with the official design specifications (see [this link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) for details). While the package is based on detailed specifications of a particular institution, its functionality can easily be adopted and extended for other purposes and institutions.
 
 Background
 ----------
@@ -561,6 +561,38 @@ post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
 ```
 
 <img src="inst/pix/README-url_post-1.png" style="display: block; margin: auto;" />
+
+Other institutions
+------------------
+
+If custom color palettes are available (see definitions above), the text decoration functions can be used for graphical annotations in the style of other institutions:
+
+``` r
+# (A) Using pal_freiburg_basic and pal_freiburg_blue: 
+uline(labels = c("University of Freiburg"), 
+      x = .6, y = .85, font = 2, cex = 1, 
+      col = pal_freiburg_basic[[1]], col_bg = pal_freiburg_basic[[3]], 
+      new_plot = "slide")
+mark(labels = c("Die Wahrheit", "wird Euch", "frei machen."), 
+     x = 0, y = .90, y_layout = 0, cex = 1.5, 
+     col = c("white"), col_bg = rev(usecol(pal_freiburg_blue, 3)))
+
+# (B) Using orange_white or pal_princeton:
+uline(labels = c("Princeton University"), 
+      x = .6, y = .5, font = 2, cex = 1, col_bg = orange_white)
+mark(labels = c("Go", "Tigers!"), 
+     x = 0, y = .55, y_layout = 0, cex = 1.8,  
+     col = c("black", "white"), col_bg = pal_princeton)
+
+# (C) Using pal_mpg:
+uline(labels = c("Max Planck Society"), 
+      x = .6, y = .20, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
+mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen"), 
+     x = 0, y = .25, y_layout = 0, cex = 1.5, 
+     col = c("white"), col_bg = usecol(pal_mpg, 7)[3:1])
+```
+
+<img src="inst/pix/README-others_txt_demo-1.png" style="display: block; margin: auto;" />
 
 ### Caveats
 
