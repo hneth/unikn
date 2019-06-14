@@ -1,9 +1,9 @@
 ## Resubmission
 
-This is a resubmission. In this version I have:
+This is a resubmission. In this version I have: 
 
-* written the package name in single quotes (e.g. 'unikn') in the description;  
-* added a link to the University to the description field of the DESCRIPTION file in the form <https:...> with angle brackets for auto-linking.  
+* Rewritten the package's Description field in the DESCRIPTION file to emphasize the package's usefulness beyond the University of Konstanz. 
+* Added examples (in documentation and vignettes) that show how custom colors and text functions can be used for other purposes and institutions. 
 
 ## Test environments
 
