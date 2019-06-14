@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9052</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -187,12 +187,18 @@ should be overridden and <code><a href='https://www.rdocumentation.org/packages/
 #&gt;  [8] "#CCCCCC" "#999999" "#666666" "#000000"</div><div class='input'><span class='fu'>usecol</span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='no'>pal_unikn</span>, <span class='kw'>n</span> <span class='kw'>=</span>  <span class='fl'>4</span>)     <span class='co'># selecting n dedicated colors</span></div><div class='output co'>#&gt; [1] "#00A9E0" "#A6E1F4" "#FFFFFF" "#000000"</div><div class='input'><span class='fu'>usecol</span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='no'>pal_unikn</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>)     <span class='co'># extending color palette  </span></div><div class='output co'>#&gt;  [1] "#008ECE" "#009CD7" "#04AAE0" "#33BAE6" "#61C9EB" "#89D7F0" "#ABE3F4"
 #&gt;  [8] "#C0E9F7" "#D6F1FA" "#F1FAFD" "#F8F8F8" "#EAEAEA" "#DDDDDD" "#CFCFCF"
 #&gt; [15] "#B9B9B9" "#9E9E9E" "#838383" "#686868" "#353535" "#000000"</div><div class='input'>
-<span class='co'># mixing a new color palette: </span>
-<span class='no'>new_pal_1</span> <span class='kw'>&lt;-</span> <span class='fu'>usecol</span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rev'>rev</a></span>(<span class='no'>pal_seeblau</span>), <span class='st'>"white"</span>, <span class='no'>pal_pinky</span>))
-<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>new_pal_1</span>)</div><div class='img'><img src='usecol-1.png' alt='' width='691' height='538' /></div><div class='input'>
-<span class='co'># mixing and extending a new color palette: </span>
-<span class='no'>new_pal_2</span> <span class='kw'>&lt;-</span> <span class='fu'>usecol</span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rev'>rev</a></span>(<span class='no'>pal_seegruen</span>), <span class='st'>"white"</span>, <span class='no'>pal_bordeaux</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>)
-<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>new_pal_2</span>)</div><div class='img'><img src='usecol-2.png' alt='' width='691' height='538' /></div><div class='input'>
+<span class='co'># Mixing a new color palette: </span>
+<span class='no'>pal_1</span> <span class='kw'>&lt;-</span> <span class='fu'>usecol</span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rev'>rev</a></span>(<span class='no'>pal_seeblau</span>), <span class='st'>"white"</span>, <span class='no'>pal_pinky</span>))
+<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_1</span>)</div><div class='img'><img src='usecol-1.png' alt='' width='691' height='538' /></div><div class='input'>
+<span class='co'># Mixing and extending a color palette: </span>
+<span class='no'>pal_2</span> <span class='kw'>&lt;-</span> <span class='fu'>usecol</span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rev'>rev</a></span>(<span class='no'>pal_seegruen</span>), <span class='st'>"white"</span>, <span class='no'>pal_bordeaux</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>)
+<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_2</span>)</div><div class='img'><img src='usecol-2.png' alt='' width='691' height='538' /></div><div class='input'>
+<span class='co'># Defining and using a custom color palette:</span>
+<span class='no'>pal_princeton_1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"#E77500"</span>, <span class='st'>"white"</span>, <span class='st'>"black"</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>pal_princeton_1</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"orange_w"</span>, <span class='st'>"white"</span>, <span class='st'>"black"</span>)
+
+<span class='no'>pal_3</span> <span class='kw'>&lt;-</span> <span class='fu'>usecol</span>(<span class='no'>pal_princeton_1</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>7</span>)
+<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_3</span>)</div><div class='img'><img src='usecol-3.png' alt='' width='691' height='538' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

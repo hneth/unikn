@@ -73,7 +73,7 @@ the colors of a palette or comparing multiple color palettes." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9052</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -236,12 +236,20 @@ Default: <code>grid = TRUE</code>.</p></td>
 <span class='fu'>seecol</span>(<span class='no'>pal_unikn</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>5</span>)     <span class='co'># reducing/selecting from pal_unikn</span></div><div class='img'><img src='seecol-8.png' alt='' width='691' height='538' /></div><div class='input'><span class='fu'>seecol</span>(<span class='no'>pal_seeblau</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>)  <span class='co'># extending pal_seeblau</span></div><div class='img'><img src='seecol-9.png' alt='' width='691' height='538' /></div><div class='input'>
 <span class='co'># Combining and extending color palettes: </span>
 <span class='fu'>seecol</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rev'>rev</a></span>(<span class='no'>pal_seeblau</span>), <span class='st'>"white"</span>, <span class='no'>pal_bordeaux</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>17</span>)</div><div class='img'><img src='seecol-10.png' alt='' width='691' height='538' /></div><div class='input'>
+<span class='co'># Defining custom color palettes:</span>
+<span class='no'>pal_mpg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"#007367"</span>, <span class='st'>"white"</span>, <span class='st'>"#D0D3D4"</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>pal_mpg</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"mpg green"</span>, <span class='st'>"mpg white"</span>, <span class='st'>"mpg grey"</span>)
+
+<span class='co'># Viewing extended color palette: </span>
+<span class='fu'>seecol</span>(<span class='no'>pal_mpg</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>9</span>)</div><div class='img'><img src='seecol-11.png' alt='' width='691' height='538' /></div><div class='input'>
+<span class='co'># Comparing color palettes: </span>
+<span class='fu'>seecol</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='no'>pal_mpg</span>, <span class='no'>pal_bordeaux</span>, <span class='no'>pal_unikn</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='img'><img src='seecol-12.png' alt='' width='691' height='538' /></div><div class='input'>
 ## Viewing color palettes from other packages: 
 # library(RColorBrewer)
 # seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
 
 ## Extending color palettes:
-# seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette from 11 to 15 colors
+# seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
 
 </div></pre>
   </div>
