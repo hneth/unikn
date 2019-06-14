@@ -16,7 +16,9 @@ unikn <img src = "./inst/pix/unikn.png" align = "right" alt = "riskyr" width = "
 <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
 </a> 
 -->
-The **unikn** package enables using some elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design in [R](https://www.r-project.org/). **unikn** currently provides a range of dedicated color palettes for scientific visualizations and defines styled text elements (e.g., for marking, underlining, or plotting colored titles) that are consistent with the official design specifications (see [this link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) for details). While the package is based on detailed specifications of a particular institution, its functionality can easily be adopted and extended for other purposes and institutions.
+Enabling elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design in [R](https://www.r-project.org/).
+
+The **unikn** package provides color functions — by defining dedicated colors and color palettes, and commands for changing, viewing, and using them — and styled text elements (e.g., for marking, underlining, or plotting colored titles). The pre-defined range of colors and text functions is based on the corporate design of the [University of Konstanz](https://www.uni-konstanz.de/) (see [this link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) for details), but can be adapted and extended for other institutions and purposes.
 
 Background
 ----------
