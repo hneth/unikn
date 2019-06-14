@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9052</span>
       </span>
     </div>
 
@@ -94,7 +94,7 @@
       <h1>Colors and color palettes</h1>
                         <h4 class="author">SPDS, uni.kn</h4>
             
-            <h4 class="date">2019 06 02</h4>
+            <h4 class="date">2019 06 14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/master/vignettes/colors.Rmd"><code>vignettes/colors.Rmd</code></a></small>
       <div class="hidden name"><code>colors.Rmd</code></div>
@@ -349,6 +349,125 @@ cur_col &lt;-<span class="st"> </span><span class="kw"><a href="../reference/use
 <span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</code></pre></div>
 <p><img src="../inst/pix/README-use_pal_ggplot2-1.png" align="center" alt="pal_unikn" style="border:10;"></p>
 </div>
+<div id="generalization-to-other-institutions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#generalization-to-other-institutions" class="anchor"></a>Generalization to other institutions</h2>
+<p>The color scales included in the <strong>unikn</strong> package are based on the CD manual of the <a href="https://uni-konstanz.de">University of Konstanz</a>, Germany. However, the functionality provided by the package makes it easy and straightforward to define and use your own color schemes. Here are some examples from other institutions to illustrate how this can be achieved.</p>
+<div id="a--university-of-freiburg-germany" class="section level4">
+<h4 class="hasAnchor">
+<a href="#a--university-of-freiburg-germany" class="anchor"></a>A. <a href="https://www.uni-freiburg.de/">University of Freiburg</a>, Germany:</h4>
+<p><img src="../inst/pix/logo_freiburg.png" align="right" width="120px" alt="Uni Freiburg" style="border:10;"></p>
+<p>The <a href="https://www.uni-freiburg.de/">Albert-Ludwigs Universität Freiburg</a> provides fairly extensive information on its corporate color scheme (available <a href="https://www.zuv.uni-freiburg.de/service/cd/cd-manual/farbwelt">here</a> and <a href="https://www.zuv.uni-freiburg.de/service/wsg/webstyleguide/farben">here</a>). Colors can be defined in a variety of ways, but R comes with convenient tools (like <code>col2rgb</code> and <code>convertColor</code> in <strong>grDevices</strong>) to handle most cases. The most straightforward way of creating a new color palette in R is by using its HEX/HTML code (provided in character format). As the <a href="https://www.uni-freiburg.de/">University of Freiburg</a> kindly provides their colors in this format, we can easily define the corresponding color palettes as named vectors:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Basic colors: https://www.zuv.uni-freiburg.de/service/cd/cd-manual/farbwelt</span>
+
+pal_freiburg_bluered &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"#004a99"</span>, <span class="st">"#c1002a"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(pal_freiburg_bluered) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"uni-blau"</span>, <span class="st">"uni-rot"</span>)
+
+pal_freiburg_basic &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"#004a99"</span>, <span class="st">"white"</span>, <span class="st">"#c1002a"</span>)  <span class="co"># add "white" for better gradients</span>
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(pal_freiburg_basic) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"uni-blau"</span>, <span class="st">"weiss"</span>, <span class="st">"uni-rot"</span>)
+
+<span class="co"># Web colors: https://www.zuv.uni-freiburg.de/service/wsg/webstyleguide/farben  </span>
+
+pal_freiburg_blue &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"#004a99"</span>, <span class="st">"#2a6ebb"</span>, <span class="st">"#6f9ad3"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(pal_freiburg_blue) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"blue-1"</span>, <span class="st">"blue-2"</span>, <span class="st">"blue-3"</span>)
+
+pal_freiburg_grey &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"#f2f3f1"</span>, <span class="st">"#e0e1dd"</span>, <span class="st">"#d5d6d2"</span>, <span class="st">"#c9cac8"</span>, 
+                       <span class="st">"#b2b4b3"</span>, <span class="st">"#9a9b9c"</span>, <span class="st">"#747678"</span>, <span class="st">"#363534"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(pal_freiburg_grey) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"grey-0"</span>, <span class="st">"grey-1"</span>, <span class="st">"grey-2"</span>, <span class="st">"grey-3"</span>, 
+                              <span class="st">"grey-5"</span>, <span class="st">"grey-7"</span>, <span class="st">"grey-9"</span>, <span class="st">"grey-font"</span>)
+
+pal_freiburg_info &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"#2a6ebb"</span>, <span class="st">"#a7c1e3"</span>, <span class="st">"#7b2927"</span>, <span class="st">"#de3831"</span>, <span class="st">"#739600"</span>, <span class="st">"#92d400"</span>, 
+                       <span class="st">"#4d4f53"</span>, <span class="st">"#747678"</span>, <span class="st">"#b2b4b3"</span>, <span class="st">"#d5d6d2"</span>, <span class="st">"#e98300"</span>, <span class="st">"#efbd47"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(pal_freiburg_info) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"mid-blau"</span>, <span class="st">"hell-blau"</span>, <span class="st">"dark-red"</span>, <span class="st">"hell-red"</span>, <span class="st">"mid-green"</span>, <span class="st">"hell-green"</span>, 
+                              <span class="st">"anthrazit"</span>, <span class="st">"dark-grey"</span>, <span class="st">"mid-grey"</span>, <span class="st">"hell-grey"</span>, <span class="st">"orange"</span>, <span class="st">"gelb"</span>)</code></pre></div>
+<p>Once a new color palette has been defined (and is available in your current R environment), we can use the <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> functions to view, modify, and use the palette:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/seecol.html">seecol</a></span>(pal_freiburg_info)            <span class="co"># view color palette</span></code></pre></div>
+<p><img src="colors_files/figure-html/seecol_freiburg-1.png" width="672" style="display: block; margin: auto;"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># seecol(pal_freiburg_basic, n = 7)  # extend color palette</span>
+<span class="co"># seecol(c(pal_freiburg_blue, "white", pal_freiburg_grey))  # mix color palette</span></code></pre></div>
+</div>
+<div id="b--princeton-university-usa" class="section level4">
+<h4 class="hasAnchor">
+<a href="#b--princeton-university-usa" class="anchor"></a>B. <a href="https://princeton.edu/">Princeton University</a>, USA:</h4>
+<p><img src="../inst/pix/logo_princeton.jpg" align="right" width="180px" alt="Princeton University" style="border:10;"></p>
+<p>The color scheme of <a href="https://princeton.edu/">Princeton University</a> is easily recognized by its combination of orange with black and white elements. The official guidelines (available <a href="https://communications.princeton.edu/guides-tools/logo-graphic-identity">here</a>) define “Princeton Orange” as Pantone (PMS) 158 C.</p>
+<ul>
+<li>
+<p>The PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/158-C" class="uri">https://www.pantone.com/color-finder/158-C</a> yields the following color values:</p>
+<ul>
+<li>RGB: <code>232 119 34</code><br>
+</li>
+<li>HEX/HTML: <code>#E87722</code><br>
+</li>
+<li>CMYK: <code>0 62 95 0</code>
+</li>
+</ul>
+</li>
+<li>
+<p>However, the guide also specifies and distinguishes between 2 additional versions of orange and provides the following HEX/HTML values for them:</p>
+<ul>
+<li>Orange on white: “#E77500”<br>
+</li>
+<li>Orange on black: “#F58025”</li>
+</ul>
+</li>
+</ul>
+<p>These definitions suggest defining 3 separate versions of orange and corresponding color palettes:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># HEX values for 3 shades of orange: </span>
+orange_basic &lt;-<span class="st"> "#E87722"</span>  <span class="co"># Pantone 158 C</span>
+orange_white &lt;-<span class="st"> "#E77500"</span>  <span class="co"># orange on white</span>
+orange_black &lt;-<span class="st"> "#F58025"</span>  <span class="co"># orange on black</span>
+
+<span class="co"># Defining color palettes:</span>
+pal_princeton &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(orange_basic, <span class="st">"black"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(pal_princeton) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"orange"</span>, <span class="st">"black"</span>)
+
+pal_princeton_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(orange_white, <span class="st">"white"</span>, <span class="st">"black"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(pal_princeton_<span class="dv">1</span>) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"orange_w"</span>, <span class="st">"white"</span>, <span class="st">"black"</span>)
+
+pal_princeton_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dt">pal =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(orange_black, <span class="st">"black"</span>, <span class="st">"white"</span>))
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(pal_princeton_<span class="dv">2</span>) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"orange_b"</span>, <span class="st">"black"</span>, <span class="st">"white"</span>)
+
+<span class="kw"><a href="../reference/seecol.html">seecol</a></span>(pal_princeton_<span class="dv">1</span>)  <span class="co"># view color palette</span></code></pre></div>
+<p><img src="colors_files/figure-html/Princeton-1.png" width="576" style="display: block; margin: auto;"></p>
+</div>
+<div id="c--max-planck-society-germany" class="section level4">
+<h4 class="hasAnchor">
+<a href="#c--max-planck-society-germany" class="anchor"></a>C. <a href="https://www.mpg.de/">Max Planck Society</a>, Germany:</h4>
+<p><img src="../inst/pix/logo_MPG.png" align="right" alt="MPG" width="150px" style="border:10;"></p>
+<p>The CD manual (available <a href="https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html">here</a>) of the <a href="https://www.mpg.de/">Max Planck Society</a> specifies the use of 2 primary colors:</p>
+<ul>
+<li>
+<p>Green as Pantone 328: Using the PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/328-C" class="uri">https://www.pantone.com/color-finder/328-C</a> yields the following color values:</p>
+<ul>
+<li>RGB: <code>0 115 103</code><br>
+</li>
+<li>HEX/HTML: <code>#007367</code><br>
+</li>
+<li>CMYK: <code>100 10 61 38</code>
+</li>
+</ul>
+</li>
+<li>
+<p>Grey as Pantone 427: Using the PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/427-C" class="uri">https://www.pantone.com/color-finder/427-C</a> yields the following color values:</p>
+<ul>
+<li>RGB: <code>208 211 212</code><br>
+</li>
+<li>HEX/HTML: <code>#D0D3D4</code><br>
+</li>
+<li>CMYK: <code>7 3 5 8</code>
+</li>
+</ul>
+</li>
+</ul>
+<p>Again, the easiest way of defining a corresponding color palette is by creating a named vector. To allow for better color gradients, we insert the color <code>"white"</code> between the 2 dedicated colors:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pal_mpg &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"#007367"</span>, <span class="st">"white"</span>, <span class="st">"#D0D3D4"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(pal_mpg) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"mpg green"</span>, <span class="st">"white"</span>, <span class="st">"mpg grey"</span>)</code></pre></div>
+<p>As before, can now use the <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> functions to view, modify, and use the new <code>pal_mpg</code> color palette:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/seecol.html">seecol</a></span>(pal_mpg)</code></pre></div>
+<p><img src="colors_files/figure-html/MPG_seecol-1.png" width="576" style="display: block; margin: auto;"></p>
+</div>
+</div>
 <div id="all-unikn-vignettes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#all-unikn-vignettes" class="anchor"></a>All unikn vignettes</h2>
@@ -397,6 +516,7 @@ cur_col &lt;-<span class="st"> </span><span class="kw"><a href="../reference/use
       </ul>
 </li>
       <li><a href="#examples">Examples</a></li>
+      <li><a href="#generalization-to-other-institutions">Generalization to other institutions</a></li>
       <li><a href="#all-unikn-vignettes">All unikn vignettes</a></li>
       </ul>
 </div>
