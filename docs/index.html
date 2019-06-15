@@ -112,7 +112,8 @@
 <img src = "/Users/hneth/Desktop/stuff/Dropbox/GitHub/unikn/inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
 </a> 
 -->
-<p>The <strong>unikn</strong> package enables using some elements of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>’s corporate design in <a href="https://www.r-project.org/">R</a>. <strong>unikn</strong> currently provides a range of dedicated color palettes for scientific visualizations and defines styled text elements (e.g., for marking, underlining, or plotting colored titles) that are consistent with the official design specifications (see <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">this link</a> for details). While the package is based on detailed specifications of a particular institution, its functionality can easily be adopted and extended for other purposes and institutions.</p>
+<p>Enabling elements of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>’s corporate design in <a href="https://www.r-project.org/">R</a>.</p>
+<p>The <strong>unikn</strong> package provides color functions — by defining dedicated colors and color palettes, and commands for changing, viewing, and using them — and styled text elements (e.g., for marking, underlining, or plotting colored titles). The pre-defined range of colors and text functions is based on the corporate design of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> (see <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">this link</a> for details), but can be adapted and extended for other institutions and purposes.</p>
 <div id="background" class="section level2">
 <h2 class="hasAnchor">
 <a href="#background" class="anchor"></a>Background</h2>
@@ -550,18 +551,14 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 <a href="#post" class="anchor"></a>Post</h3>
 <p>The <code><a href="reference/post.html">post()</a></code> function allows adding text to a rectangular <code>xbox</code> (to provide the functionality of “Merken”):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/xbox.html">xbox</a></span>(<span class="dt">col =</span> <span class="kw"><a href="reference/usecol.html">usecol</a></span>(pal_seeblau[[<span class="dv">5</span>]]), <span class="dt">dim =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">2</span>, <span class="dv">2</span>))
-<span class="kw"><a href="reference/post.html">post</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Für eine"</span>, <span class="st">"Kultur der"</span>, <span class="st">"Kreativität"</span>), <span class="dt">x =</span> .<span class="dv">1</span>, <span class="dt">y =</span> .<span class="dv">8</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>, <span class="dt">font =</span> <span class="dv">2</span>)
-<span class="co">#&gt; Minimum y of layout is -0.0515663085937503, while y_bot = 0.088</span>
-<span class="co">#&gt; Some y-values are beyond current plot dimensions.</span></code></pre></div>
+<span class="kw"><a href="reference/post.html">post</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Für eine"</span>, <span class="st">"Kultur der"</span>, <span class="st">"Kreativität"</span>), <span class="dt">x =</span> .<span class="dv">1</span>, <span class="dt">y =</span> .<span class="dv">8</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>, <span class="dt">font =</span> <span class="dv">2</span>)</code></pre></div>
 <p><img src="inst/pix/README-post_demo-1.png" width="192" style="display: block; margin: auto;"></p>
 </div>
 <div id="headings" class="section level3">
 <h3 class="hasAnchor">
 <a href="#headings" class="anchor"></a>Headings</h3>
 <p>The <code><a href="reference/heading.html">heading()</a></code> function is a convenient wrapper around <code>mark</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/heading.html">heading</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"pa-"</span>, <span class="st">"ra-"</span>, <span class="st">"die-"</span>, <span class="st">"sisch"</span>))
-<span class="co">#&gt; Minimum y of layout is -0.26322508984375, while y_bot = 0.084</span>
-<span class="co">#&gt; Some y-values are beyond current plot dimensions.</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/heading.html">heading</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"pa-"</span>, <span class="st">"ra-"</span>, <span class="st">"die-"</span>, <span class="st">"sisch"</span>))</code></pre></div>
 <p><img src="inst/pix/README-heading_demo-1.png" width="192" style="display: block; margin: auto;"></p>
 <p>Headings violating the official recommendations (e.g., step-wise titles) will generate a message.</p>
 </div>
@@ -666,7 +663,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 <li><p><a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf">Corporate design manual (PDF)</a></p></li>
 <li><p><a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/">Colours for complex graphics (xls)</a></p></li>
 </ul>
-<!-- Update: --><p>[Updated on 2019-06-14.]</p>
+<!-- Update: --><p>[Updated on 2019-06-15.]</p>
 <!-- eof. -->
 </div>
 </div>
@@ -682,6 +679,8 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=unikn">https://​cloud.r-project.org/​package=unikn</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/hneth/unikn">https://​github.com/​hneth/​unikn</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/hneth/unikn/issues">https://​github.com/​hneth/​unikn/​issues</a>

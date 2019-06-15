@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2019 06 05
+## spds, uni.kn | 2019 06 15
 ## -----------------------------------------------
 
 ## site info: ----------
@@ -93,8 +93,8 @@ figures:
   dpi: 96
   dev.args: []
   fig.ext: png
-  fig.width: 7.2
-  fig.height: 5.6
+  #fig.width: 7.2
+  #fig.height: 5.6
   fig.retina: 2
 
 ## eof. ----------
