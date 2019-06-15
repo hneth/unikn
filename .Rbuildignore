@@ -10,4 +10,4 @@
 ^docs$
 ^_pkgdown\.yml$
 ^pkgdown$
-^logo.png$
+^logo.png$ 
