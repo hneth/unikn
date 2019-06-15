@@ -618,6 +618,53 @@ The **unikn** package is work in progress. We are still working on:
 
 Please [contact us](https://www.spds.uni-konstanz.de/) in case you need additional features or want to help us implementing them.
 
+Resources
+---------
+
+The following resources and versions of **unikn** are currently available:
+
+<table style="width:100%;">
+<colgroup>
+<col width="32%" />
+<col width="26%" />
+<col width="41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Type:</th>
+<th align="left">Version:</th>
+<th align="left">URL:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A. <strong>unikn</strong> (R package):</td>
+<td align="left"><a href="https://CRAN.R-project.org/package=unikn">Release version</a></td>
+<td align="left"><a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a></td>
+</tr>
+<tr class="even">
+<td align="left"> </td>
+<td align="left"><a href="https://github.com/hneth/unikn">Development version</a></td>
+<td align="left"><a href="https://github.com/hneth/unikn" class="uri">https://github.com/hneth/unikn</a></td>
+</tr>
+<tr class="odd">
+<td align="left">B. Online documentation:</td>
+<td align="left"><a href="https://hneth.github.io/unikn">Release version</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn" class="uri">https://hneth.github.io/unikn</a></td>
+</tr>
+<tr class="even">
+<td align="left"> </td>
+<td align="left"><a href="https://hneth.github.io/unikn/dev">Development version</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn/dev" class="uri">https://hneth.github.io/unikn/dev</a></td>
+</tr>
+</tbody>
+</table>
+
+Contact
+-------
+
+We appreciate your feedback, comments, or questions. Please report any **unikn**-related issues at <https://github.com/hneth/unikn/issues>.
+
 Copyrights
 ----------
 
@@ -664,7 +711,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-06-14.\]
+\[Updated on 2019-06-15.\]
 
 <!-- eof. -->
 
