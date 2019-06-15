@@ -6,7 +6,7 @@
 
 title: unikn
 
-url: https://hneth.github.io/unikn/
+url: https://hneth.github.io/unikn/ 
 
 authors:
   Hansjoerg Neth:
@@ -17,7 +17,7 @@ authors:
     href: https://www.spds.uni-konstanz.de/
 
 development:
-  mode: release  # devel OR release
+  mode: devel  # devel OR release
 
 # template:
 #  params:
