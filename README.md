@@ -7,14 +7,15 @@
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn) 
 [![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
+[![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
 [![Rdoc](http://www.rdocumentation.org/badges/version/unikn)](http://www.rdocumentation.org/packages/unikn)
 
 -->
-unikn <img src = "./inst/pix/unikn.png" align = "right" alt = "riskyr" width = "125px" />
-=========================================================================================
+unikn <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "125px" />
+==========================================================================================
 
 <!-- unikn pkg logo and link: -->
-<!-- <a href = "https://github.com/hneth/unikn/">
+<!-- <a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
 </a> 
 -->
@@ -75,7 +76,7 @@ The default color palette `pal_unikn` combines:
 -   4 shades of grey (`pal_grau[1:4]`);
 -   the base R color `"black"` (as the last color).
 
-This yields a symmetrical default color palette `pal_unikn` consisting of 11 colors:
+This yields a diverging, symmetrical default color palette `pal_unikn` consisting of 11 colors:
 
 ``` r
 # Default color palette: ----- 
@@ -665,7 +666,7 @@ The following resources and versions of **unikn** are currently available:
 Contact
 -------
 
-We appreciate your feedback, comments, or questions. Please report any **unikn**-related issues at <https://github.com/hneth/unikn/issues>.
+Please report any **unikn**-related issues at <https://github.com/hneth/unikn/issues>. We appreciate your feedback, comments, or questions.
 
 Copyrights
 ----------
@@ -686,7 +687,7 @@ License
 -------
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/"> <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/> </a>
+<a href = "https://CRAN.R-project.org/package=unikn"> <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/> </a>
 
 <!-- License: CC BY-SA 4.0 (also in Description) -->
 <!-- Image with link: -->
@@ -713,7 +714,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-06-15.\]
+\[Updated on 2019-06-16.\]
 
 <!-- eof. -->
 

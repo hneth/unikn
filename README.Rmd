@@ -11,6 +11,7 @@ output: github_document
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn) 
 [![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
+[![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
 [![Rdoc](http://www.rdocumentation.org/badges/version/unikn)](http://www.rdocumentation.org/packages/unikn)
 
 -->
@@ -25,10 +26,10 @@ knitr::opts_chunk$set(
 library(unikn)  # load package
 ```
 
-# unikn  <img src = "./inst/pix/unikn.png" align = "right" alt = "riskyr" width = "125px" />
+# unikn  <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "125px" />
 
 <!-- unikn pkg logo and link: --> 
-<!-- <a href = "https://github.com/hneth/unikn/">
+<!-- <a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
 </a> 
 -->
@@ -96,7 +97,7 @@ The default color palette `pal_unikn` combines:
 - 4 shades of grey (`pal_grau[1:4]`);  
 - the base R color `"black"` (as the last color).   
 
-This yields a symmetrical default color palette `pal_unikn` consisting of 11&nbsp;colors: 
+This yields a diverging, symmetrical default color palette `pal_unikn` consisting of 11&nbsp;colors: 
 
 ```{r pal_unikn, eval = TRUE, fig.width = 8, fig.asp = .75, fig.align = 'center'}
 # Default color palette: ----- 
@@ -634,7 +635,7 @@ Please [contact us](https://www.spds.uni-konstanz.de/) in case you need addition
 
 ## Resources
 
-The following resources and versions of **unikn** are currently available:
+The following resources and versions of **unikn** are currently available: 
 
 Type:                    | Version:           | URL:                           |         
 :------------------------|:-------------------|:-------------------------------| 
@@ -645,8 +646,8 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn)    
 
 ## Contact
 
-We appreciate your feedback, comments, or questions. 
 Please report any **unikn**-related issues at <https://github.com/hneth/unikn/issues>. 
+We appreciate your feedback, comments, or questions. 
 
 ## Copyrights 
 
@@ -668,7 +669,7 @@ We aim for an authentic representation of a highly-specified corporate design. W
 ## License
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/">
+<a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
 </a>
 
