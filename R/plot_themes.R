@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2019 06 15
+## spds | uni.kn |  2019 06 16
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -21,11 +21,12 @@
 
 ## Check if ggplot2 is loaded: 
 
-# if ("ggplot2" %in% (.packages())){
-#   
-#   # message("ggplot2 is loaded.")
-#   
-# }  
+if ("ggplot2" %in% (.packages())){
+  
+  # message("ggplot2 is loaded.")
+  
+} # if ("ggplot2" %in% (.packages())) end. 
+
 
 ## theme_unikn: Define a new ggplot2 theme: ------ 
 
@@ -33,11 +34,17 @@
 
 #' Basic unikn theme for ggplot2.  
 #' 
-#' \code{theme_unikn} provides a basic (lightweight and opinionated) 
-#' theme to use in ggplot2 commands. 
+#' \code{theme_unikn} provides a basic unikn theme 
+#' to use in ggplot2 commands. 
 #' 
-#' @param col_title Color of title (text) elements (optional, numeric). 
-#' Default: \code{col_title = unikn::pal_seeblau[[4]]}. 
+#' The theme is lightweight and no-nonsense, but somewhat 
+#' opinionated (e.g., in using mostly grey scales to 
+#' allow emphasizing data points with color accents). 
+#' 
+#' @param col_title Color of title (text) elements (optional, numeric).  
+#' Default: \code{col_title = "black"}.  
+#' Consider using \code{col_title = unikn::pal_seeblau[[4]]} 
+#' in combination with black or grey data points. 
 #' 
 #' @param base_size Base font size (optional, numeric). 
 #' Default: \code{base_size = 11}. 
@@ -59,55 +66,76 @@
 
 # - Definition: ---- 
 
-theme_unikn <- function(col_title = unikn::pal_seeblau[[4]],
+theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black" 
                         base_size = 11, 
                         base_family = "", 
                         base_line_size = base_size/20, 
                         base_rect_size = base_size/20
-) {
-  
-  ggplot2::theme_bw(base_size = base_size, 
-                    base_family = base_family, 
-                    base_line_size = base_line_size, 
-                    base_rect_size = base_rect_size) %+replace% 
+) {ggplot2::theme_bw(base_size = base_size, 
+                     base_family = base_family, 
+                     base_line_size = base_line_size, 
+                     base_rect_size = base_rect_size) %+replace% 
     ggplot2::theme(#
-      # title: 
+      # titles: 
       title = ggplot2::element_text(color = col_title, face = "bold"), 
-      # axis: #
+      plot.subtitle = ggplot2::element_text(color = grey(.10, 1), face = "plain", hjust = 0),  
+      plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
+      # axes:
       axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
       axis.ticks = ggplot2::element_line(color = "black"), 
-      axis.title = ggplot2::element_text(color = grey(.45, 1)), 
-      axis.text =  ggplot2::element_text(color = grey(.45, 1)), 
+      axis.title = ggplot2::element_text(color = grey(.10, 1)), 
+      axis.text =  ggplot2::element_text(color = grey(.20, 1)), 
       # legend: 
-      legend.title = ggplot2::element_text(color = "black"), 
-      legend.text = ggplot2::element_text(color = "black"), 
-      legend.background = ggplot2::element_blank(), legend.key = ggplot2::element_blank(), 
-      strip.background = ggplot2::element_rect(fill = "transparent", color = "black", size = ggplot2::rel(2)), 
-      strip.text = ggplot2::element_text(color = "black"), 
+      legend.title = ggplot2::element_text(color = grey(.10, 1)), 
+      legend.text = ggplot2::element_text(color = grey(.20, 1)), 
+      legend.background = ggplot2::element_blank(), 
+      legend.key = ggplot2::element_blank(), 
+      # strip: 
+      # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
+      strip.background = ggplot2::element_rect(fill = grey(.95, 1), color = grey(.10, 1), size = ggplot2::rel(5/3)), 
+      strip.text = ggplot2::element_text(color = grey(.20, 1)), 
       # panel: 
-      panel.border = ggplot2::element_blank(), 
+      panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.60, 1), linetype = "dashed", size = ggplot2::rel(2/3)), 
       # panel.grid = ggplot2::element_blank(), 
-      panel.grid.major = ggplot2::element_line(color = grey(.75, 1), linetype = "dashed", size = ggplot2::rel(1/2)), 
-      panel.grid.minor = ggplot2::element_line(color = grey(.85, 1), linetype = "dashed", size = ggplot2::rel(1/3)), 
+      panel.grid.major = ggplot2::element_line(color = grey(.70, 1), linetype = "dashed", size = ggplot2::rel(1/2)), 
+      panel.grid.minor = ggplot2::element_line(color = grey(.80, 1), linetype = "dashed", size = ggplot2::rel(1/3)), 
       panel.background = ggplot2::element_blank(), 
       # background:  
       plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
       complete = TRUE)
-}
-
+  
+} # theme_unikn end. 
 
 # +++ here now +++ 
 
-# # Check: 
-# ggplot(diamonds, aes(x = x, y = price)) +
-#   geom_jitter(alpha = 1/5) +
+# ## Check: 
+# 
+# # (1) ggplot2::diamonds:
+# 
+# ggplot(diamonds, aes(x = x, y = price, color = cut)) +
+#   geom_jitter(alpha = 4/6) +
 #   # geom_violin(color = Seeblau, fill = NA) +
-#   labs(title = "My fancy plot",
-#        x = "Label of x axis", y = "Price/value",
-#        caption = "Add caption here.") +
-#   theme_unikn(title_col = unikn::pal_seeblau[[4]], base_size = 11)
-
-
+#   # facet_wrap(~cut) +
+#   scale_color_manual(values = usecol(pal = viridisLite::magma(n = 5))) +
+#   labs(tag = "A", 
+#        title = "Plot title", 
+#        # subtitle = "Subtitle of this plot", 
+#        x = "Label of x-axis", y = "Labe of y-axis",
+#        color = "Color label:", 
+#        caption = "Data from ggplot2::diamonds") +
+#   theme_unikn(col_title = unikn::pal_seeblau[[5]], base_size = 11)
+# 
+# # (2) ggplot2::mpg:
+# 
+# ggplot(mpg, aes(x = cty, y = hwy, color = manufacturer)) +
+#   geom_jitter(size = 2, alpha = 2/3) +
+#   facet_wrap(~cyl) +
+#   scale_color_manual(values = usecol(pal = c(rev(pal_seeblau), "white", pal_bordeaux), n = 15)) +
+#   labs(tag = "B", 
+#        title = "Car data plot", 
+#        # subtitle = "Demo of some faceted plot", 
+#        caption = "Data from ggplot2::mpg") +
+#   theme_unikn(col_title = "black", base_size = 11)
 
 ## ToDo: ------
 

@@ -9,8 +9,10 @@ theme_unikn(col_title = unikn::pal_seeblau[[4]], base_size = 11,
   base_rect_size = base_size/20)
 }
 \arguments{
-\item{col_title}{Color of title (text) elements (optional, numeric). 
-Default: \code{col_title = unikn::pal_seeblau[[4]]}.}
+\item{col_title}{Color of title (text) elements (optional, numeric).
+Default: \code{col_title = "black"}.  
+Consider using \code{col_title = unikn::pal_seeblau[[4]]} 
+in combination with black or grey data points.}
 
 \item{base_size}{Base font size (optional, numeric). 
 Default: \code{base_size = 11}.}
@@ -25,8 +27,13 @@ Default: \code{base_line_size = base_size/20}.}
 Default: \code{base_rect_size = base_size/20}.}
 }
 \description{
-\code{theme_unikn} provides a basic (lightweight and opinionated) 
-theme to use in ggplot2 commands.
+\code{theme_unikn} provides a basic unikn theme 
+to use in ggplot2 commands.
+}
+\details{
+The theme is lightweight and no-nonsense, but somewhat 
+opinionated (e.g., in using mostly grey scales to 
+allow emphasizing data points with color accents).
 }
 \seealso{
 Other plot functions: \code{\link{slide}},
