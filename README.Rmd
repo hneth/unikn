@@ -5,6 +5,7 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
 
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
+[![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn) 
 
 <!-- Status badges:
 
@@ -588,15 +589,15 @@ uline(labels = c("University of Freiburg"),
       x = .6, y = .85, font = 2, cex = 1, 
       col = pal_freiburg_basic[[1]], col_bg = pal_freiburg_basic[[3]], 
       new_plot = "slide")
-mark(labels = c("Die Wahrheit", "wird Euch", "frei machen."), 
+mark(labels = c("Die Wahrheit", "wird euch", "frei machen."), 
      x = 0, y = .90, y_layout = 0, cex = 1.5, 
      col = c("white"), col_bg = rev(usecol(pal_freiburg_blue, 3)))
 
 # (B) Using orange_white or pal_princeton:
 uline(labels = c("Princeton University"), 
       x = .6, y = .5, font = 2, cex = 1, col_bg = orange_white)
-mark(labels = c("Go", "Tigers!"), 
-     x = 0, y = .55, y_layout = 0, cex = 1.8,  
+mark(labels = c("Go", "tigers!"), 
+     x = 0, y = .55, y_layout = 0, cex = 2.0,  
      col = c("black", "white"), col_bg = pal_princeton)
 
 # (C) Using pal_mpg:
