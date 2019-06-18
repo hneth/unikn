@@ -95,10 +95,11 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
       strip.background = ggplot2::element_rect(fill = grey(.95, 1), color = grey(.10, 1), size = ggplot2::rel(5/3)), 
       strip.text = ggplot2::element_text(color = grey(.20, 1)), 
       # panel: 
-      panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.60, 1), linetype = "dashed", size = ggplot2::rel(2/3)), 
+      # panel.border = ggplot2::element_blank(), 
+      panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
       # panel.grid = ggplot2::element_blank(), 
-      panel.grid.major = ggplot2::element_line(color = grey(.70, 1), linetype = "dashed", size = ggplot2::rel(1/2)), 
-      panel.grid.minor = ggplot2::element_line(color = grey(.80, 1), linetype = "dashed", size = ggplot2::rel(1/3)), 
+      panel.grid.major = ggplot2::element_line(color = grey(.65, 1), linetype = "dashed", size = ggplot2::rel(1/2)), 
+      panel.grid.minor = ggplot2::element_line(color = grey(.70, 1), linetype = "dotted", size = ggplot2::rel(1/3)), 
       panel.background = ggplot2::element_blank(), 
       # background:  
       plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
