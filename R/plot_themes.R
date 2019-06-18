@@ -109,7 +109,7 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
 # +++ here now +++ 
 
 # ## Check: 
-# 
+
 # # (1) ggplot2::diamonds:
 # 
 # ggplot(diamonds, aes(x = x, y = price, color = cut)) +
@@ -117,11 +117,11 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
 #   # geom_violin(color = Seeblau, fill = NA) +
 #   # facet_wrap(~cut) +
 #   scale_color_manual(values = usecol(pal = viridisLite::magma(n = 5))) +
-#   labs(tag = "A", 
-#        title = "Plot title", 
-#        # subtitle = "Subtitle of this plot", 
+#   labs(tag = "A",
+#        title = "Plot title",
+#        # subtitle = "Subtitle of this plot",
 #        x = "Label of x-axis", y = "Labe of y-axis",
-#        color = "Color label:", 
+#        color = "Color label:",
 #        caption = "Data from ggplot2::diamonds") +
 #   theme_unikn(col_title = unikn::pal_seeblau[[5]], base_size = 11)
 # 
@@ -131,9 +131,9 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
 #   geom_jitter(size = 2, alpha = 2/3) +
 #   facet_wrap(~cyl) +
 #   scale_color_manual(values = usecol(pal = c(rev(pal_seeblau), "white", pal_bordeaux), n = 15)) +
-#   labs(tag = "B", 
-#        title = "Car data plot", 
-#        # subtitle = "Demo of some faceted plot", 
+#   labs(tag = "B",
+#        title = "Car data plot",
+#        # subtitle = "Demo of some faceted plot",
 #        caption = "Data from ggplot2::mpg") +
 #   theme_unikn(col_title = "black", base_size = 11)
 
