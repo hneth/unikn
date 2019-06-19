@@ -1,17 +1,17 @@
 
 # Current version
 
-The current development version of **unikn** (0.1.0.9000+) is available at <https://github.com/hneth/unikn/>. 
+The current development version of **unikn** (0.1.0.9002+) is available at <https://github.com/hneth/unikn/>. 
 
 Changes since last release: 
 
 ## New functionality 
 
-- Added `theme_unikn()` as a simple **ggplot2** theme. 
+- Added `theme_unikn()` as a basic **ggplot2** theme. 
 
 ## Bug fixes 
 
-- None yet. 
+- None yet, but see 2 issues at <https://github.com/hneth/unikn/issues>. 
 
 ---------- 
 
