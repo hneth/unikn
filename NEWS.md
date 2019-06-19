@@ -1,5 +1,5 @@
 
-# Current version
+# Current version 
 
 The current development version of **unikn** (0.1.0.9002+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -18,3 +18,5 @@ Changes since last release:
 # unikn 0.1.0
 
 - Initial release of **unikn** (0.1.0) on CRAN: <https://CRAN.R-project.org/package=unikn> [2019-06-15] 
+
+<!-- eof -->
