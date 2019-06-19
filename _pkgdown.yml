@@ -56,11 +56,9 @@ navbar:
 ## reference: ----------
 
 reference:
-- title: Color
-  desc: Using colors, color palettes, and color functions. 
+- title: Colors
+  desc: Basic colors and color palettes. 
   contents:
-  - seecol
-  - usecol
   - Bordeaux
   - Karpfenblau
   - Grau
@@ -71,6 +69,11 @@ reference:
   - Seegruen
   - Signal
   - starts_with("pal_")
+- title: Color functions
+  desc: Commands for viewing, changing, and using colors and color palettes. 
+  contents:
+  - seecol
+  - usecol
 - title: Graphics
   desc: Objects and themes for plotting. 
   contents:
@@ -78,7 +81,7 @@ reference:
   - xbox
   - theme_unikn
 - title: Text
-  desc: Text boxes and text decorations. 
+  desc: Text decorations. 
   contents:
   - heading
   - mark
