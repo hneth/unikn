@@ -20,10 +20,12 @@ See \url{https://www.uni-konstanz.de} for details.
 Peach  # HEX character "#FEA090" (as value)
 all.equal(Peach, pal_peach[[4]])  # TRUE (same HEX values)
 
+seecol(Peach)  # view color and details
+
 }
 \seealso{
-\code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_peach}} for the corresponding color palette; 
+\code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{seecol}} to show and use color palettes.
 

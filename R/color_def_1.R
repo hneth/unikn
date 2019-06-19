@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## spds | uni.kn |  2019 05 22
+## spds | uni.kn |  2019 06 18
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -260,11 +260,13 @@ pal_seeblau <- data.frame(                               #  element:
 #' Seeblau  # HEX character "#59C7EB" (as value)
 #' all.equal(Seeblau, pal_seeblau[[3]])  # TRUE (same HEX values)
 #' 
+#' seecol(Seeblau)  # view color and details
+#' 
 #' @family preferred colors 
 #'
 #' @seealso
-#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_seeblau}} for the corresponding color palette; 
+#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{seecol}} to show color palettes;
 #' \code{\link{usecol}} to use color palettes. 
@@ -373,11 +375,13 @@ pal_peach <- data.frame(                               #  Element:
 #' Peach  # HEX character "#FEA090" (as value)
 #' all.equal(Peach, pal_peach[[4]])  # TRUE (same HEX values)
 #' 
+#' seecol(Peach)  # view color and details
+#' 
 #' @family preferred colors 
 #'
-#' @seealso
-#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
+#' @seealso 
 #' \code{\link{pal_peach}} for the corresponding color palette; 
+#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{seecol}} to show and use color palettes.  
 #'
@@ -482,11 +486,13 @@ pal_grau <- data.frame(                               #  element:
 #' Grau  # HEX character "#9AA0A7" (as value)
 #' all.equal(Grau, pal_grau[[3]])  # TRUE (same HEX values)
 #' 
+#' seecol(Grau)  # view color and details
+#' 
 #' @family preferred colors 
 #'
 #' @seealso
-#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_grau}} for the corresponding color palette; 
+#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{seecol}} to show color palettes;
 #' \code{\link{usecol}} to use color palettes. 
@@ -597,11 +603,13 @@ pal_petrol <- data.frame(                               #  element:
 #' Petrol  # HEX character "#077187" (as value)
 #' all.equal(Petrol, pal_petrol[[4]])  # TRUE (same HEX values)
 #' 
+#' seecol(Petrol)  # view color and details
+#' 
 #' @family preferred colors 
 #'
 #' @seealso
-#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_petrol}} for the corresponding color palette; 
+#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{seecol}} to show color palettes;
 #' \code{\link{usecol}} to use color palettes. 
@@ -708,11 +716,13 @@ pal_seegruen <- data.frame(                               #  element:
 #' Seegruen  # HEX character "#0A9086" (as value)
 #' all.equal(Seegruen, pal_seegruen[[4]])  # TRUE (same HEX values)
 #' 
+#' seecol(Seegruen)  # view color and details
+#' 
 #' @family preferred colors 
 #'
 #' @seealso
-#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_seegruen}} for the corresponding color palette; 
+#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{seecol}} to show color palettes;
 #' \code{\link{usecol}} to use color palettes. 
@@ -819,6 +829,8 @@ pal_karpfenblau <- data.frame(                               #  element:
 #' Karpfenblau  # HEX character "#3E5496" (as value)
 #' all.equal(Karpfenblau, pal_karpfenblau[[4]])  # TRUE (same HEX values)
 #' 
+#' seecol(Karpfenblau)  # view color and details
+#' 
 #' @family preferred colors 
 #'
 #' @seealso
@@ -836,7 +848,6 @@ names(Karpfenblau) <- "Karpfenblau"
 
 ## Check:
 # Karpfenblau  #  "#3E5496"
-
 
 
 #  (7) pinky: -----
@@ -931,11 +942,13 @@ pal_pinky <- data.frame(                               #  Element:
 #' Pinky  # HEX character "#E0607E" (as value)
 #' all.equal(Pinky, pal_pinky[[4]])  # TRUE (same HEX values)
 #' 
+#' seecol(Pinky)  # view color and details
+#' 
 #' @family preferred colors 
 #'
-#' @seealso
-#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
+#' @seealso 
 #' \code{\link{pal_pinky}} for the corresponding color palette; 
+#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{seecol}} to show color palettes;
 #' \code{\link{usecol}} to use color palettes. 
@@ -1041,11 +1054,13 @@ pal_bordeaux <- data.frame(                               #  Element:
 #' Bordeaux  # HEX character "#8E2043" (as value)
 #' all.equal(Bordeaux, pal_bordeaux[[4]])  # TRUE (same HEX values)
 #' 
+#' seecol(Bordeaux)  # view color and details
+#' 
 #' @family preferred colors 
 #'
 #' @seealso 
-#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_bordeaux}} for the corresponding color palette; 
+#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{seecol}} to show color palettes;
 #' \code{\link{usecol}} to use color palettes. 
@@ -1170,11 +1185,13 @@ pal_signal <- data.frame(                               #  Element:
 #' Signal  # HEX character "#EFDC60" (as value)
 #' all.equal(Signal, pal_signal[[2]])  # TRUE (same HEX values)
 #' 
+#' seecol(Signal)  # view color and details
+#' 
 #' @family preferred colors 
 #'
 #' @seealso
-#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_signal}} for the corresponding color palette; 
+#' \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 #' \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 #' \code{\link{seecol}} to show color palettes;
 #' \code{\link{usecol}} to use color palettes.  

@@ -20,10 +20,12 @@ See \url{https://www.uni-konstanz.de} for details.
 Bordeaux  # HEX character "#8E2043" (as value)
 all.equal(Bordeaux, pal_bordeaux[[4]])  # TRUE (same HEX values)
 
+seecol(Bordeaux)  # view color and details
+
 }
 \seealso{
-\code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_bordeaux}} for the corresponding color palette; 
+\code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{seecol}} to show color palettes;
 \code{\link{usecol}} to use color palettes.

@@ -20,6 +20,8 @@ See \url{https://www.uni-konstanz.de} for details.
 Karpfenblau  # HEX character "#3E5496" (as value)
 all.equal(Karpfenblau, pal_karpfenblau[[4]])  # TRUE (same HEX values)
 
+seecol(Karpfenblau)  # view color and details
+
 }
 \seealso{
 \code{\link{pal_karpfenblau}} for the corresponding color palette; 
