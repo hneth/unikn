@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.0.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.0.9002</span>
       </span>
     </div>
 
@@ -96,20 +96,22 @@
     
     
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
+
 <!-- Status badges:
 
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn) 
 [![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
+[![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
 [![Rdoc](http://www.rdocumentation.org/badges/version/unikn)](http://www.rdocumentation.org/packages/unikn)
 
 -->
 <div id="unikn" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#unikn" class="anchor"></a>unikn <img src="inst/pix/unikn.png" align="right" alt="riskyr" width="125px">
+<a href="#unikn" class="anchor"></a>unikn <img src="inst/pix/unikn.png" align="right" alt="unikn::" width="125px">
 </h1></div>
 <!-- unikn pkg logo and link: -->
-<!-- <a href = "https://github.com/hneth/unikn/">
+<!-- <a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "/Users/hneth/Desktop/stuff/Dropbox/GitHub/unikn/inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
 </a> 
 -->
@@ -164,7 +166,7 @@ devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumen
 </li>
 <li>the base R color <code>"black"</code> (as the last color).</li>
 </ul>
-<p>This yields a symmetrical default color palette <code>pal_unikn</code> consisting of 11 colors:</p>
+<p>This yields a diverging, symmetrical default color palette <code>pal_unikn</code> consisting of 11 colors:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Default color palette: ----- </span>
 <span class="co"># pal_unikn  # 11 default colors</span>
 
@@ -372,12 +374,12 @@ cur_col &lt;-<span class="st"> </span><span class="kw"><a href="reference/usecol
 
 <span class="co"># (3) Use ggplot2: ---- </span>
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)
-<span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(df, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">fill =</span> group)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_ribbon">geom_area</a></span>(<span class="dt">alpha =</span> <span class="dv">1</span>, <span class="dt">color =</span> Grau, <span class="dt">size =</span> .<span class="dv">01</span> ) <span class="op">+</span>
-<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggtheme">theme_bw</a></span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_fill_manual</a></span>(<span class="dt">values =</span> cur_col) <span class="op">+</span>
-<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggtheme">theme_void</a></span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</code></pre></div>
+<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(df, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">fill =</span> group)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html">geom_area</a></span>(<span class="dt">alpha =</span> <span class="dv">1</span>, <span class="dt">color =</span> Grau, <span class="dt">size =</span> .<span class="dv">01</span> ) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> cur_col) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</code></pre></div>
 <p><img src="inst/pix/README-use_pal_ggplot2-1.png" align="center" width="500px" alt="Using pal_unikn in ggplot" style="border:10;"></p>
 </div>
 <div id="generalization-to-other-institutions" class="section level2">
@@ -466,12 +468,12 @@ pal_princeton_<span class="dv">2</span> &lt;-<span class="st"> </span><span clas
 my_pal &lt;-<span class="st"> </span><span class="kw"><a href="reference/usecol.html">usecol</a></span>(<span class="dt">pal =</span> pal_princeton_<span class="dv">1</span>, <span class="dt">n =</span> ngroup)
 
 <span class="co"># Use my_pal for plotting: </span>
-<span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(df, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">fill =</span> group)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_ribbon">geom_area</a></span>(<span class="dt">alpha =</span> <span class="dv">1</span>, <span class="dt">color =</span> Grau, <span class="dt">size =</span> .<span class="dv">01</span> ) <span class="op">+</span>
-<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggtheme">theme_bw</a></span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_fill_manual</a></span>(<span class="dt">values =</span> my_pal) <span class="op">+</span>
-<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggtheme">theme_void</a></span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</code></pre></div>
+<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(df, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">fill =</span> group)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html">geom_area</a></span>(<span class="dt">alpha =</span> <span class="dv">1</span>, <span class="dt">color =</span> Grau, <span class="dt">size =</span> .<span class="dv">01</span> ) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> my_pal) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</code></pre></div>
 <p><img src="inst/pix/README-use_ggplot2_princeton-1.png" align="center" width="500px" alt="pal_unikn" style="border:10;"></p>
 </div>
 <div id="c--max-planck-society-germany" class="section level4">
@@ -582,15 +584,15 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
       <span class="dt">x =</span> .<span class="dv">6</span>, <span class="dt">y =</span> .<span class="dv">85</span>, <span class="dt">font =</span> <span class="dv">2</span>, <span class="dt">cex =</span> <span class="dv">1</span>, 
       <span class="dt">col =</span> pal_freiburg_basic[[<span class="dv">1</span>]], <span class="dt">col_bg =</span> pal_freiburg_basic[[<span class="dv">3</span>]], 
       <span class="dt">new_plot =</span> <span class="st">"slide"</span>)
-<span class="kw"><a href="reference/mark.html">mark</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Die Wahrheit"</span>, <span class="st">"wird Euch"</span>, <span class="st">"frei machen."</span>), 
+<span class="kw"><a href="reference/mark.html">mark</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Die Wahrheit"</span>, <span class="st">"wird euch"</span>, <span class="st">"frei machen."</span>), 
      <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> .<span class="dv">90</span>, <span class="dt">y_layout =</span> <span class="dv">0</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>, 
      <span class="dt">col =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"white"</span>), <span class="dt">col_bg =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rev">rev</a></span>(<span class="kw"><a href="reference/usecol.html">usecol</a></span>(pal_freiburg_blue, <span class="dv">3</span>)))
 
 <span class="co"># (B) Using orange_white or pal_princeton:</span>
 <span class="kw"><a href="reference/uline.html">uline</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Princeton University"</span>), 
       <span class="dt">x =</span> .<span class="dv">6</span>, <span class="dt">y =</span> .<span class="dv">5</span>, <span class="dt">font =</span> <span class="dv">2</span>, <span class="dt">cex =</span> <span class="dv">1</span>, <span class="dt">col_bg =</span> orange_white)
-<span class="kw"><a href="reference/mark.html">mark</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Go"</span>, <span class="st">"Tigers!"</span>), 
-     <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> .<span class="dv">55</span>, <span class="dt">y_layout =</span> <span class="dv">0</span>, <span class="dt">cex =</span> <span class="fl">1.8</span>,  
+<span class="kw"><a href="reference/mark.html">mark</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Go"</span>, <span class="st">"tigers!"</span>), 
+     <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> .<span class="dv">55</span>, <span class="dt">y_layout =</span> <span class="dv">0</span>, <span class="dt">cex =</span> <span class="fl">2.0</span>,  
      <span class="dt">col =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"black"</span>, <span class="st">"white"</span>), <span class="dt">col_bg =</span> pal_princeton)
 
 <span class="co"># (C) Using pal_mpg:</span>
@@ -665,7 +667,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 <div id="contact" class="section level2">
 <h2 class="hasAnchor">
 <a href="#contact" class="anchor"></a>Contact</h2>
-<p>We appreciate your feedback, comments, or questions. Please report any <strong>unikn</strong>-related issues at <a href="https://github.com/hneth/unikn/issues" class="uri">https://github.com/hneth/unikn/issues</a>.</p>
+<p>Please report any <strong>unikn</strong>-related issues at <a href="https://github.com/hneth/unikn/issues" class="uri">https://github.com/hneth/unikn/issues</a>. We appreciate your feedback, comments, or questions.</p>
 </div>
 <div id="copyrights" class="section level2">
 <h2 class="hasAnchor">
@@ -687,7 +689,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 <h2 class="hasAnchor">
 <a href="#license" class="anchor"></a>License</h2>
 <!-- unikn pkg logo and link: -->
-<p><a href="https://github.com/hneth/unikn/"> <img src="inst/pix/unikn.png" alt="unikn::" align="right" width="125px" style="width: 125px; float: right; border:10;"></a></p>
+<p><a href="https://CRAN.R-project.org/package=unikn"> <img src="inst/pix/unikn.png" alt="unikn::" align="right" width="125px" style="width: 125px; float: right; border:10;"></a></p>
 <!-- License: CC BY-SA 4.0 (also in Description) -->
 <!-- Image with link: -->
 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a></p>
@@ -708,7 +710,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 <li><p><a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf">Corporate design manual (PDF)</a></p></li>
 <li><p><a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/">Colours for complex graphics (xls)</a></p></li>
 </ul>
-<!-- Update: --><p>[Updated on 2019-06-15.]</p>
+<!-- Update: --><p>[Updated on 2019-06-19.]</p>
 <!-- eof. -->
 </div>
 </div>
@@ -725,8 +727,6 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 <h2>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=unikn">https://​cloud.r-project.org/​package=unikn</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/hneth/unikn">https://​github.com/​hneth/​unikn</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/hneth/unikn/issues">https://​github.com/​hneth/​unikn/​issues</a>
 </li>
@@ -755,7 +755,14 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 </ul>
 </div>
 
-      </div>
+      <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=unikn"><img src="http://www.r-pkg.org/badges/version/unikn" alt="CRAN_status"></a></li>
+<li><a href="http://www.r-pkg.org/pkg/unikn"><img src="http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen" alt="Downloads"></a></li>
+</ul>
+</div>
+</div>
 
 </div>
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>uni.kn peach color palette. — pal_peach • unikn</title>
+<title>Basic unikn theme for ggplot2. — theme_unikn • unikn</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -37,11 +37,10 @@
 
 
 
-<meta property="og:title" content="uni.kn peach color palette. — pal_peach" />
+<meta property="og:title" content="Basic unikn theme for ggplot2. — theme_unikn" />
 
-<meta property="og:description" content="pal_peach provides an additional uni.kn color palette  
-as a data frame containing 5 colors (shades of 
-Peach)." />
+<meta property="og:description" content="theme_unikn provides a basic unikn theme 
+to use in ggplot2 commands." />
 
 <meta property="og:image" content="https://hneth.github.io/unikn/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -129,68 +128,76 @@ Peach)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>uni.kn peach color palette.</h1>
+    <h1>Basic unikn theme for ggplot2.</h1>
     
-    <div class="hidden name"><code>pal_peach.Rd</code></div>
+    <div class="hidden name"><code>theme_unikn.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p><code>pal_peach</code> provides an additional uni.kn color palette  
-as a data frame containing 5 colors (shades of 
-<code><a href='Peach.html'>Peach</a></code>).</p>
+    <p><code>theme_unikn</code> provides a basic unikn theme 
+to use in ggplot2 commands.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>pal_peach</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>An object of class <code>data.frame</code> with 1 rows and 5 columns.</p>
+    <pre class="usage"><span class='fu'>theme_unikn</span>(<span class='kw'>col_title</span> <span class='kw'>=</span> <span class='kw pkg'>unikn</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/unikn/topics/pal_seeblau'>pal_seeblau</a></span><span class='kw'>[[</span><span class='fl'>4</span>]], <span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>11</span>,
+  <span class='kw'>base_family</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>base_line_size</span> <span class='kw'>=</span> <span class='no'>base_size</span>/<span class='fl'>20</span>,
+  <span class='kw'>base_rect_size</span> <span class='kw'>=</span> <span class='no'>base_size</span>/<span class='fl'>20</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>col_title</th>
+      <td><p>Color of title (text) elements (optional, numeric).
+Default: <code>col_title = "black"</code>.  
+Consider using <code>col_title = unikn::pal_seeblau[[4]]</code> 
+in combination with black or grey data points.</p></td>
+    </tr>
+    <tr>
+      <th>base_size</th>
+      <td><p>Base font size (optional, numeric). 
+Default: <code>base_size = 11</code>.</p></td>
+    </tr>
+    <tr>
+      <th>base_family</th>
+      <td><p>Base font family (optional, character). 
+Default: <code>base_family = ""</code>.</p></td>
+    </tr>
+    <tr>
+      <th>base_line_size</th>
+      <td><p>Base line size (optional, numeric). 
+Default: <code>base_line_size = base_size/20</code>.</p></td>
+    </tr>
+    <tr>
+      <th>base_rect_size</th>
+      <td><p>Base rectangle size (optional, numeric). 
+Default: <code>base_rect_size = base_size/20</code>.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>See <a href='https://www.uni-konstanz.de'>https://www.uni-konstanz.de</a> for details.</p>
+    <p>The theme is lightweight and no-nonsense, but somewhat 
+opinionated (e.g., in using mostly grey scales to 
+allow emphasizing data points with color accents).</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='pal_unikn.html'>pal_unikn</a></code> for the unikn default color palette with all 5 colors of <code><a href='pal_seeblau.html'>pal_seeblau</a></code>; 
-<code><a href='pal_pinky.html'>pal_pinky</a></code> and <code><a href='pal_bordeaux.html'>pal_bordeaux</a></code> for alternative redish uni.kn color palettes;  
-<code><a href='pal_unikn_pref.html'>pal_unikn_pref</a></code> for a uni.kn color palette with all preferred colors; 
-<code><a href='seecol.html'>seecol</a></code> to show color palettes;
-<code><a href='usecol.html'>usecol</a></code> to use color palettes.</p>
-<p>Other color palettes: <code><a href='pal_bordeaux.html'>pal_bordeaux</a></code>,
-  <code><a href='pal_grau.html'>pal_grau</a></code>, <code><a href='pal_karpfenblau.html'>pal_karpfenblau</a></code>,
-  <code><a href='pal_petrol.html'>pal_petrol</a></code>, <code><a href='pal_pinky.html'>pal_pinky</a></code>,
-  <code><a href='pal_seeblau.html'>pal_seeblau</a></code>, <code><a href='pal_seegruen.html'>pal_seegruen</a></code>,
-  <code><a href='pal_signal.html'>pal_signal</a></code>, <code><a href='pal_unikn_dark.html'>pal_unikn_dark</a></code>,
-  <code><a href='pal_unikn_light.html'>pal_unikn_light</a></code>,
-  <code><a href='pal_unikn_pair.html'>pal_unikn_pair</a></code>,
-  <code><a href='pal_unikn_ppt.html'>pal_unikn_ppt</a></code>,
-  <code><a href='pal_unikn_pref.html'>pal_unikn_pref</a></code>,
-  <code><a href='pal_unikn_web.html'>pal_unikn_web</a></code>, <code><a href='pal_unikn.html'>pal_unikn</a></code></p></div>
+    <div class='dont-index'><p>Other plot functions: <code><a href='slide.html'>slide</a></code>,
+  <code><a href='xbox.html'>xbox</a></code></p></div>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>pal_peach</span></div><div class='output co'>#&gt;    peach1  peach2  peach3  peach4  peach5
-#&gt; 1 #FEE2DD #FECFC7 #FFB8AC #FEA090 #FF8E7B</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/dim'>dim</a></span>(<span class='no'>pal_peach</span>)  <span class='co'># 1 5</span></div><div class='output co'>#&gt; [1] 1 5</div><div class='input'><span class='no'>pal_peach</span>[<span class='fl'>4</span>]    <span class='co'># preferred (named) color "peach4" </span></div><div class='output co'>#&gt;    peach4
-#&gt; 1 #FEA090</div><div class='input'><span class='no'>pal_peach</span><span class='kw'>[[</span><span class='fl'>4</span>]]  <span class='co'># preferred color "peach4" OR "#FEA090"</span></div><div class='output co'>#&gt; [1] "#FEA090"</div><div class='input'>
-<span class='co'># Plotting palette:</span>
-<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_peach</span>)</div><div class='img'><img src='pal_peach-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#format">Format</a></li>
-
       <li><a href="#details">Details</a></li>
 
       <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+          </ul>
 
   </div>
 </div>
