@@ -37,7 +37,7 @@ pal_unikn_web <- data.frame(                                 #  element:
 #'
 #' This is the primary (web/sRGB) scale. 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_unikn_web
@@ -107,7 +107,7 @@ pal_unikn_ppt <- data.frame(                             #  element:
 #' This is a secondary (ppt) variant with more muted colors.
 #' 
 #' See \code{\link{pal_unikn}} for the primary/default (web/sRGB) scale 
-#' and \url{https://www.uni-konstanz.de} for details.
+#' and \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_unikn_ppt
@@ -175,7 +175,7 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 #' as a data frame containing 5 colors (shades of 
 #' \code{\link{Seeblau}}).  
 #' 
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_seeblau
@@ -226,7 +226,7 @@ pal_seeblau <- data.frame(                               #  element:
 ##|  (as an atomic data frame) and is defined as
 ##|  \code{\link{pal_seeblau}[3]}.
 ##|  
-##|  See \url{https://www.uni-konstanz.de} for details.
+##|  See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 ##|  
 ##|  @examples
 ##|  # seeblau  # "seeblau3" with value "#59C7EB" (as df)
@@ -254,7 +254,7 @@ pal_seeblau <- data.frame(                               #  element:
 #' (as an atomic HEX character value) and is defined as 
 #' \code{\link{pal_seeblau}[[3]]}. 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' Seeblau  # HEX character "#59C7EB" (as value)
@@ -301,7 +301,7 @@ names(Seeblau) <- "Seeblau"
 #' as a data frame containing 5 colors (shades of 
 #' \code{\link{Peach}}). 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_peach
@@ -341,7 +341,7 @@ pal_peach <- data.frame(                               #  Element:
 ##| (as an atomic data frame) and is defined as
 ##| \code{\link{pal_peach}[4]}.
 ##| 
-##| See \url{https://www.uni-konstanz.de} for details.
+##| See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 ##| 
 ##| @examples
 ##| # peach  # name "peach4" with color value "#FEA090" (as df)
@@ -369,7 +369,7 @@ pal_peach <- data.frame(                               #  Element:
 #' (as an atomic HEX character value) and is defined as 
 #' \code{\link{pal_peach}[[4]]}. 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' Peach  # HEX character "#FEA090" (as value)
@@ -414,7 +414,7 @@ names(Peach) <- "Peach"
 #' as a data frame containing 5 colors (shades of 
 #' \code{\link{Grau}} or grey). 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_grau
@@ -453,7 +453,7 @@ pal_grau <- data.frame(                               #  element:
 ##| (as an atomic data frame) and is defined as
 ##| \code{\link{pal_grau}[3]}.
 ##| 
-##| See \url{https://www.uni-konstanz.de} for details.
+##| See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 ##| 
 ##| @examples
 ##| # grau  # name "grau3" and color value "#9AA0A7" (as df)
@@ -480,7 +480,7 @@ pal_grau <- data.frame(                               #  element:
 #' (as an atomic HEX character value) and is defined as 
 #' \code{\link{pal_grau}[[3]]}. 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' Grau  # HEX character "#9AA0A7" (as value)
@@ -528,7 +528,7 @@ names(Grau) <- "Grau"
 #' as a data frame containing 5 colors (shades of 
 #' \code{\link{Petrol}} or grue). 
 #'
-#' See \url{https://www.uni-konstanz.de} for details, and 
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details, and 
 #' \url{https://en.wikipedia.org/wiki/New_riddle_of_induction} 
 #' for the portmanteau "grue".
 #'
@@ -570,7 +570,7 @@ pal_petrol <- data.frame(                               #  element:
 ##| (as an atomic data frame) and is defined as 
 ##| \code{\link{pal_petrol}[4]}. 
 ##| 
-##| See \url{https://www.uni-konstanz.de} for details.
+##| See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 ##|
 ##| @examples
 ##| # petrol  # name "petrol" and color value "#077187" (as df)
@@ -597,7 +597,7 @@ pal_petrol <- data.frame(                               #  element:
 #' (as an atomic HEX character value) and is defined as 
 #' \code{\link{pal_petrol}[[4]]}. 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' Petrol  # HEX character "#077187" (as value)
@@ -643,7 +643,7 @@ names(Petrol) <- "Petrol"
 #' as a data frame containing 5 colors (shades of 
 #' \code{\link{Seegruen}}). 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_seegruen
@@ -683,7 +683,7 @@ pal_seegruen <- data.frame(                               #  element:
 ##| (as an atomic data frame) and is defined as 
 ##| \code{\link{pal_seegruen}[4]}. 
 ##|
-##| See \url{https://www.uni-konstanz.de} for details.
+##| See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 ##|
 ##| @examples
 ##| # seegruen  # name "seegruen4" and color value "#0A9086" (as df)
@@ -710,7 +710,7 @@ pal_seegruen <- data.frame(                               #  element:
 #' (as an atomic HEX character value) and is defined as 
 #' \code{\link{pal_seegruen}[[4]]}. 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' Seegruen  # HEX character "#0A9086" (as value)
@@ -757,7 +757,7 @@ names(Seegruen) <- "Seegruen"
 #' as a data frame containing 5 colors (shades of 
 #' \code{\link{Karpfenblau}} or blue carp). 
 #'
-#' See \url{https://www.uni-konstanz.de} for details. 
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details. 
 #'
 #' @examples
 #' pal_karpfenblau
@@ -796,7 +796,7 @@ pal_karpfenblau <- data.frame(                               #  element:
 ##| (as an atomic data) frame and is defined as 
 ##| \code{\link{pal_karpfenblau}[4]}. 
 ##|
-##| See \url{https://www.uni-konstanz.de} for details.
+##| See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 ##|
 ##| @examples
 ##| # karpfenblau  # name "karpfenblau4" and color value "#3E5496" (as df)
@@ -823,7 +823,7 @@ pal_karpfenblau <- data.frame(                               #  element:
 #' (as an atomic HEX character value) and is defined as 
 #' \code{\link{pal_karpfenblau}[[4]]}. 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' Karpfenblau  # HEX character "#3E5496" (as value)
@@ -869,7 +869,7 @@ names(Karpfenblau) <- "Karpfenblau"
 #' as a data frame containing 5 colors (shades of 
 #' \code{\link{Pinky}} or pink). 
 #'
-#' See \url{https://www.uni-konstanz.de} for details. 
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details. 
 #'
 #' @examples
 #' pal_pinky
@@ -909,7 +909,7 @@ pal_pinky <- data.frame(                               #  Element:
 ##| (as an atomic data frame) and is defined as 
 ##| \code{\link{pal_pinky}[4]}. 
 ##|
-##| See \url{https://www.uni-konstanz.de} for details.
+##| See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 ##|
 ##| @examples
 ##| # pinky  # name "pinky4" and color value "#E0607E" (as df)
@@ -936,7 +936,7 @@ pal_pinky <- data.frame(                               #  Element:
 #' (as an atomic HEX character value) and is defined as 
 #' \code{\link{pal_pinky}[[4]]}. 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' Pinky  # HEX character "#E0607E" (as value)
@@ -982,7 +982,7 @@ Pinky  #  "#E0607E"
 #' as a data frame containing 5 colors (shades of 
 #' \code{\link{Bordeaux}}). 
 #'
-#' See \url{https://www.uni-konstanz.de} for details. 
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details. 
 #'
 #' @examples
 #' pal_bordeaux
@@ -1021,7 +1021,7 @@ pal_bordeaux <- data.frame(                               #  Element:
 ##| (as an atomic data frame) and is defined as 
 ##| \code{\link{pal_bordeaux}[4]}. 
 ##|
-##| See \url{https://www.uni-konstanz.de} for details.
+##| See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 ##|
 ##| @examples
 ##| # bordeaux  # name "bordeaux4" and color value "#8E2043" (as df)
@@ -1048,7 +1048,7 @@ pal_bordeaux <- data.frame(                               #  Element:
 #' (as an atomic HEX character value) and is defined as 
 #' \code{\link{pal_bordeaux}[[4]]}. 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' Bordeaux  # HEX character "#8E2043" (as value)
@@ -1098,7 +1098,7 @@ names(Bordeaux) <- "Bordeaux"
 #' \item bot: green or "good"
 #' }
 #'
-#' See \url{https://www.uni-konstanz.de} for details. 
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details. 
 #'
 #' @examples
 #' pal_signal
@@ -1143,7 +1143,7 @@ pal_signal <- data.frame(                               #  Element:
 ##| as it is suited for creating color gradients 
 ##| (see \code{\link{usecol}}). 
 ##|  
-##| See \url{https://www.uni-konstanz.de} for details.
+##| See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 ##|
 ##| @examples
 ##| # signal  # name "signal2" and color value "#EFDC60" (as df)
@@ -1179,7 +1179,7 @@ pal_signal <- data.frame(                               #  Element:
 #' as it is suited for creating color gradients 
 #' (see \code{\link{usecol}}). 
 #'  
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' Signal  # HEX character "#EFDC60" (as value)
