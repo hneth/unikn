@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
-<!-- Use status badges: -->
+<!-- Used status badges: -->
 [![CRAN\_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) [![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
 
 <!-- Possible status badges:
