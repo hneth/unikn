@@ -14,7 +14,7 @@ that collects 16 paired colors of 8 color palettes
 as a data frame containing 16 colors (in 8 pairs).
 }
 \details{
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 pal_unikn_pair
