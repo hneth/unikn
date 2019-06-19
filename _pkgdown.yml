@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2019 06 15
+## spds, uni.kn | 2019 06 18
 ## -----------------------------------------------
 
 ## site info: ----------
@@ -71,16 +71,20 @@ reference:
   - Seegruen
   - Signal
   - starts_with("pal_")
+- title: Graphics
+  desc: Objects and themes for plotting. 
+  contents:
+  - slide
+  - xbox
+  - theme_unikn
 - title: Text
   desc: Text boxes and text decorations. 
   contents:
-  - heading 
-  - mark 
+  - heading
+  - mark
   - post
-  - slide
   - uline
   - url_unikn
-  - xbox
 - title: Miscellaneous
   desc: Other functions. 
   contents:
