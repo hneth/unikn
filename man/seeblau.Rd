@@ -14,7 +14,7 @@ Seeblau
 \code{\link{pal_seeblau}[[3]]}.
 }
 \details{
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 Seeblau  # HEX character "#59C7EB" (as value)

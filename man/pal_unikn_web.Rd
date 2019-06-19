@@ -15,7 +15,7 @@ as a data frame containing 10 colors.
 \details{
 This is the primary (web/sRGB) scale.
 
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 pal_unikn_web

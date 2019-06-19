@@ -14,7 +14,7 @@ Peach
 \code{\link{pal_peach}[[4]]}.
 }
 \details{
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 Peach  # HEX character "#FEA090" (as value)

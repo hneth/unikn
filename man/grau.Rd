@@ -14,7 +14,7 @@ Grau
 \code{\link{pal_grau}[[3]]}.
 }
 \details{
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 Grau  # HEX character "#9AA0A7" (as value)

@@ -14,7 +14,7 @@ Seegruen
 \code{\link{pal_seegruen}[[4]]}.
 }
 \details{
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 Seegruen  # HEX character "#0A9086" (as value)

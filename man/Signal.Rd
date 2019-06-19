@@ -20,7 +20,7 @@ We provide \code{Signal} as a dedicated color
 as it is suited for creating color gradients 
 (see \code{\link{usecol}}). 
  
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 Signal  # HEX character "#EFDC60" (as value)

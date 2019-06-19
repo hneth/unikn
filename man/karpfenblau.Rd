@@ -14,7 +14,7 @@ Karpfenblau
 \code{\link{pal_karpfenblau}[[4]]}.
 }
 \details{
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 Karpfenblau  # HEX character "#3E5496" (as value)
