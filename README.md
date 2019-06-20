@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
-<!-- Used status badges:    -->
+<!-- Used status badges: -->
 [![CRAN\_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) [![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
 
 <!-- Possible status badges:
@@ -625,7 +625,7 @@ Please [contact us](https://www.spds.uni-konstanz.de/) in case you need addition
 Resources
 ---------
 
-The following resources and versions of **unikn** are currently available:
+The following versions of **unikn** and corresponding resources are currently available:
 
 <table style="width:100%;">
 <colgroup>
@@ -715,7 +715,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-06-19.\]
+\[Updated on 2019-06-20.\]
 
 <!-- eof. -->
 
