@@ -4,11 +4,10 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
 
-<!-- Used status badges: --> 
+<!-- Use status badges: -->
 
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn) 
-
 
 <!-- Possible status badges:
 
