@@ -20,7 +20,7 @@ The colors are arranged as in a traffic light ("Ampel"):
 \item bot: green or "good"
 }
 
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 pal_signal

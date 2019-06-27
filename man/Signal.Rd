@@ -20,16 +20,18 @@ We provide \code{Signal} as a dedicated color
 as it is suited for creating color gradients 
 (see \code{\link{usecol}}). 
  
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 Signal  # HEX character "#EFDC60" (as value)
 all.equal(Signal, pal_signal[[2]])  # TRUE (same HEX values)
 
+seecol(Signal)  # view color and details
+
 }
 \seealso{
-\code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_signal}} for the corresponding color palette; 
+\code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{seecol}} to show color palettes;
 \code{\link{usecol}} to use color palettes.

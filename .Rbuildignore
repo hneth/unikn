@@ -4,4 +4,10 @@
 ^_gitless$
 ^.git$
 ^.PowerFolder$
-^desktop.ini$
+^desktop.ini$ 
+^cran-comments.md$
+^CRAN-RELEASE$
+^docs$
+^_pkgdown\.yml$
+^pkgdown$
+^logo.png$

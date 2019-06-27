@@ -1,25 +1,75 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2019 05 20
+## spds | uni.kn | 2019 06 13
 ## ---------------------------
 
 ## Utility functions to access and plot color palettes. 
 
 ## 1. General functions: -------
-## isHexCol: Helper function to detect hex-colors: -------- 
+
+# col2rgb in grDevices: ------ 
+
+## Check: 
+# col2rgb("black", alpha = FALSE)
+# col2rgb("black", alpha = TRUE)
+# col2rgb("black")
+
+# col2rgb("white", alpha = FALSE)
+# col2rgb("white", alpha = TRUE)
+# col2rgb("#FFFFFF")
+
+# rgb2hex color conversion function: ------ 
+
+rgb2hex <- function(R, G, B) {
+  rgb(R, G, B, maxColorValue = 255)
+}
+
+## Check:
+# rgb2hex(255, 255, 255)
+# rgb2hex(0, 0, 0)
+
+
+
+# col2hex color conversion function: ------ 
+
+col2hex <- function(col, alpha = alpha) {
+  rgb(t(col2rgb(col)), alpha = alpha, maxColorValue = 255)
+}
+
+## Check: 
+# hex1 <- col2hex("black", alpha = 255/2)
+# hex2 <- col2hex("white", alpha = 255/2)
+# hex3 <- col2hex("gold", alpha = 255/2)
+# hex4 <- col2hex("steelblue", alpha = 255/2)
+# seecol(pal = c(hex1, hex2, hex3, hex4), n = "all")
+
+
+# isHexCol: Helper function to detect hex-colors: ------ 
 
 isHexCol <- function(color) {
   return(grepl(pattern = "#[0-9A-F]+", color))
 }
 
-## isCol: Helper function to detect any color:
+## Check:
+# isHexCol("black")
+# isHexCol(col2hex("black"))
+# isHexCol(rgb2hex(0, 0, 0))
+
+
+
+# isCol: Helper function to detect any color: ------ 
 isCol <- function(color) {
   return(isHexCol(color) | color %in% colors())
 }
 
+## Check:
+# isCol("white")
+# isCol(col2hex("black", alpha = 255/2))
+# isCol(NA)
+# isCol("bumblebee")
 
 ## 2. Color getting functions: ------
 
-## parse_pal(): Parse a palette input -----------
+# parse_pal(): Parse a palette input -----------
 
 parse_pal <- function(pal) {
   
@@ -150,7 +200,7 @@ parse_pal <- function(pal) {
 }
 
 
-## getpal_key(): Get a palette or list of palettes by keyword: -------
+# getpal_key(): Get a palette or list of palettes by keyword: -------
 
 getpal_key <- function(pal = "all", n = "all", alpha = NA) {
   ## 1. Process the 'pal' argument: ------------------------
@@ -244,8 +294,9 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
 
 
 
+
 ## 3. Plotting functions: ------
-## plot_shape: Plot a shape in a certain color: ------
+# plot_shape: Plot a shape in a certain color: ------
 
 plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle. 
                        col_fill,  # color for filling. 
@@ -291,7 +342,7 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle.
 }
 
 
-## plot_col: Plot a vector of colors as circles or rectangles: -------
+# plot_col: Plot a vector of colors as circles or rectangles: -------
 
 plot_col <- function(x,  # a *vector* of colors to be plotted. 
                      ypos = 1,  # position on y axis. 
@@ -356,6 +407,7 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
 
   
 } # plot_col end. 
+
 
 
 ## eof. ----------

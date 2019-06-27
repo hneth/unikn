@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
 author: "SPDS, uni.kn"
-date: "2019 05 01"
+date: "2019 06 15"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -29,7 +29,24 @@ knitr::opts_chunk$set(echo = TRUE,
                )
 ```
 
-Beyond providing support for [colors](colors.html), `unikn` provides functions for plotting graphical elements (like boxes) and text decorations (with colored backgrounds or underlining). 
+<!-- unikn pkg logo and link: -->
+<a href = "https://github.com/hneth/unikn/">
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
+</a>
+
+This vignette explains the **unikn** functions for plotting graphical elements and text decorations. 
+(See the vignette on [color](colors.html) for information on colors, color palettes, and corresponding functions.) 
+
+Please install and/or load the **unikn** package to get started: 
+
+```{r load_pkg_text, message = FALSE, warning = FALSE}
+# install.packages('unikn')  # install unikn from CRAN client
+library('unikn')             # load the package
+```
+
+## Overview 
+
+Beyond providing support for [colors](colors.html), **unikn** provides functions for plotting graphical elements (like boxes) and text decorations (with colored backgrounds or underlining). 
 Before illustrating these functions, please note some caveats: 
 
 - Plotting text (i.e., graphically rendering characters) is rarely a good idea. In contrast to the vector fonts used by DTP programs, plotted text typically does not scale (when changing the size of images) and cannot be recognized automatically (e.g., copied, indexed, or scraped). 
@@ -37,9 +54,9 @@ Hence, the following functions should only be used when no better solutions are 
 
 - Like all other templates, our renderings are subject to constraints and limitations. For instance, as any standard installation of [R](https://www.r-project.org/) lacks the prescribed "Theinhardt" fonts, we only mimic the official design specifications (in Arial, sans serif). 
 
-That said, digital decorations can be useful to emphasize or structure information, provided that they can be produced easily and flexibly. The `unikn` package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line headings) and can be customized and improved by expert users. Hence, we hope that the following functions are useful for plotting graphical elements (e.g., boxes, logos, etc.) and help you achieve a uniform look when styling presentations or visualizations. 
+That said, digital decorations can be useful to emphasize or structure information, provided that they can be produced easily and flexibly. The **unikn** package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line headings) and can be customized and improved by expert users. Hence, we hope that the following functions are useful for plotting graphical elements (e.g., boxes, logos, etc.) and help you achieve a uniform look when styling presentations or visualizations. 
 
-Please load the `unikn` package to get started: 
+Please load the **unikn** package to get started: 
 
 ```{r load_pkg, message = FALSE, warning = FALSE}
 library(unikn)  # load unikn package
@@ -47,8 +64,8 @@ library(unikn)  # load unikn package
 
 ## Plotting empty slides and boxes
 
-As the text functions of `unikn` add styled text to an existing plot, we must first create a plot to which we can add text. 
-`unikn` provides 2 basic functions for creating new plots:
+As the text functions of **unikn** add styled text to an existing plot, we must first create a plot to which we can add text. 
+**unikn** provides 2 basic functions for creating new plots:
 
 1. `slide` plots an empty canvass (or rectangular frame); 
 2. `xbox` plots a colored box with an X in its top right corner.
@@ -317,19 +334,31 @@ post(labels = my_url, x = .05, y = .1, font = 4,
 ```
 
 
-## All unikn vignettes
+## Resources
+
+The following versions of **unikn** and corresponding resources are currently available: 
+
+Type:                    | Version:           | URL:                           |         
+:------------------------|:-------------------|:-------------------------------| 
+A. **unikn** (R package): | [Release version](https://CRAN.R-project.org/package=unikn) | <https://CRAN.R-project.org/package=unikn> |
+    &nbsp;                | [Development version](https://github.com/hneth/unikn)       | <https://github.com/hneth/unikn> | 
+B. Online documentation:  | [Release version](https://hneth.github.io/unikn)            | <https://hneth.github.io/unikn> | 
+    &nbsp;                | [Development version](https://hneth.github.io/unikn/dev)    | <https://hneth.github.io/unikn/dev> | 
+
+## Vignettes
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://github.com/hneth/unikn/">
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
 </a>
 
-<!-- Index of vignettes: -->
+The following vignettes provide instructions and examples for using the **unikn** objects and functions: 
+
+<!-- Table of vignettes: --> 
 
 | Nr.  | Vignette | Content    |        
 | ---: |:---------|:-----------|
 | 1. | [Colors](colors.html) | Colors and color palettes | 
 | 2. | [Text](text.html)     | Text boxes and decorations | 
-
 
 <!-- eof. -->

@@ -16,7 +16,7 @@ as a data frame containing 10 colors.
 This is a secondary (ppt) variant with more muted colors.
 
 See \code{\link{pal_unikn}} for the primary/default (web/sRGB) scale 
-and \url{https://www.uni-konstanz.de} for details.
+and \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 pal_unikn_ppt

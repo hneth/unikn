@@ -40,6 +40,7 @@ slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2)
 \code{\link{heading}}, \code{\link{line}}, or \code{\link{mark}} to add text to a slide;  
 \code{\link{xbox}} to plot a box.
 
-Other plot functions: \code{\link{xbox}}
+Other plot functions: \code{\link{theme_unikn}},
+  \code{\link{xbox}}
 }
 \concept{plot functions}

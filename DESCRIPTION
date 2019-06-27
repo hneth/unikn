@@ -1,17 +1,18 @@
 Package: unikn
 Type: Package
 Title: Graphical Elements of the University of Konstanz's Corporate Design 
-Version: 0.0.0.9026
-Date: 2018-05-22
+Version: 0.1.0.9002
+Date: 2019-06-18
 Authors@R: c(person("Hansjoerg", "Neth", role = c("aut", "cre"), email = "h.neth@uni.kn"), 
              person("Nico", "Gradwohl", role = "aut"))
 Author: Hansjoerg Neth [aut, cre], Nico Gradwohl [aut] 
 Maintainer: Hansjoerg Neth <h.neth@uni.kn>
-Description: Provide graphical elements of the University of Konstanz's corporate design in R. The unikn package mostly supports color (pre-defined colors and color palettes, plus functions for changing, viewing, and using them), but also provides functions for plotting boxes and styled text elements (colored titles, underlining, etc.). 
+Description: Define and use graphical elements of corporate design manuals in R. The 'unikn' package provides color functions (by defining dedicated colors and color palettes, and commands for changing, viewing, and using them) and styled text elements (e.g., for marking, underlining, or plotting colored titles). The pre-defined range of colors and text functions is based on the corporate design of the University of Konstanz <https://www.uni-konstanz.de/>, but can be adapted and extended for other institutions and purposes. 
 Depends:
     R (>= 3.4.0)
 Imports:
-    utils
+    utils,
+    ggplot2 
 Suggests:
     knitr, 
     rmarkdown,
@@ -26,11 +27,12 @@ Collate: 'color_def_1.R'
          'plot_box_calls.R'
          'plot_text.R'
          'plot_text_calls.R'
+         'plot_themes.R'
          'start_unikn.R'
 Encoding: UTF-8
 LazyData: true
 License: CC BY-SA 4.0 
-URL: https://github.com/hneth/unikn 
+URL: https://CRAN.R-project.org/package=unikn 
 BugReports: https://github.com/hneth/unikn/issues
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1

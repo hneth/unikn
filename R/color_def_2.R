@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2019 05 22
+## spds | uni.kn  | 2019 06 18
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -26,7 +26,7 @@
 #'
 #' This is useful when creating color gradients. 
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_unikn
@@ -77,7 +77,7 @@ pal_unikn <- cbind(rev(pal_seeblau), pal_unikn_web[5:10])
 #' not a preferred color according to the official color 
 #' definition.
 #'
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_unikn_pref
@@ -131,7 +131,7 @@ pal_unikn_pref <- data.frame(            # Element:
 #' that collects 2 light colors of 4 color palettes  
 #' as a data frame containing 8 colors (in 4 pairs). 
 #' 
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_unikn_light
@@ -183,7 +183,7 @@ pal_unikn_light <- data.frame(
 #' that collects 2 dark colors of 4 color palettes  
 #' as a data frame containing 8 colors (in 4 pairs). 
 #' 
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_unikn_dark
@@ -231,7 +231,7 @@ pal_unikn_dark <- data.frame(
 #' that collects 16 paired colors of 8 color palettes  
 #' as a data frame containing 16 colors (in 8 pairs). 
 #' 
-#' See \url{https://www.uni-konstanz.de} for details.
+#' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_unikn_pair

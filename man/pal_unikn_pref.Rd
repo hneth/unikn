@@ -18,7 +18,7 @@ Note that the (alert) color \code{\link{Signal}} is
 not a preferred color according to the official color 
 definition.
 
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 pal_unikn_pref

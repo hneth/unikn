@@ -1,5 +1,5 @@
 ## start_unikn.R | unikn
-## spds | uni.kn |  2019 05 22
+## spds | uni.kn |  2019 06 04
 ## ---------------------------
 
 ## Open package guide: -----------------------

@@ -14,16 +14,18 @@ Petrol
 \code{\link{pal_petrol}[[4]]}.
 }
 \details{
-See \url{https://www.uni-konstanz.de} for details.
+See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 Petrol  # HEX character "#077187" (as value)
 all.equal(Petrol, pal_petrol[[4]])  # TRUE (same HEX values)
 
+seecol(Petrol)  # view color and details
+
 }
 \seealso{
-\code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_petrol}} for the corresponding color palette; 
+\code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{seecol}} to show color palettes;
 \code{\link{usecol}} to use color palettes.
