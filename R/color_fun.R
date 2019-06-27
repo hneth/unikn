@@ -72,6 +72,8 @@ usecol <- function(pal = pal_unikn,
   ## Parse the input:
   parenv <- parent.frame()
   
+  parse_pal(pal = pal)
+  
   pal_inp <- tryCatch(
     
     {
@@ -293,6 +295,8 @@ usecol <- function(pal = pal_unikn,
       rgb(t(col2rgb(tst)), maxColorValue = 255), 
       c(rgb(t(col2rgb(colors())), maxColorValue = 255))
     )]
+    
+    
     
     kn_names[is.na(kn_names)] <- ""
     col_names[is.na(col_names)] <- ""

@@ -46,7 +46,7 @@ col2hex <- function(col, alpha = alpha) {
 # isHexCol: Helper function to detect hex-colors: ------ 
 
 isHexCol <- function(color) {
-  return(grepl(pattern = "#[0-9A-F]+", color))
+  return(grepl(pattern = "#[0-9A-Fa-f]+", color))
 }
 
 ## Check:
@@ -74,6 +74,9 @@ isCol <- function(color) {
 parse_pal <- function(pal) {
   
   parenv <- parent.frame()  # get the calling environment. 
+  
+  # print("parse")  # TODO: Called multiple times in a certain case...
+  # print(pal)
 
   ## Check if pal is legible (already a color palette): 
   vector_input <- tryCatch(
@@ -88,6 +91,7 @@ parse_pal <- function(pal) {
     },
     silent = TRUE
   )
+
   
   if ( vector_input ) {  # if the input is a color vector (or list).
     
@@ -123,7 +127,7 @@ parse_pal <- function(pal) {
     
     elem <- gsub(" |\"", "", unlist(strsplit(tmp, split = ",")))  
     # Split get elements of the input at ',' and remove whitespace and quotes.
-    
+
     ## Check, whether any element is warpped in one or more functions: 
     parens <- grepl("\\(", elem)   # are there any parentheses left?
     funs <- rep(NA, length(elem))  # initialize vector. 
@@ -135,6 +139,7 @@ parse_pal <- function(pal) {
     # Existence checks: ------------
     ## Now ask for every element, whether it exists:
     elemex <- sapply(elem, exists)
+    
     
     if ( any(!elemex) ) {  # only if not all inputs have been resolved
       
