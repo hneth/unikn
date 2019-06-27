@@ -46,7 +46,7 @@ col2hex <- function(col, alpha = alpha) {
 # isHexCol: Helper function to detect hex-colors: ------ 
 
 isHexCol <- function(color) {
-  return(grepl(pattern = "#[0-9A-Fa-f]+", color))
+  return(grepl(pattern = "^#[0-9A-Fa-f]{6,}", color))
 }
 
 ## Check:
