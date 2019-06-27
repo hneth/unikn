@@ -124,6 +124,7 @@ usecol <- function(pal = pal_unikn,
       
     }
     
+    
     ## If input fits with any palette:
     if ( any(pal_ix) & length(pal_inp) >= n) {
       
@@ -265,6 +266,7 @@ usecol <- function(pal = pal_unikn,
     
   }
   
+  
   ## If no defined palette is used or the number exceeds the number of colors simply use colorRamp:
   if ( !pal_def ) {
     
@@ -279,10 +281,11 @@ usecol <- function(pal = pal_unikn,
     }
     
   }
+
   
   ## Give the palette a name (as comment attribute):
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
-  
+
   ## Do a quick name search if no names are given:
   if ( all(is.null(names(out_col))) ) {
     
@@ -291,18 +294,22 @@ usecol <- function(pal = pal_unikn,
     # Names from defined kn palettes:
     kn_names <-  names(unlist(all_pals1))[match(tst, unlist(all_pals1))]
     
+    # Predefined color names:
     col_names <- colors()[match(
       rgb(t(col2rgb(tst)), maxColorValue = 255), 
       c(rgb(t(col2rgb(colors())), maxColorValue = 255))
     )]
     
-    
-    
     kn_names[is.na(kn_names)] <- ""
     col_names[is.na(col_names)] <- ""
     
-    names(out_col) <- paste0(kn_names, col_names)
+    # Processs name vectors to avoid duplicates: 
+    col_names[col_names == kn_names] <- ""  # remove duplicates in col names. 
+    col_names[!col_names == "" & !kn_names == ""] <- 
+      paste0("/", col_names[!col_names == "" & !kn_names == ""])
+      # adding a slash to distinguish different names for the same color. 
     
+    names(out_col) <- paste0(kn_names, col_names)
     
   }
   

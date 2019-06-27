@@ -74,9 +74,6 @@ isCol <- function(color) {
 parse_pal <- function(pal) {
   
   parenv <- parent.frame()  # get the calling environment. 
-  
-  # print("parse")  # TODO: Called multiple times in a certain case...
-  # print(pal)
 
   ## Check if pal is legible (already a color palette): 
   vector_input <- tryCatch(
