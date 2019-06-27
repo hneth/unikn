@@ -456,7 +456,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-05-23.\]
+\[Updated on 2019-05-24.\]
 
 <!-- eof. -->
 
