@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 06 14
+## spds | uni.kn |  2019 06 28
 ## ---------------------------
 
 ## Define color-related functions 
