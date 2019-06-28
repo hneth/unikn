@@ -27,7 +27,7 @@ The **unikn** package provides color functions — by defining dedicated colors 
 Background
 ----------
 
-Most major institutions devise corporate design (CD) manuals to create and maintain a consistent impression in presentations and publications. For instance, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design in 2014. Its key component is the consistent use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.)
+Many institutions devise corporate design (CD) manuals to create and maintain a consistent impression in presentations and publications. For instance, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design in 2014. Its key component is the consistent use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.)
 
 <!-- Goals of the unikn pgk: -->
 The **unikn** package aims to facilitate the use of corporate design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications should be simple and straightforward, we leave some flexibility for expert users (e.g., for creators of scientific visualizations).
@@ -500,8 +500,8 @@ Once a new palette is defined (and available in your current R environment), the
 
 ``` r
 # Compare and extend custom color palettes:
-# seecol(list(pal_mpg, pal_princeton_1, pal_unikn))       # compare basic versions
-seecol(list(pal_mpg, pal_princeton_1, pal_unikn), n = 9)  # compare scaled versions
+# seecol(list(pal_freiburg_info, pal_freiburg_basic, pal_mpg, pal_princeton_1)) # compare basic versions
+seecol(list(pal_freiburg_basic, pal_princeton_1, pal_mpg, pal_unikn), n = 9)    # compare scaled versions
 ```
 
 <img src="inst/pix/README-compare_custom_pals-1.png" width="75%" style="display: block; margin: auto;" />
@@ -715,11 +715,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-<<<<<<< HEAD
-\[Updated on 2019-05-24.\]
-=======
-\[Updated on 2019-06-20.\]
->>>>>>> 9d152be672b58ff095de2dfa08a503b12e852033
+\[Updated on 2019-06-28.\]
 
 <!-- eof. -->
 
