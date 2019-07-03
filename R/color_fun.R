@@ -849,8 +849,13 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
 #' Default: \code{as_df = FALSE}. 
 #' 
 #' @examples
-#' # define a color palette:
+#' # Define a color palette:
 #' defpal(col = c("black", "white"), names = c("dark", "bright"))
+#' 
+#' pal_mpg <- defpal(col = c("#007367", "white", "#D0D3D4"), 
+#'                   names = c("mpg green", "white", "mpg grey")
+#'                   )
+#' seecol(pal_mpg) 
 #' 
 #' @family color functions
 #' 
@@ -911,9 +916,10 @@ defpal <- function(col,            # a vector of colors
   # # Apply ... arguments:
   # outpal <- usecol(pal = outpal, use_names = TRUE, ...) 
   
-  # Return as_df?
+  # If return as_df: 
   if (as_df) {
-    outpal <- data.frame(outpal, stringsAsFactors = FALSE)
+    outpal <- data.frame(outpal, stringsAsFactors = FALSE) # df as column
+    outpal <- t(outpal) # df as row
   }
   
   # 2. Return: ----- 
