@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 07 02
+## spds | uni.kn |  2019 07 03
 ## ---------------------------
 
 ## Define color-related functions 
@@ -281,11 +281,11 @@ usecol <- function(pal = pal_unikn,
     }
     
   }
-
+  
   
   ## Give the palette a name (as comment attribute):
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
-
+  
   ## Do a quick name search if no names are given:
   if ( all(is.null(names(out_col))) ) {
     
@@ -307,7 +307,7 @@ usecol <- function(pal = pal_unikn,
     col_names[col_names == kn_names] <- ""  # remove duplicates in col names. 
     col_names[!col_names == "" & !kn_names == ""] <- 
       paste0("/", col_names[!col_names == "" & !kn_names == ""])
-      # adding a slash to distinguish different names for the same color. 
+    # adding a slash to distinguish different names for the same color. 
     
     names(out_col) <- paste0(kn_names, col_names)
     
@@ -844,9 +844,13 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
 #' @param names A character vector of names 
 #' Default: \code{names = NA}, yielding numeric names.
 #' 
+#' @param as_df Should the new color palette be returned as 
+#' a data frame? 
+#' Default: \code{as_df = FALSE}. 
+#' 
 #' @examples
 #' # define a color palette:
-#' defpal(col = c("black", "white"), names = c("b", "w"))
+#' defpal(col = c("black", "white"), names = c("dark", "bright"))
 #' 
 #' @family color functions
 #' 
@@ -877,10 +881,10 @@ defpal <- function(col,            # a vector of colors
   # Robustify inputs:
   if ( any(!isCol(col)) ) stop("'col' must be a vector only containing (named or hex) colors.")
   if ( length(col) != length(names)) {
-        message("Length of 'col' and 'names' differ. Using default (numeric) names...")
-        names <- NA
-        }
-
+    message("Length of 'col' and 'names' differ. Using default (numeric) names...")
+    names <- NA
+  }
+  
   # 1. Create data.frame or vector of col: ----- 
   outpal <- col
   
@@ -901,15 +905,15 @@ defpal <- function(col,            # a vector of colors
   
 } # defpal end. 
 
-# Check:
-defpal(col = c("black", "white"), names = c("b", "w"), as_df = FALSE)  # as vector
-defpal(col = c("black", "white"), names = c("b", "w"), as_df = TRUE)   # as data.frame
-
-seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE))   # as df
-seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE))  # as named vector
-
-seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE), n = 5) 
-seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE), n = 5) 
+# # Check:
+# defpal(col = c("black", "white"), names = c("b", "w"), as_df = FALSE)  # as vector
+# defpal(col = c("black", "white"), names = c("b", "w"), as_df = TRUE)   # as data.frame
+# 
+# seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE))   # as df
+# seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE))  # as named vector
+# 
+# seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE), n = 5) 
+# seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE), n = 5) 
 
 
 ## eof. ----------
