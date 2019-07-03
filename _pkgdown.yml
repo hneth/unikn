@@ -74,6 +74,7 @@ reference:
   contents:
   - seecol
   - usecol
+  - defpal 
 - title: Graphics
   desc: Objects and themes for plotting. 
   contents:

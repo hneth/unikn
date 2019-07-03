@@ -7,7 +7,9 @@ Changes since last release:
 
 ## New functionality 
 
-- Added `theme_unikn()` as a basic **ggplot2** theme. 
+- Added `defpal()` function for defining new color palettes (as a named vector or data frame). 
+
+- Added `theme_unikn()` function to provide a basic **ggplot2** theme. 
 
 ## Bug fixes 
 
