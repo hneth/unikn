@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 06 28
+## spds | uni.kn |  2019 07 02
 ## ---------------------------
 
 ## Define color-related functions 
@@ -827,6 +827,89 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
   invisible(pal_tmp)
   
 } # seecol end. 
+
+
+## defpal: Define a new color palette: ---------- 
+
+# - Documentation: ---- 
+
+#' Define new color palettes.
+#'
+#' \code{defpal} allows defining new color palettes 
+#' (as data frames). 
+#' 
+#' @param col A required vector of colors 
+#' (specified by their R color names or hex codes). 
+#' 
+#' @param names A character vector of names 
+#' Default: \code{names = NA}, yielding numeric names.
+#' 
+#' @examples
+#' # define a color palette:
+#' defpal(col = c("black", "white"), names = c("b", "w"))
+#' 
+#' @family color functions
+#' 
+#' @aliases defcol
+#'
+#' @seealso 
+#' \code{\link{seepal}} to plot color palettes;  
+#' \code{\link{usecol}} to use a color palette.  
+#'
+#' @import graphics 
+#' @import grDevices 
+#' @import utils
+#' 
+#' 
+
+# - Definition: ------- 
+
+defpal <- function(col,            # a vector of colors
+                   names = NA,     # a vector of names
+                   as_df = FALSE,  # return palette as df? 
+                   ...             # additional arguments to usecol().
+) {
+  
+  ## 0. Preparations: ----- 
+  
+  outpal <- NA  # initialize
+  
+  # Robustify inputs:
+  if ( any(!isCol(col)) ) stop("'col' must be a vector only containing (named or hex) colors.")
+  if ( length(col) != length(names)) {
+        message("Length of 'col' and 'names' differ. Using default (numeric) names...")
+        names <- NA
+        }
+
+  # 1. Create data.frame or vector of col: ----- 
+  outpal <- col
+  
+  # Add names:
+  if (all(!is.na(names))) {
+    names(outpal) <- names
+  } else {
+    names(outpal) <- as.character(1:length(col))
+  }
+  
+  # Return as_df?
+  if (as_df) {
+    outpal <- data.frame(outpal, stringsAsFactors = FALSE)
+  }
+  
+  # 2. Return: ----- 
+  return(outpal)
+  
+} # defpal end. 
+
+# Check:
+defpal(col = c("black", "white"), names = c("b", "w"), as_df = FALSE)  # as vector
+defpal(col = c("black", "white"), names = c("b", "w"), as_df = TRUE)   # as data.frame
+
+seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE))   # as df
+seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE))  # as named vector
+
+seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE), n = 5) 
+seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE), n = 5) 
 
 
 ## eof. ----------

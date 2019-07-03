@@ -1,5 +1,5 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2019 06 13
+## spds | uni.kn | 2019 07 03
 ## ---------------------------
 
 ## Utility functions to access and plot color palettes. 
