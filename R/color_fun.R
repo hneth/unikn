@@ -855,7 +855,8 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
 #' @family color functions
 #' 
 #' @aliases defcol
-#'
+#' @aliases newpal
+#' 
 #' @seealso 
 #' \code{\link{seepal}} to plot color palettes;  
 #' \code{\link{usecol}} to use a color palette.  
