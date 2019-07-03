@@ -123,6 +123,7 @@ seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
 \code{\link{usecol}} to use a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{usecol}}
+Other color functions: \code{\link{defpal}},
+  \code{\link{usecol}}
 }
 \concept{color functions}
