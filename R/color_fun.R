@@ -845,7 +845,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
 #' Default: \code{names = NA}, yielding numeric names.
 #' 
 #' @param as_df Should the new color palette be returned as 
-#' a data frame? 
+#' a data frame (rather than a vector)? 
 #' Default: \code{as_df = FALSE}. 
 #' 
 #' @examples
@@ -864,36 +864,51 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
 #' @import grDevices 
 #' @import utils
 #' 
-#' 
+#' @export 
+
+## Not used:
+
+# @param ... Additional arguments (passed on to 
+# \code{\link{usecol()}}). 
+# Candiates for additional arguments are 
+# \code{n} (an integer for specifying the number of desired colors in the palette) 
+# and \code{alpha} (opacity value from 0 to 1). 
 
 # - Definition: ------- 
 
 defpal <- function(col,            # a vector of colors
                    names = NA,     # a vector of names
-                   as_df = FALSE,  # return palette as df? 
-                   ...             # additional arguments to usecol().
+                   as_df = FALSE   # return palette as df? 
+                   # ...           # additional arguments to usecol().
 ) {
   
   ## 0. Preparations: ----- 
   
   outpal <- NA  # initialize
   
-  # Robustify inputs:
+  # 0. Robustify inputs:
   if ( any(!isCol(col)) ) stop("'col' must be a vector only containing (named or hex) colors.")
-  if ( length(col) != length(names)) {
-    message("Length of 'col' and 'names' differ. Using default (numeric) names...")
+  
+  if ( any(!is.na(names)) && ((length(col) != length(names))) ) {
+    
+    message(paste0("Length of 'col' = ", length(col), 
+                   " vs. 'names' = ",    length(names), ". Using default (numeric) names..."))
     names <- NA
+    
   }
   
   # 1. Create data.frame or vector of col: ----- 
-  outpal <- col
+  outpal <- col  # copy col vector
   
-  # Add names:
-  if (all(!is.na(names))) {
+  # 2. Add names:
+  if ( all(!is.na(names)) ) {
     names(outpal) <- names
   } else {
     names(outpal) <- as.character(1:length(col))
   }
+  
+  # # Apply ... arguments:
+  # outpal <- usecol(pal = outpal, use_names = TRUE, ...) 
   
   # Return as_df?
   if (as_df) {
