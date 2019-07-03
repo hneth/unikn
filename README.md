@@ -379,10 +379,22 @@ pal_freiburg_grey <- c("#f2f3f1", "#e0e1dd", "#d5d6d2", "#c9cac8",
 names(pal_freiburg_grey) <- c("grey-0", "grey-1", "grey-2", "grey-3", 
                               "grey-5", "grey-7", "grey-9", "grey-font")
 
+# Info colors: 
 pal_freiburg_info <- c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
                        "#4d4f53", "#747678", "#b2b4b3", "#d5d6d2", "#e98300", "#efbd47")
 names(pal_freiburg_info) <- c("mid-blau", "hell-blau", "dark-red", "hell-red", "mid-green", "hell-green", 
                               "anthrazit", "dark-grey", "mid-grey", "hell-grey", "orange", "gelb")
+```
+
+Alternatively, we can define both (colors and names) in 1 step by using the `defpal()` function:
+
+``` r
+pal_freiburg_info <- defpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
+                                    "#4d4f53", "#747678", "#b2b4b3", "#d5d6d2", "#e98300", "#efbd47"),
+                            names = c("mid-blau", "hell-blau", "dark-red", "hell-red", "mid-green", "hell-green", 
+                                      "anthrazit", "dark-grey", "mid-grey", "hell-grey", "orange", "gelb")
+                            )
+# seecol(pal_freiburg_info)
 ```
 
 Once a new color palette has been defined (and is available in your current R environment), we can use the `seecol()` and `usecol()` functions to view, modify, and use the palette:
@@ -434,6 +446,15 @@ pal_princeton_2 <- c(pal = c(orange_black, "black", "white"))
 names(pal_princeton_2) <- c("orange_b", "black", "white")
 ```
 
+Alternatively, we can define both (colors and names) in 1 step by using the `defpal()` function:
+
+``` r
+pal_princeton_1 <- defpal(col = c("#E77500", "white", "black"),
+                          names = c("orange_w", "white", "black")
+                          )
+# seecol(pal_princeton_1)
+```
+
 The new color palettes (e.g., `pal_princeton_1`) can now be viewed with `seecol()`, scaled by `usecol()`, and used in graphs (e.g., in `ggplot` commands):
 
 ``` r
@@ -477,6 +498,15 @@ Again, the easiest way of defining a corresponding color palette is by creating 
 ``` r
 pal_mpg <- c("#007367", "white", "#D0D3D4")
 names(pal_mpg) <- c("mpg green", "white", "mpg grey")
+```
+
+Alternatively, we can define both (colors and names) in 1 step by using the `defpal()` function:
+
+``` r
+pal_mpg <- defpal(col = c("#007367", "white", "#D0D3D4"),
+                  names = c("mpg green", "white", "mpg grey")
+                  )
+# seecol(pal_mpg)
 ```
 
 As before, can now use the `seecol()` and `usecol()` functions to view, modify, and use the new `pal_mpg` color palette:
@@ -715,7 +745,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-06-28.\]
+\[Updated on 2019-07-03.\]
 
 <!-- eof. -->
 
