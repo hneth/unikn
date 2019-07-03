@@ -23,8 +23,13 @@ Default: \code{as_df = FALSE}.}
 (as data frames).
 }
 \examples{
-# define a color palette:
+# Define a color palette:
 defpal(col = c("black", "white"), names = c("dark", "bright"))
+
+pal_mpg <- defpal(col = c("#007367", "white", "#D0D3D4"), 
+                  names = c("mpg green", "white", "mpg grey")
+                  )
+seecol(pal_mpg) 
 
 }
 \seealso{
