@@ -55,7 +55,7 @@ seecol(pal_3)
 \code{\link{seecol}} to plot color palettes; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{defpal}},
+Other color functions: \code{\link{newpal}},
   \code{\link{seecol}}
 }
 \concept{color functions}
