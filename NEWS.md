@@ -7,9 +7,9 @@ Changes since last release:
 
 ## New functionality 
 
-- Added `defpal()` function for defining new color palettes (as a named vector or data frame). 
+- Added `newpal()` function for defining new color palettes (as a named vector or data frame). [2019-07-05]
 
-- Added `theme_unikn()` function to provide a basic **ggplot2** theme. 
+- Added `theme_unikn()` function to provide a basic **ggplot2** theme. [2019-06-20]
 
 ## Bug fixes 
 
