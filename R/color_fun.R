@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 07 03
+## spds | uni.kn |  2019 07 05
 ## ---------------------------
 
 ## Define color-related functions 
@@ -829,13 +829,13 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
 } # seecol end. 
 
 
-## defpal: Define a new color palette: ---------- 
+## newpal: Define a new color palette: ---------- 
 
 # - Documentation: ---- 
 
 #' Define new color palettes.
 #'
-#' \code{defpal} allows defining new color palettes 
+#' \code{newpal} allows defining new color palettes 
 #' (as data frames). 
 #' 
 #' @param col A required vector of colors 
@@ -850,17 +850,17 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
 #' 
 #' @examples
 #' # Define a color palette:
-#' defpal(col = c("black", "white"), names = c("dark", "bright"))
+#' newpal(col = c("black", "white"), names = c("dark", "bright"))
 #' 
-#' pal_mpg <- defpal(col = c("#007367", "white", "#D0D3D4"), 
+#' pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"), 
 #'                   names = c("mpg green", "white", "mpg grey")
 #'                   )
 #' seecol(pal_mpg) 
 #' 
 #' @family color functions
 #' 
+#' @aliases defpal
 #' @aliases defcol
-#' @aliases newpal
 #' 
 #' @seealso 
 #' \code{\link{seepal}} to plot color palettes;  
@@ -882,7 +882,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
 
 # - Definition: ------- 
 
-defpal <- function(col,            # a vector of colors
+newpal <- function(col,            # a vector of colors
                    names = NA,     # a vector of names
                    as_df = FALSE   # return palette as df? 
                    # ...           # additional arguments to usecol().
@@ -925,17 +925,17 @@ defpal <- function(col,            # a vector of colors
   # 2. Return: ----- 
   return(outpal)
   
-} # defpal end. 
+} # newpal end. 
 
 # # Check:
-# defpal(col = c("black", "white"), names = c("b", "w"), as_df = FALSE)  # as vector
-# defpal(col = c("black", "white"), names = c("b", "w"), as_df = TRUE)   # as data.frame
+# newpal(col = c("black", "white"), names = c("b", "w"), as_df = FALSE)  # as vector
+# newpal(col = c("black", "white"), names = c("b", "w"), as_df = TRUE)   # as data.frame
 # 
-# seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE))   # as df
-# seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE))  # as named vector
+# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE))   # as df
+# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE))  # as named vector
 # 
-# seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE), n = 5) 
-# seecol(defpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE), n = 5) 
+# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE), n = 5) 
+# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE), n = 5) 
 
 
 ## eof. ----------
