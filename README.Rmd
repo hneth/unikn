@@ -9,8 +9,6 @@ output: github_document
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn) 
 
-
-
 <!-- Possible status badges:
 
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
@@ -55,7 +53,7 @@ Its key component is the consistent use of a `Seeblau` color and a corresponding
 <!-- Goals of the unikn pgk: --> 
 
 The **unikn** package aims to facilitate the use of corporate design elements for users of [R](https://www.r-project.org/). 
-While the correct use of default specifications should be simple and straightforward, we leave some flexibility for expert users (e.g., for creators of scientific visualizations). 
+While the correct use of default specifications should be simple and straightforward, we leave some flexibility for more experienced users (e.g., for creating scientific visualizations). 
 
 <!-- Overview: --> 
 
@@ -399,10 +397,10 @@ names(pal_freiburg_info) <- c("mid-blau", "hell-blau", "dark-red", "hell-red", "
                               "anthrazit", "dark-grey", "mid-grey", "hell-grey", "orange", "gelb")
 ```
 
-Alternatively, we can define both (colors and names) in 1 step by using the `defpal()` function:
+Alternatively, we can define both (colors and names) in 1 step by using the `newpal()` function:
 
-```{r defpal_Freiburg}
-pal_freiburg_info <- defpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
+```{r newpal_Freiburg}
+pal_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
                                     "#4d4f53", "#747678", "#b2b4b3", "#d5d6d2", "#e98300", "#efbd47"),
                             names = c("mid-blau", "hell-blau", "dark-red", "hell-red", "mid-green", "hell-green", 
                                       "anthrazit", "dark-grey", "mid-grey", "hell-grey", "orange", "gelb")
@@ -453,10 +451,10 @@ pal_princeton_2 <- c(pal = c(orange_black, "black", "white"))
 names(pal_princeton_2) <- c("orange_b", "black", "white")
 ```
 
-Alternatively, we can define both (colors and names) in 1 step by using the `defpal()` function:
+Alternatively, we can define both (colors and names) in 1 step by using the `newpal()` function:
 
-```{r defpal_Princeton}
-pal_princeton_1 <- defpal(col = c("#E77500", "white", "black"),
+```{r newpal_Princeton}
+pal_princeton_1 <- newpal(col = c("#E77500", "white", "black"),
                           names = c("orange_w", "white", "black")
                           )
 # seecol(pal_princeton_1)
@@ -528,10 +526,10 @@ pal_mpg <- c("#007367", "white", "#D0D3D4")
 names(pal_mpg) <- c("mpg green", "white", "mpg grey")
 ```
 
-Alternatively, we can define both (colors and names) in 1 step by using the `defpal()` function:
+Alternatively, we can define both (colors and names) in 1 step by using the `newpal()` function:
 
-```{r defpal_MPG}
-pal_mpg <- defpal(col = c("#007367", "white", "#D0D3D4"),
+```{r newpal_MPG}
+pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
                   names = c("mpg green", "white", "mpg grey")
                   )
 # seecol(pal_mpg)
@@ -588,9 +586,17 @@ uline(labels = c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisc
 
 The `post()` function allows adding text to a rectangular `xbox` (to provide the functionality of "Merken"):  
 
-```{r post_demo, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 2, fig.height = 2}
+```{r post-demo, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 2, fig.height = 2}
 xbox(col = usecol(pal_seeblau[[5]]), dim = c(2, 2))
-post(labels = c("Für eine", "Kultur der", "Kreativität"), x = .1, y = .8, cex = 1.5, font = 2)
+post(labels = c("Für eine", "Kultur der", "Kreativität"), x = .1, y = .8, cex = 1.4, font = 2)
+```
+
+The color and font parameters can be adjusted to obtain different looks:  
+
+```{r post-demo-2, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 2, fig.height = 2}
+post(labels = c("creative.", "together"), new_plot = "xbox", 
+     y_layout = .02, cex = 2, font = c(1, 3),  
+     col_bg = pal_seegruen[[1]], col = c(Petrol, Pinky))
 ```
 
 ### Headings
@@ -629,16 +635,16 @@ mark(labels = c("Die Wahrheit", "wird euch", "frei machen."),
 
 # (B) Using orange_white or pal_princeton:
 uline(labels = c("Princeton University"), 
-      x = .6, y = .5, font = 2, cex = 1, col_bg = orange_white)
+      x = .6, y = .55, font = 2, cex = 1, col_bg = orange_white)
 mark(labels = c("Go", "tigers!"), 
-     x = 0, y = .55, y_layout = 0, cex = 2.0,  
+     x = 0, y = .58, y_layout = 0, cex = 2.0,  
      col = c("black", "white"), col_bg = pal_princeton)
 
 # (C) Using pal_mpg:
 uline(labels = c("Max Planck Society"), 
-      x = .6, y = .20, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
-mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen"), 
-     x = 0, y = .25, y_layout = 0, cex = 1.5, 
+      x = .6, y = .25, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
+mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen."), 
+     x = 0, y = .30, y_layout = 0, cex = 1.5, 
      col = c("white"), col_bg = usecol(pal_mpg, 7)[3:1])
 ```
 

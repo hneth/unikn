@@ -30,7 +30,7 @@ Background
 Many institutions devise corporate design (CD) manuals to create and maintain a consistent impression in presentations and publications. For instance, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design in 2014. Its key component is the consistent use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.)
 
 <!-- Goals of the unikn pgk: -->
-The **unikn** package aims to facilitate the use of corporate design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications should be simple and straightforward, we leave some flexibility for expert users (e.g., for creators of scientific visualizations).
+The **unikn** package aims to facilitate the use of corporate design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications should be simple and straightforward, we leave some flexibility for more experienced users (e.g., for creating scientific visualizations).
 
 <!-- Overview: -->
 The package currently provides 4 types of objects or functions:
@@ -386,10 +386,10 @@ names(pal_freiburg_info) <- c("mid-blau", "hell-blau", "dark-red", "hell-red", "
                               "anthrazit", "dark-grey", "mid-grey", "hell-grey", "orange", "gelb")
 ```
 
-Alternatively, we can define both (colors and names) in 1 step by using the `defpal()` function:
+Alternatively, we can define both (colors and names) in 1 step by using the `newpal()` function:
 
 ``` r
-pal_freiburg_info <- defpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
+pal_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
                                     "#4d4f53", "#747678", "#b2b4b3", "#d5d6d2", "#e98300", "#efbd47"),
                             names = c("mid-blau", "hell-blau", "dark-red", "hell-red", "mid-green", "hell-green", 
                                       "anthrazit", "dark-grey", "mid-grey", "hell-grey", "orange", "gelb")
@@ -446,10 +446,10 @@ pal_princeton_2 <- c(pal = c(orange_black, "black", "white"))
 names(pal_princeton_2) <- c("orange_b", "black", "white")
 ```
 
-Alternatively, we can define both (colors and names) in 1 step by using the `defpal()` function:
+Alternatively, we can define both (colors and names) in 1 step by using the `newpal()` function:
 
 ``` r
-pal_princeton_1 <- defpal(col = c("#E77500", "white", "black"),
+pal_princeton_1 <- newpal(col = c("#E77500", "white", "black"),
                           names = c("orange_w", "white", "black")
                           )
 # seecol(pal_princeton_1)
@@ -500,10 +500,10 @@ pal_mpg <- c("#007367", "white", "#D0D3D4")
 names(pal_mpg) <- c("mpg green", "white", "mpg grey")
 ```
 
-Alternatively, we can define both (colors and names) in 1 step by using the `defpal()` function:
+Alternatively, we can define both (colors and names) in 1 step by using the `newpal()` function:
 
 ``` r
-pal_mpg <- defpal(col = c("#007367", "white", "#D0D3D4"),
+pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
                   names = c("mpg green", "white", "mpg grey")
                   )
 # seecol(pal_mpg)
@@ -569,10 +569,20 @@ The `post()` function allows adding text to a rectangular `xbox` (to provide the
 
 ``` r
 xbox(col = usecol(pal_seeblau[[5]]), dim = c(2, 2))
-post(labels = c("Für eine", "Kultur der", "Kreativität"), x = .1, y = .8, cex = 1.5, font = 2)
+post(labels = c("Für eine", "Kultur der", "Kreativität"), x = .1, y = .8, cex = 1.4, font = 2)
 ```
 
-<img src="inst/pix/README-post_demo-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-post-demo-1.png" style="display: block; margin: auto;" />
+
+The color and font parameters can be adjusted to obtain different looks:
+
+``` r
+post(labels = c("creative.", "together"), new_plot = "xbox", 
+     y_layout = .02, cex = 2, font = c(1, 3),  
+     col_bg = pal_seegruen[[1]], col = c(Petrol, Pinky))
+```
+
+<img src="inst/pix/README-post-demo-2-1.png" style="display: block; margin: auto;" />
 
 ### Headings
 
@@ -615,16 +625,16 @@ mark(labels = c("Die Wahrheit", "wird euch", "frei machen."),
 
 # (B) Using orange_white or pal_princeton:
 uline(labels = c("Princeton University"), 
-      x = .6, y = .5, font = 2, cex = 1, col_bg = orange_white)
+      x = .6, y = .55, font = 2, cex = 1, col_bg = orange_white)
 mark(labels = c("Go", "tigers!"), 
-     x = 0, y = .55, y_layout = 0, cex = 2.0,  
+     x = 0, y = .58, y_layout = 0, cex = 2.0,  
      col = c("black", "white"), col_bg = pal_princeton)
 
 # (C) Using pal_mpg:
 uline(labels = c("Max Planck Society"), 
-      x = .6, y = .20, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
-mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen"), 
-     x = 0, y = .25, y_layout = 0, cex = 1.5, 
+      x = .6, y = .25, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
+mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen."), 
+     x = 0, y = .30, y_layout = 0, cex = 1.5, 
      col = c("white"), col_bg = usecol(pal_mpg, 7)[3:1])
 ```
 
@@ -745,7 +755,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-07-03.\]
+\[Updated on 2019-07-05.\]
 
 <!-- eof. -->
 
