@@ -5,11 +5,22 @@ The current development version of **unikn** (0.1.0.9001+) is available at <http
 
 Changes since last release: 
 
-## New functionality 
+
+## Major changes 
+
+New functionality: 
 
 - Added `newpal()` function for defining new color palettes (as a named vector or data frame). [2019-07-05]
 
 - Added `theme_unikn()` function to provide a basic **ggplot2** theme. [2019-06-20]
+
+
+## Minor changes
+
+Changes in existing functionality: 
+
+- Added a `title` argument to `seecol()` function to allow overwriting the default title (created when `title = NA`). [2019-07-17]
+
 
 ## Bug fixes 
 
