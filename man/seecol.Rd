@@ -6,7 +6,7 @@
 \title{Plot color palettes (to see their colors).}
 \usage{
 seecol(pal = "unikn_all", n = "all", alpha = NA, hex = NULL,
-  rgb = NULL, col_brd = NULL, grid = TRUE, ...)
+  rgb = NULL, col_brd = NULL, grid = TRUE, title = NA, ...)
 }
 \arguments{
 \item{pal}{A color palette (as a vector of colors), 
@@ -57,6 +57,9 @@ Default: \code{col_brd = NULL}.}
 \item{grid}{Show grid in the color plot?
 Default: \code{grid = TRUE}.}
 
+\item{title}{Plot title? 
+Default: \code{title = NA} constructs a default title.}
+
 \item{...}{Other graphical parameters 
 (passed to \code{plot_col}).}
 }
@@ -95,18 +98,21 @@ seecol(c("black", "firebrick", "gold"))          # combine color names
 seecol(n =  3)  # viewing reduced ranges of all palettes
 seecol(n = 12)  # viewing extended ranges of all palettes
 
-seecol(pal_unikn, n = 5)     # reducing/selecting from pal_unikn
-seecol(pal_seeblau, n = 10)  # extending pal_seeblau
+seecol(pal_unikn, n = 5, 
+       title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
+seecol(pal_seeblau, n = 8, 
+       title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
 
 # Combining and extending color palettes: 
-seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17)
+seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
+       title = "Diverging custom color palette with 17 colors")
 
 # Defining custom color palettes:
 pal_mpg <- c("#007367", "white", "#D0D3D4")
 names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")
 
 # Viewing extended color palette: 
-seecol(pal_mpg, n = 9)
+seecol(pal_mpg, n = 9, title = "Custom color palette for Max Planck Society")
 
 # Comparing color palettes: 
 seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
