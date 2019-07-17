@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 07 05
+## spds | uni.kn |  2019 07 17
 ## ---------------------------
 
 ## Define color-related functions 
@@ -397,6 +397,9 @@ usecol <- function(pal = pal_unikn,
 #' @param grid Show grid in the color plot?  
 #' Default: \code{grid = TRUE}. 
 #' 
+#' @param title Plot title? 
+#' Default: \code{title = NA} constructs a default title.  
+#' 
 #' @param ... Other graphical parameters 
 #' (passed to \code{plot_col}). 
 #' 
@@ -416,18 +419,21 @@ usecol <- function(pal = pal_unikn,
 #' seecol(n =  3)  # viewing reduced ranges of all palettes
 #' seecol(n = 12)  # viewing extended ranges of all palettes
 #' 
-#' seecol(pal_unikn, n = 5)     # reducing/selecting from pal_unikn
-#' seecol(pal_seeblau, n = 10)  # extending pal_seeblau
+#' seecol(pal_unikn, n = 5, 
+#'        title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
+#' seecol(pal_seeblau, n = 8, 
+#'        title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
 #' 
 #' # Combining and extending color palettes: 
-#' seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17)
+#' seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
+#'        title = "Diverging custom color palette with 17 colors")
 #' 
 #' # Defining custom color palettes:
 #' pal_mpg <- c("#007367", "white", "#D0D3D4")
 #' names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")
 #' 
 #' # Viewing extended color palette: 
-#' seecol(pal_mpg, n = 9)
+#' seecol(pal_mpg, n = 9, title = "Custom color palette for Max Planck Society")
 #' 
 #' # Comparing color palettes: 
 #' seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
@@ -462,6 +468,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
                    rgb = NULL,      # determine, whether rgb values should be shown in detail view (defaults to TRUE)
                    col_brd = NULL,  # border color of the boxes. 
                    grid = TRUE,     # show grid? 
+                   title = NA,      # plot title? Using default title = NA constructs a default title
                    ...              # additional arguments to plot.default().
 ) {
   
@@ -508,12 +515,15 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
   ## Getting a list of palettes by keyword: 
   if ( by_key ) {
     
+    ## Plot title:
     ## Define title given keyword:
-    if ( pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
-    if ( pal %in% c("basic", "unikn_basic", "basic_unikn")) title <- "See all basic unikn color palettes"
-    if ( pal %in% c("pair", "all_pair", "pair_all")) title <- "See all pairwise unikn color palettes"
-    if ( pal %in% c("pref", "pref_all", "all_pref")) title <- "See all preferred unikn colors and gradients"
-    if ( pal %in% c("grad", "grad_all", "all_grad")) title <- "See all unikn color gradients"
+    if (is.na(title)){
+      if ( pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
+      if ( pal %in% c("basic", "unikn_basic", "basic_unikn")) title <- "See all basic unikn color palettes"
+      if ( pal %in% c("pair", "all_pair", "pair_all")) title <- "See all pairwise unikn color palettes"
+      if ( pal %in% c("pref", "pref_all", "all_pref")) title <- "See all preferred unikn colors and gradients"
+      if ( pal %in% c("grad", "grad_all", "all_grad")) title <- "See all unikn color gradients"
+    }
     
     pal_tmp <- getpal_key(pal = pal, n = n, alpha = alpha)  # get the color by key.
     
@@ -521,7 +531,9 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     
     pal_tmp <- lapply(X = pal, usecol, n = n, alpha = alpha, use_names = TRUE)  # get all palettes seperately. 
     
-    title <- "Compare a custom set of color palettes"
+    if (is.na(title)){
+      title <- "Compare a custom set of color palettes"
+    }
     
     names(pal_tmp) <- lapply(pal_tmp, comment)  # assign names from comment attribute. 
     
@@ -548,7 +560,9 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     
     cst <- ifelse(comment(pal_tmp) == "custom" & length(unlist(pal_tmp)) != 1, "custom ", "")
     
-    title <- paste0("See ", cst, "color ", pl, nm)  # assemble title. 
+    if (is.na(title)){
+      title <- paste0("See ", cst, "color ", pl, nm)  # assemble title. 
+    }
     
     pal_tmp <- list(pal_tmp)  # now list the palette and leave the comment attribute.
     
@@ -558,7 +572,10 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     n_txt <- ifelse(n != "all", paste0("n = ", n), "")
     alp_txt <- ifelse(!is.na(alpha), paste0("alpha = ", alpha), "")
     comma <- ifelse(nchar(n_txt) == 0 | nchar(alp_txt) == 0, "", ", ")
-    title <- paste0(title, " (", alp_txt, comma, n_txt, ")")
+    
+    if (is.na(title)){
+      title <- paste0(title, " (", alp_txt, comma, n_txt, ")")
+    }
   }
   
   ## 2. Plotting parameters: ------ 
