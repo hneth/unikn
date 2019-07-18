@@ -396,7 +396,7 @@ usecol <- function(pal = pal_unikn,
 #' Default: \code{col_brd = NULL}. 
 #' 
 #' @param lwd_brd Line width of box borders (if shown). 
-#' Default: \code{lwd_brd = NA}. 
+#' Default: \code{lwd_brd = NULL}. 
 #' 
 #' @param grid Show grid in the color plot?  
 #' Default: \code{grid = TRUE}. 
@@ -465,13 +465,13 @@ usecol <- function(pal = pal_unikn,
 
 # - Definition: ------- 
 
-seecol <- function(pal = "unikn_all",     # which palette to output?
+seecol <- function(pal = "unikn_all",  # which palette to output?
                    n = "all",
                    alpha = NA,
                    hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
                    rgb = NULL,      # determine, whether rgb values should be shown in detail view (defaults to TRUE)
                    col_brd = NULL,  # border color of the boxes
-                   lwd_brd = NA,    # line width of box borders
+                   lwd_brd = NULL,  # line width of box borders
                    grid = TRUE,     # show grid? 
                    title = NA,      # plot title? Using default title = NA constructs a default title
                    ...              # additional arguments to plot.default().
@@ -504,7 +504,6 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     silent = TRUE
   )
   
-  
   ## Check, whether input is a list: 
   compare <- tryCatch(
     {
@@ -515,7 +514,6 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     },
     silent = TRUE
   )
-  
   
   ## Getting a list of palettes by keyword: 
   if ( by_key ) {
@@ -583,6 +581,23 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     }
   }
   
+  ## Check interplay of col_brd and lwd_brd:
+  if (!is.null(lwd_brd) && (lwd_brd <= 0)){
+    message("Setting (lwd_brd <= 0) is not allowed: Using (lwd_brd <- NULL)...")
+    lwd_brd <- NULL  # correct to default
+  }
+  
+  if (!is.null(col_brd) && is.null(lwd_brd)){
+    message("Setting col_brd requires lwd_brd: Using lwd_brd <- 1...")
+    lwd_brd <- 1   # correct to sensible value
+  }
+  
+  if (!is.null(lwd_brd) && is.null(col_brd)){
+    message("Setting lwd_brd requires col_brd: Using col_brd <- 'white'...")
+    col_brd <- "white"   # correct to sensible value
+  }
+  
+  
   ## 2. Plotting parameters: ------ 
   
   ## Plotting preparations: 
@@ -640,7 +655,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     ylen <- 0.8
     
     # Add the color vectors:
-    if (is.na(lwd_brd)) { lwd_brd <- 0 } # set default lwd_brd
+    # if (is.null(lwd_brd)) { lwd_brd <- 0 } # set default lwd_brd
     
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
       plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = ylen, col_brd = col_brd, lwd = lwd_brd)
@@ -767,7 +782,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     }
     
     # Plot rectangles:
-    if (is.na(lwd_brd)) { lwd_brd <- 1 } # set default lwd_brd
+    # if (is.null(lwd_brd)) { lwd_brd <- 1 } # set default lwd_brd
     
     plot_col(x = pal_tmp, ypos = y_rect, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = lwd_brd,
              ...
