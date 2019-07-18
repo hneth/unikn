@@ -6,7 +6,7 @@
 \title{Plot color palettes (to see their colors).}
 \usage{
 seecol(pal = "unikn_all", n = "all", alpha = NA, hex = NULL,
-  rgb = NULL, col_brd = NULL, lwd_brd = NA, grid = TRUE,
+  rgb = NULL, col_brd = NULL, lwd_brd = NULL, grid = TRUE,
   title = NA, ...)
 }
 \arguments{
@@ -38,11 +38,11 @@ keywords without \code{"unikn"} (e.g., \code{"basic"}).}
 If \code{n} is lower or higher than the length of the current 
 color palette \code{pal}, the color palette is reduced or extrapolated 
 (using \code{grDevices::colorRampPalette}). 
-Default: \code{n = "all"}.}
+Default: \code{n = "all"} (i.e., show all colors in palette).}
 
 \item{alpha}{A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
 typically in [0,1]. If used, the value is shown in the plot title.
-Default: \code{NA} (i.e., no modification of opacity).}
+Default: \code{alpha = NA} (i.e., no modification of opacity).}
 
 \item{hex}{Should HEX color values be shown? 
 Default: \code{hex = NULL} (i.e., show HEX color values 
@@ -55,11 +55,14 @@ when there is sufficient space to print them).}
 \item{col_brd}{Color of box borders (if shown). 
 Default: \code{col_brd = NULL}.}
 
+\item{lwd_brd}{Line width of box borders (if shown). 
+Default: \code{lwd_brd = NULL}.}
+
 \item{grid}{Show grid in the color plot?
 Default: \code{grid = TRUE}.}
 
 \item{title}{Plot title? 
-Default: \code{title = NA} constructs a default title.}
+Default: \code{title = NA} creates a default title.}
 
 \item{...}{Other graphical parameters 
 (passed to \code{plot_col}).}
