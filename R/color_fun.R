@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 07 17
+## spds | uni.kn |  2019 07 18
 ## ---------------------------
 
 ## Define color-related functions 
@@ -373,15 +373,16 @@ usecol <- function(pal = pal_unikn,
 #' 
 #' \code{seecol} does also recognize reverse keywords (e.g., \code{"all_unikn"}) or 
 #' keywords without \code{"unikn"} (e.g., \code{"basic"}).
+#' 
 #' @param n Number of colors to show or use. 
 #' If \code{n} is lower or higher than the length of the current 
 #' color palette \code{pal}, the color palette is reduced or extrapolated 
 #' (using \code{grDevices::colorRampPalette}). 
-#' Default: \code{n = "all"}. 
+#' Default: \code{n = "all"} (i.e., show all colors in palette). 
 #' 
 #' @param alpha A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
 #' typically in [0,1]. If used, the value is shown in the plot title.
-#' Default: \code{NA} (i.e., no modification of opacity).  
+#' Default: \code{alpha = NA} (i.e., no modification of opacity).  
 #' 
 #' @param hex Should HEX color values be shown? 
 #' Default: \code{hex = NULL} (i.e., show HEX color values 
@@ -394,11 +395,14 @@ usecol <- function(pal = pal_unikn,
 #' @param col_brd Color of box borders (if shown). 
 #' Default: \code{col_brd = NULL}. 
 #' 
+#' @param lwd_brd Line width of box borders (if shown). 
+#' Default: \code{lwd_brd = NA}. 
+#' 
 #' @param grid Show grid in the color plot?  
 #' Default: \code{grid = TRUE}. 
 #' 
 #' @param title Plot title? 
-#' Default: \code{title = NA} constructs a default title.  
+#' Default: \code{title = NA} creates a default title.  
 #' 
 #' @param ... Other graphical parameters 
 #' (passed to \code{plot_col}). 
@@ -466,7 +470,8 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
                    alpha = NA,
                    hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
                    rgb = NULL,      # determine, whether rgb values should be shown in detail view (defaults to TRUE)
-                   col_brd = NULL,  # border color of the boxes. 
+                   col_brd = NULL,  # border color of the boxes
+                   lwd_brd = NA,    # line width of box borders
                    grid = TRUE,     # show grid? 
                    title = NA,      # plot title? Using default title = NA constructs a default title
                    ...              # additional arguments to plot.default().
@@ -635,8 +640,10 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     ylen <- 0.8
     
     # Add the color vectors:
+    if (is.na(lwd_brd)) { lwd_brd <- 0 } # set default lwd_brd
+    
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
-      plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = ylen, col_brd = col_brd, lwd = 0)
+      plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = ylen, col_brd = col_brd, lwd = lwd_brd)
     })
     
     # Add color names and indices:
@@ -760,7 +767,9 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     }
     
     # Plot rectangles:
-    plot_col(x = pal_tmp, ypos = y_rect, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = 1,
+    if (is.na(lwd_brd)) { lwd_brd <- 1 } # set default lwd_brd
+    
+    plot_col(x = pal_tmp, ypos = y_rect, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = lwd_brd,
              ...
     )
     
@@ -856,23 +865,80 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
 #' (as data frames). 
 #' 
 #' @param col A required vector of colors 
-#' (specified by their R color names or hex codes). 
+#' (specified by their R color names, HEX codes, or RGB values). 
 #' 
-#' @param names A character vector of names 
-#' Default: \code{names = NA}, yielding numeric names.
+#' @param names An optional character vector of names. 
+#' Default: \code{names = NA}, yielding numeric names. 
 #' 
 #' @param as_df Should the new color palette be returned as 
-#' a data frame (rather than a vector)? 
+#' a data frame (rather than as a vector)? 
 #' Default: \code{as_df = FALSE}. 
 #' 
 #' @examples
-#' # Define a color palette:
+#' 
 #' newpal(col = c("black", "white"), names = c("dark", "bright"))
 #' 
-#' pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"), 
+#' # Example: 3 ways of defining a new color palette:
+#' 
+#' # (1) From R color names:  -----
+#' pal_flag_de <- newpal(col = c("black", "firebrick3", "gold"),
+#'                       names = c("Schwarz", "Rot", "Gold"))
+#' 
+#' seecol(pal_flag_de, title = "Colors in the flag of Germany")
+#' 
+#' # (2) From HEX values:  -----
+#' # (a) Google logo colors:
+#' # Source: https://www.schemecolor.com/google-logo-colors.php
+#' color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
+#' names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
+#' pal_google   <- newpal(color_google, names_google)
+#' seecol(pal_google, title = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
+#' 
+#' # (b) German flag revised:
+#' # Based on a different source at
+#' # <https://www.schemecolor.com/germany-flag-colors.php>:
+#' pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
+#'                         names = c("black", "red", "gold")
+#'                         )
+#' seecol(pal_flag_de_2, title = "Colors of the German flag (www.schemecolor.com)")
+#' 
+#' # (c) MPG colors:
+#' pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
 #'                   names = c("mpg green", "white", "mpg grey")
 #'                   )
-#' seecol(pal_mpg) 
+#' seecol(pal_mpg, title = "Colors of the Max Planck Society")
+#' 
+#' # (3) From RGB values:  -----
+#' # Barrier-free color palette
+#' # Source: Okabe & Ito (2002): Color Universal Design (CUD):
+#' #         https://jfly.uni-koeln.de/color/
+#' #         Fig. 16: Colorblind barrier-free color pallet
+#' 
+#' # (a) Vector of colors (as RGB values):
+#' o_i_colors <- c(rgb(  0,   0,   0, maxColorValue = 255),  # black
+#'                 rgb(230, 159,   0, maxColorValue = 255),  # orange
+#'                 rgb( 86, 180, 233, maxColorValue = 255),  # skyblue
+#'                 rgb(  0, 158, 115, maxColorValue = 255),  # green
+#'                 rgb(240, 228,  66, maxColorValue = 255),  # yellow
+#'                 rgb(  0, 114, 178, maxColorValue = 255),  # blue
+#'                 rgb(213,  94,   0, maxColorValue = 255),  # vermillion
+#'                 rgb(204, 121, 167, maxColorValue = 255)   # purple
+#' )
+#' 
+#' # (b) Vector of color names:
+#' o_i_names <- c("black", "orange", "skyblue", "green", "yellow", "blue", "vermillion", "purple")
+#' 
+#' # (c) Use newpal() to combine colors and names:
+#' pal_okabe_ito <- newpal(col = o_i_colors,
+#'                         names = o_i_names)
+#' 
+#' seecol(pal_okabe_ito,
+#'        title = "Color-blind friendly color scale (Okabe & Ito, 2002)")
+#' 
+#' # Compare custom color palettes:
+#' my_pals <- list(pal_flag_de, pal_flag_de_2, pal_google, pal_mpg, pal_okabe_ito)
+#' seecol(my_pals, col_brd = "white", lwd_brd = 5,
+#'        title = "Comparing custom color palettes")
 #' 
 #' @family color functions
 #' 
@@ -944,7 +1010,8 @@ newpal <- function(col,            # a vector of colors
   
 } # newpal end. 
 
-# # Check:
+# # Check: 
+# Basics:
 # newpal(col = c("black", "white"), names = c("b", "w"), as_df = FALSE)  # as vector
 # newpal(col = c("black", "white"), names = c("b", "w"), as_df = TRUE)   # as data.frame
 # 
@@ -954,5 +1021,70 @@ newpal <- function(col,            # a vector of colors
 # seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE), n = 5) 
 # seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE), n = 5) 
 
+# # (1) From R color names:
+# pal_flag_de <- newpal(col = c("black", "firebrick", "gold"),
+#                       names = c("Schwarz", "Rot", "Gold"))
+# 
+# seecol(pal_flag_de, title = "Colors in the flag of Germany")
+
+# # (2) From HEX values:
+
+# # (a) German flag colors revised: 
+# # According to a different source:
+# # https://www.schemecolor.com/germany-flag-colors.php
+# pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
+#                         names = c("black", "electric red", "tangerine yellow"))
+# pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
+#                         names = c("black", "red", "gold"))
+# seecol(pal_flag_de_2, title = "Colors of German flag (www.schemecolor.com)")
+
+# # (b) Google logo colors:
+# # Source: https://www.schemecolor.com/google-logo-colors.php
+# color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
+# names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
+# pal_google   <- newpal(color_google, names_google)
+# seecol(pal_google, title = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
+
+# # (c) MPG colors:
+# pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
+#                   names = c("mpg green", "white", "mpg grey")
+#                   )
+# seecol(pal_mpg, title = "Colors of the Max Planck Society")
+
+# # (3) From RGB values: 
+# 
+# # Source: 
+# # Okabe & Ito (2002): 
+# # Color Universal Design (CUD): 
+# # How to make figures and presentations that are friendly to Colorblind people
+# # https://jfly.uni-koeln.de/color/ 
+# # Fig. 16: Colorblind barrier-free color pallet 
+# 
+# # (a) Vector of colors (as RGB values):
+# o_i_colors <- c(rgb(  0,   0,   0, maxColorValue = 255),  # black
+#                 rgb(230, 159,   0, maxColorValue = 255),  # orange
+#                 rgb( 86, 180, 233, maxColorValue = 255),  # skyblue         
+#                 rgb(  0, 158, 115, maxColorValue = 255),  # green
+#                 rgb(240, 228,  66, maxColorValue = 255),  # yellow
+#                 rgb(  0, 114, 178, maxColorValue = 255),  # blue
+#                 rgb(213,  94,   0, maxColorValue = 255),  # vermillion
+#                 rgb(204, 121, 167, maxColorValue = 255)   # purple
+# )
+# 
+# # (b) Vector of color names:
+# o_i_names <- c("black", "orange", "skyblue", "green", "yellow", "blue", "vermillion", "purple")
+# 
+# # (c) Create color palette (with newpal): 
+# pal_okabe_ito <- newpal(col = o_i_colors, 
+#                         names = o_i_names)
+# 
+# # Show color palette: 
+# seecol(pal_okabe_ito, 
+#        title = "Color-blind friendly color scale (Okabe & Ito, 2002)")
+
+# # Compare custom color palettes:
+# my_pals <- list(pal_flag_de, pal_flag_de_2, pal_google, pal_mpg, pal_okabe_ito)
+# seecol(my_pals, col_brd = "white", lwd_brd = 5,
+#        title = "Comparing custom color palettes")
 
 ## eof. ----------
