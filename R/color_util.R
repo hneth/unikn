@@ -41,7 +41,7 @@ col2hex <- function(col, alpha = alpha) {
 # seecol(pal = c(hex1, hex2, hex3, hex4), n = "all")
 
 
-# isHexCol: Helper function to detect hex-colors: ------ 
+# isHexCol: Helper function to detect HEX-colors: ------ 
 
 isHexCol <- function(color) {
   return(grepl(pattern = "^#[0-9A-Fa-f]{6,}", color))
@@ -53,8 +53,8 @@ isHexCol <- function(color) {
 # isHexCol(rgb2hex(0, 0, 0))
 
 
+# isCol: Helper function to detect any color (in an individual character string): ------ 
 
-# isCol: Helper function to detect any color: ------ 
 isCol <- function(color) {
   return(isHexCol(color) | color %in% colors())
 }
@@ -64,6 +64,9 @@ isCol <- function(color) {
 # isCol(col2hex("black", alpha = 255/2))
 # isCol(NA)
 # isCol("bumblebee")
+
+# BUT note: 
+# isCol(col2rgb("white"))  # => FALSE FALSE FALSE
 
 ## 2. Color getting functions: ------
 
@@ -226,9 +229,8 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
     
   }
   
-  
   # Get all color palettes with the prefix "pal_" from the environment.
-  # ## The five cases: -----
+  # # Distinguish 5 cases: -----
   pal_names <- switch(
     key,
     all = all_palkn,
@@ -270,7 +272,6 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
     out <- lapply(tmp, FUN = usecol, n = n, alpha = alpha, use_names = TRUE)
     
   } else {
-    
     
     if ( !is.na(alpha) ) {
       
