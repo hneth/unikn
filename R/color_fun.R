@@ -911,8 +911,7 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
 #' # (3) From RGB values:  -----
 #' # Barrier-free color palette
 #' # Source: Okabe & Ito (2002): Color Universal Design (CUD):
-#' #         https://jfly.uni-koeln.de/color/
-#' #         Fig. 16: Colorblind barrier-free color pallet
+#' #         Fig. 16 of <https://jfly.uni-koeln.de/color/>:  
 #' 
 #' # (a) Vector of colors (as RGB values):
 #' o_i_colors <- c(rgb(  0,   0,   0, maxColorValue = 255),  # black
@@ -1057,8 +1056,7 @@ newpal <- function(col,            # a vector of colors
 # # Okabe & Ito (2002): 
 # # Color Universal Design (CUD): 
 # # How to make figures and presentations that are friendly to Colorblind people
-# # https://jfly.uni-koeln.de/color/ 
-# # Fig. 16: Colorblind barrier-free color pallet 
+# # Fig. 16 of <https://jfly.uni-koeln.de/color/>:  
 # 
 # # (a) Vector of colors (as RGB values):
 # o_i_colors <- c(rgb(  0,   0,   0, maxColorValue = 255),  # black
