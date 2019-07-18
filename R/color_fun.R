@@ -1017,6 +1017,7 @@ newpal <- function(col,            # a vector of colors
   if (as_df) {
     outpal <- data.frame(outpal, stringsAsFactors = FALSE) # df as column
     outpal <- t(outpal) # df as row
+    outpal <- data.frame(outpal, row.names = NULL, stringsAsFactors = FALSE)
   }
   
   # 2. Return: ----- 
