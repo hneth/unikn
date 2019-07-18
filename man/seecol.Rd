@@ -6,7 +6,8 @@
 \title{Plot color palettes (to see their colors).}
 \usage{
 seecol(pal = "unikn_all", n = "all", alpha = NA, hex = NULL,
-  rgb = NULL, col_brd = NULL, grid = TRUE, title = NA, ...)
+  rgb = NULL, col_brd = NULL, lwd_brd = NA, grid = TRUE,
+  title = NA, ...)
 }
 \arguments{
 \item{pal}{A color palette (as a vector of colors), 

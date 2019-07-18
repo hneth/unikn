@@ -9,13 +9,13 @@ newpal(col, names = NA, as_df = FALSE)
 }
 \arguments{
 \item{col}{A required vector of colors 
-(specified by their R color names or hex codes).}
+(specified by their R color names, HEX codes, or RGB values).}
 
-\item{names}{A character vector of names 
+\item{names}{An optional character vector of names. 
 Default: \code{names = NA}, yielding numeric names.}
 
 \item{as_df}{Should the new color palette be returned as 
-a data frame (rather than a vector)? 
+a data frame (rather than as a vector)? 
 Default: \code{as_df = FALSE}.}
 }
 \description{
@@ -23,14 +23,57 @@ Default: \code{as_df = FALSE}.}
 (as data frames).
 }
 \examples{
-# Define a color palette:
+
 newpal(col = c("black", "white"), names = c("dark", "bright"))
 
+# Example: 3 ways to define a new color palette:
+
+# (1) From R color names:  -----
+pal_flag_de <- newpal(col = c("black", "firebrick", "gold"),
+                      names = c("Schwarz", "Rot", "Gold"))
+
+seecol(pal_flag_de, title = "Colors in the flag of Germany")
+
+# (2) From HEX values:  -----
+# Note: According to a different source at  
+#       <https://www.schemecolor.com/germany-flag-colors.php>: 
+pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
+                        names = c("black", "red", "gold"))
+seecol(pal_flag_de_2, title = "Colors of German flag (www.schemecolor.com)")
+
+# MPG colors:
 pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"), 
                   names = c("mpg green", "white", "mpg grey")
                   )
-seecol(pal_mpg) 
+seecol(pal_mpg, title = "Colors of the Max Planck Society") 
 
+# (3) From RGB values:  -----
+# Barrier-free color palette 
+# Source: Okabe & Ito (2002): Color Universal Design (CUD): 
+#         https://jfly.uni-koeln.de/color/ 
+#         Fig. 16: Colorblind barrier-free color pallet 
+
+# (a) Vector of colors (as RGB values):
+o_i_colors <- c(rgb(  0,   0,   0, maxColorValue = 255),  # black
+                rgb(230, 159,   0, maxColorValue = 255),  # orange
+                rgb( 86, 180, 233, maxColorValue = 255),  # skyblue         
+                rgb(  0, 158, 115, maxColorValue = 255),  # green
+                rgb(240, 228,  66, maxColorValue = 255),  # yellow
+                rgb(  0, 114, 178, maxColorValue = 255),  # blue
+                rgb(213,  94,   0, maxColorValue = 255),  # vermillion
+                rgb(204, 121, 167, maxColorValue = 255)   # purple
+)
+
+# (b) Vector of color names:
+o_i_names <- c("black", "orange", "skyblue", "green", "yellow", "blue", "vermillion", "purple")
+
+# (c) Use newpal() to combine colors and names: 
+pal_okabe_ito <- newpal(col = o_i_colors, 
+                        names = o_i_names)
+
+seecol(pal_okabe_ito, 
+       title = "Color-blind friendly color scale (Okabe & Ito, 2002)")
+ 
 }
 \seealso{
 \code{\link{seepal}} to plot color palettes;  
