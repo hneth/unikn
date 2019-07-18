@@ -1,5 +1,5 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2019 07 03
+## spds | uni.kn | 2019 07 18
 ## ---------------------------
 
 ## Utility functions to access and plot color palettes. 
@@ -26,8 +26,6 @@ rgb2hex <- function(R, G, B) {
 ## Check:
 # rgb2hex(255, 255, 255)
 # rgb2hex(0, 0, 0)
-
-
 
 # col2hex color conversion function: ------ 
 
@@ -74,12 +72,12 @@ isCol <- function(color) {
 parse_pal <- function(pal) {
   
   parenv <- parent.frame()  # get the calling environment. 
-
+  
   ## Check if pal is legible (already a color palette): 
   vector_input <- tryCatch(
-      {
+    {
       all(sapply(pal, isCol))
-      },
+    },
     
     error = function(e) {
       
@@ -88,27 +86,26 @@ parse_pal <- function(pal) {
     },
     silent = TRUE
   )
-
   
   if ( vector_input ) {  # if the input is a color vector (or list).
     
     out <- pal
     
   } else {  # otherwise:
-
+    
     ## Deparse the argument: 
     if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
       
       tmp <- noquote(deparse(substitute(pal)))  # get the palette. 
       
     } else {  # if the calling environment is another function:
-        
+      
       tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))  # get input from function.
       
       tmp <- noquote(tmp)  # unquote input. 
       
-      }
-
+    }
+    
     ## Split the input string; getting everything within the parentheses:
     if ( grepl("\\(", tmp) ) {  # only if any parenthesis exists.
       
@@ -124,7 +121,7 @@ parse_pal <- function(pal) {
     
     elem <- gsub(" |\"", "", unlist(strsplit(tmp, split = ",")))  
     # Split get elements of the input at ',' and remove whitespace and quotes.
-
+    
     ## Check, whether any element is warpped in one or more functions: 
     parens <- grepl("\\(", elem)   # are there any parentheses left?
     funs <- rep(NA, length(elem))  # initialize vector. 
@@ -184,14 +181,14 @@ parse_pal <- function(pal) {
       })[!is.na(funs)] 
       
     }
-
+    
     ## Create the output: 
     out <- unname(out)  # finish the palette by removing upper level (palette) names.
     
   }
-
+  
   out <- unlist(out)
-
+  
   # Provide missing names, by using the color:
   ix_nameless <- is.null(names(out)) | names(out) == ""
   names(out)[ix_nameless] <- out[ix_nameless]
@@ -199,7 +196,7 @@ parse_pal <- function(pal) {
   ## Return the elements:
   return(out)
   
-}
+} # parse_pal end. 
 
 
 # getpal_key(): Get a palette or list of palettes by keyword: -------
@@ -213,7 +210,7 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
             "pair", "pair_all", "all_pair",   # all paired palettes. 
             "pref", "pref_all", "all_pref",  # the preferred palettes and gradients. 
             "grad", "grad_all", "all_grad"  # the gradients.
-            )
+  )
   
   # Throw an error, if no valid keyword is specified:
   if ( !pal %in% keys ) {
@@ -228,76 +225,74 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
     if ( pal %in% keys[13:15] ) key <- "grad"
     
   }
-
+  
   
   # Get all color palettes with the prefix "pal_" from the environment.
-    # ## The five cases: -----
-    pal_names <- switch(
-      key,
-      all = all_palkn,
-      basic = all_palkn_basic,
-      pair = all_palkn_pair,
-      pref = all_palkn_pref,
-      grad = all_palkn_grad
-    )
-
-    # Get list of palettes specified by keyword:
-    lst_pal <- sapply(pal_names, get)
-
-    # Indicator, whether these are actually color palettes:
-    is_pal <- lapply(
-      lst_pal,
-      FUN = function(x) {
-        if ( !typeof(x) %in% c("vector", "list") ) {
-          is_color <- FALSE
-        } else {
-          is_color <- isHexCol(color = x)
-        }
-        return(all(is_color))  # are all entries colors?
-        
+  # ## The five cases: -----
+  pal_names <- switch(
+    key,
+    all = all_palkn,
+    basic = all_palkn_basic,
+    pair = all_palkn_pair,
+    pref = all_palkn_pref,
+    grad = all_palkn_grad
+  )
+  
+  # Get list of palettes specified by keyword:
+  lst_pal <- sapply(pal_names, get)
+  
+  # Indicator, whether these are actually color palettes:
+  is_pal <- lapply(
+    lst_pal,
+    FUN = function(x) {
+      if ( !typeof(x) %in% c("vector", "list") ) {
+        is_color <- FALSE
+      } else {
+        is_color <- isHexCol(color = x)
       }
-    )
-    
-    # Remove all non-colors:
-    tmp <- lst_pal[unlist(is_pal)]
-    
-    # Check if palette is non-empty:
-    if (length(tmp) == 0) {
-      stop("No color palettes defined in the current environment.")
+      return(all(is_color))  # are all entries colors?
+      
     }
-
-    ## If only color subsets should be displayed:
-    if (n != "all" ) {
-
-      # Get the subset of each palette , as defined in usecol():
-      out <- lapply(tmp, FUN = usecol, n = n, alpha = alpha, use_names = TRUE)
+  )
+  
+  # Remove all non-colors:
+  tmp <- lst_pal[unlist(is_pal)]
+  
+  # Check if palette is non-empty:
+  if (length(tmp) == 0) {
+    stop("No color palettes defined in the current environment.")
+  }
+  
+  ## If only color subsets should be displayed:
+  if (n != "all" ) {
+    
+    # Get the subset of each palette , as defined in usecol():
+    out <- lapply(tmp, FUN = usecol, n = n, alpha = alpha, use_names = TRUE)
+    
+  } else {
+    
+    
+    if ( !is.na(alpha) ) {
+      
+      out <- lapply(tmp, FUN = adjustcolor, alpha.f = alpha)   # adjust for alpha if specified.
       
     } else {
       
+      out <- tmp  # if n n is specified return list as is.
       
-      if ( !is.na(alpha) ) {
-        
-        out <- lapply(tmp, FUN = adjustcolor, alpha.f = alpha)   # adjust for alpha if specified.
-        
-      } else {
-        
-        out <- tmp  # if n n is specified return list as is.
-        
-      }
-
     }
     
-    pal_nm <- names(out)  # get palette names from listnames.
-    
+  }
+  
+  pal_nm <- names(out)  # get palette names from listnames.
   
   return(out)
   
-}
-
-
+} # getpal_key end. 
 
 
 ## 3. Plotting functions: ------
+
 # plot_shape: Plot a shape in a certain color: ------
 
 plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle. 
@@ -305,7 +300,7 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle.
                        col_brd = NA,
                        xlen = 1, ylen = 1,  # height of the axis lengths. 
                        shape = "rect",  # shape parameter. 
-                       ...
+                       ...  # graphics parameters (e.g., lwd)
 ) {
   
   ## Prepare inpust for vectorized solution? -----
@@ -323,9 +318,10 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle.
     
     symbols(x = pos_x, y = pos_y, rectangles = cbind(xlen, ylen),
             add = TRUE,
-            inches = FALSE,  # use unit on x axis.
-            fg = col_brd,  # line color.
-            bg = col_fill  # filling.
+            inches = FALSE,  # use unit on x axis
+            fg = col_brd,    # line color
+            bg = col_fill,   # filling
+            ...              # graphics parameters (e.g., lwd)
     )
     
   }
@@ -335,13 +331,15 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle.
     
     symbols(x = pos_x, y = pos_y, circles = xlen/2,  # only uses xlen! 
             add = TRUE, 
-            inches = FALSE,  # use unit on x axis. 
-            fg = col_brd,  # line color. 
-            bg = col_fill  # filling.
+            inches = FALSE,  # use unit on x axis 
+            fg = col_brd,    # line color
+            bg = col_fill,   # filling
+            ...              # graphics parameters (e.g., lwd)
     )
+    
   } 
   
-}
+} # plot_shape end.
 
 
 # plot_col: Plot a vector of colors as circles or rectangles: -------
@@ -352,16 +350,15 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
                      xlen = 1, ylen = 1, 
                      distance = 0,  # distance of shapes (to be taken from size). 
                      plot.new = TRUE,  # TODO: Set to false once done! 
-                     ...
+                     ...  # graphics parameters (e.g., lwd)
 ) {
   
-  
   ## 1. Control inputs: -------------------------------------
-
+  
   ## Get key parameters:
   len_x <- length(x)
   
-  ## Should a new plot be created? 
+  # Should a new plot be created? 
   if (plot.new) {
     
     if (distance > 0) {
@@ -370,11 +367,11 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
       xlim <- c(0, len_x)
     }
     
+    plot(x = 0, type = "n", xlim = xlim, ylim = c(0, 2))  # create an empty plot.
     
-    plot(x = 0, type = "n", xlim = xlim, ylim = c(0, 2))  # create empty plot.
   } else {
     
-    ## Check, whether a graphic device is available: 
+    # Check, whether a graphic device is available: 
     if (dev.cur() == 1) {
       stop("No graphic device to be plotted on.  Please open a plot or set plot.new to 'TRUE'.")
     }
@@ -404,12 +401,10 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
              xlen = xlen, ylen = ylen,  # length of the axes. 
              col_fill = unlist(x),  # filling color. 
              shape = shape,  # shape parameter. 
-             ...
+             ...  # graphics parameters (e.g., lwd)
   )
-
   
 } # plot_col end. 
-
 
 
 ## eof. ----------
