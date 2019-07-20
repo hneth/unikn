@@ -26,10 +26,12 @@ Changes in existing functionality:
 
 ## Bug fixes 
 
-- Prevent showing duplicate color names in `seecol()`, due to searching both the current set of color palettes and **base** R `colors`. 
-Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27]
+- Removed packages not needed for running **unikn** from list of suggested packages. [2019-07-20] 
 
-- Fix an error in `isHexCol()` which failed to recognize hexadecimal color values starting with lowercase letters.  [2019-06-27]
+- Prevent showing duplicate color names in `seecol()`, due to searching both the current set of color palettes and **base** R `colors`. 
+Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27] 
+
+- Fix an error in `isHexCol()` which failed to recognize hexadecimal color values starting with lowercase letters.  [2019-06-27] 
 
 
 ---------- 
