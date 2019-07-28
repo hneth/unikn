@@ -27,8 +27,8 @@ Default: \code{base_line_size = base_size/20}.}
 Default: \code{base_rect_size = base_size/20}.}
 }
 \description{
-\code{theme_unikn} provides a basic unikn theme 
-to use in ggplot2 commands.
+\code{theme_unikn} provides a basic \bold{unikn} theme 
+to use in \bold{ggplot2} commands.
 }
 \details{
 The theme is lightweight and no-nonsense, but somewhat 

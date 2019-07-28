@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2019 06 16
+## spds | uni.kn |  2019 07 28
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -34,8 +34,8 @@ if ("ggplot2" %in% (.packages())){
 
 #' Basic unikn theme for ggplot2.  
 #' 
-#' \code{theme_unikn} provides a basic unikn theme 
-#' to use in ggplot2 commands. 
+#' \code{theme_unikn} provides a basic \bold{unikn} theme 
+#' to use in \bold{ggplot2} commands. 
 #' 
 #' The theme is lightweight and no-nonsense, but somewhat 
 #' opinionated (e.g., in using mostly grey scales to 
