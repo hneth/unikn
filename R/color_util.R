@@ -137,7 +137,6 @@ parse_pal <- function(pal) {
     ## Now ask for every element, whether it exists:
     elemex <- sapply(elem, exists)
     
-    
     if ( any(!elemex) ) {  # only if not all inputs have been resolved
       
       ## Those which are still unknown: are those colors? 
@@ -173,10 +172,10 @@ parse_pal <- function(pal) {
       
     }
     
-    ## Get all palettes:
+    # Get all palettes:
     out <- lapply(elem, function(x) if( isCol(x) ) x else get(x) )
     
-    ## Apply any previously detected functions: 
+    # Apply any previously detected functions: 
     if ( any(!is.na(funs)) ) {
       
       out[!is.na(funs)] <- apply(rbind(out, funs), MARGIN = 2, FUN = function(x) {
@@ -185,7 +184,7 @@ parse_pal <- function(pal) {
       
     }
     
-    ## Create the output: 
+    # Create the output: 
     out <- unname(out)  # finish the palette by removing upper level (palette) names.
     
   }
@@ -196,7 +195,7 @@ parse_pal <- function(pal) {
   ix_nameless <- is.null(names(out)) | names(out) == ""
   names(out)[ix_nameless] <- out[ix_nameless]
   
-  ## Return the elements:
+  # Return elements:
   return(out)
   
 } # parse_pal end. 
@@ -221,16 +220,16 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
                             c("all", "unikn_all", "all_unikn", "pref_all", "all_pref", "grad_all", "all_grad")')
   } else {
     
-    if ( pal %in% keys[1:3] ) key <- "all"
-    if ( pal %in% keys [4:6] ) key <- "basic"
-    if ( pal %in% keys[7:9] ) key <- "pair"
+    if ( pal %in% keys[1:3] )   key <- "all"
+    if ( pal %in% keys [4:6] )  key <- "basic"
+    if ( pal %in% keys[7:9] )   key <- "pair"
     if ( pal %in% keys[10:12] ) key <- "pref"
     if ( pal %in% keys[13:15] ) key <- "grad"
     
   }
   
   # Get all color palettes with the prefix "pal_" from the environment.
-  # # Distinguish 5 cases: -----
+  # Distinguish between 5 cases: -----
   pal_names <- switch(
     key,
     all = all_palkn,
