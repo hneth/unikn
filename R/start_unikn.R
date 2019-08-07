@@ -1,5 +1,5 @@
 ## start_unikn.R | unikn
-## spds | uni.kn |  2019 06 04
+## spds | uni.kn |  2019 08 07
 ## ---------------------------
 
 ## Open package guide: -----------------------
@@ -25,8 +25,8 @@ unikn.guide <- function() {
   ## Welcome message: ------
 
   pkg_version <- utils::packageVersion("unikn", lib.loc = NULL)
-  # welcome_message <- paste0("Welcome to unikn (v", pkg_version, ")!")
-  welcome_message <- paste0("Welcome to unikn!")
+  # welcome_message <- paste0("Welcome to unikn!")
+  welcome_message <- paste0("Welcome to unikn (v", pkg_version, ")!")
 
   packageStartupMessage(welcome_message)
 
