@@ -35,6 +35,22 @@ The theme is lightweight and no-nonsense, but somewhat
 opinionated (e.g., in using mostly grey scales to 
 allow emphasizing data points with color accents).
 }
+\examples{
+
+\donttest{
+  # Plotting iris dataset (using ggplot2, theme_unikn, and unikn colors):
+  
+  library("ggplot2")  # theme_unikn requires loading ggplot2 
+  
+  ggplot(datasets::iris) +
+    geom_jitter(aes(x = Petal.Length, y = Petal.Width, color = Species), size = 3, alpha = 1/2) +
+    scale_color_manual(values = usecol(pal = c(Seeblau, Peach, Seegruen))) +
+    labs(title = "Iris species",
+         caption = "Data from datasets::iris") + 
+    theme_unikn(col_title = "black", base_size = 11)
+}
+
+}
 \seealso{
 Other plot functions: \code{\link{slide}},
   \code{\link{xbox}}
