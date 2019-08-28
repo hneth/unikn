@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## spds | uni.kn |  2019 06 04
+## spds | uni.kn |  2019 08 28
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -724,7 +724,6 @@ heading <- function(labels,             # labels of text element(s) to plot
 # - Consider adding ... argument to simple functions (to provide expert users with additional options).
 
 # (+) Additional elements:
-#   - ggplot_addon: provide complete ggplot theme(s)
 #   - add more slide elements
 #   - official fonts?
 
