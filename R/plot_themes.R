@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2019 07 28
+## spds | uni.kn |  2019 08 28
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -58,6 +58,21 @@ if ("ggplot2" %in% (.packages())){
 #' @param base_rect_size Base rectangle size (optional, numeric). 
 #' Default: \code{base_rect_size = base_size/20}.  
 #' 
+#' @examples
+#' 
+#' \donttest{
+#'   # Plotting iris dataset (using ggplot2, theme_unikn, and unikn colors):
+#'   
+#'   library("ggplot2")  # theme_unikn requires loading ggplot2 
+#'   
+#'   ggplot(datasets::iris) +
+#'     geom_jitter(aes(x = Petal.Length, y = Petal.Width, color = Species), size = 3, alpha = 1/2) +
+#'     scale_color_manual(values = usecol(pal = c(Seeblau, Peach, Seegruen))) +
+#'     labs(title = "Iris species",
+#'          caption = "Data from datasets::iris") + 
+#'     theme_unikn(col_title = "black", base_size = 11)
+#' }
+#' 
 #' @family plot functions
 #' 
 #' @import ggplot2 
@@ -98,8 +113,9 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
       # panel.border = ggplot2::element_blank(), 
       panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
       # panel.grid = ggplot2::element_blank(), 
-      panel.grid.major = ggplot2::element_line(color = grey(.65, 1), linetype = "dashed", size = ggplot2::rel(1/2)), 
-      panel.grid.minor = ggplot2::element_line(color = grey(.70, 1), linetype = "dotted", size = ggplot2::rel(1/3)), 
+      panel.grid.major = ggplot2::element_line(color = grey(.65, .50), linetype = "solid", size = ggplot2::rel(1/3)), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.70, 1), linetype = "solid", size = ggplot2::rel(1/3)), 
+      panel.grid.minor = ggplot2::element_blank(), 
       panel.background = ggplot2::element_blank(), 
       # background:  
       plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
@@ -107,7 +123,6 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
   
 } # theme_unikn end. 
 
-# +++ here now +++ 
 
 # ## Check: 
 
