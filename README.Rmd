@@ -29,11 +29,11 @@ knitr::opts_chunk$set(
 library(unikn)  # load package
 ```
 
-# unikn  <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "125px" />
+# unikn  <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link: --> 
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
+<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
 </a> 
 -->
 
@@ -711,7 +711,7 @@ We aim for an authentic representation of a highly-specified corporate design. W
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
+<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
 </a>
 
 <!-- License: CC BY-SA 4.0 (also in Description) -->

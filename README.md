@@ -12,12 +12,12 @@
 [![Rdoc](http://www.rdocumentation.org/badges/version/unikn)](http://www.rdocumentation.org/packages/unikn)
 
 -->
-unikn <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "125px" />
+unikn <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 ==========================================================================================
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/>
+<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
 </a> 
 -->
 Enabling elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design in [R](https://www.r-project.org/).
@@ -728,7 +728,7 @@ License
 -------
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://CRAN.R-project.org/package=unikn"> <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "125px" style = "width: 125px; float: right; border:10;"/> </a>
+<a href = "https://CRAN.R-project.org/package=unikn"> <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/> </a>
 
 <!-- License: CC BY-SA 4.0 (also in Description) -->
 <!-- Image with link: -->
@@ -755,7 +755,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-07-05.\]
+\[Updated on 2019-08-28.\]
 
 <!-- eof. -->
 
