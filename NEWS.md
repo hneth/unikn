@@ -1,5 +1,5 @@
 
-# Current version 
+# unikn 0.1.0.9001+
 
 The current development version of **unikn** (0.1.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -32,6 +32,7 @@ Changes in existing functionality:
 Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27] 
 
 - Fix an error in `isHexCol()` which failed to recognize hexadecimal color values starting with lowercase letters.  [2019-06-27] 
+
 
 
 ---------- 
