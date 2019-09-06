@@ -140,7 +140,7 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
 #        color = "Color label:",
 #        caption = "Data from ggplot2::diamonds") +
 #   theme_unikn(col_title = unikn::pal_seeblau[[5]], base_size = 11)
-# 
+ 
 # # (2) ggplot2::mpg:
 # 
 # ggplot(mpg, aes(x = cty, y = hwy, color = manufacturer)) +
