@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2019 08 28
+## spds | uni.kn |  2019 09 12
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -21,11 +21,11 @@
 
 ## Check if ggplot2 is loaded: 
 
-if ("ggplot2" %in% (.packages())){
-  
-  # message("ggplot2 is loaded.")
-  
-} # if ("ggplot2" %in% (.packages())) end. 
+# if ("ggplot2" %in% (.packages())){
+#   
+#   message("Package 'ggplot2' is loaded.")
+#   
+# } # if ("ggplot2" %in% (.packages())) end. 
 
 
 ## theme_unikn: Define a new ggplot2 theme: ------ 
