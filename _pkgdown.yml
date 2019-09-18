@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2019 06 18
+## spds, uni.kn | 2019 08 28
 ## -----------------------------------------------
 
 ## site info: ----------
@@ -74,6 +74,7 @@ reference:
   contents:
   - seecol
   - usecol
+  - newpal 
 - title: Graphics
   desc: Objects and themes for plotting. 
   contents:

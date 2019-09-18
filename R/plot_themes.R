@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2019 06 16
+## spds | uni.kn |  2019 09 12
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -21,11 +21,11 @@
 
 ## Check if ggplot2 is loaded: 
 
-if ("ggplot2" %in% (.packages())){
-  
-  # message("ggplot2 is loaded.")
-  
-} # if ("ggplot2" %in% (.packages())) end. 
+# if ("ggplot2" %in% (.packages())){
+#   
+#   message("Package 'ggplot2' is loaded.")
+#   
+# } # if ("ggplot2" %in% (.packages())) end. 
 
 
 ## theme_unikn: Define a new ggplot2 theme: ------ 
@@ -34,8 +34,8 @@ if ("ggplot2" %in% (.packages())){
 
 #' Basic unikn theme for ggplot2.  
 #' 
-#' \code{theme_unikn} provides a basic unikn theme 
-#' to use in ggplot2 commands. 
+#' \code{theme_unikn} provides a basic \bold{unikn} theme 
+#' to use in \bold{ggplot2} commands. 
 #' 
 #' The theme is lightweight and no-nonsense, but somewhat 
 #' opinionated (e.g., in using mostly grey scales to 
@@ -57,6 +57,21 @@ if ("ggplot2" %in% (.packages())){
 #' 
 #' @param base_rect_size Base rectangle size (optional, numeric). 
 #' Default: \code{base_rect_size = base_size/20}.  
+#' 
+#' @examples
+#' 
+#' \donttest{
+#'   # Plotting iris dataset (using ggplot2, theme_unikn, and unikn colors):
+#'   
+#'   library("ggplot2")  # theme_unikn requires loading ggplot2 
+#'   
+#'   ggplot(datasets::iris) +
+#'     geom_jitter(aes(x = Petal.Length, y = Petal.Width, color = Species), size = 3, alpha = 1/2) +
+#'     scale_color_manual(values = usecol(pal = c(Seeblau, Peach, Seegruen))) +
+#'     labs(title = "Iris species",
+#'          caption = "Data from datasets::iris") + 
+#'     theme_unikn(col_title = "black", base_size = 11)
+#' }
 #' 
 #' @family plot functions
 #' 
@@ -98,8 +113,9 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
       # panel.border = ggplot2::element_blank(), 
       panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
       # panel.grid = ggplot2::element_blank(), 
-      panel.grid.major = ggplot2::element_line(color = grey(.65, 1), linetype = "dashed", size = ggplot2::rel(1/2)), 
-      panel.grid.minor = ggplot2::element_line(color = grey(.70, 1), linetype = "dotted", size = ggplot2::rel(1/3)), 
+      panel.grid.major = ggplot2::element_line(color = grey(.65, .50), linetype = "solid", size = ggplot2::rel(1/3)), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.70, 1), linetype = "solid", size = ggplot2::rel(1/3)), 
+      panel.grid.minor = ggplot2::element_blank(), 
       panel.background = ggplot2::element_blank(), 
       # background:  
       plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
@@ -107,7 +123,6 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
   
 } # theme_unikn end. 
 
-# +++ here now +++ 
 
 # ## Check: 
 
@@ -125,7 +140,7 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
 #        color = "Color label:",
 #        caption = "Data from ggplot2::diamonds") +
 #   theme_unikn(col_title = unikn::pal_seeblau[[5]], base_size = 11)
-# 
+ 
 # # (2) ggplot2::mpg:
 # 
 # ggplot(mpg, aes(x = cty, y = hwy, color = manufacturer)) +

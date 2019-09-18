@@ -6,7 +6,8 @@
 \title{Plot color palettes (to see their colors).}
 \usage{
 seecol(pal = "unikn_all", n = "all", alpha = NA, hex = NULL,
-  rgb = NULL, col_brd = NULL, grid = TRUE, ...)
+  rgb = NULL, col_brd = NULL, lwd_brd = NULL, grid = TRUE,
+  title = NA, ...)
 }
 \arguments{
 \item{pal}{A color palette (as a vector of colors), 
@@ -37,11 +38,11 @@ keywords without \code{"unikn"} (e.g., \code{"basic"}).}
 If \code{n} is lower or higher than the length of the current 
 color palette \code{pal}, the color palette is reduced or extrapolated 
 (using \code{grDevices::colorRampPalette}). 
-Default: \code{n = "all"}.}
+Default: \code{n = "all"} (i.e., show all colors in palette).}
 
 \item{alpha}{A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
 typically in [0,1]. If used, the value is shown in the plot title.
-Default: \code{NA} (i.e., no modification of opacity).}
+Default: \code{alpha = NA} (i.e., no modification of opacity).}
 
 \item{hex}{Should HEX color values be shown? 
 Default: \code{hex = NULL} (i.e., show HEX color values 
@@ -54,8 +55,14 @@ when there is sufficient space to print them).}
 \item{col_brd}{Color of box borders (if shown). 
 Default: \code{col_brd = NULL}.}
 
+\item{lwd_brd}{Line width of box borders (if shown). 
+Default: \code{lwd_brd = NULL}.}
+
 \item{grid}{Show grid in the color plot?
 Default: \code{grid = TRUE}.}
+
+\item{title}{Plot title? 
+Default: \code{title = NA} creates a default title.}
 
 \item{...}{Other graphical parameters 
 (passed to \code{plot_col}).}
@@ -95,18 +102,21 @@ seecol(c("black", "firebrick", "gold"))          # combine color names
 seecol(n =  3)  # viewing reduced ranges of all palettes
 seecol(n = 12)  # viewing extended ranges of all palettes
 
-seecol(pal_unikn, n = 5)     # reducing/selecting from pal_unikn
-seecol(pal_seeblau, n = 10)  # extending pal_seeblau
+seecol(pal_unikn, n = 5, 
+       title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
+seecol(pal_seeblau, n = 8, 
+       title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
 
 # Combining and extending color palettes: 
-seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17)
+seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
+       title = "Diverging custom color palette with 17 colors")
 
 # Defining custom color palettes:
 pal_mpg <- c("#007367", "white", "#D0D3D4")
 names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")
 
 # Viewing extended color palette: 
-seecol(pal_mpg, n = 9)
+seecol(pal_mpg, n = 9, title = "Custom color palette for Max Planck Society")
 
 # Comparing color palettes: 
 seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
@@ -123,6 +133,7 @@ seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
 \code{\link{usecol}} to use a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{usecol}}
+Other color functions: \code{\link{newpal}},
+  \code{\link{usecol}}
 }
 \concept{color functions}

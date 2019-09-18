@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 06 14
+## spds | uni.kn |  2019 09 18
 ## ---------------------------
 
 ## Define color-related functions 
@@ -102,29 +102,21 @@ usecol <- function(pal = pal_unikn,
   pal_def <- FALSE  # assume default, that an undefined palette is used.
   # Check this in the next step (this variable serves to control flow).
   
-  ## This is also used in color ramp, thus do here:
-  ex_pal <- unlist(lapply(all_palkn, exists))  # check, whether the palettes in the list exist.
-  
-  # stop(all(ex_pal))
-  
-  if ( all(ex_pal) ) {  # existence check of all_palkn.
-    # stop("all_palkn: ", exists("all_palkn"))
-    # stop("unikn" %in% .packages())
+  if ( all(unlist(lapply(all_palkn, exists))) ) {  # test whether the palettes in all_palkn are defined. 
     
-    ## Test whether equal to any palette:
+    # Test whether equal to any palette:
     all_pals1 <- lapply(all_palkn, get)  # get all palettes from the first part.
     
-  } else {  # if all_palkn does not exist:
+  } else {  # if not all palettes are defined:
     
-    all_pals1 <- NA  # otherwise
+    all_pals1 <- NA
     
-  }  # eof. existence check. 
+  }
   
   ## Is the input one of the defined palettes?
   if ( !use_col_ramp ) {
     # execute, if not always the colorRamp should be used.
     
-  
       pal_ix <-
         sapply(all_pals1, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }
         )  # Test, whether specified palette is there.
@@ -135,153 +127,151 @@ usecol <- function(pal = pal_unikn,
         pal_ix <-
           sapply(all_pals1, function(x)
             isTRUE(all.equal(rev(pal_inp), x)))
-        if (any(pal_ix))
-          rev_pal <- TRUE  # if palette is reversed, set pal_rev to TRUE.
+        if (any(pal_ix)) {
+          rev_pal <- TRUE
+        }  # if palette is reversed, set pal_rev to TRUE.
         
       }
       
-    
-    
-    
-    ## If input fits with any palette:
-    if ( any(pal_ix) & length(pal_inp) >= n) {
-      
-      pal_name <- all_palkn[pal_ix]  # get name of the palette.
-      
-      pal <- pal_inp  # redefine. 
-      
-      # Define sets of palettes:
-      set1 <- pal_name %in% c("pal_peach",
-                              "pal_peach",
-                              "pal_petrol",
-                              "pal_pinky",
-                              "pal_karpfenblau",
-                              "pal_bordeaux",
-                              "pal_seegruen")
-      set2 <- pal_name %in% c("pal_grau", "pal_seeblau")
-      set3 <- pal_name %in% c("pal_unikn_web", "pal_unikn_ppt") 
-      set4 <- pal_name %in% "pal_unikn"
-      set5 <- pal_name %in% "pal_unikn_pair"
-      set6 <- pal_name %in% c("pal_unikn_dark", "pal_unikn_light", "pal_unikn_pref") 
-      set7 <- pal_name %in% "pal_signal"
-      
-      pal_set <- which(c(set1, set2, set3, set4, set5, set6, set7))  # define a set number.
-      
-      ## Determine the color output:
-      out_col <- switch(pal_set,
-                        ## Get the indices for pal_set:
-                        # Set1: -----
-                        switch(n,
-                               pal[4],
-                               pal[c(4, 2)],
-                               pal[c(5, 3, 1)],
-                               pal[c(5, 4, 2, 1)],
-                               pal),
-                        # Set2: -----
-                        switch(n,
-                               pal[3],
-                               pal[c(4, 2)],
-                               pal[c(5, 3, 1)],
-                               pal[c(5, 4, 2, 1)],
-                               pal),
-                        # Set3: -----
-                        switch(n,
-                               pal[2],  # 1
-                               pal[c(1, 3)],  # 2
-                               pal[c(1, 3, 5)],  # 3
-                               pal[c(1, 3, 5, 10)],  # 4
-                               pal[c(1, 3, 5, 8, 10)],  # 5
-                               pal[c(1, 2, 4, 5, 8, 10)],  # 6
-                               pal[c(1, 2, 4, 5, 7, 9, 10)],  # 7
-                               pal[c(1, 2, 3, 4, 5, 7, 9, 10)],  # 8
-                               pal[c(1, 2, 3, 4, 5, 7, 8, 9, 10)],  # 9
-                               pal),
-                        # Set4: -----
-                        switch(
-                          n,
-                          pal[c("seeblau3")],
-                          # 1 preferred color
-                          pal[c("seeblau4", "seeblau2")],
-                          # 2
-                          pal[c("seeblau4", "seeblau2", "white")],
-                          # 3
-                          pal[c("seeblau4", "seeblau2", "white", "black")],
-                          # 4
-                          pal[c("seeblau4", "seeblau2", "white", "seegrau3", "black")],
-                          # 5
-                          pal[c("seeblau4",
-                                "seeblau3",
-                                "seeblau1",
-                                "white",
-                                "seegrau3",
-                                "black")],
-                          # 6
-                          pal[c("seeblau4",
-                                "seeblau3",
-                                "seeblau1",
-                                "white",
-                                "seegrau2",
-                                "seegrau4",
-                                "black")],
-                          # 7
-                          pal[c(
-                            "seeblau4",
-                            "seeblau3",
-                            "seeblau2",
-                            "seeblau1",
-                            "white",
-                            "seegrau2",
-                            "seegrau4",
-                            "black"
-                          )],
-                          # 8
-                          pal[c(
-                            "seeblau4",
-                            "seeblau3",
-                            "seeblau2",
-                            "seeblau1",
-                            "white",
-                            "seegrau1",
-                            "seegrau2",
-                            "seegrau3",
-                            "black"
-                          )],
-                          # 9
-                          pal[c(
-                            "seeblau5",
-                            "seeblau4",
-                            "seeblau3",
-                            "seeblau2",
-                            "seeblau1",
-                            "white",
-                            "seegrau1",
-                            "seegrau2",
-                            "seegrau3",
-                            "black"
-                          )],
-                          # 10
-                          pal  # all 11 colors of pal_unikn (previously known as pal_unikn_plus) 
-                        ),
-                        # Set 5: -----
-                        pal[c("seeblau5", "seeblau3", "pinky4", "pinky2", "petrol4", 
-                              "petrol2", "bordeaux4", "bordeaux2", "seegruen4", "seegruen2",
-                              "peach4", "peach2", "karpfenblau4", "karpfenblau2", "grau2", "grau1")[1:n]],
-                        # Set 6: -----
-                        pal[1:n],
-                        # Set 7: -----
-                        pal[c("signal1", "signal3", "signal2")[1:n]]
-                        # Set 8: -----
-      )
-      
-      if (rev_pal) {
-        out_col <-
-          rev(out_col)
-      }  # if palette was reversed, reverse result as well.
-      
-      pal_def <- TRUE  # set flag that palette is defined.
-      
-    }
-    
+      # If input fits with any palette:
+      if ( any(pal_ix) & length(pal_inp) >= n) {
+        
+        pal_name <- all_palkn[pal_ix]  # get name of the palette.
+        
+        pal <- pal_inp  # redefine. 
+        
+        # Define sets of palettes:
+        set1 <- pal_name %in% c("pal_peach",
+                                "pal_peach",
+                                "pal_petrol",
+                                "pal_pinky",
+                                "pal_karpfenblau",
+                                "pal_bordeaux",
+                                "pal_seegruen")
+        set2 <- pal_name %in% c("pal_grau", "pal_seeblau")
+        set3 <- pal_name %in% c("pal_unikn_web", "pal_unikn_ppt") 
+        set4 <- pal_name %in% "pal_unikn"
+        set5 <- pal_name %in% "pal_unikn_pair"
+        set6 <- pal_name %in% c("pal_unikn_dark", "pal_unikn_light", "pal_unikn_pref") 
+        set7 <- pal_name %in% "pal_signal"
+        
+        pal_set <- which(c(set1, set2, set3, set4, set5, set6, set7))  # define a set number.
+        
+        # Determine the color output:
+        out_col <- switch(pal_set,
+                          ## Get the indices for pal_set:
+                          # Set1: -----
+                          switch(n,
+                                 pal[4],
+                                 pal[c(4, 2)],
+                                 pal[c(5, 3, 1)],
+                                 pal[c(5, 4, 2, 1)],
+                                 pal),
+                          # Set2: -----
+                          switch(n,
+                                 pal[3],
+                                 pal[c(4, 2)],
+                                 pal[c(5, 3, 1)],
+                                 pal[c(5, 4, 2, 1)],
+                                 pal),
+                          # Set3: -----
+                          switch(n,
+                                 pal[2],  # 1
+                                 pal[c(1, 3)],  # 2
+                                 pal[c(1, 3, 5)],  # 3
+                                 pal[c(1, 3, 5, 10)],  # 4
+                                 pal[c(1, 3, 5, 8, 10)],  # 5
+                                 pal[c(1, 2, 4, 5, 8, 10)],  # 6
+                                 pal[c(1, 2, 4, 5, 7, 9, 10)],  # 7
+                                 pal[c(1, 2, 3, 4, 5, 7, 9, 10)],  # 8
+                                 pal[c(1, 2, 3, 4, 5, 7, 8, 9, 10)],  # 9
+                                 pal),
+                          # Set4: -----
+                          switch(
+                            n,
+                            pal[c("seeblau3")],
+                            # 1 preferred color
+                            pal[c("seeblau4", "seeblau2")],
+                            # 2
+                            pal[c("seeblau4", "seeblau2", "white")],
+                            # 3
+                            pal[c("seeblau4", "seeblau2", "white", "black")],
+                            # 4
+                            pal[c("seeblau4", "seeblau2", "white", "seegrau3", "black")],
+                            # 5
+                            pal[c("seeblau4",
+                                  "seeblau3",
+                                  "seeblau1",
+                                  "white",
+                                  "seegrau3",
+                                  "black")],
+                            # 6
+                            pal[c("seeblau4",
+                                  "seeblau3",
+                                  "seeblau1",
+                                  "white",
+                                  "seegrau2",
+                                  "seegrau4",
+                                  "black")],
+                            # 7
+                            pal[c(
+                              "seeblau4",
+                              "seeblau3",
+                              "seeblau2",
+                              "seeblau1",
+                              "white",
+                              "seegrau2",
+                              "seegrau4",
+                              "black"
+                            )],
+                            # 8
+                            pal[c(
+                              "seeblau4",
+                              "seeblau3",
+                              "seeblau2",
+                              "seeblau1",
+                              "white",
+                              "seegrau1",
+                              "seegrau2",
+                              "seegrau3",
+                              "black"
+                            )],
+                            # 9
+                            pal[c(
+                              "seeblau5",
+                              "seeblau4",
+                              "seeblau3",
+                              "seeblau2",
+                              "seeblau1",
+                              "white",
+                              "seegrau1",
+                              "seegrau2",
+                              "seegrau3",
+                              "black"
+                            )],
+                            # 10
+                            pal  # all 11 colors of pal_unikn (previously known as pal_unikn_plus) 
+                          ),
+                          # Set 5: -----
+                          pal[c("seeblau5", "seeblau3", "pinky4", "pinky2", "petrol4", 
+                                "petrol2", "bordeaux4", "bordeaux2", "seegruen4", "seegruen2",
+                                "peach4", "peach2", "karpfenblau4", "karpfenblau2", "grau2", "grau1")[1:n]],
+                          # Set 6: -----
+                          pal[1:n],
+                          # Set 7: -----
+                          pal[c("signal1", "signal3", "signal2")[1:n]]
+                          # Set 8: -----
+        )
+        
+        if (rev_pal) {
+          out_col <-
+            rev(out_col)
+        }  # if palette was reversed, reverse result as well.
+        
+        pal_def <- TRUE  # set flag that palette is defined.
+        
+      }
+
   }
   
   
@@ -299,18 +289,20 @@ usecol <- function(pal = pal_unikn,
     }
     
   }
-
+  
   
   ## Give the palette a name (as comment attribute):
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
-
+  
   ## Do a quick name search if no names are given:
   if ( all(is.null(names(out_col))) ) {
     
     tst <- out_col
-
+    
     # Names from defined kn palettes:
     kn_names <-  names(unlist(all_pals1))[match(tst, unlist(all_pals1))]
+
+    
     
     # Predefined color names:
     col_names <- colors()[match(
@@ -325,7 +317,7 @@ usecol <- function(pal = pal_unikn,
     col_names[col_names == kn_names] <- ""  # remove duplicates in col names. 
     col_names[!col_names == "" & !kn_names == ""] <- 
       paste0("/", col_names[!col_names == "" & !kn_names == ""])
-      # adding a slash to distinguish different names for the same color. 
+    # adding a slash to distinguish different names for the same color. 
     
     names(out_col) <- paste0(kn_names, col_names)
     
@@ -391,15 +383,16 @@ usecol <- function(pal = pal_unikn,
 #' 
 #' \code{seecol} does also recognize reverse keywords (e.g., \code{"all_unikn"}) or 
 #' keywords without \code{"unikn"} (e.g., \code{"basic"}).
+#' 
 #' @param n Number of colors to show or use. 
 #' If \code{n} is lower or higher than the length of the current 
 #' color palette \code{pal}, the color palette is reduced or extrapolated 
 #' (using \code{grDevices::colorRampPalette}). 
-#' Default: \code{n = "all"}. 
+#' Default: \code{n = "all"} (i.e., show all colors in palette). 
 #' 
 #' @param alpha A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
 #' typically in [0,1]. If used, the value is shown in the plot title.
-#' Default: \code{NA} (i.e., no modification of opacity).  
+#' Default: \code{alpha = NA} (i.e., no modification of opacity).  
 #' 
 #' @param hex Should HEX color values be shown? 
 #' Default: \code{hex = NULL} (i.e., show HEX color values 
@@ -412,8 +405,14 @@ usecol <- function(pal = pal_unikn,
 #' @param col_brd Color of box borders (if shown). 
 #' Default: \code{col_brd = NULL}. 
 #' 
+#' @param lwd_brd Line width of box borders (if shown). 
+#' Default: \code{lwd_brd = NULL}. 
+#' 
 #' @param grid Show grid in the color plot?  
 #' Default: \code{grid = TRUE}. 
+#' 
+#' @param title Plot title? 
+#' Default: \code{title = NA} creates a default title.  
 #' 
 #' @param ... Other graphical parameters 
 #' (passed to \code{plot_col}). 
@@ -434,18 +433,21 @@ usecol <- function(pal = pal_unikn,
 #' seecol(n =  3)  # viewing reduced ranges of all palettes
 #' seecol(n = 12)  # viewing extended ranges of all palettes
 #' 
-#' seecol(pal_unikn, n = 5)     # reducing/selecting from pal_unikn
-#' seecol(pal_seeblau, n = 10)  # extending pal_seeblau
+#' seecol(pal_unikn, n = 5, 
+#'        title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
+#' seecol(pal_seeblau, n = 8, 
+#'        title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
 #' 
 #' # Combining and extending color palettes: 
-#' seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17)
+#' seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
+#'        title = "Diverging custom color palette with 17 colors")
 #' 
 #' # Defining custom color palettes:
 #' pal_mpg <- c("#007367", "white", "#D0D3D4")
 #' names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")
 #' 
 #' # Viewing extended color palette: 
-#' seecol(pal_mpg, n = 9)
+#' seecol(pal_mpg, n = 9, title = "Custom color palette for Max Planck Society")
 #' 
 #' # Comparing color palettes: 
 #' seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
@@ -473,13 +475,15 @@ usecol <- function(pal = pal_unikn,
 
 # - Definition: ------- 
 
-seecol <- function(pal = "unikn_all",     # which palette to output?
+seecol <- function(pal = "unikn_all",  # which palette to output?
                    n = "all",
                    alpha = NA,
                    hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
                    rgb = NULL,      # determine, whether rgb values should be shown in detail view (defaults to TRUE)
-                   col_brd = NULL,  # border color of the boxes. 
+                   col_brd = NULL,  # border color of the boxes
+                   lwd_brd = NULL,  # line width of box borders
                    grid = TRUE,     # show grid? 
+                   title = NA,      # plot title? Using default title = NA constructs a default title
                    ...              # additional arguments to plot.default().
 ) {
   
@@ -510,7 +514,6 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     silent = TRUE
   )
   
-  
   ## Check, whether input is a list: 
   compare <- tryCatch(
     {
@@ -522,16 +525,18 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     silent = TRUE
   )
   
-  
   ## Getting a list of palettes by keyword: 
   if ( by_key ) {
     
+    ## Plot title:
     ## Define title given keyword:
-    if ( pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
-    if ( pal %in% c("basic", "unikn_basic", "basic_unikn")) title <- "See all basic unikn color palettes"
-    if ( pal %in% c("pair", "all_pair", "pair_all")) title <- "See all pairwise unikn color palettes"
-    if ( pal %in% c("pref", "pref_all", "all_pref")) title <- "See all preferred unikn colors and gradients"
-    if ( pal %in% c("grad", "grad_all", "all_grad")) title <- "See all unikn color gradients"
+    if (is.na(title)){
+      if ( pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
+      if ( pal %in% c("basic", "unikn_basic", "basic_unikn")) title <- "See all basic unikn color palettes"
+      if ( pal %in% c("pair", "all_pair", "pair_all")) title <- "See all pairwise unikn color palettes"
+      if ( pal %in% c("pref", "pref_all", "all_pref")) title <- "See all preferred unikn colors and gradients"
+      if ( pal %in% c("grad", "grad_all", "all_grad")) title <- "See all unikn color gradients"
+    }
     
     pal_tmp <- getpal_key(pal = pal, n = n, alpha = alpha)  # get the color by key.
     
@@ -539,7 +544,9 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     
     pal_tmp <- lapply(X = pal, usecol, n = n, alpha = alpha, use_names = TRUE)  # get all palettes seperately. 
     
-    title <- "Compare a custom set of color palettes"
+    if (is.na(title)){
+      title <- "Compare a custom set of color palettes"
+    }
     
     names(pal_tmp) <- lapply(pal_tmp, comment)  # assign names from comment attribute. 
     
@@ -566,7 +573,9 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     
     cst <- ifelse(comment(pal_tmp) == "custom" & length(unlist(pal_tmp)) != 1, "custom ", "")
     
-    title <- paste0("See ", cst, "color ", pl, nm)  # assemble title. 
+    if (is.na(title)){
+      title <- paste0("See ", cst, "color ", pl, nm)  # assemble title. 
+    }
     
     pal_tmp <- list(pal_tmp)  # now list the palette and leave the comment attribute.
     
@@ -576,8 +585,28 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     n_txt <- ifelse(n != "all", paste0("n = ", n), "")
     alp_txt <- ifelse(!is.na(alpha), paste0("alpha = ", alpha), "")
     comma <- ifelse(nchar(n_txt) == 0 | nchar(alp_txt) == 0, "", ", ")
-    title <- paste0(title, " (", alp_txt, comma, n_txt, ")")
+    
+    if (is.na(title)){
+      title <- paste0(title, " (", alp_txt, comma, n_txt, ")")
+    }
   }
+  
+  ## Check interplay of col_brd and lwd_brd:
+  if (!is.null(lwd_brd) && (lwd_brd <= 0)){
+    message("Setting (lwd_brd <= 0) is not allowed: Using (lwd_brd <- NULL)...")
+    lwd_brd <- NULL  # correct to default
+  }
+  
+  if (!is.null(col_brd) && is.null(lwd_brd)){
+    message("Setting col_brd requires lwd_brd: Using lwd_brd <- 1...")
+    lwd_brd <- 1   # correct to sensible value
+  }
+  
+  if (!is.null(lwd_brd) && is.null(col_brd)){
+    message("Setting lwd_brd requires col_brd: Using col_brd <- 'white'...")
+    col_brd <- "white"   # correct to sensible value
+  }
+  
   
   ## 2. Plotting parameters: ------ 
   
@@ -636,8 +665,10 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     ylen <- 0.8
     
     # Add the color vectors:
+    # if (is.null(lwd_brd)) { lwd_brd <- 0 } # set default lwd_brd
+    
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
-      plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = ylen, col_brd = col_brd, lwd = 0)
+      plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = ylen, col_brd = col_brd, lwd = lwd_brd)
     })
     
     # Add color names and indices:
@@ -761,7 +792,9 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
     }
     
     # Plot rectangles:
-    plot_col(x = pal_tmp, ypos = y_rect, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = 1,
+    # if (is.null(lwd_brd)) { lwd_brd <- 1 } # set default lwd_brd
+    
+    plot_col(x = pal_tmp, ypos = y_rect, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = lwd_brd,
              ...
     )
     
@@ -846,5 +879,236 @@ seecol <- function(pal = "unikn_all",     # which palette to output?
   
 } # seecol end. 
 
+
+## newpal: Define a new color palette: ---------- 
+
+# - Documentation: ---- 
+
+#' Define new color palettes.
+#'
+#' \code{newpal} allows defining new color palettes 
+#' (as data frames). 
+#' 
+#' @param col A required vector of colors 
+#' (specified by their R color names, HEX codes, or RGB values). 
+#' 
+#' @param names An optional character vector of names. 
+#' Default: \code{names = NA}, yielding numeric names. 
+#' 
+#' @param as_df Should the new color palette be returned as 
+#' a data frame (rather than as a vector)? 
+#' Default: \code{as_df = FALSE}. 
+#' 
+#' @examples
+#' 
+#' newpal(col = c("black", "white"), names = c("dark", "bright"))
+#' 
+#' # Example: 3 ways of defining a new color palette:
+#' 
+#' # (1) From R color names:  -----
+#' pal_flag_de <- newpal(col = c("black", "firebrick3", "gold"),
+#'                       names = c("Schwarz", "Rot", "Gold"))
+#' 
+#' seecol(pal_flag_de, title = "Colors in the flag of Germany")
+#' 
+#' # (2) From HEX values:  -----
+#' # (a) Google logo colors:
+#' # Source: https://www.schemecolor.com/google-logo-colors.php
+#' color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
+#' names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
+#' pal_google   <- newpal(color_google, names_google)
+#' seecol(pal_google, title = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
+#' 
+#' # (b) German flag revised:
+#' # Based on a different source at
+#' # <https://www.schemecolor.com/germany-flag-colors.php>:
+#' pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
+#'                         names = c("black", "red", "gold")
+#'                         )
+#' seecol(pal_flag_de_2, title = "Colors of the German flag (www.schemecolor.com)")
+#' 
+#' # (c) MPG colors:
+#' pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
+#'                   names = c("mpg green", "white", "mpg grey")
+#'                   )
+#' seecol(pal_mpg, title = "Colors of the Max Planck Society")
+#' 
+#' # (3) From RGB values:  -----
+#' # Barrier-free color palette
+#' # Source: Okabe & Ito (2002): Color Universal Design (CUD):
+#' #         Fig. 16 of <https://jfly.uni-koeln.de/color/>:  
+#' 
+#' # (a) Vector of colors (as RGB values):
+#' o_i_colors <- c(rgb(  0,   0,   0, maxColorValue = 255),  # black
+#'                 rgb(230, 159,   0, maxColorValue = 255),  # orange
+#'                 rgb( 86, 180, 233, maxColorValue = 255),  # skyblue
+#'                 rgb(  0, 158, 115, maxColorValue = 255),  # green
+#'                 rgb(240, 228,  66, maxColorValue = 255),  # yellow
+#'                 rgb(  0, 114, 178, maxColorValue = 255),  # blue
+#'                 rgb(213,  94,   0, maxColorValue = 255),  # vermillion
+#'                 rgb(204, 121, 167, maxColorValue = 255)   # purple
+#' )
+#' 
+#' # (b) Vector of color names:
+#' o_i_names <- c("black", "orange", "skyblue", "green", "yellow", "blue", "vermillion", "purple")
+#' 
+#' # (c) Use newpal() to combine colors and names:
+#' pal_okabe_ito <- newpal(col = o_i_colors,
+#'                         names = o_i_names)
+#' 
+#' seecol(pal_okabe_ito,
+#'        title = "Color-blind friendly color scale (Okabe & Ito, 2002)")
+#' 
+#' # Compare custom color palettes:
+#' my_pals <- list(pal_flag_de, pal_flag_de_2, pal_google, pal_mpg, pal_okabe_ito)
+#' seecol(my_pals, col_brd = "white", lwd_brd = 5,
+#'        title = "Comparing custom color palettes")
+#' 
+#' @family color functions
+#' 
+#' @aliases defpal
+#' @aliases defcol
+#' 
+#' @seealso 
+#' \code{\link{seepal}} to plot color palettes;  
+#' \code{\link{usecol}} to use a color palette.  
+#'
+#' @import graphics 
+#' @import grDevices 
+#' @import utils
+#' 
+#' @export 
+
+## Not used:
+
+# @param ... Additional arguments (passed on to 
+# \code{\link{usecol()}}). 
+# Candiates for additional arguments are 
+# \code{n} (an integer for specifying the number of desired colors in the palette) 
+# and \code{alpha} (opacity value from 0 to 1). 
+
+# - Definition: ------- 
+
+newpal <- function(col,            # a vector of colors
+                   names = NA,     # a vector of names
+                   as_df = FALSE   # return palette as df? 
+                   # ...           # additional arguments to usecol().
+) {
+  
+  ## 0. Preparations: ----- 
+  
+  outpal <- NA  # initialize
+  
+  # 0. Robustify inputs:
+  if ( any(!isCol(col)) ) stop("'col' must be a vector only containing (named or hex) colors.")
+  
+  if ( any(!is.na(names)) && ((length(col) != length(names))) ) {
+    
+    message(paste0("Length of 'col' = ", length(col), 
+                   " vs. 'names' = ",    length(names), ". Using default (numeric) names..."))
+    names <- NA
+    
+  }
+  
+  # 1. Create data.frame or vector of col: ----- 
+  outpal <- col  # copy col vector
+  
+  # 2. Add names:
+  if ( all(!is.na(names)) ) {
+    names(outpal) <- names
+  } else {
+    names(outpal) <- as.character(1:length(col))
+  }
+  
+  # # Apply ... arguments:
+  # outpal <- usecol(pal = outpal, use_names = TRUE, ...) 
+  
+  # If return as_df: 
+  if (as_df) {
+    outpal <- data.frame(outpal, stringsAsFactors = FALSE) # df as column
+    outpal <- t(outpal) # df as row
+    outpal <- data.frame(outpal, row.names = NULL, stringsAsFactors = FALSE)
+  }
+  
+  # 2. Return: ----- 
+  return(outpal)
+  
+} # newpal end. 
+
+# # Check: 
+# Basics:
+# newpal(col = c("black", "white"), names = c("b", "w"), as_df = FALSE)  # as vector
+# newpal(col = c("black", "white"), names = c("b", "w"), as_df = TRUE)   # as data.frame
+# 
+# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE))   # as df
+# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE))  # as named vector
+# 
+# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE), n = 5) 
+# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE), n = 5) 
+
+# # (1) From R color names:
+# pal_flag_de <- newpal(col = c("black", "firebrick", "gold"),
+#                       names = c("Schwarz", "Rot", "Gold"))
+# 
+# seecol(pal_flag_de, title = "Colors in the flag of Germany")
+
+# # (2) From HEX values:
+
+# # (a) German flag colors revised: 
+# # According to a different source:
+# # https://www.schemecolor.com/germany-flag-colors.php
+# pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
+#                         names = c("black", "electric red", "tangerine yellow"))
+# pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
+#                         names = c("black", "red", "gold"))
+# seecol(pal_flag_de_2, title = "Colors of German flag (www.schemecolor.com)")
+
+# # (b) Google logo colors:
+# # Source: https://www.schemecolor.com/google-logo-colors.php
+# color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
+# names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
+# pal_google   <- newpal(color_google, names_google)
+# seecol(pal_google, title = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
+
+# # (c) MPG colors:
+# pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
+#                   names = c("mpg green", "white", "mpg grey")
+#                   )
+# seecol(pal_mpg, title = "Colors of the Max Planck Society")
+
+# # (3) From RGB values: 
+# 
+# # Source: 
+# # Okabe & Ito (2002): 
+# # Color Universal Design (CUD): 
+# # How to make figures and presentations that are friendly to Colorblind people
+# # Fig. 16 of <https://jfly.uni-koeln.de/color/>:  
+# 
+# # (a) Vector of colors (as RGB values):
+# o_i_colors <- c(rgb(  0,   0,   0, maxColorValue = 255),  # black
+#                 rgb(230, 159,   0, maxColorValue = 255),  # orange
+#                 rgb( 86, 180, 233, maxColorValue = 255),  # skyblue         
+#                 rgb(  0, 158, 115, maxColorValue = 255),  # green
+#                 rgb(240, 228,  66, maxColorValue = 255),  # yellow
+#                 rgb(  0, 114, 178, maxColorValue = 255),  # blue
+#                 rgb(213,  94,   0, maxColorValue = 255),  # vermillion
+#                 rgb(204, 121, 167, maxColorValue = 255)   # purple
+# )
+# 
+# # (b) Vector of color names:
+# o_i_names <- c("black", "orange", "skyblue", "green", "yellow", "blue", "vermillion", "purple")
+# 
+# # (c) Create color palette (with newpal): 
+# pal_okabe_ito <- newpal(col = o_i_colors, 
+#                         names = o_i_names)
+# 
+# # Show color palette: 
+# seecol(pal_okabe_ito, 
+#        title = "Color-blind friendly color scale (Okabe & Ito, 2002)")
+
+# # Compare custom color palettes:
+# my_pals <- list(pal_flag_de, pal_flag_de_2, pal_google, pal_mpg, pal_okabe_ito)
+# seecol(my_pals, col_brd = "white", lwd_brd = 5,
+#        title = "Comparing custom color palettes")
 
 ## eof. ----------

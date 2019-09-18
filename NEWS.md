@@ -1,17 +1,39 @@
 
-# Current version 
+# unikn 0.1.0.9001+
 
-The current development version of **unikn** (0.1.0.9002+) is available at <https://github.com/hneth/unikn/>. 
+The current development version of **unikn** (0.1.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
 Changes since last release: 
 
-## New functionality 
 
-- Added `theme_unikn()` as a basic **ggplot2** theme. 
+## Major changes 
+
+New functionality: 
+
+- Added a `newpal()` function for defining new color palettes (as a named vector or data frame). [2019-07-05]
+
+- Added a `theme_unikn()` function to provide a basic **ggplot2** theme. [2019-06-20]
+
+
+## Minor changes
+
+Changes in existing functionality: 
+
+- Added a `title` argument to the `seecol()` function to allow overwriting the default title (created when `title = NA`). [2019-07-17]
+
+- Added a `lwd_brd` argument to the `seecol()` function to allow setting the linewidth of rectangles (and setting sensible defaults in combination with `col_brd`). [2019-07-18]
+
 
 ## Bug fixes 
 
-- None yet, but see 2 issues at <https://github.com/hneth/unikn/issues>. 
+- Removed packages not needed for running **unikn** from list of suggested packages. [2019-07-20] 
+
+- Prevent showing duplicate color names in `seecol()`, due to searching both the current set of color palettes and **base** R `colors`. 
+Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27] 
+
+- Fix an error in `isHexCol()` which failed to recognize hexadecimal color values starting with lowercase letters.  [2019-06-27] 
+
+
 
 ---------- 
 
