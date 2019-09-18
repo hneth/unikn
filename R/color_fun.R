@@ -102,27 +102,45 @@ usecol <- function(pal = pal_unikn,
   pal_def <- FALSE  # assume default, that an undefined palette is used.
   # Check this in the next step (this variable serves to control flow).
   
-  ## Is the input one of the defined palettes?
-  if ( !use_col_ramp ) {
-    # execute, if not always the colorRamp should be used.
+  ## This is also used in color ramp, thus do here:
+  ex_pal <- unlist(lapply(all_palkn, exists))  # check, whether the palettes in the list exist.
+  
+  # stop(all(ex_pal))
+  
+  if ( all(ex_pal) ) {  # existence check of all_palkn.
+    # stop("all_palkn: ", exists("all_palkn"))
+    # stop("unikn" %in% .packages())
     
     ## Test whether equal to any palette:
     all_pals1 <- lapply(all_palkn, get)  # get all palettes from the first part.
     
-    pal_ix <-
-      sapply(all_pals1, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }
-      )  # Test, whether specified palette is there.
+  } else {  # if all_palkn does not exist:
     
-    ## If none fits, test for reversed palettes:
-    rev_pal <- FALSE  # should the palette be reversed?
-    if (!any(pal_ix)) {
+    all_pals1 <- NA  # otherwise
+    
+  }  # eof. existence check. 
+  
+  ## Is the input one of the defined palettes?
+  if ( !use_col_ramp ) {
+    # execute, if not always the colorRamp should be used.
+    
+  
       pal_ix <-
-        sapply(all_pals1, function(x)
-          isTRUE(all.equal(rev(pal_inp), x)))
-      if (any(pal_ix))
-        rev_pal <- TRUE  # if palette is reversed, set pal_rev to TRUE.
+        sapply(all_pals1, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }
+        )  # Test, whether specified palette is there.
       
-    }
+      ## If none fits, test for reversed palettes:
+      rev_pal <- FALSE  # should the palette be reversed?
+      if (!any(pal_ix)) {
+        pal_ix <-
+          sapply(all_pals1, function(x)
+            isTRUE(all.equal(rev(pal_inp), x)))
+        if (any(pal_ix))
+          rev_pal <- TRUE  # if palette is reversed, set pal_rev to TRUE.
+        
+      }
+      
+    
     
     
     ## If input fits with any palette:
@@ -290,7 +308,7 @@ usecol <- function(pal = pal_unikn,
   if ( all(is.null(names(out_col))) ) {
     
     tst <- out_col
-    
+
     # Names from defined kn palettes:
     kn_names <-  names(unlist(all_pals1))[match(tst, unlist(all_pals1))]
     
