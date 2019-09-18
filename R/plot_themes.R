@@ -22,10 +22,10 @@
 ## Check if ggplot2 is loaded: 
 
 # if ("ggplot2" %in% (.packages())){
-#   
+# 
 #   message("Package 'ggplot2' is loaded.")
-#   
-# } # if ("ggplot2" %in% (.packages())) end. 
+# 
+# } # if ("ggplot2" %in% (.packages())) end.
 
 
 ## theme_unikn: Define a new ggplot2 theme: ------ 
