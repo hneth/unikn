@@ -1,10 +1,14 @@
 
-# unikn 0.1.0.9001+
+# unikn 0.2.0.9001+
 
-The current development version of **unikn** (0.1.0.9001+) is available at <https://github.com/hneth/unikn/>. 
+The current development version of **unikn** (0.2.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
 Changes since last release: 
 
+
+# unikn 0.2.0
+
+This is mostly a maintenance release, adding little new functionality, but fixing some bugs.
 
 ## Major changes 
 
@@ -25,6 +29,8 @@ Changes in existing functionality:
 
 
 ## Bug fixes 
+
+- Fix an error in `seecol()` and `usecol()` that prevented using functions in other packages (by requiring list of palettes). [2019-09-18]
 
 - Removed packages not needed for running **unikn** from list of suggested packages. [2019-07-20] 
 
