@@ -126,7 +126,7 @@ pal_pinky        # 5           pink
 pal_Bordeaux     # 5           Bordeaux
 
 # 1 signal (Ampel) palette: ----- 
-pal_signal       # 3           Ampel
+pal_signal       # 3           signal/Ampel
 ```
 
 Each color palette contains a preferred color.[1] All preferred colors are contained in a corresponding color palette `pal_unikn_pref`:
@@ -162,7 +162,8 @@ The `seecol()` function provides a quick overview over the contents of a color p
 
 ``` r
 # Plot a color palette: ----- 
-seecol(pal_unikn_pref)
+seecol(pal = pal_unikn_pref,            # palette to plot
+       col_brd = "white", lwd_brd = 5)  # color and width of borders
 ```
 
 <img src="inst/pix/README-seecol_pref-1.png" style="display: block; margin: auto;" />
@@ -234,9 +235,10 @@ seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11)
 <img src="inst/pix/README-col_scale_3-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
-# seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
-# seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
-# seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
+# Related combinations:
+seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
+seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
+seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
 ```
 
 Using color palettes
@@ -753,7 +755,7 @@ Color definitions are based on the following sources:
 -   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 <!-- Update: -->
-\[Updated on 2019-08-28.\]
+\[Updated on 2019-09-24.\]
 
 <!-- eof. -->
 

@@ -146,7 +146,7 @@ pal_pinky        # 5           pink
 pal_Bordeaux     # 5           Bordeaux
 
 # 1 signal (Ampel) palette: ----- 
-pal_signal       # 3           Ampel
+pal_signal       # 3           signal/Ampel
 ```
 
 Each color palette contains a preferred color.[^1] 
@@ -184,9 +184,10 @@ The `seecol()` and `usecol()` functions provide a convenient interface for _view
 
 The `seecol()` function provides a quick overview over the contents of a color palette and allows comparisons between color palettes: 
 
-```{r seecol_pref, eval = TRUE, fig.align = 'center', fig.width = 8, fig.height = 5}
+```{r seecol_pref, eval = TRUE, fig.align = 'center', fig.width = 7, fig.height = 5.5}
 # Plot a color palette: ----- 
-seecol(pal_unikn_pref)
+seecol(pal = pal_unikn_pref,            # palette to plot
+       col_brd = "white", lwd_brd = 5)  # color and width of borders
 ```
 
 ### Partial color palettes
@@ -236,11 +237,14 @@ seecol(c(Seeblau, "white", Pinky), 11)
 ```{r col_scale_3, eval = TRUE, out.width = "67%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
 # Combining color palettes (and colors): ----- 
 seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11)
-# seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
-# seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
-# seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
 ```
 
+```{r col_scale_3-b, eval = FALSE, out.width = "67%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
+# Related combinations:
+seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
+seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
+seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
+```
 
 ## Using color palettes
 
