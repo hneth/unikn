@@ -3,11 +3,13 @@
 
 The current development version of **unikn** (0.2.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
-Changes since last release: 
+---------- 
 
 # unikn 0.2.0
 
 This is a maintenance release, adding some functionality, but primarily fixing a few bugs. 
+
+Changes since last release: 
 
 ## Major changes 
 
@@ -22,9 +24,11 @@ New functionality:
 
 Changes in existing functionality: 
 
+- Added a `col_bg` argument to the `seecol()` function to allow setting background color. [2019-09-24]
+
 - Added a `title` argument to the `seecol()` function to allow overwriting the default title (created when `title = NA`). [2019-07-17]
 
-- Added a `lwd_brd` argument to the `seecol()` function to allow setting the linewidth of rectangles (and setting sensible defaults in combination with `col_brd`). [2019-07-18]
+- Added `lwd_brd` argument to the `seecol()` function to allow setting the linewidth of shapes (and setting sensible defaults in combination with `col_brd`). [2019-07-18]
 
 
 ## Bug fixes 
@@ -37,7 +41,6 @@ Changes in existing functionality:
 Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27] 
 
 - Fix an error in `isHexCol()` which failed to recognize hexadecimal color values starting with lowercase letters.  [2019-06-27] 
-
 
 
 ---------- 
