@@ -1,7 +1,7 @@
 
 # unikn 0.2.0.9001+
 
-The current development version of **unikn** (0.2.0.9001+) is available at <https://github.com/hneth/unikn/>. 
+The current development version of **unikn** (0.2.0.9000+) is available at <https://github.com/hneth/unikn/>. 
 
 ---------- 
 
@@ -40,13 +40,13 @@ Changes in existing functionality:
 - Prevent showing duplicate color names in `seecol()`, due to searching both the current set of color palettes and **base** R `colors`. 
 Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27] 
 
-- Fix an error in `isHexCol()` which failed to recognize hexadecimal color values starting with lowercase letters.  [2019-06-27] 
+- Fix an error in `isHexCol()` which failed to recognize hexadecimal color values starting with lowercase letters. [2019-06-27] 
 
 
 ---------- 
 
 # unikn 0.1.0
 
-- Initial release of **unikn** (0.1.0) on CRAN: <https://CRAN.R-project.org/package=unikn> [2019-06-15] 
+- Initial release of **unikn** (0.1.0) on CRAN: <https://CRAN.R-project.org/package=unikn>. [2019-06-15] 
 
 <!-- eof -->
