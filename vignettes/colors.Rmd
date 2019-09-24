@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2019 09 15"
+date: "2019 09 24"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -426,7 +426,7 @@ The color scheme of [Princeton University](https://princeton.edu/) is easily rec
 
 These definitions suggest defining 3 separate versions of orange and corresponding color palettes: 
 
-```{r Princeton, fig.width = 6, fig.asp = .618, fig.align = 'center', fig.show = "hold", collapse = TRUE}
+```{r Princeton, fig.width = 6, fig.asp = .69, fig.align = 'center', fig.show = "hold", collapse = TRUE}
 # HEX values for 3 shades of orange: 
 orange_basic <- "#E87722"  # Pantone 158 C
 orange_white <- "#E77500"  # orange on white
@@ -442,7 +442,8 @@ names(pal_princeton_1) <- c("orange_w", "white", "black")
 pal_princeton_2 <- c(pal = c(orange_black, "black", "white"))
 names(pal_princeton_2) <- c("orange_b", "black", "white")
 
-seecol(pal_princeton_1)  # view color palette
+seecol(pal_princeton_1,  # view color palette
+       col_bg = "lightgrey")
 ```
 
 #### C. [Max Planck Society](https://www.mpg.de/), Germany: 
@@ -493,8 +494,9 @@ names(pal_mpg) <- c("mpg green", "white", "mpg grey")
 
 As before, can now use the `seecol()` and `usecol()` functions to view, modify, and use the new `pal_mpg` color palette: 
 
-```{r MPG_seecol, fig.width = 6, fig.asp = .618, fig.align = 'center', collapse = TRUE}
-seecol(pal_mpg)
+```{r MPG_seecol, fig.width = 6, fig.asp = .69, fig.align = 'center', collapse = TRUE}
+seecol(pal_mpg, 
+       col_brd = "black", lwd_brd = 2)
 ```
 
 ## Resources
