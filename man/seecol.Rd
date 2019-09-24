@@ -6,8 +6,8 @@
 \title{Plot color palettes (to see their colors).}
 \usage{
 seecol(pal = "unikn_all", n = "all", alpha = NA, hex = NULL,
-  rgb = NULL, col_brd = NULL, lwd_brd = NULL, grid = TRUE,
-  title = NA, ...)
+  rgb = NULL, col_bg = NULL, col_brd = NULL, lwd_brd = NULL,
+  grid = TRUE, title = NA, ...)
 }
 \arguments{
 \item{pal}{A color palette (as a vector of colors), 
@@ -52,10 +52,13 @@ when there is sufficient space to print them).}
 Default: \code{rgb = NULL} (i.e., show RGB color values 
 when there is sufficient space to print them).}
 
-\item{col_brd}{Color of box borders (if shown). 
+\item{col_bg}{Color of plot background. 
+Default: \code{col_bg = NULL}.}
+
+\item{col_brd}{Color of shape borders (if shown). 
 Default: \code{col_brd = NULL}.}
 
-\item{lwd_brd}{Line width of box borders (if shown). 
+\item{lwd_brd}{Line width of shape borders (if shown). 
 Default: \code{lwd_brd = NULL}.}
 
 \item{grid}{Show grid in the color plot?
@@ -65,7 +68,7 @@ Default: \code{grid = TRUE}.}
 Default: \code{title = NA} creates a default title.}
 
 \item{...}{Other graphical parameters 
-(passed to \code{plot_col}).}
+(passed to \code{plot}).}
 }
 \description{
 \code{seecol} provides an interface to plotting (or "seeing") 
