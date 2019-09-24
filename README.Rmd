@@ -8,6 +8,7 @@ output: github_document
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn) 
 
+
 <!-- Possible status badges:
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn) 
@@ -236,7 +237,8 @@ seecol(c(Seeblau, "white", Pinky), 11)
 
 ```{r col_scale_3, eval = TRUE, out.width = "67%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
 # Combining color palettes (and colors): ----- 
-seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11)
+seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11,
+       col_bg = "grey90")
 ```
 
 ```{r col_scale_3-b, eval = FALSE, out.width = "67%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
@@ -553,7 +555,7 @@ image(z = cos(r^2) * exp(-r/6), col = usecol(pal_mpg, n = 10),
 
 Once a new palette is defined (and available in your current R environment), the `seecol()` and `usecol()` functions allow comparing, scaling, and using them in the same fashion as the native **unikn** color palettes: 
 
-```{r compare_custom_pals, out.width = "75%", fig.asp = .40, fig.align = 'center', collapse = TRUE}
+```{r compare_custom_pals, out.width = "75%", fig.asp = .50, fig.align = 'center', collapse = TRUE}
 # Compare and extend custom color palettes:
 # seecol(list(pal_freiburg_info, pal_freiburg_basic, pal_mpg, pal_princeton_1)) # compare basic versions
 seecol(list(pal_freiburg_basic, pal_princeton_1, pal_mpg, pal_unikn), n = 9)    # compare scaled versions

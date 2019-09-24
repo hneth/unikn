@@ -229,7 +229,8 @@ seecol(c(Seeblau, "white", Pinky), 11)
 
 ``` r
 # Combining color palettes (and colors): ----- 
-seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11)
+seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11,
+       col_bg = "grey90")
 ```
 
 <img src="inst/pix/README-col_scale_3-1.png" width="67%" style="display: block; margin: auto;" />
