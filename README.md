@@ -747,7 +747,7 @@ The copyrights to all designs remain with their original creators:
 
 -   Strichpunkt GmbH, [‒ strichpunkt-design.de](https://www.strichpunkt-design.de/)
 
-Color definitions are based on the following sources at:
+Color definitions are based on the specifications at:
 
 -   [Corporate design at uni.kn](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
 
