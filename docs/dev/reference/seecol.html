@@ -73,7 +73,7 @@ the colors of a palette or comparing multiple color palettes." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.0.9011</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0</span>
       </span>
     </div>
 
@@ -141,8 +141,8 @@ the colors of a palette or comparing multiple color palettes.</p>
     </div>
 
     <pre class="usage"><span class='fu'>seecol</span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='st'>"unikn_all"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>hex</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>rgb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col_brd</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>lwd_brd</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>rgb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col_bg</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col_brd</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>lwd_brd</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -192,13 +192,18 @@ Default: <code>rgb = NULL</code> (i.e., show RGB color values
 when there is sufficient space to print them).</p></td>
     </tr>
     <tr>
+      <th>col_bg</th>
+      <td><p>Color of plot background. 
+Default: <code>col_bg = NULL</code>.</p></td>
+    </tr>
+    <tr>
       <th>col_brd</th>
-      <td><p>Color of box borders (if shown). 
+      <td><p>Color of shape borders (if shown). 
 Default: <code>col_brd = NULL</code>.</p></td>
     </tr>
     <tr>
       <th>lwd_brd</th>
-      <td><p>Line width of box borders (if shown). 
+      <td><p>Line width of shape borders (if shown). 
 Default: <code>lwd_brd = NULL</code>.</p></td>
     </tr>
     <tr>
@@ -214,7 +219,7 @@ Default: <code>title = NA</code> creates a default title.</p></td>
     <tr>
       <th>...</th>
       <td><p>Other graphical parameters 
-(passed to <code>plot_col</code>).</p></td>
+(passed to <code>plot</code>).</p></td>
     </tr>
     </table>
     

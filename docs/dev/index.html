@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.0.9011</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0</span>
       </span>
     </div>
 
@@ -99,13 +99,11 @@
 <!-- Use status badges: -->
 
 <!-- Possible status badges:
-
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn) 
 [![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
 [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
 [![Rdoc](http://www.rdocumentation.org/badges/version/unikn)](http://www.rdocumentation.org/packages/unikn)
-
 -->
 <div id="unikn" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
@@ -146,7 +144,7 @@
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">'unikn'</span>)           <span class="co"># load to use the package</span></code></pre></div>
 <p>The current development version can be installed from its <a href="https://github.com">GitHub</a> repository at <a href="https://github.com/hneth/unikn/" class="uri">https://github.com/hneth/unikn/</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages('devtools')  # (if not installed yet)</span>
-devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">'hneth/unikn'</span>)
+devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/remote-reexports">install_github</a></span>(<span class="st">'hneth/unikn'</span>)
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">'unikn'</span>)  <span class="co"># load to use the package</span></code></pre></div>
 </div>
 <div id="colors" class="section level2">
@@ -203,7 +201,7 @@ pal_pinky        <span class="co"># 5           pink</span>
 pal_Bordeaux     <span class="co"># 5           Bordeaux</span>
 
 <span class="co"># 1 signal (Ampel) palette: ----- </span>
-pal_signal       <span class="co"># 3           Ampel</span></code></pre></div>
+pal_signal       <span class="co"># 3           signal/Ampel</span></code></pre></div>
 <p>Each color palette contains a preferred color.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> All preferred colors are contained in a corresponding color palette <code>pal_unikn_pref</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Using preferred colors: ----- </span>
 pal_unikn_pref             <span class="co"># color palette of preferred colors</span>
@@ -228,8 +226,9 @@ pal_unikn_pref[<span class="st">"Seeblau"</span>]  <span class="co"># preferred 
 <a href="#plotting-color-palettes" class="anchor"></a>Plotting color palettes</h3>
 <p>The <code><a href="reference/seecol.html">seecol()</a></code> function provides a quick overview over the contents of a color palette and allows comparisons between color palettes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot a color palette: ----- </span>
-<span class="kw"><a href="reference/seecol.html">seecol</a></span>(pal_unikn_pref)</code></pre></div>
-<p><img src="inst/pix/README-seecol_pref-1.png" width="768" style="display: block; margin: auto;"></p>
+<span class="kw"><a href="reference/seecol.html">seecol</a></span>(<span class="dt">pal =</span> pal_unikn_pref,            <span class="co"># palette to plot</span>
+       <span class="dt">col_brd =</span> <span class="st">"white"</span>, <span class="dt">lwd_brd =</span> <span class="dv">5</span>)  <span class="co"># color and width of borders</span></code></pre></div>
+<p><img src="inst/pix/README-seecol_pref-1.png" width="672" style="display: block; margin: auto;"></p>
 </div>
 <div id="partial-color-palettes" class="section level3">
 <h3 class="hasAnchor">
@@ -280,11 +279,13 @@ seecol(c(Seeblau, "white", Pinky), 11)
 <li>Mixing and merging colors and color palettes into new color palettes:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Combining color palettes (and colors): ----- </span>
-<span class="kw"><a href="reference/seecol.html">seecol</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rev">rev</a></span>(pal_petrol),  <span class="st">"white"</span>, pal_bordeaux), <span class="dv">11</span>)</code></pre></div>
+<span class="kw"><a href="reference/seecol.html">seecol</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rev">rev</a></span>(pal_petrol),  <span class="st">"white"</span>, pal_bordeaux), <span class="dv">11</span>,
+       <span class="dt">col_bg =</span> <span class="st">"grey90"</span>)</code></pre></div>
 <p><img src="inst/pix/README-col_scale_3-1.png" width="67%" style="display: block; margin: auto;"></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)</span>
-<span class="co"># seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)</span>
-<span class="co"># seecol(c(rev(pal_seeblau), "white", pal_peach), 11)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Related combinations:</span>
+<span class="kw"><a href="reference/seecol.html">seecol</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rev">rev</a></span>(pal_seeblau), <span class="st">"white"</span>, pal_pinky), <span class="dv">11</span>)
+<span class="kw"><a href="reference/seecol.html">seecol</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rev">rev</a></span>(pal_seeblau), <span class="st">"white"</span>, pal_seegruen), <span class="dv">11</span>)
+<span class="kw"><a href="reference/seecol.html">seecol</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rev">rev</a></span>(pal_seeblau), <span class="st">"white"</span>, pal_peach), <span class="dv">11</span>)</code></pre></div>
 </div>
 </div>
 <div id="using-color-palettes" class="section level2">
@@ -699,7 +700,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 <!-- uni.kn logo and link: -->
 <!-- ![](./inst/pix/logo.svg) -->
 <p><a href="https://www.uni.kn/"> <img src="inst/pix/logo_unikn.png" alt="uni.kn" width="280px" align="left" style="width: 280px; float: left; border:10;"></a></p>
-<p>The <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/">University of Konstanz’s Corporate Design</a> (CD) was created by the <a href="http://www.uni-konstanz.de">University of Konstanz</a> and <a href="https://www.strichpunkt-design.de/">Strichpunkt GmbH</a> and introduced in 2014. We are members of the research group on <a href="https://www.spds.uni-konstanz.de/">Social Psychology and Decision Sciences</a> at the <a href="http://www.uni-konstanz.de">University of Konstanz</a> and make some CD elements available to fellow users of R (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders.</p>
+<p>The <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">University of Konstanz’s Corporate Design</a> (CD) was created by the <a href="http://www.uni-konstanz.de">University of Konstanz</a> and <a href="https://www.strichpunkt-design.de/">Strichpunkt GmbH</a> and introduced in 2014. We are members of the research group on <a href="https://www.spds.uni-konstanz.de/">Social Psychology and Decision Sciences</a> at the <a href="http://www.uni-konstanz.de">University of Konstanz</a> and make some CD elements available to fellow users of R (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders.</p>
 <p>We aim for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also tend to cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we allow for some liberties, mostly by relaxing some restrictions. Examples include:</p>
 <ul>
 <li>enabling finer color gradients and arbitrary combinations of color palettes (by applying the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions to color palettes);<br>
@@ -728,13 +729,14 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 <li><p>Universität Konstanz, © 2015, Version 1.6, 21. September 2015, <a href="https://www.uni-konstanz.de/">‒ uni-konstanz.de</a></p></li>
 <li><p>Strichpunkt GmbH, <a href="https://www.strichpunkt-design.de/">‒ strichpunkt-design.de</a></p></li>
 </ul>
-<p>Color definitions are based on the following sources:</p>
+<p>Color definitions are based on the specifications at:</p>
 <ul>
-<li><p><a href="https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/">Corporate design at uni.kn</a></p></li>
-<li><p><a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf">Corporate design manual (PDF)</a></p></li>
-<li><p><a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/">Colours for complex graphics (xls)</a></p></li>
+<li><a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">Corporate design at uni.kn</a></li>
 </ul>
-<!-- Update: --><p>[Updated on 2019-08-28.]</p>
+<!-- - [Corporate design at uni.kn](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/)   --><ul>
+<li><a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf">Corporate design manual (PDF)</a></li>
+</ul>
+<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   --><!-- Update: --><p>[Updated on 2019-09-24.]</p>
 <!-- eof. -->
 </div>
 </div>

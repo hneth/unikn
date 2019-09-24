@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.0.9011</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0</span>
       </span>
     </div>
 
@@ -95,7 +95,7 @@
       <h1>Colors and color palettes</h1>
                         <h4 class="author">SPDS, uni.kn</h4>
             
-            <h4 class="date">2019 06 15</h4>
+            <h4 class="date">2019 09 24</h4>
       
       
       <div class="hidden name"><code>colors.Rmd</code></div>
@@ -113,7 +113,7 @@
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
-<p>There are 2 functions to interact with the color palettes in the <strong>unikn</strong> package: <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code>.</p>
+<p>There are 2 main functions to interact with the color palettes in the <strong>unikn</strong> package: <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code>.</p>
 <ol style="list-style-type: decimal">
 <li>
 <p>The <code><a href="../reference/seecol.html">seecol()</a></code> function is a general-purpose tool for viewing (or <em>seeing</em>) color palettes. <code>seecol</code> takes 2 main arguments:</p>
@@ -137,10 +137,15 @@
 <li>The <code><a href="../reference/usecol.html">usecol()</a></code> function allows using a color palette without showing its details.</li>
 </ol>
 </div>
-<div id="viewing-and-comparing-available-color-palettes" class="section level2">
+<div id="viewing-colors-and-color-palettes-with-seecol" class="section level2">
 <h2 class="hasAnchor">
-<a href="#viewing-and-comparing-available-color-palettes" class="anchor"></a>Viewing and comparing available color palettes</h2>
-<p>The <code><a href="../reference/seecol.html">seecol()</a></code> function shows multiple or the details of a single color palette. When the <code>pal</code> argument specifies (a list of) multiple color palettes, <code><a href="../reference/seecol.html">seecol()</a></code> plots a vector for each palette to allow comparing these palettes. Some special keywords within the <strong>unikn</strong> package denote sets of color palettes: <code>"unikn_all"</code>, <code>"unikn_basic"</code>, <code>pair_all"</code>, <code>"pref_all"</code> and <code>"grad_all"</code>. Calling <code>seecol</code> with <code>pal</code> set to these keywords allows comparing pre-defined sets of the color palettes:</p>
+<a href="#viewing-colors-and-color-palettes-with-seecol" class="anchor"></a>Viewing colors and color palettes with <code>seecol</code>
+</h2>
+<p>The behavior of the <code><a href="../reference/seecol.html">seecol()</a></code> function depends on the inputs to its <code>pal</code> argument. It either allows comparing multiple color palettes or shows the details of a single color palette.</p>
+<div id="viewing-and-comparing-available-color-palettes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#viewing-and-comparing-available-color-palettes" class="anchor"></a>Viewing and comparing available color palettes</h3>
+<p>When the <code>pal</code> argument specifies (a list of) multiple color palettes, <code><a href="../reference/seecol.html">seecol()</a></code> plots a vector for each palette to allow comparing these palettes. Some special keywords within the <strong>unikn</strong> package denote sets of color palettes: <code>"unikn_all"</code>, <code>"unikn_basic"</code>, <code>pair_all"</code>, <code>"pref_all"</code> and <code>"grad_all"</code>. Calling <code>seecol</code> with <code>pal</code> set to these keywords allows comparing pre-defined sets of the color palettes:</p>
 <p>Viewing <em>all</em> available color palettes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/seecol.html">seecol</a></span>(<span class="st">"unikn_all"</span>)  <span class="co"># same as seecol("all")</span></code></pre></div>
 <p><img src="colors_files/figure-html/seecol_unikn_all-1.png" width="672" style="display: block; margin: auto;"></p>
@@ -166,9 +171,9 @@
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/seecol.html">seecol</a></span>(<span class="st">"grad_all"</span>)</code></pre></div>
 <p><img src="colors_files/figure-html/seecol_grad_all_2-1.png" width="672" style="display: block; margin: auto;"></p>
 </div>
-<div id="viewing-and-saving-a-palette" class="section level2">
-<h2 class="hasAnchor">
-<a href="#viewing-and-saving-a-palette" class="anchor"></a>Viewing and saving a palette</h2>
+<div id="viewing-and-saving-a-palette" class="section level3">
+<h3 class="hasAnchor">
+<a href="#viewing-and-saving-a-palette" class="anchor"></a>Viewing and saving a palette</h3>
 <p>When the <code>pal</code> argument of the <code><a href="../reference/seecol.html">seecol()</a></code> function specifies a single color palette, the function plots a more detailed view of this particular color palette:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/seecol.html">seecol</a></span>(pal_unikn)  <span class="co"># view details of pal_unikn </span></code></pre></div>
 <p><img src="colors_files/figure-html/unikn_palette-1.png" width="576" style="display: block; margin: auto;"></p>
@@ -192,6 +197,26 @@
 Thus, the following will only plot the palette without doing anything else with the color vector:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/seecol.html">seecol</a></span>(pal_bordeaux)</code></pre></div>
 <p><img src="colors_files/figure-html/invisible_seecol-1.png" width="576" style="display: block; margin: auto;"></p>
+</div>
+<div id="other-parameters-of-seecol" class="section level3">
+<h3 class="hasAnchor">
+<a href="#other-parameters-of-seecol" class="anchor"></a>Other parameters of <code>seecol</code>
+</h3>
+<p>The <code><a href="../reference/seecol.html">seecol()</a></code> function provides a few aesthetic parameters for adjusting how color palettes are plotted:</p>
+<ul>
+<li>
+<code>col_brd</code> allows specifying the color of box borders (if shown. Default: <code>col_brd = NULL</code>).</li>
+<li>
+<code>lwd_brd</code> allows specifying the line width of box borders (if shown. Default: <code>lwd_brd = NULL</code>).</li>
+<li>
+<code>title</code> allows replacing the default title with a custom title.</li>
+</ul>
+<p>Examples:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/seecol.html">seecol</a></span>(<span class="st">"grad_all"</span>, <span class="dt">col_brd =</span> <span class="st">"black"</span>, <span class="dt">lwd_brd =</span> <span class="dv">2</span>, <span class="dt">title =</span> <span class="st">"Color gradients with black borders"</span>)</code></pre></div>
+<p><img src="colors_files/figure-html/seecol_aesthetic_parameters-1.png" width="576" style="display: block; margin: auto;"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/seecol.html">seecol</a></span>(pal_seegruen, <span class="dt">col_brd =</span> <span class="st">"white"</span>, <span class="dt">lwd_brd =</span> <span class="dv">10</span>, <span class="dt">title =</span> <span class="st">"A color palette with white borders"</span>)</code></pre></div>
+<p><img src="colors_files/figure-html/seecol_aesthetic_parameters-2.png" width="576" style="display: block; margin: auto;"></p>
+</div>
 </div>
 <div id="using-a-palette-with-usecol-without-seeing-it" class="section level2">
 <h2 class="hasAnchor">
@@ -429,7 +454,8 @@ pal_princeton_<span class="dv">1</span> &lt;-<span class="st"> </span><span clas
 pal_princeton_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dt">pal =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(orange_black, <span class="st">"black"</span>, <span class="st">"white"</span>))
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(pal_princeton_<span class="dv">2</span>) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"orange_b"</span>, <span class="st">"black"</span>, <span class="st">"white"</span>)
 
-<span class="kw"><a href="../reference/seecol.html">seecol</a></span>(pal_princeton_<span class="dv">1</span>)  <span class="co"># view color palette</span></code></pre></div>
+<span class="kw"><a href="../reference/seecol.html">seecol</a></span>(pal_princeton_<span class="dv">1</span>,  <span class="co"># view color palette</span>
+       <span class="dt">col_bg =</span> <span class="st">"lightgrey"</span>)</code></pre></div>
 <p><img src="colors_files/figure-html/Princeton-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
 <div id="c--max-planck-society-germany" class="section level4">
@@ -465,7 +491,8 @@ pal_princeton_<span class="dv">2</span> &lt;-<span class="st"> </span><span clas
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pal_mpg &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"#007367"</span>, <span class="st">"white"</span>, <span class="st">"#D0D3D4"</span>)
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(pal_mpg) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"mpg green"</span>, <span class="st">"white"</span>, <span class="st">"mpg grey"</span>)</code></pre></div>
 <p>As before, can now use the <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> functions to view, modify, and use the new <code>pal_mpg</code> color palette:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/seecol.html">seecol</a></span>(pal_mpg)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/seecol.html">seecol</a></span>(pal_mpg, 
+       <span class="dt">col_brd =</span> <span class="st">"black"</span>, <span class="dt">lwd_brd =</span> <span class="dv">2</span>)</code></pre></div>
 <p><img src="colors_files/figure-html/MPG_seecol-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
 </div>
@@ -544,8 +571,13 @@ pal_princeton_<span class="dv">2</span> &lt;-<span class="st"> </span><span clas
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#overview">Overview</a></li>
-      <li><a href="#viewing-and-comparing-available-color-palettes">Viewing and comparing available color palettes</a></li>
+      <li>
+<a href="#viewing-colors-and-color-palettes-with-seecol">Viewing colors and color palettes with <code>seecol</code></a><ul class="nav nav-pills nav-stacked">
+<li><a href="#viewing-and-comparing-available-color-palettes">Viewing and comparing available color palettes</a></li>
       <li><a href="#viewing-and-saving-a-palette">Viewing and saving a palette</a></li>
+      <li><a href="#other-parameters-of-seecol">Other parameters of <code>seecol</code></a></li>
+      </ul>
+</li>
       <li><a href="#using-a-palette-with-usecol-without-seeing-it">Using a palette with <code>usecol</code> (without seeing it)</a></li>
       <li>
 <a href="#customizing-color-palettes">Customizing color palettes</a><ul class="nav nav-pills nav-stacked">
