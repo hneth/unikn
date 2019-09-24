@@ -402,10 +402,13 @@ usecol <- function(pal = pal_unikn,
 #' Default: \code{rgb = NULL} (i.e., show RGB color values 
 #' when there is sufficient space to print them). 
 #' 
-#' @param col_brd Color of box borders (if shown). 
+#' @param col_bg Color of plot background. 
+#' Default: \code{col_bg = NULL}. 
+#' 
+#' @param col_brd Color of shape borders (if shown). 
 #' Default: \code{col_brd = NULL}. 
 #' 
-#' @param lwd_brd Line width of box borders (if shown). 
+#' @param lwd_brd Line width of shape borders (if shown). 
 #' Default: \code{lwd_brd = NULL}. 
 #' 
 #' @param grid Show grid in the color plot?  
@@ -415,7 +418,7 @@ usecol <- function(pal = pal_unikn,
 #' Default: \code{title = NA} creates a default title.  
 #' 
 #' @param ... Other graphical parameters 
-#' (passed to \code{plot_col}). 
+#' (passed to \code{plot}). 
 #' 
 #' @examples
 #' # See all color palettes: 
@@ -480,6 +483,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
                    alpha = NA,
                    hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
                    rgb = NULL,      # determine, whether rgb values should be shown in detail view (defaults to TRUE)
+                   col_bg = NULL,   # color of background
                    col_brd = NULL,  # border color of the boxes
                    lwd_brd = NULL,  # line width of box borders
                    grid = TRUE,     # show grid? 
@@ -593,17 +597,17 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   ## Check interplay of col_brd and lwd_brd:
   if (!is.null(lwd_brd) && (lwd_brd <= 0)){
-    message("Setting (lwd_brd <= 0) is not allowed: Using (lwd_brd <- NULL)...")
+    message("Setting (lwd_brd <= 0) is not allowed: Using (lwd_brd <- NULL).")
     lwd_brd <- NULL  # correct to default
   }
   
   if (!is.null(col_brd) && is.null(lwd_brd)){
-    message("Setting col_brd requires lwd_brd: Using lwd_brd <- 1...")
+    message("Setting col_brd requires lwd_brd: Using lwd_brd <- 1.")
     lwd_brd <- 1   # correct to sensible value
   }
   
   if (!is.null(lwd_brd) && is.null(col_brd)){
-    message("Setting lwd_brd requires col_brd: Using col_brd <- 'white'...")
+    message("Setting lwd_brd requires col_brd: Using col_brd <- 'white'.")
     col_brd <- "white"   # correct to sensible value
   }
   
@@ -636,12 +640,17 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     # Set margins:
     par(mar = c(3, 6, 3, 1))
     
+    # Set bg color:
+    par(bg = col_bg)
+    
     # Create empty plot:
     plot(x = 0, type = "n", xlim = xlim, ylim = ylim,
          xaxt = "n", yaxt = "n",  # hide axes.
          xlab = "", ylab = "", 
          main = title,
-         bty = "n")  
+         bty = "n",
+         ...  # other graphical parameters
+         )  
     
     if (grid) {
       
@@ -712,12 +721,17 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     # Set margins:
     par(mar = c(3, 2, 3, 1))
     
+    # Set bg color:
+    par(bg = col_bg)
+    
     # Create empty plot:
     plot(x = 0, type = "n", xlim = xlim, ylim = c(-1, 2),
          xaxt = "n", yaxt = "n",  # hide axes.
          xlab = "", ylab = "", 
          main = title,
-         bty = "n")
+         bty = "n", 
+         ...  # other graphical parameters
+         )  
     
     # Text elements:
     txt_pos <- seq(0.5, length(pal_tmp) - 0.5)
@@ -794,15 +808,15 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     # Plot rectangles:
     # if (is.null(lwd_brd)) { lwd_brd <- 1 } # set default lwd_brd
     
-    plot_col(x = pal_tmp, ypos = y_rect, plot.new = FALSE, ylen = 0.5, col_brd = col_brd, lwd = lwd_brd,
-             ...
+    plot_col(x = pal_tmp, ypos = y_rect, shape = "rect", ylen = 0.5, plot.new = FALSE, col_brd = col_brd, lwd = lwd_brd#,
+             # ...  # other graphical parameters
     )
     
     # Plot circles:
     circle_len <- ifelse(((xlim[2] / 10) < 0.7), (xlim[2] / 10), .70)
     
-    plot_col(x = pal_tmp, ypos = y_circ, plot.new = FALSE, xlen = circle_len, shape = "circle",
-             ...
+    plot_col(x = pal_tmp, ypos = y_circ, shape = "circle", xlen = circle_len, plot.new = FALSE, col_brd = col_brd, lwd = lwd_brd#,
+             # ...  # other graphical parameters
     )
     
     # Color names:
