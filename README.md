@@ -104,7 +104,7 @@ seecol("all")
 
 <img src="inst/pix/README-pal_all-1.png" style="display: block; margin: auto;" />
 
-Specifically, the Excel file on [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) defines 9 additional color palettes that are exported by **unikn** as the following named color palettes:
+Specifically, an Excel file called [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) defines 9 additional color palettes that are exported by **unikn** as the following named color palettes:
 
 ``` r
 # Show 9 color gradient palettes:
@@ -756,7 +756,7 @@ Color definitions are based on the specifications at:
 
 <!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
 <!-- Update: -->
-\[Updated on 2019-09-24.\]
+\[Updated on 2019-09-25.\]
 
 <!-- eof. -->
 

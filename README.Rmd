@@ -124,8 +124,7 @@ Beyond the 3 variants of `pal_unikn`, the **unikn** package provides the followi
 seecol("all")
 ```
 
-Specifically, the Excel file on [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) 
-defines 9 additional color palettes that are exported by **unikn** as the following named color palettes: 
+Specifically, an Excel file called [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) defines 9 additional color palettes that are exported by **unikn** as the following named color palettes: 
 
 ```{r pal_additional, eval = FALSE}
 # Show 9 color gradient palettes:
