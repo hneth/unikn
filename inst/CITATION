@@ -7,13 +7,13 @@ citEntry(entry = "Manual",
          year         = "2019",
          organization = "Social Psychology and Decision Sciences, University of Konstanz",
          address      = "Konstanz, Germany",
-         note         = "R package (version 0.1.0, June 15, 2019)",
+         note         = "R package (version 0.2.0, September 25, 2019)",
          url          = "https://CRAN.R-project.org/package=unikn",
 
          textVersion  =
            paste("Neth, H., & Gradwohl, N., (2019).",
                  "unikn: Graphical elements of the University of Konstanz's corporate design.",
                  "Social Psychology and Decision Sciences, University of Konstanz, Germany.",
-                 "Computer software (R package version 0.1.0, June 15, 2019).",
+                 "Computer software (R package version 0.2.0, September 25, 2019).",
                  "Retrieved from <https://CRAN.R-project.org/package=unikn>.")
          )
