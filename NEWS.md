@@ -7,7 +7,7 @@ The current development version of **unikn** (0.2.0.9000+) is available at <http
 
 # unikn 0.2.0
 
-This is a maintenance release, adding some functionality, but primarily fixing a few bugs. [2019-09-24]
+This is a maintenance release, adding some functionality, but primarily fixing a few bugs. [2019-09-25]
 
 Changes since last release: 
 
