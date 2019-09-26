@@ -1050,6 +1050,7 @@ newpal <- function(col,            # a vector of colors
   
 } # newpal end. 
 
+
 # # Check: 
 # Basics:
 # newpal(col = c("black", "white"), names = c("b", "w"), as_df = FALSE)  # as vector
