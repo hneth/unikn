@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 09 26
+## spds | uni.kn |  2019 10 30
 ## ---------------------------
 
 ## Define color-related functions 
@@ -518,35 +518,33 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     silent = TRUE
   )
   
-  ## Check, whether input is a list: 
+  ## Check whether pal input is a list: 
   compare <- tryCatch(
     {
       is.list(pal) & any(lapply(pal, length) > 1)   # get length of each component. 
     },
-    error = function(e) {
-      FALSE
-    },
+    error = function(e) {FALSE},
     silent = TRUE
   )
   
   ## Getting a list of palettes by keyword: 
-  if ( by_key ) {
+  if (by_key) {
     
     ## Plot title:
     ## Define title given keyword:
     if (is.na(title)){
-      if ( pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
-      if ( pal %in% c("basic", "unikn_basic", "basic_unikn")) title <- "See all basic unikn color palettes"
-      if ( pal %in% c("pair", "all_pair", "pair_all")) title <- "See all pairwise unikn color palettes"
-      if ( pal %in% c("pref", "pref_all", "all_pref")) title <- "See all preferred unikn colors and gradients"
-      if ( pal %in% c("grad", "grad_all", "all_grad")) title <- "See all unikn color gradients"
+      if (pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
+      if (pal %in% c("basic", "unikn_basic", "basic_unikn")) title <- "See all basic unikn color palettes"
+      if (pal %in% c("pair", "all_pair", "pair_all")) title <- "See all pairwise unikn color palettes"
+      if (pal %in% c("pref", "pref_all", "all_pref")) title <- "See all preferred unikn colors and gradients"
+      if (pal %in% c("grad", "grad_all", "all_grad")) title <- "See all unikn color gradients"
     }
     
     pal_tmp <- getpal_key(pal = pal, n = n, alpha = alpha)  # get the color by key.
     
-  } else if ( compare ){
+  } else if (compare){
     
-    pal_tmp <- lapply(X = pal, usecol, n = n, alpha = alpha, use_names = TRUE)  # get all palettes seperately. 
+    pal_tmp <- lapply(X = pal, usecol, n = n, alpha = alpha, use_names = TRUE)  # get all palettes separately. 
     
     if (is.na(title)){
       title <- "Compare a custom set of color palettes"
@@ -555,13 +553,15 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     names(pal_tmp) <- lapply(pal_tmp, comment)  # assign names from comment attribute. 
     
     ## Check for names: 
-    if ( is.null(names(pal_tmp)) ) {
+    if (is.null(names(pal_tmp))) {
       
-      names(pal_tmp) <- paste0("pal", 1:length(pal_tmp))
+      names(pal_tmp) <- paste0("pal", 1:length(pal_tmp))  
+      # ToDo: Use argument name.
       
-    } else if ( any(names(pal_tmp) == "custom") ) {
+    } else if (any(names(pal_tmp) == "custom")) {
       
       names(pal_tmp)[names(pal_tmp) == "custom"] <- paste0("pal", which(names(pal_tmp) == "custom"))
+      # ToDo: Use argument name.
       
     }
     
@@ -634,7 +634,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   ## 3.1 Plot an overview for a list of palettes: 
   ## Possible solution: (a) 1 list entry --> details; (b) more than 1 list entry --> comparison:
-  if ( length(pal_tmp) > 1 ) {
+  if (length(pal_tmp) > 1) {
     
     # Set margins:
     par(mar = c(3, 6, 3, 1))
@@ -693,13 +693,14 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     cex_ind <- par("cex")
     wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))
     pos_ind <- seq(0.5, (max_ncol - 0.5), by = 1)
+    
     while (wdth_ind > xlim[2]) {
       
       txt_ind <- txt_ind[seq(1, length(txt_ind), by = 2)]  # only show every second index.
       pos_ind <- pos_ind[seq(1, length(pos_ind), by = 2)]
       wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))  # is the width small enough?
       
-    }
+    } # while end. 
     
     # Color indices:
     cex_ixs <- .80
