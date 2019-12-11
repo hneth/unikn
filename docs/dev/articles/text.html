@@ -13,8 +13,9 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Text boxes and decorations">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://hneth.github.io/unikn/logo.png">
@@ -38,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0.9003</span>
       </span>
     </div>
 
@@ -89,6 +90,7 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
@@ -109,7 +111,7 @@
 <p>This vignette explains the <strong>unikn</strong> functions for plotting graphical elements and text decorations. (See the vignette on <a href="colors.html">color</a> for information on colors, color palettes, and corresponding functions.)</p>
 <p>Please install and/or load the <strong>unikn</strong> package to get started:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages('unikn')  # install unikn from CRAN client</span>
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">'unikn'</span>)             <span class="co"># load the package</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'unikn'</span>)             <span class="co"># load the package</span></code></pre></div>
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
@@ -120,7 +122,7 @@
 </ul>
 <p>That said, digital decorations can be useful to emphasize or structure information, provided that they can be produced easily and flexibly. The <strong>unikn</strong> package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line headings) and can be customized and improved by expert users. Hence, we hope that the following functions are useful for plotting graphical elements (e.g., boxes, logos, etc.) and help you achieve a uniform look when styling presentations or visualizations.</p>
 <p>Please load the <strong>unikn</strong> package to get started:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(unikn)  <span class="co"># load unikn package</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(unikn)  <span class="co"># load unikn package</span></code></pre></div>
 </div>
 <div id="plotting-empty-slides-and-boxes" class="section level2">
 <h2 class="hasAnchor">
@@ -155,10 +157,10 @@
 <a href="#dimensions" class="anchor"></a>Dimensions</h3>
 <p>By default, both <code>slide</code> and <code>xbox</code> fill the entire plotting region (i.e., all margins are set to 0).</p>
 <p>The width of a slide is set to 4/3 of its height (of 1). To change this default, use the <code>dim</code> argument for specifying the slide’s x- and y-dimensions, respectively:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/slide.html">slide</a></span>(<span class="dt">dim =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">3</span>, <span class="dv">1</span>))  <span class="co"># a slide 3 times wider than high</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/slide.html">slide</a></span>(<span class="dt">dim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">3</span>, <span class="dv">1</span>))  <span class="co"># a slide 3 times wider than high</span></code></pre></div>
 <p><img src="text_files/figure-html/slide_dim-1.png" width="576" style="display: block; margin: auto;"></p>
 <p>Similarly, an xbox has the default dimensions of a unit square (i.e., <code>dim = c(1, 1)</code>). To change this default, use the <code>dim</code> argument for specifying the xbox’s <code>x</code>- and <code>y</code>-dimensions, respectively:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/xbox.html">xbox</a></span>(<span class="dt">col =</span> Petrol, <span class="dt">dim  =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>))  <span class="co"># an xbox 2 times higher than wide</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/xbox.html">xbox</a></span>(<span class="dt">col =</span> Petrol, <span class="dt">dim  =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>))  <span class="co"># an xbox 2 times higher than wide</span></code></pre></div>
 <p><img src="text_files/figure-html/xbox_dim-1.png" width="192" style="display: block; margin: auto;"></p>
 <p>The 2 strokes of the X (in the top right corner) are orthogonal when viewing the <code>xbox</code> at the aspect ratio indicated by <code>dim</code> (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X seems distorted. Hence, viewing and printing plots at the desired aspect ratio is crucial for designing an xbox.</p>
 </div>
@@ -191,22 +193,22 @@
 <p>By default, <code>mark</code> assumes that we want to add highlighted text to an already existing plot. The text labels to be added are provided (as a character vector) by the <code>labels</code> argument, their coordinates as the corresponding <code>x</code> and <code>y</code> arguments. Various text decorations (i.e., text and background colors, text sizes, and font types) can be set by specifying additional arguments (i.e., <code>col</code>, <code>col_bg</code>, <code>cex</code>, and <code>font</code>, respectively):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Some pre-existing plot: </span>
 n &lt;-<span class="st"> </span><span class="dv">20</span>
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(<span class="dv">1</span>)
-<span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/par">par</a></span>(<span class="dt">mar =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))
-<span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(<span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(n), <span class="dt">y =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(n), <span class="dt">type =</span> <span class="st">"p"</span>, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="dv">20</span>, <span class="dt">col =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/grDevices/topics/gray">grey</a></span>(<span class="dv">0</span>, .<span class="dv">2</span>),
+<span class="kw"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="dv">1</span>)
+<span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">mar =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))
+<span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span>(n), <span class="dt">y =</span> <span class="kw"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span>(n), <span class="dt">type =</span> <span class="st">"p"</span>, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="dv">20</span>, <span class="dt">col =</span> <span class="kw"><a href="https://rdrr.io/r/grDevices/gray.html">grey</a></span>(<span class="dv">0</span>, .<span class="dv">2</span>),
      <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">xlab =</span> <span class="st">""</span>, <span class="dt">ylab =</span> <span class="st">""</span>)
 
 <span class="co"># Add 1 marked label:</span>
 <span class="kw"><a href="../reference/mark.html">mark</a></span>(<span class="dt">labels =</span> <span class="st">"Some messy plot"</span>, <span class="dt">x =</span> .<span class="dv">02</span>, <span class="dt">y =</span> .<span class="dv">9</span>)
 
 <span class="co"># Add 2 more marked labels:</span>
-<span class="kw"><a href="../reference/mark.html">mark</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Note something here"</span>, <span class="st">"More highlighting here"</span>), 
-     <span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(.<span class="dv">1</span>, .<span class="dv">6</span>), <span class="dt">y =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(.<span class="dv">2</span>, .<span class="dv">4</span>),
-     <span class="dt">col_bg =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(pal_seeblau[[<span class="dv">2</span>]], pal_peach[[<span class="dv">3</span>]]), <span class="dt">cex =</span> <span class="fl">1.2</span>)</code></pre></div>
+<span class="kw"><a href="../reference/mark.html">mark</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Note something here"</span>, <span class="st">"More highlighting here"</span>), 
+     <span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(.<span class="dv">1</span>, .<span class="dv">6</span>), <span class="dt">y =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(.<span class="dv">2</span>, .<span class="dv">4</span>),
+     <span class="dt">col_bg =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(pal_seeblau[[<span class="dv">2</span>]], pal_peach[[<span class="dv">3</span>]]), <span class="dt">cex =</span> <span class="fl">1.2</span>)</code></pre></div>
 <p><img src="text_files/figure-html/mark_messy_plot-1.png" width="576" style="display: block; margin: auto;"></p>
 <p>If no pre-existing plot is available, setting the <code>new_plot</code> argument to either <code>"blank"</code> or <code>"slide"</code> will generate a new default plot (by using the <code>slide</code> function described above):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A sentence to plot: </span>
-s &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Markieren"</span>,
+s &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Markieren"</span>,
        <span class="st">"ist ein Bestandteil"</span>,
        <span class="st">"von Studieren."</span>)
 
@@ -239,15 +241,15 @@ s &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 <p>The <code>uline</code> function allows emphasizing text by plotting it with colored underlining (to provide the functionality of “Unterstreichen”):</p>
 <p><img src="text_files/figure-html/uline_demo-1.png" width="288" style="display: block; margin: auto;"></p>
 <p>As with <code>mark</code> above, the <code>uline</code> command distinguishes between creating a new plot (by setting <code>new_plot</code> to either <code>"blank"</code> or “<code>slide</code>”) or adding to a pre-existing plot (by using the default <code>new_plot = "none"</code>):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lbl_uline &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"This is neat, true, and terribly important"</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lbl_uline &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"This is neat, true, and terribly important"</span>)
 <span class="kw"><a href="../reference/uline.html">uline</a></span>(<span class="dt">labels =</span> lbl_uline, <span class="dt">new_plot =</span> <span class="st">"blank"</span>, <span class="dt">y =</span> .<span class="dv">6</span>, <span class="dt">cex =</span> <span class="fl">1.1</span>)  <span class="co"># create a new plot</span>
 <span class="kw"><a href="../reference/uline.html">uline</a></span>(<span class="dt">labels =</span> <span class="st">"(which is why we underline it)."</span>, <span class="dt">y =</span> .<span class="dv">45</span>, <span class="dt">cex =</span> <span class="dv">1</span>)  <span class="co"># add to plot</span></code></pre></div>
 <p><img src="text_files/figure-html/uline_ex1-1.png" width="432" style="display: block; margin: auto;"></p>
 <p>The arguments for text elements (<code>labels</code>), text positions (<code>x</code>, <code>y</code>, <code>y_layout</code>), and text properties and decorations (<code>col</code>, <code>col_bg</code>, <code>cex</code>, and <code>font</code>) work as they do for <code>mark</code>. For instance, shorter vectors are recycled to match the length of <code>labels</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">slogan &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Geradlinig"</span>, <span class="st">"Farbenfroh"</span>, <span class="st">"Beweglich"</span>, <span class="st">"Bunt"</span>, <span class="st">"Paradiesisch"</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">slogan &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Geradlinig"</span>, <span class="st">"Farbenfroh"</span>, <span class="st">"Beweglich"</span>, <span class="st">"Bunt"</span>, <span class="st">"Paradiesisch"</span>)
 <span class="kw"><a href="../reference/uline.html">uline</a></span>(<span class="dt">labels =</span> slogan,
-      <span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, .<span class="dv">5</span>), <span class="dt">y =</span> .<span class="dv">9</span>, <span class="dt">y_layout =</span> <span class="st">"even"</span>,
-      <span class="dt">col =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"black"</span>, Bordeaux), <span class="dt">col_bg =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(Seeblau, Seegruen), 
+      <span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>, .<span class="dv">5</span>), <span class="dt">y =</span> .<span class="dv">9</span>, <span class="dt">y_layout =</span> <span class="st">"even"</span>,
+      <span class="dt">col =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"black"</span>, Bordeaux), <span class="dt">col_bg =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(Seeblau, Seegruen), 
       <span class="dt">cex =</span> <span class="fl">1.1</span>, <span class="dt">font =</span> <span class="dv">2</span>, <span class="dt">new_plot =</span> <span class="st">"blank"</span>)</code></pre></div>
 <p><img src="text_files/figure-html/uline_ex2-1.png" width="288" style="display: block; margin: auto;"></p>
 </div>
@@ -270,7 +272,7 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
      <span class="dt">cex =</span> <span class="dv">8</span>, <span class="dt">font =</span> <span class="dv">2</span>, <span class="dt">new_plot =</span> <span class="st">"xbox"</span>)</code></pre></div>
 <p><img src="text_files/figure-html/post_logo-1.png" width="192" style="display: block; margin: auto;"><img src="text_files/figure-html/post_logo-2.png" width="192" style="display: block; margin: auto;"></p>
 <p>Another use of <code>post</code> is to create an image that provides contact details:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">address &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Dr. B. F. Skinner"</span>, <span class="st">" "</span>,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">address &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Dr. B. F. Skinner"</span>, <span class="st">" "</span>,
              <span class="st">"Department of Psychology"</span>,
              <span class="st">"Office F101"</span>,
              <span class="st">"Tel.: +49 7531 88-0815"</span>,
@@ -295,16 +297,16 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
 <p><img src="text_files/figure-html/heading_demo-1.png" width="384" style="display: block; margin: auto;"></p>
 <p>By default, the function creates a new slide (i.e., <code>new_plot = "slide"</code>) and positions the text elements of <code>labels</code> on its left edge (i.e., <code>x = 0</code>, <code>y = .8</code> and <code>y_layout = "flush"</code>). Headings violating the recommendations (see p. 25 of the CD manual) will generate a message, for instance:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Beware of step-wise arrangements:</span>
-<span class="kw"><a href="../reference/heading.html">heading</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Ich"</span>, <span class="st">"bin keine"</span>, <span class="st">"gute Headline."</span>))
+<span class="kw"><a href="../reference/heading.html">heading</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ich"</span>, <span class="st">"bin keine"</span>, <span class="st">"gute Headline."</span>))
 <span class="co">#&gt; Step-wise titles are discouraged: Consider re-arranging?</span></code></pre></div>
 <p><img src="text_files/figure-html/heading_warn-1.png" width="384" style="display: block; margin: auto;"></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="co"># To avoid warning:</span>
-<span class="kw"><a href="../reference/heading.html">heading</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Ich bin"</span>, <span class="st">"eine alternative"</span>, <span class="st">"Headline."</span>))</code></pre></div>
+<span class="kw"><a href="../reference/heading.html">heading</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ich bin"</span>, <span class="st">"eine alternative"</span>, <span class="st">"Headline."</span>))</code></pre></div>
 <p><img src="text_files/figure-html/heading_warn-2.png" width="384" style="display: block; margin: auto;"></p>
 <p>When colors are left unspecified, <code>heading</code> selects colors that are appropriate for the number of elements in <code>labels</code> (i.e., shades of <code>Seeblau</code> for <code>col_bg = "default"</code>). However, default colors can be overwritten by setting the <code>col</code> and <code>col_bg</code> arguments:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/heading.html">heading</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Ene,"</span>, <span class="st">"mene, miste,"</span>, <span class="st">"es rappelt"</span>, <span class="st">"in der Kiste."</span>), 
-        <span class="dt">col =</span> <span class="st">"white"</span>, <span class="dt">col_bg =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(Pinky, Seegruen, Bordeaux, Karpfenblau))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/heading.html">heading</a></span>(<span class="dt">labels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ene,"</span>, <span class="st">"mene, miste,"</span>, <span class="st">"es rappelt"</span>, <span class="st">"in der Kiste."</span>), 
+        <span class="dt">col =</span> <span class="st">"white"</span>, <span class="dt">col_bg =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(Pinky, Seegruen, Bordeaux, Karpfenblau))</code></pre></div>
 <p><img src="text_files/figure-html/heading_col-1.png" width="384" style="display: block; margin: auto;"></p>
 </div>
 <div id="urls" class="section level3">
@@ -391,6 +393,7 @@ my_url  <span class="co"># formatted URL</span>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
@@ -420,17 +423,20 @@ my_url  <span class="co"># formatted URL</span>
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by <a href="https://www.spds.uni-konstanz.de/hans-neth">Hansjoerg Neth</a>, <a href="https://www.spds.uni-konstanz.de/nico-gradwohl">Nico Gradwohl</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
