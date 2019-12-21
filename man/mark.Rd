@@ -4,8 +4,17 @@
 \alias{mark}
 \title{Plot marked (or highlighted) text elements.}
 \usage{
-mark(labels, x = 0, y = 0.55, y_layout = "even", col = "black",
-  col_bg = Seeblau, cex = 2, font = 2, new_plot = "none")
+mark(
+  labels,
+  x = 0,
+  y = 0.55,
+  y_layout = "even",
+  col = "black",
+  col_bg = Seeblau,
+  cex = 2,
+  font = 2,
+  new_plot = "none"
+)
 }
 \arguments{
 \item{labels}{A character vector specifying the text labels 
@@ -55,10 +64,10 @@ each label to mark it (i.e., highlight or make it stand out from the background)
 \details{
 The positions of the text elements in \code{labels} can be specified by 
 providing their coordinates (as \code{x} and \code{y} arguments) or 
-by providing an initial position and an \code{y_layout} (see below).
+by providing an initial position and an \code{y_layout} (see below). 
 
 Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
-are recycled to match \code{length(labels)}.
+are recycled to match \code{length(labels)}. 
 
 \code{mark} uses the base graphics system \code{graphics::}.
 }
@@ -89,7 +98,9 @@ mark(labels = c("It is also flexible", "but to be handled with care"),
 \seealso{
 \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).
 
-Other text functions: \code{\link{post}},
-  \code{\link{uline}}, \code{\link{url_unikn}}
+Other text functions: 
+\code{\link{post}()},
+\code{\link{uline}()},
+\code{\link{url_unikn}()}
 }
 \concept{text functions}

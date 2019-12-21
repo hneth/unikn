@@ -30,11 +30,15 @@ seecol(Petrol)  # view color and details
 \code{\link{seecol}} to show color palettes;
 \code{\link{usecol}} to use color palettes.
 
-Other preferred colors: \code{\link{Bordeaux}},
-  \code{\link{Grau}}, \code{\link{Karpfenblau}},
-  \code{\link{Peach}}, \code{\link{Pinky}},
-  \code{\link{Seeblau}}, \code{\link{Seegruen}},
-  \code{\link{Signal}}
+Other preferred colors: 
+\code{\link{Bordeaux}},
+\code{\link{Grau}},
+\code{\link{Karpfenblau}},
+\code{\link{Peach}},
+\code{\link{Pinky}},
+\code{\link{Seeblau}},
+\code{\link{Seegruen}},
+\code{\link{Signal}}
 }
 \concept{preferred colors}
 \keyword{datasets}
