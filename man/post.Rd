@@ -4,17 +4,8 @@
 \alias{post}
 \title{Post text (in an xbox).}
 \usage{
-post(
-  labels,
-  x = 0.03,
-  y = 0.55,
-  y_layout = "even",
-  col = "white",
-  col_bg = Seeblau,
-  cex = 1,
-  font = 1,
-  new_plot = "none"
-)
+post(labels, x = 0.03, y = 0.55, y_layout = "even", col = "white",
+  col_bg = Seeblau, cex = 1, font = 1, new_plot = "none")
 }
 \arguments{
 \item{labels}{A character vector specifying the text labels 
@@ -64,10 +55,10 @@ to an (existing or new) \code{\link{xbox}}.
 \details{
 The positions of the text elements in \code{labels} can be specified by 
 providing their coordinates (as \code{x} and \code{y} arguments) or 
-by providing an initial position and an \code{y_layout} (see below). 
+by providing an initial position and an \code{y_layout} (see below).
 
 Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
-are recycled to match \code{length(labels)}. 
+are recycled to match \code{length(labels)}.
 
 \code{post} uses the base graphics system \code{graphics::}.
 }
@@ -89,9 +80,7 @@ post(labels = c("More text follows here,",
 \seealso{
 \code{\link{xbox}} to create a new xbox (without text).
 
-Other text functions: 
-\code{\link{mark}()},
-\code{\link{uline}()},
-\code{\link{url_unikn}()}
+Other text functions: \code{\link{mark}},
+  \code{\link{uline}}, \code{\link{url_unikn}}
 }
 \concept{text functions}

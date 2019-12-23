@@ -4,17 +4,8 @@
 \alias{heading}
 \title{Plot a heading (as marked text elements).}
 \usage{
-heading(
-  labels,
-  x = 0,
-  y = 0.8,
-  y_layout = "flush",
-  col = "black",
-  col_bg = "default",
-  cex = 2,
-  font = 2,
-  new_plot = "slide"
-)
+heading(labels, x = 0, y = 0.8, y_layout = "flush", col = "black",
+  col_bg = "default", cex = 2, font = 2, new_plot = "slide")
 }
 \arguments{
 \item{labels}{A character vector specifying the text labels 
@@ -65,7 +56,7 @@ each label to mark it (i.e., highlighting the heading).
 }
 \details{
 Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
-are recycled to match \code{length(labels)}. 
+are recycled to match \code{length(labels)}.
 
 \code{heading} uses the base graphics system \code{graphics::}.
 }

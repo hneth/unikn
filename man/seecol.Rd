@@ -5,19 +5,9 @@
 \alias{seepal}
 \title{Plot color palettes (to see their colors).}
 \usage{
-seecol(
-  pal = "unikn_all",
-  n = "all",
-  alpha = NA,
-  hex = NULL,
-  rgb = NULL,
-  col_bg = NULL,
-  col_brd = NULL,
-  lwd_brd = NULL,
-  grid = TRUE,
-  title = NA,
-  ...
-)
+seecol(pal = "unikn_all", n = "all", alpha = NA, hex = NULL,
+  rgb = NULL, col_bg = NULL, col_brd = NULL, lwd_brd = NULL,
+  grid = TRUE, title = NA, ...)
 }
 \arguments{
 \item{pal}{A color palette (as a vector of colors), 
@@ -89,13 +79,13 @@ the colors of a palette or comparing multiple color palettes.
 
 \enumerate{
 
-  \item if \code{pal = "unikn_all"} (or a list of multiple color palettes): 
+\item if \code{pal = "unikn_all"} (or a list of multiple color palettes):
 
-  Plot visual vectors of all current color palettes for comparing them. 
+Plot visual vectors of all current color palettes for comparing them.
 
-  \item if \code{pal} is set to a specific color palette (or a vector of multiple colors or color palettes):
+\item if \code{pal} is set to a specific color palette (or a vector of multiple colors or color palettes):
 
-  Plot the current color palette and optional details on its colors.
+Plot the current color palette and optional details on its colors.
 
 }
 }
@@ -146,8 +136,7 @@ seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
 \code{\link{usecol}} to use a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: 
-\code{\link{newpal}()},
-\code{\link{usecol}()}
+Other color functions: \code{\link{newpal}},
+  \code{\link{usecol}}
 }
 \concept{color functions}
