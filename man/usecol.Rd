@@ -4,8 +4,13 @@
 \alias{usecol}
 \title{Use a color palette.}
 \usage{
-usecol(pal = pal_unikn, n = "all", alpha = NA, use_names = FALSE,
-  use_col_ramp = FALSE)
+usecol(
+  pal = pal_unikn,
+  n = "all",
+  alpha = NA,
+  use_names = FALSE,
+  use_col_ramp = FALSE
+)
 }
 \arguments{
 \item{pal}{A color palette (as a vector of colors or color palettes). 
@@ -55,7 +60,8 @@ seecol(pal_3)
 \code{\link{seecol}} to plot color palettes; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{newpal}},
-  \code{\link{seecol}}
+Other color functions: 
+\code{\link{newpal}()},
+\code{\link{seecol}()}
 }
 \concept{color functions}

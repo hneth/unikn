@@ -3,6 +3,7 @@
 \name{newpal}
 \alias{newpal}
 \alias{defpal}
+\alias{defcol}
 \title{Define new color palettes.}
 \usage{
 newpal(col, names = NA, as_df = FALSE)
@@ -92,7 +93,8 @@ seecol(my_pals, col_brd = "white", lwd_brd = 5,
 \code{\link{seepal}} to plot color palettes;  
 \code{\link{usecol}} to use a color palette.
 
-Other color functions: \code{\link{seecol}},
-  \code{\link{usecol}}
+Other color functions: 
+\code{\link{seecol}()},
+\code{\link{usecol}()}
 }
 \concept{color functions}
