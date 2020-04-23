@@ -4,7 +4,9 @@
 \name{Bordeaux}
 \alias{Bordeaux}
 \title{uni.kn color Bordeaux.}
-\format{An object of class \code{character} of length 1.}
+\format{
+An object of class \code{character} of length 1.
+}
 \usage{
 Bordeaux
 }

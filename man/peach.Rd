@@ -4,7 +4,9 @@
 \name{Peach}
 \alias{Peach}
 \title{uni.kn color Peach.}
-\format{An object of class \code{character} of length 1.}
+\format{
+An object of class \code{character} of length 1.
+}
 \usage{
 Peach
 }

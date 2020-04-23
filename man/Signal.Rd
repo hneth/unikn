@@ -4,7 +4,9 @@
 \name{Signal}
 \alias{Signal}
 \title{uni.kn color Signal or alert.}
-\format{An object of class \code{character} of length 1.}
+\format{
+An object of class \code{character} of length 1.
+}
 \usage{
 Signal
 }

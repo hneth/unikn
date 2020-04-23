@@ -4,7 +4,9 @@
 \name{Grau}
 \alias{Grau}
 \title{uni.kn color Grau.}
-\format{An object of class \code{character} of length 1.}
+\format{
+An object of class \code{character} of length 1.
+}
 \usage{
 Grau
 }

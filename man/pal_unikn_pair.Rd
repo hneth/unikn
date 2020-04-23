@@ -4,7 +4,9 @@
 \name{pal_unikn_pair}
 \alias{pal_unikn_pair}
 \title{uni.kn pairwise colors in a color palette.}
-\format{An object of class \code{data.frame} with 1 rows and 16 columns.}
+\format{
+An object of class \code{data.frame} with 1 rows and 16 columns.
+}
 \usage{
 pal_unikn_pair
 }

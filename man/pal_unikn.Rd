@@ -4,7 +4,9 @@
 \name{pal_unikn}
 \alias{pal_unikn}
 \title{unikn default color palette (11 colors).}
-\format{An object of class \code{data.frame} with 1 rows and 11 columns.}
+\format{
+An object of class \code{data.frame} with 1 rows and 11 columns.
+}
 \usage{
 pal_unikn
 }

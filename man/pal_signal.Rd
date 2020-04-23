@@ -4,7 +4,9 @@
 \name{pal_signal}
 \alias{pal_signal}
 \title{uni.kn signal (Ampel) color palette.}
-\format{An object of class \code{data.frame} with 1 rows and 3 columns.}
+\format{
+An object of class \code{data.frame} with 1 rows and 3 columns.
+}
 \usage{
 pal_signal
 }

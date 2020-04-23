@@ -4,7 +4,9 @@
 \name{Karpfenblau}
 \alias{Karpfenblau}
 \title{uni.kn color Karpfenblau.}
-\format{An object of class \code{character} of length 1.}
+\format{
+An object of class \code{character} of length 1.
+}
 \usage{
 Karpfenblau
 }
