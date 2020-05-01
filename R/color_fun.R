@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2019 10 30
+## spds | uni.kn |  2020 05 01
 ## ---------------------------
 
 ## Define color-related functions 
@@ -359,6 +359,9 @@ usecol <- function(pal = pal_unikn,
 #'   Plot the current color palette and optional details on its colors.
 #'
 #' }
+#' 
+#' See also the \code{show_col} function of the \bold{scales} package. 
+#' 
 #' 
 #' @param pal A color palette (as a vector of colors), 
 #' a character string recognized as keyword by seecol or
