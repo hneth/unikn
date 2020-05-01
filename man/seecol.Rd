@@ -98,6 +98,8 @@ the colors of a palette or comparing multiple color palettes.
   Plot the current color palette and optional details on its colors.
 
 }
+
+See also the \code{show_col} function of the \bold{scales} package.
 }
 \examples{
 # See all color palettes: 
