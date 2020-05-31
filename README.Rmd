@@ -748,6 +748,6 @@ Color definitions are based on the specifications at:
 
 <!-- Update: -->
 
-[Updated on `r format(Sys.time(), "%Y-%m-%d")`.]  
+[Updated on `r Sys.Date()`.] 
 
 <!-- eof. -->

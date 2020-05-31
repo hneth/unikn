@@ -756,7 +756,7 @@ Color definitions are based on the specifications at:
 
 <!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
 <!-- Update: -->
-\[Updated on 2019-09-26.\]
+\[Updated on 2020-05-31.\]
 
 <!-- eof. -->
 
