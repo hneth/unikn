@@ -747,6 +747,6 @@ Color definitions are based on the specifications at:
 
 <!-- Update: -->
 
-(Updated on `r Sys.Date()` by [hn]((https://neth.de).)
+(Updated on `r Sys.Date()`.)  
 
 <!-- eof. -->
