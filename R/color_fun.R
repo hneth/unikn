@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 05 01
+## spds | uni.kn |  2020 07 25
 ## ---------------------------
 
 ## Define color-related functions 
@@ -494,7 +494,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
                    ...              # additional arguments to plot.default().
 ) {
   
-  ## 0. Preparations: ----- 
+  ## 0. Preparations: ------ 
   
   op <- par(no.readonly = TRUE)  # save original plotting settings.
   keys <- c("all", "unikn_all", "all_unikn",  # all palettes
@@ -506,11 +506,14 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   # Robustify inputs:
   
-  ## Plotting parameters: ----
+  ## Plotting parameters: 
   if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
   
-  ## Check, whether keyword is used:
+  
+  ## 1. Get palette names: ------ 
+  
+  ## Check, if keyword is used:
   by_key <- tryCatch(
     { 
       all(pal %in% keys)
@@ -521,10 +524,10 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     silent = TRUE
   )
   
-  ## Check whether pal input is a list: 
+  ## Check if pal input is a list: 
   compare <- tryCatch(
     {
-      is.list(pal) & any(lapply(pal, length) > 1)   # get length of each component. 
+      is.list(pal) & any(lapply(pal, length) > 1)  # get length of each component. 
     },
     error = function(e) {FALSE},
     silent = TRUE
@@ -614,7 +617,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     col_brd <- "white"   # correct to sensible value
   }
   
-  ## 2. Plotting parameters: ------ 
+  ## 2. Plot parameters: ------ 
   
   ## Plotting preparations: 
   distance <- 0   # set distance of boxes?
