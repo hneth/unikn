@@ -3,6 +3,20 @@
 
 The current development version of **unikn** (0.2.0.9000+) is available at <https://github.com/hneth/unikn/>. 
 
+Changes since last release: 
+
+## Major changes 
+
+- none. 
+
+## Minor changes
+
+- Added `pal_names` argument to `seecol()` function to allow re-labeling sets of color palettes. [2020-07-26] 
+
+## Bug fixes 
+
+- none.
+
 ---------- 
 
 # unikn 0.2.0
