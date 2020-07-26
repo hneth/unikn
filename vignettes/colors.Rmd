@@ -292,7 +292,7 @@ Labeling the custom palettes can be achieved by setting the `pal_names` argument
 ```{r set_custom_palette_names, fig.width = 6, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
        pal_names = c("my_pair", "blue_bord", "blue_yell"),
-       title = "Naming custom color palettes")
+       title = "Labeling custom color palettes")
 ```
 
 If the `pal_names` argument is specified and corresponds to the length of palettes overall, the default names of all color palettes are overwritten by `pal_names`:
@@ -300,7 +300,7 @@ If the `pal_names` argument is specified and corresponds to the length of palett
 ```{r set_all_palette_names, fig.width = 6, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
        pal_names = c("my_pair", "blue_bord", "blue_yell", "blue_black", "mix_pair"),
-       title = "Comparing and naming custom color palettes")
+       title = "Comparing and labeling custom color palettes")
 ```
 
 As before, we can use the `n` argument for obtaining shorter subsets of color palettes: 
@@ -546,8 +546,8 @@ Once a new palette has been defined (and is available in your current R environm
 
 # Scaled version: 
 seecol(list(pal_freiburg_basic, pal_princeton_1, pal_mpg, pal_unikn), n = 9,
-       pal_names = "Freiburg", "Princeton", "Max Planck", "Konstanz",
-       title = "Compare scaled color palettes")
+       pal_names = c("Uni Freiburg", "Princeton Uni", "Max Planck", "Uni Konstanz"),
+       title = "Comparing scaled color palettes")
 ```
 
 
