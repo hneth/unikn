@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 07 25
+## spds | uni.kn |  2020 07 26
 ## ---------------------------
 
 ## Define color-related functions 
@@ -302,8 +302,6 @@ usecol <- function(pal = pal_unikn,
     # Names from defined kn palettes:
     kn_names <-  names(unlist(all_pals1))[match(tst, unlist(all_pals1))]
     
-    
-    
     # Predefined color names:
     col_names <- colors()[match(
       rgb(t(col2rgb(tst)), maxColorValue = 255), 
@@ -328,14 +326,14 @@ usecol <- function(pal = pal_unikn,
   
   
   if ( !(is.null(alpha) | is.na(alpha))) { 
-    cmnt <- comment(out_col)  # save paletten name.
+    cmnt <- comment(out_col)  # save palette name.
     out_col <- adjustcolor(out_col, alpha.f = alpha)
-    comment(out_col) <- cmnt  # restor name.
+    comment(out_col) <- cmnt  # restore name.
   }
   
   return(out_col)
   
-}  # usecol end.
+} # usecol end.
 
 ## seecol: Plot the colors of a palette or multiple palettes: ---------- 
 
@@ -417,8 +415,12 @@ usecol <- function(pal = pal_unikn,
 #' @param grid Show grid in the color plot?  
 #' Default: \code{grid = TRUE}. 
 #' 
-#' @param title Plot title? 
+#' @param title Plot title. 
 #' Default: \code{title = NA} creates a default title.  
+#' 
+#' @param pal_names Names of all or custom color palettes 
+#' (as a character vector). 
+#' Default: \code{pal_names = NA} (using default names). 
 #' 
 #' @param ... Other graphical parameters 
 #' (passed to \code{plot}). 
@@ -490,7 +492,8 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
                    col_brd = NULL,  # border color of the boxes
                    lwd_brd = NULL,  # line width of box borders
                    grid = TRUE,     # show grid? 
-                   title = NA,      # plot title? Using default title = NA constructs a default title
+                   title = NA,      # plot title: Using title = NA constructs a default title
+                   pal_names = NA,  # pal names: Names of all or custom color palettes (as character vector)
                    ...              # additional arguments to plot.default().
 ) {
   
@@ -536,8 +539,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   ## Getting a list of palettes by keyword: 
   if (by_key) {
     
-    ## Plot title:
-    ## Define title given keyword:
+    ## Define plot title (by keyword):
     if (is.na(title)){
       if (pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
       if (pal %in% c("basic", "unikn_basic", "basic_unikn")) title <- "See all basic unikn color palettes"
@@ -546,7 +548,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       if (pal %in% c("grad", "grad_all", "all_grad")) title <- "See all unikn color gradients"
     }
     
-    pal_tmp <- getpal_key(pal = pal, n = n, alpha = alpha)  # get the color by key.
+    pal_tmp <- getpal_key(pal = pal, n = n, alpha = alpha)  # get the colors by key.
     
   } else if (compare){
     
@@ -556,22 +558,42 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       title <- "Compare a custom set of color palettes"
     }
     
-    names(pal_tmp) <- lapply(pal_tmp, comment)  # assign names from comment attribute. 
+    ## Get/set palette names:         # +++ here now +++ 
     
-    ## Check for names: 
-    if (is.null(names(pal_tmp))) {
+    if ((!any(is.na(pal_names))) &                # pal_names were provided
+        (length(pal_names) == length(pal_tmp))){  # and of appropriate length:  
       
-      names(pal_tmp) <- paste0("pal", 1:length(pal_tmp))  
-      # ToDo: Use argument name.
+      names(pal_tmp) <- pal_names  # use pal_names. 
       
-    } else if (any(names(pal_tmp) == "custom")) {
+    } else { # assign names from comment attribute: 
       
-      names(pal_tmp)[names(pal_tmp) == "custom"] <- paste0("pal", which(names(pal_tmp) == "custom"))
-      # ToDo: Use argument name.
+      names(pal_tmp) <- lapply(pal_tmp, comment)  
       
+      if (is.null(names(pal_tmp))){ # no names exist: 
+        
+        names(pal_tmp) <- paste0("pal_", 1:length(pal_tmp))  # use default names.   
+        # ToDo: Use argument name.
+        
+      } else if (any(names(pal_tmp) == "custom")) {
+        
+        ix_cp <- (names(pal_tmp) == "custom") 
+        
+        if ((!any(is.na(pal_names))) &           # pal_names were provided
+            (length(pal_names) == sum(ix_cp))){  # and of appropriate length:  
+          
+          names(pal_tmp)[ix_cp] <- pal_names  # use custom pal_names. 
+          
+        } else { # use default names: 
+          
+          names(pal_tmp)[ix_cp] <- paste0("pal_", which(ix_cp))
+          # ToDo: Use argument name.
+          
+        }
+      }
     }
     
-  } else {  # if no keyword or list for comparison was given:
+    
+  } else { # if no keyword or list for comparison was provided:
     
     ## Get palette:
     pal_tmp <- usecol(pal = pal, n = n, alpha = alpha, use_names = TRUE)  # create a list of length 1.
@@ -685,10 +707,10 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = ylen, col_brd = col_brd, lwd = lwd_brd)
     })
     
-    # Add color names and indices:
+    # Add palette names and indices:
     cex_lbl <- .90
     
-    pal_nm <- names(pal_tmp)  # get palette names.
+    pal_nm <- names(pal_tmp)  # use palette names.
     
     text(x = 0, y = 1:length(pal_tmp), labels = rev(pal_nm), 
          cex = cex_lbl, pos = 2, xpd = TRUE,
