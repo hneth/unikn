@@ -16,6 +16,7 @@ seecol(
   lwd_brd = NULL,
   grid = TRUE,
   title = NA,
+  pal_names = NA,
   ...
 )
 }
@@ -74,8 +75,12 @@ Default: \code{lwd_brd = NULL}.}
 \item{grid}{Show grid in the color plot?
 Default: \code{grid = TRUE}.}
 
-\item{title}{Plot title? 
+\item{title}{Plot title. 
 Default: \code{title = NA} creates a default title.}
+
+\item{pal_names}{Names of all or custom color palettes 
+(as a character vector). 
+Default: \code{pal_names = NA} (using default names).}
 
 \item{...}{Other graphical parameters 
 (passed to \code{plot}).}
