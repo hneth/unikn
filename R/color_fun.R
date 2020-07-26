@@ -360,7 +360,6 @@ usecol <- function(pal = pal_unikn,
 #' 
 #' See also the \code{show_col} function of the \bold{scales} package. 
 #' 
-#' 
 #' @param pal A color palette (as a vector of colors), 
 #' a character string recognized as keyword by seecol or
 #' multiple palettes specified as list. 
@@ -451,14 +450,19 @@ usecol <- function(pal = pal_unikn,
 #'        title = "Diverging custom color palette with 17 colors")
 #' 
 #' # Defining custom color palettes:
-#' pal_mpg <- c("#007367", "white", "#D0D3D4")
-#' names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")
+#' pal_mpg <- c("#007367", "white", "#D0D3D4")  # mixing hex values and color names
+#' names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")  # color names
+#' 
+#' pal_bdg <- usecol(c(Bordeaux, "gold"), n = 10)  # using usecol
 #' 
 #' # Viewing extended color palette: 
-#' seecol(pal_mpg, n = 9, title = "Custom color palette for Max Planck Society")
+#' seecol(pal_mpg, n = 9, title = "Custom color palette of the Max Planck Society")
 #' 
-#' # Comparing color palettes: 
-#' seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
+#' # Comparing (and labeling) custom color palettes: 
+#' seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
+#'        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
+#'        title = "Comparing and labeling custom color palettes")
+#' 
 #' 
 #' ## Viewing color palettes from other packages: 
 #' # library(RColorBrewer)
