@@ -510,8 +510,8 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   # Robustify inputs:
   
   ## Plotting parameters: 
-  if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
-  if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
+  if ( !(is.null(hex) | is.logical(hex)) ) stop("seecol: Please specify a valid value for 'hex'.")
+  if ( !(is.null(rgb) | is.logical(rgb)) ) stop("seecol: Please specify a valid value for 'rgb'.")
   
   
   ## 1. Get palette names: ------ 
