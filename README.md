@@ -531,8 +531,12 @@ Once a new palette is defined (and available in your current R environment), the
 
 ``` r
 # Compare and extend custom color palettes:
-# seecol(list(pal_freiburg_info, pal_freiburg_basic, pal_mpg, pal_princeton_1)) # compare basic versions
-seecol(list(pal_freiburg_basic, pal_princeton_1, pal_mpg, pal_unikn), n = 9)    # compare scaled versions
+pals <- list(pal_freiburg_basic, pal_mpg, pal_princeton_1, pal_unikn)
+lbls <- c("Uni Freiburg", "Max Planck", "Princeton Uni", "Uni Konstanz")
+# seecol(pals, pal_names = lbls,                           # basic versions
+#       title = "Compare and label custom color palettes") 
+seecol(pals, n = 9, pal_names = lbls,                      # scaled versions
+       title = "Compare and label custom color palettes")   
 ```
 
 <img src="inst/pix/README-compare_custom_pals-1.png" width="75%" style="display: block; margin: auto;" />
@@ -617,25 +621,25 @@ If custom color palettes are available (see definitions above), the text decorat
 ``` r
 # (A) Using pal_freiburg_basic and pal_freiburg_blue: 
 uline(labels = c("University of Freiburg"), 
-      x = .6, y = .85, font = 2, cex = 1, 
+      x = .5, y = .85, font = 2, cex = 1, 
       col = pal_freiburg_basic[[1]], col_bg = pal_freiburg_basic[[3]], 
       new_plot = "slide")
 mark(labels = c("Die Wahrheit", "wird euch", "frei machen."), 
-     x = 0, y = .90, y_layout = 0, cex = 1.5, 
+     x = 0, y = .90, y_layout = 0, cex = 1.2, 
      col = c("white"), col_bg = rev(usecol(pal_freiburg_blue, 3)))
 
 # (B) Using orange_white or pal_princeton:
 uline(labels = c("Princeton University"), 
-      x = .6, y = .55, font = 2, cex = 1, col_bg = orange_white)
+      x = .5, y = .55, font = 2, cex = 1, col_bg = orange_white)
 mark(labels = c("Go", "tigers!"), 
-     x = 0, y = .58, y_layout = 0, cex = 2.0,  
+     x = 0, y = .58, y_layout = 0, cex = 1.2,  
      col = c("black", "white"), col_bg = pal_princeton)
 
 # (C) Using pal_mpg:
 uline(labels = c("Max Planck Society"), 
-      x = .6, y = .25, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
+      x = .5, y = .25, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
 mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen."), 
-     x = 0, y = .30, y_layout = 0, cex = 1.5, 
+     x = 0, y = .30, y_layout = 0, cex = 1.2, 
      col = c("white"), col_bg = usecol(pal_mpg, 7)[3:1])
 ```
 
@@ -756,7 +760,7 @@ Color definitions are based on the specifications at:
 
 <!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
 <!-- Update: -->
-(Updated on 2020-05-31.)
+\[Updated on 2020-07-27.\]
 
 <!-- eof. -->
 
