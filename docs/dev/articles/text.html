@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0.9006</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0.9008</span>
       </span>
     </div>
 
@@ -97,7 +97,7 @@
       <h1 data-toc-skip>Text boxes and decorations</h1>
                         <h4 class="author">SPDS, uni.kn</h4>
             
-            <h4 class="date">2019 06 15</h4>
+            <h4 class="date">2020 07 25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/master/vignettes/text.Rmd"><code>vignettes/text.Rmd</code></a></small>
       <div class="hidden name"><code>text.Rmd</code></div>
@@ -118,7 +118,7 @@
 <p>Beyond providing support for <a href="colors.html">colors</a>, <strong>unikn</strong> provides functions for plotting graphical elements (like boxes) and text decorations (with colored backgrounds or underlining). Before illustrating these functions, please note some caveats:</p>
 <ul>
 <li><p>Plotting text (i.e., graphically rendering characters) is rarely a good idea. In contrast to the vector fonts used by DTP programs, plotted text typically does not scale (when changing the size of images) and cannot be recognized automatically (e.g., copied, indexed, or scraped). Hence, the following functions should only be used when no better solutions are available (e.g., for adding text to graphs, or for obstructing automatic text recognition).</p></li>
-<li><p>Like all other templates, our renderings are subject to constraints and limitations. For instance, as any standard installation of <a href="https://www.r-project.org/">R</a> lacks the prescribed “Theinhardt” fonts, we only mimic the official design specifications (in Arial, sans serif).</p></li>
+<li><p>Like all other templates, our renderings are subject to constraints and limitations. For instance, as any standard installation of <a href="https://www.r-project.org/">R</a> lacks the prescribed "Theinhardt" fonts, we only mimic the official design specifications (in Arial, sans serif).</p></li>
 </ul>
 <p>That said, digital decorations can be useful to emphasize or structure information, provided that they can be produced easily and flexibly. The <strong>unikn</strong> package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line headings) and can be customized and improved by expert users. Hence, we hope that the following functions are useful for plotting graphical elements (e.g., boxes, logos, etc.) and help you achieve a uniform look when styling presentations or visualizations.</p>
 <p>Please load the <strong>unikn</strong> package to get started:</p>
@@ -156,10 +156,10 @@
 <h3 class="hasAnchor">
 <a href="#dimensions" class="anchor"></a>Dimensions</h3>
 <p>By default, both <code>slide</code> and <code>xbox</code> fill the entire plotting region (i.e., all margins are set to 0).</p>
-<p>The width of a slide is set to 4/3 of its height (of 1). To change this default, use the <code>dim</code> argument for specifying the slide’s x- and y-dimensions, respectively:</p>
+<p>The width of a slide is set to 4/3 of its height (of 1). To change this default, use the <code>dim</code> argument for specifying the slide's x- and y-dimensions, respectively:</p>
 <div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/slide.html">slide</a></span>(<span class="kw">dim</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>, <span class="fl">1</span>))  <span class="co"># a slide 3 times wider than high</span></pre></body></html></div>
 <p><img src="text_files/figure-html/slide_dim-1.png" width="576" style="display: block; margin: auto;"></p>
-<p>Similarly, an xbox has the default dimensions of a unit square (i.e., <code>dim = c(1, 1)</code>). To change this default, use the <code>dim</code> argument for specifying the xbox’s <code>x</code>- and <code>y</code>-dimensions, respectively:</p>
+<p>Similarly, an xbox has the default dimensions of a unit square (i.e., <code>dim = c(1, 1)</code>). To change this default, use the <code>dim</code> argument for specifying the xbox's <code>x</code>- and <code>y</code>-dimensions, respectively:</p>
 <div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/xbox.html">xbox</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">Petrol</span>, <span class="kw">dim</span>  <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>))  <span class="co"># an xbox 2 times higher than wide</span></pre></body></html></div>
 <p><img src="text_files/figure-html/xbox_dim-1.png" width="192" style="display: block; margin: auto;"></p>
 <p>The 2 strokes of the X (in the top right corner) are orthogonal when viewing the <code>xbox</code> at the aspect ratio indicated by <code>dim</code> (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X seems distorted. Hence, viewing and printing plots at the desired aspect ratio is crucial for designing an xbox.</p>
@@ -188,7 +188,7 @@
 <div id="mark-text" class="section level3">
 <h3 class="hasAnchor">
 <a href="#mark-text" class="anchor"></a>Mark text</h3>
-<p>The <code>mark</code> function allows highlighting text by plotting it with colored background boxes (to provide the functionality of “Markieren”):</p>
+<p>The <code>mark</code> function allows highlighting text by plotting it with colored background boxes (to provide the functionality of "Markieren"):</p>
 <p><img src="text_files/figure-html/mark_demo-1.png" width="288" style="display: block; margin: auto;"></p>
 <p>By default, <code>mark</code> assumes that we want to add highlighted text to an already existing plot. The text labels to be added are provided (as a character vector) by the <code>labels</code> argument, their coordinates as the corresponding <code>x</code> and <code>y</code> arguments. Various text decorations (i.e., text and background colors, text sizes, and font types) can be set by specifying additional arguments (i.e., <code>col</code>, <code>col_bg</code>, <code>cex</code>, and <code>font</code>, respectively):</p>
 <div class="sourceCode"><html><body><pre class="r"><span class="co"># Some pre-existing plot: </span>
@@ -238,9 +238,9 @@
 <div id="underline-text" class="section level3">
 <h3 class="hasAnchor">
 <a href="#underline-text" class="anchor"></a>Underline text</h3>
-<p>The <code>uline</code> function allows emphasizing text by plotting it with colored underlining (to provide the functionality of “Unterstreichen”):</p>
+<p>The <code>uline</code> function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"):</p>
 <p><img src="text_files/figure-html/uline_demo-1.png" width="288" style="display: block; margin: auto;"></p>
-<p>As with <code>mark</code> above, the <code>uline</code> command distinguishes between creating a new plot (by setting <code>new_plot</code> to either <code>"blank"</code> or “<code>slide</code>”) or adding to a pre-existing plot (by using the default <code>new_plot = "none"</code>):</p>
+<p>As with <code>mark</code> above, the <code>uline</code> command distinguishes between creating a new plot (by setting <code>new_plot</code> to either <code>"blank"</code> or "<code>slide</code>") or adding to a pre-existing plot (by using the default <code>new_plot = "none"</code>):</p>
 <div class="sourceCode"><html><body><pre class="r"><span class="no">lbl_uline</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"This is neat, true, and terribly important"</span>)
 <span class="fu"><a href="../reference/uline.html">uline</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="no">lbl_uline</span>, <span class="kw">new_plot</span> <span class="kw">=</span> <span class="st">"blank"</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.6</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1.1</span>)  <span class="co"># create a new plot</span>
 <span class="fu"><a href="../reference/uline.html">uline</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="st">"(which is why we underline it)."</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.45</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1</span>)  <span class="co"># add to plot</span></pre></body></html></div>
@@ -256,7 +256,7 @@
 <div id="post-text" class="section level3">
 <h3 class="hasAnchor">
 <a href="#post-text" class="anchor"></a>Post text</h3>
-<p>The <code>post</code> function allows adding text to a rectangular <code>xbox</code> (to provide the functionality of “Merken”):</p>
+<p>The <code>post</code> function allows adding text to a rectangular <code>xbox</code> (to provide the functionality of "Merken"):</p>
 <p><img src="text_files/figure-html/post_demo-1.png" width="384" style="display: block; margin: auto;"></p>
 <p>By default, <code>post</code> assumes a pre-existing <code>xbox</code> to which the text elements of <code>labels</code> are to be added.<br>
 For square boxes, setting <code>new_plot</code> to <code>"xbox"</code> creates a new <code>xbox</code> with its default dimensions of <code>dim = c(1, 1)</code>.<br>
@@ -295,7 +295,7 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
 <a href="#headings" class="anchor"></a>Headings</h3>
 <p>The <code>heading</code> function makes it easy to create recognizable headings:</p>
 <p><img src="text_files/figure-html/heading_demo-1.png" width="384" style="display: block; margin: auto;"></p>
-<p>By default, the function creates a new slide (i.e., <code>new_plot = "slide"</code>) and positions the text elements of <code>labels</code> on its left edge (i.e., <code>x = 0</code>, <code>y = .8</code> and <code>y_layout = "flush"</code>). Headings violating the recommendations (see p. 25 of the CD manual) will generate a message, for instance:</p>
+<p>By default, the function creates a new slide (i.e., <code>new_plot = "slide"</code>) and positions the text elements of <code>labels</code> on its left edge (i.e., <code>x = 0</code>, <code>y = .8</code> and <code>y_layout = "flush"</code>). Headings violating the recommendations (see p. 25 of the CD manual) will generate a message, for instance:</p>
 <div class="sourceCode"><html><body><pre class="r"><span class="co"># Beware of step-wise arrangements:</span>
 <span class="fu"><a href="../reference/heading.html">heading</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ich"</span>, <span class="st">"bin keine"</span>, <span class="st">"gute Headline."</span>))
 <span class="co">#&gt; Step-wise titles are discouraged: Consider re-arranging?</span></pre></body></html></div>
@@ -312,7 +312,7 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
 <div id="urls" class="section level3">
 <h3 class="hasAnchor">
 <a href="#urls" class="anchor"></a>URLs</h3>
-<p>One of the more obscure rules (on p. 31 of the CD manual) concerns the rendering of URLs, in which typical web patterns (like “http” or “www”) are to be omitted and replaced by a typographical dash (which is longer than a hyphen). The <code>url_unikn</code> utility function allows formatting URLs the uni.kn way:</p>
+<p>One of the more obscure rules (on p. 31 of the CD manual) concerns the rendering of URLs, in which typical web patterns (like "http" or "www") are to be omitted and replaced by a typographical dash (which is longer than a hyphen). The <code>url_unikn</code> utility function allows formatting URLs the uni.kn way:</p>
 <div class="sourceCode"><html><body><pre class="r"><span class="no">my_url</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/url_unikn.html">url_unikn</a></span>(<span class="st">"https://www.uni-konstanz.de/"</span>)  <span class="co"># input URL as copied from web browser</span>
 <span class="no">my_url</span>  <span class="co"># formatted URL</span>
 <span class="co">#&gt; [1] "‒ uni-konstanz.de"</span>

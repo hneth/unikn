@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0.9006</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0.9008</span>
       </span>
     </div>
 
@@ -97,7 +97,7 @@
       <h1 data-toc-skip>Colors and color palettes</h1>
                         <h4 class="author">SPDS, uni.kn</h4>
             
-            <h4 class="date">2019 09 26</h4>
+            <h4 class="date">2020 07 26</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/master/vignettes/colors.Rmd"><code>vignettes/colors.Rmd</code></a></small>
       <div class="hidden name"><code>colors.Rmd</code></div>
@@ -313,7 +313,17 @@ Thus, the following will only plot the palette without doing anything else with 
 <span class="co"># Show the my_pair palette from above, the 2 palettes just defined, and 2 pre-defined palettes:  </span>
 <span class="fu"><a href="../reference/seecol.html">seecol</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="no">my_pair</span>, <span class="no">pal1</span>, <span class="no">pal2</span>, <span class="no">pal_unikn</span>, <span class="no">pal_unikn_pair</span>))</pre></body></html></div>
 <p><img src="colors_files/figure-html/compare_custom_palettes-1.png" width="576" style="display: block; margin: auto;"></p>
-<p>Note that unknown color palettes will be named <code>pal</code>n in increasing order. Palettes known to <code><a href="../reference/seecol.html">seecol()</a></code> will be shown with their respective names.</p>
+<p>Note that unknown color palettes are named <code>pal_</code><span class="math inline">\(n\)</span>, in increasing order. Palettes known to <code><a href="../reference/seecol.html">seecol()</a></code> are labeled by their respective names.</p>
+<p>Labeling the custom palettes can be achieved by setting the <code>pal_names</code> argument to a character vector of appropriate length:</p>
+<div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/seecol.html">seecol</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="no">my_pair</span>, <span class="no">pal1</span>, <span class="no">pal2</span>, <span class="no">pal_unikn</span>, <span class="no">pal_unikn_pair</span>),
+       <span class="kw">pal_names</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"my_pair"</span>, <span class="st">"blue_bord"</span>, <span class="st">"blue_yell"</span>),
+       <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Labeling custom color palettes"</span>)</pre></body></html></div>
+<p><img src="colors_files/figure-html/set_custom_palette_names-1.png" width="576" style="display: block; margin: auto;"></p>
+<p>If the <code>pal_names</code> argument is specified and corresponds to the length of palettes overall, the default names of all color palettes are overwritten by <code>pal_names</code>:</p>
+<div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/seecol.html">seecol</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="no">my_pair</span>, <span class="no">pal1</span>, <span class="no">pal2</span>, <span class="no">pal_unikn</span>, <span class="no">pal_unikn_pair</span>),
+       <span class="kw">pal_names</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"my_pair"</span>, <span class="st">"blue_bord"</span>, <span class="st">"blue_yell"</span>, <span class="st">"blue_black"</span>, <span class="st">"mix_pair"</span>),
+       <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Comparing and labeling custom color palettes"</span>)</pre></body></html></div>
+<p><img src="colors_files/figure-html/set_all_palette_names-1.png" width="576" style="display: block; margin: auto;"></p>
 <p>As before, we can use the <code>n</code> argument for obtaining shorter subsets of color palettes:</p>
 <div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/seecol.html">seecol</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="no">my_pair</span>, <span class="no">pal1</span>, <span class="no">pal2</span>, <span class="no">pal_unikn</span>, <span class="no">pal_unikn_pair</span>), <span class="kw">n</span> <span class="kw">=</span> <span class="fl">5</span>)</pre></body></html></div>
 <p><img src="colors_files/figure-html/subset_compare-1.png" width="576" style="display: block; margin: auto;"></p>
@@ -427,7 +437,7 @@ Thus, the following will only plot the palette without doing anything else with 
 <h4 class="hasAnchor">
 <a href="#b--princeton-university-usa" class="anchor"></a>B. <a href="https://princeton.edu/">Princeton University</a>, USA:</h4>
 <p><img src="../inst/pix/logo_princeton.jpg" align="right" width="180px" alt="Princeton University" style="border:10;"></p>
-<p>The color scheme of <a href="https://princeton.edu/">Princeton University</a> is easily recognized by its combination of orange with black and white elements. The official guidelines (available <a href="https://communications.princeton.edu/guides-tools/logo-graphic-identity">here</a>) define “Princeton Orange” as Pantone (PMS) 158 C.</p>
+<p>The color scheme of <a href="https://princeton.edu/">Princeton University</a> is easily recognized by its combination of orange with black and white elements. The official guidelines (available <a href="https://communications.princeton.edu/guides-tools/logo-graphic-identity">here</a>) define "Princeton Orange" as Pantone (PMS) 158 C.</p>
 <ul>
 <li>
 <p>The PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/158-C" class="uri">https://www.pantone.com/color-finder/158-C</a> yields the following color values:</p>
@@ -443,9 +453,9 @@ Thus, the following will only plot the palette without doing anything else with 
 <li>
 <p>However, the guide also specifies and distinguishes between 2 additional versions of orange and provides the following HEX/HTML values for them:</p>
 <ul>
-<li>Orange on white: “#E77500”<br>
+<li>Orange on white: "#E77500"<br>
 </li>
-<li>Orange on black: “#F58025”</li>
+<li>Orange on black: "#F58025"</li>
 </ul>
 </li>
 </ul>
@@ -468,8 +478,8 @@ Thus, the following will only plot the palette without doing anything else with 
                           <span class="kw">names</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"orange_w"</span>, <span class="st">"white"</span>, <span class="st">"black"</span>))
 
 <span class="co"># Define 2nd color palette:</span>
-<span class="no">pal_princeton_2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/newpal.html">newpal</a></span>( <span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">orange_black</span>, <span class="st">"black"</span>, <span class="st">"white"</span>),
-                           <span class="kw">names</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"orange_b"</span>, <span class="st">"black"</span>, <span class="st">"white"</span>))
+<span class="no">pal_princeton_2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/newpal.html">newpal</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">orange_black</span>, <span class="st">"black"</span>, <span class="st">"white"</span>),
+                          <span class="kw">names</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"orange_b"</span>, <span class="st">"black"</span>, <span class="st">"white"</span>))
 
 <span class="co"># View color palette (with custom background color and title):</span>
 <span class="fu"><a href="../reference/seecol.html">seecol</a></span>(<span class="no">pal_princeton_1</span>,  <span class="co"># view color palette</span>
@@ -510,7 +520,8 @@ Thus, the following will only plot the palette without doing anything else with 
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pal_mpg</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"mpg green"</span>, <span class="st">"white"</span>, <span class="st">"mpg grey"</span>)</pre></body></html></div>
 <p>As before, can now use the <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> functions to view, modify, and use the new <code>pal_mpg</code> color palette:</p>
 <div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/seecol.html">seecol</a></span>(<span class="no">pal_mpg</span>,
-       <span class="kw">col_brd</span> <span class="kw">=</span> <span class="st">"black"</span>, <span class="kw">lwd_brd</span> <span class="kw">=</span> <span class="fl">2</span>)</pre></body></html></div>
+       <span class="kw">col_brd</span> <span class="kw">=</span> <span class="st">"black"</span>, <span class="kw">lwd_brd</span> <span class="kw">=</span> <span class="fl">2</span>,
+       <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Colors of the Max Planck Society"</span>)</pre></body></html></div>
 <p><img src="colors_files/figure-html/MPG_seecol-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
 </div>
@@ -519,8 +530,12 @@ Thus, the following will only plot the palette without doing anything else with 
 <a href="#comparing-custom-color-palettes" class="anchor"></a>Comparing custom color palettes</h3>
 <p>Once a new palette has been defined (and is available in your current R environment), the <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> functions allow comparing, scaling, and using them in the same fashion as the native <strong>unikn</strong> color palettes:</p>
 <div class="sourceCode"><html><body><pre class="r"><span class="co"># Compare and extend custom color palettes:</span>
-<span class="co"># seecol(list(pal_freiburg_info, pal_freiburg_basic, pal_mpg, pal_princeton_1)) # compare basic versions</span>
-<span class="fu"><a href="../reference/seecol.html">seecol</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="no">pal_freiburg_basic</span>, <span class="no">pal_princeton_1</span>, <span class="no">pal_mpg</span>, <span class="no">pal_unikn</span>), <span class="kw">n</span> <span class="kw">=</span> <span class="fl">9</span>)    <span class="co"># compare scaled versions</span></pre></body></html></div>
+<span class="co"># seecol(list(pal_freiburg_info, pal_freiburg_basic, pal_mpg, pal_princeton_1))</span>
+
+<span class="co"># Scaled version: </span>
+<span class="fu"><a href="../reference/seecol.html">seecol</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="no">pal_freiburg_basic</span>, <span class="no">pal_princeton_1</span>, <span class="no">pal_mpg</span>, <span class="no">pal_unikn</span>), <span class="kw">n</span> <span class="kw">=</span> <span class="fl">9</span>,
+       <span class="kw">pal_names</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Uni Freiburg"</span>, <span class="st">"Princeton Uni"</span>, <span class="st">"Max Planck"</span>, <span class="st">"Uni Konstanz"</span>),
+       <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Comparing scaled color palettes"</span>)</pre></body></html></div>
 <p><img src="colors_files/figure-html/compare-custom-pals-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
 </div>
