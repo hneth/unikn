@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
-<!-- Use status badges: -->
+<!-- Use status badges:  -->
 [![CRAN\_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) [![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
 
 <!-- Possible status badges:
@@ -166,7 +166,7 @@ seecol(pal = pal_unikn_pref,            # palette to plot
        col_brd = "white", lwd_brd = 5)  # color and width of borders
 ```
 
-<img src="inst/pix/README-seecol_pref-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-seecol-pref-1.png" style="display: block; margin: auto;" />
 
 ### Partial color palettes
 
@@ -177,7 +177,7 @@ When only a subset of a color palette are needed, the `seecol()` and `usecol()` 
 seecol(n = 4)
 ```
 
-<img src="inst/pix/README-pal_n-1.png" width="67%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-pal-n-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
 
@@ -200,7 +200,7 @@ Here are some examples of these functions in action:
 seecol(pal_unikn, n = 21)  
 ```
 
-<img src="inst/pix/README-col_scale_1-1.png" width="67%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-col-scale-1-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
 # seecol(pal_seeblau, n = 8)  # provides a subset of "good" colors
@@ -218,7 +218,7 @@ Note that reducing an **unikn** color palette selects a suitable subset of its c
 seecol(c(Seeblau, "white", Pinky), 11) 
 ```
 
-<img src="inst/pix/README-col_scale_2-1.png" width="67%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-col-scale-2-1.png" width="67%" style="display: block; margin: auto;" />
 
 ```r
 # seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
@@ -233,7 +233,7 @@ seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11,
        col_bg = "grey90")
 ```
 
-<img src="inst/pix/README-col_scale_3-1.png" width="67%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-col-scale-3-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
 # Related combinations:
@@ -258,7 +258,7 @@ By default, simply set the color argument of a plot to `usecol()` with some **un
 barplot(1/sqrt(1:11),  col = usecol(pal_unikn))
 ```
 
-<img src="inst/pix/README-usepal_demo_barplot_1-1.png" width="60%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usepal-demo-barplot-1-1.png" width="60%" style="display: block; margin: auto;" />
 
 Providing an additional value for `n` would reduce or extend the selected color palette and adding an opacity value for `alpha` (in the range `[0, 1]`) would regulate transparency.
 
@@ -271,7 +271,7 @@ Additionally providing a value for `n` either reduces or extends the selected co
 barplot(1/sqrt(1:5), col = usecol(pal_unikn, n = 5)) 
 ```
 
-<img src="inst/pix/README-usepal_demo_barplot_2-1.png" width="50%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usepal-demo-barplot-2-1.png" width="50%" style="display: block; margin: auto;" />
 
 Providing an opacity value for `alpha` (in the range `[0, 1]`) allows adding transparency to a plot:  
 
@@ -284,7 +284,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
      main = "99 transparent dots", axes = FALSE, xlab = NA, ylab = NA)
 ```
 
-<img src="inst/pix/README-usepal_demo_scatter-1.png" width="40%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usepal-demo-scatter-1.png" width="40%" style="display: block; margin: auto;" />
 
 -->
 1.  Visualizing **unikn** color palettes with `image`:
@@ -303,7 +303,7 @@ image(m, col = usecol(pal_seeblau, n = 50),
       main = "50 shades of Seeblau", axes = FALSE)
 ```
 
-<img src="inst/pix/README-use_pal_demo_image-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-use-pal-demo-image-1.png" style="display: block; margin: auto;" />
 
 1.  Using **unikn** in `ggplot` calls (using **ggplot2**):
 
@@ -404,7 +404,7 @@ Once a new color palette has been defined (and is available in your current R en
 seecol(pal_freiburg_info)            # view color palette
 ```
 
-<img src="inst/pix/README-seecol_freiburg-1.png" width="67%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-uni-freiburg-seecol-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
 # seecol(pal_freiburg_basic, n = 7)  # extend color palette
@@ -523,7 +523,7 @@ image(z = cos(r^2) * exp(-r/6), col = usecol(pal_mpg, n = 10),
       main = "Shades of MPG (using pal_mpg)", axes = FALSE)
 ```
 
-<img src="inst/pix/README-use_pal_demo_mpg-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-mpg-use-pal-1.png" style="display: block; margin: auto;" />
 
 #### Comparing color palettes
 
@@ -539,7 +539,7 @@ seecol(pals, n = 9, pal_names = lbls,                      # scaled versions
        title = "Compare and label custom color palettes")   
 ```
 
-<img src="inst/pix/README-compare_custom_pals-1.png" width="75%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-compare-custom-pals-1.png" width="75%" style="display: block; margin: auto;" />
 
 Text decorations
 ----------------
@@ -555,7 +555,7 @@ mark(labels = c("Markieren", "ist ein Bestandteil", "von Studieren."),
      x = 0, y = .8, y_layout = .03, cex = 1.5, new_plot = "slide")
 ```
 
-<img src="inst/pix/README-mark_new_plot-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-mark-new-plot-1.png" style="display: block; margin: auto;" />
 
 ### Underline
 
@@ -566,7 +566,7 @@ uline(labels = c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisc
       x = .05, y = .9, y_layout = "even", cex = 1.1, font = 2, new_plot = "slide")
 ```
 
-<img src="inst/pix/README-uline_demo-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-uline-demo-1.png" style="display: block; margin: auto;" />
 
 ### Post
 
@@ -577,7 +577,7 @@ xbox(col = usecol(pal_seeblau[[5]]), dim = c(2, 2))
 post(labels = c("Für eine", "Kultur der", "Kreativität"), x = .1, y = .8, cex = 1.4, font = 2)
 ```
 
-<img src="inst/pix/README-post-demo-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-post-demo-1-1.png" style="display: block; margin: auto;" />
 
 The color and font parameters can be adjusted to obtain different looks:
 
@@ -597,7 +597,7 @@ The `heading()` function is a convenient wrapper around `mark`:
 heading(labels = c("pa-", "ra-", "die-", "sisch"))
 ```
 
-<img src="inst/pix/README-heading_demo-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-heading-demo-1.png" style="display: block; margin: auto;" />
 
 Headings violating the official recommendations (e.g., step-wise titles) will generate a message.
 
@@ -611,7 +611,7 @@ my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from 
 post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
 ```
 
-<img src="inst/pix/README-url_post-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-url-post-1.png" style="display: block; margin: auto;" />
 
 Other institutions
 ------------------
@@ -643,7 +643,7 @@ mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen."),
      col = c("white"), col_bg = usecol(pal_mpg, 7)[3:1])
 ```
 
-<img src="inst/pix/README-others_txt_demo-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-others-txt-demo-1.png" style="display: block; margin: auto;" />
 
 ### Caveats
 
