@@ -58,7 +58,7 @@ While the correct use of default specifications should be simple and straightfor
 The package currently provides 4 types of objects or functions:
 
 1. Dedicated colors and color palettes;  
-2. Functions for viewing and changing color palettes (e.g., `seecol()` and `usecol()`);  
+2. Functions for viewing, changing, and comparing color palettes (e.g., see the `seecol()` and `usecol()` functions);  
 3. Functions for plotting graphical objects (e.g., boxes and frames);  
 4. Functions for plotting styled text elements (e.g., highlighting and underlining text).  
 <!-- 5. Graphical support (e.g., commands and themes for creating scientific visualizations). -->
