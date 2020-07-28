@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 07 26
+## spds | uni.kn |  2020 07 28
 ## ---------------------------
 
 ## Define color-related functions 
@@ -10,28 +10,34 @@
 
 # - Documentation: ---- 
 
-#' Use a color palette.
+#' Use a color or color palette.
 #'
-#' \code{usecol} allows using a color palette \code{pal} (e.g., for plotting). 
-#'
+#' \code{usecol} allows using a color or color palette \code{pal} (e.g., for plotting).
+#' 
+#' \code{usecol} also allows modifying and combining color palettes in various ways. 
+#'  
 #' @param pal A color palette (as a vector of colors or color palettes). 
 #' Default: \code{pal = \link{pal_unikn}}. 
 #' 
-#' @param n An integer value specifying the desired number of colors from the palette.
-#' For all palettes defined within \code{unikn} by default it uses a pre-defined selection of 
+#' @param n An integer value specifying the desired number of colors from the palette. 
+#' Default: \code{n = "all"} (i.e., use all colors of a color palette).  
+#' For the palettes defined by \strong{unikn}, \code{n} is set to a pre-defined selection of 
 #' colors if the desired number of colors is smaller than the available number.  
-#' For all other palettes and \code{n} larger than \code{length(pal)} it extends the palette using
-#' \code{\link{colorRampPalette}}.
+#' For all other palettes and values of \code{n} larger than \code{length(pal)}, 
+#' \code{n} compresses or extends the palette using \code{\link{colorRampPalette}}.
 #' 
 #' @param alpha A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
-#' typically in [0,1]. 
-#' Default: \code{NA} (i.e., no modification of opacity).
+#' to a value in [0,1]. 
+#' Default: \code{alpha = NA} (i.e., no modification of opacity).
 #' 
 #' @param use_names A logical value indicating whether colors should be returned as a named vector.
-#' (Defaults to \code{FALSE} for compatibility with \code{ggplot}). 
+#' Default: \code{use_names = FALSE}, for compatibility with \code{ggplot}.  
 #' 
 #' @param use_col_ramp A logical value specifying whether the default of using pre-selected colors
-#' should be overridden and \code{\link{colorRampPalette}} should be used to process \code{n}.
+#' should be overridden and \code{\link{colorRampPalette}} should be used to process \code{n}. 
+#' Default: \code{use_col_ramp = FALSE}. 
+#' 
+#' @return A vector of colors (in character format). 
 #' 
 #' @examples 
 #' usecol(pal = pal_unikn, n = "all")  # default color palette 
@@ -339,10 +345,10 @@ usecol <- function(pal = pal_unikn,
 
 # - Documentation: ---- 
 
-#' Plot color palettes (to see their colors).
+#' Plot colors or color palettes (to see their colors).
 #'
-#' \code{seecol} provides an interface to plotting (or "seeing") 
-#' the colors of a palette or comparing multiple color palettes. 
+#' \code{seecol} provides an interface for plotting (or "seeing") 
+#' the colors of a color palette or for comparing multiple color palettes. 
 #' 
 #' \code{seecol} has 2 main modes, based on the contents of its \code{pal} argument:
 #' 
@@ -350,11 +356,11 @@ usecol <- function(pal = pal_unikn,
 #'
 #'   \item if \code{pal = "unikn_all"} (or a list of multiple color palettes): 
 #'
-#'   Plot visual vectors of all current color palettes for comparing them. 
+#'   Plot visual arrays of all current color palettes for comparing them. 
 #'
 #'   \item if \code{pal} is set to a specific color palette (or a vector of multiple colors or color palettes):
 #'
-#'   Plot the current color palette and optional details on its colors.
+#'   Plot a visual array of a current color palette and provide optional details on its colors.
 #'
 #' }
 #' 
@@ -423,6 +429,8 @@ usecol <- function(pal = pal_unikn,
 #' 
 #' @param ... Other graphical parameters 
 #' (passed to \code{plot}). 
+#' 
+#' @return Color palette(s) specified in \code{pal} (invisibly, as a list). 
 #' 
 #' @examples
 #' # See all color palettes: 
