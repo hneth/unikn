@@ -3,7 +3,7 @@
 \name{seecol}
 \alias{seecol}
 \alias{seepal}
-\title{Plot color palettes (to see their colors).}
+\title{Plot colors or color palettes (to see their colors).}
 \usage{
 seecol(
   pal = "unikn_all",
@@ -85,9 +85,12 @@ Default: \code{pal_names = NA} (using default names).}
 \item{...}{Other graphical parameters 
 (passed to \code{plot}).}
 }
+\value{
+Color palette(s) specified in \code{pal} (invisibly, as a list).
+}
 \description{
-\code{seecol} provides an interface to plotting (or "seeing") 
-the colors of a palette or comparing multiple color palettes.
+\code{seecol} provides an interface for plotting (or "seeing") 
+the colors of a color palette or for comparing multiple color palettes.
 }
 \details{
 \code{seecol} has 2 main modes, based on the contents of its \code{pal} argument:
@@ -96,11 +99,11 @@ the colors of a palette or comparing multiple color palettes.
 
   \item if \code{pal = "unikn_all"} (or a list of multiple color palettes): 
 
-  Plot visual vectors of all current color palettes for comparing them. 
+  Plot visual arrays of all current color palettes for comparing them. 
 
   \item if \code{pal} is set to a specific color palette (or a vector of multiple colors or color palettes):
 
-  Plot the current color palette and optional details on its colors.
+  Plot a visual array of a current color palette and provide optional details on its colors.
 
 }
 
