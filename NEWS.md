@@ -15,7 +15,7 @@ Changes since last release:
 
 ## Bug fixes 
 
-- none.
+- Update documentation of `seecol()` and `usecol()` functions.  
 
 ---------- 
 
