@@ -43,15 +43,14 @@ but can be adapted and extended for other institutions and purposes.
 
 ## Background 
 
-Many institutions devise corporate design (CD) manuals to create and maintain a consistent impression in presentations and publications. 
-For instance, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design in 2014. 
-Its key component is the consistent use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the [corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) pages and the 
+Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. 
+Its key component is the ubiquitous use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the [corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) pages and the 
 [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.) 
 
 <!-- Goals of the unikn pgk: --> 
 
-The **unikn** package aims to facilitate the use of corporate design elements for users of [R](https://www.r-project.org/). 
-While the correct use of default specifications should be simple and straightforward, we leave some flexibility for more experienced users (e.g., for creating scientific visualizations). 
+The **unikn** package facilitas the use of corporate design elements for users of [R](https://www.r-project.org/). 
+While the correct use of default specifications is simple and straightforward, we leave some flexibility for more experienced users (e.g., for creating scientific visualizations). 
 
 <!-- Overview: --> 
 
@@ -63,16 +62,16 @@ The package currently provides 4 types of objects or functions:
 4. Functions for plotting styled text elements (e.g., highlighting and underlining text).  
 <!-- 5. Graphical support (e.g., commands and themes for creating scientific visualizations). -->
 
-Additional elements are added as they become available. Please use responsibly! 
+Additional elements may be added as they become available. Please use responsibly! 
 
 
 ## Installation
 
-The current release of **unikn** is available from [CRAN](https://CRAN.R-project.org/) at <https://CRAN.R-project.org/package=unikn>:
+The latest release of **unikn** is available from [CRAN](https://CRAN.R-project.org/) at <https://CRAN.R-project.org/package=unikn>:
 
 ```{r install_CRAN, echo = TRUE, eval = FALSE}
-install.packages('unikn')  # install unikn from CRAN client
-library('unikn')           # load to use the package
+install.packages('unikn')  # install from CRAN client
+library('unikn')           # loads the package
 ```
 
 The current development version can be installed from its [GitHub](https://github.com) repository at <https://github.com/hneth/unikn/>: 
@@ -80,12 +79,12 @@ The current development version can be installed from its [GitHub](https://githu
 ```{r install_github, echo = TRUE, eval = FALSE}
 # install.packages('devtools')  # (if not installed yet)
 devtools::install_github('hneth/unikn')
-library('unikn')  # load to use the package
+library('unikn')  # loads the package
 ```
 
 ## Colors
 
-A distinctive and recognizable color scheme is the most obvious element of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design. 
+A distinctive and recognizable color scheme is the most recognizable element of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design. 
 
 ### Basic color palettes
 
