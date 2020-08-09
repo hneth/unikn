@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2020 07 26"
+date: "2020 08 09"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -41,9 +41,9 @@ This vignette explains which colors and color palettes are provided by **unikn**
 
 Please install and/or load the **unikn** package to get started: 
 
-```{r load_pkg_colors, message = FALSE, warning = FALSE}
+```{r load-pkg-colors, message = FALSE, warning = FALSE}
 # install.packages('unikn')  # install unikn from CRAN client
-library('unikn')             # load the package
+library('unikn')             # loads the package
 ```
 
 ## Overview 
@@ -74,13 +74,13 @@ Some special keywords within the **unikn** package denote sets of color palettes
 
 Viewing _all_ available color palettes:
 
-```{r seecol_unikn_all, fig.width = 7, fig.height = 6, fig.align = 'center'}
+```{r seecol-unikn-all, fig.width = 7, fig.height = 6, fig.align = 'center'}
 seecol("unikn_all")  # same as seecol("all")
 ```
 
 1. three _basic_ color palettes:
 
-```{r seecol_unikn_basic_2, fig.width = 7, fig.height = 2.5, fig.align = 'center'}
+```{r seecol-unikn-basic-2, fig.width = 7, fig.height = 2.5, fig.align = 'center'}
 seecol("unikn_basic")
 ```
 
@@ -88,19 +88,19 @@ Note, that `pal_unikn_web` and `pal_unikn_ppt` are almost identical, but differ 
 
 2. three _paired_ color palettes:
 
-```{r seecol_pair_all, fig.width = 7, fig.height = 2.5, fig.align = 'center'}
+```{r seecol-pair-all, fig.width = 7, fig.height = 2.5, fig.align = 'center'}
 seecol("pair_all")
 ```
 
 3. all _preferred_ colors from the spectrum and their respective _gradients_:
 
-```{r seecol_pref_all, fig.width = 7, fig.height = 4, fig.align = 'center'}
+```{r seecol-pref-all, fig.width = 7, fig.height = 4, fig.align = 'center'}
 seecol("pref_all")
 ```
 
 4. only the pre-defined color _gradients_:
 
-```{r seecol_grad_all_2, fig.width = 7, fig.height = 3.5, fig.align = 'center'}
+```{r seecol-grad-all-2, fig.width = 7, fig.height = 3.5, fig.align = 'center'}
 seecol("grad_all")
 ```
 
@@ -108,47 +108,47 @@ seecol("grad_all")
 
 When the `pal` argument of the `seecol()` function specifies a single color palette, the function plots a more detailed view of this particular color palette: 
 
-```{r unikn_palette, fig.width = 6, fig.asp = .75, fig.align = 'center'}
+```{r unikn-palette, fig.width = 6, fig.asp = .75, fig.align = 'center'}
 seecol(pal_unikn)  # view details of pal_unikn 
 ```
 
-In the detailed overview, we _see_ 
+The detailed overview of a single color palette provides us with 
 
 - the color names (where available),  
-- numeric indices of the color palette,   
-- the HEX values of each color,   
+- their numeric indices (within the color palette),     
+- the HEX values for each color,   
 - the RGB values for each color.  
 
-A typical workflow may include _seeing_ a color palette, saving it, and using it in a plot.  
+A typical workflow comprises first _seeing_ a color palette, then saving it, and using it in a plot.  
 
-```{r save_seecol, fig.width = 6, fig.asp = .75, fig.align = 'center'}
+```{r save-seecol, fig.width = 6, fig.asp = .75, fig.align = 'center'}
 my_pal <- seecol(pal_unikn_light)  # view details of AND save pal_unikn_light to my_pal  
 ```
 
 After saving the color palette you can use the palette object in your plot: 
 
-```{r my_pal_example, fig.width = 6, fig.asp = .618, fig.align = 'center'}
+```{r my-pal-example, fig.width = 6, fig.asp = .618, fig.align = 'center'}
 barplot(1/sqrt(1:10), col = my_pal)  # use my_pal in a plot
 ```
 
 Note that `seecol()` _invisibly_ returns the color palette.  
 Thus, the following will only plot the palette without doing anything else with the color vector:
 
-```{r invisible_seecol, fig.width = 6, fig.asp = .75, fig.align = 'center'}
+```{r invisible-seecol, fig.width = 6, fig.asp = .75, fig.align = 'center'}
 seecol(pal_bordeaux)
 ```
 
 ### Other parameters of `seecol`
 
-The `seecol()` function provides a few aesthetic parameters for adjusting how color palettes are plotted:
+The `seecol()` function provides some aesthetic parameters for adjusting how color palettes are plotted:
 
-- `col_brd` allows specifying the color of box borders (if shown. Default: `col_brd = NULL`). 
-- `lwd_brd` allows specifying the line width of box borders (if shown. Default: `lwd_brd = NULL`). 
-- `title` allows replacing the default title with a custom title.
+- `col_brd` allows specifying the color of box borders (if shown. Default: `col_brd = NULL`);  
+- `lwd_brd` allows specifying the line width of box borders (if shown. Default: `lwd_brd = NULL`);   
+- `title` allows replacing the default title with a custom title.  
 
 Examples:
 
-```{r seecol_aesthetic_parameters, fig.width = 6, fig.asp = .75, fig.align = 'center'}
+```{r seecol-aesthetic-parameters, fig.width = 6, fig.asp = .75, fig.align = 'center'}
 seecol("grad_all", col_brd = "black", lwd_brd = 2, title = "Color gradients with black borders")
 seecol(pal_seegruen, col_brd = "white", lwd_brd = 10, title = "A color palette with white borders")
 ```
@@ -158,18 +158,19 @@ seecol(pal_seegruen, col_brd = "white", lwd_brd = 10, title = "A color palette w
 
 The `usecol()` function allows directly using a color palette in a plot (i.e., without first viewing it).
 `usecol()` corresponds to `seecol()` by taking the same 2 main arguments (`pal` and `n`). 
-However, as its purpose is _using_ the colors specified by `pal`, rather than plotting (or _seeing_) them, the `pal` argument typically contains only 1&nbsp;color palette:  
+However, as its purpose is _using_ the colors specified by `pal`, rather than plotting (or _seeing_) them, its `pal` argument typically contains only 1&nbsp;color palette: 
 
-```{r use_col_default_use, fig.width = 6, fig.asp = .618, fig.align = 'center'}
+```{r usecol-default-use, fig.width = 6, fig.asp = .618, fig.align = 'center'}
 # Using a color palette:
 barplot(1/sqrt(1:11), col = usecol(pal_unikn))
 ```
 
-Note that the both the `seecol` and the `usecol` function are quite permissive with respect to specifying their `pal` argument: 
-A particular color palette (e.g., `pal_seegruen`) can not only be displayed by providing it (as an object) but also by providing its name (i.e., `"pal_seegruen"`) or even its incomplete object name or name (i.e., `"seegruen"` or `seegruen`). 
-Hence, the following all yield the same result: 
+<!-- Flexibility in providing color palette pal: -->
 
-```{r free_pal_args, fig.width = 6, fig.asp = .75, eval = FALSE}
+Note that the `seecol()` and `usecol()` functions are both quite permissive with respect to specifying their `pal` argument: 
+A particular color palette (e.g., `pal_seegruen`) can not only be displayed by providing it (as an object) but also by providing its name (i.e., `"pal_seegruen"`) or even an incomplete object name or name (i.e., `"seegruen"` or `seegruen`). Hence, the following all yield the same result: 
+
+```{r free-pal-args, fig.width = 6, fig.asp = .75, eval = FALSE}
 seecol(pal_seegruen)
 seecol("pal_seegruen")
 seecol(seegruen)  # issues a warning
@@ -179,14 +180,14 @@ seecol("seegruen")
 
 ## Customizing color palettes
 
-Both the `seecol()` and the `usecol()` functions allow a flexible on-the-fly customization of color palettes.  
+Both the `seecol()` and the `usecol()` functions allow flexible on-the-fly customizations of color palettes. 
 
-Specifying a value for the `n` argument of `seecol` an `usecol` allows:  
+Specifying a value for the `n` argument of `seecol()` an `usecol()` allows:  
 
-- specifying subsets of colors and comparing these subsets for different palettes for `n` _smaller_ than the length of the color palette. 
+- specifying subsets of colors and comparing these subsets for different palettes for `n` _smaller_ than the length of the color palette;  
 - extending color palettes and comparing different palettes for `n` _greater_ than the length of the color palette. 
 
-Passing a vector of colors and/or color palettes allows you creating and viewing your own palettes. 
+Passing a vector of colors and/or color palettes allows users to create and view their own color palettes. 
 
 Finally, specifying a value for `alpha` (in a range from 0 to 1) allows controlling the transparency of the color palette(s), with higher values for `alpha` corresponding to higher transparency (i.e., lower opacity). 
 
@@ -195,14 +196,14 @@ Finally, specifying a value for `alpha` (in a range from 0 to 1) allows controll
 
 Using only a subset of colors:
 
-```{r use_subset, fig.width = 6, fig.height = 5, fig.align = 'center', collapse = TRUE}
+```{r use-subset, fig.width = 6, fig.height = 5, fig.align = 'center', collapse = TRUE}
 seecol("unikn_all", n = 4)
 seecol(pal_unikn, 4)
 ```
 
 Importantly, when using pre-defined color palettes of **unikn** but a value of `n` that is smaller than the length of the current color palette, `usecol` and `seecol` select a predefined subset of colors:
 
-```{r use_col_smalln, fig.width = 3.5, fig.height = 3, fig.align = 'center', collapse = TRUE, fig.show='hold'}
+```{r use-col-small-n, fig.width = 3.5, fig.height = 3, fig.align = 'center', collapse = TRUE, fig.show='hold'}
 barplot(1/sqrt(1:2), col = usecol(pal_seeblau, n = 2))
 barplot(1/sqrt(1:3), col = usecol(pal_seeblau, n = 3))
 ```
@@ -211,17 +212,17 @@ barplot(1/sqrt(1:3), col = usecol(pal_seeblau, n = 3))
 
 For values of `n` that are larger than the number of available colors in `pal`, the specified color palette is extended using `ColorRampPalette`:
 
-```{r use_superset_all, fig.width = 7, fig.height = 6, fig.align = 'center', collapse = TRUE}
+```{r use-superset-all, fig.width = 7, fig.height = 6, fig.align = 'center', collapse = TRUE}
 seecol("all", n = 12)
 ```
 
-```{r use_superset, fig.width = 6, fig.asp = .75, fig.align = 'center', collapse = TRUE}
+```{r use-superset, fig.width = 6, fig.asp = .75, fig.align = 'center', collapse = TRUE}
 seecol(pal_seeblau, 12)
 ```
 
 When using a color palette: 
 
-```{r use_col_big_n, fig.width = 6, fig.asp = .618, fig.align = 'center'}
+```{r use-col-big-n, fig.width = 6, fig.asp = .618, fig.align = 'center'}
 barplot(1/sqrt(1:11), col = usecol(pal_bordeaux, n = 11))
 ```
 
@@ -229,13 +230,13 @@ barplot(1/sqrt(1:11), col = usecol(pal_bordeaux, n = 11))
 
 By passing a vector to `pal`, we can concatenate 2 color palettes and connect them with a color (here: `"white"`) as the midpoint of a new color palette:  
 
-```{r combine_pals, fig.width = 6, fig.asp = .75, fig.align = 'center'}
+```{r combine-pals, fig.width = 6, fig.asp = .75, fig.align = 'center'}
 seecol(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 ```
 
 We can combine a set of colors and extend this palette by specifying an `n` argument that is larger than the length of the specified palette: 
 
-```{r combine_pals_n, fig.width = 6, fig.asp = .75, fig.align = 'center'}
+```{r combine-pals-n, fig.width = 6, fig.asp = .75, fig.align = 'center'}
 seecol(pal = usecol(c(Karpfenblau, Seeblau, "gold"), n = 10))
 # Note, that redundant use of seecol and usecol shows HEX values as names.
 # seecol(pal = c(Karpfenblau, Seeblau, "gold"), n = 10)  # would work, but show no intermediate names
@@ -243,7 +244,7 @@ seecol(pal = usecol(c(Karpfenblau, Seeblau, "gold"), n = 10))
 
 These custom palettes can easily be used in a plot. For instance, we can define and use a subset of the `pal_unikn_pair` palette as follows: 
 
-```{r use_my_pair, fig.width = 6, fig.height = 4, fig.align = 'center'}
+```{r use-my-pair, fig.width = 6, fig.height = 4, fig.align = 'center'}
 my_pair <- seecol(pal_unikn_pair, n = 10)
 
 # Create data: 
@@ -260,13 +261,13 @@ Both `seecol()` and `usecol()` accept an `alpha` argument (in a range from 0 to 
 
 Displaying a specific color palette at an opacity of 0.5:
 
-```{r transparency1_pal, fig.width = 6, fig.asp = .75, fig.align = 'center', collapse = TRUE}
+```{r transparency1-pal, fig.width = 6, fig.asp = .75, fig.align = 'center', collapse = TRUE}
 seecol(pal_unikn, alpha = 0.5)
 ```
 
 Setting opacity for comparing of multiple color palettes: 
 
-```{r transparency_all, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r transparency-all, fig.width = 6, fig.height = 3, fig.align = 'center'}
 seecol("grad", alpha = 0.67)
 ```
 
@@ -275,7 +276,7 @@ seecol("grad", alpha = 0.67)
 
 Suppose we want to compare a newly created color palette to existing color palettes. To achieve this, advanced users can use the `seecol()` function for displaying and comparing different custom palettes. When provided with a list of color palettes as the input to its `pal` argument, `seecol()` will show a _comparison_ of the inputs:
 
-```{r compare_custom_palettes, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r compare-custom-palettes, fig.width = 6, fig.height = 3, fig.align = 'center'}
 # Define 2 palettes: 
 pal1 <- c(rev(pal_seeblau), "white", pal_bordeaux)
 pal2 <- usecol(c(Karpfenblau, Seeblau, "gold"), n = 10)
@@ -289,7 +290,7 @@ Palettes known to `seecol()` are labeled by their respective names.
 
 Labeling the custom palettes can be achieved by setting the `pal_names` argument to a character vector of appropriate length: 
 
-```{r set_custom_palette_names, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r set-custom-palette-names, fig.width = 6, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
        pal_names = c("my_pair", "blue_bord", "blue_yell"),
        title = "Labeling custom color palettes")
@@ -297,7 +298,7 @@ seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair),
 
 If the `pal_names` argument is specified and corresponds to the length of palettes overall, the default names of all color palettes are overwritten by `pal_names`:
 
-```{r set_all_palette_names, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r set-all-palette-names, fig.width = 6, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
        pal_names = c("my_pair", "blue_bord", "blue_yell", "blue_black", "mix_pair"),
        title = "Comparing and labeling custom color palettes")
@@ -305,13 +306,13 @@ seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair),
 
 As before, we can use the `n` argument for obtaining shorter subsets of color palettes: 
 
-```{r subset_compare, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r subset-compare, fig.width = 6, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 5)
 ```
 
 or larger values of `n` for extending color palettes: 
 
-```{r superset_compare, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r superset-compare, fig.width = 6, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
 ```
 
@@ -322,7 +323,7 @@ The following examples illustrate how plotting functions in R can use the **unik
 
 1. Using the `plot` function of **base R** for a scatterplot: 
 
-```{r demo_scatterplot, eval = TRUE, fig.width = 5, fig.height = 5, fig.align = 'center', collapse = TRUE}
+```{r demo-scatterplot, eval = TRUE, fig.width = 5, fig.height = 5, fig.align = 'center', collapse = TRUE}
 plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 4, 
      col = usecol(pal_unikn, alpha = .50),  # with transparency
      main = "99 transparent dots", axes = FALSE, xlab = NA, ylab = NA)
@@ -330,7 +331,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 4,
 
 2. Using the `ggplot` function of **ggplot2** for an area plot: 
 
-```{r use_pal_ggplot2, eval = FALSE, fig.width = 7, fig.asp = .618, fig.align = 'center', collapse = TRUE}
+```{r use-pal-ggplot2, eval = FALSE, fig.width = 7, fig.asp = .618, fig.align = 'center', collapse = TRUE}
 # Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/ 
 
 # (1) Create data: ---- 
@@ -394,7 +395,7 @@ The [Albert-Ludwigs Universität Freiburg](https://www.uni-freiburg.de/) provide
 Colors can be defined in a variety of ways, but R comes with convenient tools (like `col2rgb` and `convertColor` in **grDevices**) to handle most cases. The most straightforward way of creating a new color palette in R is by using its HEX/HTML code (provided in character format). 
 As the [University of Freiburg](https://www.uni-freiburg.de/) kindly provides their colors in this format, we can easily define the corresponding color palettes as named vectors: 
 
-```{r Freiburg, fig.width = 7, fig.asp = .618, fig.align = 'center', fig.show = "hold", collapse = TRUE}
+```{r freiburg-cols, fig.width = 7, fig.asp = .618, fig.align = 'center', fig.show = "hold", collapse = TRUE}
 # Basic colors: https://www.zuv.uni-freiburg.de/service/cd/cd-manual/farbwelt
 
 pal_freiburg_bluered <- c("#004a99", "#c1002a")
@@ -421,7 +422,7 @@ names(pal_freiburg_info) <- c("mid-blau", "hell-blau", "dark-red", "hell-red", "
 
 Alternatively, we can define both (colors and names) in 1 step by using the `newpal()` function:
 
-```{r newpal_Freiburg}
+```{r freiburg-newpal}
 pal_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
                                     "#4d4f53", "#747678", "#b2b4b3", "#d5d6d2", "#e98300", "#efbd47"),
                             names = c("mid-blau", "hell-blau", "dark-red", "hell-red", "mid-green", "hell-green", 
@@ -431,7 +432,7 @@ pal_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
 
 Once a new color palette has been defined (and is available in your current R environment), we can use the `seecol()` and `usecol()` functions to view, modify, and use the palette: 
 
-```{r seecol_freiburg, fig.width = 7, fig.asp = .618, fig.align = 'center', collapse = TRUE}
+```{r freiburg-seecol, fig.width = 7, fig.asp = .618, fig.align = 'center', collapse = TRUE}
 seecol(pal_freiburg_info)            # view color palette
 # seecol(pal_freiburg_basic, n = 7)  # extend color palette
 # seecol(c(pal_freiburg_blue, "white", pal_freiburg_grey))  # mix color palette
@@ -455,7 +456,7 @@ The color scheme of [Princeton University](https://princeton.edu/) is easily rec
 
 These definitions suggest defining 3 separate versions of orange and corresponding color palettes: 
 
-```{r Princeton, fig.width = 6, fig.asp = .69, fig.align = 'center', fig.show = "hold", collapse = TRUE}
+```{r princeton-cols, fig.width = 6, fig.asp = .69, fig.align = 'center', fig.show = "hold", collapse = TRUE}
 # HEX values for 3 shades of orange: 
 orange_basic <- "#E87722"  # Pantone 158 C
 orange_white <- "#E77500"  # orange on white
@@ -499,7 +500,7 @@ The CD manual (available [here](https://docplayer.org/2328711-Max-planck-institu
     - HEX/HTML: `#D0D3D4`   
     - CMYK: `7 3 5 8`   
 
-```{r MPG_rgb, echo = FALSE, eval = FALSE, fig.width = 6, fig.asp = .618, fig.align = 'center', collapse = TRUE}
+```{r mpg-rgb-cols, echo = FALSE, eval = FALSE, fig.width = 6, fig.asp = .618, fig.align = 'center', collapse = TRUE}
 # Using RGB values: 
 pal_mpg <- data.frame(# named colors: 
   "mpg_green" = rgb( 17, 102,  86, maxColorValue = 255),
@@ -509,7 +510,7 @@ pal_mpg <- data.frame(# named colors:
 seecol(pal = list(pal_mpg))  # Ooops...
 ```
 
-```{r MPG_hex, echo = FALSE, eval = FALSE, out.width = "67%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
+```{r mpg-hex-cols, echo = FALSE, eval = FALSE, out.width = "67%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
 # Using HEX values:
 mpg_green <- "#007367"
 mpg_grey  <- "#D0D3D4"
@@ -523,14 +524,14 @@ pal_mpg <- usecol(pal = c(mpg_green, "white", mpg_grey))
 Again, the easiest way of defining a corresponding color palette is by creating a named vector. 
 To allow for better color gradients, we insert the color `"white"` between the 2&nbsp;dedicated colors: 
 
-```{r MPG_pal_def, fig.width = 6, fig.asp = .618, fig.align = 'center', collapse = TRUE}
+```{r mpg-pal-def, fig.width = 6, fig.asp = .618, fig.align = 'center', collapse = TRUE}
 pal_mpg <- c("#007367", "white", "#D0D3D4")
 names(pal_mpg) <- c("mpg green", "white", "mpg grey")
 ```
 
 As before, can now use the `seecol()` and `usecol()` functions to view, modify, and use the new `pal_mpg` color palette: 
 
-```{r MPG_seecol, fig.width = 6, fig.asp = .69, fig.align = 'center', collapse = TRUE}
+```{r mpg-seecol, fig.width = 6, fig.asp = .69, fig.align = 'center', collapse = TRUE}
 seecol(pal_mpg, 
        col_brd = "black", lwd_brd = 2, 
        title = "Colors of the Max Planck Society")
