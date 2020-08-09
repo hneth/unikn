@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 07 28
+## spds | uni.kn |  2020 08 09
 ## ---------------------------
 
 ## Define color-related functions 
@@ -528,7 +528,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   ## 1. Get palette names: ------ 
   
-  ## Check, if keyword is used:
+  ## Check if keyword is used:
   by_key <- tryCatch(
     { 
       all(pal %in% keys)
@@ -626,6 +626,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   }
   
   if ( n != "all" | !is.na(alpha) ) {
+    
     n_txt <- ifelse(n != "all", paste0("n = ", n), "")
     alp_txt <- ifelse(!is.na(alpha), paste0("alpha = ", alpha), "")
     comma <- ifelse(nchar(n_txt) == 0 | nchar(alp_txt) == 0, "", ", ")
@@ -633,6 +634,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     if (is.na(title)){
       title <- paste0(title, " (", alp_txt, comma, n_txt, ")")
     }
+    
   }
   
   ## Check interplay of col_brd and lwd_brd:
