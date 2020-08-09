@@ -512,6 +512,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   ## 0. Preparations: ------ 
   
   op <- par(no.readonly = TRUE)  # save original plotting settings.
+  
   keys <- c("all", "unikn_all", "all_unikn",  # all palettes
             "basic", "unikn_basic", "basic_unikn",  # the basic palettes. 
             "pair", "all_pair", "pair_all",  # all paired palettes. 
@@ -521,14 +522,14 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   # Robustify inputs:
   
-  ## Plotting parameters: 
+  # Plotting parameters: 
   if ( !(is.null(hex) | is.logical(hex)) ) stop("seecol: Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("seecol: Please specify a valid value for 'rgb'.")
   
   
   ## 1. Get palette names: ------ 
   
-  ## Check if keyword is used:
+  # Check if keyword is used:
   by_key <- tryCatch(
     { 
       all(pal %in% keys)
@@ -539,7 +540,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     silent = TRUE
   )
   
-  ## Check if pal input is a list: 
+  # Check if pal input is a list: 
   compare <- tryCatch(
     {
       is.list(pal) & any(lapply(pal, length) > 1)  # get length of each component. 
@@ -548,10 +549,10 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     silent = TRUE
   )
   
-  ## Getting a list of palettes by keyword: 
+  # Getting a list of palettes by keyword: 
   if (by_key) {
     
-    ## Define plot title (by keyword):
+    # Define plot title (by keyword):
     if (is.na(title)){
       if (pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
       if (pal %in% c("basic", "unikn_basic", "basic_unikn")) title <- "See all basic unikn color palettes"
@@ -570,7 +571,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       title <- "Compare a custom set of color palettes"
     }
     
-    ## Get/set palette names:         # +++ here now +++ 
+    # Get/set palette names:         # +++ here now +++ 
     
     if ((!any(is.na(pal_names))) &                # pal_names were provided
         (length(pal_names) == length(pal_tmp))){  # and of appropriate length:  
@@ -607,7 +608,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
   } else { # if no keyword or list for comparison was provided:
     
-    ## Get palette:
+    # Get palette:
     pal_tmp <- usecol(pal = pal, n = n, alpha = alpha, use_names = TRUE)  # create a list of length 1.
     
     nm <- ifelse(length(unlist(pal_tmp)) == 1 | comment(pal_tmp) == "custom", 
@@ -637,7 +638,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
   }
   
-  ## Check interplay of col_brd and lwd_brd:
+  # Check interplay of col_brd and lwd_brd:
   if (!is.null(lwd_brd) && (lwd_brd <= 0)){
     message("Setting (lwd_brd <= 0) is not allowed: Using lwd_brd = NULL.")
     lwd_brd <- NULL  # correct to default
@@ -653,9 +654,10 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     col_brd <- "white"   # correct to sensible value
   }
   
+  
   ## 2. Plot parameters: ------ 
   
-  ## Plotting preparations: 
+  # Plotting preparations: 
   distance <- 0   # set distance of boxes?
   xlen <- 1       # set x length of color boxes.
   
@@ -675,7 +677,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   ## 3. Plotting: ------ 
   
   ## 3.1 Plot an overview for a list of palettes: 
-  ## Possible solution: (a) 1 list entry --> details; (b) more than 1 list entry --> comparison:
+  #  Possible solution: (a) 1 list entry --> details; (b) more than 1 list entry --> comparison:
   if (length(pal_tmp) > 1) {
     
     # Set margins:
@@ -711,7 +713,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       
     } # if (grid) etc. 
     
-    ## Dynamic updating of ylen on number of palettes: 
+    # Dynamic updating of ylen on number of palettes: 
     ylen <- 0.8
     
     # Add the color vectors:
@@ -754,7 +756,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   } else {  # if length(pal_tmp) list is NOT > 1:
     
     
-    # 3.2 Detailed view of 1 palette: ------ 
+    ## 3.2 Detailed view of 1 palette: ------ 
     
     names(pal_tmp) <- NULL  # remove first order names! 
     
