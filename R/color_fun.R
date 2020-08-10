@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 08 09
+## spds | uni.kn |  2020 08 10
 ## ---------------------------
 
 ## Define color-related functions 
@@ -281,14 +281,16 @@ usecol <- function(pal = pal_unikn,
   }
   
   
-  ## If no defined palette is used or the number exceeds the number of colors simply use colorRamp:
-  if ( !pal_def ) {
+  # If no defined palette is used or the number exceeds the number of colors simply use colorRamp:
+  if (!pal_def) {
     
-    ## Decide, whether to use colorRamp or not:
+    # Decide, whether to use colorRamp or not:
     if (n == length(pal_inp)) {
+      
       out_col <- pal_inp
       
     } else {
+      
       out_col <-
         colorRampPalette(pal_inp)(n)  # use the colorRamp (this swallows all names).
       
@@ -297,10 +299,10 @@ usecol <- function(pal = pal_unikn,
   }
   
   
-  ## Give the palette a name (as comment attribute):
+  # Give the palette a name (as comment attribute):
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
   
-  ## Do a quick name search if no names are given:
+  # Do a quick name search if no names are given:
   if ( all(is.null(names(out_col))) ) {
     
     tst <- out_col
@@ -330,16 +332,18 @@ usecol <- function(pal = pal_unikn,
   # Remove names if required (default):
   if ( !use_names ) { out_col <- unname(out_col) }
   
-  
   if ( !(is.null(alpha) | is.na(alpha))) { 
+    
     cmnt <- comment(out_col)  # save palette name.
     out_col <- adjustcolor(out_col, alpha.f = alpha)
     comment(out_col) <- cmnt  # restore name.
+    
   }
   
   return(out_col)
   
 } # usecol end.
+
 
 ## seecol: Plot the colors of a palette or multiple palettes: ---------- 
 
@@ -471,7 +475,6 @@ usecol <- function(pal = pal_unikn,
 #'        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
 #'        title = "Comparing and labeling custom color palettes")
 #' 
-#' 
 #' ## Viewing color palettes from other packages: 
 #' # library(RColorBrewer)
 #' # seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
@@ -568,7 +571,9 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     pal_tmp <- lapply(X = pal, usecol, n = n, alpha = alpha, use_names = TRUE)  # get all palettes separately. 
     
     if (is.na(title)){
+      
       title <- "Compare a custom set of color palettes"
+      
     }
     
     # Get/set palette names:         # +++ here now +++ 
@@ -605,7 +610,6 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       }
     }
     
-    
   } else { # if no keyword or list for comparison was provided:
     
     # Get palette:
@@ -633,7 +637,9 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     comma <- ifelse(nchar(n_txt) == 0 | nchar(alp_txt) == 0, "", ", ")
     
     if (is.na(title)){
+      
       title <- paste0(title, " (", alp_txt, comma, n_txt, ")")
+      
     }
     
   }
