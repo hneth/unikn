@@ -148,7 +148,6 @@ seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
        title = "Comparing and labeling custom color palettes")
 
-
 ## Viewing color palettes from other packages: 
 # library(RColorBrewer)
 # seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
