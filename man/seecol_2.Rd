@@ -2,7 +2,7 @@
 % Please edit documentation in R/color_fun.R
 \name{seecol_2}
 \alias{seecol_2}
-\alias{seepal}
+\alias{seepal_2}
 \title{Plot colors or color palettes (to see their colors).}
 \usage{
 seecol_2(
