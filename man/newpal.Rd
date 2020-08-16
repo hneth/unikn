@@ -94,6 +94,7 @@ seecol(my_pals, col_brd = "white", lwd_brd = 5,
 \code{\link{usecol}} to use a color palette.
 
 Other color functions: 
+\code{\link{seecol_2}()},
 \code{\link{seecol}()},
 \code{\link{usecol}()}
 }
