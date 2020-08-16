@@ -533,10 +533,10 @@ Once a new palette is defined (and available in your current R environment), the
 # Compare and extend custom color palettes:
 pals <- list(pal_freiburg_basic, pal_mpg, pal_princeton_1, pal_unikn)
 lbls <- c("Uni Freiburg", "Max Planck", "Princeton Uni", "Uni Konstanz")
-# seecol(pals, pal_names = lbls,                           # basic versions
-#       title = "Compare and label custom color palettes") 
-seecol(pals, n = 9, pal_names = lbls,                      # scaled versions
-       title = "Compare and label custom color palettes")   
+# seecol_2(pals, pal_names = lbls,                           # basic versions
+#          title = "Compare and label custom color palettes") 
+seecol_2(pals, n = 9, pal_names = lbls,                      # scaled versions
+         title = "Compare and label custom color palettes")   
 ```
 
 <img src="inst/pix/README-compare-custom-pals-1.png" width="75%" style="display: block; margin: auto;" />
@@ -760,7 +760,7 @@ Color definitions are based on the specifications at:
 
 <!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
 <!-- Update: -->
-\[Updated on 2020-08-06.\]
+\[Updated on 2020-08-16.\]
 
 <!-- eof. -->
 
