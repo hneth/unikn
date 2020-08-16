@@ -1045,7 +1045,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 #' 
 #' @family color functions
 #' 
-#' @aliases seepal 
+#' @aliases seepal_2 
 #'
 #' @seealso 
 #' \code{\link{usecol}} for using a color palette; 
