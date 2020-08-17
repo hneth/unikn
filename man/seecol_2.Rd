@@ -126,13 +126,13 @@ seecol_2(n =  3)  # viewing reduced ranges of all palettes
 seecol_2(n = 12)  # viewing extended ranges of all palettes
 
 seecol_2(pal_unikn, n = 5, 
-       title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
+         title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
 seecol_2(pal_seeblau, n = 8, 
-       title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
+         title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
 
 # Combining and extending color palettes: 
 seecol_2(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
-       title = "Diverging custom color palette with 17 colors")
+         title = "Diverging custom color palette with 17 colors")
 
 # Defining custom color palettes:
 pal_mpg <- c("#007367", "white", "#D0D3D4")  # mixing hex values and color names
@@ -145,8 +145,8 @@ seecol_2(pal_mpg, n = 9, title = "Custom color palette of the Max Planck Society
 
 # Comparing (and labeling) custom color palettes: 
 seecol_2(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
-       pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
-       title = "Comparing and labeling custom color palettes")
+         pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
+         title = "Comparing and labeling custom color palettes")
 
 ## Viewing color palettes from other packages: 
 # library(RColorBrewer)
