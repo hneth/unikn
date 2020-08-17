@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 08 16
+## spds | uni.kn |  2020 08 17
 ## ---------------------------
 
 ## Define color-related functions 
@@ -166,7 +166,9 @@ usecol <- function(pal = pal_unikn,
       
       # Determine the color output:
       out_col <- switch(pal_set,
+                        
                         ## Get the indices for pal_set:
+                        
                         # Set1: -----
                         switch(n,
                                pal[4],
@@ -174,6 +176,7 @@ usecol <- function(pal = pal_unikn,
                                pal[c(5, 3, 1)],
                                pal[c(5, 4, 2, 1)],
                                pal),
+                        
                         # Set2: -----
                         switch(n,
                                pal[3],
@@ -181,6 +184,7 @@ usecol <- function(pal = pal_unikn,
                                pal[c(5, 3, 1)],
                                pal[c(5, 4, 2, 1)],
                                pal),
+                        
                         # Set3: -----
                         switch(n,
                                pal[2],  # 1
@@ -193,6 +197,7 @@ usecol <- function(pal = pal_unikn,
                                pal[c(1, 2, 3, 4, 5, 7, 9, 10)],  # 8
                                pal[c(1, 2, 3, 4, 5, 7, 8, 9, 10)],  # 9
                                pal),
+                        
                         # Set4: -----
                         switch(
                           n,
@@ -259,14 +264,18 @@ usecol <- function(pal = pal_unikn,
                           # 10
                           pal  # all 11 colors of pal_unikn (previously known as pal_unikn_plus) 
                         ),
+                        
                         # Set 5: -----
                         pal[c("seeblau5", "seeblau3", "pinky4", "pinky2", "petrol4", 
                               "petrol2", "bordeaux4", "bordeaux2", "seegruen4", "seegruen2",
                               "peach4", "peach2", "karpfenblau4", "karpfenblau2", "grau2", "grau1")[1:n]],
+                        
                         # Set 6: -----
                         pal[1:n],
+                        
                         # Set 7: -----
                         pal[c("signal1", "signal3", "signal2")[1:n]]
+                        
                         # Set 8: -----
       )
       
@@ -621,6 +630,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     col_brd <- "white"   # correct to sensible value
   }
   
+  
   ## 2. Plotting parameters: ------ 
   
   ## Plotting preparations: 
@@ -905,7 +915,6 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 
 
 
-
 ## seecol_2: Plot the colors of a palette or multiple palettes: ---------- 
 
 # - Documentation: ---- 
@@ -1014,13 +1023,13 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 #' seecol_2(n = 12)  # viewing extended ranges of all palettes
 #' 
 #' seecol_2(pal_unikn, n = 5, 
-#'        title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
+#'          title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
 #' seecol_2(pal_seeblau, n = 8, 
-#'        title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
+#'          title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
 #' 
 #' # Combining and extending color palettes: 
 #' seecol_2(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
-#'        title = "Diverging custom color palette with 17 colors")
+#'          title = "Diverging custom color palette with 17 colors")
 #' 
 #' # Defining custom color palettes:
 #' pal_mpg <- c("#007367", "white", "#D0D3D4")  # mixing hex values and color names
@@ -1033,8 +1042,8 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 #' 
 #' # Comparing (and labeling) custom color palettes: 
 #' seecol_2(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
-#'        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
-#'        title = "Comparing and labeling custom color palettes")
+#'          pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
+#'          title = "Comparing and labeling custom color palettes")
 #' 
 #' ## Viewing color palettes from other packages: 
 #' # library(RColorBrewer)
