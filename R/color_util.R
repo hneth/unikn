@@ -89,6 +89,7 @@ parse_pal <- function(pal) {
     },
     silent = TRUE
   )
+
   
   if ( vector_input ) {  # if the input is a color vector (or list).
     
@@ -103,7 +104,8 @@ parse_pal <- function(pal) {
       
     } else {  # if the calling environment is another function:
       
-      tmp <- noquote(deparse(substitute(expr = pal, env = parent.frame())))  # get input from function.
+      tmp <- noquote(deparse(substitute(expr = pal, 
+                                        env = parent.frame())))  # get input from function.
       
       tmp <- noquote(tmp)  # unquote input. 
       
@@ -135,7 +137,10 @@ parse_pal <- function(pal) {
     
     # Existence checks: ------------
     ## Now ask for every element, whether it exists:
-    elemex <- sapply(elem, exists)
+    elemex <- sapply(elem, function(x) exists(x) & x != "pal")
+    # also ask, whether the element is named pal, to prevent name conflicts!
+    # Was: elemex <- sapply(elem, exists)
+   
     
     if ( any(!elemex) ) {  # only if not all inputs have been resolved
       

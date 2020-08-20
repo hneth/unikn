@@ -79,17 +79,19 @@ usecol <- function(pal = pal_unikn,
   ## Parse the input:
   parenv <- parent.frame()
   
-  parse_pal(pal = pal)
+  # parse_pal(pal = pal)
+  
   
   pal_inp <- tryCatch(
     
     {
       suppressWarnings(parse_pal(pal = pal))  # suppress any warnings in parsing. 
+    
     },
     
     # Handle any errors by checking further:
     error = function(e) {
-      
+
       # seecol always triggers this part
       pal <- deparse(substitute(expr = pal, env = parenv))
       
@@ -102,6 +104,8 @@ usecol <- function(pal = pal_unikn,
       
     }
   )
+  
+  
   
   ## Set n to length pal_inp, if n == "all": -----
   if (n == "all") { n <- length(pal_inp) }
@@ -589,6 +593,8 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     ## Get palette:
     pal_tmp <- usecol(pal = pal, n = n, alpha = alpha, use_names = TRUE)  # create a list of length 1.
     
+    # Debugging:
+
     nm <- ifelse(length(unlist(pal_tmp)) == 1 | comment(pal_tmp) == "custom", 
                  "", paste0(" ", comment(pal_tmp)))   
     
