@@ -70,7 +70,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -126,16 +126,61 @@
   <div class="col-md-9 contents">
     <div class="page-header">
       <h1>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/hneth/unikn/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+      
     </div>
 
+    <div id="unikn-0-2-0-9001" class="section level1">
+<h1 class="page-header">
+<a href="#unikn-0-2-0-9001" class="anchor"></a>unikn 0.2.0.9001+<small> Unreleased </small>
+</h1>
+<p>The current development version of <strong>unikn</strong> (0.2.0.9000+) is available at <a href="https://github.com/hneth/unikn/" class="uri">https://github.com/hneth/unikn/</a>.</p>
+<hr>
+</div>
+    <div id="unikn-0-2-0" class="section level1">
+<h1 class="page-header">
+<a href="#unikn-0-2-0" class="anchor"></a>unikn 0.2.0<small> Unreleased </small>
+</h1>
+<p>This is a maintenance release, adding some functionality, but primarily fixing a few bugs. [2019-09-24]</p>
+<p>Changes since last release:</p>
+<div id="major-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#major-changes" class="anchor"></a>Major changes</h2>
+<p>New functionality:</p>
+<ul>
+<li><p>Added a <code><a href="../reference/newpal.html">newpal()</a></code> function for defining new color palettes (as a named vector or data frame). [2019-07-05]</p></li>
+<li><p>Added a <code><a href="../reference/theme_unikn.html">theme_unikn()</a></code> function to provide a basic <strong>ggplot2</strong> theme. [2019-06-20]</p></li>
+</ul>
+</div>
+<div id="minor-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-changes" class="anchor"></a>Minor changes</h2>
+<p>Changes in existing functionality:</p>
+<ul>
+<li><p>Added a <code>col_bg</code> argument to the <code><a href="../reference/seecol.html">seecol()</a></code> function to allow setting background color. [2019-09-24]</p></li>
+<li><p>Added a <code>title</code> argument to the <code><a href="../reference/seecol.html">seecol()</a></code> function to allow overwriting the default title (created when <code>title = NA</code>). [2019-07-17]</p></li>
+<li><p>Added <code>lwd_brd</code> argument to the <code><a href="../reference/seecol.html">seecol()</a></code> function to allow setting the linewidth of shapes (and setting sensible defaults in combination with <code>col_brd</code>). [2019-07-18]</p></li>
+</ul>
+</div>
+<div id="bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
+<ul>
+<li><p>Fix an error in <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> that prevented using functions in other packages (by requiring list of palettes). [2019-09-18]</p></li>
+<li><p>Removed packages not needed for running <strong>unikn</strong> from list of suggested packages. [2019-07-20]</p></li>
+<li><p>Prevent showing duplicate color names in <code><a href="../reference/seecol.html">seecol()</a></code>, due to searching both the current set of color palettes and <strong>base</strong> R <code>colors</code>. Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27]</p></li>
+<li><p>Fix an error in <code>isHexCol()</code> which failed to recognize hexadecimal color values starting with lowercase letters. [2019-06-27]</p></li>
+</ul>
+<hr>
+</div>
+</div>
     <div id="unikn-0-1-0" class="section level1">
 <h1 class="page-header">
 <a href="#unikn-0-1-0" class="anchor"></a>unikn 0.1.0<small> 2019-06-15 </small>
 </h1>
 <ul>
-<li>Initial release of <strong>unikn</strong> (0.1.0) on CRAN: <a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a> [2019-06-15]</li>
+<li>Initial release of <strong>unikn</strong> (0.1.0) on CRAN: <a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a>. [2019-06-15]</li>
 </ul>
+<!-- eof -->
 </div>
   </div>
 
@@ -143,6 +188,8 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#unikn-0-2-0-9001">0.2.0.9001</a></li>
+        <li><a href="#unikn-0-2-0">0.2.0</a></li>
         <li><a href="#unikn-0-1-0">0.1.0</a></li>
       </ul>
     </div>

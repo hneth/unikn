@@ -2,33 +2,46 @@
 % Please edit documentation in R/color_fun.R
 \name{usecol}
 \alias{usecol}
-\title{Use a color palette.}
+\title{Use a color or color palette.}
 \usage{
-usecol(pal = pal_unikn, n = "all", alpha = NA, use_names = FALSE,
-  use_col_ramp = FALSE)
+usecol(
+  pal = pal_unikn,
+  n = "all",
+  alpha = NA,
+  use_names = FALSE,
+  use_col_ramp = FALSE
+)
 }
 \arguments{
 \item{pal}{A color palette (as a vector of colors or color palettes). 
 Default: \code{pal = \link{pal_unikn}}.}
 
-\item{n}{An integer value specifying the desired number of colors from the palette.
-For all palettes defined within \code{unikn} by default it uses a pre-defined selection of 
+\item{n}{An integer value specifying the desired number of colors from the palette. 
+Default: \code{n = "all"} (i.e., use all colors of a color palette).  
+For the palettes defined by \strong{unikn}, \code{n} is set to a pre-defined selection of 
 colors if the desired number of colors is smaller than the available number.  
-For all other palettes and \code{n} larger than \code{length(pal)} it extends the palette using
-\code{\link{colorRampPalette}}.}
+For all other palettes and values of \code{n} larger than \code{length(pal)}, 
+\code{n} compresses or extends the palette using \code{\link{colorRampPalette}}.}
 
 \item{alpha}{A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
-typically in [0,1]. 
-Default: \code{NA} (i.e., no modification of opacity).}
+to a value in [0,1]. 
+Default: \code{alpha = NA} (i.e., no modification of opacity).}
 
 \item{use_names}{A logical value indicating whether colors should be returned as a named vector.
-(Defaults to \code{FALSE} for compatibility with \code{ggplot}).}
+Default: \code{use_names = FALSE}, for compatibility with \code{ggplot}.}
 
 \item{use_col_ramp}{A logical value specifying whether the default of using pre-selected colors
-should be overridden and \code{\link{colorRampPalette}} should be used to process \code{n}.}
+should be overridden and \code{\link{colorRampPalette}} should be used to process \code{n}. 
+Default: \code{use_col_ramp = FALSE}.}
+}
+\value{
+A vector of colors (in character format).
 }
 \description{
-\code{usecol} allows using a color palette \code{pal} (e.g., for plotting).
+\code{usecol} allows using a color or color palette \code{pal} (e.g., for plotting).
+}
+\details{
+\code{usecol} also allows modifying and combining color palettes in various ways.
 }
 \examples{
 usecol(pal = pal_unikn, n = "all")  # default color palette 
@@ -55,7 +68,9 @@ seecol(pal_3)
 \code{\link{seecol}} to plot color palettes; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{newpal}},
-  \code{\link{seecol}}
+Other color functions: 
+\code{\link{newpal}()},
+\code{\link{seecol_2}()},
+\code{\link{seecol}()}
 }
 \concept{color functions}

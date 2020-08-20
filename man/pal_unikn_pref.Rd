@@ -4,7 +4,9 @@
 \name{pal_unikn_pref}
 \alias{pal_unikn_pref}
 \title{uni.kn preferred colors in a color palette.}
-\format{An object of class \code{data.frame} with 1 rows and 9 columns.}
+\format{
+An object of class \code{data.frame} with 1 rows and 9 columns.
+}
 \usage{
 pal_unikn_pref
 }
@@ -41,16 +43,22 @@ seecol(pal_unikn_pref)
 \code{\link{seecol}} to show color palettes;
 \code{\link{usecol}} to use color palettes.
 
-Other color palettes: \code{\link{pal_bordeaux}},
-  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
-  \code{\link{pal_peach}}, \code{\link{pal_petrol}},
-  \code{\link{pal_pinky}}, \code{\link{pal_seeblau}},
-  \code{\link{pal_seegruen}}, \code{\link{pal_signal}},
-  \code{\link{pal_unikn_dark}},
-  \code{\link{pal_unikn_light}},
-  \code{\link{pal_unikn_pair}},
-  \code{\link{pal_unikn_ppt}}, \code{\link{pal_unikn_web}},
-  \code{\link{pal_unikn}}
+Other color palettes: 
+\code{\link{pal_bordeaux}},
+\code{\link{pal_grau}},
+\code{\link{pal_karpfenblau}},
+\code{\link{pal_peach}},
+\code{\link{pal_petrol}},
+\code{\link{pal_pinky}},
+\code{\link{pal_seeblau}},
+\code{\link{pal_seegruen}},
+\code{\link{pal_signal}},
+\code{\link{pal_unikn_dark}},
+\code{\link{pal_unikn_light}},
+\code{\link{pal_unikn_pair}},
+\code{\link{pal_unikn_ppt}},
+\code{\link{pal_unikn_web}},
+\code{\link{pal_unikn}}
 }
 \concept{color palettes}
 \keyword{datasets}

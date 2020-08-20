@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2019 09 12
+## spds | uni.kn |  2020 08 06
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -123,9 +123,8 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
   
 } # theme_unikn end. 
 
-
 # ## Check: 
-
+# 
 # # (1) ggplot2::diamonds:
 # 
 # ggplot(diamonds, aes(x = x, y = price, color = cut)) +
@@ -140,7 +139,7 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
 #        color = "Color label:",
 #        caption = "Data from ggplot2::diamonds") +
 #   theme_unikn(col_title = unikn::pal_seeblau[[5]], base_size = 11)
- 
+#  
 # # (2) ggplot2::mpg:
 # 
 # ggplot(mpg, aes(x = cty, y = hwy, color = manufacturer)) +
@@ -155,6 +154,7 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
 
 ## ToDo: ------
 
-# - ...
+# - create a range of test plots (with and w/o facets)
+# - explore grey/seeblau panel.background and white lines
 
 ## eof. ----------

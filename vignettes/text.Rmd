@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
 author: "SPDS, uni.kn"
-date: "2019 06 15"
+date: "2020 08 09"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -39,9 +39,9 @@ This vignette explains the **unikn** functions for plotting graphical elements a
 
 Please install and/or load the **unikn** package to get started: 
 
-```{r load_pkg_text, message = FALSE, warning = FALSE}
+```{r load-pkg-text, message = FALSE, warning = FALSE}
 # install.packages('unikn')  # install unikn from CRAN client
-library('unikn')             # load the package
+library('unikn')             # loads the package
 ```
 
 ## Overview 
@@ -58,7 +58,7 @@ That said, digital decorations can be useful to emphasize or structure informati
 
 Please load the **unikn** package to get started: 
 
-```{r load_pkg, message = FALSE, warning = FALSE}
+```{r load-pkg, message = FALSE, warning = FALSE}
 library(unikn)  # load unikn package
 ```
 
@@ -67,16 +67,16 @@ library(unikn)  # load unikn package
 As the text functions of **unikn** add styled text to an existing plot, we must first create a plot to which we can add text. 
 **unikn** provides 2 basic functions for creating new plots:
 
-1. `slide` plots an empty canvass (or rectangular frame); 
+1. `slide` plots an empty canvass (a rectangular box or frame); 
 2. `xbox` plots a colored box with an X in its top right corner.
 
 Here are both commands with their default settings: 
 
-```{r slide_def, fig.align = 'center', fig.width = 4, fig.height = 3}
+```{r slide-def, fig.align = 'center', fig.width = 4, fig.height = 3}
 slide()  # plot default slide
 ```
 
-```{r xbox_def, fig.align = 'center', fig.width = 2, fig.height = 2}
+```{r xbox-def, fig.align = 'center', fig.width = 2, fig.height = 2}
 xbox()  # plot default xbox
 ```
 
@@ -86,14 +86,14 @@ Both functions accept additional arguments to customize their appearance.
 
 The background and border colors of slides can be changed by setting their `col`, `border`, and `lwd` arguments:
 
-```{r slide_col, fig.align = 'center', fig.width = 4, fig.height = 3}
+```{r slide-col, fig.align = 'center', fig.width = 4, fig.height = 3}
 slide(col = pal_seeblau[[1]], border = Petrol, lwd = 5)  # set colors of slide background and border
 slide(col = pal_peach[[2]], border = NA)  # colored slide without a border
 ```
 
 Similarly, the background color of xboxes can be changed by the `col` argument:
 
-```{r xbox_col, fig.align = 'center', fig.width = 2, fig.height = 2}
+```{r xbox-col, fig.align = 'center', fig.width = 2, fig.height = 2}
 xbox(col = Pinky)  # set background color of xbox
 ```
 
@@ -104,18 +104,18 @@ By default, both `slide` and `xbox` fill the entire plotting region (i.e., all m
 The width of a slide is set to 4/3 of its height (of 1). 
 To change this default, use the `dim` argument for specifying the slide's x- and y-dimensions, respectively:
 
-```{r slide_dim, fig.align = 'center', fig.width = 6, fig.height = 2}
+```{r slide-dim, fig.align = 'center', fig.width = 6, fig.height = 2}
 slide(dim = c(3, 1))  # a slide 3 times wider than high
 ```
 
 Similarly, an xbox has the default dimensions of a unit square (i.e., `dim = c(1, 1)`). 
 To change this default, use the `dim` argument for specifying the xbox's `x`- and `y`-dimensions, respectively:
 
-```{r xbox_dim, fig.align = 'center', fig.width = 2, fig.height = 4}
+```{r xbox-dim, fig.align = 'center', fig.width = 2, fig.height = 4}
 xbox(col = Petrol, dim  = c(1, 2))  # an xbox 2 times higher than wide
 ```
 
-The 2 strokes of the X (in the top right corner) are orthogonal when viewing the `xbox` at the aspect ratio indicated by `dim` (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X seems distorted. Hence, viewing and printing plots at the desired aspect ratio is crucial for designing an xbox.
+The 2 strokes of the X (in the top right corner) are orthogonal when viewing the `xbox` at the aspect ratio indicated by `dim` (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X appears to be distorted. Hence, viewing and printing plots at the desired aspect ratio helps when creating an xbox.
 
 ## Plotting styled text
 
@@ -136,13 +136,21 @@ The following sections illustrate the functions and their main options in turn.
 
 The `mark` function allows highlighting text by plotting it with colored background boxes (to provide the functionality of "Markieren"): 
 
-```{r mark_demo, echo = FALSE, fig.width = 3, fig.height = 3}
+```{r mark-demo-label, echo = FALSE, fig.width = 3, fig.height = 3}
 lbl_blank <- c("                                                ",
               "                                      ",
               "                                                      ",
               "                                                ",
               "                              ")
 
+lbl_blank <- c(paste(rep(" ", 48), collapse = ""), 
+               paste(rep(" ", 38), collapse = ""), 
+               paste(rep(" ", 54), collapse = ""), 
+               paste(rep(" ", 48), collapse = ""), 
+               paste(rep(" ", 30), collapse = ""))
+```
+
+```{r mark-demo-fig, echo = FALSE, fig.width = 3, fig.height = 3}
 # (a) Create a new plot (of type "slide"):
 mark(labels = lbl_blank,
      x = 0, y = .85, y_layout = .03,
@@ -155,14 +163,14 @@ By default, `mark` assumes that we want to add highlighted text to an already ex
 The text labels to be added are provided (as a character vector) by the `labels` argument, their coordinates as the corresponding `x` and `y` arguments. 
 Various text decorations (i.e., text and background colors, text sizes, and font types) can be set by specifying additional arguments (i.e., `col`, `col_bg`, `cex`, and `font`, respectively): 
 
-```{r set_par, echo = FALSE}
+```{r set-par, echo = FALSE}
 # Set par:
 opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
 par(mar = c(1, 1, 1, 1))
 ```
 
 
-```{r mark_messy_plot, echo = TRUE, fig.width = 6, fig.height = 4}
+```{r mark-messy-plot, echo = TRUE, fig.width = 6, fig.height = 4}
 # Some pre-existing plot: 
 n <- 20
 set.seed(1)
@@ -174,19 +182,19 @@ plot(x = runif(n), y = runif(n), type = "p", pch = 16, cex = 20, col = grey(0, .
 mark(labels = "Some messy plot", x = .02, y = .9)
 
 # Add 2 more marked labels:
-mark(labels = c("Note something here", "More highlighting here"), 
+mark(labels = c("Note something here.", "More highlighting here."), 
      x = c(.1, .6), y = c(.2, .4),
      col_bg = c(pal_seeblau[[2]], pal_peach[[3]]), cex = 1.2)
 ```
 
-```{r reset_opar, echo = FALSE}
+```{r reset-opar, echo = FALSE}
 # Restore plot settings:
 par(opar)
 ```
 
 If no pre-existing plot is available, setting the `new_plot` argument to either `"blank"` or `"slide"` will generate a new default plot (by using the `slide` function described above):
 
-```{r mark_new_plot, echo = TRUE, fig.width = 4, fig.height = 4}
+```{r mark-new-plot, echo = TRUE, fig.width = 4, fig.height = 4}
 # A sentence to plot: 
 s <- c("Markieren",
        "ist ein Bestandteil",
@@ -218,7 +226,7 @@ See `?mark` for details.
 
 The `uline` function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"): 
 
-```{r uline_demo, echo = FALSE, fig.width = 3, fig.height = 3}
+```{r uline-demo, echo = FALSE, fig.width = 3, fig.height = 3}
 slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
 uline(labels = slogan,
       x = 0, y = .9, y_layout = "even",
@@ -229,7 +237,7 @@ uline(labels = slogan,
 As with `mark` above, the `uline` command distinguishes between creating a new plot (by setting `new_plot` to either `"blank"` or "`slide`") or 
 adding to a pre-existing plot (by using the default `new_plot = "none"`): 
 
-```{r uline_ex1, echo = TRUE, fig.width = 4.5, fig.height = 3}
+```{r uline-ex1, echo = TRUE, fig.width = 4.5, fig.height = 3}
 lbl_uline <- c("This is neat, true, and terribly important")
 uline(labels = lbl_uline, new_plot = "blank", y = .6, cex = 1.1)  # create a new plot
 uline(labels = "(which is why we underline it).", y = .45, cex = 1)  # add to plot
@@ -237,7 +245,7 @@ uline(labels = "(which is why we underline it).", y = .45, cex = 1)  # add to pl
 
 The arguments for text elements (`labels`), text positions (`x`, `y`, `y_layout`), and text properties and decorations (`col`, `col_bg`, `cex`, and `font`) work as they do for `mark`. For instance, shorter vectors are recycled to match the length of `labels`: 
 
-```{r uline_ex2, echo = TRUE, fig.width = 3, fig.height = 3}
+```{r uline-ex2, echo = TRUE, fig.width = 3, fig.height = 3}
 slogan <- c("Geradlinig", "Farbenfroh", "Beweglich", "Bunt", "Paradiesisch")
 uline(labels = slogan,
       x = c(0, .5), y = .9, y_layout = "even",
@@ -249,10 +257,10 @@ uline(labels = slogan,
 
 The `post` function allows adding text to a rectangular `xbox` (to provide the functionality of "Merken"): 
 
-```{r post_demo, echo = FALSE, fig.width = 4, fig.height = 2}
+```{r post-demo, echo = FALSE, fig.width = 4, fig.height = 2}
 xbox(col = Seegruen, dim = c(4, 2))
 post(labels = "Please note", x = .1, y = 1.2, cex = 1.2, font = 2, new_plot = FALSE)
-post(labels = c("For good results, always design and view", "boxes and text at the size at which they", "will be saved and displayed later."), 
+post(labels = c("For best results, always design and view", "boxes with text at the size at which they", "are saved and displayed later."), 
      x = .1, y = .8, y_layout = .1, cex = 1, font = 1, new_plot = FALSE)
 ```
 
@@ -260,7 +268,7 @@ By default, `post` assumes a pre-existing `xbox` to which the text elements of `
 For square boxes, setting `new_plot` to `"xbox"` creates a new `xbox` with its default dimensions of `dim = c(1, 1)`.  
 By adjusting its color and text arguments, `post` allows creating simple badges or logos: 
 
-```{r post_logo, echo = TRUE, fig.width = 2, fig.height = 2, fig.show = "hold"}
+```{r post-logo, echo = TRUE, fig.width = 2, fig.height = 2, fig.show = "hold"}
 # Badge (to view as 250 x 250 pixel):
 post(labels = "ToDo", y = .35, 
      col = "white", col_bg = pal_signal[[1]],
@@ -274,7 +282,7 @@ post(labels = "R", y = .35,
 
 Another use of `post` is to create an image that provides contact details: 
 
-```{r post_address, echo = TRUE, fig.width = 3, fig.height = 3}
+```{r post-address, echo = TRUE, fig.width = 3, fig.height = 3}
 address <- c("Dr. B. F. Skinner", " ",
              "Department of Psychology",
              "Office F101",
@@ -297,13 +305,13 @@ post(labels = address,
 
 The `heading` function makes it easy to create recognizable headings: 
 
-```{r heading_demo, echo = FALSE, fig.width = 4, fig.height = 3}
+```{r heading-demo, echo = FALSE, fig.width = 4, fig.height = 3}
 heading(labels = c("Ich bin", "eine", "Headline."))
 ```
 
 By default, the function creates a new slide (i.e., `new_plot = "slide"`) and positions the text elements of `labels` on its left edge (i.e., `x = 0`, `y = .8` and `y_layout = "flush"`). Headings violating the recommendations (see p. 25 of the CD manual) will generate a message, for instance: 
 
-```{r heading_warn, echo = TRUE, message = TRUE, fig.width = 4, fig.height = 3}
+```{r heading-warn, echo = TRUE, message = TRUE, fig.width = 4, fig.height = 3}
 # Beware of step-wise arrangements:
 heading(labels = c("Ich", "bin keine", "gute Headline."))
 
@@ -315,7 +323,7 @@ When colors are left unspecified, `heading` selects colors that are appropriate
 for the number of elements in `labels` (i.e., shades of `Seeblau` for `col_bg = "default"`). 
 However, default colors can be overwritten by setting the `col` and `col_bg` arguments:
 
-```{r heading_col, echo = TRUE, fig.width = 4, fig.height = 3}
+```{r heading-col, echo = TRUE, fig.width = 4, fig.height = 3}
 heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
         col = "white", col_bg = c(Pinky, Seegruen, Bordeaux, Karpfenblau))
 ```
@@ -324,7 +332,7 @@ heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."),
 
 One of the more obscure rules (on p. 31 of the CD manual) concerns the rendering of URLs, in which typical web patterns (like "http" or "www") are to be omitted and replaced by a typographical dash (which is longer than a hyphen). The `url_unikn` utility function allows formatting URLs the uni.kn way:
 
-```{r url_post, fig.align = 'center', fig.width = 2, fig.height = 2}
+```{r url-post, fig.align = 'center', fig.width = 2, fig.height = 2}
 my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from web browser
 my_url  # formatted URL
 

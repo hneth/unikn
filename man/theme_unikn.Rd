@@ -4,9 +4,13 @@
 \alias{theme_unikn}
 \title{Basic unikn theme for ggplot2.}
 \usage{
-theme_unikn(col_title = unikn::pal_seeblau[[4]], base_size = 11,
-  base_family = "", base_line_size = base_size/20,
-  base_rect_size = base_size/20)
+theme_unikn(
+  col_title = unikn::pal_seeblau[[4]],
+  base_size = 11,
+  base_family = "",
+  base_line_size = base_size/20,
+  base_rect_size = base_size/20
+)
 }
 \arguments{
 \item{col_title}{Color of title (text) elements (optional, numeric).
@@ -52,7 +56,8 @@ allow emphasizing data points with color accents).
 
 }
 \seealso{
-Other plot functions: \code{\link{slide}},
-  \code{\link{xbox}}
+Other plot functions: 
+\code{\link{slide}()},
+\code{\link{xbox}()}
 }
 \concept{plot functions}

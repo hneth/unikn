@@ -5,9 +5,19 @@
 \alias{seepal}
 \title{Plot color palettes (to see their colors).}
 \usage{
-seecol(pal = "unikn_all", n = "all", alpha = NA, hex = NULL,
-  rgb = NULL, col_brd = NULL, lwd_brd = NULL, grid = TRUE,
-  title = NA, ...)
+seecol(
+  pal = "unikn_all",
+  n = "all",
+  alpha = NA,
+  hex = NULL,
+  rgb = NULL,
+  col_bg = NULL,
+  col_brd = NULL,
+  lwd_brd = NULL,
+  grid = TRUE,
+  title = NA,
+  ...
+)
 }
 \arguments{
 \item{pal}{A color palette (as a vector of colors), 
@@ -31,7 +41,7 @@ Recognized keywords are:
 
 }
 
-\code{seecol} does also recognize reverse keywords (e.g., \code{"all_unikn"}) or 
+\code{seecol} does also recognize keywords (e.g., \code{"all_unikn"}) or 
 keywords without \code{"unikn"} (e.g., \code{"basic"}).}
 
 \item{n}{Number of colors to show or use. 
@@ -52,10 +62,13 @@ when there is sufficient space to print them).}
 Default: \code{rgb = NULL} (i.e., show RGB color values 
 when there is sufficient space to print them).}
 
-\item{col_brd}{Color of box borders (if shown). 
+\item{col_bg}{Color of plot background. 
+Default: \code{col_bg = NULL}.}
+
+\item{col_brd}{Color of shape borders (if shown). 
 Default: \code{col_brd = NULL}.}
 
-\item{lwd_brd}{Line width of box borders (if shown). 
+\item{lwd_brd}{Line width of shape borders (if shown). 
 Default: \code{lwd_brd = NULL}.}
 
 \item{grid}{Show grid in the color plot?
@@ -65,7 +78,7 @@ Default: \code{grid = TRUE}.}
 Default: \code{title = NA} creates a default title.}
 
 \item{...}{Other graphical parameters 
-(passed to \code{plot_col}).}
+(passed to \code{plot}).}
 }
 \description{
 \code{seecol} provides an interface to plotting (or "seeing") 
@@ -76,13 +89,13 @@ the colors of a palette or comparing multiple color palettes.
 
 \enumerate{
 
-\item if \code{pal = "unikn_all"} (or a list of multiple color palettes):
+  \item if \code{pal = "unikn_all"} (or a list of multiple color palettes): 
 
-Plot visual vectors of all current color palettes for comparing them.
+  Plot visual vectors of all current color palettes for comparing them. 
 
-\item if \code{pal} is set to a specific color palette (or a vector of multiple colors or color palettes):
+  \item if \code{pal} is set to a specific color palette (or a vector of multiple colors or color palettes):
 
-Plot the current color palette and optional details on its colors.
+  Plot the current color palette and optional details on its colors.
 
 }
 }
@@ -130,10 +143,12 @@ seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
 
 }
 \seealso{
-\code{\link{usecol}} to use a color palette; 
+\code{\link{usecol}} for using a color palette; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: \code{\link{newpal}},
-  \code{\link{usecol}}
+Other color functions: 
+\code{\link{newpal}()},
+\code{\link{seecol_2}()},
+\code{\link{usecol}()}
 }
 \concept{color functions}

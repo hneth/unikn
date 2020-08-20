@@ -1,9 +1,9 @@
 Package: unikn
 Type: Package
 Title: Graphical Elements of the University of Konstanz's Corporate Design 
-Version: 0.1.0.9011
-Date: 2019-09-18
-Authors@R: c(person("Hansjoerg", "Neth", role = c("aut", "cre"), email = "h.neth@uni.kn"), 
+Version: 0.2.0.9011
+Date: 2020-08-16
+Authors@R: c(person("Hansjoerg", "Neth", role = c("aut", "cre"), email = "h.neth@uni.kn", comment = c(ORCID = "0000-0001-5427-3141")), 
              person("Nico", "Gradwohl", role = "aut"))
 Author: Hansjoerg Neth [aut, cre], Nico Gradwohl [aut] 
 Maintainer: Hansjoerg Neth <h.neth@uni.kn>
@@ -34,5 +34,5 @@ License: CC BY-SA 4.0
 URL: https://CRAN.R-project.org/package=unikn 
 BugReports: https://github.com/hneth/unikn/issues
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Language: en-US

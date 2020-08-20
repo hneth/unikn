@@ -4,7 +4,9 @@
 \name{Peach}
 \alias{Peach}
 \title{uni.kn color Peach.}
-\format{An object of class \code{character} of length 1.}
+\format{
+An object of class \code{character} of length 1.
+}
 \usage{
 Peach
 }
@@ -29,11 +31,15 @@ seecol(Peach)  # view color and details
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{seecol}} to show and use color palettes.
 
-Other preferred colors: \code{\link{Bordeaux}},
-  \code{\link{Grau}}, \code{\link{Karpfenblau}},
-  \code{\link{Petrol}}, \code{\link{Pinky}},
-  \code{\link{Seeblau}}, \code{\link{Seegruen}},
-  \code{\link{Signal}}
+Other preferred colors: 
+\code{\link{Bordeaux}},
+\code{\link{Grau}},
+\code{\link{Karpfenblau}},
+\code{\link{Petrol}},
+\code{\link{Pinky}},
+\code{\link{Seeblau}},
+\code{\link{Seegruen}},
+\code{\link{Signal}}
 }
 \concept{preferred colors}
 \keyword{datasets}

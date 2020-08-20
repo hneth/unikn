@@ -4,7 +4,9 @@
 \name{pal_bordeaux}
 \alias{pal_bordeaux}
 \title{uni.kn bordeaux color palette.}
-\format{An object of class \code{data.frame} with 1 rows and 5 columns.}
+\format{
+An object of class \code{data.frame} with 1 rows and 5 columns.
+}
 \usage{
 pal_bordeaux
 }
@@ -33,6 +35,7 @@ seepal(pal_bordeaux)
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
 \code{\link{seepal}} to show and use color palettes.
 
+<<<<<<< HEAD
 Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
   \code{\link{pal_n_sq}}, \code{\link{pal_n}},
@@ -47,6 +50,24 @@ Other color palettes: \code{\link{col_scale}},
   \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
   \code{\link{pal_which}}, \code{\link{plot_pal}},
   \code{\link{seepal}}
+=======
+Other color palettes: 
+\code{\link{pal_grau}},
+\code{\link{pal_karpfenblau}},
+\code{\link{pal_peach}},
+\code{\link{pal_petrol}},
+\code{\link{pal_pinky}},
+\code{\link{pal_seeblau}},
+\code{\link{pal_seegruen}},
+\code{\link{pal_signal}},
+\code{\link{pal_unikn_dark}},
+\code{\link{pal_unikn_light}},
+\code{\link{pal_unikn_pair}},
+\code{\link{pal_unikn_ppt}},
+\code{\link{pal_unikn_pref}},
+\code{\link{pal_unikn_web}},
+\code{\link{pal_unikn}}
+>>>>>>> a71bc5af262e7347ce4a3d66e6c1425931c541f5
 }
 \concept{color palettes}
 \keyword{datasets}

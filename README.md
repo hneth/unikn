@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
-<!-- Use status badges: -->
+<!-- Use status badges:  -->
 [![CRAN\_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) [![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
 
 <!-- Possible status badges:
@@ -25,30 +25,30 @@ The **unikn** package provides color functions — by defining dedicated colors 
 Background
 ----------
 
-Many institutions devise corporate design (CD) manuals to create and maintain a consistent impression in presentations and publications. For instance, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design in 2014. Its key component is the consistent use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the official [brand information](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.)
+Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. Its key component is the ubiquitous use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the [corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) pages and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf) for details.)
 
 <!-- Goals of the unikn pgk: -->
-The **unikn** package aims to facilitate the use of corporate design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications should be simple and straightforward, we leave some flexibility for more experienced users (e.g., for creating scientific visualizations).
+The **unikn** package facilitas the use of corporate design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications is simple and straightforward, we leave some flexibility for more experienced users (e.g., for creating scientific visualizations).
 
 <!-- Overview: -->
 The package currently provides 4 types of objects or functions:
 
 1.  Dedicated colors and color palettes;
-2.  Functions for viewing and changing color palettes (e.g., `seecol()` and `usecol()`);
+2.  Functions for viewing, changing, and comparing color palettes (e.g., see the `seecol()` and `usecol()` functions);
 3.  Functions for plotting graphical objects (e.g., boxes and frames);
 4.  Functions for plotting styled text elements (e.g., highlighting and underlining text).
     <!-- 5. Graphical support (e.g., commands and themes for creating scientific visualizations). -->
 
-Additional elements are added as they become available. Please use responsibly!
+Additional elements may be added as they become available. Please use responsibly!
 
 Installation
 ------------
 
-The current release of **unikn** is available from [CRAN](https://CRAN.R-project.org/) at <https://CRAN.R-project.org/package=unikn>:
+The latest release of **unikn** is available from [CRAN](https://CRAN.R-project.org/) at <https://CRAN.R-project.org/package=unikn>:
 
 ``` r
-install.packages('unikn')  # install unikn from CRAN client
-library('unikn')           # load to use the package
+install.packages('unikn')  # install from CRAN client
+library('unikn')           # loads the package
 ```
 
 The current development version can be installed from its [GitHub](https://github.com) repository at <https://github.com/hneth/unikn/>:
@@ -56,13 +56,13 @@ The current development version can be installed from its [GitHub](https://githu
 ``` r
 # install.packages('devtools')  # (if not installed yet)
 devtools::install_github('hneth/unikn')
-library('unikn')  # load to use the package
+library('unikn')  # loads the package
 ```
 
 Colors
 ------
 
-A distinctive and recognizable color scheme is the most obvious element of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design.
+A distinctive and recognizable color scheme is the most recognizable element of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design.
 
 ### Basic color palettes
 
@@ -104,7 +104,7 @@ seecol("all")
 
 <img src="inst/pix/README-pal_all-1.png" style="display: block; margin: auto;" />
 
-Specifically, the Excel file on [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) defines 9 additional color palettes that are exported by **unikn** as the following named color palettes:
+Specifically, an Excel file called [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) defines 9 additional color palettes that are exported by **unikn** as the following named color palettes:
 
 ``` r
 # Show 9 color gradient palettes:
@@ -126,7 +126,7 @@ pal_pinky        # 5           pink
 pal_Bordeaux     # 5           Bordeaux
 
 # 1 signal (Ampel) palette: ----- 
-pal_signal       # 3           Ampel
+pal_signal       # 3           signal/Ampel
 ```
 
 Each color palette contains a preferred color.[1] All preferred colors are contained in a corresponding color palette `pal_unikn_pref`:
@@ -162,10 +162,11 @@ The `seecol()` function provides a quick overview over the contents of a color p
 
 ``` r
 # Plot a color palette: ----- 
-seecol(pal_unikn_pref)
+seecol(pal = pal_unikn_pref,            # palette to plot
+       col_brd = "white", lwd_brd = 5)  # color and width of borders
 ```
 
-<img src="inst/pix/README-seecol_pref-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-seecol-pref-1.png" style="display: block; margin: auto;" />
 
 ### Partial color palettes
 
@@ -176,7 +177,7 @@ When only a subset of a color palette are needed, the `seecol()` and `usecol()` 
 seecol(n = 4)
 ```
 
-<img src="inst/pix/README-pal_n-1.png" width="67%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-pal-n-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
 
@@ -199,7 +200,7 @@ Here are some examples of these functions in action:
 seecol(pal_unikn, n = 21)  
 ```
 
-<img src="inst/pix/README-col_scale_1-1.png" width="67%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-col-scale-1-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
 # seecol(pal_seeblau, n = 8)  # provides a subset of "good" colors
@@ -217,7 +218,7 @@ Note that reducing an **unikn** color palette selects a suitable subset of its c
 seecol(c(Seeblau, "white", Pinky), 11) 
 ```
 
-<img src="inst/pix/README-col_scale_2-1.png" width="67%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-col-scale-2-1.png" width="67%" style="display: block; margin: auto;" />
 
 ```r
 # seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
@@ -228,15 +229,17 @@ seecol(c(Seeblau, "white", Pinky), 11)
 
 ``` r
 # Combining color palettes (and colors): ----- 
-seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11)
+seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11,
+       col_bg = "grey90")
 ```
 
-<img src="inst/pix/README-col_scale_3-1.png" width="67%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-col-scale-3-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
-# seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
-# seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
-# seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
+# Related combinations:
+seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
+seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
+seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
 ```
 
 Using color palettes
@@ -255,7 +258,7 @@ By default, simply set the color argument of a plot to `usecol()` with some **un
 barplot(1/sqrt(1:11),  col = usecol(pal_unikn))
 ```
 
-<img src="inst/pix/README-usepal_demo_barplot_1-1.png" width="60%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usepal-demo-barplot-1-1.png" width="60%" style="display: block; margin: auto;" />
 
 Providing an additional value for `n` would reduce or extend the selected color palette and adding an opacity value for `alpha` (in the range `[0, 1]`) would regulate transparency.
 
@@ -268,7 +271,7 @@ Additionally providing a value for `n` either reduces or extends the selected co
 barplot(1/sqrt(1:5), col = usecol(pal_unikn, n = 5)) 
 ```
 
-<img src="inst/pix/README-usepal_demo_barplot_2-1.png" width="50%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usepal-demo-barplot-2-1.png" width="50%" style="display: block; margin: auto;" />
 
 Providing an opacity value for `alpha` (in the range `[0, 1]`) allows adding transparency to a plot:  
 
@@ -281,7 +284,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
      main = "99 transparent dots", axes = FALSE, xlab = NA, ylab = NA)
 ```
 
-<img src="inst/pix/README-usepal_demo_scatter-1.png" width="40%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usepal-demo-scatter-1.png" width="40%" style="display: block; margin: auto;" />
 
 -->
 1.  Visualizing **unikn** color palettes with `image`:
@@ -300,7 +303,7 @@ image(m, col = usecol(pal_seeblau, n = 50),
       main = "50 shades of Seeblau", axes = FALSE)
 ```
 
-<img src="inst/pix/README-use_pal_demo_image-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-use-pal-demo-image-1.png" style="display: block; margin: auto;" />
 
 1.  Using **unikn** in `ggplot` calls (using **ggplot2**):
 
@@ -401,7 +404,7 @@ Once a new color palette has been defined (and is available in your current R en
 seecol(pal_freiburg_info)            # view color palette
 ```
 
-<img src="inst/pix/README-seecol_freiburg-1.png" width="67%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-uni-freiburg-seecol-1.png" width="67%" style="display: block; margin: auto;" />
 
 ``` r
 # seecol(pal_freiburg_basic, n = 7)  # extend color palette
@@ -520,7 +523,7 @@ image(z = cos(r^2) * exp(-r/6), col = usecol(pal_mpg, n = 10),
       main = "Shades of MPG (using pal_mpg)", axes = FALSE)
 ```
 
-<img src="inst/pix/README-use_pal_demo_mpg-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-mpg-use-pal-1.png" style="display: block; margin: auto;" />
 
 #### Comparing color palettes
 
@@ -528,11 +531,15 @@ Once a new palette is defined (and available in your current R environment), the
 
 ``` r
 # Compare and extend custom color palettes:
-# seecol(list(pal_freiburg_info, pal_freiburg_basic, pal_mpg, pal_princeton_1)) # compare basic versions
-seecol(list(pal_freiburg_basic, pal_princeton_1, pal_mpg, pal_unikn), n = 9)    # compare scaled versions
+pals <- list(pal_freiburg_basic, pal_mpg, pal_princeton_1, pal_unikn)
+lbls <- c("Uni Freiburg", "Max Planck", "Princeton Uni", "Uni Konstanz")
+# seecol_2(pals, pal_names = lbls,                           # basic versions
+#          title = "Compare and label custom color palettes") 
+seecol_2(pals, n = 9, pal_names = lbls,                      # scaled versions
+         title = "Compare and label custom color palettes")   
 ```
 
-<img src="inst/pix/README-compare_custom_pals-1.png" width="75%" style="display: block; margin: auto;" />
+<img src="inst/pix/README-compare-custom-pals-1.png" width="75%" style="display: block; margin: auto;" />
 
 Text decorations
 ----------------
@@ -548,7 +555,7 @@ mark(labels = c("Markieren", "ist ein Bestandteil", "von Studieren."),
      x = 0, y = .8, y_layout = .03, cex = 1.5, new_plot = "slide")
 ```
 
-<img src="inst/pix/README-mark_new_plot-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-mark-new-plot-1.png" style="display: block; margin: auto;" />
 
 ### Underline
 
@@ -559,7 +566,7 @@ uline(labels = c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisc
       x = .05, y = .9, y_layout = "even", cex = 1.1, font = 2, new_plot = "slide")
 ```
 
-<img src="inst/pix/README-uline_demo-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-uline-demo-1.png" style="display: block; margin: auto;" />
 
 ### Post
 
@@ -570,7 +577,7 @@ xbox(col = usecol(pal_seeblau[[5]]), dim = c(2, 2))
 post(labels = c("Für eine", "Kultur der", "Kreativität"), x = .1, y = .8, cex = 1.4, font = 2)
 ```
 
-<img src="inst/pix/README-post-demo-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-post-demo-1-1.png" style="display: block; margin: auto;" />
 
 The color and font parameters can be adjusted to obtain different looks:
 
@@ -590,7 +597,7 @@ The `heading()` function is a convenient wrapper around `mark`:
 heading(labels = c("pa-", "ra-", "die-", "sisch"))
 ```
 
-<img src="inst/pix/README-heading_demo-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-heading-demo-1.png" style="display: block; margin: auto;" />
 
 Headings violating the official recommendations (e.g., step-wise titles) will generate a message.
 
@@ -604,7 +611,7 @@ my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from 
 post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
 ```
 
-<img src="inst/pix/README-url_post-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-url-post-1.png" style="display: block; margin: auto;" />
 
 Other institutions
 ------------------
@@ -614,29 +621,29 @@ If custom color palettes are available (see definitions above), the text decorat
 ``` r
 # (A) Using pal_freiburg_basic and pal_freiburg_blue: 
 uline(labels = c("University of Freiburg"), 
-      x = .6, y = .85, font = 2, cex = 1, 
+      x = .5, y = .85, font = 2, cex = 1, 
       col = pal_freiburg_basic[[1]], col_bg = pal_freiburg_basic[[3]], 
       new_plot = "slide")
 mark(labels = c("Die Wahrheit", "wird euch", "frei machen."), 
-     x = 0, y = .90, y_layout = 0, cex = 1.5, 
+     x = 0, y = .90, y_layout = 0, cex = 1.2, 
      col = c("white"), col_bg = rev(usecol(pal_freiburg_blue, 3)))
 
 # (B) Using orange_white or pal_princeton:
 uline(labels = c("Princeton University"), 
-      x = .6, y = .55, font = 2, cex = 1, col_bg = orange_white)
+      x = .5, y = .55, font = 2, cex = 1, col_bg = orange_white)
 mark(labels = c("Go", "tigers!"), 
-     x = 0, y = .58, y_layout = 0, cex = 2.0,  
+     x = 0, y = .58, y_layout = 0, cex = 1.2,  
      col = c("black", "white"), col_bg = pal_princeton)
 
 # (C) Using pal_mpg:
 uline(labels = c("Max Planck Society"), 
-      x = .6, y = .25, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
+      x = .5, y = .25, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
 mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen."), 
-     x = 0, y = .30, y_layout = 0, cex = 1.5, 
+     x = 0, y = .30, y_layout = 0, cex = 1.2, 
      col = c("white"), col_bg = usecol(pal_mpg, 7)[3:1])
 ```
 
-<img src="inst/pix/README-others_txt_demo-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-others-txt-demo-1.png" style="display: block; margin: auto;" />
 
 ### Caveats
 
@@ -714,7 +721,7 @@ Copyrights
 <!-- ![](./inst/pix/logo.svg) -->
 <a href = "https://www.uni.kn/"> <img src = "./inst/pix/logo_unikn.png" alt = "uni.kn" width = "280px" align = "left" style = "width: 280px; float: left; border:10;"/> </a>
 
-The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (CD) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. We are members of the research group on [Social Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/) at the [University of Konstanz](http://www.uni-konstanz.de) and make some CD elements available to fellow users of R (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders.
+The [University of Konstanz’s Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) (CD) was created by the [University of Konstanz](http://www.uni-konstanz.de) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. We are members of the research group on [Social Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/) at the [University of Konstanz](http://www.uni-konstanz.de) and make some CD elements available to fellow users of R (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders.
 
 We aim for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also tend to cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we allow for some liberties, mostly by relaxing some restrictions. Examples include:
 
@@ -744,16 +751,16 @@ The copyrights to all designs remain with their original creators:
 
 -   Strichpunkt GmbH, [‒ strichpunkt-design.de](https://www.strichpunkt-design.de/)
 
-Color definitions are based on the following sources:
+Color definitions are based on the specifications at:
 
--   [Corporate design at uni.kn](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/)
+-   [Corporate design at uni.kn](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
 
+<!-- - [Corporate design at uni.kn](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/)   -->
 -   [Corporate design manual (PDF)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf)
 
--   [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
-
+<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
 <!-- Update: -->
-\[Updated on 2019-08-28.\]
+\[Updated on 2020-08-16.\]
 
 <!-- eof. -->
 

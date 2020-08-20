@@ -4,8 +4,17 @@
 \alias{uline}
 \title{Plot underlined text elements.}
 \usage{
-uline(labels, x = 0, y = 0.55, y_layout = "even", col = "black",
-  col_bg = Seeblau, cex = 1.5, font = 1, new_plot = "none")
+uline(
+  labels,
+  x = 0,
+  y = 0.55,
+  y_layout = "even",
+  col = "black",
+  col_bg = Seeblau,
+  cex = 1.5,
+  font = 1,
+  new_plot = "none"
+)
 }
 \arguments{
 \item{labels}{A character vector specifying the text labels 
@@ -56,10 +65,10 @@ each label (to underline it).
 \details{
 The positions of the text elements in \code{labels} can be specified by 
 providing their coordinates (as \code{x} and \code{y} arguments) or 
-by providing an initial position and an \code{y_layout} (see below).
+by providing an initial position and an \code{y_layout} (see below). 
 
 Text formatting parameters (like \code{col}, \code{col_bg}, \code{cex}, \code{font})         
-are recycled to match \code{length(labels)}.
+are recycled to match \code{length(labels)}. 
 
 \code{uline} uses the base graphics system \code{graphics::}.
 }
@@ -85,7 +94,9 @@ uline(labels = "(which is why we underline it).", y = .40, cex = 1.2)  # add to 
 \seealso{
 \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).
 
-Other text functions: \code{\link{mark}},
-  \code{\link{post}}, \code{\link{url_unikn}}
+Other text functions: 
+\code{\link{mark}()},
+\code{\link{post}()},
+\code{\link{url_unikn}()}
 }
 \concept{text functions}
