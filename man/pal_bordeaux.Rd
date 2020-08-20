@@ -14,7 +14,7 @@ as a data frame containing 5 colors (shades of
 \code{\link{Bordeaux}}).
 }
 \details{
-See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
+See \url{https://www.uni-konstanz.de} for details.
 }
 \examples{
 pal_bordeaux
@@ -23,25 +23,30 @@ pal_bordeaux[4]    # preferred (named) color "bordeaux4"
 pal_bordeaux[[4]]  # preferred color "bordeaux4" OR "#8E2043"
 
 # Plotting palette:
-seecol(pal_bordeaux)
+seepal(pal_bordeaux)
 
 }
 \seealso{
-\code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_peach}} and \code{\link{pal_pinky}} for alternative redish uni.kn color palettes;  
+\code{\link{pal_unikn}} for the default uni.kn color palette; 
+\code{\link{pal_unikn_plus}} for a uni.kn color palette with all colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-\code{\link{seecol}} to show and use color palettes.
+\code{\link{seepal}} to show and use color palettes.
 
-Other color palettes: \code{\link{pal_grau}},
-  \code{\link{pal_karpfenblau}}, \code{\link{pal_peach}},
-  \code{\link{pal_petrol}}, \code{\link{pal_pinky}},
-  \code{\link{pal_seeblau}}, \code{\link{pal_seegruen}},
-  \code{\link{pal_signal}}, \code{\link{pal_unikn_dark}},
+Other color palettes: \code{\link{col_scale}},
+  \code{\link{pal_grau}}, \code{\link{pal_karpfenblau}},
+  \code{\link{pal_n_sq}}, \code{\link{pal_n}},
+  \code{\link{pal_peach}}, \code{\link{pal_petrol}},
+  \code{\link{pal_pinky}}, \code{\link{pal_seeblau}},
+  \code{\link{pal_seegruen}}, \code{\link{pal_signal}},
+  \code{\link{pal_unikn_dark}},
   \code{\link{pal_unikn_light}},
   \code{\link{pal_unikn_pair}},
+  \code{\link{pal_unikn_plus}},
   \code{\link{pal_unikn_ppt}},
-  \code{\link{pal_unikn_pref}},
-  \code{\link{pal_unikn_web}}, \code{\link{pal_unikn}}
+  \code{\link{pal_unikn_pref}}, \code{\link{pal_unikn}},
+  \code{\link{pal_which}}, \code{\link{plot_pal}},
+  \code{\link{seepal}}
 }
 \concept{color palettes}
 \keyword{datasets}
