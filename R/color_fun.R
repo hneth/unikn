@@ -514,7 +514,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
                    ...              # additional arguments to plot.default().
 ) {
   
-  ## 0. Preparations: ----- 
+  ## 1. Preparations: ----- 
   
   op <- par(no.readonly = TRUE)  # save original plotting settings.
   keys <- c("all", "unikn_all", "all_unikn",  # all palettes
@@ -526,11 +526,11 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   # Robustify inputs:
   
-  ## Plotting parameters: ----
+  # Plotting parameters: ----
   if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
   
-  ## Check, whether keyword is used:
+  # Check, whether keyword is used:
   by_key <- tryCatch(
     { 
       all(pal %in% keys)
@@ -541,7 +541,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     silent = TRUE
   )
   
-  ## Check whether pal input is a list: 
+  # Check whether pal input is a list: 
   compare <- tryCatch(
     {
       is.list(pal) & any(lapply(pal, length) > 1)   # get length of each component. 
@@ -550,11 +550,11 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     silent = TRUE
   )
   
-  ## Getting a list of palettes by keyword: 
+  # Getting a list of palettes by keyword: 
   if (by_key) {
     
-    ## Plot title:
-    ## Define title given keyword:
+    # Plot title:
+    # Define title given keyword:
     if (is.na(title)){
       if (pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
       if (pal %in% c("basic", "unikn_basic", "basic_unikn")) title <- "See all basic unikn color palettes"
@@ -575,26 +575,25 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
     names(pal_tmp) <- lapply(pal_tmp, comment)  # assign names from comment attribute. 
     
-    ## Check for names: 
+    # Check for palette names: 
     if (is.null(names(pal_tmp))) {
       
-      names(pal_tmp) <- paste0("pal", 1:length(pal_tmp))  
+      names(pal_tmp) <- paste0("pal_", 1:length(pal_tmp))  # set default names 
       # ToDo: Use argument name.
       
     } else if (any(names(pal_tmp) == "custom")) {
       
-      names(pal_tmp)[names(pal_tmp) == "custom"] <- paste0("pal", which(names(pal_tmp) == "custom"))
+      names(pal_tmp)[names(pal_tmp) == "custom"] <- paste0("pal_", which(names(pal_tmp) == "custom"))
       # ToDo: Use argument name.
       
     }
     
   } else {  # if no keyword or list for comparison was given:
     
-    ## Get palette:
+    # Get palette:
     pal_tmp <- usecol(pal = pal, n = n, alpha = alpha, use_names = TRUE)  # create a list of length 1.
     
     # Debugging:
-
     nm <- ifelse(length(unlist(pal_tmp)) == 1 | comment(pal_tmp) == "custom", 
                  "", paste0(" ", comment(pal_tmp)))   
     
@@ -620,7 +619,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     }
   }
   
-  ## Check interplay of col_brd and lwd_brd:
+  # Check interplay of col_brd and lwd_brd:
   if (!is.null(lwd_brd) && (lwd_brd <= 0)){
     message("Setting (lwd_brd <= 0) is not allowed: Using lwd_brd = NULL.")
     lwd_brd <- NULL  # correct to default
@@ -639,7 +638,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   ## 2. Plotting parameters: ------ 
   
-  ## Plotting preparations: 
+  # Plotting preparations: 
   distance <- 0   # set distance of boxes?
   xlen <- 1       # set x length of color boxes.
   
@@ -658,8 +657,8 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   ## 3. Plotting: ------ 
   
-  ## 3.1 Plot an overview for a list of palettes: 
-  ## Possible solution: (a) 1 list entry --> details; (b) more than 1 list entry --> comparison:
+  # 3.1 Plot an overview for a list of palettes: 
+  # Possible solution: (a) 1 list entry --> details; (b) more than 1 list entry --> comparison:
   if (length(pal_tmp) > 1) {
     
     # Set margins:
@@ -695,7 +694,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       
     } # if (grid) etc. 
     
-    ## Dynamic updating of ylen on number of palettes: 
+    # Dynamic updating of ylen on number of palettes: 
     ylen <- 0.8
     
     # Add the color vectors:
