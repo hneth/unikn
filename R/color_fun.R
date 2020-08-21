@@ -76,7 +76,7 @@ usecol <- function(pal = pal_unikn,
                    use_names = FALSE,  # should colors be returned as a named vector?
                    use_col_ramp = FALSE) {
   
-  ## Parse the input:
+  ## 1. Parse input: ---- 
   parenv <- parent.frame()
   
   # parse_pal(pal = pal)
@@ -86,12 +86,12 @@ usecol <- function(pal = pal_unikn,
     
     {
       suppressWarnings(parse_pal(pal = pal))  # suppress any warnings in parsing. 
-    
+      
     },
     
     # Handle any errors by checking further:
     error = function(e) {
-
+      
       # seecol always triggers this part
       pal <- deparse(substitute(expr = pal, env = parenv))
       
@@ -106,8 +106,7 @@ usecol <- function(pal = pal_unikn,
   )
   
   
-  
-  ## Set n to length pal_inp, if n == "all": -----
+  # Set n to length pal_inp, if n == "all": -----
   if (n == "all") { n <- length(pal_inp) }
   
   pal_def <- FALSE  # assume default, that an undefined palette is used.
@@ -124,16 +123,17 @@ usecol <- function(pal = pal_unikn,
     
   }
   
-  ## Is the input one of the defined palettes?
+  # Is the input one of the defined palettes? ----- 
   if ( !use_col_ramp ) {
     # execute, if not always the colorRamp should be used.
     
-    pal_ix <-
+    pal_ix <- 
       sapply(all_pals1, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }
       )  # Test, whether specified palette is there.
     
-    ## If none fits, test for reversed palettes:
+    # If none fits, test for reversed palettes:
     rev_pal <- FALSE  # should the palette be reversed?
+    
     if (!any(pal_ix)) {
       pal_ix <-
         sapply(all_pals1, function(x)
@@ -141,17 +141,16 @@ usecol <- function(pal = pal_unikn,
       if (any(pal_ix)) {
         rev_pal <- TRUE
       }  # if palette is reversed, set pal_rev to TRUE.
-      
     }
     
     # If input fits with any palette:
     if ( any(pal_ix) & length(pal_inp) >= n) {
       
-      pal_name <- all_palkn[pal_ix]  # get name of the palette.
+      pal_name <- all_palkn[pal_ix]  # get palette name
       
       pal <- pal_inp  # redefine. 
       
-      # Define sets of palettes:
+      # Define sets of known palettes:
       set1 <- pal_name %in% c("pal_peach",
                               "pal_peach",
                               "pal_petrol",
@@ -171,7 +170,7 @@ usecol <- function(pal = pal_unikn,
       # Determine the color output:
       out_col <- switch(pal_set,
                         
-                        ## Get the indices for pal_set:
+                        # Get indices for pal_set:
                         
                         # Set1: -----
                         switch(n,
@@ -286,7 +285,7 @@ usecol <- function(pal = pal_unikn,
       if (rev_pal) {
         out_col <-
           rev(out_col)
-      }  # if palette was reversed, reverse result as well.
+      } # if palette was reversed, reverse result as well.
       
       pal_def <- TRUE  # set flag that palette is defined.
       
@@ -295,7 +294,8 @@ usecol <- function(pal = pal_unikn,
   }
   
   
-  # If no defined palette is used or the number exceeds the number of colors simply use colorRamp:
+  # If no defined palette is used or the number exceeds 
+  # the number of colors use colorRamp: ----- 
   if (!pal_def) {
     
     # Decide, whether to use colorRamp or not:
@@ -313,16 +313,16 @@ usecol <- function(pal = pal_unikn,
   }
   
   
-  # Give the palette a name (as comment attribute):
+  # Name the palette (as comment attribute): ---- 
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
   
-  # Do a quick name search if no names are given:
+  # Search for names (if no names are given):
   if ( all(is.null(names(out_col))) ) {
     
     tst <- out_col
     
     # Names from defined kn palettes:
-    kn_names <-  names(unlist(all_pals1))[match(tst, unlist(all_pals1))]
+    kn_names <- names(unlist(all_pals1))[match(tst, unlist(all_pals1))]
     
     # Predefined color names:
     col_names <- colors()[match(
@@ -333,7 +333,7 @@ usecol <- function(pal = pal_unikn,
     kn_names[is.na(kn_names)] <- ""
     col_names[is.na(col_names)] <- ""
     
-    # Processs name vectors to avoid duplicates: 
+    # Processs name vectors (to avoid duplicates): 
     col_names[col_names == kn_names] <- ""  # remove duplicates in col names. 
     col_names[!col_names == "" & !kn_names == ""] <- 
       paste0("/", col_names[!col_names == "" & !kn_names == ""])
@@ -343,7 +343,7 @@ usecol <- function(pal = pal_unikn,
     
   }
   
-  # Remove names if required (default):
+  # Remove names if required (default): ---- 
   if ( !use_names ) { out_col <- unname(out_col) }
   
   if ( !(is.null(alpha) | is.na(alpha))) { 
@@ -357,7 +357,6 @@ usecol <- function(pal = pal_unikn,
   return(out_col)
   
 } # usecol end.
-
 
 
 
