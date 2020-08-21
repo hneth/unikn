@@ -168,15 +168,16 @@ barplot(1/sqrt(1:11), col = usecol(pal_unikn))
 <!-- Flexibility in providing color palette pal: -->
 
 Note that the `seecol()` and `usecol()` functions are both quite permissive with respect to specifying their `pal` argument: 
-A particular color palette (e.g., `pal_seegruen`) can not only be displayed by providing it (as an object) but also by providing its name (i.e., `"pal_seegruen"`) or even an incomplete object name or name (i.e., `"seegruen"` or `seegruen`). Hence, the following all yield the same result: 
+A particular color palette (e.g., `pal_seegruen`) can not only be displayed by providing it (as an object) but also by providing its name (i.e., `"pal_seegruen"`) or even an incomplete object name or name (i.e., `"seegruen"` or `seegruen`). 
+Hence, the following expressions all yield the same result: 
 
-<!-- +++ here now +++: Still true in 2020? -->
+<!-- +++ here now +++: -->
 
 ```{r free-pal-args, fig.width = 6, fig.asp = .75, eval = FALSE}
 seecol(pal_seegruen)
 seecol("pal_seegruen")
-seecol(seegruen)  # issues a warning
 seecol("seegruen")
+seecol(seegruen)  # issues a warning, but works 
 ```
 
 
