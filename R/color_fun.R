@@ -372,7 +372,7 @@ usecol <- function(pal = pal_unikn,
 #' 
 #' \enumerate{
 #'
-#'   \item if \code{pal = "unikn_all"} (or a list of multiple color palettes): 
+#'   \item if \code{pal = "unikn_all"} or a list of multiple color palettes: 
 #'
 #'   Plot visual vectors of all current color palettes for comparing them. 
 #'
@@ -382,9 +382,13 @@ usecol <- function(pal = pal_unikn,
 #'
 #' }
 #' 
-#' @param pal A color palette (as a vector of colors), 
-#' a character string recognized as keyword by seecol or
-#' multiple palettes specified as list. 
+#' The \code{title} and \code{pal_names} arguments provide control over plotted text labels. 
+#' However, the length of a character vector provided to \code{pal_names} must correspond 
+#' to the number of (custom) color palettes or colors. 
+#' 
+#' @param pal A single color palette (as a vector of colors), 
+#' multiple color palettes (as a list), 
+#' or a recognized keyword (as a character string). 
 #' Default: \code{pal = "unikn_all"}. 
 #' 
 #' Recognized keywords are: 
@@ -579,7 +583,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       title <- "Compare a custom set of color palettes"
     }
     
-    # Set palette names:  +++ here now +++
+    # Set or get palette names:
     if ((!any(is.na(pal_names))) &                # pal_names were provided
         (length(pal_names) == length(pal_tmp))){  # and of appropriate length:  
       
@@ -610,7 +614,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       }
     }
     
-  } else {  # if no keyword or list was provided:
+  } else { # if no keyword or list was provided: One palette 
     
     # Get palette:
     pal_tmp <- usecol(pal = pal, n = n, alpha = alpha, use_names = TRUE)  # create a list of length 1.
@@ -660,7 +664,6 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   ## 2. Plotting parameters: ------ 
   
-  # Plotting preparations: 
   distance <- 0   # set distance of boxes?
   xlen <- 1       # set x length of color boxes.
   
@@ -674,13 +677,16 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   ylim <- c(0, length(pal_tmp) + 0.2)   
   
   # Bind palette(s) to their color index:
-  pal_mat <- cbind(pal_tmp, length(pal_tmp):1)  # TODO: Note, that a single palette needs to be a list of length 1!
+  pal_mat <- cbind(pal_tmp, length(pal_tmp):1)  # ToDo: Note that a single palette needs to be a list of length 1!
   
   
   ## 3. Plotting: ------ 
   
-  # 3.1 Plot a list of palettes: 
-  # Possible solution: (a) 1 list entry --> details; (b) more than 1 list entry --> comparison:
+  # 1. multiple list entries --> comparison 
+  # 2. one list entry --> details 
+  
+  # 3.1 Plot a list of palettes: -----  
+  
   if (length(pal_tmp) > 1) {
     
     # Set margins:
@@ -758,7 +764,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   } else {  # if length(pal_tmp) list is NOT > 1:
     
     
-    # 3.2 Detailed view of 1 palette: ------ 
+    # 3.2 Detailed view of 1 palette: -----  
     
     names(pal_tmp) <- NULL  # remove first order names! 
     
@@ -866,7 +872,16 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     )
     
     # Color names:
-    col_names <- names(pal_tmp)
+    if ((!any(is.na(pal_names))) &                # pal_names were provided
+        (length(pal_names) == length(pal_tmp))){  # and of appropriate length:  
+      
+      col_names <- pal_names  # use custom pal_names. 
+      
+    } else { # default color names:
+      
+      col_names <- names(pal_tmp)      
+      
+    }
     
     y_names <- y_circ + (circle_len * 4 / max_ncol)  # determine y_names based on circle position and size.
     
