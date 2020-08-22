@@ -21,9 +21,9 @@ seecol(
 )
 }
 \arguments{
-\item{pal}{A color palette (as a vector of colors), 
-a character string recognized as keyword by seecol or
-multiple palettes specified as list. 
+\item{pal}{A single color palette (as a vector of colors), 
+multiple color palettes (as a list), 
+or a recognized keyword (as a character string). 
 Default: \code{pal = "unikn_all"}. 
 
 Recognized keywords are: 
@@ -93,7 +93,7 @@ the colors of a palette or comparing multiple color palettes.
 
 \enumerate{
 
-  \item if \code{pal = "unikn_all"} (or a list of multiple color palettes): 
+  \item if \code{pal = "unikn_all"} or a list of multiple color palettes: 
 
   Plot visual vectors of all current color palettes for comparing them. 
 
@@ -102,6 +102,10 @@ the colors of a palette or comparing multiple color palettes.
   Plot the current color palette and optional details on its colors.
 
 }
+
+The \code{title} and \code{pal_names} arguments provide control over plotted text labels. 
+However, the length of a character vector provided to \code{pal_names} must correspond 
+to the number of (custom) color palettes or colors.
 }
 \examples{
 # See multiple color palettes: 
