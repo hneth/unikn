@@ -157,7 +157,7 @@ seecol(pal_seegruen, col_brd = "white", lwd_brd = 10, title = "A color palette w
 ## Using a palette with `usecol` (without seeing it)
 
 The `usecol()` function allows directly using a color palette in a plot (i.e., without first viewing it).
-`usecol()` corresponds to `seecol()` by taking the same 2 main arguments (`pal` and `n`). 
+`usecol()` corresponds to `seecol()` by taking the same main arguments (`pal` and `n`). 
 However, as its purpose is _using_ the colors specified by `pal`, rather than plotting (or _seeing_) them, its `pal` argument typically contains only 1&nbsp;color palette: 
 
 ```{r usecol-default-use, fig.width = 6, fig.asp = .618, fig.align = 'center'}
@@ -171,14 +171,14 @@ Note that the `seecol()` and `usecol()` functions are both quite permissive with
 A particular color palette (e.g., `pal_seegruen`) can not only be displayed by providing it (as an object) but also by providing its name (i.e., `"pal_seegruen"`) or even an incomplete object name or name (i.e., `"seegruen"` or `seegruen`). 
 Hence, the following expressions all yield the same result: 
 
-<!-- +++ here now +++: -->
-
 ```{r free-pal-args, fig.width = 6, fig.asp = .75, eval = FALSE}
 seecol(pal_seegruen)
 seecol("pal_seegruen")
 seecol("seegruen")
 seecol(seegruen)  # issues a warning, but works 
 ```
+
+<!-- +++ here now +++: -->
 
 
 ## Customizing color palettes
@@ -291,20 +291,20 @@ seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair))
 Note that unknown color palettes are named `pal_`$n$, in increasing order. 
 Palettes known to `seecol()` are labeled by their respective names. 
 
-Labeling the custom palettes can be achieved by setting the `pal_names` argument to a character vector of appropriate length: 
+Labeling only custom palettes works by setting the `pal_names` argument to a character vector of appropriate length: 
 
 ```{r set-custom-palette-names, fig.width = 6, fig.height = 3, fig.align = 'center'}
-seecol_2(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
-         pal_names = c("my_pair", "blue_bord", "blue_yell"),
-         title = "Labeling custom color palettes")
+seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
+       pal_names = c("my_pair", "blue_bord", "blue_yell"),
+       title = "Labeling custom color palettes")
 ```
 
-If the `pal_names` argument is specified and corresponds to the length of palettes overall, the default names of all color palettes are overwritten by `pal_names`:
+If the `pal_names` argument is specified and corresponds to the length of _all_ color palettes, the default names of all color palettes are overwritten by `pal_names`:
 
 ```{r set-all-palette-names, fig.width = 6, fig.height = 3, fig.align = 'center'}
-seecol_2(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
-         pal_names = c("my_pair", "blue_bord", "blue_yell", "blue_black", "mix_pair"),
-         title = "Comparing and labeling custom color palettes")
+seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
+       pal_names = c("my_pair", "blue_bord", "blue_yell", "blue_black", "mix_pair"),
+       title = "Comparing and labeling custom color palettes")
 ```
 
 As before, we can use the `n` argument for obtaining shorter subsets of color palettes: 
@@ -549,9 +549,9 @@ Once a new palette has been defined (and is available in your current R environm
 # seecol(list(pal_freiburg_info, pal_freiburg_basic, pal_mpg, pal_princeton_1))
 
 # Scaled version: 
-seecol_2(list(pal_freiburg_basic, pal_princeton_1, pal_mpg, pal_unikn), n = 9,
-         pal_names = c("Uni Freiburg", "Princeton Uni", "Max Planck", "Uni Konstanz"),
-         title = "Comparing scaled color palettes")
+seecol(list(pal_freiburg_basic, pal_princeton_1, pal_mpg, pal_unikn), n = 9,
+       pal_names = c("Uni Freiburg", "Princeton Uni", "Max Planck", "Uni Konstanz"),
+       title = "Comparing scaled color palettes")
 ```
 
 

@@ -533,10 +533,19 @@ Once a new palette is defined (and available in your current R environment), the
 # Compare and extend custom color palettes:
 pals <- list(pal_freiburg_basic, pal_mpg, pal_princeton_1, pal_unikn)
 lbls <- c("Uni Freiburg", "Max Planck", "Princeton Uni", "Uni Konstanz")
-# seecol_2(pals, pal_names = lbls,                           # basic versions
-#          title = "Compare and label custom color palettes") 
-seecol_2(pals, n = 9, pal_names = lbls,                      # scaled versions
-         title = "Compare and label custom color palettes")   
+# seecol(pals, pal_names = lbls,                          # basic versions
+#        title = "Compare and label custom color palettes") 
+seecol(pals, n = 9, pal_names = lbls,                     # scaled versions
+       title = "Compare and label custom color palettes")   
+#> Warning in plot.window(...): "pal_names" is not a graphical parameter
+#> Warning in plot.xy(xy, type, ...): "pal_names" is not a graphical parameter
+#> Warning in axis(side = side, at = at, labels = labels, ...): "pal_names" is not
+#> a graphical parameter
+
+#> Warning in axis(side = side, at = at, labels = labels, ...): "pal_names" is not
+#> a graphical parameter
+#> Warning in box(...): "pal_names" is not a graphical parameter
+#> Warning in title(...): "pal_names" is not a graphical parameter
 ```
 
 <img src="inst/pix/README-compare-custom-pals-1.png" width="75%" style="display: block; margin: auto;" />
@@ -760,7 +769,7 @@ Color definitions are based on the specifications at:
 
 <!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
 <!-- Update: -->
-\[Updated on 2020-08-16.\]
+\[Updated on 2020-08-22.\]
 
 <!-- eof. -->
 
