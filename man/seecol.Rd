@@ -16,6 +16,7 @@ seecol(
   lwd_brd = NULL,
   grid = TRUE,
   title = NA,
+  pal_names = NA,
   ...
 )
 }
@@ -76,6 +77,9 @@ Default: \code{grid = TRUE}.}
 
 \item{title}{Plot title? 
 Default: \code{title = NA} creates a default title.}
+
+\item{pal_names}{Names of color palettes or colors. 
+Default: \code{pal_names = NA} (for default names).}
 
 \item{...}{Other graphical parameters 
 (passed to \code{plot}).}
