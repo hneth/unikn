@@ -104,10 +104,10 @@ the colors of a palette or comparing multiple color palettes.
 }
 }
 \examples{
-# See all color palettes: 
-seecol()  # same as seecol(pal = "all") 
+# See multiple color palettes: 
+seecol()  # default: seecol(pal = "all") 
 
-# See details of a color palette: 
+# See details of one color palette: 
 seecol(pal_unikn)  # see a specific color palette
 
 # Combining colors or color palettes: 
@@ -126,17 +126,21 @@ seecol(pal_seeblau, n = 8,
 
 # Combining and extending color palettes: 
 seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
-       title = "Diverging custom color palette with 17 colors")
+       title = "Diverging custom color palette (with 17 colors)")
 
 # Defining custom color palettes:
-pal_mpg <- c("#007367", "white", "#D0D3D4")
-names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")
+pal_mpg <- c("#007367", "white", "#D0D3D4")  # mixing hex values and color names
+names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")  # color names
+
+pal_bdg <- usecol(c(Bordeaux, "gold"), n = 10)  # using usecol
 
 # Viewing extended color palette: 
-seecol(pal_mpg, n = 9, title = "Custom color palette for Max Planck Society")
+seecol(pal_mpg, n = 9, title = "Custom color palette of the Max Planck Society")
 
-# Comparing color palettes: 
-seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
+# Comparing (and labeling) custom color palettes: 
+seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
+       pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
+       title = "Comparing and labeling custom color palettes")
 
 ## Viewing color palettes from other packages: 
 # library(RColorBrewer)

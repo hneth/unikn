@@ -110,29 +110,29 @@ the colors of a color palette or for comparing multiple color palettes.
 See also the \code{show_col} function of the \bold{scales} package.
 }
 \examples{
-# See all color palettes: 
-seecol_2()  # same as seecol_2(pal = "all") 
+# See multiple color palettes: 
+seecol()  # default: seecol(pal = "all") 
 
-# See details of a color palette: 
-seecol_2(pal_unikn)  # see a specific color palette
+# See details of one color palette: 
+seecol(pal_unikn)  # see a specific color palette
 
 # Combining colors or color palettes: 
-seecol_2(c(rev(pal_seeblau), pal_seegruen))        # combine color palettes
-seecol_2(c(rev(pal_seeblau), "white", pal_pinky))  # combine color palettes and color names
-seecol_2(c("black", "firebrick", "gold"))          # combine color names
+seecol(c(rev(pal_seeblau), pal_seegruen))        # combine color palettes
+seecol(c(rev(pal_seeblau), "white", pal_pinky))  # combine color palettes and color names
+seecol(c("black", "firebrick", "gold"))          # combine color names
 
 # Using n to reduce or extend color palettes:
-seecol_2(n =  3)  # viewing reduced ranges of all palettes
-seecol_2(n = 12)  # viewing extended ranges of all palettes
+seecol(n =  3)  # viewing reduced ranges of all palettes
+seecol(n = 12)  # viewing extended ranges of all palettes
 
-seecol_2(pal_unikn, n = 5, 
-         title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
-seecol_2(pal_seeblau, n = 8, 
-         title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
+seecol(pal_unikn, n = 5, 
+       title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
+seecol(pal_seeblau, n = 8, 
+       title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
 
 # Combining and extending color palettes: 
-seecol_2(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
-         title = "Diverging custom color palette with 17 colors")
+seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
+       title = "Diverging custom color palette (with 17 colors)")
 
 # Defining custom color palettes:
 pal_mpg <- c("#007367", "white", "#D0D3D4")  # mixing hex values and color names
@@ -141,19 +141,19 @@ names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")  # color names
 pal_bdg <- usecol(c(Bordeaux, "gold"), n = 10)  # using usecol
 
 # Viewing extended color palette: 
-seecol_2(pal_mpg, n = 9, title = "Custom color palette of the Max Planck Society")
+seecol(pal_mpg, n = 9, title = "Custom color palette of the Max Planck Society")
 
 # Comparing (and labeling) custom color palettes: 
-seecol_2(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
-         pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
-         title = "Comparing and labeling custom color palettes")
+seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
+       pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
+       title = "Comparing and labeling custom color palettes")
 
 ## Viewing color palettes from other packages: 
 # library(RColorBrewer)
-# seecol_2(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
+# seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
 
 ## Extending color palettes:
-# seecol_2(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
+# seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
 
 }
 \seealso{
