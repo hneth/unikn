@@ -446,10 +446,10 @@ usecol <- function(pal = pal_unikn,
 #' (passed to \code{plot}). 
 #' 
 #' @examples
-#' # See all color palettes: 
-#' seecol()  # same as seecol(pal = "all") 
+#' # See multiple color palettes: 
+#' seecol()  # default: seecol(pal = "all") 
 #' 
-#' # See details of a color palette: 
+#' # See details of one color palette: 
 #' seecol(pal_unikn)  # see a specific color palette
 #' 
 #' # Combining colors or color palettes: 
@@ -468,17 +468,21 @@ usecol <- function(pal = pal_unikn,
 #' 
 #' # Combining and extending color palettes: 
 #' seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
-#'        title = "Diverging custom color palette with 17 colors")
+#'        title = "Diverging custom color palette (with 17 colors)")
 #' 
 #' # Defining custom color palettes:
-#' pal_mpg <- c("#007367", "white", "#D0D3D4")
-#' names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")
+#' pal_mpg <- c("#007367", "white", "#D0D3D4")  # mixing hex values and color names
+#' names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")  # color names
+#' 
+#' pal_bdg <- usecol(c(Bordeaux, "gold"), n = 10)  # using usecol
 #' 
 #' # Viewing extended color palette: 
-#' seecol(pal_mpg, n = 9, title = "Custom color palette for Max Planck Society")
+#' seecol(pal_mpg, n = 9, title = "Custom color palette of the Max Planck Society")
 #' 
-#' # Comparing color palettes: 
-#' seecol(list(pal_mpg, pal_bordeaux, pal_unikn), n = 5)
+#' # Comparing (and labeling) custom color palettes: 
+#' seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
+#'        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
+#'        title = "Comparing and labeling custom color palettes")
 #' 
 #' ## Viewing color palettes from other packages: 
 #' # library(RColorBrewer)
@@ -575,22 +579,38 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       title <- "Compare a custom set of color palettes"
     }
     
-    names(pal_tmp) <- lapply(pal_tmp, comment)  # assign names from comment attribute. 
-    
-    # Check for palette names: 
-    if (is.null(names(pal_tmp))) {
+    # Set palette names:  +++ here now +++
+    if ((!any(is.na(pal_names))) &                # pal_names were provided
+        (length(pal_names) == length(pal_tmp))){  # and of appropriate length:  
       
-      names(pal_tmp) <- paste0("pal_", 1:length(pal_tmp))  # set default names 
-      # ToDo: Use argument name.
+      names(pal_tmp) <- pal_names  # use custom pal_names. 
       
-    } else if (any(names(pal_tmp) == "custom")) {
+    } else { # assign names from comment attribute: 
       
-      names(pal_tmp)[names(pal_tmp) == "custom"] <- paste0("pal_", which(names(pal_tmp) == "custom"))
-      # ToDo: Use argument name.
+      names(pal_tmp) <- lapply(pal_tmp, comment)  
       
+      if (is.null(names(pal_tmp))){ # no names exist: 
+        
+        names(pal_tmp) <- paste0("pal_", 1:length(pal_tmp))  # use default names.
+        
+      } else if (any(names(pal_tmp) == "custom")) {
+        
+        ix_cp <- (names(pal_tmp) == "custom") 
+        
+        if ((!any(is.na(pal_names))) &           # pal_names were provided
+            (length(pal_names) == sum(ix_cp))){  # and of appropriate length:  
+          
+          names(pal_tmp)[ix_cp] <- pal_names  # use custom pal_names. 
+          
+        } else { # use default names: 
+          
+          names(pal_tmp)[ix_cp] <- paste0("pal_", which(ix_cp))
+          
+        }
+      }
     }
     
-  } else {  # if no keyword or list for comparison was given:
+  } else {  # if no keyword or list was provided:
     
     # Get palette:
     pal_tmp <- usecol(pal = pal, n = n, alpha = alpha, use_names = TRUE)  # create a list of length 1.
@@ -607,7 +627,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       title <- paste0("See ", cst, "color ", pl, nm)  # assemble title. 
     }
     
-    pal_tmp <- list(pal_tmp)  # now list the palette and leave the comment attribute.
+    pal_tmp <- list(pal_tmp)  # list the palette (leave the comment attribute).
     
   }
   
@@ -707,21 +727,10 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     })
     
     # Plot names and indices:
+    cex_lbl <- .90
     
-    # +++ here now +++ 
-    # Use custom palette names:                      
-    if ((!any(is.na(pal_names))) &                # pal_names were provided
-        (length(pal_names) == length(pal_tmp))){  # and of appropriate length:  
-      
-      names(pal_tmp) <- pal_names  # use custom pal_names. 
-      
-    }
-    
-    cex_lbl <- .90    
-    
-    pal_nm <- names(pal_tmp)  # get palette names.
-    
-    text(x = 0, y = 1:length(pal_tmp), labels = rev(pal_nm), 
+    text(x = 0, y = 1:length(pal_tmp), 
+         labels = rev(names(pal_tmp)), 
          cex = cex_lbl, pos = 2, xpd = TRUE,
          offset = 1  # 1 character.
     )
@@ -1024,29 +1033,29 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 #' @return Color palette(s) specified in \code{pal} (invisibly, as a list). 
 #' 
 #' @examples
-#' # See all color palettes: 
-#' seecol_2()  # same as seecol_2(pal = "all") 
+#' # See multiple color palettes: 
+#' seecol()  # default: seecol(pal = "all") 
 #' 
-#' # See details of a color palette: 
-#' seecol_2(pal_unikn)  # see a specific color palette
+#' # See details of one color palette: 
+#' seecol(pal_unikn)  # see a specific color palette
 #' 
 #' # Combining colors or color palettes: 
-#' seecol_2(c(rev(pal_seeblau), pal_seegruen))        # combine color palettes
-#' seecol_2(c(rev(pal_seeblau), "white", pal_pinky))  # combine color palettes and color names
-#' seecol_2(c("black", "firebrick", "gold"))          # combine color names
+#' seecol(c(rev(pal_seeblau), pal_seegruen))        # combine color palettes
+#' seecol(c(rev(pal_seeblau), "white", pal_pinky))  # combine color palettes and color names
+#' seecol(c("black", "firebrick", "gold"))          # combine color names
 #' 
 #' # Using n to reduce or extend color palettes:
-#' seecol_2(n =  3)  # viewing reduced ranges of all palettes
-#' seecol_2(n = 12)  # viewing extended ranges of all palettes
+#' seecol(n =  3)  # viewing reduced ranges of all palettes
+#' seecol(n = 12)  # viewing extended ranges of all palettes
 #' 
-#' seecol_2(pal_unikn, n = 5, 
-#'          title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
-#' seecol_2(pal_seeblau, n = 8, 
-#'          title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
+#' seecol(pal_unikn, n = 5, 
+#'        title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
+#' seecol(pal_seeblau, n = 8, 
+#'        title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
 #' 
 #' # Combining and extending color palettes: 
-#' seecol_2(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
-#'          title = "Diverging custom color palette with 17 colors")
+#' seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
+#'        title = "Diverging custom color palette (with 17 colors)")
 #' 
 #' # Defining custom color palettes:
 #' pal_mpg <- c("#007367", "white", "#D0D3D4")  # mixing hex values and color names
@@ -1055,19 +1064,19 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 #' pal_bdg <- usecol(c(Bordeaux, "gold"), n = 10)  # using usecol
 #' 
 #' # Viewing extended color palette: 
-#' seecol_2(pal_mpg, n = 9, title = "Custom color palette of the Max Planck Society")
+#' seecol(pal_mpg, n = 9, title = "Custom color palette of the Max Planck Society")
 #' 
 #' # Comparing (and labeling) custom color palettes: 
-#' seecol_2(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
-#'          pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
-#'          title = "Comparing and labeling custom color palettes")
+#' seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
+#'        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
+#'        title = "Comparing and labeling custom color palettes")
 #' 
 #' ## Viewing color palettes from other packages: 
 #' # library(RColorBrewer)
-#' # seecol_2(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
+#' # seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
 #' 
 #' ## Extending color palettes:
-#' # seecol_2(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
+#' # seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
 #' 
 #' @family color functions
 #' 
@@ -1081,7 +1090,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 #' @import grDevices 
 #' @import utils
 #' 
-#' @export
+#' 
 
 # - Definition: ------- 
 
@@ -1319,9 +1328,8 @@ seecol_2 <- function(pal = "unikn_all",  # which palette to output?
     # Add palette names and indices:
     cex_lbl <- .90
     
-    pal_nm <- names(pal_tmp)  # use palette names.
-    
-    text(x = 0, y = 1:length(pal_tmp), labels = rev(pal_nm), 
+    text(x = 0, y = 1:length(pal_tmp), 
+         labels = rev(names(pal_tmp)), 
          cex = cex_lbl, pos = 2, xpd = TRUE,
          offset = 1  # 1 character.
     )
