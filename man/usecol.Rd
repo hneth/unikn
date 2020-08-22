@@ -70,7 +70,6 @@ seecol(pal_3)
 
 Other color functions: 
 \code{\link{newpal}()},
-\code{\link{seecol_2}()},
 \code{\link{seecol}()}
 }
 \concept{color functions}

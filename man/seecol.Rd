@@ -75,10 +75,11 @@ Default: \code{lwd_brd = NULL}.}
 \item{grid}{Show grid in the color plot?
 Default: \code{grid = TRUE}.}
 
-\item{title}{Plot title? 
+\item{title}{Plot title (as a character string). 
 Default: \code{title = NA} creates a default title.}
 
-\item{pal_names}{Names of color palettes or colors. 
+\item{pal_names}{Names of color palettes or colors 
+(as a character vector). 
 Default: \code{pal_names = NA} (for default names).}
 
 \item{...}{Other graphical parameters 
@@ -103,7 +104,7 @@ the colors of a palette or comparing multiple color palettes.
 
 }
 
-The \code{title} and \code{pal_names} arguments provide control over plotted text labels. 
+The \code{title} and \code{pal_names} arguments add control over plotted text labels. 
 However, the length of a character vector provided to \code{pal_names} must correspond 
 to the number of (custom) color palettes or colors.
 }
@@ -160,7 +161,6 @@ seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
 
 Other color functions: 
 \code{\link{newpal}()},
-\code{\link{seecol_2}()},
 \code{\link{usecol}()}
 }
 \concept{color functions}
