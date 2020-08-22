@@ -11,11 +11,13 @@ Changes since last release:
 
 ## Minor changes
 
-- Added `pal_names` argument to `seecol()` function to allow re-labeling sets of color palettes. [2020-07-26] 
+- Added `pal_names` argument to `seecol()` function to allow re-labeling color palettes and colors. [2020-08-22] 
 
 ## Bug fixes 
 
+- Bug fix: Use `seecol()` to flexibly plot color palettes provided by name or incomplete names. [2020-08-20] 
 - Update documentation of `seecol()` and `usecol()` functions.  
+
 
 ---------- 
 
