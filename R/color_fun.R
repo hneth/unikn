@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 08 21
+## spds | uni.kn |  2020 08 22
 ## ---------------------------
 
 ## Define color-related functions 
@@ -439,6 +439,9 @@ usecol <- function(pal = pal_unikn,
 #' @param title Plot title? 
 #' Default: \code{title = NA} creates a default title.  
 #' 
+#' @param pal_names Names of color palettes or colors. 
+#' Default: \code{pal_names = NA} (for default names). 
+#' 
 #' @param ... Other graphical parameters 
 #' (passed to \code{plot}). 
 #' 
@@ -510,6 +513,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
                    lwd_brd = NULL,  # line width of box borders
                    grid = TRUE,     # show grid? 
                    title = NA,      # plot title? Using default title = NA constructs a default title
+                   pal_names = NA,  # names of color palettes or colors (as character vector)
                    ...              # additional arguments to plot.default().
 ) {
   
@@ -525,11 +529,10 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   # Robustify inputs:
   
-  # Plotting parameters: ----
   if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
   
-  # Check, whether keyword is used:
+  # Check for keyword:
   by_key <- tryCatch(
     { 
       all(pal %in% keys)
@@ -656,7 +659,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   ## 3. Plotting: ------ 
   
-  # 3.1 Plot an overview for a list of palettes: 
+  # 3.1 Plot a list of palettes: 
   # Possible solution: (a) 1 list entry --> details; (b) more than 1 list entry --> comparison:
   if (length(pal_tmp) > 1) {
     
@@ -703,8 +706,18 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = ylen, col_brd = col_brd, lwd = lwd_brd)
     })
     
-    # Add color names and indices:
-    cex_lbl <- .90
+    # Plot names and indices:
+    
+    # +++ here now +++ 
+    # Use custom palette names:                      
+    if ((!any(is.na(pal_names))) &                # pal_names were provided
+        (length(pal_names) == length(pal_tmp))){  # and of appropriate length:  
+      
+      names(pal_tmp) <- pal_names  # use custom pal_names. 
+      
+    }
+    
+    cex_lbl <- .90    
     
     pal_nm <- names(pal_tmp)  # get palette names.
     
