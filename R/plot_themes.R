@@ -1,12 +1,12 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2020 08 06
+## spds | uni.kn |  2020 08 23
 ## ---------------------------
 
 ## Defining default themes for plotting. 
 
 ## (A) Themes for base R plotting: ------- 
 
-## ToDo... 
+## ToDo.
 
 ## (B) ggplot2 themes: ------- 
 
@@ -123,6 +123,55 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
   
 } # theme_unikn end. 
 
+
+## theme_2: ------ 
+
+# - Definition: ---- 
+
+theme_2 <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black" 
+                    base_size = 11, 
+                    base_family = "", 
+                    base_line_size = base_size/20, 
+                    base_rect_size = base_size/20
+) {ggplot2::theme_bw(base_size = base_size, 
+                     base_family = base_family, 
+                     base_line_size = base_line_size, 
+                     base_rect_size = base_rect_size) %+replace% 
+    ggplot2::theme(#
+      # titles: 
+      title = ggplot2::element_text(color = col_title, face = "bold"), 
+      plot.subtitle = ggplot2::element_text(color = grey(.10, 1), face = "plain", hjust = 0),  
+      plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
+      # axes:
+      axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
+      axis.ticks = ggplot2::element_line(color = "black"), 
+      axis.title = ggplot2::element_text(color = grey(.10, 1)), 
+      axis.text =  ggplot2::element_text(color = grey(.20, 1)), 
+      # legend: 
+      legend.title = ggplot2::element_text(color = grey(.10, 1)), 
+      legend.text = ggplot2::element_text(color = grey(.20, 1)), 
+      legend.background = ggplot2::element_blank(), 
+      legend.key = ggplot2::element_blank(), 
+      # strip: 
+      # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
+      strip.background = ggplot2::element_rect(fill = grey(.95, 1), color = grey(.10, 1), size = ggplot2::rel(5/3)), 
+      strip.text = ggplot2::element_text(color = grey(.20, 1)), 
+      # panel: 
+      panel.border = ggplot2::element_blank(), 
+      # panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
+      # panel.background = ggplot2::element_blank(), 
+      panel.background = ggplot2::element_rect(fill = grey(.95, 1), color = grey(.50, 1)), 
+      # panel.grid = ggplot2::element_blank(), 
+      panel.grid.major = ggplot2::element_line(color = grey(.65, .50), linetype = "solid", size = ggplot2::rel(1/3)), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.70, 1), linetype = "solid", size = ggplot2::rel(1/3)), 
+      panel.grid.minor = ggplot2::element_blank(), 
+      # background:  
+      plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
+      complete = TRUE)
+  
+} # theme_2 end. 
+
+
 # ## Check: 
 # 
 # # (1) ggplot2::diamonds:
@@ -138,9 +187,24 @@ theme_unikn <- function(col_title = unikn::pal_seeblau[[4]], # OR: "black"
 #        x = "Label of x-axis", y = "Labe of y-axis",
 #        color = "Color label:",
 #        caption = "Data from ggplot2::diamonds") +
-#   theme_unikn(col_title = unikn::pal_seeblau[[5]], base_size = 11)
-#  
+#   theme_2(col_title = unikn::pal_seeblau[[5]], base_size = 11)
+# 
 # # (2) ggplot2::mpg:
+# 
+# ggplot(mpg, aes(x = cty, y = hwy, color = factor(cyl))) +
+#   geom_jitter(size = 2, alpha = 1/2) +
+#   # geom_violin(color = Seeblau, fill = NA) +
+#   # facet_wrap(~cut) +
+#   scale_color_manual(values = usecol(pal = pal_unikn_pref, n = 4)) +
+#   labs(tag = "A",
+#        title = "Plot title",
+#        # subtitle = "Subtitle of this plot",
+#        x = "Label of x-axis", y = "Labe of y-axis",
+#        color = "Color label:",
+#        caption = "Data from ggplot2::diamonds") +
+#   theme_2(col_title = unikn::pal_seeblau[[5]], base_size = 11)
+# 
+# # (3) ggplot2::mpg:
 # 
 # ggplot(mpg, aes(x = cty, y = hwy, color = manufacturer)) +
 #   geom_jitter(size = 2, alpha = 2/3) +
