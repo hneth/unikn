@@ -1,4 +1,15 @@
 
+# unikn 0.3.0.9000+
+
+The current development version of **unikn** (0.3.0.9000+) is available at <https://github.com/hneth/unikn/>.   
+
+Changes since last release: 
+
+- none yet.
+
+
+---------- 
+
 # unikn 0.3.0
 
 This release adds some functionality and fixes some bugs. [2020-08-24]  
@@ -19,8 +30,6 @@ Changes since last release:
 - Update documentation of `seecol()` and `usecol()` functions.  
 - Clean up and update online documentation.  
 
-
-The current development version of **unikn** (0.3.0.9000+) is available at <https://github.com/hneth/unikn/>. 
 
 ---------- 
 
