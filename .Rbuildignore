@@ -12,3 +12,4 @@
 ^pkgdown$
 ^logo.png$
 ^revdep$
+^cran-comments\.md$
