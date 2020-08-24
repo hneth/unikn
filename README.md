@@ -353,7 +353,7 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
 Generalization to other institutions
 ------------------------------------
 
-The color scales included in the **unikn** package are based on the CD manual of the [University of Konstanz](https://uni-konstanz.de), Germany. However, the functionality provided by the package makes it easy and straightforward to define and use your own color schemes. Here are some examples from other institutions to illustrate how this can be achieved.
+The color scales included in the **unikn** package are based on the CD manual of the [University of Konstanz](https://www.uni-konstanz.de/), Germany. However, the functionality provided by the package makes it easy and straightforward to define and use your own color schemes. Here are some examples from other institutions to illustrate how this can be achieved.
 
 #### A. [University of Freiburg](https://www.uni-freiburg.de/), Germany:
 
@@ -693,18 +693,18 @@ The following versions of **unikn** and corresponding resources are currently av
 </tr>
 <tr class="even">
 <td align="left"> </td>
-<td align="left"><a href="https://github.com/hneth/unikn">Development version</a></td>
-<td align="left"><a href="https://github.com/hneth/unikn" class="uri">https://github.com/hneth/unikn</a></td>
+<td align="left"><a href="https://github.com/hneth/unikn/">Development version</a></td>
+<td align="left"><a href="https://github.com/hneth/unikn/" class="uri">https://github.com/hneth/unikn/</a></td>
 </tr>
 <tr class="odd">
 <td align="left">B. Online documentation:</td>
-<td align="left"><a href="https://hneth.github.io/unikn">Release version</a></td>
-<td align="left"><a href="https://hneth.github.io/unikn" class="uri">https://hneth.github.io/unikn</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn/">Release version</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn/" class="uri">https://hneth.github.io/unikn/</a></td>
 </tr>
 <tr class="even">
 <td align="left"> </td>
-<td align="left"><a href="https://hneth.github.io/unikn/dev">Development version</a></td>
-<td align="left"><a href="https://hneth.github.io/unikn/dev" class="uri">https://hneth.github.io/unikn/dev</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn/dev/">Development version</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn/dev/" class="uri">https://hneth.github.io/unikn/dev/</a></td>
 </tr>
 </tbody>
 </table>
