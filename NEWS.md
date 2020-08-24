@@ -1,22 +1,23 @@
 
 # unikn 0.3.0
 
-This release adds some functionality and fixes some bugs. [2020-08-24]
+This release adds some functionality and fixes some bugs. [2020-08-24]  
 
-Changes since last release: 
+Changes since last release:  
 
 ## Major changes 
 
-- Added `theme_grau()` to provide an alternative **ggplot2** theme. [2020-08-24] 
+- Added `theme_grau()` to provide an alternative **ggplot2** theme. [2020-08-24]  
 
 ## Minor changes
 
-- Added `pal_names` argument to `seecol()` function to allow re-labeling color palettes and colors. [2020-08-22] 
+- Added `pal_names` argument to `seecol()` function to allow re-labeling color palettes and colors. [2020-08-22]  
 
 ## Bug fixes 
 
-- Bug fix: Use `seecol()` to flexibly plot color palettes provided by name or incomplete names. [2020-08-20] 
+- Bug fix: Use `seecol()` to flexibly plot color palettes provided by name or incomplete names. [2020-08-20]  
 - Update documentation of `seecol()` and `usecol()` functions.  
+- Clean up and update online documentation.  
 
 
 The current development version of **unikn** (0.3.0.9000+) is available at <https://github.com/hneth/unikn/>. 
