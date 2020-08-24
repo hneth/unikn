@@ -751,6 +751,6 @@ Color definitions are based on the specifications at:
 
 <!-- Update: -->
 
-[Updated on `r Sys.Date()`.]    
+(Updated on `r Sys.Date()`.)
 
 <!-- eof. -->
