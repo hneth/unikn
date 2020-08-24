@@ -7,7 +7,7 @@ Changes since last release:
 
 ## Major changes 
 
-- none. 
+- Added `theme_grau()` to provide an alternative **ggplot2** theme. [2020-08-24] 
 
 ## Minor changes
 
