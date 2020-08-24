@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0.9008</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.0</span>
       </span>
     </div>
 
@@ -98,9 +98,9 @@
 <!-- Possible status badges:
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn) 
-[![Downloads](http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
-[![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](http://www.r-pkg.org/pkg/unikn)
-[![Rdoc](http://www.rdocumentation.org/badges/version/unikn)](http://www.rdocumentation.org/packages/unikn)
+[![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
+[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
+[![Rdoc](https://www.rdocumentation.org/badges/version/unikn)](https://www.rdocumentation.org/packages/unikn)
 -->
 <div id="unikn" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
@@ -116,39 +116,39 @@
 <div id="background" class="section level2">
 <h2 class="hasAnchor">
 <a href="#background" class="anchor"></a>Background</h2>
-<p>Many institutions devise corporate design (CD) manuals to create and maintain a consistent impression in presentations and publications. For instance, the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> introduced a highly recognizable corporate design in 2014. Its key component is the consistent use of a <code>Seeblau</code> color and a corresponding color palette that blends various shades of <code>Seeblau</code> (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">corporate design</a> pages and the <a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf">Corporate Design Manual (pdf)</a> for details.)</p>
+<p>Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. In 2014, the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> introduced a highly recognizable corporate design. Its key component is the ubiquitous use of a <code>Seeblau</code> color and a corresponding color palette that blends various shades of <code>Seeblau</code> (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">corporate design</a> pages and the <a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf">Corporate Design Manual (pdf)</a> for details.)</p>
 <!-- Goals of the unikn pgk: -->
-<p>The <strong>unikn</strong> package aims to facilitate the use of corporate design elements for users of <a href="https://www.r-project.org/">R</a>. While the correct use of default specifications should be simple and straightforward, we leave some flexibility for more experienced users (e.g., for creating scientific visualizations).</p>
+<p>The <strong>unikn</strong> package facilitas the use of corporate design elements for users of <a href="https://www.r-project.org/">R</a>. While the correct use of default specifications is simple and straightforward, we leave some flexibility for more experienced users (e.g., for creating scientific visualizations).</p>
 <!-- Overview: -->
 <p>The package currently provides 4 types of objects or functions:</p>
 <ol>
 <li>Dedicated colors and color palettes;</li>
-<li>Functions for viewing and changing color palettes (e.g., <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code>);</li>
+<li>Functions for viewing, changing, and comparing color palettes (e.g., see the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions);</li>
 <li>Functions for plotting graphical objects (e.g., boxes and frames);</li>
 <li>Functions for plotting styled text elements (e.g., highlighting and underlining text). <!-- 5. Graphical support (e.g., commands and themes for creating scientific visualizations). -->
 </li>
 </ol>
-<p>Additional elements are added as they become available. Please use responsibly!</p>
+<p>Additional elements may be added as they become available. Please use responsibly!</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>The current release of <strong>unikn</strong> is available from <a href="https://CRAN.R-project.org/">CRAN</a> at <a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a>:</p>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">'unikn'</span>)  <span class="co"># install unikn from CRAN client</span>
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'unikn'</span>)           <span class="co"># load to use the package</span></pre></div>
+<p>The latest release of <strong>unikn</strong> is available from <a href="https://CRAN.R-project.org/">CRAN</a> at <a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a>:</p>
+<div class="sourceCode"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">'unikn'</span>)  <span class="co"># install from CRAN client</span>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'unikn'</span>)           <span class="co"># loads the package</span></pre></div>
 <p>The current development version can be installed from its <a href="https://github.com">GitHub</a> repository at <a href="https://github.com/hneth/unikn/" class="uri">https://github.com/hneth/unikn/</a>:</p>
 <div class="sourceCode"><pre class="r"><span class="co"># install.packages('devtools')  # (if not installed yet)</span>
 <span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">'hneth/unikn'</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'unikn'</span>)  <span class="co"># load to use the package</span></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'unikn'</span>)  <span class="co"># loads the package</span></pre></div>
 </div>
 <div id="colors" class="section level2">
 <h2 class="hasAnchor">
 <a href="#colors" class="anchor"></a>Colors</h2>
-<p>A distinctive and recognizable color scheme is the most obvious element of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>’s corporate design.</p>
+<p>A distinctive and recognizable color scheme is the most recognizable element of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>’s corporate design.</p>
 <div id="basic-color-palettes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#basic-color-palettes" class="anchor"></a>Basic color palettes</h3>
-<p>Basic color palettes are specified according to the <strong>Corporate Design Manual</strong> <a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf">(pdf)</a>:</p>
+<p>Basic color palettes are specified according to the <strong>Corporate Design Manual</strong> <a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf">(pdf)</a>:</p>
 <p>The default color palette <code>pal_unikn</code> combines:</p>
 <ul>
 <li>5 shades of <code>pal_seeblau</code> (reversed, i.e., from darker to lighter);</li>
@@ -377,7 +377,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <div id="generalization-to-other-institutions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#generalization-to-other-institutions" class="anchor"></a>Generalization to other institutions</h2>
-<p>The color scales included in the <strong>unikn</strong> package are based on the CD manual of the <a href="https://uni-konstanz.de">University of Konstanz</a>, Germany. However, the functionality provided by the package makes it easy and straightforward to define and use your own color schemes. Here are some examples from other institutions to illustrate how this can be achieved.</p>
+<p>The color scales included in the <strong>unikn</strong> package are based on the CD manual of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>, Germany. However, the functionality provided by the package makes it easy and straightforward to define and use your own color schemes. Here are some examples from other institutions to illustrate how this can be achieved.</p>
 <div id="a--university-of-freiburg-germany" class="section level4">
 <h4 class="hasAnchor">
 <a href="#a--university-of-freiburg-germany" class="anchor"></a>A. <a href="https://www.uni-freiburg.de/">University of Freiburg</a>, Germany:</h4>
@@ -482,9 +482,9 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 </div>
 <div id="c--max-planck-society-germany" class="section level4">
 <h4 class="hasAnchor">
-<a href="#c--max-planck-society-germany" class="anchor"></a>C. <a href="https://www.mpg.de/">Max Planck Society</a>, Germany:</h4>
+<a href="#c--max-planck-society-germany" class="anchor"></a>C. <a href="https://www.mpg.de/de">Max Planck Society</a>, Germany:</h4>
 <p><img src="./inst/pix/logo_MPG.png" align="right" alt="MPG" width="200px" style="border:10;"></p>
-<p>The CD manual (available <a href="https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html">here</a>) of the <a href="https://www.mpg.de/">Max Planck Society</a> specifies the use of 2 primary colors:</p>
+<p>The CD manual (available <a href="https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html">here</a>) of the <a href="https://www.mpg.de/de">Max Planck Society</a> specifies the use of 2 primary colors:</p>
 <ul>
 <li>
 <p>Green as Pantone 328: Using the PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/328-C" class="uri">https://www.pantone.com/color-finder/328-C</a> yields the following color values:</p>
@@ -535,9 +535,9 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <div class="sourceCode"><pre class="r"><span class="co"># Compare and extend custom color palettes:</span>
 <span class="no">pals</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="no">pal_freiburg_basic</span>, <span class="no">pal_mpg</span>, <span class="no">pal_princeton_1</span>, <span class="no">pal_unikn</span>)
 <span class="no">lbls</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Uni Freiburg"</span>, <span class="st">"Max Planck"</span>, <span class="st">"Princeton Uni"</span>, <span class="st">"Uni Konstanz"</span>)
-<span class="co"># seecol(pals, pal_names = lbls,                           # basic versions</span>
-<span class="co">#       title = "Compare and label custom color palettes") </span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="no">pals</span>, <span class="kw">n</span> <span class="kw">=</span> <span class="fl">9</span>, <span class="kw">pal_names</span> <span class="kw">=</span> <span class="no">lbls</span>,                      <span class="co"># scaled versions</span>
+<span class="co"># seecol(pals, pal_names = lbls,                          # basic versions</span>
+<span class="co">#        title = "Compare and label custom color palettes") </span>
+<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="no">pals</span>, <span class="kw">n</span> <span class="kw">=</span> <span class="fl">9</span>, <span class="kw">pal_names</span> <span class="kw">=</span> <span class="no">lbls</span>,                     <span class="co"># scaled versions</span>
        <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Compare and label custom color palettes"</span>)</pre></div>
 <p><img src="inst/pix/README-compare-custom-pals-1.png" width="75%" style="display: block; margin: auto;"></p>
 </div>
@@ -665,18 +665,18 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 </tr>
 <tr class="even">
 <td align="left"> </td>
-<td align="left"><a href="https://github.com/hneth/unikn">Development version</a></td>
-<td align="left"><a href="https://github.com/hneth/unikn" class="uri">https://github.com/hneth/unikn</a></td>
+<td align="left"><a href="https://github.com/hneth/unikn/">Development version</a></td>
+<td align="left"><a href="https://github.com/hneth/unikn/" class="uri">https://github.com/hneth/unikn/</a></td>
 </tr>
 <tr class="odd">
 <td align="left">B. Online documentation:</td>
-<td align="left"><a href="https://hneth.github.io/unikn">Release version</a></td>
-<td align="left"><a href="https://hneth.github.io/unikn" class="uri">https://hneth.github.io/unikn</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn/">Release version</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn/" class="uri">https://hneth.github.io/unikn/</a></td>
 </tr>
 <tr class="even">
 <td align="left"> </td>
-<td align="left"><a href="https://hneth.github.io/unikn/dev">Development version</a></td>
-<td align="left"><a href="https://hneth.github.io/unikn/dev" class="uri">https://hneth.github.io/unikn/dev</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn/dev/">Development version</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn/dev/" class="uri">https://hneth.github.io/unikn/dev/</a></td>
 </tr>
 </tbody>
 </table>
@@ -691,8 +691,8 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <a href="#copyrights" class="anchor"></a>Copyrights</h2>
 <!-- uni.kn logo and link: -->
 <!-- ![](./inst/pix/logo.svg) -->
-<p><a href="https://www.uni.kn/"> <img src="./inst/pix/logo_unikn.png" alt="uni.kn" width="280px" align="left" style="width: 280px; float: left; border:10;"></a></p>
-<p>The <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">University of Konstanz’s Corporate Design</a> (CD) was created by the <a href="http://www.uni-konstanz.de">University of Konstanz</a> and <a href="https://www.strichpunkt-design.de/">Strichpunkt GmbH</a> and introduced in 2014. We are members of the research group on <a href="https://www.spds.uni-konstanz.de/">Social Psychology and Decision Sciences</a> at the <a href="http://www.uni-konstanz.de">University of Konstanz</a> and make some CD elements available to fellow users of R (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders.</p>
+<p><a href="https://www.uni-konstanz.de/"> <img src="./inst/pix/logo_unikn.png" alt="uni.kn" width="280px" align="left" style="width: 280px; float: left; border:10;"></a></p>
+<p>The <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">University of Konstanz’s Corporate Design</a> (CD) was created by the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> and <a href="https://www.strichpunkt-design.de/">Strichpunkt GmbH</a> and introduced in 2014. We are members of the research group on <a href="https://www.spds.uni-konstanz.de/">Social Psychology and Decision Sciences</a> at the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> and make some CD elements available to fellow users of R (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders.</p>
 <p>We aim for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also tend to cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we allow for some liberties, mostly by relaxing some restrictions. Examples include:</p>
 <ul>
 <li>enabling finer color gradients and arbitrary combinations of color palettes (by applying the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions to color palettes);</li>
@@ -707,9 +707,9 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <p><a href="https://CRAN.R-project.org/package=unikn"> <img src="./inst/pix/unikn.png" alt="unikn::" align="right" width="150px" style="width: 150px; float: right; border:10;"></a></p>
 <!-- License: CC BY-SA 4.0 (also in Description) -->
 <!-- Image with link: -->
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a></p>
+<p><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a></p>
 <!-- Text with links: -->
-<p><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><strong>unikn</strong></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/hneth/unikn" property="cc:attributionName" rel="cc:attributionURL">Hansjörg Neth and Nico Gradwohl</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. (Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hneth/unikn" rel="dct:source">https://github.com/hneth/unikn</a>).</p>
+<p><span xmlns:dct="https://purl.org/dc/terms/" property="dct:title"><strong>unikn</strong></span> by <a xmlns:cc="https://creativecommons.org/ns#" href="https://github.com/hneth/unikn" property="cc:attributionName" rel="cc:attributionURL">Hansjörg Neth and Nico Gradwohl</a> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. (Based on a work at <a xmlns:dct="https://purl.org/dc/terms/" href="https://github.com/hneth/unikn" rel="dct:source">https://github.com/hneth/unikn</a>).</p>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
@@ -724,9 +724,9 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <li><a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">Corporate design at uni.kn</a></li>
 </ul>
 <!-- - [Corporate design at uni.kn](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/)   --><ul>
-<li><a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_150921.pdf">Corporate design manual (PDF)</a></li>
+<li><a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf">Corporate design manual (PDF)</a></li>
 </ul>
-<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   --><!-- Update: --><p><br><span class="math display"><em>U</em><em>p</em><em>d</em><em>a</em><em>t</em><em>e</em><em>d</em><em>o</em><em>n</em>2020 − 07 − 27.</span><br></p>
+<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   --><!-- Update: --><p>(Updated on 2020-08-24.)</p>
 <!-- eof. -->
 <p>[1] Whereas the official definition does not identify a preferred color for the Ampel color palette (<code>pal_signal</code>), we provide its alert color (i.e., <code>pal_signal[2]</code>) as a designated color <code>Signal</code>.</p>
 </div>
@@ -765,15 +765,15 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <li>
 <a href="https://www.spds.uni-konstanz.de/hans-neth">Hansjoerg Neth</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-5427-3141" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>
-<a href="https://www.spds.uni-konstanz.de/nico-gradwohl">Nico Gradwohl</a> <br><small class="roles"> Author </small>  </li>
+<a href="https://www.spds.uni-konstanz.de/nico-gradwohl">Nico Gradwohl</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-8703-905X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=unikn"><img src="http://www.r-pkg.org/badges/version/unikn" alt="CRAN_status"></a></li>
-<li><a href="http://www.r-pkg.org/pkg/unikn"><img src="http://cranlogs.r-pkg.org/badges/unikn?color=brightgreen" alt="Downloads"></a></li>
+<li><a href="https://CRAN.R-project.org/package=unikn"><img src="https://www.r-pkg.org/badges/version/unikn" alt="CRAN_status"></a></li>
+<li><a href="https://www.r-pkg.org/pkg/unikn"><img src="https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen" alt="Downloads"></a></li>
 </ul>
 </div>
 </div>

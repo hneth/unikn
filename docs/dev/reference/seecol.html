@@ -81,7 +81,7 @@ the colors of a palette or comparing multiple color palettes." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0.9008</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.0</span>
       </span>
     </div>
 
@@ -166,9 +166,9 @@ the colors of a palette or comparing multiple color palettes.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>pal</th>
-      <td><p>A color palette (as a vector of colors), 
-a character string recognized as keyword by seecol or
-multiple palettes specified as list. 
+      <td><p>A single color palette (as a vector of colors), 
+multiple color palettes (as a list), 
+or a recognized keyword (as a character string). 
 Default: <code>pal = "unikn_all"</code>.</p>
 <p>Recognized keywords are:</p>
 <ol>
@@ -179,7 +179,7 @@ Default: <code>pal = "unikn_all"</code>.</p>
 <li><p><code>"grad_all"</code>:</p></li>
 </ol>
 
-<p><code>seecol</code> does also recognize reverse keywords (e.g., <code>"all_unikn"</code>) or 
+<p><code>seecol</code> does also recognize keywords (e.g., <code>"all_unikn"</code>) or 
 keywords without <code>"unikn"</code> (e.g., <code>"basic"</code>).</p></td>
     </tr>
     <tr>
@@ -230,14 +230,14 @@ Default: <code>grid = TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>title</th>
-      <td><p>Plot title. 
+      <td><p>Plot title (as a character string). 
 Default: <code>title = NA</code> creates a default title.</p></td>
     </tr>
     <tr>
       <th>pal_names</th>
-      <td><p>Names of all or custom color palettes 
+      <td><p>Names of color palettes or colors 
 (as a character vector). 
-Default: <code>pal_names = NA</code> (using default names).</p></td>
+Default: <code>pal_names = NA</code> (for default names).</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -250,36 +250,38 @@ Default: <code>pal_names = NA</code> (using default names).</p></td>
 
     <p><code>seecol</code> has 2 main modes, based on the contents of its <code>pal</code> argument:</p>
 <ol>
-<li><p>if <code>pal = "unikn_all"</code> (or a list of multiple color palettes):</p>
+<li><p>if <code>pal = "unikn_all"</code> or a list of multiple color palettes:</p>
 <p>Plot visual vectors of all current color palettes for comparing them.</p></li>
 <li><p>if <code>pal</code> is set to a specific color palette (or a vector of multiple colors or color palettes):</p>
 <p>Plot the current color palette and optional details on its colors.</p></li>
 </ol>
 
-<p>See also the <code>show_col</code> function of the <b>scales</b> package.</p>
+<p>The <code>title</code> and <code>pal_names</code> arguments add control over plotted text labels. 
+However, the length of a character vector provided to <code>pal_names</code> must correspond 
+to the number of (custom) color palettes or colors.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='usecol.html'>usecol</a></code> to use a color palette; 
+    <div class='dont-index'><p><code><a href='usecol.html'>usecol</a></code> for using a color palette; 
 <code><a href='pal_unikn.html'>pal_unikn</a></code> for the default uni.kn color palette.</p>
 <p>Other color functions: 
 <code><a href='newpal.html'>newpal</a>()</code>,
 <code><a href='usecol.html'>usecol</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># See all color palettes: </span>
-<span class='fu'>seecol</span>()  <span class='co'># same as seecol(pal = "all") </span></div><div class='img'><img src='seecol-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># See details of a color palette: </span>
-<span class='fu'>seecol</span>(<span class='no'>pal_unikn</span>)  <span class='co'># see a specific color palette</span></div><div class='img'><img src='seecol-2.png' alt='' width='700' height='433' /></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='co'># See multiple color palettes: </span>
+<span class='fu'>seecol</span>()  <span class='co'># default: seecol(pal = "all") </span></div><div class='img'><img src='seecol-1.png' alt='' width='691' height='538' /></div><div class='input'>
+<span class='co'># See details of one color palette: </span>
+<span class='fu'>seecol</span>(<span class='no'>pal_unikn</span>)  <span class='co'># see a specific color palette</span></div><div class='img'><img src='seecol-2.png' alt='' width='691' height='538' /></div><div class='input'>
 <span class='co'># Combining colors or color palettes: </span>
-<span class='fu'>seecol</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span>(<span class='no'>pal_seeblau</span>), <span class='no'>pal_seegruen</span>))        <span class='co'># combine color palettes</span></div><div class='img'><img src='seecol-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>seecol</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span>(<span class='no'>pal_seeblau</span>), <span class='st'>"white"</span>, <span class='no'>pal_pinky</span>))  <span class='co'># combine color palettes and color names</span></div><div class='img'><img src='seecol-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>seecol</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"black"</span>, <span class='st'>"firebrick"</span>, <span class='st'>"gold"</span>))          <span class='co'># combine color names</span></div><div class='img'><img src='seecol-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>seecol</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span>(<span class='no'>pal_seeblau</span>), <span class='no'>pal_seegruen</span>))        <span class='co'># combine color palettes</span></div><div class='img'><img src='seecol-3.png' alt='' width='691' height='538' /></div><div class='input'><span class='fu'>seecol</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span>(<span class='no'>pal_seeblau</span>), <span class='st'>"white"</span>, <span class='no'>pal_pinky</span>))  <span class='co'># combine color palettes and color names</span></div><div class='img'><img src='seecol-4.png' alt='' width='691' height='538' /></div><div class='input'><span class='fu'>seecol</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"black"</span>, <span class='st'>"firebrick"</span>, <span class='st'>"gold"</span>))          <span class='co'># combine color names</span></div><div class='img'><img src='seecol-5.png' alt='' width='691' height='538' /></div><div class='input'>
 <span class='co'># Using n to reduce or extend color palettes:</span>
-<span class='fu'>seecol</span>(<span class='kw'>n</span> <span class='kw'>=</span>  <span class='fl'>3</span>)  <span class='co'># viewing reduced ranges of all palettes</span></div><div class='img'><img src='seecol-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>seecol</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>12</span>)  <span class='co'># viewing extended ranges of all palettes</span></div><div class='img'><img src='seecol-7.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>seecol</span>(<span class='kw'>n</span> <span class='kw'>=</span>  <span class='fl'>3</span>)  <span class='co'># viewing reduced ranges of all palettes</span></div><div class='img'><img src='seecol-6.png' alt='' width='691' height='538' /></div><div class='input'><span class='fu'>seecol</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>12</span>)  <span class='co'># viewing extended ranges of all palettes</span></div><div class='img'><img src='seecol-7.png' alt='' width='691' height='538' /></div><div class='input'>
 <span class='fu'>seecol</span>(<span class='no'>pal_unikn</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>5</span>,
-       <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Reduced version of pal_unikn (n = 5)"</span>)  <span class='co'># reducing pal_unikn</span></div><div class='img'><img src='seecol-8.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>seecol</span>(<span class='no'>pal_seeblau</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>8</span>,
-       <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Extended version of pal_seeblau (n = 8)"</span>)  <span class='co'># extending pal_seeblau</span></div><div class='img'><img src='seecol-9.png' alt='' width='700' height='433' /></div><div class='input'>
+       <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Reduced version of pal_unikn (n = 5)"</span>)  <span class='co'># reducing pal_unikn</span></div><div class='img'><img src='seecol-8.png' alt='' width='691' height='538' /></div><div class='input'><span class='fu'>seecol</span>(<span class='no'>pal_seeblau</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>8</span>,
+       <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Extended version of pal_seeblau (n = 8)"</span>)  <span class='co'># extending pal_seeblau</span></div><div class='img'><img src='seecol-9.png' alt='' width='691' height='538' /></div><div class='input'>
 <span class='co'># Combining and extending color palettes: </span>
 <span class='fu'>seecol</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span>(<span class='no'>pal_seeblau</span>), <span class='st'>"white"</span>, <span class='no'>pal_bordeaux</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>17</span>,
-       <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Diverging custom color palette with 17 colors"</span>)</div><div class='img'><img src='seecol-10.png' alt='' width='700' height='433' /></div><div class='input'>
+       <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Diverging custom color palette (with 17 colors)"</span>)</div><div class='img'><img src='seecol-10.png' alt='' width='691' height='538' /></div><div class='input'>
 <span class='co'># Defining custom color palettes:</span>
 <span class='no'>pal_mpg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"#007367"</span>, <span class='st'>"white"</span>, <span class='st'>"#D0D3D4"</span>)  <span class='co'># mixing hex values and color names</span>
 <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>pal_mpg</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mpg green"</span>, <span class='st'>"mpg white"</span>, <span class='st'>"mpg grey"</span>)  <span class='co'># color names</span>
@@ -287,12 +289,11 @@ Default: <code>pal_names = NA</code> (using default names).</p></td>
 <span class='no'>pal_bdg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='usecol.html'>usecol</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>Bordeaux</span>, <span class='st'>"gold"</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>)  <span class='co'># using usecol</span>
 
 <span class='co'># Viewing extended color palette: </span>
-<span class='fu'>seecol</span>(<span class='no'>pal_mpg</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>9</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Custom color palette of the Max Planck Society"</span>)</div><div class='img'><img src='seecol-11.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>seecol</span>(<span class='no'>pal_mpg</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>9</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Custom color palette of the Max Planck Society"</span>)</div><div class='img'><img src='seecol-11.png' alt='' width='691' height='538' /></div><div class='input'>
 <span class='co'># Comparing (and labeling) custom color palettes: </span>
 <span class='fu'>seecol</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>pal_mpg</span>, <span class='no'>pal_bdg</span>, <span class='no'>pal_unikn</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>7</span>,
        <span class='kw'>pal_names</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Max Planck"</span>, <span class='st'>"Bordeaux-Gold"</span>, <span class='st'>"Uni Konstanz"</span>),
-       <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Comparing and labeling custom color palettes"</span>)</div><div class='img'><img src='seecol-12.png' alt='' width='700' height='433' /></div><div class='input'>
-
+       <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Comparing and labeling custom color palettes"</span>)</div><div class='img'><img src='seecol-12.png' alt='' width='691' height='538' /></div><div class='input'>
 ## Viewing color palettes from other packages: 
 # library(RColorBrewer)
 # seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer

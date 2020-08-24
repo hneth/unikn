@@ -81,7 +81,7 @@ to use in ggplot2 commands." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0.9008</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.0</span>
       </span>
     </div>
 
@@ -147,7 +147,7 @@ to use in <b>ggplot2</b> commands.</p>
     </div>
 
     <pre class="usage"><span class='fu'>theme_unikn</span>(
-  <span class='kw'>col_title</span> <span class='kw'>=</span> <span class='kw pkg'>unikn</span><span class='kw ns'>::</span><span class='no'><a href='pal_seeblau.html'>pal_seeblau</a></span><span class='kw'>[[</span><span class='fl'>4</span>]],
+  <span class='kw'>col_title</span> <span class='kw'>=</span> <span class='no'>pal_seeblau</span><span class='kw'>[[</span><span class='fl'>4</span>]],
   <span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>11</span>,
   <span class='kw'>base_family</span> <span class='kw'>=</span> <span class='st'>""</span>,
   <span class='kw'>base_line_size</span> <span class='kw'>=</span> <span class='no'>base_size</span>/<span class='fl'>20</span>,
@@ -160,9 +160,9 @@ to use in <b>ggplot2</b> commands.</p>
     <tr>
       <th>col_title</th>
       <td><p>Color of title (text) elements (optional, numeric).
-Default: <code>col_title = "black"</code>.  
-Consider using <code>col_title = unikn::pal_seeblau[[4]]</code> 
-in combination with black or grey data points.</p></td>
+Default: <code>col_title = pal_seeblau[[4]]</code>. 
+Consider using <code>col_title = "black"</code> when data uses 
+<code>Seeblau</code> colors.</p></td>
     </tr>
     <tr>
       <th>base_size</th>
@@ -193,8 +193,10 @@ opinionated (e.g., in using mostly grey scales to
 allow emphasizing data points with color accents).</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other plot functions: 
+    <div class='dont-index'><p><code><a href='theme_grau.html'>theme_grau</a></code> for an alternative theme.</p>
+<p>Other plot functions: 
 <code><a href='slide.html'>slide</a>()</code>,
+<code><a href='theme_grau.html'>theme_grau</a>()</code>,
 <code><a href='xbox.html'>xbox</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -205,11 +207,11 @@ allow emphasizing data points with color accents).</p>
   <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'>"ggplot2"</span>)  <span class='co'># theme_unikn requires loading ggplot2 </span>
 
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='kw pkg'>datasets</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/r/datasets/iris.html'>iris</a></span>) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_jitter.html'>geom_jitter</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>Petal.Length</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>Petal.Width</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>Species</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>2</span>) +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='usecol.html'>usecol</a></span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>Seeblau</span>, <span class='no'>Peach</span>, <span class='no'>Seegruen</span>))) +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_jitter.html'>geom_jitter</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>Petal.Length</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>Petal.Width</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>Species</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>2</span>/<span class='fl'>3</span>) +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='usecol.html'>usecol</a></span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>Seeblau</span>, <span class='no'>Pinky</span>, <span class='no'>Seegruen</span>))) +
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Iris species"</span>,
          <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"Data from datasets::iris"</span>) +
-    <span class='fu'>theme_unikn</span>(<span class='kw'>col_title</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>11</span>)</div><div class='img'><img src='theme_unikn-1.png' alt='' width='700' height='433' /></div><div class='input'># }
+    <span class='fu'>theme_unikn</span>(<span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>11</span>)</div><div class='img'><img src='theme_unikn-1.png' alt='' width='691' height='538' /></div><div class='input'># }
 
 </div></pre>
   </div>
