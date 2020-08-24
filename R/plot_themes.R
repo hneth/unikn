@@ -75,6 +75,9 @@
 #' 
 #' @family plot functions
 #' 
+#' @seealso 
+#' \code{\link{theme_grau}} for an alternative theme.  
+#' 
 #' @import ggplot2 
 #'                          
 #' @export 
@@ -171,6 +174,9 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 #' }
 #' 
 #' @family plot functions
+#' 
+#' @seealso 
+#' \code{\link{theme_unikn}} for default theme. 
 #' 
 #' @import ggplot2 
 #'                          
