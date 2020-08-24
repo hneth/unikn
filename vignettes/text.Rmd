@@ -349,9 +349,9 @@ The following versions of **unikn** and corresponding resources are currently av
 Type:                    | Version:           | URL:                           |         
 :------------------------|:-------------------|:-------------------------------| 
 A. **unikn** (R package): | [Release version](https://CRAN.R-project.org/package=unikn) | <https://CRAN.R-project.org/package=unikn> |
-    &nbsp;                | [Development version](https://github.com/hneth/unikn)       | <https://github.com/hneth/unikn> | 
-B. Online documentation:  | [Release version](https://hneth.github.io/unikn)            | <https://hneth.github.io/unikn> | 
-    &nbsp;                | [Development version](https://hneth.github.io/unikn/dev)    | <https://hneth.github.io/unikn/dev> | 
+    &nbsp;                | [Development version](https://github.com/hneth/unikn/)       | <https://github.com/hneth/unikn/> | 
+B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)            | <https://hneth.github.io/unikn/> | 
+    &nbsp;                | [Development version](https://hneth.github.io/unikn/dev/)    | <https://hneth.github.io/unikn/dev/> | 
 
 ## Vignettes
 
