@@ -380,7 +380,7 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
 
 ## Other institutions 
 
-The color palettes included in the **unikn** package are based on the CD manual of the [University of Konstanz](https://uni-konstanz.de), Germany. 
+The color palettes included in the **unikn** package are based on the CD manual of the [University of Konstanz](https://uni-konstanz.de/), Germany. 
 However, the functionality provided by the package makes it easy and straightforward to define and use your own color scales. 
 In the following, we provide examples to illustrate how this can be achieved for other institutions. 
 
