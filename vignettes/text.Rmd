@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
 author: "SPDS, uni.kn"
-date: "2020 08 09"
+date: "2020 08 24"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes

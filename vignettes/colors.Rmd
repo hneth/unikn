@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2020 08 16"
+date: "2020 08 24"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
