@@ -13,6 +13,7 @@ Changes since last release:
 ## Minor changes
 
 - Adjust aesthetics of **ggplot2** themes. [2020-08-25]  
+- Added [Travis](https://travis-ci.org/) support for [GitHub](https://github.com/) builds. [2020-08-25]  
 
 ## Bug fixes 
 
