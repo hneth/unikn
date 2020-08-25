@@ -1,9 +1,20 @@
 
-# unikn 0.3.0.9000+
+# unikn 0.3.0.9001+
 
-The current development version of **unikn** (0.3.0.9000+) is available at <https://github.com/hneth/unikn/>.   
+The current development version of **unikn** (0.3.0.9001+) is available at <https://github.com/hneth/unikn/>.   
+
 
 Changes since last release: 
+
+## Major changes 
+
+- none yet. 
+
+## Minor changes
+
+- Adjust aesthetics of **ggplot2** themes. [2020-08-25]  
+
+## Bug fixes 
 
 - none yet.
 
