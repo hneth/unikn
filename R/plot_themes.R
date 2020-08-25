@@ -95,8 +95,10 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
                      base_rect_size = base_rect_size) %+replace% 
     ggplot2::theme(#
       # titles: 
-      title = ggplot2::element_text(color = col_title, face = "bold"), 
-      plot.subtitle = ggplot2::element_text(color = grey(.10, 1), face = "plain", hjust = 0),  
+      title = ggplot2::element_text(color = col_title, face = "bold", 
+                                    margin = ggplot2::margin(t = 10, r = 4, b = 4, l = 4, unit = "pt")), 
+      plot.subtitle = ggplot2::element_text(color = grey(.10, 1), face = "plain", hjust = 0,
+                                            margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")),  
       plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
       axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
@@ -113,7 +115,7 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
       strip.background = ggplot2::element_rect(fill = grey(.95, 1), color = grey(.10, 1),  # light grey strip background 
                                                size = ggplot2::rel(.80)), 
       strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
-                                         margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), 
+                                         margin = ggplot2::margin(t = 4, r = 4, b = 4, l = 4, unit = "pt")), 
       # panel: 
       # panel.border = ggplot2::element_blank(), 
       panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), 
@@ -198,8 +200,10 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
                      base_rect_size = base_rect_size) %+replace% 
     ggplot2::theme(#
       # titles: 
-      title = ggplot2::element_text(color = col_title, face = "bold"), 
-      plot.subtitle = ggplot2::element_text(color = grey(.10, 1), face = "plain", hjust = 0),  
+      title = ggplot2::element_text(color = col_title, face = "bold",
+                                    margin = ggplot2::margin(t = 10, r = 4, b = 4, l = 4, unit = "pt")), 
+      plot.subtitle = ggplot2::element_text(color = grey(.10, 1), face = "plain", hjust = 0,
+                                            margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")), 
       plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
       axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
@@ -217,7 +221,7 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       # strip.background = ggplot2::element_rect(fill = grey(.90, 1), color = grey(.90, 1), size = ggplot2::rel(6/3)), 
       strip.background = ggplot2::element_rect(fill = "transparent", color = NA, size = ggplot2::rel(1.0)),  # transparent strip 
       strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
-                                         margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), 
+                                         margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), # larger than in theme_unikn() 
       # panel: 
       panel.border = ggplot2::element_blank(), 
       # panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
