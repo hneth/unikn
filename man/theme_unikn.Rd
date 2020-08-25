@@ -22,7 +22,8 @@ Consider using \code{col_title = "black"} when data uses
 Default: \code{base_size = 11}.}
 
 \item{base_family}{Base font family (optional, character). 
-Default: \code{base_family = ""}.}
+Default: \code{base_family = ""}. 
+Options include \code{"mono"}, \code{"sans"} (default), and "serif".}
 
 \item{base_line_size}{Base line size (optional, numeric). 
 Default: \code{base_line_size = base_size/20}.}

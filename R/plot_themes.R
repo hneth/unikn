@@ -50,27 +50,28 @@
 #' Default: \code{base_size = 11}. 
 #' 
 #' @param base_family Base font family (optional, character). 
-#' Default: \code{base_family = ""}.  
+#' Default: \code{base_family = ""}. 
+#' Options include \code{"mono"}, \code{"sans"} (default), and "serif". 
 #' 
 #' @param base_line_size Base line size (optional, numeric). 
-#' Default: \code{base_line_size = base_size/20}.  
+#' Default: \code{base_line_size = base_size/20}. 
 #' 
 #' @param base_rect_size Base rectangle size (optional, numeric). 
-#' Default: \code{base_rect_size = base_size/20}.  
+#' Default: \code{base_rect_size = base_size/20}. 
 #' 
 #' @examples
 #' 
 #' \donttest{
 #'   # Plotting iris dataset (using ggplot2, theme_unikn, and unikn colors):
 #'   
-#'   library("ggplot2")  # theme_unikn requires loading ggplot2 
+#'   library('ggplot2')  # theme_unikn requires ggplot2 
 #'   
 #'   ggplot(datasets::iris) +
 #'     geom_jitter(aes(x = Petal.Length, y = Petal.Width, color = Species), size = 3, alpha = 2/3) +
 #'     scale_color_manual(values = usecol(pal = c(Seeblau, Pinky, Seegruen))) +
 #'     labs(title = "Iris species",
 #'          caption = "Data from datasets::iris") + 
-#'     theme_unikn(base_size = 11)
+#'     theme_unikn()
 #' }
 #' 
 #' @family plot functions
@@ -155,27 +156,30 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 #' Default: \code{base_size = 11}. 
 #' 
 #' @param base_family Base font family (optional, character). 
-#' Default: \code{base_family = ""}.  
+#' Default: \code{base_family = ""}. 
+#' Options include \code{"mono"}, \code{"sans"} (default), and "serif". 
 #' 
 #' @param base_line_size Base line size (optional, numeric). 
-#' Default: \code{base_line_size = base_size/20}.  
+#' Default: \code{base_line_size = base_size/20}. 
 #' 
 #' @param base_rect_size Base rectangle size (optional, numeric). 
-#' Default: \code{base_rect_size = base_size/20}.  
+#' Default: \code{base_rect_size = base_size/20}. 
 #' 
 #' @examples
 #' 
 #' \donttest{
-#'   # Plotting iris dataset (using ggplot2, theme_unikn, and unikn colors):
+#'   # Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):
 #'   
-#'   library("ggplot2")  # theme_unikn requires loading ggplot2 
+#'   library('ggplot2')  # theme_unikn requires ggplot2 
 #'   
 #'   ggplot(datasets::iris) +
-#'     geom_jitter(aes(x = Petal.Length, y = Petal.Width, color = Species), size = 3, alpha = 2/3) +
-#'     scale_color_manual(values = usecol(pal = c(Seeblau, Bordeaux, Petrol))) +
+#'     geom_jitter(aes(x = Petal.Length, y = Petal.Width, color = Species), size = 3, alpha = 2/3) + 
+#'     facet_wrap(~Species) + 
+#'     coord_fixed(ratio = 3/1) + 
+#'     scale_color_manual(values = usecol(pal = c(Seeblau, Bordeaux, Petrol))) + 
 #'     labs(title = "Iris species",
 #'          caption = "Data from datasets::iris") + 
-#'     theme_grau(base_size = 11)
+#'     theme_grau(col_title = pal_seeblau[[4]])
 #' }
 #' 
 #' @family plot functions
