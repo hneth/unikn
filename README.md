@@ -1,10 +1,10 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
 <!-- Use status badges:  -->
-[![CRAN\_status](https://www.r-pkg.org/badges/version/unikn/)](https://CRAN.R-project.org/package=unikn) [![Build\_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/) [![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn/)
+[![CRAN\_status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) [![Build\_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/) [![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn/)
 
 <!-- Possible status badges:
-[![CRAN_status](http://www.r-pkg.org/badges/version/unikn/)](https://CRAN.R-project.org/package=unikn) 
+[![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/) 
 [![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn/)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn/)
