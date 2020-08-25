@@ -1,4 +1,4 @@
-## .gitignore | 2019 09 24: 
+## .gitignore | 2020 08 25: 
 ## History files
 .Rhistory
 .Rapp.history
@@ -28,9 +28,11 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Rproj.user
+## CRAN:
+cran-comments.md
+^CRAN-RELEASE$
 ## Others:
 _gitless
-cran-comments.md
 .PowerFolder
 desktop.ini
 ## pkgdown: 
