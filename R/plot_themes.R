@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2020 08 24
+## spds | uni.kn |  2020 08 25
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -110,16 +110,19 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
       legend.key = ggplot2::element_blank(), 
       # strip: 
       # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
-      strip.background = ggplot2::element_rect(fill = grey(.95, 1), color = grey(.10, 1), size = ggplot2::rel(3/4)), 
-      strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(9/10)), 
+      strip.background = ggplot2::element_rect(fill = grey(.95, 1), color = grey(.10, 1),  # light grey strip background 
+                                               size = ggplot2::rel(.80)), 
+      strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
+                                         margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), 
       # panel: 
       # panel.border = ggplot2::element_blank(), 
-      panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
+      panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), 
+                                           linetype = "solid", size = ggplot2::rel(2/3)), 
       # panel.grid = ggplot2::element_blank(), 
       panel.grid.major = ggplot2::element_line(color = grey(.65, .50), linetype = "solid", size = ggplot2::rel(1/3)), 
       # panel.grid.minor = ggplot2::element_line(color = grey(.70, 1), linetype = "solid", size = ggplot2::rel(1/3)), 
       panel.grid.minor = ggplot2::element_blank(), 
-      panel.background = ggplot2::element_blank(), 
+      panel.background = ggplot2::element_rect(fill = grey(1, 1), color = NA), # "white" panel background 
       # background:  
       plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
       complete = TRUE)
@@ -212,15 +215,16 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       # strip.background = ggplot2::element_blank(),
       # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
       # strip.background = ggplot2::element_rect(fill = grey(.90, 1), color = grey(.90, 1), size = ggplot2::rel(6/3)), 
-      strip.background = ggplot2::element_rect(fill = grey(1, 1), color = grey(1, 1), size = ggplot2::rel(3/3)), 
-      strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(9/10)), 
+      strip.background = ggplot2::element_rect(fill = "transparent", color = NA, size = ggplot2::rel(1.0)),  # transparent strip 
+      strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
+                                         margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), 
       # panel: 
       panel.border = ggplot2::element_blank(), 
       # panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
       # panel.background = ggplot2::element_blank(), 
-      panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # grey(.90, 1)
+      panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # light "grau" panel background
       # panel.grid = ggplot2::element_blank(), 
-      panel.grid.major = ggplot2::element_line(color = grey(1.0, 1), linetype = "solid", size = ggplot2::rel(1)), 
+      panel.grid.major = ggplot2::element_line(color = grey(1, 1), linetype = "solid", size = ggplot2::rel(1)), # "white" lines
       panel.grid.minor = ggplot2::element_blank(), 
       # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
       # background:  
@@ -228,6 +232,7 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       complete = TRUE)
   
 } # theme_grau end. 
+
 
 ## ToDo: ------
 
