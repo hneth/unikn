@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2020 08 25
+## spds | uni.kn |  2020 08 26
 ## ---------------------------
 
 ## Defining default themes for plotting. 
