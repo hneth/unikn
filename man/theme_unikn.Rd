@@ -45,14 +45,14 @@ allow emphasizing data points with color accents).
 \donttest{
   # Plotting iris dataset (using ggplot2, theme_unikn, and unikn colors):
   
-  library("ggplot2")  # theme_unikn requires loading ggplot2 
+  library('ggplot2')  # theme_unikn requires ggplot2 
   
   ggplot(datasets::iris) +
     geom_jitter(aes(x = Petal.Length, y = Petal.Width, color = Species), size = 3, alpha = 2/3) +
     scale_color_manual(values = usecol(pal = c(Seeblau, Pinky, Seegruen))) +
     labs(title = "Iris species",
          caption = "Data from datasets::iris") + 
-    theme_unikn(base_size = 11)
+    theme_unikn()
 }
 
 }
