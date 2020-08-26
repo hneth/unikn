@@ -12,13 +12,16 @@ Changes since last release:
 
 ## Minor changes
 
-- Adjust aesthetics of **ggplot2** themes. [2020-08-25]  
+- Fine-tuned aesthetics of **ggplot2** themes. [2020-08-26]  
 - Added [Travis](https://travis-ci.org/) support for [GitHub](https://github.com/) builds. [2020-08-25]  
+
+<!-- Add blank line.  --> 
 
 ## Bug fixes 
 
 - none yet.
 
+<!-- Add blank line.  --> 
 
 ---------- 
 
@@ -39,9 +42,10 @@ Changes since last release:
 ## Bug fixes 
 
 - Bug fix: Use `seecol()` to flexibly plot color palettes provided by name or incomplete names. [2020-08-20]  
-- Update documentation of `seecol()` and `usecol()` functions.  
+- Revise documentation of `seecol()` and `usecol()` functions.  
 - Clean up and update online documentation.  
 
+<!-- Add blank line.  --> 
 
 ---------- 
 
@@ -83,10 +87,18 @@ Different names for the same color are now separated by a forward slash (/), dup
 - Fix an error in `isHexCol()` which failed to recognize hexadecimal color values starting with lowercase letters. [2019-06-27] 
 
 
+<!-- Add blank line.  --> 
+
 ---------- 
 
 # unikn 0.1.0
 
 - Initial release of **unikn** (0.1.0) on CRAN: <https://CRAN.R-project.org/package=unikn>. [2019-06-15] 
 
-<!-- eof -->
+<!-- Add blank line.  --> 
+
+---------- 
+
+[File `NEWS.md` updated on 2020-08-26.]
+
+<!-- eof. -->
