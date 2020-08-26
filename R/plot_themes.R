@@ -54,10 +54,10 @@
 #' Options include \code{"mono"}, \code{"sans"} (default), and "serif". 
 #' 
 #' @param base_line_size Base line size (optional, numeric). 
-#' Default: \code{base_line_size = base_size/20}. 
+#' Default: \code{base_line_size = base_size/22}. 
 #' 
 #' @param base_rect_size Base rectangle size (optional, numeric). 
-#' Default: \code{base_rect_size = base_size/20}. 
+#' Default: \code{base_rect_size = base_size/22}. 
 #' 
 #' @examples
 #' 
@@ -68,8 +68,8 @@
 #'   
 #'   ggplot(datasets::iris) +
 #'     geom_jitter(aes(x = Petal.Length, y = Petal.Width, color = Species), size = 3, alpha = 2/3) +
-#'     scale_color_manual(values = usecol(pal = c(Seeblau, Pinky, Seegruen))) +
-#'     labs(title = "Iris species",
+#'     scale_color_manual(values = usecol(pal = c(Pinky, Seeblau, Seegruen))) +
+#'     labs(tag = "A", title = "Iris petals",
 #'          caption = "Data from datasets::iris") + 
 #'     theme_unikn()
 #' }
@@ -88,8 +88,8 @@
 theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"  
                         base_size = 11, 
                         base_family = "", 
-                        base_line_size = base_size/20, 
-                        base_rect_size = base_size/20
+                        base_line_size = base_size/22, 
+                        base_rect_size = base_size/22
 ) {ggplot2::theme_bw(base_size = base_size, 
                      base_family = base_family, 
                      base_line_size = base_line_size, 
@@ -113,17 +113,17 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
       legend.key = ggplot2::element_blank(), 
       # strip: 
       # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
-      strip.background = ggplot2::element_rect(fill = grey(.95, 1), color = grey(.10, 1),  # light grey strip background 
-                                               size = ggplot2::rel(.80)), 
+      strip.background = ggplot2::element_rect(fill = grey(.95, 1), color = grey(.05, 1),  # light grey strip background 
+                                               size = ggplot2::rel(.90)), 
       strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
                                          margin = ggplot2::margin(t = 4, r = 4, b = 4, l = 4, unit = "pt")), 
       # panel: 
       # panel.border = ggplot2::element_blank(), 
-      panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), 
-                                           linetype = "solid", size = ggplot2::rel(2/3)), 
+      panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.05, 1), 
+                                           linetype = "solid", size = ggplot2::rel(.80)), 
       # panel.grid = ggplot2::element_blank(), 
-      panel.grid.major = ggplot2::element_line(color = grey(.65, .50), linetype = "solid", size = ggplot2::rel(1/3)), 
-      # panel.grid.minor = ggplot2::element_line(color = grey(.70, 1), linetype = "solid", size = ggplot2::rel(1/3)), 
+      panel.grid.major = ggplot2::element_line(color = grey(.75, 1), linetype = "solid", size = ggplot2::rel(.50)), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.75, 1), linetype = "solid", size = ggplot2::rel(.40)), # "dotted"  
       panel.grid.minor = ggplot2::element_blank(), 
       panel.background = ggplot2::element_rect(fill = grey(1, 1), color = NA), # "white" panel background 
       # background:  
@@ -160,26 +160,28 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 #' Options include \code{"mono"}, \code{"sans"} (default), and "serif". 
 #' 
 #' @param base_line_size Base line size (optional, numeric). 
-#' Default: \code{base_line_size = base_size/20}. 
+#' Default: \code{base_line_size = base_size/22}. 
 #' 
 #' @param base_rect_size Base rectangle size (optional, numeric). 
-#' Default: \code{base_rect_size = base_size/20}. 
+#' Default: \code{base_rect_size = base_size/22}. 
 #' 
 #' @examples
 #' 
 #' \donttest{
-#'   # Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):
+#' # Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):
 #'   
-#'   library('ggplot2')  # theme_unikn requires ggplot2 
-#'   
-#'   ggplot(datasets::iris) +
-#'     geom_jitter(aes(x = Petal.Length, y = Petal.Width, color = Species), size = 3, alpha = 2/3) + 
-#'     facet_wrap(~Species) + 
-#'     coord_fixed(ratio = 3/1) + 
-#'     scale_color_manual(values = usecol(pal = c(Seeblau, Bordeaux, Petrol))) + 
-#'     labs(title = "Iris species",
-#'          caption = "Data from datasets::iris") + 
-#'     theme_grau(col_title = pal_seeblau[[4]])
+#' library('ggplot2')  # theme_unikn requires ggplot2 
+#'    
+#' ggplot(datasets::iris) +
+#'   geom_jitter(aes(x = Sepal.Length, y = Sepal.Width, color = Species), size = 3, alpha = 2/3) +
+#'   facet_wrap(~Species) +
+#'   scale_color_manual(values = usecol(pal = c(Pinky, Seeblau, Seegruen))) +
+#'   labs(tag = "B",
+#'        title = "Iris sepals",
+#'        caption = "Data from datasets::iris") + 
+#'   coord_fixed(ratio = 3/2) + 
+#'   theme_grau()
+#' 
 #' }
 #' 
 #' @family plot functions
@@ -196,8 +198,8 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 theme_grau <- function(col_title = grey(0, 1), # OR: "black" 
                        base_size = 11, 
                        base_family = "", 
-                       base_line_size = base_size/20, 
-                       base_rect_size = base_size/20
+                       base_line_size = base_size/22, 
+                       base_rect_size = base_size/22
 ) {ggplot2::theme_bw(base_size = base_size, 
                      base_family = base_family, 
                      base_line_size = base_line_size, 
@@ -232,7 +234,7 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       # panel.background = ggplot2::element_blank(), 
       panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # light "grau" panel background
       # panel.grid = ggplot2::element_blank(), 
-      panel.grid.major = ggplot2::element_line(color = grey(1, 1), linetype = "solid", size = ggplot2::rel(1)), # "white" lines
+      panel.grid.major = ggplot2::element_line(color = grey(1, 1), linetype = "solid", size = ggplot2::rel(.90)), # "white" lines
       panel.grid.minor = ggplot2::element_blank(), 
       # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
       # background:  
