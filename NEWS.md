@@ -3,7 +3,6 @@
 
 The current development version of **unikn** (0.3.0.9001+) is available at <https://github.com/hneth/unikn/>.   
 
-
 Changes since last release: 
 
 ## Major changes 
@@ -12,7 +11,7 @@ Changes since last release:
 
 ## Minor changes
 
-- Fine-tuned aesthetics of **ggplot2** themes. [2020-08-26]  
+- Fine-tuned aesthetics of `theme_unikn()` and `theme_grau()` for use with **ggplot2**. [2020-08-27]  
 - Added [Travis](https://travis-ci.org/) support for [GitHub](https://github.com/) builds. [2020-08-25]  
 
 <!-- Add blank line.  --> 
