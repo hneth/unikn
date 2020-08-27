@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2020 08 26
+## spds | uni.kn |  2020 08 27
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -103,12 +103,12 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
       plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
       axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
-      axis.ticks = ggplot2::element_line(color = "black"), 
+      axis.ticks = ggplot2::element_line(color = "black", size = ggplot2::rel(.90)), 
       axis.title = ggplot2::element_text(color = grey(.10, 1)), 
-      axis.text =  ggplot2::element_text(color = grey(.20, 1)), 
+      axis.text =  ggplot2::element_text(color = grey(.20, 1), size = ggplot2::rel(.90)), 
       # legend: 
       legend.title = ggplot2::element_text(color = grey(.10, 1)), 
-      legend.text = ggplot2::element_text(color = grey(.20, 1)), 
+      legend.text = ggplot2::element_text(color = grey(.20, 1), size = ggplot2::rel(.90)), 
       legend.background = ggplot2::element_blank(), 
       legend.key = ggplot2::element_blank(), 
       # strip: 
@@ -213,12 +213,12 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
       axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
-      axis.ticks = ggplot2::element_line(color = "black"), 
+      axis.ticks = ggplot2::element_line(color = "black", size = ggplot2::rel(.90)), 
       axis.title = ggplot2::element_text(color = grey(.10, 1)), 
-      axis.text =  ggplot2::element_text(color = grey(.20, 1)), 
+      axis.text =  ggplot2::element_text(color = grey(.20, 1), size = ggplot2::rel(.90)), 
       # legend: 
       legend.title = ggplot2::element_text(color = pal_grau[[5]]), 
-      legend.text = ggplot2::element_text(color = grey(0, 1)), 
+      legend.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(.90)), 
       legend.background = ggplot2::element_blank(), 
       legend.key = ggplot2::element_blank(), 
       # strip: 
