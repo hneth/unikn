@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 08 22
+## spds | uni.kn |  2020 09 03
 ## ---------------------------
 
 ## Define color-related functions 
@@ -683,8 +683,8 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   ## 3. Plotting: ------ 
   
-  # 1. multiple list entries --> comparison 
-  # 2. one list entry --> details 
+  # 1. multiple list entries --> compare palettes
+  # 2. only one list entry --> details of a palette
   
   # 3.1 Plot a list of palettes: -----  
   
@@ -757,7 +757,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
     # Color indices:
     cex_ixs <- .80
-    yix <- -0.02 * length(pal_tmp)  # dnamic positioning of indices. 
+    yix <- -0.02 * length(pal_tmp)  # dynamic positioning of indices. 
     
     text(x = pos_ind, y = yix, labels = txt_ind, pos = 1, xpd = TRUE,
          cex = cex_ixs, col = grey(0, 2/3))
