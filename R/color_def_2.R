@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2019 06 18
+## spds | uni.kn  | 2020 09 04
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -65,6 +65,21 @@ pal_unikn <- cbind(rev(pal_seeblau), pal_unikn_web[5:10])
 
 #  (2) pal_unikn_pref: Scale of all 9 (or 8 + 1) preferred colors: ------
 
+
+#   (+) Original definition: ---- 
+
+pal_unikn_pref <- data.frame(  # Element: 
+  "Seeblau"     = Seeblau,     # pal_seeblau[[3]],      #  1. seeblau
+  "Peach"       = Peach,       # pal_peach[[4]],        #  2. peach
+  "Grau"        = Grau,        # pal_grau[[3]],         #  3. grau 
+  "Petrol"      = Petrol,      # pal_petrol[[4]],       #  4. petrol 
+  "Seegruen"    = Seegruen,    # pal_seegruen[[4]],     #  5. seegruen 
+  "Karpfenblau" = Karpfenblau, # pal_karpfenblau[[4]],  #  6. karpfenblau
+  "Pinky"       = Pinky,       # pal_pinky[[4]],        #  7. pinky 
+  "Bordeaux"    = Bordeaux,    # pal_bordeaux[[4]],     #  8. bordeaux
+  "Signal"      = Signal,      # pal_signal[[2]],       # (9.) (alert) signal
+  stringsAsFactors = FALSE)
+
 #   (a) Documentation: ----  
 
 #' uni.kn preferred colors in a color palette.
@@ -72,6 +87,9 @@ pal_unikn <- cbind(rev(pal_seeblau), pal_unikn_web[5:10])
 #' \code{pal_unikn_pref} provides an additional uni.kn color palette  
 #' that collects the preferred color of each palette 
 #' as a data frame containing 9 (or 8 + 1) colors. 
+#' 
+#' The colors are arranged in a sequence that provides 
+#' high contrasts between adjacent colors. 
 #' 
 #' Note that the (alert) color \code{\link{Signal}} is 
 #' not a preferred color according to the official color 
@@ -104,22 +122,14 @@ pal_unikn <- cbind(rev(pal_seeblau), pal_unikn_web[5:10])
 #' @export
 
 #   (b) Definition: ----  
+#   Re-arrange original order (for higher contrasts):
 
-pal_unikn_pref <- data.frame(            # Element: 
-  "Seeblau"     = Seeblau,     # pal_seeblau[[3]],      #  1. seeblau
-  "Peach"       = Peach,       # pal_peach[[4]],        #  2. peach
-  "Grau"        = Grau,        # pal_grau[[3]],         #  3. grau 
-  "Petrol"      = Petrol,      # pal_petrol[[4]],       #  4. petrol 
-  "Seegruen"    = Seegruen,    # pal_seegruen[[4]],     #  5. seegruen 
-  "Karpfenblau" = Karpfenblau, # pal_karpfenblau[[4]],  #  6. karpfenblau
-  "Pinky"       = Pinky,       # pal_pinky[[4]],        #  7. pinky 
-  "Bordeaux"    = Bordeaux,    # pal_bordeaux[[4]],     #  8. bordeaux
-  "Signal"      = Signal,      # pal_signal[[2]],       # (9.) (alert) signal
-  stringsAsFactors = FALSE)
+pal_unikn_pref <- pal_unikn_pref[c(1, 7, 5, 2, 6, 9, 8, 3, 4)]
 
 ## Check:
 # pal_unikn_pref
 # seecol(pal_unikn_pref)
+
 
 #  (3) pal_unikn_light: Scale of 8 light colors (in 4 pairs) from other palettes: ------ 
 
