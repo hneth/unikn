@@ -16,6 +16,9 @@ that collects the preferred color of each palette
 as a data frame containing 9 (or 8 + 1) colors.
 }
 \details{
+The colors are arranged in a sequence that provides 
+high contrasts between adjacent colors. 
+
 Note that the (alert) color \code{\link{Signal}} is 
 not a preferred color according to the official color 
 definition.
