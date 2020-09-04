@@ -7,7 +7,7 @@ Changes since last release:
 
 ## Major changes 
 
-- none yet. 
+- Change color sequence of `pal_unikn_pref` to increase contrast between adjacent colors. [2020-09-04] 
 
 ## Minor changes
 
@@ -98,6 +98,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2020-08-26.]
+[File `NEWS.md` updated on 2020-09-04.]
 
 <!-- eof. -->
