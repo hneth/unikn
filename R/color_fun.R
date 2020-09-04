@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 09 03
+## spds | uni.kn |  2020 09 04
 ## ---------------------------
 
 ## Define color-related functions 
@@ -730,10 +730,11 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     # if (is.null(lwd_brd)) { lwd_brd <- 0 } # set default lwd_brd
     
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
-      plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, ylen = ylen, col_brd = col_brd, lwd = lwd_brd)
+      plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, 
+               ylen = ylen, col_brd = col_brd, lwd = lwd_brd)
     })
     
-    # Plot names and indices:
+    # Label pal names:
     cex_lbl <- .90
     
     text(x = 0, y = 1:length(pal_tmp), 
@@ -749,13 +750,13 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
     while (wdth_ind > xlim[2]) {
       
-      txt_ind <- txt_ind[seq(1, length(txt_ind), by = 2)]  # only show every second index.
+      txt_ind <- txt_ind[seq(1, length(txt_ind), by = 2)]  # only show every 2nd index.
       pos_ind <- pos_ind[seq(1, length(pos_ind), by = 2)]
       wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))  # is the width small enough?
       
     } # while end. 
     
-    # Color indices:
+    # Labels of color indices:
     cex_ixs <- .80
     yix <- -0.02 * length(pal_tmp)  # dynamic positioning of indices. 
     
@@ -765,7 +766,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   } else {  # if length(pal_tmp) list is NOT > 1:
     
     
-    # 3.2 Detailed view of 1 palette: -----  
+  # 3.2 Detailed view of 1 palette: -----  
     
     names(pal_tmp) <- NULL  # remove first order names! 
     
