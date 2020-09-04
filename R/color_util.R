@@ -1,5 +1,5 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2020 08 21
+## spds | uni.kn | 2020 09 04
 ## ---------------------------
 
 ## Utility functions to access and plot color palettes. 
@@ -68,6 +68,7 @@ isCol <- function(color) {
 # BUT note: 
 # isCol(col2rgb("white"))  # => FALSE FALSE FALSE
 
+
 ## 2. Color getting functions: ------
 
 # parse_pal(): Parse a palette input -----------
@@ -89,7 +90,7 @@ parse_pal <- function(pal) {
     },
     silent = TRUE
   )
-
+  
   
   if ( vector_input ) {  # if the input is a color vector (or list).
     
@@ -140,7 +141,7 @@ parse_pal <- function(pal) {
     elemex <- sapply(elem, function(x) exists(x) & x != "pal")
     # also ask, whether the element is named pal, to prevent name conflicts!
     # Was: elemex <- sapply(elem, exists)
-   
+    
     
     if ( any(!elemex) ) {  # only if not all inputs have been resolved
       
@@ -209,6 +210,7 @@ parse_pal <- function(pal) {
 # getpal_key(): Get a palette or list of palettes by keyword: -------
 
 getpal_key <- function(pal = "all", n = "all", alpha = NA) {
+  
   ## 1. Process the 'pal' argument: ------------------------
   
   ## 1.1 Getting by keyword: -----
@@ -300,25 +302,27 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
 
 # plot_shape: Plot a shape in a certain color: ------
 
-plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle. 
-                       col_fill,  # color for filling. 
+plot_shape <- function(pos_x, pos_y,  # midpoint of shape  
+                       col_fill,      # fill color  
                        col_brd = NA,
-                       xlen = 1, ylen = 1,  # height of the axis lengths. 
-                       shape = "rect",  # shape parameter. 
-                       ...  # graphics parameters (e.g., lwd)
+                       xlen = 1, ylen = 1,  # height of axis lengths  
+                       shape = "rect",      # shape 
+                       ...  # other graphics parameters (e.g., lwd): passed to symbols() 
 ) {
   
-  ## Prepare inpust for vectorized solution? -----
+  # Prepare inputs for vectorized solution: -----
+  
   len_max <- max(c(length(pos_y), length(pos_x)))  # get length of longer position vector. 
   
   # Recycle all vectors to length of longest vector:
   pos_x <- rep(pos_x, length.out = len_max)
   pos_y <- rep(pos_y, length.out = len_max)
-  xlen <- rep(xlen, length.out = len_max)
-  ylen <- rep(ylen, length.out = len_max)
+  xlen  <- rep(xlen,  length.out = len_max)
+  ylen  <- rep(ylen,  length.out = len_max)
   
   
-  ## For rectangular shape: -----
+  # 1. rectangles: -----
+  
   if (shape == "rect") {
     
     symbols(x = pos_x, y = pos_y, rectangles = cbind(xlen, ylen),
@@ -326,12 +330,13 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle.
             inches = FALSE,  # use unit on x axis
             fg = col_brd,    # line color
             bg = col_fill,   # filling
-            ...              # graphics parameters (e.g., lwd)
+            ...              # other graphics parameters (e.g., lwd)
     )
     
   }
   
-  ## For circles:  -----
+  # 2. circles:  -----
+  
   if (shape == "circle") {
     
     symbols(x = pos_x, y = pos_y, circles = xlen/2,  # only uses xlen! 
@@ -349,18 +354,18 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of the rectangle.
 
 # plot_col: Plot a vector of colors as circles or rectangles: -------
 
-plot_col <- function(x,  # a *vector* of colors to be plotted. 
+plot_col <- function(x,         # a *vector* of colors to be plotted. 
                      ypos = 1,  # position on y axis. 
                      shape = "rect",
                      xlen = 1, ylen = 1, 
-                     distance = 0,  # distance of shapes (to be taken from size). 
-                     plot.new = TRUE,  # TODO: Set to false once done! 
-                     ...  # graphics parameters (e.g., lwd)
+                     distance = 0,     # distance of shapes (to be taken from size). 
+                     plot.new = TRUE,  # TODO: Set to FALSE once done! 
+                     ...               # other graphics parameters (e.g., lwd)
 ) {
   
-  ## 1. Control inputs: -------------------------------------
+  ## 1. Handle inputs: -------------------------------------
   
-  ## Get key parameters:
+  # Key parameters:
   len_x <- length(x)
   
   # Should a new plot be created? 
@@ -376,32 +381,35 @@ plot_col <- function(x,  # a *vector* of colors to be plotted.
     
   } else {
     
-    # Check, whether a graphic device is available: 
+    # Check for graphic device: 
     if (dev.cur() == 1) {
       stop("No graphic device to be plotted on.  Please open a plot or set plot.new to 'TRUE'.")
     }
   }
   
-  ## 2. Calculate position parameters: ------------------------
+  ## 2. Position parameters: ------------------------
   
-  # Define positions of shape centers:
-  pos_x <- 1:len_x - 0.5
+  # Shape centers:
+  xpos <- 1:len_x - 0.5
   
-  # change the distances:
-  mid <- mean(pos_x)  # get midpoint. 
-  add <- cumsum(rep(distance, sum(pos_x < mid)))  # values to be added to the first half. 
+  # +++ here now +++ 
+  
+  # adjust xpos by distance:
+  mid <- mean(xpos)  # get midpoint. 
+  add <- cumsum(rep(distance, sum(xpos < mid)))  # values to be added to the first half. 
   sub <- add * (-1)  # values to be subtracted from the second half. 
-  pos_x <- pos_x + if(len_x %% 2 == 0) c(rev(sub), add) else  # for even numbers no center position needed.
+  xpos <- xpos + if(len_x %% 2 == 0) c(rev(sub), add) else  # for even numbers no center position needed.
     c(rev(sub), 0, add)  # include the middle for uneven numbers. 
   
-  ## 3. Plot all shapes: --------------------------------------
-  
+  # other constants:
   ypos <- rep(ypos, length.out = len_x)  # length out ypos to the length of x. 
   xlen <- rep(xlen, length.out = len_x)
   ylen <- rep(ylen, length.out = len_x)
   
-  ## Plotting:
-  plot_shape(pos_x = pos_x,  # x positions of the shapes. 
+  
+  ## 3. Plot shapes: --------------------------------------
+  
+  plot_shape(pos_x = xpos,  # x positions of the shapes. 
              pos_y = ypos,  # position in y dimension (given). 
              xlen = xlen, ylen = ylen,  # length of the axes. 
              col_fill = unlist(x),  # filling color. 
