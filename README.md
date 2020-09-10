@@ -170,7 +170,7 @@ seecol(pal = pal_unikn_pref,            # palette to plot
 
 ### Partial color palettes
 
-When only a subset of a color palette are needed, the `seecol()` and `usecol()` functions provide a reasonable subset of a known \*\* unikn\*\* color palette:
+When only a subset of a color palette are needed, the `seecol()` and `usecol()` functions provide a reasonable subset of a known **unikn** color palette:
 
 ``` r
 # All color palettes: ----- 
@@ -721,7 +721,7 @@ Copyrights
 <!-- ![](./inst/pix/logo.svg) -->
 <a href = "https://www.uni-konstanz.de/"> <img src = "./inst/pix/logo_unikn.png" alt = "uni.kn" width = "280px" align = "left" style = "width: 280px; float: left; border:10;"/> </a>
 
-The [University of Konstanz's Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) (CD) was created by the [University of Konstanz](https://www.uni-konstanz.de/) and [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and introduced in 2014. We are members of the research group on [Social Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/) at the [University of Konstanz](https://www.uni-konstanz.de/) and make some CD elements available to fellow users of R (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders.
+The [University of Konstanz's Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) (CD) was created by [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and the [University of Konstanz](https://www.uni-konstanz.de/) in 2014. We are members of the research group on [Social Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/) at the [University of Konstanz](https://www.uni-konstanz.de/) and make some CD elements available to fellow users of R (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders.
 
 We aim for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also tend to cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we allow for some liberties, mostly by relaxing some restrictions. Examples include:
 
@@ -760,7 +760,7 @@ Color definitions are based on the specifications at:
 
 <!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
 <!-- Update: -->
-(Updated on 2020-08-25.)
+(Updated on 2020-09-10.)
 
 <!-- eof. -->
 
