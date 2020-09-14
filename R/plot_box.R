@@ -1,5 +1,5 @@
 ## plot_box.R | unikn
-## spds | uni.kn |  2019 06 04
+## spds | uni.kn |  2020 09 14
 ## ---------------------------
 
 ## General functions to plot rectangular boxes (e.g., frames, slides, etc.)
@@ -8,7 +8,7 @@
 
 ## plot_box: Enhanced (expert/experimental) function that plots ONLY a colored box with an "x" (but NO text): -----
 
-## Note that plot_box is an experimental function, intended for expert users.
+## Note: plot_box is an experimental function, intended only for expert users.
 
 # - Definition: ----
 
@@ -32,7 +32,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
                      ...  # etc. (passed to rect, not to segments)
 ) {
   
-  ## (0) Interpret inputs: -----
+  # (0) Interpret inputs: -----
   
   # Box parameters:
   # box_dim <- c(0, 0, 1, 1) # xleft ybottom xright ytop (as in rect)
@@ -48,11 +48,11 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
   # "x" parameters: 
   x_dis <- x_dis * min(box_width, box_height)  # scale x_dis by box size 
   
-  ## (1) Create a new plot: -----
+  # (1) Create a new plot: -----
   
-  ## Preamble: ----- 
+  # Preamble: ----- 
   
-  ## Plotting area: ----- 
+  # Plotting area: ----- 
   
   # Record graphical parameters (par):
   opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
@@ -84,29 +84,35 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
        bty = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
   
   
-  ## Draw a grid of plot points:
-  
+  # Draw grid of plot points:
   # grid <- TRUE  # 4debugging
   
   if (grid) {
     
     # grid() # default grid
     
-    ## Call utility function:
+    # Utility function:
     plot_grid()
     
   }
   
-  ## Determine plot aspect ratio (for scaling purposes):
-  plot_xy <- dev.size("in")            # use EITHER par("pin") OR dev.size("in")
-  plot_ratio <- plot_xy[1]/plot_xy[2]  # current aspect ratio
-  scale_x <- 1/plot_ratio              # multiplicative correction factor (for x-widths)
+  # (2) Scale x-dimension: ----- 
+  
+  # (a) Current device: Determine plot aspect ratio (for scaling purposes):
+  # plot_xy <- dev.size("in")            # use EITHER par("pin") OR dev.size("in")
+  # plot_ratio <- plot_xy[1]/plot_xy[2]  # current aspect ratio
+  # scale_x <- 1/plot_ratio              # multiplicative correction factor (for x-widths)
+  
+  # (b) Current box dimensions (defined above):
   # scale_x <- box_height/box_width
+  
+  # (c) Assume square:
   scale_x <- 1
-    
+  
   # print(paste0("scale_X = ", scale_x)) # 4debugging
   
-  ## (2) Plot a colored box (using rect): ----- 
+  
+  # (3) Plot a colored box (using rect): ----- 
   
   # Draw rectangle:
   rect(xleft = box_left, ybottom = box_bot, xright = box_right, ytop = box_top,
@@ -119,7 +125,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
        ...  # etc. 
   )
   
-  ## (3) Plot an "x" (in top right corner): ----- 
+  # (4) Plot an "x" (in top right corner): ----- 
   
   if (cross) {
     
@@ -172,12 +178,12 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
     # # (a) "/"  
     # segments(x0 = x0_a, y0 = y0_a, 
     #          x1 = x1_a, y1 = y1_a,
-    #          col = x_col, lty = 1, lwd = 1.41)
+    #          col = x_col, lty = 1, lwd = x_lwd)
     # 
     # # (b) "\"
     # segments(x0 = x0_a, y0 = y1_a, 
     #          x1 = x1_a, y1 = y0_a,
-    #          col = x_col, lty = 1, lwd = 1.41)
+    #          col = x_col, lty = 1, lwd = x_lwd)
     
     # (c) Entire "x" at once:
     segments(x0 = c(x0_a, x0_a), y0 = c(y0_a, y1_a), 
@@ -186,12 +192,13 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
     
   } # if (cross) etc. 
   
-  ## (3) Exit: ----- 
+  # (5) Exit: ----- 
   
   # on.exit(par(opar)) # restore original settings
   invisible() # restores par(opar)
   
 } # plot_box end. 
+
 
 # - Check: ------ 
 
@@ -234,10 +241,9 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
 # plot_box(box_dim = c(5, 5, 10, 10), x_dis = 1/2, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
 # plot_box(box_dim = c(5, 5, 10, 10), x_dis = 1/1, x_col = "red3", x_cex = 1, x_lwd = 2, grid = TRUE)
 
-
 ## Done: ------
 
-# - Clean up code.  [2019-06-04]
+# - ...
 
 ## ToDo: ------
 
