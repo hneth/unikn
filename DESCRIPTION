@@ -26,7 +26,7 @@ Collate: 'color_def_1.R'
          'plot_text.R'
          'plot_text_calls.R'
          'plot_themes.R'
-         'plot_logo.R'
+         'plot_unikn.R'
          'start_unikn.R'
 Encoding: UTF-8
 LazyData: true

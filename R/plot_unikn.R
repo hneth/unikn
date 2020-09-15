@@ -1,13 +1,13 @@
-## plot_logo.R | unikn
+## plot_unikn.R | unikn
 ## spds | uni.kn |  2020 09 15
 ## ---------------------------
 
 ## Function to plot unikn logo:
 
-plot_logo <- function(axes = FALSE, 
-                      back = TRUE, 
-                      city = TRUE, 
-                      univ = TRUE){
+plot_unikn <- function(axes = FALSE, 
+                       back = TRUE, 
+                       city = TRUE, 
+                       univ = TRUE){
   
   # Parameters: ------
   
@@ -416,18 +416,18 @@ plot_logo <- function(axes = FALSE,
   # restore original par() settings: ---- 
   par(opar)
   
-} # plot_logo end. 
+} # plot_unikn end. 
 
 
 ## Check: ----- 
 
-# plot_logo()  # default 
+# plot_unikn()  # default 
 # 
-# plot_logo(axes = TRUE)
+# plot_unikn(axes = TRUE)
 # 
-# plot_logo(back = TRUE,  city = FALSE, univ = FALSE)
-# plot_logo(back = FALSE, city = TRUE,  univ = FALSE)
-# plot_logo(back = FALSE, city = FALSE, univ = TRUE)
+# plot_unikn(back = TRUE,  city = FALSE, univ = FALSE)
+# plot_unikn(back = FALSE, city = TRUE,  univ = FALSE)
+# plot_unikn(back = FALSE, city = FALSE, univ = TRUE)
 
 
 ## ToDo: ------
