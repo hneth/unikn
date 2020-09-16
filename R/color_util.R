@@ -1,10 +1,12 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2020 09 04
+## spds | uni.kn | 2020 09 16
 ## ---------------------------
 
 ## Utility functions to access and plot color palettes. 
 
+
 ## 1. General functions: -------
+
 
 # col2rgb in grDevices: ------ 
 
@@ -69,7 +71,9 @@ isCol <- function(color) {
 # isCol(col2rgb("white"))  # => FALSE FALSE FALSE
 
 
+
 ## 2. Color getting functions: ------
+
 
 # parse_pal(): Parse a palette input -----------
 
@@ -145,12 +149,12 @@ parse_pal <- function(pal) {
     
     if ( any(!elemex) ) {  # only if not all inputs have been resolved
       
-      ## Those which are still unknown: are those colors? 
+      # Those which are still unknown: Are those colors? 
       elemex[!elemex] <- sapply(elem[!elemex], isCol)
       
     }
     
-    ## Prefix those which do not exist with "pal_
+    # Prefix those which do not exist with "pal_":
     
     if ( any(!elemex) ) {  # only if not all inputs have been resolved
       
@@ -211,14 +215,14 @@ parse_pal <- function(pal) {
 
 getpal_key <- function(pal = "all", n = "all", alpha = NA) {
   
-  ## 1. Process the 'pal' argument: ------------------------
+  # Process the 'pal' argument: ------ 
   
-  ## 1.1 Getting by keyword: -----
+  # Getting palettes by keyword: ----- 
   keys <- c("all", "unikn_all", "all_unikn",  # all palettes
-            "basic", "unikn_basic", "basic_unikn",  # the basic palettes. 
-            "pair", "pair_all", "all_pair",   # all paired palettes. 
-            "pref", "pref_all", "all_pref",  # the preferred palettes and gradients. 
-            "grad", "grad_all", "all_grad"  # the gradients.
+            "basic", "unikn_basic", "basic_unikn",  # basic palettes 
+            "pair", "pair_all", "all_pair",   # paired palettes 
+            "pref", "pref_all", "all_pref",   # preferred palettes and gradients 
+            "grad", "grad_all", "all_grad"    # gradients
   )
   
   # Throw an error, if no valid keyword is specified:
@@ -235,8 +239,9 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
     
   }
   
-  # Get all color palettes with the prefix "pal_" from the environment.
-  # Distinguish between 5 cases: -----
+  # Get all color palettes with the prefix "pal_" from the environment: ------ 
+  
+  # Distinguish 5 cases: ------
   pal_names <- switch(
     key,
     all = all_palkn,
@@ -271,7 +276,7 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
     stop("No color palettes defined in the current environment.")
   }
   
-  ## If only color subsets should be displayed:
+  # If only color subsets should be displayed:
   if (n != "all" ) {
     
     # Get the subset of each palette , as defined in usecol():
@@ -298,7 +303,9 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
 } # getpal_key end. 
 
 
+
 ## 3. Plotting functions: ------
+
 
 # plot_shape: Plot a shape in a certain color: ------
 
@@ -310,7 +317,7 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of shape
                        ...  # other graphics parameters (e.g., lwd): passed to symbols() 
 ) {
   
-  # Prepare inputs for vectorized solution: -----
+  # Prepare inputs for vectorized solution: ------
   
   len_max <- max(c(length(pos_y), length(pos_x)))  # get length of longer position vector. 
   
@@ -321,11 +328,12 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of shape
   ylen  <- rep(ylen,  length.out = len_max)
   
   
-  # 1. rectangles: -----
+  # Rectangles: ------
   
   if (shape == "rect") {
     
-    symbols(x = pos_x, y = pos_y, rectangles = cbind(xlen, ylen),
+    symbols(x = pos_x, y = pos_y, 
+            rectangles = cbind(xlen, ylen),  # as matrix: width and height of rectangles
             add = TRUE,
             inches = FALSE,  # use unit on x axis
             fg = col_brd,    # line color
@@ -335,11 +343,12 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of shape
     
   }
   
-  # 2. circles:  -----
+  # Circles:  ------
   
   if (shape == "circle") {
     
-    symbols(x = pos_x, y = pos_y, circles = xlen/2,  # only uses xlen! 
+    symbols(x = pos_x, y = pos_y, 
+            circles = xlen/2,  # as vector (only using xlen): radii of circles
             add = TRUE, 
             inches = FALSE,  # use unit on x axis 
             fg = col_brd,    # line color
@@ -352,21 +361,22 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of shape
 } # plot_shape end.
 
 
-# plot_col: Plot a vector of colors as circles or rectangles: -------
+
+# plot_col: Plot a vector of colors (as circles or rectangles): -------
 
 plot_col <- function(x,         # a *vector* of colors to be plotted. 
                      ypos = 1,  # position on y axis. 
                      shape = "rect",
                      xlen = 1, ylen = 1, 
-                     distance = 0,     # distance of shapes (to be taken from size). 
+                     distance = 0,     # distance between shapes (to be subtracted from size). 
                      plot.new = TRUE,  # TODO: Set to FALSE once done! 
                      ...               # other graphics parameters (e.g., lwd)
 ) {
   
-  ## 1. Handle inputs: -------------------------------------
+  # 1. Handle inputs: ------ 
   
   # Key parameters:
-  len_x <- length(x)
+  len_x <- length(x)  # length of vector x (i.e., nr. of colors to plot)
   
   # Should a new plot be created? 
   if (plot.new) {
@@ -387,27 +397,27 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
     }
   }
   
-  ## 2. Position parameters: ------------------------
+  # 2. Position parameters: ------ 
   
   # Shape centers:
-  xpos <- 1:len_x - 0.5
+  xpos <- (1:len_x) - 0.5  # Note: Subtracting .5 assumes a shape width of 1.
   
-  # +++ here now +++ 
+  # +++ here now +++: Allow scaling shape widths to fill a FIXED total width 
+  #                   (e.g., each shape a width of 10/len_x).
   
-  # adjust xpos by distance:
+  # Adjust xpos by distance:
   mid <- mean(xpos)  # get midpoint. 
   add <- cumsum(rep(distance, sum(xpos < mid)))  # values to be added to the first half. 
-  sub <- add * (-1)  # values to be subtracted from the second half. 
-  xpos <- xpos + if(len_x %% 2 == 0) c(rev(sub), add) else  # for even numbers no center position needed.
-    c(rev(sub), 0, add)  # include the middle for uneven numbers. 
+  sub <- add * (-1)                              # values to be subtracted from the second half. 
+  xpos <- xpos + if(len_x %% 2 == 0) c(rev(sub), add) else  # even numbers: no center position needed.
+    c(rev(sub), 0, add)                                     # odd numbers: include the middle (0). 
   
-  # other constants:
-  ypos <- rep(ypos, length.out = len_x)  # length out ypos to the length of x. 
+  # Recycle other constants (to len_x):
+  ypos <- rep(ypos, length.out = len_x) 
   xlen <- rep(xlen, length.out = len_x)
   ylen <- rep(ylen, length.out = len_x)
   
-  
-  ## 3. Plot shapes: --------------------------------------
+  # 3. Plot shapes: ------ 
   
   plot_shape(pos_x = xpos,  # x positions of the shapes. 
              pos_y = ypos,  # position in y dimension (given). 
