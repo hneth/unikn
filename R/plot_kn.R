@@ -1,5 +1,5 @@
 ## plot_kn.R | unikn
-## spds | uni.kn |  2020 09 15
+## spds | uni.kn |  2020 09 16
 ## ---------------------------
 
 ## Function to plot unikn logo:
@@ -13,15 +13,15 @@ plot_kn <- function(axes = FALSE,
   
   # Booleans (for parts and use of areas/colors): ---- 
   
-  # axes <- FALSE  # TRUE
+  # axes <- FALSE  # FALSE/TRUE
   grid <- axes     # FALSE/TRUE
   
-  use_colors <- FALSE  # use colors
-  use_areas  <- FALSE  # draw polygons (for colored areas)
+  use_colors <- FALSE  # use colors?
+  use_areas  <- FALSE  # draw polygons (for colored areas)?
   
   # back <- TRUE   # draw background lines?
   
-  # city  <- TRUE  # draw road/house/cath?
+  # city  <- TRUE  # wrapper for road/house/cath
   road  <- TRUE
   house <- TRUE
   cath  <- TRUE
@@ -80,12 +80,15 @@ plot_kn <- function(axes = FALSE,
   
   # (c) Areas/polygons:
   
-  # always used: 
-  col_cath_roof <- "white"  # pal_pinky[[1]] # "white" 
+  if (use_colors){
+    col_cath_roof <- pal_pinky[[1]]
+  } else {
+    col_cath_roof <- "white"  # always used (to obscure line)
+  }
   
-  # only used if use_areas = TRUE and use_colors = TRUE: 
-  col_roof <- pal_pinky[[2]] # pal_bordeaux[[1]]
-  col_sail <- pal_peach[[2]]
+  # Only used if use_areas = TRUE and use_colors = TRUE: 
+  col_roof <- pal_pinky[[2]] 
+  col_sail <- pal_signal[[2]] # pal_peach[[2]]
   col_flap <- pal_seegruen[[2]]
   
   
@@ -421,7 +424,7 @@ plot_kn <- function(axes = FALSE,
 
 ## Check: ----- 
 
-# plot_kn()  # default 
+# plot_kn()  # default
 # 
 # plot_kn(axes = TRUE)
 # 
@@ -432,6 +435,9 @@ plot_kn <- function(axes = FALSE,
 
 ## ToDo: ------
 
-# - ...
+# - fix curves of bridge/waves
+# - adjust/remove plot margins?
+# - add option to enforce 1:1 aspect ratio (by scaling to current canvas)
+# - add coordinates to function?
 
 ## eof. ----------
