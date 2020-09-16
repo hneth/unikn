@@ -123,7 +123,7 @@ plot_kn <- function(axes = FALSE,
   
   if (grid) {
     
-    grid(col = col_grid) # default grid
+    grid(col = col_grid, lwd = 1) # default grid
     
     # plot_grid()  # enhanced grid
     
@@ -437,7 +437,7 @@ plot_kn <- function(axes = FALSE,
 
 # - fix curves of bridge/waves
 # - adjust/remove plot margins?
-# - add option to enforce 1:1 aspect ratio (by scaling to current canvas)
+# - add option to enforce 1:1 aspect ratio (by scaling to current canvas dimensions)
 # - add coordinates to function?
 
 ## eof. ----------
