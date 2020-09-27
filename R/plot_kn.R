@@ -1,5 +1,5 @@
 ## plot_kn.R | unikn
-## spds | uni.kn |  2020 09 16
+## spds | uni.kn |  2020 09 27
 ## ---------------------------
 
 ## Function to plot unikn logo:
@@ -32,7 +32,14 @@ plot_kn <- function(axes = FALSE,
   # Canvas: ---- 
   
   opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
-  # on.exit(par(opar))  # par(opar)  # restore original settings
+  on.exit(par(opar))  # par(opar)  # restore original par() settings
+  
+  
+  if (axes) {
+    par(mar = c(2, 2, 2, 2) + .1)  # reduce margins
+  } else {
+    par(mar = c(0, 0, 0, 0))  # remove margins
+  }
   
   par("lwd" = 3)
   par("fg" = "black")
@@ -65,7 +72,8 @@ plot_kn <- function(axes = FALSE,
     
   } else {
     
-    col_main <- "black"  # grey(0, .50)  # "black"
+    col_main <- "black"  # default
+    # col_main <- grey(0, .33)  # transparent (to show overlaps)
     
     col_back <- col_main
     
@@ -417,7 +425,9 @@ plot_kn <- function(axes = FALSE,
   } # cath end. 
   
   # restore original par() settings: ---- 
-  par(opar)
+  # par(opar)
+  
+  # return what?
   
 } # plot_kn end. 
 
@@ -436,7 +446,6 @@ plot_kn <- function(axes = FALSE,
 ## ToDo: ------
 
 # - fix curves of bridge/waves
-# - adjust/remove plot margins?
 # - add option to enforce 1:1 aspect ratio (by scaling to current canvas dimensions)
 # - add coordinates to function?
 
