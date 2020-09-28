@@ -1,5 +1,5 @@
 ## plot_kn.R | unikn
-## spds | uni.kn |  2020 09 27
+## spds | uni.kn |  2020 09 28
 ## ---------------------------
 
 ## Function to plot unikn logo:
@@ -36,12 +36,12 @@ plot_kn <- function(axes = FALSE,
   
   
   if (axes) {
-    par(mar = c(2, 2, 2, 2) + .1)  # reduce margins
+    par(mar = c(0, 0, 0, 0) + 2.1)   # min. margins (with axes)
   } else {
-    par(mar = c(0, 0, 0, 0))  # remove margins
+    par(mar = c(0, 0, 0, 0) + 4.1)  # symmetrical margins
   }
   
-  par("lwd" = 3)
+  par("lwd" = 2)
   par("fg" = "black")
   
   
