@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
-<!-- Use status badges:  -->
+<!-- Use status badges: -->
 [![CRAN\_status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) [![Build\_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/) [![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn/)
 
 <!-- Possible status badges:
@@ -28,10 +28,10 @@ Background
 Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. Its key component is the ubiquitous use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the [corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) pages and the [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf) for details.)
 
 <!-- Goals of the unikn pgk: -->
-The **unikn** package facilitas the use of corporate design elements for users of [R](https://www.r-project.org/). While the correct use of default specifications is simple and straightforward, we leave some flexibility for more experienced users (e.g., for creating scientific visualizations).
+The **unikn** package facilitates the use of corporate design elements for users of [R](https://www.r-project.org/). While this renders the correct use of default specifications simple and straightforward, we leave some flexibility for experienced users (e.g., for creating scientific visualizations).
 
 <!-- Overview: -->
-The package currently provides 4 types of objects or functions:
+The package currently provides four types of objects or functions:
 
 1.  Dedicated colors and color palettes;
 2.  Functions for viewing, changing, and comparing color palettes (e.g., see the `seecol()` and `usecol()` functions);
@@ -719,9 +719,9 @@ Copyrights
 
 <!-- uni.kn logo and link: -->
 <!-- ![](./inst/pix/logo.svg) -->
-<a href = "https://www.uni-konstanz.de/"> <img src = "./inst/pix/logo_unikn.png" alt = "uni.kn" width = "280px" align = "left" style = "width: 280px; float: left; border:10;"/> </a>
+<a href = "https://www.uni-konstanz.de/"> <img src = "./inst/pix/logo_unikn.png" alt = "uni.kn" width = "280px" align = "right" style = "width: 280px; float: right; border:12;"/> </a>
 
-The [University of Konstanz's Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) (CD) was created by [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and the [University of Konstanz](https://www.uni-konstanz.de/) in 2014. We are members of the research group on [Social Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/) at the [University of Konstanz](https://www.uni-konstanz.de/) and make some CD elements available to fellow users of R (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders.
+The [University of Konstanz's Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) (CD) was created by [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and the [University of Konstanz](https://www.uni-konstanz.de/) in 2014. The **unikn** package authors belong to the research group on [Social Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/) (SPDS) at the [University of Konstanz](https://www.uni-konstanz.de/). We make some CD elements available to fellow users of R (e.g., for creating scientific visualizations), but all copyrights remain with the original copyright holders.
 
 We aim for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also tend to cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we allow for some liberties, mostly by relaxing some restrictions. Examples include:
 
@@ -760,7 +760,7 @@ Color definitions are based on the specifications at:
 
 <!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
 <!-- Update: -->
-(Updated on 2020-09-10.)
+(Updated on 2020-10-01.)
 
 <!-- eof. -->
 
