@@ -1,5 +1,5 @@
 ## plot_kn.R | unikn
-## spds | uni.kn |  2020 09 28
+## spds | uni.kn |  2020 10 01
 ## ---------------------------
 
 ## Function to plot unikn logo:
@@ -17,7 +17,7 @@ plot_kn <- function(axes = FALSE,
   grid <- axes     # FALSE/TRUE
   
   use_colors <- FALSE  # use colors?
-  use_areas  <- FALSE  # draw polygons (for colored areas)?
+  use_areas  <- FALSE  # draw rectangles and polygons (for colored areas)?
   
   # back <- TRUE   # draw background lines?
   
@@ -47,57 +47,60 @@ plot_kn <- function(axes = FALSE,
   
   # Dimensions: ---- 
   
-  xmin <-  0
-  ymin <-  0
+  # xmin <-  0  # (not needed)
+  # ymin <-  0  # (not needed)
   xmax <- 48
   ymax <- 48
   
   
   # Colors: ---- 
   
-  # (a) Plot support: 
+  # (a) Main colors:
+  col_line <- "black"  # default line
+  # col_line <- grey(0, .33)  # transparent (to show overlaps)
+  col_area <- "white"  # default area
+  
+  # (b) Plot support: 
   col_axes <- grey(.50, 1)
   col_grid <- grey(.75, 1)
   
-  # (b) Lines:
+  # (c) Specific parts:
   if (use_colors){
     
-    col_back <- Grau
-    
+    # line colors: 
+    col_back  <- Grau
     col_road  <- Seeblau  
     col_house <- Karpfenblau
     col_cath  <- Petrol
+    col_univ  <- Bordeaux
     
-    col_univ <- Bordeaux
+    # area colors (only used if use_areas = TRUE and use_colors = TRUE): 
+    col_cath_roof <- pal_pinky[[1]]
+    col_roof <- pal_pinky[[2]] 
+    col_sail <- pal_signal[[2]] # pal_peach[[2]]
+    col_flap <- pal_seegruen[[2]]
+    
+    col_back_pal <- usecol(pal = pal_unikn, alpha = 1)  # color range (11)
+    # seecol(col_back_pal)
     
   } else {
     
-    col_main <- "black"  # default
-    # col_main <- grey(0, .33)  # transparent (to show overlaps)
+    # line colors:
+    col_back  <- col_line
+    col_road  <- col_line  
+    col_house <- col_line
+    col_cath  <- col_line
+    col_univ  <- col_line
     
-    col_back <- col_main
+    # area colors (only used if use_areas = TRUE and use_colors = TRUE): 
+    col_cath_roof <- "white"  # always used (to obscure line)    
+    col_roof <- NA 
+    col_sail <- NA
+    col_flap <- NA
     
-    col_road  <- col_main  
-    col_house <- col_main
-    col_cath  <- col_main
-    
-    col_univ <- col_main
+    col_back_pal <- rep(NA, 11)
     
   } # use_colors end. 
-  
-  
-  # (c) Areas/polygons:
-  
-  if (use_colors){
-    col_cath_roof <- pal_pinky[[1]]
-  } else {
-    col_cath_roof <- "white"  # always used (to obscure line)
-  }
-  
-  # Only used if use_areas = TRUE and use_colors = TRUE: 
-  col_roof <- pal_pinky[[2]] 
-  col_sail <- pal_signal[[2]] # pal_peach[[2]]
-  col_flap <- pal_seegruen[[2]]
   
   
   # Prepare plot: ----- 
@@ -144,6 +147,22 @@ plot_kn <- function(axes = FALSE,
   
   if (use_areas){ 
     
+    if (back){
+      
+      rect(xleft = 00/48 * xmax, ybottom = 00/48 * ymax, xright = 48/48 * xmax, ytop = 48/48 * ymax, border = col_back, col = col_back_pal[[7]])  # main background rectangle 
+      
+      rect(xleft = 00/48 * xmax, ybottom = 00/48 * ymax, xright = 24/48 * xmax, ytop = 24/48 * ymax, border = col_back, col = col_back_pal[[8]])  # bottom left quarter
+      rect(xleft = 24/48 * xmax, ybottom = 00/48 * ymax, xright = 48/48 * xmax, ytop = 24/48 * ymax, border = col_back, col = col_back_pal[[9]])  # bottom right quarter
+      rect(xleft = 00/48 * xmax, ybottom = 24/48 * ymax, xright = 24/48 * xmax, ytop = 48/48 * ymax, border = col_back, col = col_back_pal[[5]])  # top left quarter
+      rect(xleft = 24/48 * xmax, ybottom = 24/48 * ymax, xright = 48/48 * xmax, ytop = 48/48 * ymax, border = col_back, col = col_back_pal[[5]])  # top right quarter
+      
+      rect(xleft = 24/48 * xmax, ybottom = 36/48 * ymax, xright = 36/48 * xmax, ytop = 48/48 * ymax, border = col_back, col = col_back_pal[[4]])  # 16th: row_1 col_3
+      rect(xleft = 36/48 * xmax, ybottom = 36/48 * ymax, xright = 48/48 * xmax, ytop = 48/48 * ymax, border = col_back, col = col_back_pal[[3]])  # 16th: row_1 col_4
+      rect(xleft = 00/48 * xmax, ybottom = 12/48 * ymax, xright = 12/48 * xmax, ytop = 24/48 * ymax, border = col_back, col = col_back_pal[[7]])  # 16th: row_3 col_1
+      rect(xleft = 12/48 * xmax, ybottom = 12/48 * ymax, xright = 24/48 * xmax, ytop = 24/48 * ymax, border = col_back, col = col_back_pal[[6]])  # 16th: row_3 col_2
+      
+    }
+    
     if (city & house){
       
       polygon(x = c(12, 15, 18)/48 * xmax, y = c(06, 12, 06)/48 * ymax, border = col_house, col = col_roof)  # roof of low house left
@@ -173,7 +192,7 @@ plot_kn <- function(axes = FALSE,
   if (back){
     
     # background rectangle:
-    rect(xleft = 0, ybottom = 0, xright = xmax, ytop = ymax, border = col_back)
+    rect(xleft = 00/48 * xmax, ybottom = 00/48 * ymax, xright = 48/48 * xmax, ytop = 48/48 * ymax, border = col_back)
     
     # main lines:
     segments(x0 = 0 * xmax, y0 = 24/48 * ymax, x1 = xmax, y1 = 24/48 * ymax, col = col_back)  # horizontal middle
@@ -200,12 +219,12 @@ plot_kn <- function(axes = FALSE,
   if (road & city){
     
     # bridge lines:
-    segments(x0 = 00 * xmax, y0 = 03/48 * ymax, x1 = 24/48 * xmax, y1 = 03/48 * ymax, col = col_road)  # horizontal bridge (redundant)
-    segments(x0 = 00/48 * xmax, y0 = 0 * ymax, x1 = 00/48 * xmax, y1 = 03/48 * ymax, col = col_road)   # vertical bridge/wave 1 (redundant)
-    segments(x0 = 06/48 * xmax, y0 = 0 * ymax, x1 = 06/48 * xmax, y1 = 03/48 * ymax, col = col_road)   # vertical bridge/wave 2
-    segments(x0 = 12/48 * xmax, y0 = 0 * ymax, x1 = 12/48 * xmax, y1 = 03/48 * ymax, col = col_road)   # vertical bridge/wave 3 (redundant)
-    segments(x0 = 18/48 * xmax, y0 = 0 * ymax, x1 = 18/48 * xmax, y1 = 03/48 * ymax, col = col_road)   # vertical bridge/wave 4 (redundant)
-    segments(x0 = 24/48 * xmax, y0 = 0 * ymax, x1 = 24/48 * xmax, y1 = 03/48 * ymax, col = col_road)   # vertical bridge/wave 5 (redundant)
+    segments(x0 = 00/48 * xmax, y0 = 03/48 * ymax, x1 = 24/48 * xmax, y1 = 03/48 * ymax, col = col_road)  # horizontal bridge (redundant)
+    segments(x0 = 00/48 * xmax, y0 = 00/48 * ymax, x1 = 00/48 * xmax, y1 = 03/48 * ymax, col = col_road)   # vertical bridge/wave 1 (redundant)
+    segments(x0 = 06/48 * xmax, y0 = 00/48 * ymax, x1 = 06/48 * xmax, y1 = 03/48 * ymax, col = col_road)   # vertical bridge/wave 2
+    segments(x0 = 12/48 * xmax, y0 = 00/48 * ymax, x1 = 12/48 * xmax, y1 = 03/48 * ymax, col = col_road)   # vertical bridge/wave 3 (redundant)
+    segments(x0 = 18/48 * xmax, y0 = 00/48 * ymax, x1 = 18/48 * xmax, y1 = 03/48 * ymax, col = col_road)   # vertical bridge/wave 4 (redundant)
+    segments(x0 = 24/48 * xmax, y0 = 00/48 * ymax, x1 = 24/48 * xmax, y1 = 03/48 * ymax, col = col_road)   # vertical bridge/wave 5 (redundant)
     
     # bridge curves/waves:
     x_1 <- c(0, 1.6, 4.4, 6)/48 * xmax
@@ -303,8 +322,8 @@ plot_kn <- function(axes = FALSE,
     segments(x0 = 48/48 * xmax, y0 = 28/48 * ymax, x1 = 48/48 * xmax, y1 = 30/48 * ymax, col = col_univ)  # 10th column right (redundant)  
     
     # horizontal:
-    segments(x0 = 0 * xmax, y0 = 36/48 * ymax, x1 = xmax, y1 = 36/48 * ymax, col = col_univ)  # uni top (redundant)
-    segments(x0 = 0 * xmax, y0 = 30/48 * ymax, x1 = xmax, y1 = 30/48 * ymax, col = col_univ)  # uni base (behind(!) Münster roof)
+    segments(x0 = 00/48 * xmax, y0 = 36/48 * ymax, x1 = xmax, y1 = 36/48 * ymax, col = col_univ)  # uni top (redundant)
+    segments(x0 = 00/48 * xmax, y0 = 30/48 * ymax, x1 = xmax, y1 = 30/48 * ymax, col = col_univ)  # uni base (behind(!) Münster roof)
     
     segments(x0 = 06/48 * xmax, y0 = 40/48 * ymax, x1 = 15/48 * xmax, y1 = 40/48 * ymax, col = col_univ)  # base of upper sail
     segments(x0 = 18/48 * xmax, y0 = 38/48 * ymax, x1 = 24/48 * xmax, y1 = 38/48 * ymax, col = col_univ)  # base of lower sail
@@ -402,10 +421,10 @@ plot_kn <- function(axes = FALSE,
     segments(x0 = 26/48 * xmax, y0 = 03/48 * ymax, x1 = 26/48 * xmax, y1 = 20/48 * ymax, col = col_cath)  # left wing left
     segments(x0 = 28/48 * xmax, y0 = 03/48 * ymax, x1 = 28/48 * xmax, y1 = 20/48 * ymax, col = col_cath)  # left wing right
     
-    segments(x0 = 30/48 * xmax, y0 = 0 * ymax, x1 = 30/48 * xmax, y1 = 26/48 * ymax, col = col_cath)      # tower border left
+    segments(x0 = 30/48 * xmax, y0 = 00/48 * ymax, x1 = 30/48 * xmax, y1 = 26/48 * ymax, col = col_cath)      # tower border left
     segments(x0 = 32/48 * xmax, y0 = 03/48 * ymax, x1 = 32/48 * xmax, y1 = 24/48 * ymax, col = col_cath)  # mid. wing left
     segments(x0 = 34/48 * xmax, y0 = 03/48 * ymax, x1 = 34/48 * xmax, y1 = 24/48 * ymax, col = col_cath)  # mid. wing right
-    segments(x0 = 36/48 * xmax, y0 = 0 * ymax, x1 = 36/48 * xmax, y1 = 26/48 * ymax, col = col_cath)      # tower border right
+    segments(x0 = 36/48 * xmax, y0 = 00/48 * ymax, x1 = 36/48 * xmax, y1 = 26/48 * ymax, col = col_cath)      # tower border right
     
     segments(x0 = 38/48 * xmax, y0 = 03/48 * ymax, x1 = 38/48 * xmax, y1 = 20/48 * ymax, col = col_cath)  # right wing left 
     segments(x0 = 40/48 * xmax, y0 = 03/48 * ymax, x1 = 40/48 * xmax, y1 = 20/48 * ymax, col = col_cath)  # right wing right
