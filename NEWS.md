@@ -7,7 +7,7 @@ Changes since last release:
 
 ## Major changes 
 
-- Added a `grepal()` function to conveniently search `colors()` or color palettes by name. [2020-12-17]
+- Added a `grepal()` function to conveniently search `colors()` or color palettes by name. [2020-12-18]
 
 - Changed color sequence of `pal_unikn_pref` to increase contrast between adjacent colors. [2020-09-04] 
 
@@ -103,6 +103,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2020-12-17.]
+[File `NEWS.md` updated on 2020-12-18.]
 
 <!-- eof. -->
