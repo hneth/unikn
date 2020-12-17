@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 09 04
+## spds | uni.kn |  2020 12 17
 ## ---------------------------
 
 ## Define color-related functions 
@@ -766,7 +766,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   } else {  # if length(pal_tmp) list is NOT > 1:
     
     
-  # 3.2 Detailed view of 1 palette: -----  
+    # 3.2 Detailed view of 1 palette: -----  
     
     names(pal_tmp) <- NULL  # remove first order names! 
     
@@ -1192,5 +1192,111 @@ newpal <- function(col,            # a vector of colors
 # seecol(my_pals, col_brd = "white", lwd_brd = 5,
 #        title = "Comparing custom color palettes")
 
+
+## grep_col: Get a color vector (from colors() or a named df) matching a regex -------
+
+# - Documentation: ---- 
+
+#' Get a vector of colors whose names match a regular expression. 
+#'
+#' \code{grep_col} returns a vector of colors whose names match a regular expression (regex). 
+#' 
+#' By default, the base R vector of named colors (i.e., \code{colors()}) is searched 
+#' for names matching a \code{pattern} (which can be a simple string or regular expression). 
+#' 
+#' If \code{x} (i.e., the object to be searched) is provided, 
+#' it is must be a vector of color names or a data frame of named color objects 
+#' (e.g., a color palette). 
+#'
+#' @param pattern A regular expression 
+#' (specified as a string/character object). 
+#' 
+#' @param x A vector of R color names or a data frame of named colors  
+#' (i.e., whose names can be searched). 
+#' Default: \code{x = colors()}. 
+#' 
+#' @param ignore_case Should the case of pattern be ignored 
+#' (passed to \code{ignore.case} of the \code{grep} function)?   
+#' Default: \code{ignore_case = TRUE}. 
+#' 
+#' @examples
+#' grep_col("cyan")
+#' 
+#' # With regular expressions:
+#' grep_col("gr(a|e)y")
+#' grep_col("^gr(a|e)y")
+#' grep_col("^gr(a|e)y$")
+#' 
+#' # With other color objects (df as x):
+#' grep_col("blau", x = pal_unikn)
+#' grep_col("SEE", x = pal_unikn_pref)
+#' 
+#' # Example applications:
+#' seecol(grep_col("cyan"))
+#' seecol(grep_col("white"), col_bg = "lightblue2")
+#' seecol(grep_col("SEE", pal_unikn))
+#' seecol(grep_col("blau", pal_unikn_pref))
+#' 
+#' @family color functions
+#' 
+#' @seealso 
+#' \code{\link{defpal}} to define color palettes; 
+#' \code{\link{seepal}} to plot color palettes;  
+#' \code{\link{usecol}} to use a color palette.  
+#'
+#' @import grDevices 
+#' 
+#' @export 
+
+# - Definition: ------- 
+
+grep_col <- function(pattern, x = colors(), ignore_case = TRUE){
+  
+  # Initialize: 
+  ix <- NA  # index
+  cv <- NA  # color vector
+  
+  # Main: 
+  if (is.vector(x)){
+    # if (ds4psy::is_vector(x) & !is.data.frame(x)){
+    
+    # message("x is a vector:")
+    
+    ix <- grep(x = x, pattern = pattern, ignore.case = ignore_case)
+    cv <- x[ix]
+    
+  } else if (is.data.frame(x)){
+    
+    # message("x is a data frame:")    
+    
+    df <- x  # work with df: 
+    ix <- grep(x = names(df), pattern = pattern, ignore.case = ignore_case)
+    cv <- df[ix]
+    
+  } # end if.
+  
+  # Output:
+  return(cv)
+  
+} # grep_col end. 
+
+
+# # Check:
+# grep_col("cyan")
+# 
+# # With regular expressions:
+# grep_col("gr(a|e)y")
+# grep_col("^gr(a|e)y")
+# grep_col("^gr(a|e)y$")
+# 
+# # With other color objects (as x):
+# grep_col("blau", x = pal_unikn)
+# grep_col("SEE", x = pal_unikn_pref)
+# 
+# # Example applications:
+# seecol(grep_col("cyan"))
+# seecol(grep_col("white"), col_bg = "lightblue2")
+# seecol(grep_col("SEE", pal_unikn))
+# seecol(grep_col("blau", pal_unikn_pref))
 
 ## eof. ----------
