@@ -160,7 +160,7 @@ seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color functions: 
-\code{\link{grep_col}()},
+\code{\link{grepal}()},
 \code{\link{newpal}()},
 \code{\link{usecol}()}
 }
