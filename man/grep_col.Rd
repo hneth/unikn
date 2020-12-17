@@ -10,7 +10,7 @@ grep_col(pattern, x = colors(), ignore_case = TRUE)
 \item{pattern}{A regular expression 
 (specified as a string/character object).}
 
-\item{x}{A vector of R color names or data frame of named colors
+\item{x}{A vector of R color names or a data frame of named colors
 (i.e., whose names can be searched). 
 Default: \code{x = colors()}.}
 
@@ -20,6 +20,14 @@ Default: \code{ignore_case = TRUE}.}
 }
 \description{
 \code{grep_col} returns a vector of colors whose names match a regular expression (regex).
+}
+\details{
+By default, the base R vector of named colors (i.e., \code{colors()}) is searched 
+for names matching a \code{pattern} (which can be a simple string or regular expression). 
+
+If \code{x} (i.e., the object to be searched) is provided, 
+it is must be a vector of color names or a data frame of named color objects 
+(e.g., a color palette).
 }
 \examples{
 grep_col("cyan")
