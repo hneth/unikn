@@ -7,7 +7,8 @@ Changes since last release:
 
 ## Major changes 
 
-- Change color sequence of `pal_unikn_pref` to increase contrast between adjacent colors. [2020-09-04] 
+- Added `grep_col()` function to conveniently search `colors()` or color palettes by name. [2020-12-17] 
+- Changed color sequence of `pal_unikn_pref` to increase contrast between adjacent colors. [2020-09-04] 
 
 ## Minor changes
 
@@ -98,6 +99,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2020-09-04.]
+[File `NEWS.md` updated on 2020-12-17.]
 
 <!-- eof. -->
