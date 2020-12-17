@@ -284,7 +284,7 @@ seecol(pal_unikn, alpha = 0.5)
 
 Setting opacity for a custom color palette: 
 
-```{r transparency-four, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r transparency-four, fig.width = 6, fig.height = 5, fig.align = 'center'}
 four_cols <- usecol(c("steelblue", "gold", "firebrick", "forestgreen"), alpha = 2/3)
 
 seecol(four_cols, title = "Four named colors with added transparency")
@@ -292,7 +292,7 @@ seecol(four_cols, title = "Four named colors with added transparency")
 
 Setting opacity for comparing of multiple color palettes: 
 
-```{r transparency-all, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r transparency-all, fig.width = 6, fig.height = 5, fig.align = 'center'}
 seecol("grad", alpha = 0.67, title = "Seeing color palettes with added transparency")
 ```
 
@@ -329,13 +329,13 @@ seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair),
        title = "Comparing and labeling custom color palettes")
 ```
 
-As before, we can use the `n` argument for obtaining shorter subsets of color palettes: 
+As before, we can use the `n`\ argument for obtaining shorter subsets of color palettes: 
 
 ```{r subset-compare, fig.width = 6, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 5)
 ```
 
-or larger values of `n` for extending color palettes: 
+or larger values of\ `n` for extending color palettes: 
 
 ```{r superset-compare, fig.width = 6, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
@@ -346,7 +346,7 @@ seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
 
 The `newpal()` function makes it easy to define new named color palettes: 
 
-```{r newpal-1, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r newpal-1, fig.width = 6, fig.height = 5, fig.align = 'center'}
 my_cols <- c("black", "firebrick", "gold")
 
 flag_de <- newpal(col = my_cols,
@@ -360,7 +360,7 @@ seecol(flag_de, title = "Defining a flag_de color palette")
 
 A common situation in R is that we want some particular shade of color (e.g., some sort of red), but also know that the color named "red" is _not_ the one we want. Instead, we would like to see all colors that contain "red" in its name. This is what `grepal()` is made for:
 
-```{r grepal-1, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r grepal-1, fig.width = 7, fig.height = 4, fig.align = 'center'}
 grepal("red")  # get 27 names of colors() with "red" in their name
 
 seecol(grepal("red"))  # see all colors() with "red" in their name
@@ -377,7 +377,7 @@ length(grepal("^gr(a|e)y$")) # shades starting and ending with "gray" or "grey"
 By default, `grepal()` searches the vector of named colors `x = colors()` (provided by **grDevices**). 
 However, it also allows searching color palettes provided as data frames (with color names):
 
-```{r grepal-3, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r grepal-3, fig.width = 6, fig.height = 5, fig.align = 'center'}
 grepal("see", pal_unikn)
 
 seecol(grepal("blau", pal_unikn_pref), title = "Shades of 'blau' in pal_unikn_pref")
@@ -451,7 +451,7 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
 
 Here are some additional examples for using the `grepal()` function for finding colors by their names (or a pattern): 
 
-```{r grepal-example-1, fig.width = 6, fig.height = 3, fig.align = 'center'}
+```{r grepal-example-1, fig.width = 6, fig.height = 4, fig.align = 'center'}
 # Get color palettes matching a pattern:
 pal_1 <- grepal("orange")
 pal_2 <- grepal("olive")
