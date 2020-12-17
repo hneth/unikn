@@ -387,13 +387,16 @@ seecol(grepal("blau", pal_unikn_pref), title = "Shades of 'blau' in pal_unikn_pr
 ```
 
 
-## Examples
+## Usage examples 
 
-The following examples illustrate how plotting functions in R can use the **unikn** color palettes and the `seecol()`, `usecol()`, and `grepal()` functions. 
+The following examples illustrate how plotting functions in R can use the **unikn** color palettes, as well as the `seecol()`, `usecol()`, `newpal()`, and `grepal()` functions. 
 
 ### Plotting in **base** R 
 
-Using the `plot()` function of **base R** for a scatterplot: 
+**Task:** Using **unikn** colors in a visualization created by **base** R graphics. 
+
+When using the `plot()` function of **base R** for a scatterplot, we can 
+use the `usecol()` function in combination with any color palette (e.g., `pal_unikn`) as the `col` argument: 
 
 ```{r demo-scatterplot, eval = TRUE, fig.width = 5, fig.height = 5, fig.align = 'center', collapse = TRUE}
 plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 4, 
@@ -403,7 +406,10 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 4,
 
 ### Platting with **ggplot2**
 
-Using the `ggplot()` function of **ggplot2** for an area plot: 
+**Task:** Using **unikn** colors in a visualization created by the **ggplot2** package.
+
+When using the `ggplot()` function of **ggplot2** (e.g., for an area plot), we can use the `usecol()` function for defining a color palette that is used as the `values` of the 
+`scale_color_manual()` or `scale_fill_manual()` functions:
 
 ```{r use-pal-ggplot2, eval = FALSE, fig.width = 7, fig.asp = .618, fig.align = 'center', collapse = TRUE}
 # Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/ 
@@ -449,12 +455,28 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
 
 <img src = "./../inst/pix/README-use_pal_ggplot2-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/>
 
+### Creating a color palette 
+
+**Task:** Create a new color palette (with color names).
+
+```{r newpal-example, fig.width = 6, fig.asp=.9, fig.align = 'center'}
+color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
+
+names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
+
+pal_google   <- newpal(color_google, names_google)
+
+seecol(pal_google, title = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
+```
+
 
 ### Finding colors by name 
 
+**Task:** Find colors by matching their names to a pattern (as a regular expression). 
+
 Here are some additional examples for using the `grepal()` function for finding colors by their names (or a pattern): 
 
-```{r grepal-example-1, fig.width = 6, fig.height = 4, fig.align = 'center'}
+```{r grepal-example-1, fig.width=5, fig.height=4, fig.align = 'center'}
 # Get color palettes matching a pattern:
 pal_1 <- grepal("orange")
 pal_2 <- grepal("olive")
@@ -463,19 +485,27 @@ pal_3 <- grepal("white")
 # See individual palettes:
 # seecol(pal_1, title = "Shades of 'orange' colors()")
 # seecol(pal_2, title = "Shades of 'olive' colors()")
-seecol(pal_3, title = "See shades of 'white' colors()", col_bg = "skyblue1")
-
-# See multiple color palettes:
-seecol(pal = list(pal_1, pal_2, pal_3), col_bg = "grey80")
+seecol(pal_3, title = "Shades of 'white' colors()", col_bg = "grey90")
 ```
 
-Compare different types of "blue", "orange", and "purple or violet" provided by the **grDevices** vector of named `colors()` with various shades of "blau", "pink", "peach" and "bordeaux" provided by **unikn** color palettes:
+Providing a list of color palettes to the `pal` argument of the `seecol()` function allows comparing multiple color palettes: 
 
-```{r grepal-example-2, fig.width = 6, fig.height = 3, fig.align = 'center'} 
-# Search colors() for specific names: 
-blues <- grepal("blue$")  # ending on "blue"
-oranges <- grepal("orange")
-purpviol <- grepal("purple|violet")
+```{r grepal-example-2, fig.width=6, fig.asp=.50, fig.align = 'center'}
+# See multiple color palettes:
+seecol(pal = list(pal_1, pal_2, pal_3), 
+       pal_names = c("orange", "olive", "white"), 
+       col_bg = "grey90")
+```
+
+The last example illustrates that (a)\ the `pattern`\ argument of `grepal()` can use regular expressions, and that (b)\ the `x`\ argument of `grepal()` works with vectors or data frames (e.g., the **unikn** color palettes). 
+
+Let's compare different types of "blue", "orange", and "purple or violet" provided by the **grDevices** vector of named `colors()` with various shades of "blau", "pink", "peach" and "bordeaux" provided by **unikn** color palettes: 
+
+```{r grepal-example-3, fig.width=6, fig.align=.50, fig.align = 'center'} 
+# Search colors() with specific patterns (in their names): 
+blues    <- grepal("blue$")   # ending on "blue"
+oranges  <- grepal("orange")  # containing "orange"
+purpviol <- grepal("purple|violet")  # containing "purple" or "violet"
 
 # Search unikn palettes for color names: 
 blaus_1 <- grepal("blau", pal_unikn)
@@ -487,7 +517,8 @@ baux  <- grepal("bordeaux", pal_bordeaux)
 # See multiple color palettes: 
 seecol(list(blues, oranges, purpviol, 
             c(blaus_1, blaus_2, pinks, peach, baux)),
-       pal_names = c("blues", "oranges", "purpviol", "unikn pals"))
+       pal_names = c("blues", "oranges", "purpviol", "unikn colors"),
+       title ="Comparing custom color palettes")
 ```
 
 
