@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2020 12 17"
+date: "2020 12 18"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -347,13 +347,16 @@ seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
 The `newpal()` function makes it easy to define new named color palettes: 
 
 ```{r newpal-1, fig.width = 6, fig.height = 5, fig.align = 'center'}
-my_cols <- c("black", "firebrick", "gold")
+col_flag <- c("#000000", "#dd0000", "#ffce00")  # source: www.schemecolor.com
 
-flag_de <- newpal(col = my_cols,
-                  names = c("schwarz", "rot", "gold"))
+flag_de  <- newpal(col = col_flag,
+                   names = c("black", "red", "gold"))
 
-seecol(flag_de, title = "Defining a flag_de color palette")
+seecol(flag_de, title = "Defining a flag_de color palette (www.schemecolor.com)")
 ```
+
+By default, `newpal()` returns the new color palette as a data frame. 
+Setting `as_df = FALSE` returns a (named) vector. 
 
 
 ## Searching for color names with `grepal()` 
