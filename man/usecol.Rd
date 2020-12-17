@@ -69,6 +69,7 @@ seecol(pal_3)
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color functions: 
+\code{\link{grep_col}()},
 \code{\link{newpal}()},
 \code{\link{seecol}()}
 }
