@@ -1,7 +1,7 @@
 ---
 title: "Colors and color palettes"
 author: "SPDS, uni.kn"
-date: "2020 08 24"
+date: "2020 12 17"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -48,21 +48,35 @@ library('unikn')             # loads the package
 
 ## Overview 
 
-There are 2 main functions to interact with the color palettes in the **unikn** package: `seecol()` and `usecol()`. 
+There are two main functions to interact with the color palettes in the **unikn** package: 
+`seecol()` and `usecol()`. 
 
-1. The `seecol()` function is a general-purpose tool for viewing (or _seeing_) color palettes. `seecol` takes 2 main arguments:
+1. `seecol()` is a general-purpose tool for viewing (or _seeing_) color palettes. 
+The `seecol()` function takes two main arguments:
 
-    1. `pal` describes either 1 or multiple color palettes (with a default of `pal = "all"`);  
-    2. `n` describes the number of desired colors (with a default of `n = "all"`).  
+    1. `pal` provides either one or multiple color palettes (with a default of `pal = "all"`);  
+    2. `n` specifies the number of desired colors (with a default of `n = "all"`).  
 
-Based on the setting of `pal`, the `seecol` function distinguishes between 2 modes: 
+Based on the setting of `pal`, the `seecol()` function distinguishes between two modes: 
 
-* _comparing_ a set of color palettes by passing a keyword or `list`-object;  
-* viewing the _details_ of a single color palette.   
+    * _comparing_ a set of multiple color palettes (by passing a keyword or `list`-object);  
+    * viewing the _details_ of a single color palette (by providing only one palette).   
 
-2. The `usecol()` function allows using a color palette without showing its details. 
+2. `usecol()` allows using a color palette (e.g., when creating visualizations) without showing its details. 
+The `usecol()` function also takes arguments for conveniently manipulating color palettes:
 
-## Viewing colors and color palettes with `seecol`
+    1. `pal` provides either one or multiple color palettes (with a default of `pal = pal_unikn`);  
+    2. `n` specifies the number of desired colors (with a default of `n = "all"`); 
+    3. `alpha` adjusts the opacity of all colors in `pal` (e.g., `alpha = .50` for medium transparency). 
+
+Two additional functions serve in auxiliary roles:
+
+1. `newpal()` allows defining new color palettes (typically as data frames). 
+
+2. `grepal()` searches a color palette `x` (i.e., a vector of color names or data frame of named colors) for a `pattern` and returns those that match the pattern (or regular expression). 
+
+
+## Viewing colors and color palettes with `seecol()`
 
 The behavior of the `seecol()` function depends on the inputs to its `pal` argument. 
 It either allows comparing multiple color palettes or shows the details of a single color palette.
@@ -154,7 +168,7 @@ seecol(pal_seegruen, col_brd = "white", lwd_brd = 10, title = "A color palette w
 ```
 
 
-## Using a palette with `usecol` (without seeing it)
+## Using a color palette with `usecol()` (without seeing it)
 
 The `usecol()` function allows directly using a color palette in a plot (i.e., without first viewing it).
 `usecol()` corresponds to `seecol()` by taking the same main arguments (`pal` and `n`). 
@@ -260,18 +274,26 @@ barplot(dat, beside = TRUE, col = my_pair)
 
 ### Controlling transparency
 
-Both `seecol()` and `usecol()` accept an `alpha` argument (in a range from 0 to 1) for controlling the transparency of color palettes, with higher values for `alpha` corresponding to higher transparency (i.e., lower opacity).
+Both `seecol()` and `usecol()` accept an `alpha` argument (in a range from\ 0 to\ 1) for controlling the transparency of color palettes, with higher values for `alpha` corresponding to lower transparency (i.e., higher opacity). 
 
-Displaying a specific color palette at an opacity of 0.5:
+Displaying a specific color palette at a medium opacity/transparency:
 
 ```{r transparency1-pal, fig.width = 6, fig.asp = .75, fig.align = 'center', collapse = TRUE}
 seecol(pal_unikn, alpha = 0.5)
 ```
 
+Setting opacity for a custom color palette: 
+
+```{r transparency-four, fig.width = 6, fig.height = 3, fig.align = 'center'}
+four_cols <- usecol(c("steelblue", "gold", "firebrick", "forestgreen"), alpha = 2/3)
+
+seecol(four_cols, title = "Four named colors with added transparency")
+```
+
 Setting opacity for comparing of multiple color palettes: 
 
 ```{r transparency-all, fig.width = 6, fig.height = 3, fig.align = 'center'}
-seecol("grad", alpha = 0.67)
+seecol("grad", alpha = 0.67, title = "Seeing color palettes with added transparency")
 ```
 
 
@@ -320,11 +342,55 @@ seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
 ```
 
 
+## Defining new color palettes with `newpal()`
+
+The `newpal()` function makes it easy to define new named color palettes: 
+
+```{r newpal-1, fig.width = 6, fig.height = 3, fig.align = 'center'}
+my_cols <- c("black", "firebrick", "gold")
+
+flag_de <- newpal(col = my_cols,
+                  names = c("schwarz", "rot", "gold"))
+
+seecol(flag_de, title = "Defining a flag_de color palette")
+```
+
+
+## Searching for color names with `grepal()` 
+
+A common situation in R is that we want some particular shade of color (e.g., some sort of red), but also know that the color named "red" is _not_ the one we want. Instead, we would like to see all colors that contain "red" in its name. This is what `grepal()` is made for:
+
+```{r grepal-1, fig.width = 6, fig.height = 3, fig.align = 'center'}
+grepal("red")  # get 27 names of colors() with "red" in their name
+
+seecol(grepal("red"))  # see all colors() with "red" in their name
+```
+
+Note that the `grepal()` allows for regular expressions:
+
+```{r grepal-2}
+length(grepal("gr(a|e)y"))   # shades of "gray" or "grey"
+length(grepal("^gr(a|e)y"))  # shades starting with "gray" or "grey"
+length(grepal("^gr(a|e)y$")) # shades starting and ending with "gray" or "grey"
+```
+
+By default, `grepal()` searches the vector of named colors `x = colors()` (provided by **grDevices**). 
+However, it also allows searching color palettes provided as data frames (with color names):
+
+```{r grepal-3, fig.width = 6, fig.height = 3, fig.align = 'center'}
+grepal("see", pal_unikn)
+
+seecol(grepal("blau", pal_unikn_pref), title = "Shades of 'blau' in pal_unikn_pref")
+```
+
+
 ## Examples
 
-The following examples illustrate how plotting functions in R can use the **unikn** color palettes and the `seecol()` and `usecol()` functions. 
+The following examples illustrate how plotting functions in R can use the **unikn** color palettes and the `seecol()`, `usecol()`, and `grepal()` functions. 
 
-1. Using the `plot` function of **base R** for a scatterplot: 
+### Plotting in **base** R 
+
+Using the `plot()` function of **base R** for a scatterplot: 
 
 ```{r demo-scatterplot, eval = TRUE, fig.width = 5, fig.height = 5, fig.align = 'center', collapse = TRUE}
 plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 4, 
@@ -332,7 +398,9 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 4,
      main = "99 transparent dots", axes = FALSE, xlab = NA, ylab = NA)
 ```
 
-2. Using the `ggplot` function of **ggplot2** for an area plot: 
+### Platting with **ggplot2**
+
+Using the `ggplot()` function of **ggplot2** for an area plot: 
 
 ```{r use-pal-ggplot2, eval = FALSE, fig.width = 7, fig.asp = .618, fig.align = 'center', collapse = TRUE}
 # Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/ 
@@ -377,6 +445,48 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
 ```
 
 <img src = "./../inst/pix/README-use_pal_ggplot2-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/>
+
+
+### Finding colors by name 
+
+Here are some additional examples for using the `grepal()` function for finding colors by their names (or a pattern): 
+
+```{r grepal-example-1, fig.width = 6, fig.height = 3, fig.align = 'center'}
+# Get color palettes matching a pattern:
+pal_1 <- grepal("orange")
+pal_2 <- grepal("olive")
+pal_3 <- grepal("white")
+
+# See individual palettes:
+# seecol(pal_1, title = "Shades of 'orange' colors()")
+# seecol(pal_2, title = "Shades of 'olive' colors()")
+seecol(pal_3, title = "See shades of 'white' colors()", col_bg = "skyblue1")
+
+# See multiple color palettes:
+seecol(pal = list(pal_1, pal_2, pal_3), col_bg = "grey80")
+```
+
+Compare different types of "blue", "orange", and "purple or violet" provided by the **grDevices** vector of named `colors()` with various shades of "blau", "pink", "peach" and "bordeaux" provided by **unikn** color palettes:
+
+```{r grepal-example-2, fig.width = 6, fig.height = 3, fig.align = 'center'} 
+# Search colors() for specific names: 
+blues <- grepal("blue$")  # ending on "blue"
+oranges <- grepal("orange")
+purpviol <- grepal("purple|violet")
+
+# Search unikn palettes for color names: 
+blaus_1 <- grepal("blau", pal_unikn)
+blaus_2 <- grepal("blau", pal_karpfenblau)
+pinks <- grepal("pink", pal_pinky)
+peach <- grepal("peach", pal_peach)
+baux  <- grepal("bordeaux", pal_bordeaux)
+
+# See multiple color palettes: 
+seecol(list(blues, oranges, purpviol, 
+            c(blaus_1, blaus_2, pinks, peach, baux)),
+       pal_names = c("blues", "oranges", "purpviol", "unikn pals"))
+```
+
 
 ## Other institutions 
 
@@ -423,7 +533,7 @@ names(pal_freiburg_info) <- c("mid-blau", "hell-blau", "dark-red", "hell-red", "
                               "anthrazit", "dark-grey", "mid-grey", "hell-grey", "orange", "gelb")
 ```
 
-Alternatively, we can define both (colors and names) in 1 step by using the `newpal()` function:
+Alternatively, we can define both (colors and names) in one step by using the `newpal()` function:
 
 ```{r freiburg-newpal}
 pal_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
@@ -457,7 +567,7 @@ The color scheme of [Princeton University](https://princeton.edu/) is easily rec
     - Orange on white: "#E77500"  
     - Orange on black: "#F58025"  
 
-These definitions suggest defining 3 separate versions of orange and corresponding color palettes: 
+These definitions suggest defining three separate versions of orange and corresponding color palettes: 
 
 ```{r princeton-cols, fig.width = 6, fig.asp = .69, fig.align = 'center', fig.show = "hold", collapse = TRUE}
 # HEX values for 3 shades of orange: 
