@@ -389,7 +389,9 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <span id="cb18-35"><a href="#cb18-35" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> cur_col) <span class="op">+</span></span>
 <span id="cb18-36"><a href="#cb18-36" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span></span>
 <span id="cb18-37"><a href="#cb18-37" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
-<p><img src="./inst/pix/README-use_pal_ggplot2-1.png" align="center" width="450px" alt="Using pal_unikn in ggplot" style="border:10;"></p>
+<!-- Image: ggplot2 with pal_unikn palette as link (in HTML): -->
+<p style="text-align:center;">
+<img src="./inst/pix/README-use_pal_ggplot2-1.png" align="center" alt="Using pal_unikn in ggplot" style="width: 500px; border:10;"></p>
 </div>
 <div id="creating-color-palettes-with-newpal" class="section level3">
 <h3 class="hasAnchor">
@@ -457,7 +459,9 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> my_pal) <span class="op">+</span></span>
 <span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span></span>
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
-<p><img src="./inst/pix/README-use_ggplot2_princeton-1.png" align="center" width="450px" alt="pal_unikn" style="border:10;"></p>
+<!-- Image: ggplot2 with Princeton palette as link (in HTML): -->
+<p style="text-align:center;">
+<img src="./inst/pix/README-use_ggplot2_princeton-1.png" alt="pal_princeton_1" style="width: 500px; border:10;"></p>
 </div>
 <div id="the-colors-of-google" class="section level4">
 <h4 class="hasAnchor">
@@ -503,7 +507,9 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a>oranges &lt;-<span class="st"> </span><span class="kw">grepal</span>(<span class="st">"orange"</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true"></a><span class="co"># See color palette:</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true"></a><span class="kw">seecol</span>(oranges, <span class="dt">title =</span> <span class="st">"Shades of 'orange' in colors()"</span>)</span></code></pre></div>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true"></a><span class="kw">seecol</span>(oranges, </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true"></a>       <span class="dt">col_brd =</span> <span class="st">"white"</span>, <span class="dt">lwd_brd =</span> <span class="dv">2</span>, </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true"></a>       <span class="dt">title =</span> <span class="st">"Shades of 'orange' in colors()"</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-grepal-example-1-1.png" style="display: block; margin: auto;"></p>
 <p>Providing a list of color palettes to the <code>pal</code> argument of the <code><a href="reference/seecol.html">seecol()</a></code> function allows comparing multiple color palettes:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="co"># Find colors:</span></span>
@@ -556,16 +562,20 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <a href="#headings" class="anchor"></a>Headings</h3>
 <p>The <code><a href="reference/heading.html">heading()</a></code> function is a convenient wrapper around <code>mark</code>:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a><span class="kw">heading</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"pa-"</span>, <span class="st">"ra-"</span>, <span class="st">"die-"</span>, <span class="st">"sisch"</span>))</span></code></pre></div>
-<p><img src="inst/pix/README-heading-demo-1.png" style="display: block; margin: auto;"></p>
-<p>Headings violating the official recommendations (e.g., step-wise titles) will generate a message.</p>
+<p><img src="inst/pix/README-heading-demo-1-1.png" style="display: block; margin: auto;"></p>
+<p>Headings violating the official recommendations (e.g., step-wise titles) will generate a message:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true"></a><span class="kw">heading</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Ewig"</span>, <span class="st">"währt am"</span>, <span class="st">"längsten..."</span>), </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true"></a>        <span class="dt">y =</span> <span class="dv">2</span><span class="op">/</span><span class="dv">3</span>, <span class="dt">col_bg =</span> <span class="kw">usecol</span>(pal_pinky))</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true"></a><span class="co">#&gt; Step-wise titles are discouraged: Consider re-arranging?</span></span></code></pre></div>
+<p><img src="inst/pix/README-heading-demo-2-1.png" style="display: block; margin: auto;"></p>
 </div>
 <div id="urls" class="section level3">
 <h3 class="hasAnchor">
 <a href="#urls" class="anchor"></a>URLs</h3>
 <p>Finally, the <code><a href="reference/url_unikn.html">url_unikn()</a></code> function allows formatting URLs the uni.kn way:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true"></a>my_url &lt;-<span class="st"> </span><span class="kw">url_unikn</span>(<span class="st">"https://www.uni-konstanz.de/"</span>)  <span class="co"># input URL as copied from web browser</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true"></a><span class="kw">post</span>(<span class="dt">labels =</span> my_url, <span class="dt">x =</span> <span class="fl">.2</span>, <span class="dt">y =</span> <span class="fl">.1</span>, <span class="dt">font =</span> <span class="dv">4</span>, <span class="dt">new_plot =</span> <span class="st">"xbox"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a>my_url &lt;-<span class="st"> </span><span class="kw">url_unikn</span>(<span class="st">"https://www.uni-konstanz.de/"</span>)  <span class="co"># input URL as copied from web browser</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a><span class="kw">post</span>(<span class="dt">labels =</span> my_url, <span class="dt">x =</span> <span class="fl">.2</span>, <span class="dt">y =</span> <span class="fl">.1</span>, <span class="dt">font =</span> <span class="dv">4</span>, <span class="dt">new_plot =</span> <span class="st">"xbox"</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-url-post-1.png" style="display: block; margin: auto;"></p>
 </div>
 <div id="using-custom-color-palettes" class="section level3">

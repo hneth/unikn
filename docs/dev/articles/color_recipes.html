@@ -182,8 +182,9 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="no">cur_col</span>) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>() +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="st">"none"</span>)</pre></body></html></div>
-<!-- Image as link: -->
-<p><img src="../inst/pix/README-use_pal_ggplot2-1.png" align="center" width="450px" alt="pal_unikn" style="border:10;"></p>
+<!-- Image as link (in HTML): -->
+<p style="text-align:center;">
+<img src="../inst/pix/README-use_pal_ggplot2-1.png" alt="pal_unikn" style="width: 450px; border:10;"></p>
 </div>
 <div id="viewing-and-comparing-color-palettes" class="section level2">
 <h2 class="hasAnchor">
@@ -196,9 +197,13 @@
 <p><img src="color_recipes_files/figure-html/seecol-example-1-1.png" width="480" style="display: block; margin: auto;"></p>
 <p>Note that the other arguments of the <code><a href="../reference/seecol.html">seecol()</a></code> function — especially <code>n</code> and <code>alpha</code> — can further modify the palette.</p>
 <p><strong>Task:</strong> Compare (the colors and range of) multiple color palettes.</p>
-<p>For comparing multiple color palettes (e.g., 20 random color palettes of <code><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.pals()</a></code>), provide the palettes (as a list) as the <code>pal</code> argument of the <code><a href="../reference/seecol.html">seecol()</a></code> function:</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="co"># See all palettes:</span>
-<span class="fu"><a href="../reference/seecol.html">seecol</a></span>(<span class="kw">pal</span> <span class="kw">=</span> <span class="no">l_pal</span>,
+<p>For comparing multiple color palettes (e.g., 20 random color palettes of <code><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.pals()</a></code>), provide them as a list in the <code>pal</code> argument of the <code><a href="../reference/seecol.html">seecol()</a></code> function.</p>
+<p>For instance, let’s create and compare a set of 20 random HCL palettes:</p>
+<ul>
+<li><p>Generate random HCL palettes (and save them as a list):</p></li>
+<li><p>Use <code><a href="../reference/seecol.html">seecol()</a></code> for comparing multiple color palettes:</p></li>
+</ul>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="../reference/seecol.html">seecol</a></span>(<span class="kw">pal</span> <span class="kw">=</span> <span class="no">l_pal</span>,
        <span class="kw">pal_names</span> <span class="kw">=</span> <span class="no">s_pal</span>,
        <span class="kw">col_brd</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">lwd_brd</span> <span class="kw">=</span> <span class="fl">1</span>,
        <span class="kw">title</span> <span class="kw">=</span> <span class="no">t_lbl</span>)</pre></body></html></div>
