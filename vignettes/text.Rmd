@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
 author: "SPDS, uni.kn"
-date: "2020 11 01"
+date: "2020 12 18"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -35,7 +35,8 @@ knitr::opts_chunk$set(echo = TRUE,
 </a>
 
 This vignette explains the **unikn** functions for plotting graphical elements and text decorations. 
-(See the vignette on [color](colors.html) for information on colors, color palettes, and corresponding functions.) 
+(See the vignette on [colors](colors.html) for general information on colors, color palettes, and corresponding functions, 
+or the more specialized vignettes on [color recipes](color_recipes.html) and [institutional colors](color_inst.html).) 
 
 Please install and/or load the **unikn** package to get started: 
 
@@ -378,11 +379,24 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)   
 
 The following vignettes provide instructions and examples for using the **unikn** objects and functions: 
 
-<!-- Table of vignettes: --> 
+## Vignettes
+
+The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 
+
+<!-- unikn pkg logo and link: -->
+<a href = "https://github.com/hneth/unikn/">
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
+</a> 
+
+<!-- Table of vignettes: -->
 
 | Nr.  | Vignette | Content    |        
 | ---: |:---------|:-----------|
-| 1. | [Colors](colors.html) | Colors and color palettes | 
-| 2. | [Text](text.html)     | Text boxes and decorations | 
+| 1. | [Colors](colors.html) | Colors and color functions |
+| 2. | [Color recipes](color_recipes.html) | Recipes for color-related tasks |
+| 3. | [Institutional colors](color_inst.html) | Creating color palettes for other insitutions |
+| 4. | [Text](text.html)     | Text boxes and decorations | 
+
+<!-- eof. -->
 
 <!-- eof. -->
