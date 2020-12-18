@@ -1225,19 +1225,22 @@ newpal <- function(col,            # a vector of colors
 #' grepal("cyan")
 #' 
 #' # With regular expressions:
-#' grepal("gr(a|e)y")
-#' grepal("^gr(a|e)y")
-#' grepal("^gr(a|e)y$")
+#' some_grey  <- grepal("gr(a|e)y")
+#' start_grey <- grepal("^gr(a|e)y")
+#' only_grey  <- grepal("^gr(a|e)y$")
+#' 
+#' length(some_grey)
+#' length(only_grey)
 #' 
 #' # With other color objects (df as x):
 #' grepal("blau", x = pal_unikn)
 #' grepal("SEE", x = pal_unikn_pref)
 #' 
-#' # Example applications:
+#' # Applications:
 #' seecol(grepal("cyan"))
-#' seecol(grepal("white"), col_bg = "lightblue2")
-#' seecol(grepal("SEE", pal_unikn))
-#' seecol(grepal("blau", pal_unikn_pref))
+#' seecol(grepal("white"), col_bg = "lightblue2", title = "See 'white' colors()")
+#' seecol(grepal("SEE", pal_unikn), title = "All 'SEE' colors in pal_unikn")
+#' seecol(grepal("blau", pal_unikn_pref), title = "All 'blau' colors in pal_unikn_pref")
 #' 
 #' @family color functions
 #' 
