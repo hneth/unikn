@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.0</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.0.9008</span>
       </span>
     </div>
 
@@ -60,7 +60,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/colors.html">Colors and color palettes</a>
+      <a href="../articles/colors.html">Colors and color functions</a>
+    </li>
+    <li>
+      <a href="../articles/color_recipes.html">Color recipes</a>
+    </li>
+    <li>
+      <a href="../articles/color_inst.html">Institutional colors</a>
     </li>
     <li>
       <a href="../articles/text.html">Text decoration</a>
@@ -91,13 +97,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="text_files/header-attrs-2.3/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Text boxes and decorations</h1>
                         <h4 class="author">SPDS, uni.kn</h4>
             
-            <h4 class="date">2020 08 24</h4>
+            <h4 class="date">2020 12 18</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/master/vignettes/text.Rmd"><code>vignettes/text.Rmd</code></a></small>
       <div class="hidden name"><code>text.Rmd</code></div>
@@ -108,9 +114,9 @@
     
 <!-- unikn pkg logo and link: -->
 <p><a href="https://github.com/hneth/unikn/"> <img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="140px" style="width: 140px; float: right; border:0;"></a></p>
-<p>This vignette explains the <strong>unikn</strong> functions for plotting graphical elements and text decorations. (See the vignette on <a href="colors.html">color</a> for information on colors, color palettes, and corresponding functions.)</p>
+<p>This vignette explains the <strong>unikn</strong> functions for plotting graphical elements and text decorations. (See the vignette on <a href="colors.html">colors</a> for general information on colors, color palettes, and corresponding functions, or the more specialized vignettes on <a href="color_recipes.html">color recipes</a> and <a href="color_inst.html">institutional colors</a>.)</p>
 <p>Please install and/or load the <strong>unikn</strong> package to get started:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="co"># install.packages('unikn')  # install unikn from CRAN client</span>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="co"># install.packages('unikn')  # install unikn from CRAN client</span>
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'unikn'</span>)             <span class="co"># loads the package</span></pre></body></html></div>
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
@@ -118,11 +124,11 @@
 <p>Beyond providing support for <a href="colors.html">colors</a>, <strong>unikn</strong> provides functions for plotting graphical elements (like boxes) and text decorations (with colored backgrounds or underlining). Before illustrating these functions, please note some caveats:</p>
 <ul>
 <li><p>Plotting text (i.e., graphically rendering characters) is rarely a good idea. In contrast to the vector fonts used by DTP programs, plotted text typically does not scale (when changing the size of images) and cannot be recognized automatically (e.g., copied, indexed, or scraped). Hence, the following functions should only be used when no better solutions are available (e.g., for adding text to graphs, or for obstructing automatic text recognition).</p></li>
-<li><p>Like all other templates, our renderings are subject to constraints and limitations. For instance, as any standard installation of <a href="https://www.r-project.org/">R</a> lacks the prescribed "Theinhardt" fonts, we only mimic the official design specifications (in Arial, sans serif).</p></li>
+<li><p>Like all other templates, our renderings are subject to constraints and limitations. For instance, as any standard installation of <a href="https://www.r-project.org/">R</a> lacks the prescribed “Theinhardt” fonts, we only mimic the official design specifications (in Arial, sans serif).</p></li>
 </ul>
 <p>That said, digital decorations can be useful to emphasize or structure information, provided that they can be produced easily and flexibly. The <strong>unikn</strong> package helps preventing common mistakes by novices (e.g., boxes or lines extending beyond text, or step-functions in multi-line headings) and can be customized and improved by expert users. Hence, we hope that the following functions are useful for plotting graphical elements (e.g., boxes, logos, etc.) and help you achieve a uniform look when styling presentations or visualizations.</p>
 <p>Please load the <strong>unikn</strong> package to get started:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">unikn</span>)  <span class="co"># load unikn package</span></pre></body></html></div>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">unikn</span>)  <span class="co"># load unikn package</span></pre></body></html></div>
 </div>
 <div id="plotting-empty-slides-and-boxes" class="section level2">
 <h2 class="hasAnchor">
@@ -135,32 +141,32 @@
 <code>xbox</code> plots a colored box with an X in its top right corner.</li>
 </ol>
 <p>Here are both commands with their default settings:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/slide.html">slide</a></span>()  <span class="co"># plot default slide</span></pre></body></html></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="../reference/slide.html">slide</a></span>()  <span class="co"># plot default slide</span></pre></body></html></div>
 <p><img src="text_files/figure-html/slide-def-1.png" width="384" style="display: block; margin: auto;"></p>
-<div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/xbox.html">xbox</a></span>()  <span class="co"># plot default xbox</span></pre></body></html></div>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/xbox.html">xbox</a></span>()  <span class="co"># plot default xbox</span></pre></body></html></div>
 <p><img src="text_files/figure-html/xbox-def-1.png" width="192" style="display: block; margin: auto;"></p>
 <p>Both functions accept additional arguments to customize their appearance.</p>
 <div id="colors" class="section level3">
 <h3 class="hasAnchor">
 <a href="#colors" class="anchor"></a>Colors</h3>
 <p>The background and border colors of slides can be changed by setting their <code>col</code>, <code>border</code>, and <code>lwd</code> arguments:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/slide.html">slide</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">pal_seeblau</span><span class="kw">[[</span><span class="fl">1</span>]], <span class="kw">border</span> <span class="kw">=</span> <span class="no">Petrol</span>, <span class="kw">lwd</span> <span class="kw">=</span> <span class="fl">5</span>)  <span class="co"># set colors of slide background and border</span></pre></body></html></div>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="../reference/slide.html">slide</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">pal_seeblau</span><span class="kw">[[</span><span class="fl">1</span>]], <span class="kw">border</span> <span class="kw">=</span> <span class="no">Petrol</span>, <span class="kw">lwd</span> <span class="kw">=</span> <span class="fl">5</span>)  <span class="co"># set colors of slide background and border</span></pre></body></html></div>
 <p><img src="text_files/figure-html/slide-col-1.png" width="384" style="display: block; margin: auto;"></p>
-<div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/slide.html">slide</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">pal_peach</span><span class="kw">[[</span><span class="fl">2</span>]], <span class="kw">border</span> <span class="kw">=</span> <span class="fl">NA</span>)  <span class="co"># colored slide without a border</span></pre></body></html></div>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="../reference/slide.html">slide</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">pal_peach</span><span class="kw">[[</span><span class="fl">2</span>]], <span class="kw">border</span> <span class="kw">=</span> <span class="fl">NA</span>)  <span class="co"># colored slide without a border</span></pre></body></html></div>
 <p><img src="text_files/figure-html/slide-col-2.png" width="384" style="display: block; margin: auto;"></p>
 <p>Similarly, the background color of xboxes can be changed by the <code>col</code> argument:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/xbox.html">xbox</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">Pinky</span>)  <span class="co"># set background color of xbox</span></pre></body></html></div>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="../reference/xbox.html">xbox</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">Pinky</span>)  <span class="co"># set background color of xbox</span></pre></body></html></div>
 <p><img src="text_files/figure-html/xbox-col-1.png" width="192" style="display: block; margin: auto;"></p>
 </div>
 <div id="dimensions" class="section level3">
 <h3 class="hasAnchor">
 <a href="#dimensions" class="anchor"></a>Dimensions</h3>
 <p>By default, both <code>slide</code> and <code>xbox</code> fill the entire plotting region (i.e., all margins are set to 0).</p>
-<p>The width of a slide is set to 4/3 of its height (of 1). To change this default, use the <code>dim</code> argument for specifying the slide's x- and y-dimensions, respectively:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/slide.html">slide</a></span>(<span class="kw">dim</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>, <span class="fl">1</span>))  <span class="co"># a slide 3 times wider than high</span></pre></body></html></div>
+<p>The width of a slide is set to 4/3 of its height (of 1). To change this default, use the <code>dim</code> argument for specifying the slide’s x- and y-dimensions, respectively:</p>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="../reference/slide.html">slide</a></span>(<span class="kw">dim</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>, <span class="fl">1</span>))  <span class="co"># a slide 3 times wider than high</span></pre></body></html></div>
 <p><img src="text_files/figure-html/slide-dim-1.png" width="576" style="display: block; margin: auto;"></p>
-<p>Similarly, an xbox has the default dimensions of a unit square (i.e., <code>dim = c(1, 1)</code>). To change this default, use the <code>dim</code> argument for specifying the xbox's <code>x</code>- and <code>y</code>-dimensions, respectively:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/xbox.html">xbox</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">Petrol</span>, <span class="kw">dim</span>  <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>))  <span class="co"># an xbox 2 times higher than wide</span></pre></body></html></div>
+<p>Similarly, an xbox has the default dimensions of a unit square (i.e., <code>dim = c(1, 1)</code>). To change this default, use the <code>dim</code> argument for specifying the xbox’s <code>x</code>- and <code>y</code>-dimensions, respectively:</p>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="fu"><a href="../reference/xbox.html">xbox</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">Petrol</span>, <span class="kw">dim</span>  <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>))  <span class="co"># an xbox 2 times higher than wide</span></pre></body></html></div>
 <p><img src="text_files/figure-html/xbox-dim-1.png" width="192" style="display: block; margin: auto;"></p>
 <p>The 2 strokes of the X (in the top right corner) are orthogonal when viewing the <code>xbox</code> at the aspect ratio indicated by <code>dim</code> (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X appears to be distorted. Hence, viewing and printing plots at the desired aspect ratio helps when creating an xbox.</p>
 </div>
@@ -188,10 +194,10 @@
 <div id="mark-text" class="section level3">
 <h3 class="hasAnchor">
 <a href="#mark-text" class="anchor"></a>Mark text</h3>
-<p>The <code>mark</code> function allows highlighting text by plotting it with colored background boxes (to provide the functionality of "Markieren"):</p>
+<p>The <code>mark</code> function allows highlighting text by plotting it with colored background boxes (to provide the functionality of “Markieren”):</p>
 <p><img src="text_files/figure-html/mark-demo-fig-1.png" width="288" style="display: block; margin: auto;"></p>
 <p>By default, <code>mark</code> assumes that we want to add highlighted text to an already existing plot. The text labels to be added are provided (as a character vector) by the <code>labels</code> argument, their coordinates as the corresponding <code>x</code> and <code>y</code> arguments. Various text decorations (i.e., text and background colors, text sizes, and font types) can be set by specifying additional arguments (i.e., <code>col</code>, <code>col_bg</code>, <code>cex</code>, and <code>font</code>, respectively):</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="co"># Some pre-existing plot: </span>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="co"># Some pre-existing plot: </span>
 <span class="no">n</span> <span class="kw">&lt;-</span> <span class="fl">20</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">1</span>)
 <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">mar</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>))
@@ -207,7 +213,7 @@
      <span class="kw">col_bg</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">pal_seeblau</span><span class="kw">[[</span><span class="fl">2</span>]], <span class="no">pal_peach</span><span class="kw">[[</span><span class="fl">3</span>]]), <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1.2</span>)</pre></body></html></div>
 <p><img src="text_files/figure-html/mark-messy-plot-1.png" width="576" style="display: block; margin: auto;"></p>
 <p>If no pre-existing plot is available, setting the <code>new_plot</code> argument to either <code>"blank"</code> or <code>"slide"</code> will generate a new default plot (by using the <code>slide</code> function described above):</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="co"># A sentence to plot: </span>
+<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="co"># A sentence to plot: </span>
 <span class="no">s</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Markieren"</span>,
        <span class="st">"ist ein Bestandteil"</span>,
        <span class="st">"von Studieren."</span>)
@@ -238,15 +244,15 @@
 <div id="underline-text" class="section level3">
 <h3 class="hasAnchor">
 <a href="#underline-text" class="anchor"></a>Underline text</h3>
-<p>The <code>uline</code> function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"):</p>
+<p>The <code>uline</code> function allows emphasizing text by plotting it with colored underlining (to provide the functionality of “Unterstreichen”):</p>
 <p><img src="text_files/figure-html/uline-demo-1.png" width="288" style="display: block; margin: auto;"></p>
-<p>As with <code>mark</code> above, the <code>uline</code> command distinguishes between creating a new plot (by setting <code>new_plot</code> to either <code>"blank"</code> or "<code>slide</code>") or adding to a pre-existing plot (by using the default <code>new_plot = "none"</code>):</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="no">lbl_uline</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"This is neat, true, and terribly important"</span>)
+<p>As with <code>mark</code> above, the <code>uline</code> command distinguishes between creating a new plot (by setting <code>new_plot</code> to either <code>"blank"</code> or “<code>slide</code>”) or adding to a pre-existing plot (by using the default <code>new_plot = "none"</code>):</p>
+<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">lbl_uline</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"This is neat, true, and terribly important"</span>)
 <span class="fu"><a href="../reference/uline.html">uline</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="no">lbl_uline</span>, <span class="kw">new_plot</span> <span class="kw">=</span> <span class="st">"blank"</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.6</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1.1</span>)  <span class="co"># create a new plot</span>
 <span class="fu"><a href="../reference/uline.html">uline</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="st">"(which is why we underline it)."</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.45</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1</span>)  <span class="co"># add to plot</span></pre></body></html></div>
 <p><img src="text_files/figure-html/uline-ex1-1.png" width="432" style="display: block; margin: auto;"></p>
 <p>The arguments for text elements (<code>labels</code>), text positions (<code>x</code>, <code>y</code>, <code>y_layout</code>), and text properties and decorations (<code>col</code>, <code>col_bg</code>, <code>cex</code>, and <code>font</code>) work as they do for <code>mark</code>. For instance, shorter vectors are recycled to match the length of <code>labels</code>:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="no">slogan</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Geradlinig"</span>, <span class="st">"Farbenfroh"</span>, <span class="st">"Beweglich"</span>, <span class="st">"Bunt"</span>, <span class="st">"Paradiesisch"</span>)
+<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">slogan</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Geradlinig"</span>, <span class="st">"Farbenfroh"</span>, <span class="st">"Beweglich"</span>, <span class="st">"Bunt"</span>, <span class="st">"Paradiesisch"</span>)
 <span class="fu"><a href="../reference/uline.html">uline</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="no">slogan</span>,
       <span class="kw">x</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="fl">.5</span>), <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.9</span>, <span class="kw">y_layout</span> <span class="kw">=</span> <span class="st">"even"</span>,
       <span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"black"</span>, <span class="no">Bordeaux</span>), <span class="kw">col_bg</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">Seeblau</span>, <span class="no">Seegruen</span>),
@@ -256,12 +262,12 @@
 <div id="post-text" class="section level3">
 <h3 class="hasAnchor">
 <a href="#post-text" class="anchor"></a>Post text</h3>
-<p>The <code>post</code> function allows adding text to a rectangular <code>xbox</code> (to provide the functionality of "Merken"):</p>
+<p>The <code>post</code> function allows adding text to a rectangular <code>xbox</code> (to provide the functionality of “Merken”):</p>
 <p><img src="text_files/figure-html/post-demo-1.png" width="384" style="display: block; margin: auto;"></p>
 <p>By default, <code>post</code> assumes a pre-existing <code>xbox</code> to which the text elements of <code>labels</code> are to be added.<br>
 For square boxes, setting <code>new_plot</code> to <code>"xbox"</code> creates a new <code>xbox</code> with its default dimensions of <code>dim = c(1, 1)</code>.<br>
 By adjusting its color and text arguments, <code>post</code> allows creating simple badges or logos:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="co"># Badge (to view as 250 x 250 pixel):</span>
+<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="co"># Badge (to view as 250 x 250 pixel):</span>
 <span class="fu"><a href="../reference/post.html">post</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="st">"ToDo"</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.35</span>,
      <span class="kw">col</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">col_bg</span> <span class="kw">=</span> <span class="no">pal_signal</span><span class="kw">[[</span><span class="fl">1</span>]],
      <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">3</span>, <span class="kw">font</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">new_plot</span> <span class="kw">=</span> <span class="st">"xbox"</span>)
@@ -271,8 +277,9 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
      <span class="kw">col</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">col_bg</span> <span class="kw">=</span> <span class="no">pal_seeblau</span><span class="kw">[[</span><span class="fl">5</span>]],
      <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">8</span>, <span class="kw">font</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">new_plot</span> <span class="kw">=</span> <span class="st">"xbox"</span>)</pre></body></html></div>
 <p><img src="text_files/figure-html/post-logo-1.png" width="192" style="display: block; margin: auto;"><img src="text_files/figure-html/post-logo-2.png" width="192" style="display: block; margin: auto;"></p>
-<p>Another use of <code>post</code> is to create an image that provides contact details:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="no">address</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Dr. B. F. Skinner"</span>, <span class="st">" "</span>,
+<!-- Creating course logos: -->
+<p>Another potential use of <code>post</code> is for creating images providing contact details:</p>
+<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="no">address</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Dr. B. F. Skinner"</span>, <span class="st">" "</span>,
              <span class="st">"Department of Psychology"</span>,
              <span class="st">"Office F101"</span>,
              <span class="st">"Tel.: +49 7531 88-0815"</span>,
@@ -295,25 +302,25 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
 <a href="#headings" class="anchor"></a>Headings</h3>
 <p>The <code>heading</code> function makes it easy to create recognizable headings:</p>
 <p><img src="text_files/figure-html/heading-demo-1.png" width="384" style="display: block; margin: auto;"></p>
-<p>By default, the function creates a new slide (i.e., <code>new_plot = "slide"</code>) and positions the text elements of <code>labels</code> on its left edge (i.e., <code>x = 0</code>, <code>y = .8</code> and <code>y_layout = "flush"</code>). Headings violating the recommendations (see p. 25 of the CD manual) will generate a message, for instance:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="co"># Beware of step-wise arrangements:</span>
+<p>By default, the function creates a new slide (i.e., <code>new_plot = "slide"</code>) and positions the text elements of <code>labels</code> on its left edge (i.e., <code>x = 0</code>, <code>y = .8</code> and <code>y_layout = "flush"</code>). Headings violating the recommendations (see p. 25 of the CD manual) will generate a message, for instance:</p>
+<div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="co"># Beware of step-wise arrangements:</span>
 <span class="fu"><a href="../reference/heading.html">heading</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ich"</span>, <span class="st">"bin keine"</span>, <span class="st">"gute Headline."</span>))
 <span class="co">#&gt; Step-wise titles are discouraged: Consider re-arranging?</span></pre></body></html></div>
 <p><img src="text_files/figure-html/heading-warn-1.png" width="384" style="display: block; margin: auto;"></p>
-<div class="sourceCode"><html><body><pre class="r">
+<div class="sourceCode" id="cb17"><html><body><pre class="r">
 <span class="co"># To avoid warning:</span>
 <span class="fu"><a href="../reference/heading.html">heading</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ich bin"</span>, <span class="st">"eine alternative"</span>, <span class="st">"Headline."</span>))</pre></body></html></div>
 <p><img src="text_files/figure-html/heading-warn-2.png" width="384" style="display: block; margin: auto;"></p>
 <p>When colors are left unspecified, <code>heading</code> selects colors that are appropriate for the number of elements in <code>labels</code> (i.e., shades of <code>Seeblau</code> for <code>col_bg = "default"</code>). However, default colors can be overwritten by setting the <code>col</code> and <code>col_bg</code> arguments:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="fu"><a href="../reference/heading.html">heading</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ene,"</span>, <span class="st">"mene, miste,"</span>, <span class="st">"es rappelt"</span>, <span class="st">"in der Kiste."</span>),
+<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="fu"><a href="../reference/heading.html">heading</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Ene,"</span>, <span class="st">"mene, miste,"</span>, <span class="st">"es rappelt"</span>, <span class="st">"in der Kiste."</span>),
         <span class="kw">col</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">col_bg</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">Pinky</span>, <span class="no">Seegruen</span>, <span class="no">Bordeaux</span>, <span class="no">Karpfenblau</span>))</pre></body></html></div>
 <p><img src="text_files/figure-html/heading-col-1.png" width="384" style="display: block; margin: auto;"></p>
 </div>
 <div id="urls" class="section level3">
 <h3 class="hasAnchor">
 <a href="#urls" class="anchor"></a>URLs</h3>
-<p>One of the more obscure rules (on p. 31 of the CD manual) concerns the rendering of URLs, in which typical web patterns (like "http" or "www") are to be omitted and replaced by a typographical dash (which is longer than a hyphen). The <code>url_unikn</code> utility function allows formatting URLs the uni.kn way:</p>
-<div class="sourceCode"><html><body><pre class="r"><span class="no">my_url</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/url_unikn.html">url_unikn</a></span>(<span class="st">"https://www.uni-konstanz.de/"</span>)  <span class="co"># input URL as copied from web browser</span>
+<p>One of the more obscure rules (on p. 31 of the CD manual) concerns the rendering of URLs, in which typical web patterns (like “http” or “www”) are to be omitted and replaced by a typographical dash (which is longer than a hyphen). The <code>url_unikn</code> utility function allows formatting URLs the uni.kn way:</p>
+<div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="no">my_url</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/url_unikn.html">url_unikn</a></span>(<span class="st">"https://www.uni-konstanz.de/"</span>)  <span class="co"># input URL as copied from web browser</span>
 <span class="no">my_url</span>  <span class="co"># formatted URL</span>
 <span class="co">#&gt; [1] "‒ uni-konstanz.de"</span>
 
@@ -330,7 +337,7 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
 <table class="table">
 <colgroup>
 <col width="32%">
-<col width="26%">
+<col width="25%">
 <col width="41%">
 </colgroup>
 <thead><tr class="header">
@@ -367,7 +374,7 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
 <a href="#vignettes" class="anchor"></a>Vignettes</h2>
 <!-- unikn pkg logo and link: -->
 <p><a href="https://github.com/hneth/unikn/"> <img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="140px" style="width: 140px; float: right; border:0;"></a></p>
-<p>The following vignettes provide instructions and examples for using the <strong>unikn</strong> objects and functions:</p>
+<p>The following vignettes provide instructions and examples for using the <strong>unikn</strong> colors, color palettes, and functions:</p>
 <!-- Table of vignettes: -->
 <table class="table">
 <thead><tr class="header">
@@ -379,10 +386,20 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
 <tr class="odd">
 <td align="right">1.</td>
 <td align="left"><a href="colors.html">Colors</a></td>
-<td align="left">Colors and color palettes</td>
+<td align="left">Colors and color functions</td>
 </tr>
 <tr class="even">
 <td align="right">2.</td>
+<td align="left"><a href="color_recipes.html">Color recipes</a></td>
+<td align="left">Recipes for color-related tasks</td>
+</tr>
+<tr class="odd">
+<td align="right">3.</td>
+<td align="left"><a href="color_inst.html">Institutional colors</a></td>
+<td align="left">Creating color palettes for other insitutions</td>
+</tr>
+<tr class="even">
+<td align="right">4.</td>
 <td align="left"><a href="text.html">Text</a></td>
 <td align="left">Text boxes and decorations</td>
 </tr>

@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.0</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.0.9008</span>
       </span>
     </div>
 
@@ -101,7 +101,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/colors.html">Colors and color palettes</a>
+      <a href="../articles/colors.html">Colors and color functions</a>
+    </li>
+    <li>
+      <a href="../articles/color_recipes.html">Color recipes</a>
+    </li>
+    <li>
+      <a href="../articles/color_inst.html">Institutional colors</a>
     </li>
     <li>
       <a href="../articles/text.html">Text decoration</a>
@@ -199,6 +205,7 @@ Default: <code>use_col_ramp = FALSE</code>.</p></td>
     <div class='dont-index'><p><code><a href='seecol.html'>seecol</a></code> to plot color palettes; 
 <code><a href='pal_unikn.html'>pal_unikn</a></code> for the default uni.kn color palette.</p>
 <p>Other color functions: 
+<code><a href='grepal.html'>grepal</a>()</code>,
 <code><a href='newpal.html'>newpal</a>()</code>,
 <code><a href='seecol.html'>seecol</a>()</code></p></div>
 
@@ -209,16 +216,16 @@ Default: <code>use_col_ramp = FALSE</code>.</p></td>
 #&gt; [15] "#B9B9B9" "#9E9E9E" "#838383" "#686868" "#353535" "#000000"</div><div class='input'>
 <span class='co'># Mixing a new color palette: </span>
 <span class='no'>pal_1</span> <span class='kw'>&lt;-</span> <span class='fu'>usecol</span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span>(<span class='no'>pal_seeblau</span>), <span class='st'>"white"</span>, <span class='no'>pal_pinky</span>))
-<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_1</span>)</div><div class='img'><img src='usecol-1.png' alt='' width='691' height='538' /></div><div class='input'>
+<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_1</span>)</div><div class='img'><img src='usecol-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Mixing and extending a color palette: </span>
 <span class='no'>pal_2</span> <span class='kw'>&lt;-</span> <span class='fu'>usecol</span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span>(<span class='no'>pal_seegruen</span>), <span class='st'>"white"</span>, <span class='no'>pal_bordeaux</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>)
-<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_2</span>)</div><div class='img'><img src='usecol-2.png' alt='' width='691' height='538' /></div><div class='input'>
+<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_2</span>)</div><div class='img'><img src='usecol-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Defining and using a custom color palette:</span>
 <span class='no'>pal_princeton_1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"#E77500"</span>, <span class='st'>"white"</span>, <span class='st'>"black"</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>pal_princeton_1</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"orange_w"</span>, <span class='st'>"white"</span>, <span class='st'>"black"</span>)
 
 <span class='no'>pal_3</span> <span class='kw'>&lt;-</span> <span class='fu'>usecol</span>(<span class='no'>pal_princeton_1</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>7</span>)
-<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_3</span>)</div><div class='img'><img src='usecol-3.png' alt='' width='691' height='538' /></div><div class='input'>
+<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_3</span>)</div><div class='img'><img src='usecol-3.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
