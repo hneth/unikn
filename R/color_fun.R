@@ -305,12 +305,12 @@ usecol <- function(pal = pal_unikn,
       
     } else {
       
-      out_col <-
-        colorRampPalette(pal_inp)(n)  # use the colorRamp (this swallows all names).
+      # use the colorRamp (this eats all names): 
+      out_col <- colorRampPalette(pal_inp)(n) 
       
     }
     
-  }
+  } # if (!pal_def) end. 
   
   
   # Name the palette (as comment attribute): ---- 
