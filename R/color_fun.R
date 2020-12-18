@@ -1237,8 +1237,14 @@ newpal <- function(col,            # a vector of colors
 #' grepal("SEE", x = pal_unikn_pref)
 #' 
 #' # Applications:
-#' seecol(grepal("cyan"))
 #' seecol(grepal("white"), col_bg = "lightblue2", title = "See 'white' colors()")
+#' 
+#' olives  <- grepal("olive")
+#' oranges <- grepal("orange")
+#' seecol(list(olives, oranges), 
+#'        pal_names = c("olives", "oranges"), 
+#'        title = "Comparing olives and oranges")
+#' 
 #' seecol(grepal("SEE", pal_unikn), title = "All 'SEE' colors in pal_unikn")
 #' seecol(grepal("blau", pal_unikn_pref), title = "All 'blau' colors in pal_unikn_pref")
 #' 
