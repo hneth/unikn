@@ -6,7 +6,7 @@ output:
   rmarkdown::html_vignette: 
     fig_caption: yes
 vignette: > 
-  %\VignetteIndexEntry{Colors}
+  %\VignetteIndexEntry{Institutional colors}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
