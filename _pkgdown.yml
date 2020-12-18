@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2020 08 24
+## spds, uni.kn | 2020 12 18
 ## -----------------------------------------------
 
 ## site info: ----------
@@ -70,11 +70,12 @@ reference:
   - Signal
   - starts_with("pal_")
 - title: Color functions
-  desc: Commands for viewing, changing, and using colors and color palettes. 
+  desc: Commands for viewing, using, creating, and finding colors and color palettes. 
   contents:
   - seecol
   - usecol
   - newpal 
+  - grepal 
 - title: Graphics
   desc: Objects and themes for plotting. 
   contents:
