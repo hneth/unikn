@@ -370,14 +370,6 @@ A. **unikn** (R package): | [Release version](https://CRAN.R-project.org/package
 B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)            | <https://hneth.github.io/unikn/> | 
     &nbsp;                | [Development version](https://hneth.github.io/unikn/dev/)    | <https://hneth.github.io/unikn/dev/> | 
 
-## Vignettes
-
-<!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
-</a>
-
-The following vignettes provide instructions and examples for using the **unikn** objects and functions: 
 
 ## Vignettes
 
@@ -396,7 +388,5 @@ The following vignettes provide instructions and examples for using the **unikn*
 | 2. | [Color recipes](color_recipes.html) | Recipes for color-related tasks |
 | 3. | [Institutional colors](color_inst.html) | Creating color palettes for other insitutions |
 | 4. | [Text](text.html)     | Text boxes and decorations | 
-
-<!-- eof. -->
 
 <!-- eof. -->
