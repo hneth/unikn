@@ -8,15 +8,14 @@ Changes since last release:
 ## Major changes 
 
 - Added a `grepal()` function to conveniently search `colors()` or color palettes by name. [2020-12-18]
-
 - Changed color sequence of `pal_unikn_pref` to increase contrast between adjacent colors. [2020-09-04] 
 
 <!-- Add blank line.  --> 
 
 ## Minor changes
 
+- Added two new vignettes (for color recipes and institutional colors). [2020-12-18] 
 - Fine-tuned aesthetics of `theme_unikn()` and `theme_grau()` for use with **ggplot2**. [2020-08-27]  
-
 - Added [Travis](https://travis-ci.org/) support for [GitHub](https://github.com/) builds. [2020-08-25]  
 
 <!-- Add blank line.  --> 
