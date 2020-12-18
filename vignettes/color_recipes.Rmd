@@ -136,9 +136,11 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
   theme(legend.position = "none")
 ```
 
-<!-- Image as link: -->
+<!-- Image as link (in HTML): -->
 
-<img src = "./../inst/pix/README-use_pal_ggplot2-1.png" align = "center" width = "450px" alt = "pal_unikn" style = "border:10;"/>
+<p style="text-align:center;">
+<img src = "./../inst/pix/README-use_pal_ggplot2-1.png" alt = "pal_unikn" style = "width: 450px; border:10;"/>
+</p>
 
 
 ## Viewing and comparing color palettes 
