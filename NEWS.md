@@ -1,5 +1,5 @@
 
-# unikn 0.3.0.9001+
+# unikn 0.3.0.9008+
 
 The current development version of **unikn** (0.3.0.9008+) is available at <https://github.com/hneth/unikn/>.   
 
@@ -50,7 +50,9 @@ Changes since last release:
 ## Bug fixes 
 
 - Bug fix: Use `seecol()` to flexibly plot color palettes provided by name or incomplete names. [2020-08-20]  
+
 - Revise documentation of `seecol()` and `usecol()` functions.  
+
 - Clean up and update online documentation.  
 
 <!-- Add blank line.  --> 
