@@ -160,33 +160,40 @@ Note that the other arguments of the `seecol()` function ---\ especially `n` and
 **Task:** Compare (the colors and range of) multiple color palettes. 
 
 For comparing multiple color palettes (e.g., 20\ random color palettes of `hcl.pals()`), 
-provide the palettes (as a list) as the `pal`\ argument of the `seecol()` function: 
+provide them as a list in the `pal`\ argument of the `seecol()`\ function. 
 
-```{r seecol-example-2a, echo = FALSE, fig.width = 6, fig.asp = 1.2, fig.align = 'center'}
+For instance, let's create and compare a set of 20\ random HCL palettes: 
+
+```{r set-seed-HCL-pals, echo = FALSE}
+set.seed(4 * pi)  # reproducible randomenss 
+```
+
+- Generate random HCL palettes (and save them as a list):
+
+```{r seecol-example-2a, echo = FALSE, fig.width = 6, fig.asp = 1.0, fig.align = 'center'}
 # Parameters:
 n_col <-  8   # colors in each palette
 n_pal <- 20   # length(hcl.pals())
 ptype <- NULL # c("diverging", "divergingx", "qualitative", "sequential")[4] 
 
-set.seed(4 * pi)
 s_pal <- sample(x = hcl.pals(type = ptype), size = n_pal, replace = FALSE)
 s_pal <- sort(s_pal)
 
 # Initialize:
-# t_lbl <- paste0("See ", n_pal, " random ", ptype, " HCL color palettes (n = ", n_col, ")") 
 t_lbl <- paste0("See ", n_pal, " random HCL color palettes (n = ", n_col, ")") 
 l_pal <- vector("list", n_pal)  # lists of palettes
 
 # Loop:
 for (i in 1:n_pal){
-
-  l_pal[[i]] <- usecol(hcl.colors(n = n_col, palette = s_pal[i]))
-    
+  
+  l_pal[[i]] <- hcl.colors(n = n_col, palette = s_pal[i])
+  
 }
 ```
 
-```{r seecol-example-2b, fig.width = 6, fig.asp = 1.2, fig.align = 'center'}
-# See all palettes:
+- Use `seecol()` for comparing multiple color palettes: 
+
+```{r seecol-example-2b, fig.width = 6, fig.asp = 1.0, fig.align = 'center'}
 seecol(pal = l_pal, 
        pal_names = s_pal,
        col_brd = "white", lwd_brd = 1,
