@@ -39,8 +39,12 @@ navbar:
     - text: "All articles"
       # icon: fa-info
       menu:
-        - text: "Colors and color palettes"
+        - text: "Colors and color functions"
           href: articles/colors.html
+        - text: "Color recipes"
+          href: articles/color_recipes.html 
+        - text: "Institutional colors" 
+          href: articles/color_inst.html           
         - text: "Text decoration"
           href: articles/text.html
     - text: "Reference"
