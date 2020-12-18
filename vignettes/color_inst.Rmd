@@ -38,12 +38,10 @@ knitr::opts_chunk$set(echo = TRUE,
 
 This vignette shows how the color-related tools provided by **unikn** can be applied to other institutions. 
 <!-- Main color info: --> 
-(For a basic introduction of the  **unikn** colors, color palettes, and color functions, see the vignette on [Colors and color palettes](colors.html).)  
+(For a general introduction of the  **unikn** colors, color palettes, and color functions, see the vignette on [Colors and color palettes](colors.html). The vignette on [text](text.html) provides information on creating text boxes and decorations.) 
 
-<!-- +++ here now +++: -->
 
-The color palettes included in the **unikn** package are based on the CD manual of the [University of Konstanz](https://www.uni-konstanz.de/), Germany. 
-However, the functionality provided by the package makes it easy and straightforward to define and use your own color scales. 
+The color palettes included in the **unikn** package are based on the CD\ manual of the [University of Konstanz](https://www.uni-konstanz.de/), Germany. However, the functionality provided by the package makes it easy and straightforward to define and use your own color scales. 
 In the following, we provide examples to illustrate how this can be achieved for other institutions. 
 
 Please install and/or load the **unikn** package to get started: 
@@ -197,18 +195,28 @@ mpg_grey  <- "#D0D3D4"
 pal_mpg <- usecol(pal = c(mpg_green, "white", mpg_grey))
 ```
 
-Again, the easiest way of defining a corresponding color palette is by creating a named vector. 
-To allow for better color gradients, we insert the color `"white"` between the 2&nbsp;dedicated colors: 
+Again, the easiest way of defining a corresponding color palette is by defining vectors of colors and their names and then 
+use the `newpal()` function for creating a new color palette. 
+To allow for better color gradients, we insert the color\ `"white"` between the two\ dedicated colors: 
 
-```{r mpg-pal-def, fig.width = 5, fig.asp = .8, fig.align = 'center', collapse = TRUE}
+```{r mpg-pal-def-vector, echo = FALSE, eval = FALSE, fig.width = 5, fig.asp = .8, fig.align = 'center', collapse = TRUE}
 pal_mpg <- c("#007367", "white", "#D0D3D4")
 names(pal_mpg) <- c("mpg green", "white", "mpg grey")
 ```
 
+```{r mpg-pal-def-df, fig.width = 5, fig.asp = .8, fig.align = 'center', collapse = TRUE}
+# Define vectors:
+col_mpg <- c("#007367", "white", "#D0D3D4")     # color definition 
+col_lbl <- c("mpg green", "white", "mpg grey")  # color names
+
+# Create new color palette:
+pal_mpg <- newpal(col = pal_mpg, names = col_lbl)
+```
+
 As before, can now use the `seecol()` and `usecol()` functions to view, modify, and use the new `pal_mpg` color palette: 
 
-```{r mpg-seecol, fig.width = 5, fig.asp = .8, fig.align = 'center', collapse = TRUE}
-seecol(pal_mpg, 
+```{r mpg-seecol, fig.width = 5, fig.asp = .9, fig.align = 'center', collapse = TRUE}
+seecol(pal_mpg,
        col_brd = "black", lwd_brd = 1, 
        title = "Colors of the Max Planck Society")
 ```
@@ -236,19 +244,19 @@ The following versions of **unikn** and corresponding resources are currently av
 Type:                    | Version:           | URL:                           |         
 :------------------------|:-------------------|:-------------------------------| 
 A. **unikn** (R package): | [Release version](https://CRAN.R-project.org/package=unikn) | <https://CRAN.R-project.org/package=unikn> |
-    &nbsp;                | [Development version](https://github.com/hneth/unikn/)       | <https://github.com/hneth/unikn/> | 
-B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)            | <https://hneth.github.io/unikn/> | 
-    &nbsp;                | [Development version](https://hneth.github.io/unikn/dev/)    | <https://hneth.github.io/unikn/dev/> | 
+    &nbsp;                | [Development version](https://github.com/hneth/unikn/)      | <https://github.com/hneth/unikn/> | 
+B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)           | <https://hneth.github.io/unikn/> | 
+    &nbsp;                | [Development version](https://hneth.github.io/unikn/dev/)   | <https://hneth.github.io/unikn/dev/> | 
 
 
 ## Vignettes
-
-The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://github.com/hneth/unikn/">
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
 </a> 
+
+The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 
 
 <!-- Table of vignettes: -->
 

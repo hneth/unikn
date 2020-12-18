@@ -75,7 +75,7 @@ The `usecol()` function also takes arguments for conveniently manipulating color
 
 Two additional functions serve in auxiliary roles: 
 
-1. `newpal()` allows defining new color palettes (typically as data frames with named colors). 
+1. `newpal()` allows defining new color palettes (typically as data frames with dedicated color names). 
 
 2. `grepal()` searches a color palette\ `x` (i.e., a vector of color names or data frame of named colors) for a `pattern` and returns those that match the pattern (or regular expression). 
 
@@ -386,7 +386,6 @@ grepal("see", pal_unikn)
 seecol(grepal("blau", pal_unikn_pref), title = "Shades of 'blau' in pal_unikn_pref")
 ```
 
-<!-- +++ here now +++: -->
 
 ## Resources
 
@@ -395,19 +394,19 @@ The following versions of **unikn** and corresponding resources are currently av
 Type:                    | Version:           | URL:                           |         
 :------------------------|:-------------------|:-------------------------------| 
 A. **unikn** (R package): | [Release version](https://CRAN.R-project.org/package=unikn) | <https://CRAN.R-project.org/package=unikn> |
-    &nbsp;                | [Development version](https://github.com/hneth/unikn/)       | <https://github.com/hneth/unikn/> | 
-B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)            | <https://hneth.github.io/unikn/> | 
-    &nbsp;                | [Development version](https://hneth.github.io/unikn/dev/)    | <https://hneth.github.io/unikn/dev/> | 
+    &nbsp;                | [Development version](https://github.com/hneth/unikn/)      | <https://github.com/hneth/unikn/> | 
+B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)           | <https://hneth.github.io/unikn/> | 
+    &nbsp;                | [Development version](https://hneth.github.io/unikn/dev/)   | <https://hneth.github.io/unikn/dev/> | 
 
 
 ## Vignettes
-
-The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://github.com/hneth/unikn/">
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
 </a> 
+
+The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 
 
 <!-- Table of vignettes: -->
 

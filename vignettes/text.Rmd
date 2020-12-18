@@ -373,12 +373,12 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)   
 
 ## Vignettes
 
-The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 
-
 <!-- unikn pkg logo and link: -->
 <a href = "https://github.com/hneth/unikn/">
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
 </a> 
+
+The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 
 
 <!-- Table of vignettes: -->
 
