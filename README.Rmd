@@ -365,7 +365,11 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
   theme(legend.position = "none")
 ```
 
-<img src = "./inst/pix/README-use_pal_ggplot2-1.png" align = "center" width = "450px" alt = "Using pal_unikn in ggplot" style = "border:10;"/>
+<!-- Image: ggplot2 with pal_unikn palette as link (in HTML): -->
+
+<p style="text-align:center;">
+<img src = "./inst/pix/README-use_pal_ggplot2-1.png" align = "center" alt = "Using pal_unikn in ggplot" style = "width: 500px; border:10;"/>
+</p>
 
 
 ### Creating color palettes with `newpal()`
@@ -438,7 +442,11 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
   theme(legend.position = "none")
 ```
 
-<img src = "./inst/pix/README-use_ggplot2_princeton-1.png" align = "center" width = "450px" alt = "pal_unikn" style = "border:10;"/>
+<!-- Image: ggplot2 with Princeton palette as link (in HTML): -->
+
+<p style="text-align:center;">
+<img src = "./inst/pix/README-use_ggplot2_princeton-1.png" alt = "pal_princeton_1" style = "width: 500px; border:10;"/>
+</p>
 
 
 #### The colors of Google 
@@ -497,12 +505,14 @@ By default, `grepal()` searches the `r length(colors())`\ named colors provided 
 oranges <- grepal("orange")
 
 # See color palette:
-seecol(oranges, title = "Shades of 'orange' in colors()")
+seecol(oranges, 
+       col_brd = "white", lwd_brd = 2, 
+       title = "Shades of 'orange' in colors()")
 ```
 
 Providing a list of color palettes to the `pal` argument of the `seecol()` function allows comparing multiple color palettes: 
 
-```{r grepal-example-2, fig.width=5, fig.asp=.50, fig.align = 'center'}
+```{r grepal-example-2, fig.width=8, fig.asp=.30, fig.align = 'center'}
 # Find colors:
 pink_olive <- grepal("(pink)|(olive)")
 purple_orange <- grepal("(purple)|(orange)")
@@ -561,11 +571,16 @@ post(labels = c("creative.", "together"), new_plot = "xbox",
 
 The `heading()` function is a convenient wrapper around `mark`:  
 
-```{r heading-demo, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 2, fig.height = 3}
+```{r heading-demo-1, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 2, fig.height = 3}
 heading(labels = c("pa-", "ra-", "die-", "sisch"))
 ```
 
-Headings violating the official recommendations (e.g., step-wise titles) will generate a message.
+Headings violating the official recommendations (e.g., step-wise titles) will generate a message: 
+
+```{r heading-demo-2, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 3, fig.height = 3}
+heading(labels = c("Ewig", "währt am", "längsten..."), 
+        y = 2/3, col_bg = usecol(pal_pinky))
+```
 
 ### URLs
 
@@ -614,7 +629,8 @@ col_mpg <- c("#007367", "white", "#D0D3D4")     # color definition
 col_lbl <- c("mpg green", "white", "mpg grey")  # color names
 
 # Create new color palette:
-pal_mpg <- newpal(col = col_mpg, names = col_lbl)
+pal_mpg <- newpal(col = col_mpg, names = col_lbl, as_df = TRUE)
+# seecol(usecol(pal_mpg, 7)[5:7])
 ```
 
 If custom color palettes are available, the text decoration functions can be used for graphical annotations. 
@@ -643,7 +659,7 @@ uline(labels = c("Max Planck Society"),
       x = .5, y = .25, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
 mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen."), 
      x = 0, y = .30, y_layout = 0, cex = 1.2, 
-     col = c("white"), col_bg = usecol(pal_mpg, 7)[3:1])
+     col = c("white"), col_bg = usecol(pal_mpg, 7)[5:7])
 ```
 
 - Using the color palette `pal_google` (defined above): 
@@ -655,11 +671,11 @@ mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen."),
 slide(col = pal_google[1], border = NA)
 
 uline(labels = c("Google"), 
-      x = .6, y = .5, font = 2, cex = 1.5, 
+      x = .55, y = .50, font = 2, cex = 1.4,
       col = "white", col_bg = pal_google[3])
 
 mark(labels = c("Don't", "be", "evil."), 
-     x = 0, y = .75, y_layout = 0, cex = 3,
+     x = 0, y = .75, y_layout = 0, cex = 2.8,
      col = "white", col_bg = usecol(pal_google[c(2:4)]))
 ```
 

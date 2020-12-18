@@ -404,7 +404,10 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
       theme_void() +
       theme(legend.position = "none")
 
-<img src = "./inst/pix/README-use_pal_ggplot2-1.png" align = "center" width = "450px" alt = "Using pal_unikn in ggplot" style = "border:10;"/>
+<!-- Image: ggplot2 with pal_unikn palette as link (in HTML): -->
+<p style="text-align:center;">
+<img src = "./inst/pix/README-use_pal_ggplot2-1.png" align = "center" alt = "Using pal_unikn in ggplot" style = "width: 500px; border:10;"/>
+</p>
 
 ### Creating color palettes with `newpal()`
 
@@ -487,7 +490,10 @@ commands):
       theme_void() +
       theme(legend.position = "none")
 
-<img src = "./inst/pix/README-use_ggplot2_princeton-1.png" align = "center" width = "450px" alt = "pal_unikn" style = "border:10;"/>
+<!-- Image: ggplot2 with Princeton palette as link (in HTML): -->
+<p style="text-align:center;">
+<img src = "./inst/pix/README-use_ggplot2_princeton-1.png" alt = "pal_princeton_1" style = "width: 500px; border:10;"/>
+</p>
 
 #### The colors of Google
 
@@ -553,7 +559,9 @@ By default, `grepal()` searches the 657 named colors provided by
     oranges <- grepal("orange")
 
     # See color palette:
-    seecol(oranges, title = "Shades of 'orange' in colors()")
+    seecol(oranges, 
+           col_brd = "white", lwd_brd = 2, 
+           title = "Shades of 'orange' in colors()")
 
 <img src="inst/pix/README-grepal-example-1-1.png" style="display: block; margin: auto;" />
 
@@ -630,10 +638,16 @@ The `heading()` function is a convenient wrapper around `mark`:
 
     heading(labels = c("pa-", "ra-", "die-", "sisch"))
 
-<img src="inst/pix/README-heading-demo-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-heading-demo-1-1.png" style="display: block; margin: auto;" />
 
 Headings violating the official recommendations (e.g., step-wise titles)
-will generate a message.
+will generate a message:
+
+    heading(labels = c("Ewig", "währt am", "längsten..."), 
+            y = 2/3, col_bg = usecol(pal_pinky))
+    #> Step-wise titles are discouraged: Consider re-arranging?
+
+<img src="inst/pix/README-heading-demo-2-1.png" style="display: block; margin: auto;" />
 
 ### URLs
 
