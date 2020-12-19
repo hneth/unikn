@@ -1,12 +1,12 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2020 12 18
+## spds | uni.kn | 2020 12 19
 ## ---------------------------
 
-## Utility functions to access and plot color palettes. 
+## Utility functions for converting colors, 
+## and accessing and plotting color palettes. 
 
 
 ## 1. General functions: -------
-
 
 # col2rgb in grDevices: ------ 
 
@@ -19,6 +19,7 @@
 # col2rgb("white", alpha = TRUE)
 # col2rgb("#FFFFFF")
 
+
 # rgb2hex color conversion function: ------ 
 
 rgb2hex <- function(R, G, B) {
@@ -28,6 +29,7 @@ rgb2hex <- function(R, G, B) {
 ## Check:
 # rgb2hex(255, 255, 255)
 # rgb2hex(0, 0, 0)
+
 
 # col2hex color conversion function: ------ 
 
@@ -71,17 +73,15 @@ isCol <- function(color) {
 # isCol(col2rgb("white"))  # => FALSE FALSE FALSE
 
 
-
 ## 2. Color getting functions: ------
 
-
-# parse_pal(): Parse a palette input -----------
+# parse_pal(): Parse a palette input ------ 
 
 parse_pal <- function(pal) {
   
   parenv <- parent.frame()  # get the calling environment. 
   
-  ## Check if pal is legible (already a color palette): 
+  # Check if pal is legible (already a color palette): 
   vector_input <- tryCatch(
     {
       all(sapply(pal, isCol))
@@ -102,7 +102,7 @@ parse_pal <- function(pal) {
     
   } else {  # otherwise:
     
-    ## Deparse the argument: 
+    # Deparse argument: 
     if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
       
       tmp <- noquote(deparse(substitute(pal)))  # get the palette. 
@@ -116,7 +116,7 @@ parse_pal <- function(pal) {
       
     }
     
-    ## Split the input string; getting everything within the parentheses:
+    # Split input string; getting everything within the parentheses:
     if ( grepl("\\(", tmp) ) {  # only if any parenthesis exists.
       
       tmp <- sub(".*?\\(+(.*)\\).*", "\\1", tmp, perl=TRUE)
@@ -127,20 +127,20 @@ parse_pal <- function(pal) {
       # \\s    waits for another blank, this time, the last one
       # .*     matches anything after the last blank
       
-    } 
+    }
     
     elem <- gsub(" |\"", "", unlist(strsplit(tmp, split = ",")))  
     # Split get elements of the input at ',' and remove whitespace and quotes.
     
-    ## Check, whether any element is warpped in one or more functions: 
+    # Check if any element is warpped in one or more functions: 
     parens <- grepl("\\(", elem)   # are there any parentheses left?
     funs <- rep(NA, length(elem))  # initialize vector. 
     funs[parens] <- gsub(" *\\(.*", "", elem[parens])  # get any functions.
     
-    ## Now remove the functions: 
+    # Remove functions: 
     elem <- sub(".*?\\(+(.*)\\).*", "\\1", elem, perl = TRUE)
     
-    # Existence checks: ------------
+    # Existence checks: ----- 
     ## Now ask for every element, whether it exists:
     elemex <- sapply(elem, function(x) exists(x) & x != "pal")
     # also ask, whether the element is named pal, to prevent name conflicts!
@@ -154,8 +154,7 @@ parse_pal <- function(pal) {
       
     }
     
-    # Prefix those which do not exist with "pal_":
-    
+    # Prefix those which do not exist with "pal_": 
     if ( any(!elemex) ) {  # only if not all inputs have been resolved
       
       elem[!elemex] <- paste0("pal_", elem[!elemex])
@@ -205,7 +204,7 @@ parse_pal <- function(pal) {
   ix_nameless <- is.null(names(out)) | names(out) == ""
   names(out)[ix_nameless] <- out[ix_nameless]
   
-  # Return elements:
+  # Output:
   return(out)
   
 } # parse_pal end. 
@@ -215,7 +214,7 @@ parse_pal <- function(pal) {
 
 getpal_key <- function(pal = "all", n = "all", alpha = NA) {
   
-  # Process the 'pal' argument: ------ 
+  # Process the 'pal' argument: ----- 
   
   # Getting palettes by keyword: ----- 
   keys <- c("all", "unikn_all", "all_unikn",  # all palettes
@@ -239,9 +238,9 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
     
   }
   
-  # Get all color palettes with the prefix "pal_" from the environment: ------ 
+  # Get all color palettes with the prefix "pal_" from the environment: ----- 
   
-  # Distinguish 5 cases: ------
+  # Distinguish 5 cases:
   pal_names <- switch(
     key,
     all = all_palkn,
@@ -317,7 +316,7 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of shape
                        ...  # other graphics parameters (e.g., lwd): passed to symbols() 
 ) {
   
-  # Prepare inputs for vectorized solution: ------
+  # Prepare inputs for vectorized solution: -----
   
   len_max <- max(c(length(pos_y), length(pos_x)))  # get length of longer position vector. 
   
@@ -328,7 +327,7 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of shape
   ylen  <- rep(ylen,  length.out = len_max)
   
   
-  # Rectangles: ------
+  # Rectangles: ----- 
   
   if (shape == "rect") {
     
@@ -343,7 +342,7 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of shape
     
   }
   
-  # Circles:  ------
+  # Circles: ----- 
   
   if (shape == "circle") {
     
@@ -373,7 +372,7 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
                      ...               # other graphics parameters (e.g., lwd)
 ) {
   
-  # 1. Handle inputs: ------ 
+  # 1. Handle inputs: -----
   
   # Key parameters:
   len_x <- length(x)  # length of vector x (i.e., nr. of colors to plot)
@@ -397,7 +396,7 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
     }
   }
   
-  # 2. Position parameters: ------ 
+  # 2. Position parameters: -----
   
   # Shape centers:
   xpos <- (1:len_x) - 0.5  # Note: Subtracting .5 assumes a shape width of 1.
