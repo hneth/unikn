@@ -1,5 +1,5 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2020 12 19
+## spds | uni.kn | 2020 12 21
 ## ---------------------------
 
 ## Utility functions for converting colors, 
@@ -428,5 +428,10 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
   
 } # plot_col end. 
 
+
+## ToDo: ------
+
+# - plot_col(): Add option for scaling multiple color palettes to fixed width rectangles. 
+# - Add functions for translating to/from HCL values (see HCL_color_exploration.Rmd). 
 
 ## eof. ----------

@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 12 18
+## spds | uni.kn |  2020 12 21
 ## ---------------------------
 
 ## Define color-related functions 
@@ -1309,5 +1309,13 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
 # seecol(grepal("white"), col_bg = "lightblue2")
 # seecol(grepal("SEE", pal_unikn))
 # seecol(grepal("blau", pal_unikn_pref))
+
+
+## ToDo: ------
+
+# - seecol(): Add options for showing HCL values (see HCL_color_exploration.Rmd). 
+# - seecol(): Add options for printing multiple palettes with fixed width and as continuous color palettes.
+# - seecol() and newpal(): Add option for margin notes/crediting color sources.
+# - grepal(): Consider alternative that allows searching for similar colors (based on hue/color distance)
 
 ## eof. ----------
