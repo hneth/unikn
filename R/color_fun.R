@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 12 21
+## spds | uni.kn |  2020 12 24
 ## ---------------------------
 
 ## Define color-related functions 
@@ -794,7 +794,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     y_names <- 1.5
     y_circ  <- 1.2 
     y_rect  <- 0.6
-    y_rgb   <- c(-0.50, -0.65, -0.80)
+    y_rgb   <- c(-.50, -.65, -.80)
     
     # Grid:
     if (grid) {
@@ -819,37 +819,39 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     } # if (grid) etc. 
     
     # Find cex so that it is as large as possible:
-    cex_lim <- 0.7  # lower limit for cex. 
+    cex_lim <- 0.70  # lower limit for cex. 
     
     # Determine whether to display hex values:
-    cex_hex <- 0.9  # was par("cex")
+    cex_hex <- 0.95  # was par("cex")
     
     placeholder <- ifelse(is.na(alpha), " #XXXXXX", " #XXXXXXXX")
-    
-    wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol + strwidth("Hex: ")  # is the width small enough?
+    wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol  # + strwidth("Hex: ", cex = cex_hex)  # width of HEX strings
     
     while (wdth_hex > xlim[2]) {
       
-      cex_hex <- cex_hex - 0.1
-      wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol + strwidth("Hex: ")  # is the width small enough?
+      cex_hex  <- (cex_hex - .01)  # reduce size
+      wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol  # + strwidth("Hex: ", cex = cex_hex)  # is width small enough?
       
     }
     
     # If hex is NULL, determine based on width and max cex.
-    # Otherwise use the provided value: 
+    # Otherwise, use the provided value: 
     if ( is.null(hex) ) {
       
-      hex <- ifelse(wdth_hex > xlim[2] | cex_hex < cex_lim, FALSE, TRUE)  # test, whether hex can be displayed.
+      hex <- ifelse((wdth_hex > xlim[2] | (cex_hex < cex_lim)), FALSE, TRUE)  # test, whether hex can be displayed.
+      
+      # +++ here now +++
       
     } 
     
-    # Determine, whether to display rgb values:
-    cex_rgb <- 0.9
+    # Determine, whether to display RGB values:
+    cex_rgb <- 0.95
     wdth_rgb <- strwidth(" 999 ", cex = cex_rgb) * max_ncol
+    
     while (wdth_rgb > xlim[2]) {
       
-      cex_rgb <- cex_rgb - 0.1
-      wdth_rgb <- strwidth(" 999 ", cex = cex_rgb) * max_ncol  # is the width small enough?
+      cex_rgb  <- (cex_rgb - .01)  # reduce size
+      wdth_rgb <- strwidth(" 999 ", cex = cex_rgb) * max_ncol  # is width small enough?
       
     }
     
@@ -910,7 +912,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     text(x = pos_ind, y = 0, labels = txt_ind, pos = 3, xpd = TRUE,
          cex = cex_ixs, col = grey(0, 2/3))
     
-    # Hex values:
+    # HEX values:
     if (hex) {
       
       ## Convert to hex if not already given in this format: 
@@ -920,12 +922,35 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       
       yhex <- -0.25
       
-      # Plot the values: 
-      text(x = 0, y = yhex, labels = "Hex:", font = 2, pos = 2, offset = 0, xpd = TRUE, 
-           cex = cex_hex)
+      text(x = 0, y = yhex, labels = "Hex:", font = 2, pos = 2, offset = 0, 
+           xpd = TRUE, cex = cex_hex)
       
-      text(x = txt_pos, y = yhex, labels = pal_tmp, pos = NULL, xpd = TRUE,
-           cex = cex_hex, srt = 0)
+      # Plot HEX values: 
+      
+      hex_too_long <- FALSE      
+      wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol
+      
+      if (wdth_hex > xlim[2]){
+        hex_too_long <- TRUE 
+        cex_hex <- cex_rgb
+      }
+      
+      if (hex_too_long){  
+        
+        # (a) print HEX on 2 levels:
+        yshift  <- .10
+        is_odd <- (1:length(pal_tmp) %% 2 == 1)  # odd elements 
+        text(x = txt_pos, y = yhex - (is_odd * yshift), 
+             labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 0)
+        
+        # (b) rotate HEX labels:
+        # text(x = txt_pos, y = yhex, labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 45)         
+        
+      } else { # All HEX values on same line (default):
+        
+        text(x = txt_pos, y = yhex, labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 0)        
+        
+      }
       
     } # if (hex) etc.
     
@@ -956,7 +981,10 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
 } # seecol end. 
 
-
+## Check:
+# library(unikn)
+# library(magrittr)
+# unikn::usecol(c("black","blue","white"), n=14) %>% unikn::seecol(hex=TRUE)
 
 ## newpal: Define a new color palette: ---------- 
 
