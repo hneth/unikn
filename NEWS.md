@@ -1,7 +1,7 @@
 
-# unikn 0.3.0.9008+
+# unikn 0.3.0.9009+
 
-The current development version of **unikn** (0.3.0.9008+) is available at <https://github.com/hneth/unikn/>.   
+The current development version of **unikn** (0.3.0.9009+) is available at <https://github.com/hneth/unikn/>.   
 
 Changes since last release: 
 
@@ -27,7 +27,8 @@ Changes since last release:
 
 ## Bug fixes 
 
-- none yet.
+- Ajust display of HEX codes in `seecol()`: Show HEX codes on two alternating lines when length of codes exceed line length. [2020-12-25] 
+
 
 <!-- Add blank line.  --> 
 
@@ -109,6 +110,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2020-12-18.]
+[File `NEWS.md` updated on 2020-12-25.]
 
 <!-- eof. -->
