@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 12 25
+## spds | uni.kn |  2020 12 26
 ## ---------------------------
 
 ## Define color-related functions 
@@ -791,9 +791,9 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     txt_pos <- seq(0.5, length(pal_tmp) - 0.5)
     
     # y positions: 
-    y_names <- 1.5
-    y_circ  <- 1.2 
-    y_rect  <- 0.6
+    y_names <- 1.50
+    y_circ  <- 1.20 
+    y_rect  <- 0.60
     y_rgb   <- c(-.50, -.65, -.80)
     
     # Grid:
@@ -819,37 +819,37 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     } # if (grid) etc. 
     
     # Find cex so that it is as large as possible:
-    cex_lim <- 0.70  # lower limit for cex. 
+    cex_min <- .66  # lower limit for cex. 
     
     # Determine whether to display hex values:
-    cex_hex <- 0.95  # was par("cex")
+    cex_hex <- .96  # was par("cex")
     
     placeholder <- ifelse(is.na(alpha), " #XXXXXX", " #XXXXXXXX")
     wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol  # + strwidth("Hex: ", cex = cex_hex)  # width of HEX strings
     
-    # while (wdth_hex > xlim[2]) {
-    #  
-    #  cex_hex  <- (cex_hex - .01)  # reduce size
-    #  wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol  # + strwidth("Hex: ", cex = cex_hex)  # is width small enough?
-    #  
-    # }
+    while ((wdth_hex > (xlim[2] + 1)) & (cex_hex > cex_min)) {
+      
+      cex_hex  <- (cex_hex - .01)  # reduce size
+      wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol  # + strwidth("Hex: ", cex = cex_hex)  # is width small enough?
+      
+    }
     
     # If hex is NULL, determine based on width and max cex.
     # Otherwise, use the provided value: 
     if ( is.null(hex) ) {
       
-      hex <- ifelse((wdth_hex > xlim[2] | (cex_hex < cex_lim)), FALSE, TRUE)  # test, whether hex can be displayed.
+      hex <- ifelse((wdth_hex > xlim[2] | (cex_hex < cex_min)), FALSE, TRUE)  # test, whether hex can be displayed.
       
-    } 
+    }
     # +++ here now +++
     
     # Determine, whether to display RGB values:
-    cex_rgb <- 0.95
+    cex_rgb <- 0.96
     wdth_rgb <- strwidth(" 999 ", cex = cex_rgb) * max_ncol
     
-    while (wdth_rgb > xlim[2]) {
+    while ((wdth_rgb > xlim[2]) & (cex_rgb > cex_min)) {
       
-      cex_rgb  <- (cex_rgb - .01)  # reduce size
+      cex_rgb  <- (cex_rgb - .02)  # reduce size
       wdth_rgb <- strwidth(" 999 ", cex = cex_rgb) * max_ncol  # is width small enough?
       
     }
@@ -857,7 +857,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     # If rgb is NULL, determine based on width and max cex.
     # Otherwise use the provided value: 
     if ( is.null(rgb) ) {
-      rgb <- ifelse(wdth_rgb > xlim[2] | cex_rgb < cex_lim, FALSE, TRUE)
+      rgb <- ifelse(wdth_rgb > xlim[2] | cex_rgb < cex_min, FALSE, TRUE)
     }
     
     # Plot rectangles:
@@ -914,36 +914,50 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     # HEX values:
     if (hex) {
       
-      ## Convert to hex if not already given in this format: 
+      # Convert to hex (if not already in this format): 
       if (!all(isHexCol(pal_tmp))) { 
         pal_tmp <- rgb(t(col2rgb(pal_tmp)), maxColorValue = 255)
       }
       
-      yhex <- -0.25
-      
-      text(x = 0, y = yhex, labels = "Hex:", font = 2, pos = 2, offset = 0, 
-           xpd = TRUE, cex = cex_hex)
-      
       # Plot HEX values:
-      cex_hex <- min(cex_hex, cex_rgb)
+      # cex_hex <- min(cex_hex, cex_rgb)
       wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol
       
-      if (wdth_hex > (xlim[2] + 1)){ # HEX too long for 1 line:  
+      if (wdth_hex > (2 * xlim[2])){ # HEX is too long for 2 lines:  
         
-        cex_hex <- cex_rgb
+        y_hex  <- -0.25  # Hex label height
+        
+        # rotate HEX labels:
+        text(x = txt_pos, y = y_hex, labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 45)  
+        
+      } else if (wdth_hex > (xlim[2] + 1)){ # HEX is too long for 1 line:  
+        
+        cex_hex <- max(cex_hex, cex_rgb)  # use the larger of both font sizes
+        
+        y_hex  <- -0.15  # Hex label height
+        yshift  <- 0.15  # downward shift
+        
+        text(x = 0, y = y_hex, labels = "Hex:", font = 2, pos = 2, offset = 0, 
+             xpd = TRUE, cex = cex_hex)  # Hex label
         
         # (a) print HEX on 2 levels:
-        yshift  <- .10
+        
         is_odd <- (1:length(pal_tmp) %% 2 == 1)  # odd elements 
-        text(x = txt_pos, y = yhex - (is_odd * yshift), 
+        text(x = txt_pos, y = y_hex - (is_odd * yshift), 
              labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 0)
         
         # (b) rotate HEX labels:
-        # text(x = txt_pos, y = yhex, labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 45)         
+        # text(x = txt_pos, y = y_hex, labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 45)         
+        
         
       } else { # All HEX values on same line (default):
         
-        text(x = txt_pos, y = yhex, labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 0)        
+        y_hex  <- -0.25  # Hex label height
+        
+        text(x = 0, y = y_hex, labels = "Hex:", font = 2, pos = 2, offset = 0, 
+             xpd = TRUE, cex = cex_hex)  # Hex label
+        
+        text(x = txt_pos, y = y_hex, labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 0)        
         
       }
       
