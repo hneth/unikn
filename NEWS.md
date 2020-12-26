@@ -27,7 +27,8 @@ Changes since last release:
 
 ## Bug fixes 
 
-- Ajust display of HEX codes in `seecol()`: Show HEX codes on two alternating lines when length of codes exceed line length. [2020-12-25] 
+- Ajust display of HEX codes in `seecol()`:  
+Show HEX codes on two alternating lines (or with diagonal labels) when length of codes exceed line length(s). [2020-12-26] 
 
 
 <!-- Add blank line.  --> 
@@ -110,6 +111,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2020-12-25.]
+[File `NEWS.md` updated on 2020-12-26.]
 
 <!-- eof. -->
