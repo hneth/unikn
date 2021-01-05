@@ -983,13 +983,20 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
   }  # if (length(pal_tmp) > 1) etc. 
   
-  # Marging note:
-  mtext(mar_note, side = 1, line = 1, adj = 1.0, cex = .90, col = "grey50")
+  # Marging note: ----
+  
+  if (par("col.sub") == "black"){  # if default:
+    col_note <- "grey50"           # use "grey50"
+  } else {
+    col_note <- par("col.sub")     # use current setting.
+  }
+  
+  mtext(mar_note, side = 1, line = 1, adj = 1.0, cex = .90, col = col_note)
   
   # Reset plotting parameters: 
   par(op)
   
-  # Invisibly return pal_tmp palette(s):
+  # Output: Invisibly return pal_tmp palette(s):
   invisible(pal_tmp)
   
 } # seecol end. 
@@ -1000,6 +1007,12 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 # unikn::usecol(c("black","blue3","white"), n= 8) %>% unikn::seecol(hex = TRUE)
 # unikn::usecol(c("black","blue3","white"), n=12) %>% unikn::seecol(hex = TRUE)
 # unikn::usecol(c("black","blue3","white"), n=20) %>% unikn::seecol(hex = TRUE)
+
+## Margin notes (and custom colors for title and note):
+# op <- par(no.readonly = TRUE)
+# par("col.main" = "blue", "col.sub" = "red")
+# seecol(c("black", "white"), n = 5, mar_note = "This is a note.")
+# par(op)
 
 
 ## newpal: Define a new color palette: ---------- 
