@@ -1,10 +1,9 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2020 12 26
+## spds | uni.kn |  2021 01 05
 ## ---------------------------
 
 ## Define color-related functions 
 ## (e.g., for choosing from, plotting, and creating color palettes). 
-
 
 
 ## usecol: Use a color palette (as is): ---------  
@@ -441,7 +440,10 @@ usecol <- function(pal = pal_unikn,
 #' Default: \code{grid = TRUE}. 
 #' 
 #' @param title Plot title (as a character string). 
-#' Default: \code{title = NA} creates a default title.  
+#' Default: \code{title = NA} creates a default title.
+#' 
+#' @param mar_note Optional margin note (on bottom right). 
+#' Default: \code{mar_note = NA} (i.e., no margin note). 
 #' 
 #' @param pal_names Names of color palettes or colors 
 #' (as a character vector). 
@@ -522,6 +524,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
                    lwd_brd = NULL,  # line width of box borders
                    grid = TRUE,     # show grid? 
                    title = NA,      # plot title? Using default title = NA constructs a default title
+                   mar_note = NA,   # optional margin note (on bottom right)
                    pal_names = NA,  # names of color palettes or colors (as character vector)
                    ...              # additional arguments to plot.default().
 ) {
@@ -696,14 +699,14 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     # Set bg color:
     par(bg = col_bg)
     
-    # Create empty plot:
+    # Prepare canvas/blank plot: 
     plot(x = 0, type = "n", xlim = xlim, ylim = ylim,
          xaxt = "n", yaxt = "n",  # hide axes.
          xlab = "", ylab = "", 
          main = title,
          bty = "n",
          ...  # other graphical parameters
-    )  
+    )
     
     if (grid) {
       
@@ -764,7 +767,6 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
          cex = cex_ixs, col = grey(0, 2/3))
     
   } else {  # if length(pal_tmp) list is NOT > 1:
-    
     
     # 3.2 Detailed view of 1 palette: -----  
     
@@ -841,7 +843,6 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       hex <- ifelse((wdth_hex > xlim[2] | (cex_hex < cex_min)), FALSE, TRUE)  # test, whether hex can be displayed.
       
     }
-    # +++ here now +++
     
     # Determine, whether to display RGB values:
     cex_rgb <- 0.96
@@ -868,7 +869,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     )
     
     # Plot circles:
-    circle_len <- ifelse(((xlim[2] / 10) < 0.7), (xlim[2] / 10), .70)
+    circle_len <- ifelse(((xlim[2] / 10) < .70), (xlim[2] / 10), .70)
     
     plot_col(x = pal_tmp, ypos = y_circ, shape = "circle", xlen = circle_len, plot.new = FALSE, col_brd = col_brd, lwd = lwd_brd#,
              # ...  # other graphical parameters
@@ -981,6 +982,9 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     } # if (rgb) etc.
     
   }  # if (length(pal_tmp) > 1) etc. 
+  
+  # Marging note:
+  mtext(mar_note, side = 1, line = 1, adj = 1.0, cex = .90, col = "grey50")
   
   # Reset plotting parameters: 
   par(op)
