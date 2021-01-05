@@ -1,7 +1,7 @@
 
-# unikn 0.3.0.9009+
+# unikn 0.3.0.9010+
 
-The current development version of **unikn** (0.3.0.9009+) is available at <https://github.com/hneth/unikn/>.   
+The current development version of **unikn** (0.3.0.9010+) is available at <https://github.com/hneth/unikn/>.   
 
 Changes since last release: 
 
@@ -15,6 +15,8 @@ Changes since last release:
 
 
 ## Minor changes
+
+- Added `mar_note` argument to `seecol()` for displaying optional margin notes. [2021-01-05] 
 
 - Added two new vignettes (on "Color recipes" and "Institutional colors"). [2020-12-18] 
 
@@ -111,6 +113,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2020-12-26.]
+[File `NEWS.md` updated on 2021-01-05.]
 
 <!-- eof. -->
