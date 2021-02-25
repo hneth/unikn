@@ -16,7 +16,7 @@ Changes since last release:
 
 ## Minor changes
 
-- Added `mar_note` argument to `seecol()` for displaying optional margin notes. [2021-01-05] 
+- Added `mar_note` argument to `seecol()` for margin note option. [2021-01-05] 
 
 - Added two new vignettes (on "Color recipes" and "Institutional colors"). [2020-12-18] 
 
@@ -113,6 +113,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2021-01-05.]
+[File `NEWS.md` updated on 2021-02-25.]
 
 <!-- eof. -->
