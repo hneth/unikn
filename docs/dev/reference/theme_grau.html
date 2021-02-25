@@ -81,7 +81,7 @@ to use in ggplot2 commands." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.0.9008</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.0.9012</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@ to use in ggplot2 commands." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Home
   </a>
@@ -125,7 +125,7 @@ to use in ggplot2 commands." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://hneth.github.io/unikn/">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -152,13 +152,13 @@ to use in ggplot2 commands." />
 to use in <b>ggplot2</b> commands.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>theme_grau</span>(
-  <span class='kw'>col_title</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.html'>grey</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>),
-  <span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>11</span>,
-  <span class='kw'>base_family</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>base_line_size</span> <span class='kw'>=</span> <span class='no'>base_size</span>/<span class='fl'>22</span>,
-  <span class='kw'>base_rect_size</span> <span class='kw'>=</span> <span class='no'>base_size</span>/<span class='fl'>22</span>
-)</pre>
+    <pre class="usage"><span class='fu'>theme_grau</span><span class='op'>(</span>
+  col_title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.html'>grey</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>,
+  base_size <span class='op'>=</span> <span class='fl'>11</span>,
+  base_family <span class='op'>=</span> <span class='st'>""</span>,
+  base_line_size <span class='op'>=</span> <span class='va'>base_size</span><span class='op'>/</span><span class='fl'>22</span>,
+  base_rect_size <span class='op'>=</span> <span class='va'>base_size</span><span class='op'>/</span><span class='fl'>22</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -210,19 +210,20 @@ but is of limited use with transparent colors.</p>
     <pre class="examples"><div class='input'>
 <span class='co'># \donttest{</span>
 <span class='co'># Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):</span>
-
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'>'ggplot2'</span>)  <span class='co'># theme_unikn requires ggplot2 </span>
-
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='kw pkg'>datasets</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/r/datasets/iris.html'>iris</a></span>) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_jitter.html'>geom_jitter</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>Sepal.Length</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>Sepal.Width</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>Species</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>2</span>/<span class='fl'>3</span>) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>Species</span>) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='usecol.html'>usecol</a></span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>Pinky</span>, <span class='no'>Seeblau</span>, <span class='no'>Seegruen</span>))) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span>(<span class='kw'>tag</span> <span class='kw'>=</span> <span class='st'>"B"</span>,
-       <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Iris sepals"</span>,
-       <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"Data from datasets::iris"</span>) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_fixed.html'>coord_fixed</a></span>(<span class='kw'>ratio</span> <span class='kw'>=</span> <span class='fl'>3</span>/<span class='fl'>2</span>) +
-  <span class='fu'>theme_grau</span>()</div><div class='img'><img src='theme_grau-1.png' alt='' width='700' height='433' /></div><div class='input'>
-# }
+  
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='https://ggplot2.tidyverse.org'>'ggplot2'</a></span><span class='op'>)</span>  <span class='co'># theme_unikn requires ggplot2 </span>
+   
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'>datasets</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/r/datasets/iris.html'>iris</a></span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_jitter.html'>geom_jitter</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Sepal.Length</span>, y <span class='op'>=</span> <span class='va'>Sepal.Width</span>, color <span class='op'>=</span> <span class='va'>Species</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>3</span>, alpha <span class='op'>=</span> <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>Species</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='usecol.html'>usecol</a></span><span class='op'>(</span>pal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>Pinky</span>, <span class='va'>Seeblau</span>, <span class='va'>Seegruen</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>tag <span class='op'>=</span> <span class='st'>"B"</span>,
+       title <span class='op'>=</span> <span class='st'>"Iris sepals"</span>,
+       caption <span class='op'>=</span> <span class='st'>"Data from datasets::iris"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_fixed.html'>coord_fixed</a></span><span class='op'>(</span>ratio <span class='op'>=</span> <span class='fl'>3</span><span class='op'>/</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme_grau</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='img'><img src='theme_grau-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># }</span>
 
 </div></pre>
   </div>
@@ -240,7 +241,7 @@ but is of limited use with transparent colors.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
