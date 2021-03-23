@@ -29,7 +29,7 @@ Changes since last release:
 
 ## Bug fixes 
 
-- Ajust display of HEX codes in `seecol()`:  
+- Adjust display of HEX codes in `seecol()`:  
 Show HEX codes on two alternating lines (or with diagonal labels) when length of codes exceed line length(s). [2020-12-26] 
 
 <!-- Add blank line.  --> 
