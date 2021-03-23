@@ -10,20 +10,25 @@
 |collate  |en_US.UTF-8                  |
 |ctype    |en_US.UTF-8                  |
 |tz       |Europe/Berlin                |
-|date     |2020-08-24                   |
+|date     |2021-03-23                   |
 
 # Dependencies
 
-|package  |old   |new   |Δ  |
-|:--------|:-----|:-----|:--|
-|unikn    |0.2.0 |0.3.0 |*  |
-|ellipsis |NA    |0.3.1 |*  |
-|fansi    |NA    |0.4.1 |*  |
-|isoband  |NA    |0.2.2 |*  |
-|pillar   |NA    |1.4.6 |*  |
-|processx |NA    |3.4.3 |*  |
-|ps       |NA    |1.3.4 |*  |
-|R6       |NA    |2.4.1 |*  |
+|package   |old   |new    |Δ  |
+|:---------|:-----|:------|:--|
+|unikn     |0.3.0 |0.4.0  |*  |
+|crayon    |NA    |1.4.1  |*  |
+|digest    |NA    |0.6.27 |*  |
+|fansi     |NA    |0.4.2  |*  |
+|farver    |NA    |2.1.0  |*  |
+|isoband   |NA    |0.2.4  |*  |
+|labeling  |NA    |0.4.2  |*  |
+|lifecycle |NA    |1.0.0  |*  |
+|pillar    |NA    |1.5.1  |*  |
+|R6        |NA    |2.5.0  |*  |
+|tibble    |NA    |3.1.0  |*  |
+|utf8      |NA    |1.2.1  |*  |
+|withr     |NA    |2.4.1  |*  |
 
 # Revdeps
 
