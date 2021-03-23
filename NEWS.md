@@ -1,7 +1,7 @@
 
-# unikn 0.3.0.9010+
+# unikn 0.4.0
 
-The current development version of **unikn** (0.3.0.9010+) is available at <https://github.com/hneth/unikn/>.   
+This release of **unikn** (v0.4.0) adds new functionality and fixes minor bugs. [2021-03-24]  
 
 Changes since last release: 
 
@@ -24,14 +24,20 @@ Changes since last release:
 
 - Added [Travis](https://travis-ci.org/) support for [GitHub](https://github.com/) builds. [2020-08-25]  
 
-
 <!-- Add blank line.  --> 
+
 
 ## Bug fixes 
 
 - Ajust display of HEX codes in `seecol()`:  
 Show HEX codes on two alternating lines (or with diagonal labels) when length of codes exceed line length(s). [2020-12-26] 
 
+<!-- Add blank line.  --> 
+
+
+<!-- unikn 0.4.0.9001+ --> 
+
+The current development version of **unikn** (0.4.0.9000+) is available at <https://github.com/hneth/unikn/>. 
 
 <!-- Add blank line.  --> 
 
@@ -39,7 +45,7 @@ Show HEX codes on two alternating lines (or with diagonal labels) when length of
 
 # unikn 0.3.0
 
-This release adds some functionality and fixes some bugs. [2020-08-24]  
+This release of **unikn** (v0.3.0) adds functionality and fixes some bugs. [2020-08-24]  
 
 Changes since last release:  
 
@@ -65,7 +71,7 @@ Changes since last release:
 
 # unikn 0.2.0
 
-This is a maintenance release, adding some functionality, but primarily fixing a few bugs. [2019-09-25]
+This version of **unikn** (v0.2.0) is a maintenance release, adding some functionality, but primarily fixing bugs. [2019-09-25]
 
 Changes since last release: 
 
@@ -107,12 +113,12 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 # unikn 0.1.0
 
-- Initial release of **unikn** (0.1.0) on CRAN: <https://CRAN.R-project.org/package=unikn>. [2019-06-15] 
+- Initial release of **unikn** (v0.1.0) on CRAN: <https://CRAN.R-project.org/package=unikn>. [2019-06-15] 
 
 <!-- Add blank line.  --> 
 
 ---------- 
 
-[File `NEWS.md` updated on 2021-02-25.]
+[File `NEWS.md` updated on 2021-03-24.]
 
 <!-- eof. -->
