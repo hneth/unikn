@@ -12,7 +12,7 @@ output: github_document
 <!-- Possible status badges:
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/) 
-[![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn/)
+[![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
@@ -72,14 +72,14 @@ Additional elements may be added as they become available. Please use responsibl
 
 The latest release of **unikn** is available from [CRAN](https://CRAN.R-project.org/) at <https://CRAN.R-project.org/package=unikn>:
 
-```{r install_CRAN, echo = TRUE, eval = FALSE}
+```{r install-CRAN, echo = TRUE, eval = FALSE}
 install.packages('unikn')  # install from CRAN client
 library('unikn')           # loads the package
 ```
 
 The current development version can be installed from its [GitHub](https://github.com) repository at <https://github.com/hneth/unikn/>: 
 
-```{r install_github, echo = TRUE, eval = FALSE}
+```{r install-github, echo = TRUE, eval = FALSE}
 # install.packages('devtools')  # (if not installed yet)
 devtools::install_github('hneth/unikn')
 library('unikn')  # loads the package
@@ -103,7 +103,7 @@ The default color palette `pal_unikn` combines:
 
 This yields a diverging, symmetrical default color palette `pal_unikn` consisting of 11\ colors: 
 
-```{r pal_unikn, eval = TRUE, fig.width = 7, fig.asp = .75, fig.align = 'center'}
+```{r pal-unikn, eval = TRUE, fig.width = 6, fig.asp = .75, fig.align = 'center'}
 # Default color palette: ----- 
 # pal_unikn  # 11 default colors
 
@@ -123,20 +123,20 @@ Evaluating `seecol(pal = "unikn_basic")` shows these three basic unikn color pal
 
 Beyond the three variants of `pal_unikn`, the **unikn** package provides the following color palettes: 
 
-```{r pal_all, eval = TRUE, fig.align = 'center', fig.width = 5, fig.height = 5}
+```{r pal-all, eval = TRUE, fig.align = 'center', fig.width = 5, fig.height = 5}
 seecol("all")
 ```
 
 Specifically, an Excel file called [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) defines 9 additional color palettes that are exported by **unikn** as the following named color palettes: 
 
-```{r pal_additional, eval = FALSE}
+```{r pal-additional, eval = FALSE}
 # Show 9 color gradient palettes:
 seecol(pal = "grad_all")
 ```
 
 For details, evaluate or apply `seecol()` on the following color palettes: 
 
-```{r pal_additional_list, eval = FALSE}
+```{r pal-additional-list, eval = FALSE}
 # 8 mono-tone palettes: ----- 
 # Name:          Nr:           Tone:          
 pal_seeblau      # 5 shades of seeblau
@@ -155,7 +155,7 @@ pal_signal       # 3           signal/Ampel
 Each color palette contains a preferred color.[^1] 
 All preferred colors are contained in a corresponding color palette `pal_unikn_pref`: 
 
-```{r pal_unikn_pref, eval = FALSE}
+```{r pal-unikn-pref, eval = FALSE}
 # Using preferred colors: ----- 
 pal_unikn_pref             # color palette of preferred colors
 pal_unikn_pref[1]          # preferred (named) color 1
@@ -257,8 +257,7 @@ seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
 
 ### Using color palettes with `usecol()` 
 
-The **unikn** package exports the color palettes shown by `seecol(pal = "all")` and 
-the nine preferred colors of `pal_unikn_pref` (e.g., `Seeblau`, `Seegruen`, etc.) as named colors. 
+The **unikn** package exports the color palettes shown by `seecol(pal = "all")` and the nine preferred colors of `pal_unikn_pref` (e.g., `Seeblau`, `Seegruen`, etc.) as named colors. 
 
 The `usecol()` function provides convenient access and additional options for using them in graphs. 
 Here are some examples:  
