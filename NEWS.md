@@ -1,7 +1,7 @@
 
 # unikn 0.4.0
 
-This release of **unikn** (v0.4.0) adds new functionality and fixes minor bugs. [2021-03-24]  
+This release of **unikn** (v0.4.0) adds new functionality, tweaks some aesthetics, and fixes a bug. [2021-03-24]  
 
 Changes since last release: 
 
@@ -37,7 +37,7 @@ Show HEX codes on two alternating lines (or with diagonal labels) when length of
 
 <!-- unikn 0.4.0.9001+ --> 
 
-The current development version of **unikn** (0.4.0.9000+) is available at <https://github.com/hneth/unikn/>. 
+The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
 <!-- Add blank line.  --> 
 
