@@ -1,7 +1,7 @@
 
 # unikn 0.4.0
 
-This release of **unikn** (v0.4.0) adds new functionality, tweaks some aesthetics, and fixes a bug. [2021-03-24]  
+This release of **unikn** (v0.4.0) adds new functionality, tweaks some aesthetics, and fixes a bug. [2021-03-25]  
 
 Changes since last release: 
 
@@ -119,6 +119,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2021-03-24.]
+[File `NEWS.md` updated on 2021-03-25.]
 
 <!-- eof. -->
