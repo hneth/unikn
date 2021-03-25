@@ -1,9 +1,10 @@
 
 # unikn 0.4.0
 
-This release of **unikn** (v0.4.0) adds new functionality, tweaks some aesthetics, and fixes a bug. [2021-03-25]  
+This release of **unikn** (v0.4.0) adds new functionality, tweaks aesthetics, and fixes a bug. [2021-03-25]  
 
 Changes since last release: 
+
 
 ## Major changes 
 
