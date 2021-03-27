@@ -737,16 +737,15 @@ We appreciate your feedback, comments, or questions.
 </a>
 
 The [University of Konstanz’s Corporate
-Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
-(CD) was created by [Strichpunkt
-GmbH](https://www.strichpunkt-design.de/) and the [University of
-Konstanz](https://www.uni-konstanz.de/) in 2014. The **unikn** package
-authors belong to the research group on [Social Psychology and Decision
-Sciences](https://www.spds.uni-konstanz.de/) (SPDS) at the [University
-of Konstanz](https://www.uni-konstanz.de/). We make some CD elements
-available to fellow users of R (e.g., for creating scientific
-visualizations), but all copyrights remain with the original copyright
-holders.
+Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) (CD)
+was created by [Strichpunkt GmbH](https://www.strichpunkt-design.de/)
+and the [University of Konstanz](https://www.uni-konstanz.de/) in 2014.
+The **unikn** package authors belong to the research group on [Social
+Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/)
+(SPDS) at the [University of Konstanz](https://www.uni-konstanz.de/). We
+make some CD elements available to fellow users of R (e.g., for creating
+scientific visualizations), but all copyrights remain with the original
+copyright holders.
 
 We aim for an authentic representation of a highly-specified corporate
 design. While rigid specifications help to maintain coherence and
