@@ -22,7 +22,7 @@
 </a> 
 -->
 
-### Enabling corporate design elements in [R](https://www.r-project.org/)
+### Enabling corporate design elements in R
 
 The **unikn** package provides color functions — by defining dedicated
 colors and color palettes, and commands for changing, viewing, and using
@@ -806,7 +806,7 @@ Color definitions are based on the specifications at:
 <!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
 <!-- Update: -->
 
-(Updated on 2021-03-27.)
+(Updated on 2021-03-28.)
 
 <!-- eof. -->
 
