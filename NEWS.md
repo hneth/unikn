@@ -1,4 +1,30 @@
 
+# unikn 0.4.0.9001+
+
+The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
+
+<!-- Add blank line.  --> 
+
+## Major changes 
+
+- none yet 
+
+<!-- Add blank line.  --> 
+
+## Minor changes
+
+- none yet 
+
+<!-- Add blank line.  --> 
+
+## Bug fixes
+
+- none yet 
+
+<!-- Add blank line.  --> 
+
+---------- 
+
 # unikn 0.4.0
 
 This release of **unikn** (v0.4.0) adds new functionality, tweaks aesthetics, and fixes a bug. [2021-03-27]  
@@ -32,13 +58,6 @@ Changes since last release:
 
 - Adjust display of HEX codes in `seecol()`:  
 Show HEX codes on two alternating lines (or with diagonal labels) when length of codes exceed line length(s). [2020-12-26] 
-
-<!-- Add blank line.  --> 
-
-
-<!-- unikn 0.4.0.9001+ --> 
-
-The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
 <!-- Add blank line.  --> 
 
