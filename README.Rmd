@@ -37,7 +37,7 @@ library(unikn)  # load package
 </a> 
 -->
 
-Enabling elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design in [R](https://www.r-project.org/). 
+#### Enabling elements of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design in\ [R](https://www.r-project.org/) {-}
 
 The **unikn** package provides color functions — by defining dedicated colors and color palettes, and commands for changing, viewing, and using them — and styled text elements (e.g., for marking, underlining, or plotting colored titles). 
 The pre-defined range of colors and text functions is based on the corporate design of the [University of Konstanz](https://www.uni-konstanz.de/) (see [this link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) for details), 

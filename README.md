@@ -22,9 +22,7 @@
 </a> 
 -->
 
-Enabling elements of the [University of
-Konstanz](https://www.uni-konstanz.de/)’s corporate design in
-[R](https://www.r-project.org/).
+#### Enabling elements of the [University of Konstanz](https://www.uni-konstanz.de/)’s corporate design in [R](https://www.r-project.org/)
 
 The **unikn** package provides color functions — by defining dedicated
 colors and color palettes, and commands for changing, viewing, and using
