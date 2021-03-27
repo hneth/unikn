@@ -82,7 +82,7 @@ as a data frame containing 9 (or 8 + 1) colors." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -90,7 +90,7 @@ as a data frame containing 9 (or 8 + 1) colors." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Home
   </a>
@@ -103,7 +103,13 @@ as a data frame containing 9 (or 8 + 1) colors." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/colors.html">Colors and color palettes</a>
+      <a href="../articles/colors.html">Colors and color functions</a>
+    </li>
+    <li>
+      <a href="../articles/color_recipes.html">Color recipes</a>
+    </li>
+    <li>
+      <a href="../articles/color_inst.html">Institutional colors</a>
     </li>
     <li>
       <a href="../articles/text.html">Text decoration</a>
@@ -120,7 +126,7 @@ as a data frame containing 9 (or 8 + 1) colors." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://hneth.github.io/unikn/">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -148,7 +154,7 @@ that collects the preferred color of each palette
 as a data frame containing 9 (or 8 + 1) colors.</p>
     </div>
 
-    <pre class="usage"><span class='no'>pal_unikn_pref</span></pre>
+    <pre class="usage"><span class='va'>pal_unikn_pref</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
@@ -156,7 +162,9 @@ as a data frame containing 9 (or 8 + 1) colors.</p>
     <p>An object of class <code>data.frame</code> with 1 rows and 9 columns.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Note that the (alert) color <code><a href='Signal.html'>Signal</a></code> is 
+    <p>The colors are arranged in a sequence that provides 
+high contrasts between adjacent colors.</p>
+<p>Note that the (alert) color <code><a href='Signal.html'>Signal</a></code> is 
 not a preferred color according to the official color 
 definition.</p>
 <p>See <a href='https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/'>https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/</a> for details.</p>
@@ -183,18 +191,25 @@ definition.</p>
 <code><a href='pal_unikn.html'>pal_unikn</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>pal_unikn_pref</span></div><div class='output co'>#&gt;         Seeblau   Peach    Grau  Petrol Seegruen Karpfenblau   Pinky Bordeaux
-#&gt; Seeblau #59C7EB #FEA090 #9AA0A7 #077187  #0A9086     #3E5496 #E0607E  #8E2043
-#&gt;          Signal
-#&gt; Seeblau #EFDC60</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>pal_unikn_pref</span>)  <span class='co'># 1 9</span></div><div class='output co'>#&gt; [1] 1 9</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='va'>pal_unikn_pref</span>
+</div><div class='output co'>#&gt;         Seeblau   Pinky Seegruen   Peach Karpfenblau  Signal Bordeaux    Grau
+#&gt; Seeblau #59C7EB #E0607E  #0A9086 #FEA090     #3E5496 #EFDC60  #8E2043 #9AA0A7
+#&gt;          Petrol
+#&gt; Seeblau #077187</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>pal_unikn_pref</span><span class='op'>)</span>  <span class='co'># 1 9</span>
+</div><div class='output co'>#&gt; [1] 1 9</div><div class='input'>
 <span class='co'># Access by position:</span>
-<span class='no'>pal_unikn_pref</span>[<span class='fl'>1</span>]    <span class='co'># color Seeblau (as df)</span></div><div class='output co'>#&gt;         Seeblau
-#&gt; Seeblau #59C7EB</div><div class='input'><span class='no'>pal_unikn_pref</span><span class='kw'>[[</span><span class='fl'>1</span>]]  <span class='co'># color value "#59C7EB" </span></div><div class='output co'>#&gt; [1] "#59C7EB"</div><div class='input'>
+<span class='va'>pal_unikn_pref</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>    <span class='co'># color Seeblau (as df)</span>
+</div><div class='output co'>#&gt;         Seeblau
+#&gt; Seeblau #59C7EB</div><div class='input'><span class='va'>pal_unikn_pref</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>  <span class='co'># color value "#59C7EB" </span>
+</div><div class='output co'>#&gt; [1] "#59C7EB"</div><div class='input'>
 <span class='co'># Access by name: </span>
-<span class='no'>pal_unikn_pref</span>[<span class='st'>"Seeblau"</span>]   <span class='co'># color "seeblau3" (as df) </span></div><div class='output co'>#&gt;         Seeblau
-#&gt; Seeblau #59C7EB</div><div class='input'><span class='no'>pal_unikn_pref</span><span class='kw'>[[</span><span class='st'>"Seeblau"</span>]] <span class='co'># color value "#59C7EB" </span></div><div class='output co'>#&gt; [1] "#59C7EB"</div><div class='input'>
+<span class='va'>pal_unikn_pref</span><span class='op'>[</span><span class='st'>"Seeblau"</span><span class='op'>]</span>   <span class='co'># color "seeblau3" (as df) </span>
+</div><div class='output co'>#&gt;         Seeblau
+#&gt; Seeblau #59C7EB</div><div class='input'><span class='va'>pal_unikn_pref</span><span class='op'>[[</span><span class='st'>"Seeblau"</span><span class='op'>]</span><span class='op'>]</span> <span class='co'># color value "#59C7EB" </span>
+</div><div class='output co'>#&gt; [1] "#59C7EB"</div><div class='input'>
 <span class='co'># Plotting palette:</span>
-<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_unikn_pref</span>)</div><div class='img'><img src='pal_unikn_pref-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='seecol.html'>seecol</a></span><span class='op'>(</span><span class='va'>pal_unikn_pref</span><span class='op'>)</span>
+</div><div class='img'><img src='pal_unikn_pref-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -211,7 +226,7 @@ definition.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

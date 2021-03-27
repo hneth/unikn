@@ -83,7 +83,7 @@ to a palette containing 11 color values." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -91,7 +91,7 @@ to a palette containing 11 color values." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Home
   </a>
@@ -104,7 +104,13 @@ to a palette containing 11 color values." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/colors.html">Colors and color palettes</a>
+      <a href="../articles/colors.html">Colors and color functions</a>
+    </li>
+    <li>
+      <a href="../articles/color_recipes.html">Color recipes</a>
+    </li>
+    <li>
+      <a href="../articles/color_inst.html">Institutional colors</a>
     </li>
     <li>
       <a href="../articles/text.html">Text decoration</a>
@@ -121,7 +127,7 @@ to a palette containing 11 color values." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://hneth.github.io/unikn/">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -150,7 +156,7 @@ with the 6 non-blue colors of <code>pal_unikn</code>
 to a palette containing 11 color values.</p>
     </div>
 
-    <pre class="usage"><span class='no'>pal_unikn</span></pre>
+    <pre class="usage"><span class='va'>pal_unikn</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
@@ -189,20 +195,28 @@ position of a palette with 11 values:</p>
 <code><a href='pal_unikn_web.html'>pal_unikn_web</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>pal_unikn</span></div><div class='output co'>#&gt;   seeblau5 seeblau4 seeblau3 seeblau2 seeblau1   white seegrau1 seegrau2
+    <pre class="examples"><div class='input'><span class='va'>pal_unikn</span>
+</div><div class='output co'>#&gt;   seeblau5 seeblau4 seeblau3 seeblau2 seeblau1   white seegrau1 seegrau2
 #&gt; 1  #008ECE  #00A9E0  #59C7EB  #A6E1F4  #CCEEF9 #FFFFFF  #E5E5E5  #CCCCCC
 #&gt;   seegrau3 seegrau4   black
-#&gt; 1  #999999  #666666 #000000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>pal_unikn</span>)         <span class='co'># 1 11</span></div><div class='output co'>#&gt; [1]  1 11</div><div class='input'>
+#&gt; 1  #999999  #666666 #000000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>pal_unikn</span><span class='op'>)</span>         <span class='co'># 1 11</span>
+</div><div class='output co'>#&gt; [1]  1 11</div><div class='input'>
 <span class='co'># Access by position:</span>
-<span class='no'>pal_unikn</span>[<span class='fl'>1</span>]    <span class='co'># new color "seeblau5" (as df)</span></div><div class='output co'>#&gt;   seeblau5
-#&gt; 1  #008ECE</div><div class='input'><span class='no'>pal_unikn</span><span class='kw'>[[</span><span class='fl'>1</span>]]  <span class='co'># new color value "#008ECE"</span></div><div class='output co'>#&gt; [1] "#008ECE"</div><div class='input'>
+<span class='va'>pal_unikn</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>    <span class='co'># new color "seeblau5" (as df)</span>
+</div><div class='output co'>#&gt;   seeblau5
+#&gt; 1  #008ECE</div><div class='input'><span class='va'>pal_unikn</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>  <span class='co'># new color value "#008ECE"</span>
+</div><div class='output co'>#&gt; [1] "#008ECE"</div><div class='input'>
 <span class='co'># Access by name: </span>
-<span class='no'>pal_unikn</span>[<span class='st'>"seeblau5"</span>]   <span class='co'># new color "seeblau5" (as df) </span></div><div class='output co'>#&gt;   seeblau5
-#&gt; 1  #008ECE</div><div class='input'><span class='no'>pal_unikn</span><span class='kw'>[[</span><span class='st'>"seeblau5"</span>]] <span class='co'># new color value "#008ECE"</span></div><div class='output co'>#&gt; [1] "#008ECE"</div><div class='input'>
+<span class='va'>pal_unikn</span><span class='op'>[</span><span class='st'>"seeblau5"</span><span class='op'>]</span>   <span class='co'># new color "seeblau5" (as df) </span>
+</div><div class='output co'>#&gt;   seeblau5
+#&gt; 1  #008ECE</div><div class='input'><span class='va'>pal_unikn</span><span class='op'>[[</span><span class='st'>"seeblau5"</span><span class='op'>]</span><span class='op'>]</span> <span class='co'># new color value "#008ECE"</span>
+</div><div class='output co'>#&gt; [1] "#008ECE"</div><div class='input'>
 <span class='co'># Plotting palette:</span>
-<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_unikn</span>)</div><div class='img'><img src='pal_unikn-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='seecol.html'>seecol</a></span><span class='op'>(</span><span class='va'>pal_unikn</span><span class='op'>)</span>
+</div><div class='img'><img src='pal_unikn-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Note:</span>
-<span class='no'>pal_unikn</span>[<span class='fl'>6</span>] <span class='co'># "white" or "#FFFFFF" as central of 11 colors</span></div><div class='output co'>#&gt;     white
+<span class='va'>pal_unikn</span><span class='op'>[</span><span class='fl'>6</span><span class='op'>]</span> <span class='co'># "white" or "#FFFFFF" as central of 11 colors</span>
+</div><div class='output co'>#&gt;     white
 #&gt; 1 #FFFFFF</div><div class='input'>
 </div></pre>
   </div>
@@ -220,7 +234,7 @@ position of a palette with 11 values:</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

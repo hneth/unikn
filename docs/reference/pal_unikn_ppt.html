@@ -81,7 +81,7 @@ as a data frame containing 10 colors." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@ as a data frame containing 10 colors." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Home
   </a>
@@ -102,7 +102,13 @@ as a data frame containing 10 colors." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/colors.html">Colors and color palettes</a>
+      <a href="../articles/colors.html">Colors and color functions</a>
+    </li>
+    <li>
+      <a href="../articles/color_recipes.html">Color recipes</a>
+    </li>
+    <li>
+      <a href="../articles/color_inst.html">Institutional colors</a>
     </li>
     <li>
       <a href="../articles/text.html">Text decoration</a>
@@ -119,7 +125,7 @@ as a data frame containing 10 colors." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://hneth.github.io/unikn/">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -146,7 +152,7 @@ as a data frame containing 10 colors." />
 as a data frame containing 10 colors.</p>
     </div>
 
-    <pre class="usage"><span class='no'>pal_unikn_ppt</span></pre>
+    <pre class="usage"><span class='va'>pal_unikn_ppt</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
@@ -181,18 +187,25 @@ and <a href='https://www.uni-konstanz.de/en/university/news-and-media/create-onl
 <code><a href='pal_unikn.html'>pal_unikn</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>pal_unikn_ppt</span></div><div class='output co'>#&gt;   seeblau4 seeblau3 seeblau2 seeblau1   white seegrau1 seegrau2 seegrau3
+    <pre class="examples"><div class='input'><span class='va'>pal_unikn_ppt</span>
+</div><div class='output co'>#&gt;   seeblau4 seeblau3 seeblau2 seeblau1   white seegrau1 seegrau2 seegrau3
 #&gt; 1  #009AD1  #59B6DC  #A0D3E6  #C8E5EF #FFFFFF  #E5E5E5  #CCCCCC  #999999
 #&gt;   seegrau4   black
-#&gt; 1  #666666 #000000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>pal_unikn_ppt</span>)  <span class='co'># 1 10</span></div><div class='output co'>#&gt; [1]  1 10</div><div class='input'>
+#&gt; 1  #666666 #000000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>pal_unikn_ppt</span><span class='op'>)</span>  <span class='co'># 1 10</span>
+</div><div class='output co'>#&gt; [1]  1 10</div><div class='input'>
 <span class='co'># Access by position:</span>
-<span class='no'>pal_unikn_ppt</span>[<span class='fl'>2</span>]    <span class='co'># 2nd named color "seeblau3" (as df)</span></div><div class='output co'>#&gt;   seeblau3
-#&gt; 1  #59B6DC</div><div class='input'><span class='no'>pal_unikn_ppt</span><span class='kw'>[[</span><span class='fl'>2</span>]]  <span class='co'># 2nd color value "#59B6DC"</span></div><div class='output co'>#&gt; [1] "#59B6DC"</div><div class='input'>
+<span class='va'>pal_unikn_ppt</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span>    <span class='co'># 2nd named color "seeblau3" (as df)</span>
+</div><div class='output co'>#&gt;   seeblau3
+#&gt; 1  #59B6DC</div><div class='input'><span class='va'>pal_unikn_ppt</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>  <span class='co'># 2nd color value "#59B6DC"</span>
+</div><div class='output co'>#&gt; [1] "#59B6DC"</div><div class='input'>
 <span class='co'># Access by name: </span>
-<span class='no'>pal_unikn_ppt</span>[<span class='st'>"seeblau3"</span>]    <span class='co'># color "seeblau3" (as df)</span></div><div class='output co'>#&gt;   seeblau3
-#&gt; 1  #59B6DC</div><div class='input'><span class='no'>pal_unikn_ppt</span><span class='kw'>[[</span><span class='st'>"seeblau3"</span>]]  <span class='co'># color value "#59B6DC"</span></div><div class='output co'>#&gt; [1] "#59B6DC"</div><div class='input'>
+<span class='va'>pal_unikn_ppt</span><span class='op'>[</span><span class='st'>"seeblau3"</span><span class='op'>]</span>    <span class='co'># color "seeblau3" (as df)</span>
+</div><div class='output co'>#&gt;   seeblau3
+#&gt; 1  #59B6DC</div><div class='input'><span class='va'>pal_unikn_ppt</span><span class='op'>[[</span><span class='st'>"seeblau3"</span><span class='op'>]</span><span class='op'>]</span>  <span class='co'># color value "#59B6DC"</span>
+</div><div class='output co'>#&gt; [1] "#59B6DC"</div><div class='input'>
 <span class='co'># Plotting palette:</span>
-<span class='fu'><a href='seecol.html'>seecol</a></span>(<span class='no'>pal_unikn_ppt</span>)</div><div class='img'><img src='pal_unikn_ppt-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='seecol.html'>seecol</a></span><span class='op'>(</span><span class='va'>pal_unikn_ppt</span><span class='op'>)</span>
+</div><div class='img'><img src='pal_unikn_ppt-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -209,7 +222,7 @@ and <a href='https://www.uni-konstanz.de/en/university/news-and-media/create-onl
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

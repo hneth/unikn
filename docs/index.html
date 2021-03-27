@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Home
   </a>
@@ -59,7 +59,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/colors.html">Colors and color palettes</a>
+      <a href="articles/colors.html">Colors and color functions</a>
+    </li>
+    <li>
+      <a href="articles/color_recipes.html">Color recipes</a>
+    </li>
+    <li>
+      <a href="articles/color_inst.html">Institutional colors</a>
     </li>
     <li>
       <a href="articles/text.html">Text decoration</a>
@@ -76,7 +82,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://hneth.github.io/unikn/">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -94,16 +100,16 @@
   <div class="contents col-md-9">
 
 
-<!-- Possible status badges:
+<!-- Possible status badges: 
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
-[![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn) 
+[![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/) 
 [![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
-[![Rdoc](https://www.rdocumentation.org/badges/version/unikn)](https://www.rdocumentation.org/packages/unikn)
+[![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
-<div id="unikn" class="section level1">
+<div id="unikn-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#unikn" class="anchor"></a>unikn <img src="./inst/pix/unikn.png" align="right" alt="unikn::" width="150px">
+<a href="#unikn-" class="anchor"></a>unikn <img src="./inst/pix/unikn.png" align="right" alt="unikn::" width="150px">
 </h1></div>
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
@@ -117,14 +123,19 @@
 <a href="#background" class="anchor"></a>Background</h2>
 <p>Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. In 2014, the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> introduced a highly recognizable corporate design. Its key component is the ubiquitous use of a <code>Seeblau</code> color and a corresponding color palette that blends various shades of <code>Seeblau</code> (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">corporate design</a> pages and the <a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf">Corporate Design Manual (pdf)</a> for details.)</p>
 <!-- Goals of the unikn pgk: -->
-<p>The <strong>unikn</strong> package facilitas the use of corporate design elements for users of <a href="https://www.r-project.org/">R</a>. While the correct use of default specifications is simple and straightforward, we leave some flexibility for more experienced users (e.g., for creating scientific visualizations).</p>
+<p>The <strong>unikn</strong> package facilitates the use of corporate design elements for users of <a href="https://www.r-project.org/">R</a>. While this renders the correct use of default specifications simple and straightforward, we leave some flexibility for experienced users (e.g., for creating scientific visualizations).</p>
 <!-- Overview: -->
-<p>The package currently provides 4 types of objects or functions:</p>
+<p>The <strong>unikn</strong> package currently provides five types of objects and functions:</p>
 <ol>
-<li>Dedicated colors and color palettes;</li>
-<li>Functions for viewing, changing, and comparing color palettes (e.g., see the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions);</li>
-<li>Functions for plotting graphical objects (e.g., boxes and frames);</li>
-<li>Functions for plotting styled text elements (e.g., highlighting and underlining text). <!-- 5. Graphical support (e.g., commands and themes for creating scientific visualizations). -->
+<li>Dedicated colors and color palettes;<br>
+</li>
+<li>Functions for viewing, changing, and comparing color palettes (i.e., <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code>);<br>
+</li>
+<li>Functions for creating new color palettes and for finding colors by their names (i.e., <code><a href="reference/newpal.html">newpal()</a></code> and <code><a href="reference/grepal.html">grepal()</a></code>);<br>
+</li>
+<li>Functions for plotting graphical objects (e.g., boxes and frames);<br>
+</li>
+<li>Functions for plotting styled text elements (e.g., highlighting and underlining text).<br><!-- 6. Graphical support (e.g., commands and themes for creating scientific visualizations). -->
 </li>
 </ol>
 <p>Additional elements may be added as they become available. Please use responsibly!</p>
@@ -133,16 +144,16 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>The latest release of <strong>unikn</strong> is available from <a href="https://CRAN.R-project.org/">CRAN</a> at <a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a>:</p>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">'unikn'</span>)  <span class="co"># install from CRAN client</span>
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'unikn'</span>)           <span class="co"># loads the package</span></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">'unikn'</span>)  <span class="co"># install from CRAN client</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">library</span>(<span class="st">'unikn'</span>)           <span class="co"># loads the package</span></span></code></pre></div>
 <p>The current development version can be installed from its <a href="https://github.com">GitHub</a> repository at <a href="https://github.com/hneth/unikn/" class="uri">https://github.com/hneth/unikn/</a>:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># install.packages('devtools')  # (if not installed yet)</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">'hneth/unikn'</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'unikn'</span>)  <span class="co"># loads the package</span></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co"># install.packages('devtools')  # (if not installed yet)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">'hneth/unikn'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">library</span>(<span class="st">'unikn'</span>)  <span class="co"># loads the package</span></span></code></pre></div>
 </div>
-<div id="colors" class="section level2">
+<div id="colors-and-color-functions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#colors" class="anchor"></a>Colors</h2>
+<a href="#colors-and-color-functions" class="anchor"></a>Colors and color functions</h2>
 <p>A distinctive and recognizable color scheme is the most recognizable element of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>’s corporate design.</p>
 <div id="basic-color-palettes" class="section level3">
 <h3 class="hasAnchor">
@@ -150,90 +161,93 @@
 <p>Basic color palettes are specified according to the <strong>Corporate Design Manual</strong> <a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf">(pdf)</a>:</p>
 <p>The default color palette <code>pal_unikn</code> combines:</p>
 <ul>
-<li>5 shades of <code>pal_seeblau</code> (reversed, i.e., from darker to lighter);</li>
-<li>the base R color <code>"white"</code> (as the center color);</li>
-<li>4 shades of grey (<code>pal_grau[1:4]</code>);</li>
+<li>5 shades of <code>pal_seeblau</code> (reversed, i.e., from darker to lighter);<br>
+</li>
+<li>the base R color <code>"white"</code> (as the center color);<br>
+</li>
+<li>4 shades of grey (<code>pal_grau[1:4]</code>);<br>
+</li>
 <li>the base R color <code>"black"</code> (as the last color).</li>
 </ul>
 <p>This yields a diverging, symmetrical default color palette <code>pal_unikn</code> consisting of 11 colors:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># Default color palette: ----- </span>
-<span class="co"># pal_unikn  # 11 default colors</span>
-
-<span class="co"># View color palette (by plotting it): ----- </span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="no">pal_unikn</span>)</pre></div>
-<p><img src="inst/pix/README-pal_unikn-1.png" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co"># Default color palette: ----- </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="co"># pal_unikn  # 11 default colors</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="co"># View color palette (by plotting it): ----- </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn)</span></code></pre></div>
+<p><img src="inst/pix/README-pal-unikn-1.png" style="display: block; margin: auto;"></p>
 <!-- <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/> -->
 <ul>
-<li><p>A shorter version consisting of 10 colors is provided as <code>pal_unikn_web</code>.</p></li>
-<li><p>An alternative color palette with 10 more muted colors (intended for PowerPoint presentations) is provided as <code>pal_unikn_ppt</code>.</p></li>
+<li><p>A shorter version consisting of 10 colors is provided as <code>pal_unikn_web</code>.</p></li>
+<li><p>An alternative color palette with 10 more muted colors (intended for PowerPoint presentations) is provided as <code>pal_unikn_ppt</code>.</p></li>
 </ul>
-<p>Evaluating <code><a href="reference/seecol.html">seecol(pal = "unikn_basic")</a></code> shows these 3 basic unikn color palettes.</p>
+<p>Evaluating <code><a href="reference/seecol.html">seecol(pal = "unikn_basic")</a></code> shows these three basic unikn color palettes.</p>
 </div>
 <div id="all-color-palettes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#all-color-palettes" class="anchor"></a>All color palettes</h3>
-<p>Beyond the 3 variants of <code>pal_unikn</code>, the <strong>unikn</strong> package provides the following color palettes:</p>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="st">"all"</span>)</pre></div>
-<p><img src="inst/pix/README-pal_all-1.png" style="display: block; margin: auto;"></p>
+<p>Beyond the three variants of <code>pal_unikn</code>, the <strong>unikn</strong> package provides the following color palettes:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="st">"all"</span>)</span></code></pre></div>
+<p><img src="inst/pix/README-pal-all-1.png" style="display: block; margin: auto;"></p>
 <p>Specifically, an Excel file called <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">Colours for complex graphics</a> defines 9 additional color palettes that are exported by <strong>unikn</strong> as the following named color palettes:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># Show 9 color gradient palettes:</span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="kw">pal</span> <span class="kw">=</span> <span class="st">"grad_all"</span>)</pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co"># Show 9 color gradient palettes:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="dt">pal =</span> <span class="st">"grad_all"</span>)</span></code></pre></div>
 <p>For details, evaluate or apply <code><a href="reference/seecol.html">seecol()</a></code> on the following color palettes:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># 8 mono-tone palettes: ----- </span>
-<span class="co"># Name:          Nr:           Tone:          </span>
-<span class="no">pal_seeblau</span>      <span class="co"># 5 shades of seeblau</span>
-<span class="no">pal_peach</span>        <span class="co"># 5           peach</span>
-<span class="no">pal_grau</span>         <span class="co"># 5           grau</span>
-<span class="no">pal_petrol</span>       <span class="co"># 5           petrol</span>
-<span class="no">pal_seegruen</span>     <span class="co"># 5           seegruen </span>
-<span class="no">pal_karpfenblau</span>  <span class="co"># 5           karpfenblau</span>
-<span class="no">pal_pinky</span>        <span class="co"># 5           pink</span>
-<span class="no">pal_Bordeaux</span>     <span class="co"># 5           Bordeaux</span>
-
-<span class="co"># 1 signal (Ampel) palette: ----- </span>
-<span class="no">pal_signal</span>       <span class="co"># 3           signal/Ampel</span></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co"># 8 mono-tone palettes: ----- </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="co"># Name:          Nr:           Tone:          </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>pal_seeblau      <span class="co"># 5 shades of seeblau</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>pal_peach        <span class="co"># 5           peach</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>pal_grau         <span class="co"># 5           grau</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>pal_petrol       <span class="co"># 5           petrol</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>pal_seegruen     <span class="co"># 5           seegruen </span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>pal_karpfenblau  <span class="co"># 5           karpfenblau</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>pal_pinky        <span class="co"># 5           pink</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>pal_Bordeaux     <span class="co"># 5           Bordeaux</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a><span class="co"># 1 signal (Ampel) palette: ----- </span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>pal_signal       <span class="co"># 3           signal/Ampel</span></span></code></pre></div>
 <p>Each color palette contains a preferred color.[1] All preferred colors are contained in a corresponding color palette <code>pal_unikn_pref</code>:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># Using preferred colors: ----- </span>
-<span class="no">pal_unikn_pref</span>             <span class="co"># color palette of preferred colors</span>
-<span class="no">pal_unikn_pref</span>[<span class="fl">1</span>]          <span class="co"># preferred (named) color 1</span>
-<span class="no">pal_unikn_pref</span><span class="kw">[[</span><span class="fl">1</span>]]        <span class="co"># color value 1: #59C7EB"</span>
-<span class="no">pal_unikn_pref</span>[<span class="st">"Seeblau"</span>]  <span class="co"># preferred color by name</span></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co"># Using preferred colors: ----- </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>pal_unikn_pref             <span class="co"># color palette of preferred colors</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>pal_unikn_pref[<span class="dv">1</span>]          <span class="co"># preferred (named) color 1</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>pal_unikn_pref[[<span class="dv">1</span>]]        <span class="co"># color value 1: #59C7EB"</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>pal_unikn_pref[<span class="st">"Seeblau"</span>]  <span class="co"># preferred color by name</span></span></code></pre></div>
 <p>Additional pre-defined color palettes include:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># Plot additional color palettes: ----- </span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="no">pal_unikn_pref</span>)   <span class="co"># palette of  9 preferred colors</span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="no">pal_unikn_light</span>)  <span class="co"># palette of  8 light colors (in 4 pairs)</span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="no">pal_unikn_dark</span>)   <span class="co"># palette of  8 dark colors (in 4 pairs)</span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="no">pal_unikn_pair</span>)   <span class="co"># palette of 16 paired colors (in 8 pairs)</span></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co"># Plot additional color palettes: ----- </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_pref)   <span class="co"># palette of  9 preferred colors</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_light)  <span class="co"># palette of  8 light colors (in 4 pairs)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_dark)   <span class="co"># palette of  8 dark colors (in 4 pairs)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_pair)   <span class="co"># palette of 16 paired colors (in 8 pairs)</span></span></code></pre></div>
 <p>More flexible and complex color palettes can be created by using the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions.</p>
 </div>
-</div>
-<div id="color-related-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#color-related-functions" class="anchor"></a>Color-related functions</h2>
-<p>The <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions provide a convenient interface for <em>viewing</em> and <em>using</em> color palettes.</p>
-<div id="plotting-color-palettes" class="section level3">
+<div id="overview-of-color-related-functions" class="section level3">
 <h3 class="hasAnchor">
-<a href="#plotting-color-palettes" class="anchor"></a>Plotting color palettes</h3>
-<p>The <code><a href="reference/seecol.html">seecol()</a></code> function provides a quick overview over the contents of a color palette and allows comparisons between color palettes:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># Plot a color palette: ----- </span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="kw">pal</span> <span class="kw">=</span> <span class="no">pal_unikn_pref</span>,            <span class="co"># palette to plot</span>
-       <span class="kw">col_brd</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">lwd_brd</span> <span class="kw">=</span> <span class="fl">5</span>)  <span class="co"># color and width of borders</span></pre></div>
+<a href="#overview-of-color-related-functions" class="anchor"></a>Overview of color-related functions</h3>
+<p>Two main functions <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> provide a convenient interface for <em>viewing</em> and <em>using</em> color palettes.</p>
+<p>Two additional functions <code><a href="reference/newpal.html">newpal()</a></code> and <code><a href="reference/grepal.html">grepal()</a></code> serve in auxiliary roles (by allowing to create new color palettes and finding colors whose names match some pattern).</p>
+</div>
+<div id="viewing-color-palettes-with-seecol" class="section level3">
+<h3 class="hasAnchor">
+<a href="#viewing-color-palettes-with-seecol" class="anchor"></a>Viewing color palettes with <code>seecol()</code>
+</h3>
+<p>The <code><a href="reference/seecol.html">seecol()</a></code> function enables a quick inspection of a color palette. It provides a quick overview over the details of a color palette and allows comparisons between multiple color palettes:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co"># Plot a color palette: ----- </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="dt">pal =</span> pal_unikn_pref,            <span class="co"># palette to plot</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>       <span class="dt">col_brd =</span> <span class="st">"white"</span>, <span class="dt">lwd_brd =</span> <span class="dv">5</span>)  <span class="co"># color and width of borders</span></span></code></pre></div>
 <p><img src="inst/pix/README-seecol-pref-1.png" style="display: block; margin: auto;"></p>
+<div id="partial-color-palettes" class="section level4">
+<h4 class="hasAnchor">
+<a href="#partial-color-palettes" class="anchor"></a>Partial color palettes</h4>
+<p>When only a subset of a color palette are needed, the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions provide a reasonable subset of a known <strong>unikn</strong> color palette:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="co"># All color palettes: ----- </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="dt">n =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="inst/pix/README-pal-n-1.png" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="co"># Only pal_seeblau: ----- </span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="co"># seecol(pal_seeblau, n = 4)</span></span></code></pre></div>
 </div>
-<div id="partial-color-palettes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#partial-color-palettes" class="anchor"></a>Partial color palettes</h3>
-<p>When only a subset of a color palette are needed, the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions provide a reasonable subset of a known ** unikn** color palette:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># All color palettes: ----- </span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fl">4</span>)</pre></div>
-<p><img src="inst/pix/README-pal-n-1.png" width="67%" style="display: block; margin: auto;"></p>
-<div class="sourceCode"><pre class="r">
-# Only pal_seeblau: ----- 
-# seecol(pal_seeblau, n = 4)</pre></div>
-</div>
-<div id="changing-and-creating-color-palettes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#changing-and-creating-color-palettes" class="anchor"></a>Changing and creating color palettes</h3>
+<div id="changing-and-creating-color-palettes" class="section level4">
+<h4 class="hasAnchor">
+<a href="#changing-and-creating-color-palettes" class="anchor"></a>Changing and creating color palettes</h4>
 <p>The <code>usecol</code> and <code>seecol</code> functions provide some generic options for manipulating and showing color gradients based on given colors or color palettes. This serves 2 main functions:</p>
 <ol>
 <li>Reducing or extending existing color palettes (to arbitrary lengths).</li>
@@ -243,9 +257,9 @@
 <ul>
 <li>Extending or reducing an existing color palette:</li>
 </ul>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="no">pal_unikn</span>, <span class="kw">n</span> <span class="kw">=</span> <span class="fl">21</span>)</pre></div>
-<p><img src="inst/pix/README-col-scale-1-1.png" width="67%" style="display: block; margin: auto;"></p>
-<div class="sourceCode"><pre class="r"># seecol(pal_seeblau, n = 8)  # provides a subset of "good" colors</pre></div>
+<!-- --><div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn, <span class="dt">n =</span> <span class="dv">21</span>)  </span></code></pre></div>
+<p><img src="inst/pix/README-col-scale-1-1.png" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="co"># seecol(pal_seeblau, n = 8)  # provides a subset of "good" colors</span></span></code></pre></div>
 <p>Note that reducing an <strong>unikn</strong> color palette selects a suitable subset of its colors, rather than just truncating the scale.</p>
 <!-- 
 
@@ -267,29 +281,34 @@ seecol(c(Seeblau, "white", Pinky), 11)
 <ul>
 <li>Mixing and merging colors and color palettes into new color palettes:</li>
 </ul>
-<div class="sourceCode"><pre class="r"><span class="co"># Combining color palettes (and colors): ----- </span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span>(<span class="no">pal_petrol</span>),  <span class="st">"white"</span>, <span class="no">pal_bordeaux</span>), <span class="fl">11</span>,
-       <span class="kw">col_bg</span> <span class="kw">=</span> <span class="st">"grey90"</span>)</pre></div>
-<p><img src="inst/pix/README-col-scale-3-1.png" width="67%" style="display: block; margin: auto;"></p>
-<div class="sourceCode"><pre class="r"><span class="co"># Related combinations:</span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span>(<span class="no">pal_seeblau</span>), <span class="st">"white"</span>, <span class="no">pal_pinky</span>), <span class="fl">11</span>)
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span>(<span class="no">pal_seeblau</span>), <span class="st">"white"</span>, <span class="no">pal_seegruen</span>), <span class="fl">11</span>)
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span>(<span class="no">pal_seeblau</span>), <span class="st">"white"</span>, <span class="no">pal_peach</span>), <span class="fl">11</span>)</pre></div>
+<!-- --><div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="co"># Combining color palettes (and colors): ----- </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_petrol),  <span class="st">"white"</span>, pal_bordeaux), <span class="dv">11</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>       <span class="dt">col_bg =</span> <span class="st">"grey90"</span>)</span></code></pre></div>
+<p><img src="inst/pix/README-col-scale-3-1.png" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="co"># Related combinations:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_seeblau), <span class="st">"white"</span>, pal_pinky), <span class="dv">11</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_seeblau), <span class="st">"white"</span>, pal_seegruen), <span class="dv">11</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_seeblau), <span class="st">"white"</span>, pal_peach), <span class="dv">11</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="using-color-palettes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#using-color-palettes" class="anchor"></a>Using color palettes</h2>
-<p>The <strong>unikn</strong> package exports the color palettes shown by <code><a href="reference/seecol.html">seecol(pal = "all")</a></code> and the 9 preferred colors of <code>pal_unikn_pref</code> (e.g., <code>Seeblau</code>, <code>Seegruen</code>, etc.) as named colors.</p>
+<div id="using-color-palettes-with-usecol" class="section level3">
+<h3 class="hasAnchor">
+<a href="#using-color-palettes-with-usecol" class="anchor"></a>Using color palettes with <code>usecol()</code>
+</h3>
+<p>The <strong>unikn</strong> package exports the color palettes shown by <code><a href="reference/seecol.html">seecol(pal = "all")</a></code> and the nine preferred colors of <code>pal_unikn_pref</code> (e.g., <code>Seeblau</code>, <code>Seegruen</code>, etc.) as named colors.</p>
 <p>The <code><a href="reference/usecol.html">usecol()</a></code> function provides convenient access and additional options for using them in graphs. Here are some examples:</p>
 <ol>
-<li>Using <strong>unikn</strong> color palettes and functions in base R plots:</li>
+<li>Using <strong>unikn</strong> color palettes and functions in <strong>base</strong> R plots:</li>
 </ol>
 <p>By default, simply set the color argument of a plot to <code><a href="reference/usecol.html">usecol()</a></code> with some <strong>unikn</strong> color palette:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># (a) Using a color palette:</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span>(<span class="fl">1</span>/<span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span>(<span class="fl">1</span>:<span class="fl">11</span>),  <span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="reference/usecol.html">usecol</a></span>(<span class="no">pal_unikn</span>))</pre></div>
-<p><img src="inst/pix/README-usepal-demo-barplot-1-1.png" width="60%" style="display: block; margin: auto;"></p>
-<p>Providing an additional value for <code>n</code> would reduce or extend the selected color palette and adding an opacity value for <code>alpha</code> (in the range <code>[0, 1]</code>) would regulate transparency.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="co"># (a) Using a color palette:</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="kw">barplot</span>(<span class="dv">1</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>),  <span class="dt">col =</span> <span class="kw">usecol</span>(pal_unikn))</span></code></pre></div>
+<p><img src="inst/pix/README-usepal-demo-barplot-1-1.png" style="display: block; margin: auto;"></p>
+<p>Two additional arguments allow modifying the existing color palette:</p>
+<ul>
+<li><p>providing a value for <code>n</code> reduces or extends the selected color palette;</p></li>
+<li><p>adding an opacity value for <code>alpha</code> (in the range <code>[0, 1]</code>) regulates color transparency.</p></li>
+</ul>
 <!-- 
 Additionally providing a value for `n` either reduces or extends the selected color palette: 
 
@@ -314,231 +333,194 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 
 <img src="inst/pix/README-usepal-demo-scatter-1.png" width="40%" style="display: block; margin: auto;" />
 
--->
-<ol>
-<li>Visualizing <strong>unikn</strong> color palettes with <code>image</code>:</li>
+--><ol>
+<li>Visualizing <strong>unikn</strong> color palettes (using <code><a href="https://rdrr.io/r/graphics/image.html">image()</a></code> from <strong>graphics</strong>):</li>
 </ol>
-<div class="sourceCode"><pre class="r"><span class="co"># Random images:</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">1</span>)
-<span class="no">n</span> <span class="kw">&lt;-</span> <span class="fl">20</span>
-<span class="no">m</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="no">n</span>*<span class="no">n</span>), <span class="kw">ncol</span> <span class="kw">=</span> <span class="no">n</span>, <span class="kw">nrow</span> <span class="kw">=</span> <span class="no">n</span>)
-
-<span class="co"># image(m, col = seecol(pal_seeblau))  # seecol() shows &amp; use colors </span>
-<span class="co"># image(m, col = usecol(pal_peach))    # usecol() only uses colors</span>
-<span class="co"># image(m, col = usecol(pal_seegruen))</span>
-<span class="co"># image(m, col = usecol(pal_petrol))</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/image.html">image</a></span>(<span class="no">m</span>, <span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="reference/usecol.html">usecol</a></span>(<span class="no">pal_seeblau</span>, <span class="kw">n</span> <span class="kw">=</span> <span class="fl">50</span>),
-      <span class="kw">main</span> <span class="kw">=</span> <span class="st">"50 shades of Seeblau"</span>, <span class="kw">axes</span> <span class="kw">=</span> <span class="fl">FALSE</span>)</pre></div>
+<!-- --><div class="sourceCode" id="cb17"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="co"># Random images:</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n<span class="op">*</span>n), <span class="dt">ncol =</span> n, <span class="dt">nrow =</span> n)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a><span class="co"># image(m, col = seecol(pal_seeblau))  # seecol() shows &amp; use colors </span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true"></a><span class="co"># image(m, col = usecol(pal_peach))    # usecol() only uses colors</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true"></a><span class="co"># image(m, col = usecol(pal_seegruen))</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true"></a><span class="co"># image(m, col = usecol(pal_petrol))</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true"></a><span class="kw">image</span>(m, <span class="dt">col =</span> <span class="kw">usecol</span>(pal_seeblau, <span class="dt">n =</span> <span class="dv">50</span>), </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true"></a>      <span class="dt">main =</span> <span class="st">"50 shades of Seeblau"</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-use-pal-demo-image-1.png" style="display: block; margin: auto;"></p>
 <ol>
-<li>Using <strong>unikn</strong> in <code>ggplot</code> calls (using <strong>ggplot2</strong>):</li>
+<li>Using <strong>unikn</strong> in <code>ggplot()</code> commands (using <strong>ggplot2</strong>):</li>
 </ol>
-<div class="sourceCode"><pre class="r"><span class="co"># Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/ </span>
-
-<span class="co"># (1) Create data: ---- </span>
-<span class="no">ngroup</span> <span class="kw">&lt;-</span> <span class="fl">50</span>
-<span class="no">names</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">"G_"</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="fl">1</span>, <span class="no">ngroup</span>), <span class="kw">sep</span> <span class="kw">=</span> <span class="st">""</span>)
-<span class="no">df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>()
-
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">3</span>)
-<span class="kw">for</span>(<span class="no">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="fl">1</span>:<span class="fl">30</span>)){
-    <span class="no">data</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span>(<span class="fl">0</span>, <span class="no">ngroup</span>, <span class="fl">3</span>))
-    <span class="no">data</span>[, <span class="fl">1</span>] <span class="kw">=</span> <span class="no">i</span>
-    <span class="no">data</span>[, <span class="fl">2</span>] <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="no">names</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(<span class="no">data</span>))
-    <span class="no">data</span>[, <span class="fl">3</span>] <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/prop.table.html">prop.table</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>( <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="fl">0</span>, <span class="fl">100</span>), <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>:<span class="no">ngroup</span>)), <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(<span class="no">data</span>)))
-    <span class="no">df</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span>(<span class="no">df</span>, <span class="no">data</span>)}
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">df</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"X"</span>,<span class="st">"group"</span>,<span class="st">"Y"</span>)
-<span class="no">df</span> <span class="kw">&lt;-</span> <span class="no">df</span>[<span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span>(<span class="no">df</span>$<span class="no">X</span>, <span class="no">df</span>$<span class="no">group</span>) , ]
-
-<span class="co"># (1) Choose colors: ---- </span>
-
-<span class="co"># (a) using RColorBrewer: </span>
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">RColorBrewer</span>)
-<span class="no">cur_col</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span>(<span class="fl">11</span>, <span class="st">"Paired"</span>)
-<span class="no">cur_col</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span>(<span class="no">cur_col</span>)(<span class="no">ngroup</span>)
-<span class="no">cur_col</span> <span class="kw">&lt;-</span> <span class="no">cur_col</span>[<span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>:<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">cur_col</span>)), <span class="kw">size</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">cur_col</span>))]  <span class="co"># randomize</span>
-
-<span class="co"># (b) using unikn:</span>
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">unikn</span>)
-<span class="no">cur_col</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/usecol.html">usecol</a></span>(<span class="kw">pal</span> <span class="kw">=</span> <span class="no">pal_unikn</span>, <span class="kw">n</span> <span class="kw">=</span> <span class="no">ngroup</span>)
-<span class="co"># cur_col &lt;- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize</span>
-
-<span class="co"># (3) Use ggplot2: ---- </span>
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">X</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">Y</span>, <span class="kw">fill</span> <span class="kw">=</span> <span class="no">group</span>)) +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html">geom_area</a></span>(<span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="no">Grau</span>, <span class="kw">size</span> <span class="kw">=</span> <span class="fl">.01</span> ) +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="no">cur_col</span>) +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>() +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="st">"none"</span>)</pre></div>
-<p><img src="./inst/pix/README-use_pal_ggplot2-1.png" align="center" width="500px" alt="Using pal_unikn in ggplot" style="border:10;"></p>
+<!-- --><div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="co"># 0. Create data: ---- </span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a><span class="co"># Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">50</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a>names &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">"G_"</span>, <span class="kw">seq</span>(<span class="dv">1</span>, n), <span class="dt">sep =</span> <span class="st">""</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">3</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)){</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true"></a>    data =<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">matrix</span>(<span class="dv">0</span>, n, <span class="dv">3</span>))</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true"></a>    data[, <span class="dv">1</span>] &lt;-<span class="st"> </span>i</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true"></a>    data[, <span class="dv">2</span>] &lt;-<span class="st"> </span><span class="kw">sample</span>(names, <span class="kw">nrow</span>(data))</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true"></a>    data[, <span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">prop.table</span>(<span class="kw">sample</span>( <span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>n)), <span class="kw">nrow</span>(data)))</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true"></a>    df =<span class="st"> </span><span class="kw">rbind</span>(df, data)}</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true"></a><span class="kw">colnames</span>(df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"X"</span>,<span class="st">"group"</span>,<span class="st">"Y"</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true"></a>df &lt;-<span class="st"> </span>df[<span class="kw">order</span>(df<span class="op">$</span>X, df<span class="op">$</span>group) , ]</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true"></a><span class="co"># 1. Choose colors: ---- </span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true"></a><span class="co"># (a) using RColorBrewer: </span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true"></a><span class="kw">library</span>(RColorBrewer)</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true"></a>cur_col &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(<span class="dv">11</span>, <span class="st">"Paired"</span>) </span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true"></a>cur_col &lt;-<span class="st"> </span><span class="kw">colorRampPalette</span>(cur_col)(n)</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true"></a>cur_col &lt;-<span class="st"> </span>cur_col[<span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(cur_col)), <span class="dt">size =</span> <span class="kw">length</span>(cur_col))]  <span class="co"># randomize</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true"></a><span class="co"># (b) using unikn:</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true"></a><span class="kw">library</span>(unikn)</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true"></a>cur_col &lt;-<span class="st"> </span><span class="kw">usecol</span>(<span class="dt">pal =</span> pal_unikn, <span class="dt">n =</span> n)</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true"></a><span class="co"># cur_col &lt;- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize</span></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true"></a></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true"></a><span class="co"># 2. Plotting: ---- </span></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">fill =</span> group)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">alpha =</span> <span class="dv">1</span>, <span class="dt">color =</span> Grau, <span class="dt">size =</span> <span class="fl">.01</span> ) <span class="op">+</span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> cur_col) <span class="op">+</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
+<!-- Image: ggplot2 with pal_unikn palette as link (in HTML): -->
+<p style="text-align:center;">
+<img src="./inst/pix/README-use_pal_ggplot2-1.png" align="center" alt="Using pal_unikn in ggplot" style="width: 500px; border:10;"></p>
 </div>
-<div id="generalization-to-other-institutions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#generalization-to-other-institutions" class="anchor"></a>Generalization to other institutions</h2>
-<p>The color scales included in the <strong>unikn</strong> package are based on the CD manual of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>, Germany. However, the functionality provided by the package makes it easy and straightforward to define and use your own color schemes. Here are some examples from other institutions to illustrate how this can be achieved.</p>
-<div id="a--university-of-freiburg-germany" class="section level4">
+<div id="creating-color-palettes-with-newpal" class="section level3">
+<h3 class="hasAnchor">
+<a href="#creating-color-palettes-with-newpal" class="anchor"></a>Creating color palettes with <code>newpal()</code>
+</h3>
+<p>The <code><a href="reference/newpal.html">newpal()</a></code> function allows creating new color palettes (typically as data frames with dedicated color names).</p>
+<p>The color palettes included in the <strong>unikn</strong> package are based on the CD manual of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>, Germany. However, the functionality provided by the package makes it easy and straightforward to define and use your own color scales. In the following, we provide examples to illustrate how this can be achieved for other corporations or institutions.</p>
+<div id="the-colors-of-princeton-university" class="section level4">
 <h4 class="hasAnchor">
-<a href="#a--university-of-freiburg-germany" class="anchor"></a>A. <a href="https://www.uni-freiburg.de/">University of Freiburg</a>, Germany:</h4>
-<p><img src="./inst/pix/logo_freiburg.png" align="right" width="150px" alt="Uni Freiburg" style="border:10;"></p>
-<p>The <a href="https://www.uni-freiburg.de/">Albert-Ludwigs Universität Freiburg</a> provides fairly extensive information on its corporate color scheme (available <a href="https://www.zuv.uni-freiburg.de/service/cd/cd-manual/farbwelt">here</a> and <a href="https://www.zuv.uni-freiburg.de/service/wsg/webstyleguide/farben">here</a>). Colors can be defined in a variety of ways, but R comes with convenient tools (like <code>col2rgb</code> and <code>convertColor</code> in <strong>grDevices</strong>) to handle most cases. The most straightforward way of creating a new color palette in R is by using its HEX/HTML code (provided in character format). As the <a href="https://www.uni-freiburg.de/">University of Freiburg</a> kindly provides their colors in this format, we can easily define the corresponding color palettes as named vectors:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># Basic colors: https://www.zuv.uni-freiburg.de/service/cd/cd-manual/farbwelt</span>
-
-<span class="no">pal_freiburg_bluered</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#004a99"</span>, <span class="st">"#c1002a"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pal_freiburg_bluered</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"uni-blau"</span>, <span class="st">"uni-rot"</span>)
-
-<span class="no">pal_freiburg_basic</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#004a99"</span>, <span class="st">"white"</span>, <span class="st">"#c1002a"</span>)  <span class="co"># add "white" for better gradients</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pal_freiburg_basic</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"uni-blau"</span>, <span class="st">"weiss"</span>, <span class="st">"uni-rot"</span>)
-
-<span class="co"># Web colors: https://www.zuv.uni-freiburg.de/service/wsg/webstyleguide/farben  </span>
-
-<span class="no">pal_freiburg_blue</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#004a99"</span>, <span class="st">"#2a6ebb"</span>, <span class="st">"#6f9ad3"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pal_freiburg_blue</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"blue-1"</span>, <span class="st">"blue-2"</span>, <span class="st">"blue-3"</span>)
-
-<span class="no">pal_freiburg_grey</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#f2f3f1"</span>, <span class="st">"#e0e1dd"</span>, <span class="st">"#d5d6d2"</span>, <span class="st">"#c9cac8"</span>,
-                       <span class="st">"#b2b4b3"</span>, <span class="st">"#9a9b9c"</span>, <span class="st">"#747678"</span>, <span class="st">"#363534"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pal_freiburg_grey</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"grey-0"</span>, <span class="st">"grey-1"</span>, <span class="st">"grey-2"</span>, <span class="st">"grey-3"</span>,
-                              <span class="st">"grey-5"</span>, <span class="st">"grey-7"</span>, <span class="st">"grey-9"</span>, <span class="st">"grey-font"</span>)
-
-<span class="co"># Info colors: </span>
-<span class="no">pal_freiburg_info</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#2a6ebb"</span>, <span class="st">"#a7c1e3"</span>, <span class="st">"#7b2927"</span>, <span class="st">"#de3831"</span>, <span class="st">"#739600"</span>, <span class="st">"#92d400"</span>,
-                       <span class="st">"#4d4f53"</span>, <span class="st">"#747678"</span>, <span class="st">"#b2b4b3"</span>, <span class="st">"#d5d6d2"</span>, <span class="st">"#e98300"</span>, <span class="st">"#efbd47"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pal_freiburg_info</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"mid-blau"</span>, <span class="st">"hell-blau"</span>, <span class="st">"dark-red"</span>, <span class="st">"hell-red"</span>, <span class="st">"mid-green"</span>, <span class="st">"hell-green"</span>,
-                              <span class="st">"anthrazit"</span>, <span class="st">"dark-grey"</span>, <span class="st">"mid-grey"</span>, <span class="st">"hell-grey"</span>, <span class="st">"orange"</span>, <span class="st">"gelb"</span>)</pre></div>
-<p>Alternatively, we can define both (colors and names) in 1 step by using the <code><a href="reference/newpal.html">newpal()</a></code> function:</p>
-<div class="sourceCode"><pre class="r"><span class="no">pal_freiburg_info</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/newpal.html">newpal</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#2a6ebb"</span>, <span class="st">"#a7c1e3"</span>, <span class="st">"#7b2927"</span>, <span class="st">"#de3831"</span>, <span class="st">"#739600"</span>, <span class="st">"#92d400"</span>,
-                                    <span class="st">"#4d4f53"</span>, <span class="st">"#747678"</span>, <span class="st">"#b2b4b3"</span>, <span class="st">"#d5d6d2"</span>, <span class="st">"#e98300"</span>, <span class="st">"#efbd47"</span>),
-                            <span class="kw">names</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"mid-blau"</span>, <span class="st">"hell-blau"</span>, <span class="st">"dark-red"</span>, <span class="st">"hell-red"</span>, <span class="st">"mid-green"</span>, <span class="st">"hell-green"</span>,
-                                      <span class="st">"anthrazit"</span>, <span class="st">"dark-grey"</span>, <span class="st">"mid-grey"</span>, <span class="st">"hell-grey"</span>, <span class="st">"orange"</span>, <span class="st">"gelb"</span>)
-                            )
-<span class="co"># seecol(pal_freiburg_info)</span></pre></div>
-<p>Once a new color palette has been defined (and is available in your current R environment), we can use the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions to view, modify, and use the palette:</p>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="no">pal_freiburg_info</span>)            <span class="co"># view color palette</span></pre></div>
-<p><img src="inst/pix/README-uni-freiburg-seecol-1.png" width="67%" style="display: block; margin: auto;"></p>
-<div class="sourceCode"><pre class="r"># seecol(pal_freiburg_basic, n = 7)  # extend color palette
-# seecol(c(pal_freiburg_blue, "white", pal_freiburg_grey))  # mix color palette</pre></div>
-</div>
-<div id="b--princeton-university-usa" class="section level4">
-<h4 class="hasAnchor">
-<a href="#b--princeton-university-usa" class="anchor"></a>B. <a href="https://princeton.edu/">Princeton University</a>, USA:</h4>
+<a href="#the-colors-of-princeton-university" class="anchor"></a>The colors of Princeton University</h4>
 <p><img src="./inst/pix/logo_princeton.jpg" align="right" width="200px" alt="Princeton University" style="border:10;"></p>
 <p>The color scheme of <a href="https://princeton.edu/">Princeton University</a> is easily recognized by its combination of orange with black and white elements. The official guidelines (available <a href="https://communications.princeton.edu/guides-tools/logo-graphic-identity">here</a>) define “Princeton Orange” as Pantone (PMS) 158 C.</p>
 <ul>
 <li>
 <p>The PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/158-C" class="uri">https://www.pantone.com/color-finder/158-C</a> yields the following color values:</p>
 <ul>
-<li>RGB: <code>232 119 34</code>
+<li>RGB: <code>232 119 34</code><br>
 </li>
-<li>HEX/HTML: <code>#E87722</code>
+<li>HEX/HTML: <code>#E87722</code><br>
 </li>
 <li>CMYK: <code>0 62 95 0</code>
 </li>
 </ul>
 </li>
 <li>
-<p>However, the guide also specifies and distinguishes between 2 additional versions of orange and provides the following HEX/HTML values for them:</p>
+<p>However, the guide also specifies and distinguishes between two additional versions of orange and provides the following HEX/HTML values for them:</p>
 <ul>
-<li>Orange on white: “#E77500”</li>
+<li>Orange on white: “#E77500”<br>
+</li>
 <li>Orange on black: “#F58025”</li>
 </ul>
 </li>
 </ul>
-<p>These definitions suggest defining 3 separate versions of orange and corresponding color palettes:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># HEX values for 3 shades of orange: </span>
-<span class="no">orange_basic</span> <span class="kw">&lt;-</span> <span class="st">"#E87722"</span>  <span class="co"># Pantone 158 C</span>
-<span class="no">orange_white</span> <span class="kw">&lt;-</span> <span class="st">"#E77500"</span>  <span class="co"># orange on white</span>
-<span class="no">orange_black</span> <span class="kw">&lt;-</span> <span class="st">"#F58025"</span>  <span class="co"># orange on black</span>
-
-<span class="co"># Defining color palettes:</span>
-<span class="no">pal_princeton</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">orange_basic</span>, <span class="st">"black"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pal_princeton</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"orange"</span>, <span class="st">"black"</span>)
-
-<span class="no">pal_princeton_1</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">orange_white</span>, <span class="st">"white"</span>, <span class="st">"black"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pal_princeton_1</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"orange_w"</span>, <span class="st">"white"</span>, <span class="st">"black"</span>)
-
-<span class="no">pal_princeton_2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="kw">pal</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">orange_black</span>, <span class="st">"black"</span>, <span class="st">"white"</span>))
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pal_princeton_2</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"orange_b"</span>, <span class="st">"black"</span>, <span class="st">"white"</span>)</pre></div>
+<p>These definitions suggest defining three separate versions of orange and corresponding color palettes:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="co"># HEX values for 3 shades of orange: </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>orange_basic &lt;-<span class="st"> "#E87722"</span>  <span class="co"># Pantone 158 C</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>orange_white &lt;-<span class="st"> "#E77500"</span>  <span class="co"># orange on white</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>orange_black &lt;-<span class="st"> "#F58025"</span>  <span class="co"># orange on black</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true"></a><span class="co"># Defining color palettes:</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true"></a>pal_princeton &lt;-<span class="st"> </span><span class="kw">c</span>(orange_basic, <span class="st">"black"</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true"></a><span class="kw">names</span>(pal_princeton) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"orange"</span>, <span class="st">"black"</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true"></a>pal_princeton_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(orange_white, <span class="st">"white"</span>, <span class="st">"black"</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true"></a><span class="kw">names</span>(pal_princeton_<span class="dv">1</span>) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"orange_w"</span>, <span class="st">"white"</span>, <span class="st">"black"</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true"></a>pal_princeton_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">pal =</span> <span class="kw">c</span>(orange_black, <span class="st">"black"</span>, <span class="st">"white"</span>))</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true"></a><span class="kw">names</span>(pal_princeton_<span class="dv">2</span>) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"orange_b"</span>, <span class="st">"black"</span>, <span class="st">"white"</span>)</span></code></pre></div>
 <p>Alternatively, we can define both (colors and names) in 1 step by using the <code><a href="reference/newpal.html">newpal()</a></code> function:</p>
-<div class="sourceCode"><pre class="r"><span class="no">pal_princeton_1</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/newpal.html">newpal</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#E77500"</span>, <span class="st">"white"</span>, <span class="st">"black"</span>),
-                          <span class="kw">names</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"orange_w"</span>, <span class="st">"white"</span>, <span class="st">"black"</span>)
-                          )
-<span class="co"># seecol(pal_princeton_1)</span></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a>pal_princeton_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">newpal</span>(<span class="dt">col =</span> <span class="kw">c</span>(<span class="st">"#E77500"</span>, <span class="st">"white"</span>, <span class="st">"black"</span>),</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a>                          <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">"orange_w"</span>, <span class="st">"white"</span>, <span class="st">"black"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a>                          )</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a><span class="co"># seecol(pal_princeton_1)</span></span></code></pre></div>
 <p>The new color palettes (e.g., <code>pal_princeton_1</code>) can now be viewed with <code><a href="reference/seecol.html">seecol()</a></code>, scaled by <code><a href="reference/usecol.html">usecol()</a></code>, and used in graphs (e.g., in <code>ggplot</code> commands):</p>
-<div class="sourceCode"><pre class="r"><span class="co"># View color palette: </span>
-<span class="co"># seecol(pal_princeton_1)  </span>
-
-<span class="co"># Scale color palette (using df and ngroup from above):</span>
-<span class="no">my_pal</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/usecol.html">usecol</a></span>(<span class="kw">pal</span> <span class="kw">=</span> <span class="no">pal_princeton_1</span>, <span class="kw">n</span> <span class="kw">=</span> <span class="no">ngroup</span>)
-
-<span class="co"># Use my_pal for plotting: </span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">X</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">Y</span>, <span class="kw">fill</span> <span class="kw">=</span> <span class="no">group</span>)) +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html">geom_area</a></span>(<span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="no">Grau</span>, <span class="kw">size</span> <span class="kw">=</span> <span class="fl">.01</span> ) +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="no">my_pal</span>) +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>() +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="st">"none"</span>)</pre></div>
-<p><img src="./inst/pix/README-use_ggplot2_princeton-1.png" align="center" width="500px" alt="pal_unikn" style="border:10;"></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="co"># View color palette: </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="co"># seecol(pal_princeton_1)  </span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a><span class="co"># Scale color palette (using df and n from above):</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a>my_pal &lt;-<span class="st"> </span><span class="kw">usecol</span>(<span class="dt">pal =</span> pal_princeton_<span class="dv">1</span>, <span class="dt">n =</span> n)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a><span class="co"># Use my_pal for plotting: </span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">fill =</span> group)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">alpha =</span> <span class="dv">1</span>, <span class="dt">color =</span> Grau, <span class="dt">size =</span> <span class="fl">.01</span> ) <span class="op">+</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> my_pal) <span class="op">+</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
+<!-- Image: ggplot2 with Princeton palette as link (in HTML): -->
+<p style="text-align:center;">
+<img src="./inst/pix/README-use_ggplot2_princeton-1.png" alt="pal_princeton_1" style="width: 500px; border:10;"></p>
 </div>
-<div id="c--max-planck-society-germany" class="section level4">
+<div id="the-colors-of-google" class="section level4">
 <h4 class="hasAnchor">
-<a href="#c--max-planck-society-germany" class="anchor"></a>C. <a href="https://www.mpg.de/de">Max Planck Society</a>, Germany:</h4>
-<p><img src="./inst/pix/logo_MPG.png" align="right" alt="MPG" width="200px" style="border:10;"></p>
-<p>The CD manual (available <a href="https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html">here</a>) of the <a href="https://www.mpg.de/de">Max Planck Society</a> specifies the use of 2 primary colors:</p>
-<ul>
-<li>
-<p>Green as Pantone 328: Using the PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/328-C" class="uri">https://www.pantone.com/color-finder/328-C</a> yields the following color values:</p>
-<ul>
-<li>RGB: <code>0 115 103</code>
-</li>
-<li>HEX/HTML: <code>#007367</code>
-</li>
-<li>CMYK: <code>100 10 61 38</code>
-</li>
-</ul>
-</li>
-<li>
-<p>Grey as Pantone 427: Using the PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/427-C" class="uri">https://www.pantone.com/color-finder/427-C</a> yields the following color values:</p>
-<ul>
-<li>RGB: <code>208 211 212</code>
-</li>
-<li>HEX/HTML: <code>#D0D3D4</code>
-</li>
-<li>CMYK: <code>7 3 5 8</code>
-</li>
-</ul>
-</li>
-</ul>
-<p>Again, the easiest way of defining a corresponding color palette is by creating a named vector. To allow for better color gradients, we insert the color <code>"white"</code> between the 2 dedicated colors:</p>
-<div class="sourceCode"><pre class="r"><span class="no">pal_mpg</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#007367"</span>, <span class="st">"white"</span>, <span class="st">"#D0D3D4"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pal_mpg</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"mpg green"</span>, <span class="st">"white"</span>, <span class="st">"mpg grey"</span>)</pre></div>
-<p>Alternatively, we can define both (colors and names) in 1 step by using the <code><a href="reference/newpal.html">newpal()</a></code> function:</p>
-<div class="sourceCode"><pre class="r"><span class="no">pal_mpg</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/newpal.html">newpal</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#007367"</span>, <span class="st">"white"</span>, <span class="st">"#D0D3D4"</span>),
-                  <span class="kw">names</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"mpg green"</span>, <span class="st">"white"</span>, <span class="st">"mpg grey"</span>)
-                  )
-<span class="co"># seecol(pal_mpg)</span></pre></div>
-<p>As before, can now use the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions to view, modify, and use the new <code>pal_mpg</code> color palette:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># View color palette: </span>
-<span class="co"># seecol(pal_mpg)</span>
-
-<span class="co"># Use pal_mpg in image:</span>
-<span class="no">x</span> <span class="kw">&lt;-</span> <span class="no">y</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(-<span class="fl">4</span> * <span class="no">pi</span>, <span class="fl">4</span> * <span class="no">pi</span>, <span class="kw">len</span> <span class="kw">=</span> <span class="fl">15</span>)
-<span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/outer.html">outer</a></span>(<span class="no">x</span>^<span class="fl">2</span>, <span class="no">y</span>^<span class="fl">2</span>, <span class="st">"+"</span>))
-<span class="fu"><a href="https://rdrr.io/r/graphics/image.html">image</a></span>(<span class="kw">z</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">cos</a></span>(<span class="no">r</span>^<span class="fl">2</span>) * <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span>(-<span class="no">r</span>/<span class="fl">6</span>), <span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="reference/usecol.html">usecol</a></span>(<span class="no">pal_mpg</span>, <span class="kw">n</span> <span class="kw">=</span> <span class="fl">10</span>),
-      <span class="kw">main</span> <span class="kw">=</span> <span class="st">"Shades of MPG (using pal_mpg)"</span>, <span class="kw">axes</span> <span class="kw">=</span> <span class="fl">FALSE</span>)</pre></div>
-<p><img src="inst/pix/README-mpg-use-pal-1.png" style="display: block; margin: auto;"></p>
+<a href="#the-colors-of-google" class="anchor"></a>The colors of Google</h4>
+<p>Color palettes for other entities and purposes can easily be created. To illustrate the steps involved, let’s create a color palette of the well-known <a href="https://www.google.com/">Google</a> logo.</p>
+<p>The typical steps of creating a new palette are:</p>
+<ol>
+<li><p>Choose some colors (and their R color names, or as RGB/HEX/HCL values, e.g., from sites like <a href="https://www.schemecolor.com" class="uri">https://www.schemecolor.com</a>).</p></li>
+<li><p>Define the colors as an R vector (of type character).</p></li>
+<li><p>Define their names as a second R vector (of type character).</p></li>
+<li><p>Use the <code><a href="reference/newpal.html">newpal()</a></code> command to define the new color palette.</p></li>
+<li><p>Use the <code><a href="reference/seecol.html">seepal()</a></code> command to inspect the new color palette.</p></li>
+</ol>
+<!-- --><div class="sourceCode" id="cb22"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="co"># 1. Choose colors:</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a><span class="co"># Google logo colors (from &lt;https://www.schemecolor.com/google-logo-colors.php&gt;)</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a><span class="co"># 2. Define colors (as vector):</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true"></a>color_google &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"#4285f4"</span>, <span class="st">"#34a853"</span>, <span class="st">"#fbbc05"</span>, <span class="st">"#ea4335"</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true"></a><span class="co"># 3. Define color names (as vector):</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true"></a>names_google &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"blueberry"</span>, <span class="st">"sea green"</span>, <span class="st">"selective yellow"</span>, <span class="st">"cinnabar"</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true"></a><span class="co"># 4. Define color palette:</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true"></a>pal_google &lt;-<span class="st"> </span><span class="kw">newpal</span>(color_google, names_google)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true"></a><span class="co"># 5. Inspect color palette:</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true"></a><span class="kw">seecol</span>(pal_google, </span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true"></a>       <span class="dt">col_brd =</span> <span class="st">"white"</span>, <span class="dt">lwd_brd =</span> <span class="dv">8</span>,</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true"></a>       <span class="dt">title =</span> <span class="st">"Colors of the Google logo"</span>)</span></code></pre></div>
+<p><img src="inst/pix/README-newpal-google-1.png" style="display: block; margin: auto;"></p>
+<p>The new palette <code>pal_google</code> can now be used in R graphics and modified in various ways (e.g., by the <code><a href="reference/usecol.html">usecol()</a></code> function).</p>
+<p>See the vignette on “Institutional colors” of the <strong>unikn</strong> package for additional examples.</p>
 </div>
-<div id="comparing-color-palettes" class="section level4">
-<h4 class="hasAnchor">
-<a href="#comparing-color-palettes" class="anchor"></a>Comparing color palettes</h4>
-<p>Once a new palette is defined (and available in your current R environment), the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions allow comparing, scaling, and using them in the same fashion as the native <strong>unikn</strong> color palettes:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># Compare and extend custom color palettes:</span>
-<span class="no">pals</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="no">pal_freiburg_basic</span>, <span class="no">pal_mpg</span>, <span class="no">pal_princeton_1</span>, <span class="no">pal_unikn</span>)
-<span class="no">lbls</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Uni Freiburg"</span>, <span class="st">"Max Planck"</span>, <span class="st">"Princeton Uni"</span>, <span class="st">"Uni Konstanz"</span>)
-<span class="co"># seecol(pals, pal_names = lbls,                          # basic versions</span>
-<span class="co">#        title = "Compare and label custom color palettes") </span>
-<span class="fu"><a href="reference/seecol.html">seecol</a></span>(<span class="no">pals</span>, <span class="kw">n</span> <span class="kw">=</span> <span class="fl">9</span>, <span class="kw">pal_names</span> <span class="kw">=</span> <span class="no">lbls</span>,                     <span class="co"># scaled versions</span>
-       <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Compare and label custom color palettes"</span>)</pre></div>
-<p><img src="inst/pix/README-compare-custom-pals-1.png" width="75%" style="display: block; margin: auto;"></p>
+</div>
+<div id="finding-colors-with-grepal" class="section level3">
+<h3 class="hasAnchor">
+<a href="#finding-colors-with-grepal" class="anchor"></a>Finding colors with <code>grepal()</code>
+</h3>
+<p>The <code><a href="reference/grepal.html">grepal()</a></code> function allows finding colors in a color palettes by matching their name to a pattern.</p>
+<p>Specifically, <code><a href="reference/grepal.html">grepal(pattern, x)</a></code> searches a color palette <code>x</code> (i.e., a vector of color names or data frame of named colors) for elements that match a <code>pattern</code> and returns those elements (colors) that match the pattern. The <code>pattern</code> can be a regular expression.</p>
+<p>By default, <code><a href="reference/grepal.html">grepal()</a></code> searches the 657 named colors provided by <code><a href="https://rdrr.io/r/grDevices/colors.html">colors()</a></code> in <strong>base</strong> R:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="co"># Find colors matching a pattern: </span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a>oranges &lt;-<span class="st"> </span><span class="kw">grepal</span>(<span class="st">"orange"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true"></a><span class="co"># See color palette:</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true"></a><span class="kw">seecol</span>(oranges, </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true"></a>       <span class="dt">col_brd =</span> <span class="st">"white"</span>, <span class="dt">lwd_brd =</span> <span class="dv">2</span>, </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true"></a>       <span class="dt">title =</span> <span class="st">"Shades of 'orange' in colors()"</span>)</span></code></pre></div>
+<p><img src="inst/pix/README-grepal-example-1-1.png" style="display: block; margin: auto;"></p>
+<p>Providing a list of color palettes to the <code>pal</code> argument of the <code><a href="reference/seecol.html">seecol()</a></code> function allows comparing multiple color palettes:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="co"># Find colors:</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>pink_olive &lt;-<span class="st"> </span><span class="kw">grepal</span>(<span class="st">"(pink)|(olive)"</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true"></a>purple_orange &lt;-<span class="st"> </span><span class="kw">grepal</span>(<span class="st">"(purple)|(orange)"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true"></a><span class="co"># See color palettes:</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="dt">pal =</span> <span class="kw">list</span>(pink_olive, purple_orange), </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true"></a>       <span class="dt">pal_names =</span> <span class="kw">c</span>(<span class="st">"pink|olive"</span>, <span class="st">"purple|orange"</span>), </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true"></a>       <span class="dt">title =</span> <span class="st">"Comparing pink olives and purple oranges"</span>)</span></code></pre></div>
+<p><img src="inst/pix/README-grepal-example-2-1.png" style="display: block; margin: auto;"></p>
+<p>To make <code><a href="reference/grepal.html">grepal()</a></code> more powerful, its <code>pattern</code> argument can use regular expressions, and its <code>x</code> argument works with both vectors and data frames (e.g., the <strong>unikn</strong> color palettes).</p>
 </div>
 </div>
 <div id="text-decorations" class="section level2">
@@ -549,76 +531,67 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <h3 class="hasAnchor">
 <a href="#mark" class="anchor"></a>Mark</h3>
 <p>The <code><a href="reference/mark.html">mark()</a></code> function allows emphasizing text by plotting it with colored background (to provide the functionality of “Markieren”):</p>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="reference/mark.html">mark</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Markieren"</span>, <span class="st">"ist ein Bestandteil"</span>, <span class="st">"von Studieren."</span>),
-     <span class="kw">x</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.8</span>, <span class="kw">y_layout</span> <span class="kw">=</span> <span class="fl">.03</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1.5</span>, <span class="kw">new_plot</span> <span class="kw">=</span> <span class="st">"slide"</span>)</pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="kw">mark</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Markieren"</span>, <span class="st">"ist ein Bestandteil"</span>, <span class="st">"von Studieren."</span>), </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a>     <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="fl">.8</span>, <span class="dt">y_layout =</span> <span class="fl">.03</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>, <span class="dt">new_plot =</span> <span class="st">"slide"</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-mark-new-plot-1.png" style="display: block; margin: auto;"></p>
 </div>
 <div id="underline" class="section level3">
 <h3 class="hasAnchor">
 <a href="#underline" class="anchor"></a>Underline</h3>
 <p>The <code><a href="reference/uline.html">uline()</a></code> function allows emphasizing text by plotting it with colored underlining (to provide the functionality of “Unterstreichen”):</p>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="reference/uline.html">uline</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Geradlinig"</span>, <span class="st">"Authentisch"</span>, <span class="st">"Beweglich"</span>, <span class="st">"Offen"</span>, <span class="st">"Paradiesisch"</span>),
-      <span class="kw">x</span> <span class="kw">=</span> <span class="fl">.05</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.9</span>, <span class="kw">y_layout</span> <span class="kw">=</span> <span class="st">"even"</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1.1</span>, <span class="kw">font</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">new_plot</span> <span class="kw">=</span> <span class="st">"slide"</span>)</pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="kw">uline</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Geradlinig"</span>, <span class="st">"Authentisch"</span>, <span class="st">"Beweglich"</span>, <span class="st">"Offen"</span>, <span class="st">"Paradiesisch"</span>), </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a>      <span class="dt">x =</span> <span class="fl">.05</span>, <span class="dt">y =</span> <span class="fl">.9</span>, <span class="dt">y_layout =</span> <span class="st">"even"</span>, <span class="dt">cex =</span> <span class="fl">1.1</span>, <span class="dt">font =</span> <span class="dv">2</span>, <span class="dt">new_plot =</span> <span class="st">"slide"</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-uline-demo-1.png" style="display: block; margin: auto;"></p>
 </div>
 <div id="post" class="section level3">
 <h3 class="hasAnchor">
 <a href="#post" class="anchor"></a>Post</h3>
 <p>The <code><a href="reference/post.html">post()</a></code> function allows adding text to a rectangular <code>xbox</code> (to provide the functionality of “Merken”):</p>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="reference/xbox.html">xbox</a></span>(<span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="reference/usecol.html">usecol</a></span>(<span class="no">pal_seeblau</span><span class="kw">[[</span><span class="fl">5</span>]]), <span class="kw">dim</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>, <span class="fl">2</span>))
-<span class="fu"><a href="reference/post.html">post</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Für eine"</span>, <span class="st">"Kultur der"</span>, <span class="st">"Kreativität"</span>), <span class="kw">x</span> <span class="kw">=</span> <span class="fl">.1</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.8</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1.4</span>, <span class="kw">font</span> <span class="kw">=</span> <span class="fl">2</span>)</pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="kw">xbox</span>(<span class="dt">col =</span> <span class="kw">usecol</span>(pal_seeblau[[<span class="dv">5</span>]]), <span class="dt">dim =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a><span class="kw">post</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Für eine"</span>, <span class="st">"Kultur der"</span>, <span class="st">"Kreativität"</span>), <span class="dt">x =</span> <span class="fl">.1</span>, <span class="dt">y =</span> <span class="fl">.8</span>, <span class="dt">cex =</span> <span class="fl">1.4</span>, <span class="dt">font =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-post-demo-1-1.png" style="display: block; margin: auto;"></p>
 <p>The color and font parameters can be adjusted to obtain different looks:</p>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="reference/post.html">post</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"creative."</span>, <span class="st">"together"</span>), <span class="kw">new_plot</span> <span class="kw">=</span> <span class="st">"xbox"</span>,
-     <span class="kw">y_layout</span> <span class="kw">=</span> <span class="fl">.02</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">font</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">3</span>),
-     <span class="kw">col_bg</span> <span class="kw">=</span> <span class="no">pal_seegruen</span><span class="kw">[[</span><span class="fl">1</span>]], <span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">Petrol</span>, <span class="no">Pinky</span>))</pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"></a><span class="kw">post</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"creative."</span>, <span class="st">"together"</span>), <span class="dt">new_plot =</span> <span class="st">"xbox"</span>, </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true"></a>     <span class="dt">y_layout =</span> <span class="fl">.02</span>, <span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">font =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>),  </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true"></a>     <span class="dt">col_bg =</span> pal_seegruen[[<span class="dv">1</span>]], <span class="dt">col =</span> <span class="kw">c</span>(Petrol, Pinky))</span></code></pre></div>
 <p><img src="inst/pix/README-post-demo-2-1.png" style="display: block; margin: auto;"></p>
 </div>
 <div id="headings" class="section level3">
 <h3 class="hasAnchor">
 <a href="#headings" class="anchor"></a>Headings</h3>
 <p>The <code><a href="reference/heading.html">heading()</a></code> function is a convenient wrapper around <code>mark</code>:</p>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="reference/heading.html">heading</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"pa-"</span>, <span class="st">"ra-"</span>, <span class="st">"die-"</span>, <span class="st">"sisch"</span>))</pre></div>
-<p><img src="inst/pix/README-heading-demo-1.png" style="display: block; margin: auto;"></p>
-<p>Headings violating the official recommendations (e.g., step-wise titles) will generate a message.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a><span class="kw">heading</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"pa-"</span>, <span class="st">"ra-"</span>, <span class="st">"die-"</span>, <span class="st">"sisch"</span>))</span></code></pre></div>
+<p><img src="inst/pix/README-heading-demo-1-1.png" style="display: block; margin: auto;"></p>
+<p>Headings violating the official recommendations (e.g., step-wise titles) will generate a message:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true"></a><span class="kw">heading</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Ewig"</span>, <span class="st">"währt am"</span>, <span class="st">"längsten..."</span>), </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true"></a>        <span class="dt">y =</span> <span class="dv">2</span><span class="op">/</span><span class="dv">3</span>, <span class="dt">col_bg =</span> <span class="kw">usecol</span>(pal_pinky))</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true"></a><span class="co">#&gt; Step-wise titles are discouraged: Consider re-arranging?</span></span></code></pre></div>
+<p><img src="inst/pix/README-heading-demo-2-1.png" style="display: block; margin: auto;"></p>
 </div>
 <div id="urls" class="section level3">
 <h3 class="hasAnchor">
 <a href="#urls" class="anchor"></a>URLs</h3>
 <p>Finally, the <code><a href="reference/url_unikn.html">url_unikn()</a></code> function allows formatting URLs the uni.kn way:</p>
-<div class="sourceCode"><pre class="r"><span class="no">my_url</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/url_unikn.html">url_unikn</a></span>(<span class="st">"https://www.uni-konstanz.de/"</span>)  <span class="co"># input URL as copied from web browser</span>
-
-<span class="fu"><a href="reference/post.html">post</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="no">my_url</span>, <span class="kw">x</span> <span class="kw">=</span> <span class="fl">.2</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.1</span>, <span class="kw">font</span> <span class="kw">=</span> <span class="fl">4</span>, <span class="kw">new_plot</span> <span class="kw">=</span> <span class="st">"xbox"</span>)</pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a>my_url &lt;-<span class="st"> </span><span class="kw">url_unikn</span>(<span class="st">"https://www.uni-konstanz.de/"</span>)  <span class="co"># input URL as copied from web browser</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a><span class="kw">post</span>(<span class="dt">labels =</span> my_url, <span class="dt">x =</span> <span class="fl">.2</span>, <span class="dt">y =</span> <span class="fl">.1</span>, <span class="dt">font =</span> <span class="dv">4</span>, <span class="dt">new_plot =</span> <span class="st">"xbox"</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-url-post-1.png" style="display: block; margin: auto;"></p>
 </div>
-</div>
-<div id="other-institutions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#other-institutions" class="anchor"></a>Other institutions</h2>
-<p>If custom color palettes are available (see definitions above), the text decoration functions can be used for graphical annotations in the style of other institutions:</p>
-<div class="sourceCode"><pre class="r"><span class="co"># (A) Using pal_freiburg_basic and pal_freiburg_blue: </span>
-<span class="fu"><a href="reference/uline.html">uline</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"University of Freiburg"</span>),
-      <span class="kw">x</span> <span class="kw">=</span> <span class="fl">.5</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.85</span>, <span class="kw">font</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1</span>,
-      <span class="kw">col</span> <span class="kw">=</span> <span class="no">pal_freiburg_basic</span><span class="kw">[[</span><span class="fl">1</span>]], <span class="kw">col_bg</span> <span class="kw">=</span> <span class="no">pal_freiburg_basic</span><span class="kw">[[</span><span class="fl">3</span>]],
-      <span class="kw">new_plot</span> <span class="kw">=</span> <span class="st">"slide"</span>)
-<span class="fu"><a href="reference/mark.html">mark</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Die Wahrheit"</span>, <span class="st">"wird euch"</span>, <span class="st">"frei machen."</span>),
-     <span class="kw">x</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.90</span>, <span class="kw">y_layout</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1.2</span>,
-     <span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"white"</span>), <span class="kw">col_bg</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span>(<span class="fu"><a href="reference/usecol.html">usecol</a></span>(<span class="no">pal_freiburg_blue</span>, <span class="fl">3</span>)))
-
-<span class="co"># (B) Using orange_white or pal_princeton:</span>
-<span class="fu"><a href="reference/uline.html">uline</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Princeton University"</span>),
-      <span class="kw">x</span> <span class="kw">=</span> <span class="fl">.5</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.55</span>, <span class="kw">font</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">col_bg</span> <span class="kw">=</span> <span class="no">orange_white</span>)
-<span class="fu"><a href="reference/mark.html">mark</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Go"</span>, <span class="st">"tigers!"</span>),
-     <span class="kw">x</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.58</span>, <span class="kw">y_layout</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1.2</span>,
-     <span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"black"</span>, <span class="st">"white"</span>), <span class="kw">col_bg</span> <span class="kw">=</span> <span class="no">pal_princeton</span>)
-
-<span class="co"># (C) Using pal_mpg:</span>
-<span class="fu"><a href="reference/uline.html">uline</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Max Planck Society"</span>),
-      <span class="kw">x</span> <span class="kw">=</span> <span class="fl">.5</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.25</span>, <span class="kw">font</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">col_bg</span> <span class="kw">=</span> <span class="fu"><a href="reference/usecol.html">usecol</a></span>(<span class="no">pal_mpg</span>, <span class="fl">1</span>), <span class="kw">col</span> <span class="kw">=</span> <span class="st">"black"</span>)
-<span class="fu"><a href="reference/mark.html">mark</a></span>(<span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Dem Anwenden"</span>, <span class="st">"muss das Erkennen"</span>, <span class="st">"vorausgehen."</span>),
-     <span class="kw">x</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">.30</span>, <span class="kw">y_layout</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">cex</span> <span class="kw">=</span> <span class="fl">1.2</span>,
-     <span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"white"</span>), <span class="kw">col_bg</span> <span class="kw">=</span> <span class="fu"><a href="reference/usecol.html">usecol</a></span>(<span class="no">pal_mpg</span>, <span class="fl">7</span>)[<span class="fl">3</span>:<span class="fl">1</span>])</pre></div>
+<div id="using-custom-color-palettes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#using-custom-color-palettes" class="anchor"></a>Using custom color palettes</h3>
+<!-- Uni Freiburg: -->
+<!-- MPG:  -->
+<p>If custom color palettes are available, the text decoration functions can be used for graphical annotations.</p>
+<ul>
+<li>For instance, using color palettes of other academic institutions (defined in the vignette on “Institutional colors”):</li>
+</ul>
 <p><img src="inst/pix/README-others-txt-demo-1.png" style="display: block; margin: auto;"></p>
+<ul>
+<li>Using the color palette <code>pal_google</code> (defined above):</li>
+</ul>
+<p><img src="inst/pix/README-others-google-1.png" style="display: block; margin: auto;"></p>
+</div>
 <div id="caveats" class="section level3">
 <h3 class="hasAnchor">
 <a href="#caveats" class="anchor"></a>Caveats</h3>
@@ -636,7 +609,8 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <p><img src="./inst/pix/todo.png" alt="ToDo" align="right" width="140px" style="width: 140px; float: right; border:10;"></p>
 <p>The <strong>unikn</strong> package is work in progress. We are still working on:</p>
 <ul>
-<li>Graphical themes for <strong>ggplot2</strong> that use <strong>unikn</strong> color palettes and text elements</li>
+<li>Graphical themes for <strong>ggplot2</strong> that use <strong>unikn</strong> color palettes and text elements<br>
+</li>
 <li>Additional templates for images and slides</li>
 </ul>
 <p>Please <a href="https://www.spds.uni-konstanz.de/">contact us</a> in case you need additional features or want to help us implementing them.</p>
@@ -647,9 +621,9 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <p>The following versions of <strong>unikn</strong> and corresponding resources are currently available:</p>
 <table class="table">
 <colgroup>
-<col width="32%">
-<col width="26%">
-<col width="41%">
+<col width="13%">
+<col width="30%">
+<col width="55%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">Type:</th>
@@ -690,12 +664,15 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <a href="#copyrights" class="anchor"></a>Copyrights</h2>
 <!-- uni.kn logo and link: -->
 <!-- ![](./inst/pix/logo.svg) -->
-<p><a href="https://www.uni-konstanz.de/"> <img src="./inst/pix/logo_unikn.png" alt="uni.kn" width="280px" align="left" style="width: 280px; float: left; border:10;"></a></p>
-<p>The <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">University of Konstanz’s Corporate Design</a> (CD) was created by the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> and <a href="https://www.strichpunkt-design.de/">Strichpunkt GmbH</a> and introduced in 2014. We are members of the research group on <a href="https://www.spds.uni-konstanz.de/">Social Psychology and Decision Sciences</a> at the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> and make some CD elements available to fellow users of R (e.g., for creating scientific visualizations). However, all copyrights on the CD remain with the original copyright holders.</p>
+<p><a href="https://www.uni-konstanz.de/"> <img src="./inst/pix/logo_unikn.png" alt="uni.kn" width="280px" align="right" style="width: 280px; float: right; border:12;"></a></p>
+<p>The <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">University of Konstanz’s Corporate Design</a></p>
+<p>(CD) was created by <a href="https://www.strichpunkt-design.de/">Strichpunkt GmbH</a> and the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> in 2014. The <strong>unikn</strong> package authors belong to the research group on <a href="https://www.spds.uni-konstanz.de/">Social Psychology and Decision Sciences</a> (SPDS) at the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>. We make some CD elements available to fellow users of R (e.g., for creating scientific visualizations), but all copyrights remain with the original copyright holders.</p>
 <p>We aim for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also tend to cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we allow for some liberties, mostly by relaxing some restrictions. Examples include:</p>
 <ul>
-<li>enabling finer color gradients and arbitrary combinations of color palettes (by applying the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions to color palettes);</li>
-<li>providing a designated <code>Signal</code> color (from <code>pal_signal</code>);</li>
+<li>enabling finer color gradients and arbitrary combinations of color palettes (by applying the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions to color palettes);<br>
+</li>
+<li>providing a designated <code>Signal</code> color (from <code>pal_signal</code>);<br>
+</li>
 <li>using the spelling “color” (rather than “colour”) throughout the <strong>unikn</strong> package.</li>
 </ul>
 </div>
@@ -725,7 +702,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <!-- - [Corporate design at uni.kn](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/)   --><ul>
 <li><a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf">Corporate design manual (PDF)</a></li>
 </ul>
-<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   --><!-- Update: --><p>(Updated on 2020-08-24.)</p>
+<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   --><!-- Update: --><p>(Updated on 2021-03-27.)</p>
 <!-- eof. -->
 <p>[1] Whereas the official definition does not identify a preferred color for the Ampel color palette (<code>pal_signal</code>), we provide its alert color (i.e., <code>pal_signal[2]</code>) as a designated color <code>Signal</code>.</p>
 </div>
@@ -772,6 +749,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://CRAN.R-project.org/package=unikn"><img src="https://www.r-pkg.org/badges/version/unikn" alt="CRAN_status"></a></li>
+<li><a href="https://travis-ci.org/hneth/unikn/"><img src="https://travis-ci.org/hneth/unikn.svg?branch=master" alt="Build_status"></a></li>
 <li><a href="https://www.r-pkg.org/pkg/unikn"><img src="https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen" alt="Downloads"></a></li>
 </ul>
 </div>
@@ -784,7 +762,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

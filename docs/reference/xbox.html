@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -88,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Home
   </a>
@@ -101,7 +101,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/colors.html">Colors and color palettes</a>
+      <a href="../articles/colors.html">Colors and color functions</a>
+    </li>
+    <li>
+      <a href="../articles/color_recipes.html">Color recipes</a>
+    </li>
+    <li>
+      <a href="../articles/color_inst.html">Institutional colors</a>
     </li>
     <li>
       <a href="../articles/text.html">Text decoration</a>
@@ -118,7 +124,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://hneth.github.io/unikn/">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -144,7 +150,7 @@
     <p><code>xbox</code> plots a box with a cross (x) in its top-right corner.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>xbox</span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>Seeblau</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>))</pre>
+    <pre class="usage"><span class='fu'>xbox</span><span class='op'>(</span>col <span class='op'>=</span> <span class='va'>Seeblau</span>, dim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -175,9 +181,12 @@ at the correct aspect ratio (as defined by <code>dim</code>).</p>
 <code><a href='theme_unikn.html'>theme_unikn</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>xbox</span>()  <span class='co'># default box</span></div><div class='img'><img src='xbox-1.png' alt='' width='700' height='433' /></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>xbox</span><span class='op'>(</span><span class='op'>)</span>  <span class='co'># default box</span>
+</div><div class='img'><img src='xbox-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Options:</span>
-<span class='fu'>xbox</span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>Bordeaux</span>)</div><div class='img'><img src='xbox-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>xbox</span>(<span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>1</span>)) <span class='co'># 2:1 dimension (wider than high)</span></div><div class='img'><img src='xbox-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>xbox</span><span class='op'>(</span>col <span class='op'>=</span> <span class='va'>Bordeaux</span><span class='op'>)</span>
+</div><div class='img'><img src='xbox-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>xbox</span><span class='op'>(</span>dim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># 2:1 dimension (wider than high)</span>
+</div><div class='img'><img src='xbox-3.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -194,7 +203,7 @@ at the correct aspect ratio (as defined by <code>dim</code>).</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
