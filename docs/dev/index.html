@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.3.0.9012</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9001</span>
       </span>
     </div>
 
@@ -101,11 +101,11 @@
   <div class="contents col-md-9">
 
 
-<!-- Possible status badges:
+<!-- Possible status badges: 
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/) 
-[![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn/)
-[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn/)
+[![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
+[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 <div id="unikn-" class="section level1">
@@ -117,8 +117,12 @@
 <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
 </a> 
 -->
-<p>Enabling elements of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>’s corporate design in <a href="https://www.r-project.org/">R</a>.</p>
+<div id="enabling-corporate-design-elements-in-r" class="section level3">
+<h3 class="hasAnchor">
+<a href="#enabling-corporate-design-elements-in-r" class="anchor"></a>Enabling corporate design elements in <a href="https://www.r-project.org/">R</a>
+</h3>
 <p>The <strong>unikn</strong> package provides color functions — by defining dedicated colors and color palettes, and commands for changing, viewing, and using them — and styled text elements (e.g., for marking, underlining, or plotting colored titles). The pre-defined range of colors and text functions is based on the corporate design of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> (see <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">this link</a> for details), but can be adapted and extended for other institutions and purposes.</p>
+</div>
 <div id="background" class="section level2">
 <h2 class="hasAnchor">
 <a href="#background" class="anchor"></a>Background</h2>
@@ -176,7 +180,7 @@
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="co"># View color palette (by plotting it): ----- </span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn)</span></code></pre></div>
-<p><img src="inst/pix/README-pal_unikn-1.png" style="display: block; margin: auto;"></p>
+<p><img src="inst/pix/README-pal-unikn-1.png" style="display: block; margin: auto;"></p>
 <!-- <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/> -->
 <ul>
 <li><p>A shorter version consisting of 10 colors is provided as <code>pal_unikn_web</code>.</p></li>
@@ -189,7 +193,7 @@
 <a href="#all-color-palettes" class="anchor"></a>All color palettes</h3>
 <p>Beyond the three variants of <code>pal_unikn</code>, the <strong>unikn</strong> package provides the following color palettes:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="st">"all"</span>)</span></code></pre></div>
-<p><img src="inst/pix/README-pal_all-1.png" style="display: block; margin: auto;"></p>
+<p><img src="inst/pix/README-pal-all-1.png" style="display: block; margin: auto;"></p>
 <p>Specifically, an Excel file called <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">Colours for complex graphics</a> defines 9 additional color palettes that are exported by <strong>unikn</strong> as the following named color palettes:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co"># Show 9 color gradient palettes:</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="dt">pal =</span> <span class="st">"grad_all"</span>)</span></code></pre></div>
@@ -666,8 +670,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <!-- uni.kn logo and link: -->
 <!-- ![](./inst/pix/logo.svg) -->
 <p><a href="https://www.uni-konstanz.de/"> <img src="./inst/pix/logo_unikn.png" alt="uni.kn" width="280px" align="right" style="width: 280px; float: right; border:12;"></a></p>
-<p>The <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">University of Konstanz’s Corporate Design</a></p>
-<p>(CD) was created by <a href="https://www.strichpunkt-design.de/">Strichpunkt GmbH</a> and the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> in 2014. The <strong>unikn</strong> package authors belong to the research group on <a href="https://www.spds.uni-konstanz.de/">Social Psychology and Decision Sciences</a> (SPDS) at the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>. We make some CD elements available to fellow users of R (e.g., for creating scientific visualizations), but all copyrights remain with the original copyright holders.</p>
+<p>The <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">University of Konstanz’s Corporate Design</a> (CD) was created by <a href="https://www.strichpunkt-design.de/">Strichpunkt GmbH</a> and the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> in 2014. The <strong>unikn</strong> package authors belong to the research group on <a href="https://www.spds.uni-konstanz.de/">Social Psychology and Decision Sciences</a> (SPDS) at the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>. We make some CD elements available to fellow users of R (e.g., for creating scientific visualizations), but all copyrights remain with the original copyright holders.</p>
 <p>We aim for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also tend to cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we allow for some liberties, mostly by relaxing some restrictions. Examples include:</p>
 <ul>
 <li>enabling finer color gradients and arbitrary combinations of color palettes (by applying the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions to color palettes);<br>
@@ -703,7 +706,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <!-- - [Corporate design at uni.kn](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/)   --><ul>
 <li><a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf">Corporate design manual (PDF)</a></li>
 </ul>
-<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   --><!-- Update: --><p>(Updated on 2020-12-18.)</p>
+<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   --><!-- Update: --><p>(Updated on 2021-03-27.)</p>
 <!-- eof. -->
 <p>[1] Whereas the official definition does not identify a preferred color for the Ampel color palette (<code>pal_signal</code>), we provide its alert color (i.e., <code>pal_signal[2]</code>) as a designated color <code>Signal</code>.</p>
 </div>
@@ -751,7 +754,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <ul class="list-unstyled">
 <li><a href="https://CRAN.R-project.org/package=unikn"><img src="https://www.r-pkg.org/badges/version/unikn" alt="CRAN_status"></a></li>
 <li><a href="https://travis-ci.org/hneth/unikn/"><img src="https://travis-ci.org/hneth/unikn.svg?branch=master" alt="Build_status"></a></li>
-<li><a href="https://www.r-pkg.org/pkg/unikn/"><img src="https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen" alt="Downloads"></a></li>
+<li><a href="https://www.r-pkg.org/pkg/unikn"><img src="https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen" alt="Downloads"></a></li>
 </ul>
 </div>
 </div>
