@@ -1,7 +1,7 @@
 ---
 title: "Color recipes"
 author: "SPDS, uni.kn"
-date: "2020 12 18"
+date: "2021 04 06"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -255,9 +255,9 @@ pal_2 <- grepal("olive")
 pal_3 <- grepal("white")
 
 # See individual palettes:
-# seecol(pal_1, title = "Shades of 'orange' colors()")
-# seecol(pal_2, title = "Shades of 'olive' colors()")
-seecol(pal_3, title = "Shades of 'white' colors()", col_bg = "grey90")
+# seecol(pal_1, title = "Hues of 'orange' colors()")
+# seecol(pal_2, title = "Hues of 'olive' colors()")
+seecol(pal_3, title = "Hues of 'white' colors()", col_bg = "grey90")
 ```
 
 Providing a list of color palettes to the `pal` argument of the `seecol()` function allows comparing multiple color palettes: 
