@@ -22,14 +22,17 @@ Default: \code{ignore_case = TRUE}.}
 \code{grepal} returns a vector of colors whose names match a regular expression (regex).
 }
 \details{
-By default, the base R vector of named colors (i.e., \code{colors()}) is searched 
+By default, the \strong{base} R vector of named colors (i.e., \code{colors()}) is searched 
 for names matching a \code{pattern} (which can be a simple string or regular expression). 
 
 If \code{x} (i.e., the object to be searched) is provided, 
 it is must be a vector of color names or a data frame of named color objects 
-(e.g., a color palette). 
+(i.e., a color palette). 
 
-The name \code{grepal} is an abbreviation of \code{grep} and "pal".
+This function facilitates searching colors by name and 
+yields (a vector of) colors of similar color hue (provided 
+that the color's hue is expressed in a color's name). 
+Its name \code{grepal} is an abbreviation of \code{grep} and "pal".
 }
 \examples{
 grepal("cyan")
@@ -60,13 +63,16 @@ seecol(grepal("blau", pal_unikn_pref), title = "All 'blau' colors in pal_unikn_p
 
 }
 \seealso{
-\code{\link{defpal}} to define color palettes; 
 \code{\link{seepal}} to plot color palettes;  
-\code{\link{usecol}} to use a color palette.
+\code{\link{usecol}} to use a color palette; 
+\code{\link{defpal}} to define new color palettes; 
+\code{\link{shades_of}} to define shades of a given color; 
+\code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color functions: 
 \code{\link{newpal}()},
 \code{\link{seecol}()},
+\code{\link{shades_of}()},
 \code{\link{usecol}()}
 }
 \concept{color functions}

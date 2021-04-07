@@ -96,6 +96,7 @@ seecol(my_pals, col_brd = "white", lwd_brd = 5,
 Other color functions: 
 \code{\link{grepal}()},
 \code{\link{seecol}()},
+\code{\link{shades_of}()},
 \code{\link{usecol}()}
 }
 \concept{color functions}

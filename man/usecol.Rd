@@ -23,8 +23,8 @@ colors if the desired number of colors is smaller than the available number.
 For all other palettes and values of \code{n} larger than \code{length(pal)}, 
 \code{n} compresses or extends the palette using \code{\link{colorRampPalette}}.}
 
-\item{alpha}{A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
-to a value in [0,1]. 
+\item{alpha}{A factor modifying the opacity alpha 
+(as in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
 Default: \code{alpha = NA} (i.e., no modification of opacity).}
 
 \item{use_names}{A logical value indicating whether colors should be returned as a named vector.
@@ -66,11 +66,15 @@ seecol(pal_3)
 }
 \seealso{
 \code{\link{seecol}} to plot color palettes; 
+\code{\link{defpal}} to define new color palettes; 
+\code{\link{grepal}} for finding named colors; 
+\code{\link{shades_of}} to define shades of a given color; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color functions: 
 \code{\link{grepal}()},
 \code{\link{newpal}()},
-\code{\link{seecol}()}
+\code{\link{seecol}()},
+\code{\link{shades_of}()}
 }
 \concept{color functions}

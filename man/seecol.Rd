@@ -52,8 +52,8 @@ color palette \code{pal}, the color palette is reduced or extrapolated
 (using \code{grDevices::colorRampPalette}). 
 Default: \code{n = "all"} (i.e., show all colors in palette).}
 
-\item{alpha}{A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
-typically in [0,1]. If used, the value is shown in the plot title.
+\item{alpha}{A factor modifying the opacity alpha 
+(as in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
 Default: \code{alpha = NA} (i.e., no modification of opacity).}
 
 \item{hex}{Should HEX color values be shown? 
@@ -94,7 +94,7 @@ Default: \code{pal_names = NA} (for default names).}
 the colors of a palette or comparing multiple color palettes.
 }
 \details{
-\code{seecol} has 2 main modes, based on the contents of its \code{pal} argument:
+\code{seecol} has two main modes, based on the contents of its \code{pal} argument:
 
 \enumerate{
 
@@ -161,11 +161,15 @@ seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
 }
 \seealso{
 \code{\link{usecol}} for using a color palette; 
+\code{\link{defpal}} to define new color palettes; 
+\code{\link{grepal}} for finding named colors; 
+\code{\link{shades_of}} to define shades of a given color; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color functions: 
 \code{\link{grepal}()},
 \code{\link{newpal}()},
+\code{\link{shades_of}()},
 \code{\link{usecol}()}
 }
 \concept{color functions}
