@@ -1,5 +1,5 @@
 
-# unikn 0.4.0.9001+
+# unikn 0.4.0.9002
 
 The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -7,7 +7,7 @@ The current development version of **unikn** (0.4.0.9001+) is available at <http
 
 ## Major changes 
 
-- none yet 
+- Added a `shades_of()` function to conveniently get `n`\ shades of a color. [2021-04-06]
 
 <!-- Add blank line.  --> 
 
@@ -139,6 +139,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2021-03-27.]
+[File `NEWS.md` updated on 2021-04-07.]
 
 <!-- eof. -->
