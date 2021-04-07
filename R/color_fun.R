@@ -1,5 +1,5 @@
 ## color_fun.R  |  unikn
-## spds | uni.kn |  2021 01 05
+## spds | uni.kn |  2021 04 06
 ## ---------------------------
 
 ## Define color-related functions 
@@ -26,8 +26,8 @@
 #' For all other palettes and values of \code{n} larger than \code{length(pal)}, 
 #' \code{n} compresses or extends the palette using \code{\link{colorRampPalette}}.
 #' 
-#' @param alpha A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
-#' to a value in [0,1]. 
+#' @param alpha A factor modifying the opacity alpha 
+#' (as in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
 #' Default: \code{alpha = NA} (i.e., no modification of opacity).
 #' 
 #' @param use_names A logical value indicating whether colors should be returned as a named vector.
@@ -63,6 +63,9 @@
 #'
 #' @seealso
 #' \code{\link{seecol}} to plot color palettes; 
+#' \code{\link{defpal}} to define new color palettes; 
+#' \code{\link{grepal}} for finding named colors; 
+#' \code{\link{shades_of}} to define shades of a given color; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette. 
 #'
 #' @export
@@ -367,7 +370,7 @@ usecol <- function(pal = pal_unikn,
 #' \code{seecol} provides an interface to plotting (or "seeing") 
 #' the colors of a palette or comparing multiple color palettes. 
 #' 
-#' \code{seecol} has 2 main modes, based on the contents of its \code{pal} argument:
+#' \code{seecol} has two main modes, based on the contents of its \code{pal} argument:
 #' 
 #' \enumerate{
 #'
@@ -415,9 +418,9 @@ usecol <- function(pal = pal_unikn,
 #' (using \code{grDevices::colorRampPalette}). 
 #' Default: \code{n = "all"} (i.e., show all colors in palette). 
 #' 
-#' @param alpha A factor modifying the opacity alpha (as in \code{\link{adjustcolor}}); 
-#' typically in [0,1]. If used, the value is shown in the plot title.
-#' Default: \code{alpha = NA} (i.e., no modification of opacity).  
+#' @param alpha A factor modifying the opacity alpha 
+#' (as in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
+#' Default: \code{alpha = NA} (i.e., no modification of opacity). 
 #' 
 #' @param hex Should HEX color values be shown? 
 #' Default: \code{hex = NULL} (i.e., show HEX color values 
@@ -504,6 +507,9 @@ usecol <- function(pal = pal_unikn,
 #'
 #' @seealso 
 #' \code{\link{usecol}} for using a color palette; 
+#' \code{\link{defpal}} to define new color palettes; 
+#' \code{\link{grepal}} for finding named colors; 
+#' \code{\link{shades_of}} to define shades of a given color; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #'
 #' @import graphics 
@@ -1258,14 +1264,17 @@ newpal <- function(col,            # a vector of colors
 #'
 #' \code{grepal} returns a vector of colors whose names match a regular expression (regex). 
 #' 
-#' By default, the base R vector of named colors (i.e., \code{colors()}) is searched 
+#' By default, the \strong{base} R vector of named colors (i.e., \code{colors()}) is searched 
 #' for names matching a \code{pattern} (which can be a simple string or regular expression). 
 #' 
 #' If \code{x} (i.e., the object to be searched) is provided, 
 #' it is must be a vector of color names or a data frame of named color objects 
-#' (e.g., a color palette). 
+#' (i.e., a color palette). 
 #' 
-#' The name \code{grepal} is an abbreviation of \code{grep} and "pal". 
+#' This function facilitates searching colors by name and 
+#' yields (a vector of) colors of similar color hue (provided 
+#' that the color's hue is expressed in a color's name). 
+#' Its name \code{grepal} is an abbreviation of \code{grep} and "pal". 
 #'
 #' @param pattern A regular expression 
 #' (specified as a string/character object). 
@@ -1308,10 +1317,12 @@ newpal <- function(col,            # a vector of colors
 #' @family color functions
 #' 
 #' @seealso 
-#' \code{\link{defpal}} to define color palettes; 
 #' \code{\link{seepal}} to plot color palettes;  
-#' \code{\link{usecol}} to use a color palette.  
-#'
+#' \code{\link{usecol}} to use a color palette; 
+#' \code{\link{defpal}} to define new color palettes; 
+#' \code{\link{shades_of}} to define shades of a given color; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette.
+#' 
 #' @import grDevices 
 #' 
 #' @export 
@@ -1366,6 +1377,99 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
 # seecol(grepal("white"), col_bg = "lightblue2")
 # seecol(grepal("SEE", pal_unikn))
 # seecol(grepal("blau", pal_unikn_pref))
+
+
+
+## shades_of(): Get n lighter or darker versions of a given color: ------ 
+
+# - Documentation: ---- 
+
+#' Get n shades of a color. 
+#'
+#' \code{shades_of} returns a vector of \code{n} colors that are 
+#' shades of an initial color \code{col_1}. 
+#' 
+#' By default, the colors range from the initial color 
+#' \code{col_1 = "black"} to \code{col_n = "white"}, 
+#' but specifying different initial and final colors yields 
+#' other color ranges. 
+#' 
+#' \code{shades_of} is only a convenient wrapper function for 
+#' a common \code{\link{usecol()}} command. 
+#' However, \code{\link{usecol()}} allows defining more 
+#' complex color gradients (e.g., by specifying more than two colors). 
+#'
+#' @param n Number of desired colors.  
+#' Default: \code{n = 5}.  
+#' 
+#' @param col_1 Initial color.   
+#' Default: \code{col_1 = "black"}.  
+#' 
+#' @param col_n Final (n-th) color.   
+#' Default: \code{col_n = "white"}.  
+#' 
+#' @param alpha A factor modifying the opacity alpha 
+#' (as in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
+#' Default: \code{alpha = NA} (i.e., no modification of opacity).
+#' 
+#' @examples
+#' grey50 <- shades_of(50, col_1 = 'grey1')
+#' seecol(grey50, title = "50 shades of grey1")
+#' 
+#' blue_black <- shades_of(5, Seeblau, col_n = "black")
+#' seecol(blue_black, title = "5 shades from Seeblau to black")
+#'
+#' wine_white <- shades_of(6, Bordeaux, alpha = 1/2)
+#' seecol(wine_white, col_brd = "black", lwd_brd = .5, 
+#'        title = "Shades of semi-transparent Bordeaux")
+#'   
+#' @family color functions
+#' 
+#' @seealso 
+#' \code{\link{seepal}} to plot color palettes;  
+#' \code{\link{usecol}} to use a color palette; 
+#' \code{\link{defpal}} to define new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#'
+#' @import grDevices 
+#' 
+#' @export 
+
+# - Definition: ------- 
+
+shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
+  
+  # Initialize: 
+  cv <- NA  # color vector
+  
+  # Main: Pass to usecol()
+  cv <- usecol(pal = c(col_1, col_n), n = n, alpha = alpha)
+  
+  # Output:
+  return(cv)
+  
+} # shades_of end. 
+
+
+# # Check:
+# grepal("cyan")
+# 
+# # With regular expressions:
+# grepal("gr(a|e)y")
+# grepal("^gr(a|e)y")
+# grepal("^gr(a|e)y$")
+# 
+# # With other color objects (as x):
+# grepal("blau", x = pal_unikn)
+# grepal("SEE", x = pal_unikn_pref)
+# 
+# # Example applications:
+# seecol(grepal("cyan"))
+# seecol(grepal("white"), col_bg = "lightblue2")
+# seecol(grepal("SEE", pal_unikn))
+# seecol(grepal("blau", pal_unikn_pref))
+
+
 
 
 ## ToDo: ------
