@@ -1395,8 +1395,8 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
 #' other color ranges. 
 #' 
 #' \code{shades_of} is only a convenient wrapper function for 
-#' a common \code{\link{usecol()}} command. 
-#' However, \code{\link{usecol()}} allows defining more 
+#' a common \code{\link{usecol}} command. 
+#' However, \code{\link{usecol}} allows defining more 
 #' complex color gradients (e.g., by specifying more than two colors). 
 #'
 #' @param n Number of desired colors.  
