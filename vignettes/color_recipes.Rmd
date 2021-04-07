@@ -170,7 +170,7 @@ For instance, let's create and compare a set of 20\ random HCL palettes:
 set.seed(4 * pi)  # reproducible randomenss 
 ```
 
-- Generate random HCL palettes (and save them as a list):
+- Generate random HCL\ palettes (and save them as a list):
 
 ```{r seecol-example-2a, echo = FALSE, fig.width = 6, fig.asp = 1.0, fig.align = 'center'}
 # Parameters:
@@ -292,6 +292,41 @@ seecol(list(blues, oranges, purpviol,
        pal_names = c("blues", "oranges", "purpviol", "unikn colors"),
        title ="Comparing custom color palettes")
 ```
+
+
+## Getting shades of a color
+
+**Task:** Get different shades of a specific color. 
+
+The `shades_of()` function returns a vector of \code{n}\ colors that are shades 
+(i.e., typically lighter or darker versions) of an\ initial color\ \code{col_1}. 
+
+By default, `shades_of(n)` yields `n`\ shades ranging from `col_1 = "black"` to `col_n = "white` 
+(i.e., `n`\ shades of grey): 
+
+```{r shades-of-example-1, fig.width = 5, fig.asp = .9, fig.align = 'center'}
+greys <- shades_of(10)
+seecol(greys, title = "10 shades of grey")
+```
+
+By adjusting\ `n`, the initial color\ `col_1`, and/or the final color\ `col_n`, 
+we can conveniently create simple color ranges: 
+
+```{r shades-of-example-2, fig.width = 5, fig.asp = .9, fig.align = 'center'}
+seecol(shades_of(4, Seeblau, "black"), title = "4 shades of Seeblau")
+seecol(shades_of(7, "forestgreen"), title = "7 shades of 'forestgreen'")
+```
+
+Using `alpha` in the range $[0; 1]$ allows adjusting the transparency of the obtained colors: 
+
+```{r shades-of-example-3, fig.width = 5, fig.asp = .9, fig.align = 'center'}
+wine_gold <- shades_of(4, Bordeaux, col_n = "gold", alpha = .65)
+seecol(wine_gold, title = "5 transparent shades from Bordeaux to gold")
+```
+
+Note that `shades_of()` is merely a convenient wrapper function for the `usecol()` function. 
+Using the `pal` argument of `usecol()` allows defining more complex color gradients 
+(e.g., by specifying more than two colors). 
 
 
 ## Resources
