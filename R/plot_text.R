@@ -4,9 +4,9 @@
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
 
-# [A]: General function to plot formatted text with options (e.g., size, font, mark/line decorations): -------- 
+## (A): General function to plot formatted text with options (e.g., size, font, mark/line decorations): -------- 
 
-# (1) plot_text: Add formatted text labels (with decorations like highlighting or underlining) to a plot: -------- 
+## (1) plot_text: Add formatted text labels (with decorations like highlighting or underlining) to a plot: -------- 
 
 # Note that plot_text is an experimental function, intended for expert users.
 # plot_text is an enhanced (expert/experimental) version of box_text 
@@ -636,9 +636,9 @@ plot_text <- function(labels = NA,        # labels of text element(s)
 
 # - Check: ------ 
 
-## Demo cases: ---- 
+## Demo cases: 
 
-## (1a) Markieren: ----
+## (1a) Markieren: 
 # lbl_mark <- c("                                                ",
 #               "                                      ",
 #               "                                                      ",
@@ -651,7 +651,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
 #           new_plot = "blank",
 #           mark = TRUE)
 
-## (1b) mark + flush: Formatting headlines/titles: ---- 
+## (1b) mark + flush: Formatting headlines/titles: 
 
 # lbl_hl1 <- c("Ich bin", "eine", "Headline.")
 # plot_text(labels = lbl_hl1,
@@ -677,7 +677,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
 #           mark = TRUE,
 #           new_plot = "blank")
 
-## (2) Unterstreichen: ---- 
+## (2) Unterstreichen: 
 # lbl_line <- c("Teaching", "This is a line of text", "Learning and studying", "Test")
 # lbl_line <- c("Das ist korrekt, wahr und wahnsinnig wichtig.")
 # plot_text(labels = lbl_line, font = 1,
@@ -695,7 +695,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
 #           new_plot = "blank",
 #           line = TRUE, cex_lwd = 2.5, cex_ldn = .42)
 
-## (3) Merken: ---- 
+## (3) Merken: 
 # xbox()
 # ToDo: xbox with text (different cex and font values)
 
@@ -755,7 +755,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
 #           grid = FALSE, mar_all = NA, oma_all = NA
 # )
 
-## (A) What works: ---- 
+## (A) What works: 
 # # - Mixing sizes (cex) and fonts:
 # lbl_tst <- rep("Variable Grösse und Schrift", 4)
 # plot_text(labels = lbl_tst, new_plot = "slide", y = .85, y_layout = c(.0, .15),
@@ -782,7 +782,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
 #           col_bg = "gold", mark = TRUE, new_plot = "slide")
 # # => works (i.e., different font sizes are supported)
 
-## (B) What fails: ---- 
+## (B) What fails: 
 # # - Rotation of labels is not supported:
 # plot_text(labels = "This is a test", x = .20, col = "black",
 #           new_plot = "blank", srt = 45, mark = TRUE)
