@@ -1,5 +1,5 @@
 ## plot_box.R | unikn
-## spds | uni.kn | 2021 04 17
+## spds | uni.kn | 2021 04 23
 ## ---------------------------
 
 ## General function to plot rectangular boxes (e.g., frames, slides, etc.)
@@ -193,6 +193,8 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
   } # if (cross) etc. 
   
   # (5) Exit: ----- 
+  
+  
   
   # on.exit(par(opar)) # restore original settings
   invisible() # restores par(opar)
