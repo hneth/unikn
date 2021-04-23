@@ -1,5 +1,5 @@
 
-# unikn 0.4.0.9003
+# unikn 0.4.0.9004
 
 The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -7,7 +7,8 @@ The current development version of **unikn** (0.4.0.9001+) is available at <http
 
 ## Major changes 
 
-- Added a `shades_of()` function to conveniently get `n`\ shades of a color. [2021-04-06]
+- Added a `x_layout` argument to text decoration functions (with options for adjusting horizontal position of text labels at "center", "left", or "right"). [2021-04-24] 
+- Added a `shades_of()` function to conveniently get `n`\ shades of a color. [2021-04-06] 
 
 <!-- Add blank line.  --> 
 
@@ -19,7 +20,7 @@ The current development version of **unikn** (0.4.0.9001+) is available at <http
 
 ## Bug fixes
 
-- `slide()` now uses the `dim` argument. [2021-04-23] 
+- `slide()` now uses the `dim` argument. [2021-04-24]
 
 <!-- Add blank line.  --> 
 
@@ -139,6 +140,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2021-04-23.]
+[File `NEWS.md` updated on 2021-04-24.]
 
 <!-- eof. -->
