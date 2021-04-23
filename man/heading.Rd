@@ -8,6 +8,7 @@ heading(
   labels,
   x = 0,
   y = 0.8,
+  x_layout = NA,
   y_layout = "flush",
   col = "black",
   col_bg = "default",
@@ -31,6 +32,14 @@ text labels in \code{labels} should be written.
 If the lengths of \code{x} and \code{y} differ, 
 the shorter one is recycled. 
 Default: \code{y = .8}.}
+
+\item{x_layout}{An optional character label to control the 
+horizontal positions of labels in \code{labels}. 
+3 options are 
+\code{"center"} (i.e., center at first label or plot center),
+\code{"left"} (i.e., left at first label or plot center), 
+\code{"right"} (i.e., right at first label or plot center). 
+Default: \code{x_layout = NA}.}
 
 \item{y_layout}{A numeric value or vector for the vertical 
 spacing of labels in \code{labels}. 
@@ -83,6 +92,11 @@ heading(labels = c("Headlines with", "3 or more lines should",
 # Using non-default colors:
 heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
         cex = 1.6, col = "white", col_bg = usecol(c(Pinky, Seegruen, Bordeaux, Karpfenblau)))
+
+# Using x_layout and y_layout:
+heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
+        cex = 1.6, col = "white", col_bg = usecol(pal_pinky[2:5]), 
+        x = NA, x_layout = "center", y_layout = "even")
 
 #' @family text functions
 
