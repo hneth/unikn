@@ -1,5 +1,5 @@
 ## plot_box.R | unikn
-## spds | uni.kn | 2021 04 23
+## spds | uni.kn | 2021 04 24
 ## ---------------------------
 
 ## General function to plot rectangular boxes (e.g., frames, slides, etc.)
