@@ -30,7 +30,8 @@ slide()  # default slide (or frame)
 slide(lwd = NA)  # borderless slide
 
 # Dimensions: 
-slide(dim = c(18, 9))  # larger and 2:1 dimensions
+slide(dim = c(18, 9))   # larger and 2:1 dimensions
+slide(dim = c(1/3, 1))  # smaller and 1:3 dimensions
 
 # Formatting:
 slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2)
