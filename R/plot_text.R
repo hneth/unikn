@@ -1,5 +1,5 @@
 ## plot_text.R | unikn
-## spds | uni.kn | 2021 04 17
+## spds | uni.kn | 2021 04 23
 ## ---------------------------
 
 ## General functions to plot text with formatting elements (marking/highlighting or underlining).
@@ -26,7 +26,8 @@
 # - Definition: ---- 
 
 plot_text <- function(labels = NA,        # labels of text element(s) 
-                      x = 0, y = .55,     # coordinates of text labels 
+                      x = 0, y = .55,     # coordinates of text labels
+                      x_layout = NA,      # 3 options: "left", "center", "right"
                       y_layout = "even",  # "even", "flush", or numeric value(s) for distance b/w labels (y-space between subsequent labels)
                       
                       # Text parameters:
@@ -475,8 +476,52 @@ plot_text <- function(labels = NA,        # labels of text element(s)
   x_mid <- x + ((.5 - adj[1]) * text_width)  + offset_vec[1]
   y_mid <- y + ((.5 - adj[2]) * text_height) + offset_vec[2]
   
+  
+  # Adjust x_layout: ----  +++ here now +++ 
+  
+  if (!is.na(x_layout)){
+    
+    # print(x_mid)  # 4debugging
+    
+    x_min <- plot_dim[1]
+    x_max <- plot_dim[2]
+    
+    x_lay <- substr(tolower(x_layout), 1, 3)  # simplify for robustness 
+    # print(paste0("Adjusting x_layout: x_lay = ", x_lay))  # 4debugging
+    
+    if (x_lay == "cen"){  # (a) center: 
+      
+      if (is.na(x[1])){ # no first x:
+        x_mid <- (x_max - x_min)/2   # center labels in plot_dim 
+      } else {
+        x_mid <- x_mid[1]  # center labels at 1st label    
+      }
+    }
+    
+    if (x_lay == "rig"){  # (b) right: 
+      
+      if (is.na(x[1])){ # no first x:
+        x_mid <- (x_max - x_min)/2 - text_width/2  # right flush at plot center 
+      } else {
+        x_mid <- x[1] + text_width[1] - text_width/2  # right flush at 1st label 
+      }
+    }
+    
+    if (x_lay == "lef"){  # (c) left: 
+      
+      if (is.na(x[1])){ # no first x:
+        x_mid <- (x_max - x_min)/2 + text_width/2  # left flush at plot center 
+      } else {
+        x_mid <- x[1] + text_width/2  # left flush at 1st label 
+      }
+    }
+    
+  } # if (!is.na(x_layout)). 
+  
+  
   # Check for step-function: ---- 
-  if (mark && (length(x_mid) > 2) && monotonic(x_mid)) {
+  
+  if (mark && (length(x_mid) > 2) && monotonic(x_mid) && is.na(x_layout)) {
     
     # print(paste0("x_mid = ", x_mid))  # 4debugging 
     
