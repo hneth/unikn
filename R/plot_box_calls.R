@@ -109,7 +109,8 @@ xbox <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB"
 #' slide(lwd = NA)  # borderless slide
 #' 
 #' # Dimensions: 
-#' slide(dim = c(18, 9))  # larger and 2:1 dimensions
+#' slide(dim = c(18, 9))   # larger and 2:1 dimensions
+#' slide(dim = c(1/3, 1))  # smaller and 1:3 dimensions
 #' 
 #' # Formatting:
 #' slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2)
@@ -121,7 +122,7 @@ xbox <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB"
 # - Definition: ---- 
 
 slide <- function(col = NA,         # default box bg/fill color: none/white/transparent (by system)
-                  dim = c(4/3, 1),  # default dimension: dim = c(4/3, 1) (i.e., unit height, 4/3 wider than high).
+                  dim = c(4/3, 1),  # default dimension: dim = c(4/3, 1) (i.e., unit height, width = 4/3 x height).
                   border = grey(.33, 1),
                   lwd = 1.5){
   
@@ -132,6 +133,7 @@ slide <- function(col = NA,         # default box bg/fill color: none/white/tran
   
   # Call expert function (with sensible defaults):
   plot_box(col = col,
+           box_dim = c(0, 0, dim[1], dim[2]),
            border = border,
            lty = 1,
            lwd = lwd,
