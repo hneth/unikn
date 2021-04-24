@@ -57,7 +57,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
                       grid = FALSE,  # for debugging (to position objects)
                       
                       ## Other stuff:                       
-                      ...  # etc. arguments, passed to text()
+                      ...  # other arguments (e.g., pos) passed to text()
 ){
   
   ## Interpret inputs (for robustness): ----
@@ -477,7 +477,10 @@ plot_text <- function(labels = NA,        # labels of text element(s)
   y_mid <- y + ((.5 - adj[2]) * text_height) + offset_vec[2]
   
   
-  # Adjust x_layout: ----  +++ here now +++ 
+  # x_layout: ----  
+  
+  # ToDo: Add a numeric option for x_layout (as in y_layout) and 
+  #       reduce "left" to x_layout = 0 case.   +++ here now +++ 
   
   if (!is.na(x_layout)){
     
@@ -485,6 +488,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
     
     x_min <- plot_dim[1]
     x_max <- plot_dim[2]
+    mid_p <- (x_max - x_min)/2  # mid point of plot (horizontally/x)
     
     x_lay <- substr(tolower(x_layout), 1, 3)  # simplify for robustness 
     # print(paste0("Adjusting x_layout: x_lay = ", x_lay))  # 4debugging
@@ -492,29 +496,60 @@ plot_text <- function(labels = NA,        # labels of text element(s)
     if (x_lay == "cen"){  # (a) center: 
       
       if (is.na(x[1])){ # no first x:
-        x_mid <- (x_max - x_min)/2   # center labels in plot_dim 
-      } else {
-        x_mid <- x_mid[1]  # center labels at 1st label    
+        
+        off_center <- 32/600  # Hack: Middle corrected for offset to right in plot_box()! 
+        
+        if (mark){
+          x_mid <- mid_p - padl_width - off_center  # center labels at (corrected) plot center
+        } else {
+          x_mid <- mid_p - off_center  # center labels at (corrected) plot center
+        }
+        
+        
+      } else { # 1st x specified:
+        
+        if (mark){
+          x_mid <- x_mid[1]  # - padl_width  # center labels at 1st label
+        } else {
+          x_mid <- x_mid[1]  # center labels at 1st label    
+        }
+        
       }
-    }
+    } # if ("cen").
     
     if (x_lay == "rig"){  # (b) right: 
       
-      if (is.na(x[1])){ # no first x:
-        x_mid <- (x_max - x_min)/2 - text_width/2  # right flush at plot center 
-      } else {
-        x_mid <- x[1] + text_width[1] - text_width/2  # right flush at 1st label 
+      if (is.na(x[1])){ # no 1st x:
+        
+        if (mark) {
+          x_mid <- mid_p - rect_width/2 - padl_width  # right flush rect_width at plot center          
+        } else {
+          x_mid <- mid_p - text_width/2  # right flush text_width at plot center 
+        }
+        
+      } else { # 1st x specified:
+        
+        if (mark) {
+          x_mid <- x[1] - rect_width/2 - padl_width  # right flush rect_width at 1st label          
+        } else {
+          x_mid <- x[1] - text_width/2  # right flush at 1st label 
+        }
+        
       }
-    }
+    } # if ("rig"). 
     
     if (x_lay == "lef"){  # (c) left: 
       
+      # Note: No special case for "mark" needed, as all labels are 
+      #       shifted to the right below (to ensure left-flush, see [246]). 
+      
       if (is.na(x[1])){ # no first x:
-        x_mid <- (x_max - x_min)/2 + text_width/2  # left flush at plot center 
-      } else {
+        x_mid <- mid_p + text_width/2  # left flush at plot center 
+      } else { # 1st x specified:
         x_mid <- x[1] + text_width/2  # left flush at 1st label 
       }
-    }
+      
+    } # if ("lef").
     
   } # if (!is.na(x_layout)). 
   
@@ -541,8 +576,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
     # (A) Correct mid-points of text by padding (to align rectangles, rather than text): ---- 
     # print(padl_width)  # 4debugging
     
-    x_mid <- (x_mid + padl_width) 
-    
+    x_mid <- (x_mid + padl_width)  # shift to right (to ensure left-flush) [246]
     
     # (B) Plot rectangle(s): ---- 
     graphics::rect(xleft   = (x_mid - rect_width/2),
@@ -866,10 +900,11 @@ plot_text <- function(labels = NA,        # labels of text element(s)
 
 ## Done: ------
 
-# - Clean up code.  [2021-04-17]
+# - Added x_layout option (with some hacks, needs fine-tuning).
 
 ## ToDo: ------
 
-# - etc.
+# - Add a numeric option for x_layout (as in y_layout) and 
+#   reduce "left" to x_layout = 0 case.
 
 ## eof. ----------
