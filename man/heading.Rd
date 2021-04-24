@@ -33,19 +33,23 @@ If the lengths of \code{x} and \code{y} differ,
 the shorter one is recycled. 
 Default: \code{y = .8}.}
 
-\item{x_layout}{An optional character label to control the 
-horizontal positions of labels in \code{labels}. 
-3 options are 
-\code{"center"} (i.e., center at first label or plot center),
-\code{"left"} (i.e., left at first label or plot center), 
-\code{"right"} (i.e., right at first label or plot center). 
-Default: \code{x_layout = NA}.}
+\item{x_layout}{An optional numeric vector or character string
+to control the horizontal positions of \code{labels}. 
+Numeric values are interpreted as increments to values of \code{x} 
+and recycled (to enable stepwise or alternating patterns). 
+3 character string options are: 
+\code{"center"} (i.e., center wrt. first label or plot center),
+\code{"left"} (i.e., left wrt. first label or plot center), 
+\code{"right"} (i.e., right wrt. first label or plot center). 
+Default: \code{x_layout = NA} (i.e., using values of \code{x}).}
 
-\item{y_layout}{A numeric value or vector for the vertical 
-spacing of labels in \code{labels}. 
-2 special values are 
+\item{y_layout}{A numeric value or character string 
+to control the vertical positions of \code{labels}. 
+Numeric values are interpreted as increments to values of \code{y[1]} 
+and recycled (to enable stepwise or alternating patterns). 
+2 character string options are: 
 \code{"even"} (i.e., even distribution of labels across available y-space) and 
-\code{"flush"} (i.e., no space between adjacent labels, or \code{y_layout = 0}). 
+\code{"flush"} (i.e., no space between adjacent labels, i.e., \code{y_layout = 0}). 
 Default: \code{y_layout = "flush"}.}
 
 \item{col}{The color(s) of the text label(s). 
@@ -96,7 +100,7 @@ heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."),
 # Using x_layout and y_layout:
 heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
         cex = 1.6, col = "white", col_bg = usecol(pal_pinky[2:5]), 
-        x = NA, x_layout = "center", y_layout = "even")
+        x = NA, y = .6, x_layout = "right", y_layout = "flush")
 
 #' @family text functions
 
