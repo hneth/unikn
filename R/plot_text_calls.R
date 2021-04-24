@@ -144,8 +144,10 @@ mark <- function(labels,             # labels of text element(s) to plot
             x = x, y = y, 
             x_layout = x_layout, 
             y_layout = y_layout,  
-            col = col, col_bg = col_bg,
-            cex = cex, font = font,
+            col = col, 
+            col_bg = col_bg,
+            cex = cex, 
+            font = font,
             new_plot = new_plot, 
             # fixed defaults (not available to user): 
             col_bg_border = NA,
@@ -154,6 +156,7 @@ mark <- function(labels,             # labels of text element(s) to plot
   )
   
   # Return? 
+  
 } # mark(). 
 
 ## Check:
@@ -344,7 +347,8 @@ uline <- function(labels,             # labels of text element(s) to plot
             # fixed defaults (not available to user): 
             col_bg_border = NA,
             pos = 4,
-            line = TRUE)
+            line = TRUE
+  )
   
   # Return? 
 } # uline(). 
