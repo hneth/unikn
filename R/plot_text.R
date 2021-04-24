@@ -161,7 +161,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
   
   # (a) Record graphical parameters (par):
   opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
-  # on.exit(par(opar))               # restore upon exit
+  # on.exit(par(opar))             # restore upon exit
   
   # (b) Re-size plotting area (if desired): 
   if (!is.na(mar_all)) {  # reset all mar values:
