@@ -233,7 +233,7 @@ plot_grid <- function(col = grey(0, .50)){
 
 layout_y <- function(y_top, y_bot, height_seq, layout_type) {
   
-  y_out <- NA  # initialize  
+  y_out  <- NA  # initialize  
   N_lbls <- length(height_seq)
   
   # Handle inputs: ---- 
@@ -349,10 +349,9 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
   # (E) Return: ---- 
   return(y_out)
   
-} # layout_y end. 
+} # layout_y(). 
 
 ## Check:
-
 # layout_y(y_top = 1, y_bot = 0, height_seq = rep(.10, 5), layout_type = "even")
 #
 # layout_y(y_top = 1, y_bot = 0, height_seq = rep(.10, 5), layout_type = "flush")
