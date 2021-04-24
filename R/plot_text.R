@@ -154,8 +154,8 @@ plot_text <- function(labels = NA,        # labels of text element(s)
   if (any(is.na(col_bg)) && line) {col_bg <- pal_seeblau[[4]]} # default underline color: pal_seeblau[[4]] 
   
   # (d) x_layout and y_layout special cases:
-  if ((all(!is.na(x_layout))) & (x_layout == "left"))  {x_layout <- 0}  # x_layout == "left"  ==> numeric 0.
-  if ((!is.numeric(y_layout)) & (y_layout == "flush")) {y_layout <- 0}  # y_layout == "flush" ==> numeric 0.
+  if ((all(!is.na(x_layout))) && (length(x_layout) == 1) && (x_layout == "left")) {x_layout <- 0}  # x_layout == "left"  ==> numeric 0.
+  if ((!is.numeric(y_layout)) && (y_layout == "flush")) {y_layout <- 0}  # y_layout == "flush" ==> numeric 0.
   
   ## Plotting area: ----- 
   
