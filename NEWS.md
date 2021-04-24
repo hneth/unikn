@@ -7,7 +7,7 @@ The current development version of **unikn** (0.4.0.9001+) is available at <http
 
 ## Major changes 
 
-- Added a `x_layout` argument to text decoration functions (with options for adjusting horizontal position of text labels at "center", "left", or "right"). [2021-04-24] 
+- Added an `x_layout` argument to control horizontal positions of text labels (e.g., by numeric increments, centering, right-adjusted). [2021-04-24] 
 - Added a `shades_of()` function to conveniently get `n`\ shades of a color. [2021-04-06] 
 
 <!-- Add blank line.  --> 
