@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2021 03 27
+## spds, uni.kn | 2021 04 24
 ## -----------------------------------------------
 
 ## site info: ----------
@@ -78,8 +78,9 @@ reference:
   contents:
   - seecol
   - usecol
-  - newpal 
-  - grepal 
+  - newpal
+  - grepal
+  - shades_of 
 - title: Graphics
   desc: Objects and themes for plotting. 
   contents:
@@ -107,8 +108,8 @@ figures:
   dpi: 96
   dev.args: []
   fig.ext: png
-  #fig.width: 7.2
-  #fig.height: 5.6
+  # fig.width: 6.5
+  # fig.height: 5
   fig.retina: 2
 
 ## eof. ----------
