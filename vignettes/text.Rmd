@@ -481,7 +481,7 @@ As above, the position and orientation of the text labels can be controlled by u
 
 <!-- Example: post x_layout -->
 
-```{r post-x-layout-center, echo = FALSE, eval = FALSE, fig.width = 4, fig.height = 4}
+```{r post-x-layout-center, echo = FALSE, eval = FALSE, fig.width = 3, fig.height = 3}
 # Labels to plot: 
 s <- c("Please note:",
        "These text labels",
@@ -504,7 +504,7 @@ abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
 
 <!-- Fine tuning: post x_layout -->
 
-```{r post-x-layout-all, echo = FALSE, eval = TRUE, fig.width = 4, fig.height = 4}
+```{r post-x-layout-all, echo = FALSE, eval = TRUE, fig.width = 3, fig.height = 3}
 # (A) x_layout = "center": ---- 
 s <- c("Note:", "Labels",
        "centered:", ">>> <<<")
