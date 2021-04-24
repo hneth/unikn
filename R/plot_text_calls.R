@@ -106,7 +106,7 @@
 #' # Using x_layout and y_layout:
 #' mark(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
 #'      cex = 1.4, font = 2, col = "white", col_bg = Petrol,
-#'      x = .3, y = .8, x_layout = "center", y_layout = "even", new_plot = "slide")
+#'      x = NA, y = .85, x_layout = "center", y_layout = "even", new_plot = "slide")
 #' 
 #' @family text functions
 #' 
@@ -309,7 +309,7 @@ mark <- function(labels,             # labels of text element(s) to plot
 #' # Using x_layout and y_layout:
 #' uline(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
 #'      cex = 1.4, font = 2, col = Grau, col_bg = Pinky,
-#'      x = .1, y = .8, x_layout = "left", y_layout = "even", new_plot = "slide")
+#'      x = 1.2, y = .85, x_layout = "right", y_layout = "even", new_plot = "slide")
 #'                                       
 #' @family text functions
 #' 
@@ -451,7 +451,7 @@ uline <- function(labels,             # labels of text element(s) to plot
 #' # Using x_layout and y_layout:
 #' post(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
 #'      cex = 1.4, font = 2, col = "white", col_bg = Pinky, 
-#'      x = .8, x_layout = "right", y_layout = "even", new_plot = "xbox")
+#'      x = .1, y = .5, x_layout = "left", y_layout = .05, new_plot = "xbox")
 #'                         
 #' @family text functions
 #' 
@@ -658,7 +658,7 @@ post <- function(labels,             # labels of text element(s) to plot
 #' # Using x_layout and y_layout:
 #' heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
 #'         cex = 1.6, col = "white", col_bg = usecol(pal_pinky[2:5]), 
-#'         x = NA, x_layout = "center", y_layout = "even")
+#'         x = NA, y = .6, x_layout = "right", y_layout = "flush")
 #' 
 #' #' @family text functions
 #' 
