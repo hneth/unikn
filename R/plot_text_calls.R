@@ -154,7 +154,7 @@ mark <- function(labels,             # labels of text element(s) to plot
   )
   
   # Return? 
-}
+} # mark(). 
 
 ## Check:
 
@@ -347,7 +347,7 @@ uline <- function(labels,             # labels of text element(s) to plot
             line = TRUE)
   
   # Return? 
-}
+} # uline(). 
 
 ## Check: 
 
@@ -489,7 +489,7 @@ post <- function(labels,             # labels of text element(s) to plot
   )
   
   # Return? 
-}
+} # post(). 
 
 ## Check:
 
@@ -730,7 +730,7 @@ heading <- function(labels,             # labels of text element(s) to plot
   )
   
   # Return? 
-}
+} # heading(). 
 
 ## Check:
 
@@ -781,7 +781,7 @@ heading <- function(labels,             # labels of text element(s) to plot
 
 ## Done: ------
 
-# - Clean up code.  [2019-06-04]
+# - Add x_layout options.  [2021-04-24]
 
 ## ToDo: ------
 
