@@ -461,7 +461,7 @@ Another potential use of `post()` is for creating images providing contact detai
 ```{r post-address, echo = TRUE, fig.width = 3, fig.height = 3}
 address <- c("Dr. B. F. Skinner", " ",
              "Department of Psychology",
-             "Office F101",
+             "Office Z101",
              "Tel.: +49 7531 88-0815",
              "Fax: +49 7531 88-0810",
              "b.f.skin@uni-konstanz.de")
