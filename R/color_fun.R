@@ -1,5 +1,5 @@
-## color_fun.R  |  unikn
-## spds | uni.kn |  2021 04 06
+## color_fun.R | unikn
+## spds | uni.kn | 2021 04 24
 ## ---------------------------
 
 ## Define color-related functions 
@@ -1005,7 +1005,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   # Output: Invisibly return pal_tmp palette(s):
   invisible(pal_tmp)
   
-} # seecol end. 
+} # seecol().  
 
 ## Check:
 # library(unikn)
@@ -1176,10 +1176,10 @@ newpal <- function(col,            # a vector of colors
   # 2. Return: ----- 
   return(outpal)
   
-} # newpal end. 
+} # newpal().  
 
 
-# # Check: 
+## Check: 
 # Basics:
 # newpal(col = c("black", "white"), names = c("b", "w"), as_df = FALSE)  # as vector
 # newpal(col = c("black", "white"), names = c("b", "w"), as_df = TRUE)   # as data.frame
@@ -1357,10 +1357,10 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
   # Output:
   return(cv)
   
-} # grepal end. 
+} # grepal().  
 
 
-# # Check:
+## Check:
 # grepal("cyan")
 # 
 # # With regular expressions:
@@ -1448,28 +1448,13 @@ shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
   # Output:
   return(cv)
   
-} # shades_of end. 
+} # shades_of(). 
 
 
-# # Check:
-# grepal("cyan")
-# 
-# # With regular expressions:
-# grepal("gr(a|e)y")
-# grepal("^gr(a|e)y")
-# grepal("^gr(a|e)y$")
-# 
-# # With other color objects (as x):
-# grepal("blau", x = pal_unikn)
-# grepal("SEE", x = pal_unikn_pref)
-# 
-# # Example applications:
-# seecol(grepal("cyan"))
-# seecol(grepal("white"), col_bg = "lightblue2")
-# seecol(grepal("SEE", pal_unikn))
-# seecol(grepal("blau", pal_unikn_pref))
-
-
+## Check:
+# shades_of(4)
+# seecol(shades_of(4, col_1 = Pinky, col_n = "black"))
+# seecol(shades_of(4, col_1 = Bordeaux, alpha = .5))
 
 
 ## ToDo: ------
