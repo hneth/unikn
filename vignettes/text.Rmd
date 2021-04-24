@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
 author: "SPDS, uni.kn"
-date: "2020 12 18"
+date: "2021 04 24"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -102,12 +102,14 @@ xbox(col = Pinky)  # set background color of xbox
 
 By default, both `slide` and `xbox` fill the entire plotting region (i.e., all margins are set to 0).
 
-The width of a slide is set to 4/3 of its height (of 1). 
-To change this default, use the `dim` argument for specifying the slide's x- and y-dimensions, respectively:
+The width of a slide is set to 4/3\ of its height (of\ 1). 
+To change this default, use the `dim`\ argument for specifying the slide's x- and y-dimensions, respectively:
 
 ```{r slide-dim, fig.align = 'center', fig.width = 6, fig.height = 2}
 slide(dim = c(3, 1))  # a slide 3 times wider than high
 ```
+
+Note that changes in slide dimensions are invisible when viewing images interactively, as R automatically scales images to the size of the canvass. They mostly affect the relation between metrics when adding elements to an\ object.
 
 Similarly, an xbox has the default dimensions of a unit square (i.e., `dim = c(1, 1)`). 
 To change this default, use the `dim` argument for specifying the xbox's `x`- and `y`-dimensions, respectively:
@@ -116,26 +118,26 @@ To change this default, use the `dim` argument for specifying the xbox's `x`- an
 xbox(col = Petrol, dim  = c(1, 2))  # an xbox 2 times higher than wide
 ```
 
-The 2 strokes of the X (in the top right corner) are orthogonal when viewing the `xbox` at the aspect ratio indicated by `dim` (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X appears to be distorted. Hence, viewing and printing plots at the desired aspect ratio helps when creating an xbox.
+The two strokes of the\ X (in the top right corner) are orthogonal when viewing the `xbox` at the aspect ratio indicated by `dim` (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X appears to be distorted. Hence, viewing and printing plots at the desired aspect ratio helps when creating an xbox.
 
 ## Plotting styled text
 
-There are 3 main functions for plotting text with decorations: 
+There are three main functions for plotting text with decorations: 
 
-- `mark` allows highlighting text with colored background boxes; 
-- `uline` allows underlining text with colored lines; 
-- `post` allows posting text in rectangular `xbox` elements.
+- `mark()` allows highlighting text with colored background boxes; 
+- `uline()` allows underlining text with colored lines; 
+- `post()` allows posting text in rectangular `xbox` elements.
 
 In addition, there are 2 auxiliary functions: 
 
-- `headline` allows plotting headlines with colored background boxes; 
-- `url_unikn` allows formatting URLs the uni.kn way. 
+- `headline()` allows plotting headlines with colored background boxes; 
+- `url_unikn()` allows formatting URLs the uni.kn way. 
 
 The following sections illustrate the functions and their main options in turn. 
 
 ### Mark text
 
-The `mark` function allows highlighting text by plotting it with colored background boxes (to provide the functionality of "Markieren"): 
+The `mark()` function allows highlighting text by plotting it with colored background boxes (to provide the functionality of "Markieren"): 
 
 ```{r mark-demo-label, echo = FALSE, fig.width = 3, fig.height = 3}
 lbl_blank <- c("                                                ",
@@ -160,8 +162,8 @@ mark(labels = lbl_blank,
      new_plot = "slide")
 ```
 
-By default, `mark` assumes that we want to add highlighted text to an already existing plot. 
-The text labels to be added are provided (as a character vector) by the `labels` argument, their coordinates as the corresponding `x` and `y` arguments. 
+By default, `mark()` assumes that we want to add highlighted text to an\ existing plot. 
+The text labels to be added are provided (as a character vector) by the `labels` argument, their coordinates as the corresponding\ `x` and\ `y` arguments. 
 Various text decorations (i.e., text and background colors, text sizes, and font types) can be set by specifying additional arguments (i.e., `col`, `col_bg`, `cex`, and `font`, respectively): 
 
 ```{r set-par, echo = FALSE}
@@ -193,7 +195,7 @@ mark(labels = c("Note something here.", "More highlighting here."),
 par(opar)
 ```
 
-If no pre-existing plot is available, setting the `new_plot` argument to either `"blank"` or `"slide"` will generate a new default plot (by using the `slide` function described above):
+If no pre-existing plot is available, setting the `new_plot` argument to either\ `"blank"` or\ `"slide"` will generate a new default plot (by calling the `slide()` function described above):
 
 ```{r mark-new-plot, echo = TRUE, fig.width = 4, fig.height = 4}
 # A sentence to plot: 
@@ -216,16 +218,100 @@ mark(labels = s,
      new_plot = "none")
 ```
 
-Instead of providing explicit `x` and `y` coordinates for all text elements in `labels`, the calls above defined an initial coordinate and used a numeric `y_layout` argument to fix the distance between consecutive text labels (to a value of `.03`). Special values for `y_layout` are: 
+Rather than providing explicit `x`\ and `y`\ coordinates for all text elements in\ `labels`, the calls above defined an initial coordinate and used a numeric `y_layout` argument to fix the distance between consecutive text labels (to a value of\ `.03`). 
 
-- `y_layout = "even"` for an even distribution of labels across the available y-space, and 
-- `y_layout = "flush"` to omit space between adjacent labels (as in `y_layout = 0`).  
+As an alternative to numeric coordinates and position values, `x_layout` and `y_layout` also accept some special values (as character strings):
+
+1. `x_layout` accepts: 
+
+    - `x_layout = "center"` for centering labels horizontally (on the first label or the middle),  
+    - `x_layout = "left"` left-justifies labels (on the first label or the middle), and   
+    - `x_layout = "right"` right-justifies labels (on the first label or the middle).   
+
+2. `y_layout` accepts: 
+
+    - `y_layout = "even"` for an even distribution of labels across the available y-space, and    
+    - `y_layout = "flush"` to omit space between adjacent labels (as in `y_layout = 0`).   
+
+
+Thus, the position and orientation of the text labels can be controlled by using the `x_layout` and `y_layout` options: 
+
+<!-- Example: mark x_layout -->
+
+```{r mark-x-layout-center, echo = FALSE, eval = FALSE, fig.width = 4, fig.asp = 1}
+# Labels to plot: 
+s <- c("Please note:",
+       "These text labels",
+       "are centered:", 
+       ">>> <<<")
+
+# Create a new plot (of type "slide"):
+mark(labels = s, 
+     x = NA, y = .85, 
+     x_layout = "center", y_layout = "even",
+     col = "white", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+     cex = 1.2,
+     new_plot = "slide")
+
+# mark middle:
+plot_dim <- par("usr")
+x_middle <- (plot_dim[2]-plot_dim[1])/2
+abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
+```
+
+<!-- Fine tuning: mark x_layout -->
+
+```{r mark-x-layout-all, echo = FALSE, eval = TRUE, fig.width = 6, fig.height = 3.5}
+# (A) x_layout = "center": ---- 
+s <- c("Please note:", "These text labels",
+       "are centered:", ">>> <<<")
+
+# Create a new plot (of type "slide"):
+mark(labels = s, x = NA, y = .85, 
+     x_layout = "center", y_layout = "even",
+     col = "white", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+     cex = 1,
+     new_plot = "slide")
+
+# mark middle:
+plot_dim <- par("usr")
+x_middle <- (plot_dim[2]-plot_dim[1])/2
+abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
+
+# (B) x_layout = "right": ----  
+s <- c("Please note:", "These text labels",
+       "are right-justified:", ">>>")
+
+x_r <- 4/3 - .05
+
+# Add to plot:
+mark(labels = s, x = x_r, y = .85, 
+     x_layout = "right", y_layout = "even",
+     col = "white", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+     cex = 1)
+
+abline(v = x_r, col = "grey", lty = 2)
+
+# (C) x_layout = "left": ----  
+s <- c("Please note:", "These text labels",
+       "are left-justified:", "<<<")
+
+x_l <- .05
+
+# Add to plot:
+mark(labels = s, x = x_l, y = .85, 
+     x_layout = "left", y_layout = "even",
+     col = "white", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+     cex = 1)
+
+abline(v = x_l, col = "grey", lty = 2)
+```
 
 See `?mark` for details. 
 
 ### Underline text
 
-The `uline` function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"): 
+The `uline()` function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"): 
 
 ```{r uline-demo, echo = FALSE, fig.width = 3, fig.height = 3}
 slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
@@ -235,7 +321,7 @@ uline(labels = slogan,
       new_plot = "blank")
 ```
 
-As with `mark` above, the `uline` command distinguishes between creating a new plot (by setting `new_plot` to either `"blank"` or "`slide`") or 
+As with `mark()` above, the `uline()` command distinguishes between creating a new plot (by setting `new_plot` to either `"blank"` or "`slide`") or 
 adding to a pre-existing plot (by using the default `new_plot = "none"`): 
 
 ```{r uline-ex1, echo = TRUE, fig.width = 4.5, fig.height = 3}
@@ -244,7 +330,7 @@ uline(labels = lbl_uline, new_plot = "blank", y = .6, cex = 1.1)  # create a new
 uline(labels = "(which is why we underline it).", y = .45, cex = 1)  # add to plot
 ```
 
-The arguments for text elements (`labels`), text positions (`x`, `y`, `y_layout`), and text properties and decorations (`col`, `col_bg`, `cex`, and `font`) work as they do for `mark`. For instance, shorter vectors are recycled to match the length of `labels`: 
+The arguments for text elements (`labels`), text positions (`x`, `y`, `y_layout`), and text properties and decorations (`col`, `col_bg`, `cex`, and `font`) work as they do for `mark()`. For instance, shorter vectors are recycled to match the length of `labels`: 
 
 ```{r uline-ex2, echo = TRUE, fig.width = 3, fig.height = 3}
 slogan <- c("Geradlinig", "Farbenfroh", "Beweglich", "Bunt", "Paradiesisch")
@@ -254,9 +340,82 @@ uline(labels = slogan,
       cex = 1.1, font = 2, new_plot = "blank")
 ```
 
+The position and orientation of the text labels can be controlled by using the `x_layout` and `y_layout` options: 
+
+<!-- Example: uline x_layout -->
+
+```{r uline-x-layout-center, echo = FALSE, eval = FALSE, fig.width = 4, fig.asp=1}
+# Labels to plot: 
+s <- c("Please note:",
+       "These text labels",
+       "are centered:", 
+       ">>> <<<")
+
+# Create a new plot (of type "slide"):
+uline(labels = s, 
+      x = NA, y = .85, 
+      x_layout = "center", y_layout = "even",
+      col = "black", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+      cex = 1.0,
+      new_plot = "slide")
+
+# mark middle:
+plot_dim <- par("usr")
+x_middle <- (plot_dim[2]-plot_dim[1])/2
+abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
+```
+
+<!-- Fine tuning: uline x_layout -->
+
+```{r uline-x-layout-all, echo = FALSE, eval = TRUE, fig.width = 5, fig.height = 3.5}
+# (A) x_layout = "center": ---- 
+s <- c("Please note:", "These text labels",
+       "are centered:", ">>> <<<")
+
+# Create a new plot (of type "slide"):
+uline(labels = s, x = NA, y = .85, 
+     x_layout = "center", y_layout = "even",
+     col = "black", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+     cex = .9, new_plot = "slide")
+
+# mark middle:
+plot_dim <- par("usr")
+x_middle <- (plot_dim[2]-plot_dim[1])/2
+abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
+
+# (B) x_layout = "right": ----  
+s <- c("Please note:", "These text labels",
+       "are right-justified:", ">>>")
+
+x_r <- 4/3 - .10
+
+# Add to plot:
+uline(labels = s, x = x_r, y = .85, 
+     x_layout = "right", y_layout = "even",
+     col = "black", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+     cex = .9)
+
+abline(v = x_r, col = "grey", lty = 2)
+
+# (C) x_layout = "left": ----  
+s <- c("Please note:", "These text labels",
+       "are left-justified:", "<<<")
+
+x_l <- .10
+
+# Add to plot:
+uline(labels = s, x = x_l, y = .85, 
+     x_layout = "left", y_layout = "even",
+     col = "black", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+     cex = .9)
+
+abline(v = x_l, col = "grey", lty = 2)
+```
+
+
 ### Post text
 
-The `post` function allows adding text to a rectangular `xbox` (to provide the functionality of "Merken"): 
+The `post()` function allows adding text to a rectangular\ `xbox` (to provide the functionality of "Merken"): 
 
 ```{r post-demo, echo = FALSE, fig.width = 4, fig.height = 2}
 xbox(col = Seegruen, dim = c(4, 2))
@@ -265,9 +424,9 @@ post(labels = c("For best results, always design and view", "boxes with text at 
      x = .1, y = .8, y_layout = .1, cex = 1, font = 1, new_plot = FALSE)
 ```
 
-By default, `post` assumes a pre-existing `xbox` to which the text elements of `labels` are to be added.  
-For square boxes, setting `new_plot` to `"xbox"` creates a new `xbox` with its default dimensions of `dim = c(1, 1)`.  
-By adjusting its color and text arguments, `post` allows creating simple badges or logos: 
+By default, `post()` assumes a pre-existing `xbox` to which the text elements of `labels` are to be added.  
+For square boxes, setting `new_plot` to `"xbox"` creates a new\ `xbox` with its default dimensions of `dim = c(1, 1)`.  
+By adjusting its color and text arguments, `post()` allows creating simple badges or logos: 
 
 ```{r post-logo, echo = TRUE, fig.width = 2, fig.height = 2, fig.show = "hold"}
 # Badge (to view as 250 x 250 pixel):
@@ -297,7 +456,7 @@ post(labels = "i2ds", x = .05, y = .34,
      cex = 2.2, font = 2, new_plot = "xbox")
 ```
 
-Another potential use of `post` is for creating images providing contact details: 
+Another potential use of `post()` is for creating images providing contact details: 
 
 ```{r post-address, echo = TRUE, fig.width = 3, fig.height = 3}
 address <- c("Dr. B. F. Skinner", " ",
@@ -318,15 +477,91 @@ post(labels = address,
      new_plot = "none")  # add to plot
 ```
 
+As above, the position and orientation of the text labels can be controlled by using the `x_layout` and `y_layout` options: 
+
+<!-- Example: post x_layout -->
+
+```{r post-x-layout-center, echo = FALSE, eval = FALSE, fig.width = 4, fig.height = 4}
+# Labels to plot: 
+s <- c("Please note:",
+       "These text labels",
+       "are centered:", 
+       ">>> <<<")
+
+# Create a new plot (of type "slide"):
+post(labels = s, 
+     x = NA, y = .80, 
+     x_layout = "center", y_layout = "even",
+     col = "white", col_bg = c(Karpfenblau),
+     font = 2, cex = 1.0,
+     new_plot = "xbox")
+
+# mark middle:
+plot_dim <- par("usr")
+x_middle <- (plot_dim[2]-plot_dim[1])/2
+abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
+```
+
+<!-- Fine tuning: post x_layout -->
+
+```{r post-x-layout-all, echo = FALSE, eval = TRUE, fig.width = 4, fig.height = 4}
+# (A) x_layout = "center": ---- 
+s <- c("Note:", "Labels",
+       "centered:", ">>> <<<")
+
+# Create a new plot (of type "slide"):
+post(labels = s, x = NA, y = .80, 
+     x_layout = "center", y_layout = "even",
+     col = "white", col_bg = Karpfenblau,
+     cex = .85,
+     new_plot = "xbox")
+
+# middle of current plot:
+plot_dim <- par("usr")
+x_middle <- (plot_dim[2]-plot_dim[1])/2
+abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
+
+
+# (B) x_layout = "right": ----  
+s <- c("Note:", "Labels",
+       "right-justified:", ">>>")
+
+x_r <- 1 - .10
+
+# Add to plot:
+post(labels = s, x = x_r, y = .80, 
+     x_layout = "right", y_layout = "even",
+     col = "white", 
+     cex = .85)
+
+abline(v = x_r, col = "grey", lty = 2)
+
+# (C) x_layout = "left": ----  
+s <- c("Note:", "Labels",
+       "left-justified:", "<<<")
+
+x_l <- .10
+
+# Add to plot:
+post(labels = s, x = x_l, y = .80, 
+     x_layout = "left", y_layout = "even",
+     col = "white", 
+     cex = .85)
+
+abline(v = x_l, col = "grey", lty = 2)
+```
+
+
+
 ### Headings
 
-The `heading` function makes it easy to create recognizable headings: 
+The `heading()` function makes it easy to create recognizable headings: 
 
 ```{r heading-demo, echo = FALSE, fig.width = 4, fig.height = 3}
 heading(labels = c("Ich bin", "eine", "Headline."))
 ```
 
-By default, the function creates a new slide (i.e., `new_plot = "slide"`) and positions the text elements of `labels` on its left edge (i.e., `x = 0`, `y = .8` and `y_layout = "flush"`). Headings violating the recommendations (see p. 25 of the CD manual) will generate a message, for instance: 
+By default, the function creates a new slide (i.e., `new_plot = "slide"`) and positions the text elements of\ `labels` on its left edge (i.e., `x = 0`, `y = .8` and `y_layout = "flush"`). Headings violating the recommendations (see p.\ 25 of the CD\ manual) will generate a message, for instance: 
 
 ```{r heading-warn, echo = TRUE, message = TRUE, fig.width = 4, fig.height = 3}
 # Beware of step-wise arrangements:
@@ -336,14 +571,89 @@ heading(labels = c("Ich", "bin keine", "gute Headline."))
 heading(labels = c("Ich bin", "eine alternative", "Headline."))
 ```
 
-When colors are left unspecified, `heading` selects colors that are appropriate 
+When colors are left unspecified, `heading()` selects colors that are appropriate 
 for the number of elements in `labels` (i.e., shades of `Seeblau` for `col_bg = "default"`). 
-However, default colors can be overwritten by setting the `col` and `col_bg` arguments:
+However, default colors can be overwritten by setting the\ `col` and\ `col_bg` arguments:
 
 ```{r heading-col, echo = TRUE, fig.width = 4, fig.height = 3}
 heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
         col = "white", col_bg = c(Pinky, Seegruen, Bordeaux, Karpfenblau))
 ```
+
+<!-- The position and orientation of the text labels can be controlled by using the `x_layout` and `y_layout` options:  -->
+
+<!-- Example: heading x_layout -->
+
+```{r heading-x-layout-center, echo = FALSE, eval = FALSE, fig.width = 4, fig.asp=1}
+# Labels to plot: 
+s <- c("Please note:",
+       "These headings",
+       "are centered:", 
+       ">>> <<<")
+
+# Create a new plot (of type "slide"):
+heading(labels = s, 
+        x = NA, y = .85, 
+        x_layout = "center", y_layout = "even",
+        col = "white", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+        font = 2, cex = 1.2,
+        new_plot = "slide")
+
+# mark middle:
+plot_dim <- par("usr")
+x_middle <- (plot_dim[2]-plot_dim[1])/2
+abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
+```
+
+<!-- Fine tuning: heading x_layout -->
+
+```{r heading-x-layout-all, echo = FALSE, eval = FALSE, fig.width = 6, fig.height = 4}
+# (A) x_layout = "center": ---- 
+s <- c("Please note:", "These headings",
+       "are centered:", ">>> <<<")
+
+# Create a new plot (of type "slide"):
+heading(labels = s, x = NA, y = .85, 
+        x_layout = "center", y_layout = "even",
+        col = "white", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+        cex = 1,
+        new_plot = "slide")
+
+# middle of current plot:
+plot_dim <- par("usr")
+x_middle <- (plot_dim[2]-plot_dim[1])/2
+abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
+
+# (B) x_layout = "right": ----  
+s <- c("Please note:", "These headings",
+       "are right-justified:", ">>>")
+
+x_r <- 1.23
+
+# Add to plot:
+heading(labels = s, x = x_r, y = .85, 
+        x_layout = "right", y_layout = "even",
+        col = "white", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+        cex = 1, new_plot = FALSE)
+
+abline(v = x_r, col = "grey", lty = 2)
+
+# (C) x_layout = "left": ----  
+s <- c("Please note:", "These headings",
+       "are left-justified:", "<<<")
+
+x_l <- .10
+
+# Add to plot:
+heading(labels = s, x = x_l, y = .85, 
+        x_layout = "left", y_layout = "even",
+        col = "white", col_bg = c(Pinky, Petrol, Bordeaux, Karpfenblau),
+        cex = 1, new_plot = FALSE)
+
+abline(v = x_l, col = "grey", lty = 2)
+```
+
+
 
 ### URLs
 
