@@ -513,8 +513,7 @@ s <- c("Note:", "Labels",
 post(labels = s, x = NA, y = .80, 
      x_layout = "center", y_layout = "even",
      col = "white", col_bg = Karpfenblau,
-     cex = .85,
-     new_plot = "xbox")
+     cex = .85, new_plot = "xbox")
 
 # middle of current plot:
 plot_dim <- par("usr")
@@ -523,10 +522,10 @@ abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
 
 
 # (B) x_layout = "right": ----  
-s <- c("Note:", "Labels",
-       "right-justified:", ">>>")
+s <- c("Adjust", "labels on",
+       "the right:", ">>>")
 
-x_r <- 1 - .10
+x_r <- 1 - .15
 
 # Add to plot:
 post(labels = s, x = x_r, y = .80, 
@@ -537,10 +536,10 @@ post(labels = s, x = x_r, y = .80,
 abline(v = x_r, col = "grey", lty = 2)
 
 # (C) x_layout = "left": ----  
-s <- c("Note:", "Labels",
-       "left-justified:", "<<<")
+s <- c("Adjust", "labels on",
+       "the left:", "<<<")
 
-x_l <- .10
+x_l <- .15
 
 # Add to plot:
 post(labels = s, x = x_l, y = .80, 
