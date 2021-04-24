@@ -81,7 +81,7 @@ the colors of a palette or comparing multiple color palettes." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9004</span>
       </span>
     </div>
 
@@ -199,8 +199,8 @@ Default: <code>n = "all"</code> (i.e., show all colors in palette).</p></td>
     </tr>
     <tr>
       <th>alpha</th>
-      <td><p>A factor modifying the opacity alpha (as in <code><a href='https://rdrr.io/r/grDevices/adjustcolor.html'>adjustcolor</a></code>); 
-typically in [0,1]. If used, the value is shown in the plot title.
+      <td><p>A factor modifying the opacity alpha 
+(as in <code><a href='https://rdrr.io/r/grDevices/adjustcolor.html'>adjustcolor</a></code>) to a value in <code>[0, 1]</code>. 
 Default: <code>alpha = NA</code> (i.e., no modification of opacity).</p></td>
     </tr>
     <tr>
@@ -260,7 +260,7 @@ Default: <code>pal_names = NA</code> (for default names).</p></td>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>seecol</code> has 2 main modes, based on the contents of its <code>pal</code> argument:</p>
+    <p><code>seecol</code> has two main modes, based on the contents of its <code>pal</code> argument:</p>
 <ol>
 <li><p>if <code>pal = "unikn_all"</code> or a list of multiple color palettes:</p>
 <p>Plot visual vectors of all current color palettes for comparing them.</p></li>
@@ -274,10 +274,14 @@ to the number of (custom) color palettes or colors.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='usecol.html'>usecol</a></code> for using a color palette; 
+<code><a href='newpal.html'>defpal</a></code> to define new color palettes; 
+<code><a href='grepal.html'>grepal</a></code> for finding named colors; 
+<code><a href='shades_of.html'>shades_of</a></code> to define shades of a given color; 
 <code><a href='pal_unikn.html'>pal_unikn</a></code> for the default uni.kn color palette.</p>
 <p>Other color functions: 
 <code><a href='grepal.html'>grepal</a>()</code>,
 <code><a href='newpal.html'>newpal</a>()</code>,
+<code><a href='shades_of.html'>shades_of</a>()</code>,
 <code><a href='usecol.html'>usecol</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

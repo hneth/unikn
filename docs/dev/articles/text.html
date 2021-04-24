@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9004</span>
       </span>
     </div>
 
@@ -103,7 +103,7 @@
       <h1 data-toc-skip>Text boxes and decorations</h1>
                         <h4 class="author">SPDS, uni.kn</h4>
             
-            <h4 class="date">2020 12 18</h4>
+            <h4 class="date">2021 04 24</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/master/vignettes/text.Rmd"><code>vignettes/text.Rmd</code></a></small>
       <div class="hidden name"><code>text.Rmd</code></div>
@@ -169,43 +169,44 @@
 <h3 class="hasAnchor">
 <a href="#dimensions" class="anchor"></a>Dimensions</h3>
 <p>By default, both <code>slide</code> and <code>xbox</code> fill the entire plotting region (i.e., all margins are set to 0).</p>
-<p>The width of a slide is set to 4/3 of its height (of 1). To change this default, use the <code>dim</code> argument for specifying the slide’s x- and y-dimensions, respectively:</p>
+<p>The width of a slide is set to 4/3 of its height (of 1). To change this default, use the <code>dim</code> argument for specifying the slide’s x- and y-dimensions, respectively:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/slide.html">slide</a></span><span class="op">(</span>dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>  <span class="co"># a slide 3 times wider than high</span></code></pre></div>
 <p><img src="text_files/figure-html/slide-dim-1.png" width="576" style="display: block; margin: auto;"></p>
+<p>Note that changes in slide dimensions are invisible when viewing images interactively, as R automatically scales images to the size of the canvass. They mostly affect the relation between metrics when adding elements to an object.</p>
 <p>Similarly, an xbox has the default dimensions of a unit square (i.e., <code>dim = c(1, 1)</code>). To change this default, use the <code>dim</code> argument for specifying the xbox’s <code>x</code>- and <code>y</code>-dimensions, respectively:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/xbox.html">xbox</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">Petrol</span>, dim  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>  <span class="co"># an xbox 2 times higher than wide</span></code></pre></div>
 <p><img src="text_files/figure-html/xbox-dim-1.png" width="192" style="display: block; margin: auto;"></p>
-<p>The 2 strokes of the X (in the top right corner) are orthogonal when viewing the <code>xbox</code> at the aspect ratio indicated by <code>dim</code> (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X appears to be distorted. Hence, viewing and printing plots at the desired aspect ratio helps when creating an xbox.</p>
+<p>The two strokes of the X (in the top right corner) are orthogonal when viewing the <code>xbox</code> at the aspect ratio indicated by <code>dim</code> (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X appears to be distorted. Hence, viewing and printing plots at the desired aspect ratio helps when creating an xbox.</p>
 </div>
 </div>
 <div id="plotting-styled-text" class="section level2">
 <h2 class="hasAnchor">
 <a href="#plotting-styled-text" class="anchor"></a>Plotting styled text</h2>
-<p>There are 3 main functions for plotting text with decorations:</p>
+<p>There are three main functions for plotting text with decorations:</p>
 <ul>
 <li>
-<code>mark</code> allows highlighting text with colored background boxes;</li>
+<code><a href="../reference/mark.html">mark()</a></code> allows highlighting text with colored background boxes;</li>
 <li>
-<code>uline</code> allows underlining text with colored lines;</li>
+<code><a href="../reference/uline.html">uline()</a></code> allows underlining text with colored lines;</li>
 <li>
-<code>post</code> allows posting text in rectangular <code>xbox</code> elements.</li>
+<code><a href="../reference/post.html">post()</a></code> allows posting text in rectangular <code>xbox</code> elements.</li>
 </ul>
 <p>In addition, there are 2 auxiliary functions:</p>
 <ul>
 <li>
-<code>headline</code> allows plotting headlines with colored background boxes;</li>
+<code>headline()</code> allows plotting headlines with colored background boxes;</li>
 <li>
-<code>url_unikn</code> allows formatting URLs the uni.kn way.</li>
+<code><a href="../reference/url_unikn.html">url_unikn()</a></code> allows formatting URLs the uni.kn way.</li>
 </ul>
 <p>The following sections illustrate the functions and their main options in turn.</p>
 <div id="mark-text" class="section level3">
 <h3 class="hasAnchor">
 <a href="#mark-text" class="anchor"></a>Mark text</h3>
-<p>The <code>mark</code> function allows highlighting text by plotting it with colored background boxes (to provide the functionality of “Markieren”):</p>
+<p>The <code><a href="../reference/mark.html">mark()</a></code> function allows highlighting text by plotting it with colored background boxes (to provide the functionality of “Markieren”):</p>
 <p><img src="text_files/figure-html/mark-demo-fig-1.png" width="288" style="display: block; margin: auto;"></p>
-<p>By default, <code>mark</code> assumes that we want to add highlighted text to an already existing plot. The text labels to be added are provided (as a character vector) by the <code>labels</code> argument, their coordinates as the corresponding <code>x</code> and <code>y</code> arguments. Various text decorations (i.e., text and background colors, text sizes, and font types) can be set by specifying additional arguments (i.e., <code>col</code>, <code>col_bg</code>, <code>cex</code>, and <code>font</code>, respectively):</p>
+<p>By default, <code><a href="../reference/mark.html">mark()</a></code> assumes that we want to add highlighted text to an existing plot. The text labels to be added are provided (as a character vector) by the <code>labels</code> argument, their coordinates as the corresponding <code>x</code> and <code>y</code> arguments. Various text decorations (i.e., text and background colors, text sizes, and font types) can be set by specifying additional arguments (i.e., <code>col</code>, <code>col_bg</code>, <code>cex</code>, and <code>font</code>, respectively):</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Some pre-existing plot: </span>
 <span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">20</span>
@@ -222,7 +223,7 @@
      x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.1</span>, <span class="fl">.6</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.2</span>, <span class="fl">.4</span><span class="op">)</span>,
      col_bg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">pal_seeblau</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, <span class="va">pal_peach</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>, cex <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span></code></pre></div>
 <p><img src="text_files/figure-html/mark-messy-plot-1.png" width="576" style="display: block; margin: auto;"></p>
-<p>If no pre-existing plot is available, setting the <code>new_plot</code> argument to either <code>"blank"</code> or <code>"slide"</code> will generate a new default plot (by using the <code>slide</code> function described above):</p>
+<p>If no pre-existing plot is available, setting the <code>new_plot</code> argument to either <code>"blank"</code> or <code>"slide"</code> will generate a new default plot (by calling the <code><a href="../reference/slide.html">slide()</a></code> function described above):</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># A sentence to plot: </span>
 <span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Markieren"</span>,
@@ -243,27 +244,51 @@
      cex <span class="op">=</span> <span class="fl">1.5</span>, 
      new_plot <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></code></pre></div>
 <p><img src="text_files/figure-html/mark-new-plot-1.png" width="384" style="display: block; margin: auto;"></p>
-<p>Instead of providing explicit <code>x</code> and <code>y</code> coordinates for all text elements in <code>labels</code>, the calls above defined an initial coordinate and used a numeric <code>y_layout</code> argument to fix the distance between consecutive text labels (to a value of <code>.03</code>). Special values for <code>y_layout</code> are:</p>
+<p>Rather than providing explicit <code>x</code> and <code>y</code> coordinates for all text elements in <code>labels</code>, the calls above defined an initial coordinate and used a numeric <code>y_layout</code> argument to fix the distance between consecutive text labels (to a value of <code>.03</code>).</p>
+<p>As an alternative to numeric coordinates and position values, <code>x_layout</code> and <code>y_layout</code> also accept some special values (as character strings):</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><code>x_layout</code> accepts:</p>
 <ul>
 <li>
-<code>y_layout = "even"</code> for an even distribution of labels across the available y-space, and</li>
+<code>x_layout = "center"</code> for centering labels horizontally (on the first label or the middle),<br>
+</li>
+<li>
+<code>x_layout = "left"</code> left-justifies labels (on the first label or the middle), and<br>
+</li>
+<li>
+<code>x_layout = "right"</code> right-justifies labels (on the first label or the middle).</li>
+</ul>
+</li>
+<li>
+<p><code>y_layout</code> accepts:</p>
+<ul>
+<li>
+<code>y_layout = "even"</code> for an even distribution of labels across the available y-space, and<br>
+</li>
 <li>
 <code>y_layout = "flush"</code> to omit space between adjacent labels (as in <code>y_layout = 0</code>).</li>
 </ul>
+</li>
+</ol>
+<p>Thus, the position and orientation of the text labels can be controlled by using the <code>x_layout</code> and <code>y_layout</code> options:</p>
+<!-- Example: mark x_layout -->
+<!-- Fine tuning: mark x_layout -->
+<p><img src="text_files/figure-html/mark-x-layout-all-1.png" width="576" style="display: block; margin: auto;"></p>
 <p>See <code><a href="../reference/mark.html">?mark</a></code> for details.</p>
 </div>
 <div id="underline-text" class="section level3">
 <h3 class="hasAnchor">
 <a href="#underline-text" class="anchor"></a>Underline text</h3>
-<p>The <code>uline</code> function allows emphasizing text by plotting it with colored underlining (to provide the functionality of “Unterstreichen”):</p>
+<p>The <code><a href="../reference/uline.html">uline()</a></code> function allows emphasizing text by plotting it with colored underlining (to provide the functionality of “Unterstreichen”):</p>
 <p><img src="text_files/figure-html/uline-demo-1.png" width="288" style="display: block; margin: auto;"></p>
-<p>As with <code>mark</code> above, the <code>uline</code> command distinguishes between creating a new plot (by setting <code>new_plot</code> to either <code>"blank"</code> or “<code>slide</code>”) or adding to a pre-existing plot (by using the default <code>new_plot = "none"</code>):</p>
+<p>As with <code><a href="../reference/mark.html">mark()</a></code> above, the <code><a href="../reference/uline.html">uline()</a></code> command distinguishes between creating a new plot (by setting <code>new_plot</code> to either <code>"blank"</code> or “<code>slide</code>”) or adding to a pre-existing plot (by using the default <code>new_plot = "none"</code>):</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">lbl_uline</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"This is neat, true, and terribly important"</span><span class="op">)</span>
 <span class="fu"><a href="../reference/uline.html">uline</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="va">lbl_uline</span>, new_plot <span class="op">=</span> <span class="st">"blank"</span>, y <span class="op">=</span> <span class="fl">.6</span>, cex <span class="op">=</span> <span class="fl">1.1</span><span class="op">)</span>  <span class="co"># create a new plot</span>
 <span class="fu"><a href="../reference/uline.html">uline</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="st">"(which is why we underline it)."</span>, y <span class="op">=</span> <span class="fl">.45</span>, cex <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>  <span class="co"># add to plot</span></code></pre></div>
 <p><img src="text_files/figure-html/uline-ex1-1.png" width="432" style="display: block; margin: auto;"></p>
-<p>The arguments for text elements (<code>labels</code>), text positions (<code>x</code>, <code>y</code>, <code>y_layout</code>), and text properties and decorations (<code>col</code>, <code>col_bg</code>, <code>cex</code>, and <code>font</code>) work as they do for <code>mark</code>. For instance, shorter vectors are recycled to match the length of <code>labels</code>:</p>
+<p>The arguments for text elements (<code>labels</code>), text positions (<code>x</code>, <code>y</code>, <code>y_layout</code>), and text properties and decorations (<code>col</code>, <code>col_bg</code>, <code>cex</code>, and <code>font</code>) work as they do for <code><a href="../reference/mark.html">mark()</a></code>. For instance, shorter vectors are recycled to match the length of <code>labels</code>:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">slogan</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Geradlinig"</span>, <span class="st">"Farbenfroh"</span>, <span class="st">"Beweglich"</span>, <span class="st">"Bunt"</span>, <span class="st">"Paradiesisch"</span><span class="op">)</span>
 <span class="fu"><a href="../reference/uline.html">uline</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="va">slogan</span>,
@@ -271,15 +296,19 @@
       col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="va">Bordeaux</span><span class="op">)</span>, col_bg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Seeblau</span>, <span class="va">Seegruen</span><span class="op">)</span>, 
       cex <span class="op">=</span> <span class="fl">1.1</span>, font <span class="op">=</span> <span class="fl">2</span>, new_plot <span class="op">=</span> <span class="st">"blank"</span><span class="op">)</span></code></pre></div>
 <p><img src="text_files/figure-html/uline-ex2-1.png" width="288" style="display: block; margin: auto;"></p>
+<p>The position and orientation of the text labels can be controlled by using the <code>x_layout</code> and <code>y_layout</code> options:</p>
+<!-- Example: uline x_layout -->
+<!-- Fine tuning: uline x_layout -->
+<p><img src="text_files/figure-html/uline-x-layout-all-1.png" width="480" style="display: block; margin: auto;"></p>
 </div>
 <div id="post-text" class="section level3">
 <h3 class="hasAnchor">
 <a href="#post-text" class="anchor"></a>Post text</h3>
-<p>The <code>post</code> function allows adding text to a rectangular <code>xbox</code> (to provide the functionality of “Merken”):</p>
+<p>The <code><a href="../reference/post.html">post()</a></code> function allows adding text to a rectangular <code>xbox</code> (to provide the functionality of “Merken”):</p>
 <p><img src="text_files/figure-html/post-demo-1.png" width="384" style="display: block; margin: auto;"></p>
-<p>By default, <code>post</code> assumes a pre-existing <code>xbox</code> to which the text elements of <code>labels</code> are to be added.<br>
-For square boxes, setting <code>new_plot</code> to <code>"xbox"</code> creates a new <code>xbox</code> with its default dimensions of <code>dim = c(1, 1)</code>.<br>
-By adjusting its color and text arguments, <code>post</code> allows creating simple badges or logos:</p>
+<p>By default, <code><a href="../reference/post.html">post()</a></code> assumes a pre-existing <code>xbox</code> to which the text elements of <code>labels</code> are to be added.<br>
+For square boxes, setting <code>new_plot</code> to <code>"xbox"</code> creates a new <code>xbox</code> with its default dimensions of <code>dim = c(1, 1)</code>.<br>
+By adjusting its color and text arguments, <code><a href="../reference/post.html">post()</a></code> allows creating simple badges or logos:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Badge (to view as 250 x 250 pixel):</span>
 <span class="fu"><a href="../reference/post.html">post</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="st">"ToDo"</span>, y <span class="op">=</span> <span class="fl">.35</span>, 
@@ -292,7 +321,7 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
      cex <span class="op">=</span> <span class="fl">8</span>, font <span class="op">=</span> <span class="fl">2</span>, new_plot <span class="op">=</span> <span class="st">"xbox"</span><span class="op">)</span></code></pre></div>
 <p><img src="text_files/figure-html/post-logo-1.png" width="192" style="display: block; margin: auto;"><img src="text_files/figure-html/post-logo-2.png" width="192" style="display: block; margin: auto;"></p>
 <!-- Creating course logos: -->
-<p>Another potential use of <code>post</code> is for creating images providing contact details:</p>
+<p>Another potential use of <code><a href="../reference/post.html">post()</a></code> is for creating images providing contact details:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">address</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dr. B. F. Skinner"</span>, <span class="st">" "</span>,
              <span class="st">"Department of Psychology"</span>,
@@ -311,13 +340,17 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
      y <span class="op">=</span> <span class="fl">.5</span>, y_layout <span class="op">=</span> <span class="fl">.03</span>,
      new_plot <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span>  <span class="co"># add to plot</span></code></pre></div>
 <p><img src="text_files/figure-html/post-address-1.png" width="288" style="display: block; margin: auto;"></p>
+<p>As above, the position and orientation of the text labels can be controlled by using the <code>x_layout</code> and <code>y_layout</code> options:</p>
+<!-- Example: post x_layout -->
+<!-- Fine tuning: post x_layout -->
+<p><img src="text_files/figure-html/post-x-layout-all-1.png" width="384" style="display: block; margin: auto;"></p>
 </div>
 <div id="headings" class="section level3">
 <h3 class="hasAnchor">
 <a href="#headings" class="anchor"></a>Headings</h3>
-<p>The <code>heading</code> function makes it easy to create recognizable headings:</p>
+<p>The <code><a href="../reference/heading.html">heading()</a></code> function makes it easy to create recognizable headings:</p>
 <p><img src="text_files/figure-html/heading-demo-1.png" width="384" style="display: block; margin: auto;"></p>
-<p>By default, the function creates a new slide (i.e., <code>new_plot = "slide"</code>) and positions the text elements of <code>labels</code> on its left edge (i.e., <code>x = 0</code>, <code>y = .8</code> and <code>y_layout = "flush"</code>). Headings violating the recommendations (see p. 25 of the CD manual) will generate a message, for instance:</p>
+<p>By default, the function creates a new slide (i.e., <code>new_plot = "slide"</code>) and positions the text elements of <code>labels</code> on its left edge (i.e., <code>x = 0</code>, <code>y = .8</code> and <code>y_layout = "flush"</code>). Headings violating the recommendations (see p. 25 of the CD manual) will generate a message, for instance:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Beware of step-wise arrangements:</span>
 <span class="fu"><a href="../reference/heading.html">heading</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Ich"</span>, <span class="st">"bin keine"</span>, <span class="st">"gute Headline."</span><span class="op">)</span><span class="op">)</span>
@@ -328,11 +361,14 @@ By adjusting its color and text arguments, <code>post</code> allows creating sim
 <span class="co"># To avoid warning:</span>
 <span class="fu"><a href="../reference/heading.html">heading</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Ich bin"</span>, <span class="st">"eine alternative"</span>, <span class="st">"Headline."</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="text_files/figure-html/heading-warn-2.png" width="384" style="display: block; margin: auto;"></p>
-<p>When colors are left unspecified, <code>heading</code> selects colors that are appropriate for the number of elements in <code>labels</code> (i.e., shades of <code>Seeblau</code> for <code>col_bg = "default"</code>). However, default colors can be overwritten by setting the <code>col</code> and <code>col_bg</code> arguments:</p>
+<p>When colors are left unspecified, <code><a href="../reference/heading.html">heading()</a></code> selects colors that are appropriate for the number of elements in <code>labels</code> (i.e., shades of <code>Seeblau</code> for <code>col_bg = "default"</code>). However, default colors can be overwritten by setting the <code>col</code> and <code>col_bg</code> arguments:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/heading.html">heading</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Ene,"</span>, <span class="st">"mene, miste,"</span>, <span class="st">"es rappelt"</span>, <span class="st">"in der Kiste."</span><span class="op">)</span>, 
         col <span class="op">=</span> <span class="st">"white"</span>, col_bg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Pinky</span>, <span class="va">Seegruen</span>, <span class="va">Bordeaux</span>, <span class="va">Karpfenblau</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="text_files/figure-html/heading-col-1.png" width="384" style="display: block; margin: auto;"></p>
+<!-- The position and orientation of the text labels can be controlled by using the `x_layout` and `y_layout` options:  -->
+<!-- Example: heading x_layout -->
+<!-- Fine tuning: heading x_layout -->
 </div>
 <div id="urls" class="section level3">
 <h3 class="hasAnchor">

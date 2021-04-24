@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9004</span>
       </span>
     </div>
 
@@ -103,7 +103,7 @@
       <h1 data-toc-skip>Color recipes</h1>
                         <h4 class="author">SPDS, uni.kn</h4>
             
-            <h4 class="date">2020 12 18</h4>
+            <h4 class="date">2021 04 06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/master/vignettes/color_recipes.Rmd"><code>vignettes/color_recipes.Rmd</code></a></small>
       <div class="hidden name"><code>color_recipes.Rmd</code></div>
@@ -204,7 +204,7 @@
 <p>For comparing multiple color palettes (e.g., 20 random color palettes of <code><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.pals()</a></code>), provide them as a list in the <code>pal</code> argument of the <code><a href="../reference/seecol.html">seecol()</a></code> function.</p>
 <p>For instance, let’s create and compare a set of 20 random HCL palettes:</p>
 <ul>
-<li><p>Generate random HCL palettes (and save them as a list):</p></li>
+<li><p>Generate random HCL palettes (and save them as a list):</p></li>
 <li><p>Use <code><a href="../reference/seecol.html">seecol()</a></code> for comparing multiple color palettes:</p></li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -258,9 +258,9 @@
 <span class="va">pal_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"white"</span><span class="op">)</span>
 
 <span class="co"># See individual palettes:</span>
-<span class="co"># seecol(pal_1, title = "Shades of 'orange' colors()")</span>
-<span class="co"># seecol(pal_2, title = "Shades of 'olive' colors()")</span>
-<span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_3</span>, title <span class="op">=</span> <span class="st">"Shades of 'white' colors()"</span>, col_bg <span class="op">=</span> <span class="st">"grey90"</span><span class="op">)</span></code></pre></div>
+<span class="co"># seecol(pal_1, title = "Hues of 'orange' colors()")</span>
+<span class="co"># seecol(pal_2, title = "Hues of 'olive' colors()")</span>
+<span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_3</span>, title <span class="op">=</span> <span class="st">"Hues of 'white' colors()"</span>, col_bg <span class="op">=</span> <span class="st">"grey90"</span><span class="op">)</span></code></pre></div>
 <p><img src="color_recipes_files/figure-html/grepal-example-1-1.png" width="480" style="display: block; margin: auto;"></p>
 <p>Providing a list of color palettes to the <code>pal</code> argument of the <code><a href="../reference/seecol.html">seecol()</a></code> function allows comparing multiple color palettes:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -290,6 +290,30 @@
        pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blues"</span>, <span class="st">"oranges"</span>, <span class="st">"purpviol"</span>, <span class="st">"unikn colors"</span><span class="op">)</span>,
        title <span class="op">=</span><span class="st">"Comparing custom color palettes"</span><span class="op">)</span></code></pre></div>
 <p><img src="color_recipes_files/figure-html/grepal-example-3-1.png" width="576" style="display: block; margin: auto;"></p>
+</div>
+<div id="getting-shades-of-a-color" class="section level2">
+<h2 class="hasAnchor">
+<a href="#getting-shades-of-a-color" class="anchor"></a>Getting shades of a color</h2>
+<p><strong>Task:</strong> Get different shades of a specific color.</p>
+<p>The <code><a href="../reference/shades_of.html">shades_of()</a></code> function returns a vector of  colors that are shades (i.e., typically lighter or darker versions) of an initial color .</p>
+<p>By default, <code><a href="../reference/shades_of.html">shades_of(n)</a></code> yields <code>n</code> shades ranging from <code>col_1 = "black"</code> to <code>col_n = "white</code> (i.e., <code>n</code> shades of grey):</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">greys</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
+<span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">greys</span>, title <span class="op">=</span> <span class="st">"10 shades of grey"</span><span class="op">)</span></code></pre></div>
+<p><img src="color_recipes_files/figure-html/shades-of-example-1-1.png" width="480" style="display: block; margin: auto;"></p>
+<p>By adjusting <code>n</code>, the initial color <code>col_1</code>, and/or the final color <code>col_n</code>, we can conveniently create simple color ranges:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">4</span>, <span class="va">Seeblau</span>, <span class="st">"black"</span><span class="op">)</span>, title <span class="op">=</span> <span class="st">"4 shades of Seeblau"</span><span class="op">)</span></code></pre></div>
+<p><img src="color_recipes_files/figure-html/shades-of-example-2-1.png" width="480" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">7</span>, <span class="st">"forestgreen"</span><span class="op">)</span>, title <span class="op">=</span> <span class="st">"7 shades of 'forestgreen'"</span><span class="op">)</span></code></pre></div>
+<p><img src="color_recipes_files/figure-html/shades-of-example-2-2.png" width="480" style="display: block; margin: auto;"></p>
+<p>Using <code>alpha</code> in the range <span class="math inline">\([0; 1]\)</span> allows adjusting the transparency of the obtained colors:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">wine_gold</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">4</span>, <span class="va">Bordeaux</span>, col_n <span class="op">=</span> <span class="st">"gold"</span>, alpha <span class="op">=</span> <span class="fl">.65</span><span class="op">)</span>
+<span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">wine_gold</span>, title <span class="op">=</span> <span class="st">"5 transparent shades from Bordeaux to gold"</span><span class="op">)</span></code></pre></div>
+<p><img src="color_recipes_files/figure-html/shades-of-example-3-1.png" width="480" style="display: block; margin: auto;"></p>
+<p>Note that <code><a href="../reference/shades_of.html">shades_of()</a></code> is merely a convenient wrapper function for the <code><a href="../reference/usecol.html">usecol()</a></code> function. Using the <code>pal</code> argument of <code><a href="../reference/usecol.html">usecol()</a></code> allows defining more complex color gradients (e.g., by specifying more than two colors).</p>
 </div>
 <div id="resources" class="section level2">
 <h2 class="hasAnchor">
