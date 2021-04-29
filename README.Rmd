@@ -161,7 +161,7 @@ All preferred colors (i.e., named colors of distinct color hues) are contained i
 # See the palette of 9 preferred colors/hues: 
 seecol(pal_unikn_pref)
 
-# Using preferred colors: ----- 
+# Using preferred colors:
 pal_unikn_pref             # color palette of 9 preferred colors
 pal_unikn_pref[1]          # preferred (named) color 1
 pal_unikn_pref[[1]]        # color value 1: #59C7EB"
@@ -196,7 +196,7 @@ The `seecol()` function enables a quick inspection of a color palette.
 It provides a quick overview over the details of a color palette and allows comparisons between multiple color palettes: 
 
 ```{r seecol-pref, eval = TRUE, fig.align = 'center', fig.width = 6, fig.asp=.9}
-# Plot a color palette: ----- 
+# Plot a color palette: 
 seecol(pal = pal_unikn_pref,            # palette to plot
        col_brd = "white", lwd_brd = 5)  # color and width of borders
 ```
@@ -206,10 +206,10 @@ seecol(pal = pal_unikn_pref,            # palette to plot
 When only a subset of a color palette are needed, the `seecol()` and `usecol()` functions provide a reasonable subset of a known **unikn** color palette: 
 
 ```{r pal-n, eval = TRUE, fig.width = 5, fig.asp = .75, fig.align = 'center', collapse = TRUE}
-# All color palettes: ----- 
+# Subset of all color palettes: 
 seecol(n = 4)
 
-# Only pal_seeblau: ----- 
+# Details of a partial palette: 
 # seecol(pal_seeblau, n = 4)
 ```
 
@@ -640,7 +640,9 @@ col_lbl <- c("mpg green", "white", "mpg grey")  # color names
 
 # Create new color palette:
 pal_mpg <- newpal(col = col_mpg, names = col_lbl, as_df = TRUE)
-# seecol(usecol(pal_mpg, 7)[5:7])
+# seecol(pal_mpg)
+# seecol(usecol(pal_mpg, n = 7))
+# seecol(usecol(pal_mpg, n = 7)[3:1])
 ```
 
 If custom color palettes are available, the text decoration functions can be used for graphical annotations. 
@@ -648,9 +650,11 @@ If custom color palettes are available, the text decoration functions can be use
 - For instance, using color palettes of other academic institutions (defined in the vignette on "Institutional colors"): 
 
 ```{r others-txt-demo, echo = FALSE, eval = TRUE, fig.align = 'center', fig.width = 4.5, fig.height = 3}
+x_pos <- .70
+
 # A. Using pal_freiburg_basic and pal_freiburg_blue: 
 uline(labels = c("University of Freiburg"), 
-      x = .5, y = .85, font = 2, cex = 1, 
+      x = x_pos, y = .85, font = 2, cex = 1, 
       col = pal_freiburg_basic[[1]], col_bg = pal_freiburg_basic[[3]], 
       new_plot = "slide")
 mark(labels = c("Die Wahrheit", "wird euch", "frei machen."), 
@@ -659,17 +663,17 @@ mark(labels = c("Die Wahrheit", "wird euch", "frei machen."),
 
 # B. Using orange_white or pal_princeton:
 uline(labels = c("Princeton University"), 
-      x = .5, y = .55, font = 2, cex = 1, col_bg = orange_white)
+      x = x_pos, y = .55, font = 2, cex = 1, col_bg = orange_white)
 mark(labels = c("Go", "tigers!"), 
      x = 0, y = .58, y_layout = 0, cex = 1.2,  
      col = c("black", "white"), col_bg = pal_princeton)
 
 # C. Using pal_mpg:
 uline(labels = c("Max Planck Society"), 
-      x = .5, y = .25, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
+      x = x_pos, y = .25, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
 mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen."), 
      x = 0, y = .30, y_layout = 0, cex = 1.2, 
-     col = c("white"), col_bg = usecol(pal_mpg, 7)[5:7])
+     col = c("white"), col_bg = usecol(pal_mpg, 7)[3:1])
 ```
 
 - Using the color palette `pal_google` (defined above): 
@@ -681,7 +685,7 @@ mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen."),
 slide(col = pal_google[1], border = NA)
 
 uline(labels = c("Google"), 
-      x = .55, y = .50, font = 2, cex = 1.4,
+      x = .75, y = .50, font = 2, cex = 1.4,
       col = "white", col_bg = pal_google[3])
 
 mark(labels = c("Don't", "be", "evil."), 

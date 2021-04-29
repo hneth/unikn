@@ -185,7 +185,7 @@ corresponding color palette `pal_unikn_pref`:
     # See the palette of 9 preferred colors/hues: 
     seecol(pal_unikn_pref)
 
-    # Using preferred colors: ----- 
+    # Using preferred colors:
     pal_unikn_pref             # color palette of 9 preferred colors
     pal_unikn_pref[1]          # preferred (named) color 1
     pal_unikn_pref[[1]]        # color value 1: #59C7EB"
@@ -216,7 +216,7 @@ The `seecol()` function enables a quick inspection of a color palette.
 It provides a quick overview over the details of a color palette and
 allows comparisons between multiple color palettes:
 
-    # Plot a color palette: ----- 
+    # Plot a color palette: 
     seecol(pal = pal_unikn_pref,            # palette to plot
            col_brd = "white", lwd_brd = 5)  # color and width of borders
 
@@ -228,13 +228,13 @@ When only a subset of a color palette are needed, the `seecol()` and
 `usecol()` functions provide a reasonable subset of a known **unikn**
 color palette:
 
-    # All color palettes: ----- 
+    # Subset of all color palettes: 
     seecol(n = 4)
 
 <img src="inst/pix/README-pal-n-1.png" style="display: block; margin: auto;" />
 
 
-    # Only pal_seeblau: ----- 
+    # Details of a partial palette: 
     # seecol(pal_seeblau, n = 4)
 
 #### Changing and creating color palettes
