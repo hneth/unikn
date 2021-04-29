@@ -193,6 +193,7 @@ mpg_grey  <- "#D0D3D4"
 # col2rgb(mpg_grey)
 
 pal_mpg <- usecol(pal = c(mpg_green, "white", mpg_grey))
+# seecol(pal_mpg)
 ```
 
 Again, the easiest way of defining a corresponding color palette is by defining vectors of colors and their names and then 
@@ -202,6 +203,7 @@ To allow for better color gradients, we insert the color\ `"white"` between the 
 ```{r mpg-pal-def-vector, echo = FALSE, eval = FALSE, fig.width = 5, fig.asp = .8, fig.align = 'center', collapse = TRUE}
 pal_mpg <- c("#007367", "white", "#D0D3D4")
 names(pal_mpg) <- c("mpg green", "white", "mpg grey")
+# seecol(pal_mpg)
 ```
 
 ```{r mpg-pal-def-df, fig.width = 5, fig.asp = .80, fig.align = 'center', collapse = TRUE}
@@ -209,7 +211,7 @@ names(pal_mpg) <- c("mpg green", "white", "mpg grey")
 col_mpg <- c("#007367", "white", "#D0D3D4")     # color definition 
 col_lbl <- c("mpg green", "white", "mpg grey")  # color names
 
-# Create new color palette:
+# Create new color palette (as a vector):
 pal_mpg <- newpal(col = col_mpg, names = col_lbl)
 ```
 
