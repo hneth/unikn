@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2020 09 04
+## spds | uni.kn  | 2021 04 28
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -12,9 +12,9 @@
 
 #' unikn default color palette (11 colors).
 #'
-#' \code{pal_unikn} combines the 5 blue colors 
+#' \code{pal_unikn} combines the 5 shades of blue colors 
 #' from color palette \code{\link{pal_seeblau}} 
-#' with the 6 non-blue colors of \code{\link{pal_unikn}} 
+#' with the 6 non-blue colors of \code{\link{pal_unikn_web}} 
 #' to a palette containing 11 color values. 
 #' 
 #' Adding seeblau5 (i.e., \code{pal_seeblau[1]}) to 
@@ -30,7 +30,7 @@
 #'
 #' @examples
 #' pal_unikn
-#' dim(pal_unikn)         # 1 11
+#' dim(pal_unikn)  # 1 11
 #' 
 #' # Access by position:
 #' pal_unikn[1]    # new color "seeblau5" (as df)
