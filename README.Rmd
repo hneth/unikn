@@ -39,12 +39,12 @@ library(unikn)  # load package
 
 ### Enabling corporate design elements in\ R {-}
 
-The **unikn** package provides color functions — by defining dedicated colors and color palettes, and commands for changing, viewing, and using them — and styled text elements (e.g., for marking, underlining, or plotting colored titles). 
+The **unikn** package provides color functions ---\ by defining dedicated colors and color palettes, and commands for changing, viewing, and using them\ --- and styled text elements (e.g., for marking, underlining, or plotting colored titles). 
 The pre-defined range of colors and text functions is based on the corporate design of the [University of Konstanz](https://www.uni-konstanz.de/) (see [this link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) for details), but can be adapted and extended for other institutions and purposes. 
 
 ## Background 
 
-Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. In 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. 
+Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. In\ 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. 
 Its key component is the ubiquitous use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the [corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) pages and the 
 [Corporate Design Manual (pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf) for details.) 
 
@@ -59,8 +59,8 @@ While this renders the correct use of default specifications simple and straight
 The **unikn** package currently provides five types of objects and functions: 
 
 1. Dedicated colors and color palettes;  
-2. Functions for viewing, changing, and comparing color palettes (i.e., `seecol()` and `usecol()`);  
-3. Functions for creating new color palettes and for finding colors by their names (i.e., `newpal()` and `grepal()`);  
+2. Functions for viewing, changing, and comparing color palettes (i.e., `seecol()` and\ `usecol()`);  
+3. Functions for creating new color palettes and for finding colors by their names (i.e., `newpal()` and\ `grepal()`);  
 4. Functions for plotting graphical objects (e.g., boxes and frames);  
 5. Functions for plotting styled text elements (e.g., highlighting and underlining text).  
 <!-- 6. Graphical support (e.g., commands and themes for creating scientific visualizations). -->
@@ -113,9 +113,9 @@ seecol(pal_unikn)
 
 <!-- <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/> -->
 
-- A shorter version consisting of 10\ colors is provided as `pal_unikn_web`. 
+- A shorter version consisting of 10\ colors is provided as\ `pal_unikn_web`. 
 
-- An alternative color palette with 10\ more muted colors (intended for PowerPoint presentations) is provided as `pal_unikn_ppt`. 
+- An alternative color palette with 10\ more muted colors (intended for PowerPoint presentations) is provided as\ `pal_unikn_ppt`. 
 
 Evaluating `seecol(pal = "unikn_basic")` shows these three basic unikn color palettes. 
 
@@ -127,14 +127,16 @@ Beyond the three variants of `pal_unikn`, the **unikn** package provides the fol
 seecol("all")
 ```
 
-Specifically, an Excel file called [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) defines 9 additional color palettes that are exported by **unikn** as the following named color palettes: 
+The color palettes `pal_unikn_web()` and `pal_unikn_ppt()` correspond to the official definitions of color palettes for electronic and print media, respectively. The default palette `pal_unikn` of **unikn** combines the five shades of blue in `pal_seeblau` with the six non-blue colors from `pal_unikn_web()` to create a symmetrical palette of 11\ colors. 
+
+All color palettes exported by **unikn** are built from elements consisting of nine different color hues. 
+Specifically, an\ Excel file entitled [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) defines 9\ color gradients that are created and exported by **unikn** as the following named color palettes: 
 
 ```{r pal-additional, eval = FALSE}
-# Show 9 color gradient palettes:
 seecol(pal = "grad_all")
 ```
 
-For details, evaluate or apply `seecol()` on the following color palettes: 
+Overall, the **unikn** package exports 16\ dedicated color palettes, plus the nine preferred colors of `pal_unikn_pref` (e.g., `Seeblau`, `Seegruen`, etc.) as named colors. For details on each named color hue, evaluate `seecol()` on the following color palettes: 
 
 ```{r pal-additional-list, eval = FALSE}
 # 8 mono-tone palettes: ----- 
@@ -146,31 +148,33 @@ pal_petrol       # 5           petrol
 pal_seegruen     # 5           seegruen 
 pal_karpfenblau  # 5           karpfenblau
 pal_pinky        # 5           pink
-pal_Bordeaux     # 5           Bordeaux
+pal_bordeaux     # 5           Bordeaux
 
 # 1 signal (Ampel) palette: ----- 
 pal_signal       # 3           signal/Ampel
 ```
 
 Each color palette contains a preferred color.[^1] 
-All preferred colors are contained in a corresponding color palette `pal_unikn_pref`: 
+All preferred colors (i.e., named colors of distinct color hues) are contained in a corresponding color palette\ `pal_unikn_pref`: 
 
 ```{r pal-unikn-pref, eval = FALSE}
+# See the palette of 9 preferred colors/hues: 
+seecol(pal_unikn_pref)
+
 # Using preferred colors: ----- 
-pal_unikn_pref             # color palette of preferred colors
+pal_unikn_pref             # color palette of 9 preferred colors
 pal_unikn_pref[1]          # preferred (named) color 1
 pal_unikn_pref[[1]]        # color value 1: #59C7EB"
 pal_unikn_pref["Seeblau"]  # preferred color by name
 ```
 
 [^1]: Whereas the official definition does not identify a preferred color for the Ampel color palette (`pal_signal`), 
-we provide its alert color (i.e., `pal_signal[2]`) as a designated color `Signal`. 
+we provide its alert color (i.e., `pal_signal[2]`) as a designated color\ `Signal`. 
 
-Additional pre-defined color palettes include:
+Additional pre-defined color palettes in **unikn** include:
 
 ```{r pal-unikn-more, eval = FALSE}
-# Plot additional color palettes: ----- 
-seecol(pal_unikn_pref)   # palette of  9 preferred colors
+# See additional color palettes:
 seecol(pal_unikn_light)  # palette of  8 light colors (in 4 pairs)
 seecol(pal_unikn_dark)   # palette of  8 dark colors (in 4 pairs)
 seecol(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
@@ -181,9 +185,9 @@ More flexible and complex color palettes can be created by using the `seecol()` 
 
 ### Overview of color-related functions
 
-Two main functions `seecol()` and `usecol()` provide a convenient interface for _viewing_ and _using_ color palettes. 
+Two main functions ---\ `seecol()` and `usecol()`\ --- provide a convenient interface for _viewing_ and _using_ color palettes. 
 
-Two additional functions `newpal()` and `grepal()` serve in auxiliary roles (by allowing to create new color palettes and finding colors whose names match some pattern). 
+Additional color functions (e.g., `newpal()`, `grepal()`, and `shades_of()`) provide auxiliary functionality (like creating new color palettes and finding colors whose names match some pattern). 
 
 
 ### Viewing color palettes with `seecol()` 
@@ -211,21 +215,32 @@ seecol(n = 4)
 
 #### Changing and creating color palettes
 
-The `usecol` and `seecol` functions provide some generic options for manipulating and showing color gradients based on given colors or color palettes. This serves 2 main functions: 
+The `usecol()` and `seecol()` functions provide some generic options for manipulating and showing color gradients based on given colors or color palettes. This serves two main functions: 
 
 1. Reducing or extending existing color palettes (to arbitrary lengths). 
 2. Mixing and merging colors and color palettes into new color palettes. 
 
-Here are some examples of these functions in action: 
+Here are some examples of both functions in action: 
 
 - Extending or reducing an existing color palette:
 
 ```{r col-scale-1, eval = TRUE, fig.width = 6, fig.asp = .75, fig.align = 'center', collapse = TRUE}
-seecol(pal_unikn, n = 21)  
-# seecol(pal_seeblau, n = 8)  # provides a subset of "good" colors
+seecol(pal_unikn, n = 21)  # extend a color palette
+```
+
+Users of the `%>%` operator (from the **magrittr** package) may prefer the following pipe:
+
+```{r col-scale-1-pipe, eval = FALSE}
+library(magrittr)
+
+usecol(pal_unikn, n = 21) %>% seecol()
 ```
 
 Note that reducing an **unikn** color palette selects a suitable subset of its colors, rather than just truncating the scale. 
+
+```{r col-scale-1-reduce-unikn-pals, echo = FALSE, eval = FALSE}
+seecol(pal_unikn, n = 4)  # provides a subset of "good" colors
+```
 
 <!-- 
 
@@ -239,16 +254,15 @@ seecol(c(Seeblau, "white", Pinky), 11)
 
 --> 
 
-- Mixing and merging colors and color palettes into new color palettes: 
+- Mixing and merging colors and visualizing color palettes is possible on the fly: 
 
 ```{r col-scale-3, eval = TRUE, fig.width = 6, fig.asp = .75, fig.align = 'center', collapse = TRUE}
-# Combining color palettes (and colors): ----- 
-seecol(c(rev(pal_petrol),  "white", pal_bordeaux), 11,
-       col_bg = "grey90")
+seecol(c(rev(pal_petrol), "white", pal_bordeaux), 11, col_bg = "grey90")
 ```
 
-```{r col-scale-3-b, eval = FALSE, fig.width = 6, fig.asp = .75, fig.align = 'center', collapse = TRUE}
-# Related combinations:
+Related examples include:
+
+```{r col-scale-3-examples, eval = FALSE, fig.width = 6, fig.asp = .75, fig.align = 'center', collapse = TRUE}
 seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
 seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
 seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
@@ -256,8 +270,6 @@ seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
 
 
 ### Using color palettes with `usecol()` 
-
-The **unikn** package exports the color palettes shown by `seecol(pal = "all")` and the nine preferred colors of `pal_unikn_pref` (e.g., `Seeblau`, `Seegruen`, etc.) as named colors. 
 
 The `usecol()` function provides convenient access and additional options for using them in graphs. 
 Here are some examples:  
