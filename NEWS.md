@@ -1,5 +1,5 @@
 
-# unikn 0.4.0.9004
+# unikn 0.4.0.9005
 
 The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -20,6 +20,7 @@ The current development version of **unikn** (0.4.0.9001+) is available at <http
 
 ## Bug fixes
 
+- fix some bugs in README and vignettes. [2021-04-29]
 - `slide()` now uses the `dim` argument. [2021-04-24]
 
 <!-- Add blank line.  --> 
@@ -140,6 +141,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2021-04-24.]
+[File `NEWS.md` updated on 2021-04-29.]
 
 <!-- eof. -->
