@@ -11,9 +11,9 @@ An object of class \code{data.frame} with 1 rows and 11 columns.
 pal_unikn
 }
 \description{
-\code{pal_unikn} combines the 5 blue colors 
+\code{pal_unikn} combines the 5 shades of blue colors 
 from color palette \code{\link{pal_seeblau}} 
-with the 6 non-blue colors of \code{\link{pal_unikn}} 
+with the 6 non-blue colors of \code{\link{pal_unikn_web}} 
 to a palette containing 11 color values.
 }
 \details{
@@ -30,7 +30,7 @@ See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-
 }
 \examples{
 pal_unikn
-dim(pal_unikn)         # 1 11
+dim(pal_unikn)  # 1 11
 
 # Access by position:
 pal_unikn[1]    # new color "seeblau5" (as df)
