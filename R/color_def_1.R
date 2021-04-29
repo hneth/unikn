@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## spds | uni.kn |  2019 06 18
+## spds | uni.kn |  2021 04 29
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -68,7 +68,7 @@ pal_unikn_web <- data.frame(                                 #  element:
 # Sensibly sorted version (position):
 pal_unikn_web <- pal_unikn_web[c(4:1, 10:5)] # seeblau (2 as default) > white (5) > grey > black (10)
 
-# # Check:
+## Check:
 # pal_unikn_web
 # =>
 #   seeblau4 seeblau3 seeblau2 seeblau1   white seegrau1 seegrau2 seegrau3 seegrau4   black
@@ -137,11 +137,11 @@ pal_unikn_ppt <- data.frame(                             #  element:
 # Sensibly sorted version: 
 pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > black (10)
 
-### Check:
-## pal_unikn_ppt
-## => 
-##   seeblau4 seeblau3 seeblau2 seeblau1   white seegrau1 seegrau2 seegrau3 seegrau4   black
-## 1  #009AD1  #59B6DC  #A0D3E6  #C8E5EF #FFFFFF  #E5E5E5  #CCCCCC  #999999  #666666 #000000
+## Check:
+# pal_unikn_ppt
+# => 
+#   seeblau4 seeblau3 seeblau2 seeblau1   white seegrau1 seegrau2 seegrau3 seegrau4   black
+# 1  #009AD1  #59B6DC  #A0D3E6  #C8E5EF #FFFFFF  #E5E5E5  #CCCCCC  #999999  #666666 #000000
 
 # length(pal_unikn)
 # names(pal_unikn_ppt)
@@ -217,6 +217,8 @@ pal_seeblau <- data.frame(                               #  element:
   "seeblau5" = rgb(  0, 142, 206, maxColorValue = 255),  #  5. seeblau5 (non-transparent): neu
   stringsAsFactors = FALSE)
 
+## Check:
+# pal_seeblau
 
 #   (d) Named color seeblau (as df): ---- 
 
@@ -333,6 +335,9 @@ pal_peach <- data.frame(                               #  Element:
   "peach5" = rgb(255, 142, 123, maxColorValue = 255),  #  5. 
   stringsAsFactors = FALSE)
 
+## Check:
+# pal_peach
+
 #   (d) Named color peach (as df): ---- 
 
 ##| uni.kn color peach (as df).
@@ -445,6 +450,9 @@ pal_grau <- data.frame(                               #  element:
   "grau5" = rgb( 77,  80,  84, maxColorValue = 255),  #  5. grau5 (non-transparent)
   stringsAsFactors = FALSE)
 
+## Check:
+# pal_grau
+
 #   (d) Named color grau (as df): ---- 
 
 ##| uni.kn color grau (as df).
@@ -508,7 +516,6 @@ names(Grau) <- "Grau"
 
 
 
-
 #  (4) petrol: -----
 
 #   (a) Table (from Excel file): ----  
@@ -561,6 +568,9 @@ pal_petrol <- data.frame(                               #  element:
   "petrol4" = rgb(  7, 113, 135, maxColorValue = 255),  #  4. petrol4 (non-transparent): preferred color: "petrol"
   "petrol5" = rgb(  3,  95, 114, maxColorValue = 255),  #  5. petrol5 (non-transparent)
   stringsAsFactors = FALSE)
+
+## Check:
+# pal_petrol
 
 #   (d) Named color petrol (as df): ---- 
 
@@ -675,6 +685,9 @@ pal_seegruen <- data.frame(                               #  element:
   "seegruen5" = rgb(  6, 126, 121, maxColorValue = 255),  #  5. seegruen5 (non-transparent)
   stringsAsFactors = FALSE)
 
+## Check:
+# pal_seegruen
+
 #   (d) Named color seegruen (as df): ---- 
 
 ##| uni.kn color seegruen (as df).
@@ -787,6 +800,9 @@ pal_karpfenblau <- data.frame(                               #  element:
   "karpfenblau4" = rgb( 62,  84, 150, maxColorValue = 255),  #  4. karpfenblau4 (non-transparent): preferred color: "karpfenblau"
   "karpfenblau5" = rgb( 50,  67, 118, maxColorValue = 255),  #  5. karpfenblau5 (non-transparent)
   stringsAsFactors = FALSE)
+
+## Check:
+# pal_karpfenblau
 
 #   (d) Named color karpfenblau (as df): ---- 
 
@@ -901,6 +917,9 @@ pal_pinky <- data.frame(                               #  Element:
   "pinky5" = rgb(202,  74, 104, maxColorValue = 255),  #  5. pinky5 (non-transparent)
   stringsAsFactors = FALSE)
 
+## Check:
+# pal_pinky
+
 #   (d) Named color pinky (as df): ---- 
 
 ##| uni.kn color pinky (as df).   
@@ -1012,6 +1031,9 @@ pal_bordeaux <- data.frame(                               #  Element:
   "bordeaux4" = rgb(142,  32,  67, maxColorValue = 255),  #  4. bordeaux4 (non-transparent): preferred color: "bordeaux"
   "bordeaux5" = rgb(119,  20,  52, maxColorValue = 255),  #  5. bordeaux5 (non-transparent)
   stringsAsFactors = FALSE)
+
+## Check:
+# pal_bordeaux
 
 #   (d) Named color bordeaux (as df): ---- 
 
@@ -1126,6 +1148,9 @@ pal_signal <- data.frame(                               #  Element:
   "signal3" = rgb(124, 202, 137, maxColorValue = 255),  #  1. signal3: bot = good  (non-transparent)
   stringsAsFactors = FALSE)
 
+## Check:
+# pal_signal
+
 #   (d) NO Named color signal (as df): ---- 
 
 # Note: As the Ampel palette specification does NOT identify a preferred color,  
@@ -1161,6 +1186,7 @@ pal_signal <- data.frame(                               #  Element:
 
 ## Check:
 # signal
+
 
 #   (e) NO Preferred color Signal (as HEX character value): ---- 
 
