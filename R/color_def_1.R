@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## spds | uni.kn |  2021 04 29
+## spds | uni.kn |  2021 12 16
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -1245,7 +1245,8 @@ all_palkn_grad <- c("pal_seeblau", "pal_peach", "pal_grau", "pal_petrol", "pal_s
                     "pal_signal")
 all_palkn_pref <- c("pal_unikn_pref", all_palkn_grad)
 all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
-                    
+
+
 ## Color sources: ------ 
 
 # Defining CD elements according to specifications publicly provided at https://www.uni-konstanz.de. 
@@ -1253,5 +1254,15 @@ all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
 # https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/ 
 # https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/ 
 
+
+## Note: Compare colors ----- 
+
+# - Seeblau seems like a muted variant of "deepskyblue"
+# - Pinky seems like a muted variant of "deeppink"
+# - Petrol is similar to "deepskyblue4"
+
+# # Demo:
+# comp_cols <- c(Seeblau, "deepskyblue", Pinky, "deeppink", Petrol, "deepskyblue4")
+# seecol(comp_cols, col_brd = "white", lwd_brd = 5)
 
 ## eof. ----------
