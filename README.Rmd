@@ -524,7 +524,7 @@ Providing a list of color palettes to the `pal` argument of the `seecol()` funct
 
 ```{r grepal-example-2, fig.width=8, fig.asp=.30, fig.align = 'center'}
 # Find colors:
-pink_olive <- grepal("(pink)|(olive)")
+pink_olive    <- grepal("(pink)|(olive)")
 purple_orange <- grepal("(purple)|(orange)")
 
 # See color palettes:
@@ -533,12 +533,12 @@ seecol(pal = list(pink_olive, purple_orange),
        title = "Comparing pink olives and purple oranges")
 ```
 
-To make `grepal()` more powerful, its `pattern`\ argument can use regular expressions, and its `x`\ argument works with both vectors and data frames (e.g., the **unikn** color palettes). 
+To make the `grepal()` more flexible, its `pattern`\ argument can use regular expressions, and its `x`\ argument works with both vectors and data frames (e.g., the **unikn** color palettes). 
 
 
 ## Text decorations
 
-Beyond color functions, **unikn** also provides some functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining). 
+Beyond color functions, **unikn** provides additional functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining). 
 By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the `new_plot` argument specifies a type of plot to be generated. 
 As the use of these functions is explained in detail in `vignette("Text")`, we only provide some examples here: 
 
