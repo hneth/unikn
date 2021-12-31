@@ -185,9 +185,9 @@ More flexible and complex color palettes can be created by using the `seecol()` 
 
 ### Overview of color-related functions
 
-Two main functions ---\ `seecol()` and `usecol()`\ --- provide a convenient interface for _viewing_ and _using_ color palettes. 
+Two main functions ---\ `seecol()` and `usecol()`\ --- provide a simple interface for _viewing_ and _using_ color palettes. 
 
-Additional color functions (e.g., `newpal()`, `grepal()`, and `shades_of()`) provide auxiliary functionality (like creating new color palettes and finding colors whose names match some pattern). 
+Additional color functions (i.e., `newpal()`, `grepal()`, `shades_of()`, and `ac()`) provide auxiliary functionality (like creating new color palettes, finding colors whose names match some pattern, creating color gradients, or adding transparency to colors). 
 
 
 ### Viewing color palettes with `seecol()` 

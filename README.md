@@ -203,12 +203,13 @@ More flexible and complex color palettes can be created by using the
 
 ### Overview of color-related functions
 
-Two main functions — `seecol()` and `usecol()` — provide a convenient
+Two main functions — `seecol()` and `usecol()` — provide a simple
 interface for *viewing* and *using* color palettes.
 
-Additional color functions (e.g., `newpal()`, `grepal()`, and
-`shades_of()`) provide auxiliary functionality (like creating new color
-palettes and finding colors whose names match some pattern).
+Additional color functions (i.e., `newpal()`, `grepal()`, `shades_of()`,
+and `ac()`) provide auxiliary functionality (like creating new color
+palettes, finding colors whose names match some pattern, creating color
+gradients, or adding transparency to colors).
 
 ### Viewing color palettes with `seecol()`
 
@@ -819,7 +820,7 @@ Color definitions are based on the specifications at:
 <!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
 <!-- Update: -->
 
-(Updated on 2021-12-22.)
+(Updated on 2021-12-31.)
 
 <!-- eof. -->
 
