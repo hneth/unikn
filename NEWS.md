@@ -1,5 +1,5 @@
 
-# unikn 0.4.0.9005
+# unikn 0.4.0.9006
 
 The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -7,20 +7,20 @@ The current development version of **unikn** (0.4.0.9001+) is available at <http
 
 ## Major changes 
 
-- Added an `x_layout` argument to control horizontal positions of text labels (e.g., by numeric increments, centering, right-adjusted). [2021-04-24] 
-- Added a `shades_of()` function to conveniently get `n`\ shades of a color. [2021-04-06] 
+- Add an `x_layout` argument to control horizontal positions of text labels (e.g., by numeric increments, centering, right-adjusted). [2021-04-24] 
+- Add a `shades_of()` function to conveniently get `n`\ shades of a color. [2021-04-06] 
 
 <!-- Add blank line.  --> 
 
 ## Minor changes
 
-- none yet 
+- Add an `ac()` function as a wrapper to `grDevices::adjustcolor()`. [2021-31-12] 
 
 <!-- Add blank line.  --> 
 
 ## Bug fixes
 
-- fix some bugs in README and vignettes. [2021-04-29]
+- Fix some bugs in README and vignettes. [2021-04-29]
 - `slide()` now uses the `dim` argument. [2021-04-24]
 
 <!-- Add blank line.  --> 
@@ -36,22 +36,22 @@ Changes since last release:
 
 ## Major changes 
 
-- Added a `grepal()` function to conveniently search `colors()` or color palettes by name. [2020-12-18]
+- Add a `grepal()` function to conveniently search `colors()` or color palettes by name. [2020-12-18]
 
-- Changed color sequence of `pal_unikn_pref` to increase contrast between adjacent colors. [2020-09-04] 
+- Change color sequence of `pal_unikn_pref` to increase contrast between adjacent colors. [2020-09-04] 
 
 <!-- Add blank line.  --> 
 
 
 ## Minor changes
 
-- Added `mar_note` argument to `seecol()` for margin note option. [2021-01-05] 
+- Add `mar_note` argument to `seecol()` for margin note option. [2021-01-05] 
 
-- Added two new vignettes (on "Color recipes" and "Institutional colors"). [2020-12-18] 
+- Add two new vignettes (on "Color recipes" and "Institutional colors"). [2020-12-18] 
 
-- Fine-tuned aesthetics of `theme_unikn()` and `theme_grau()` for use with **ggplot2**. [2020-08-27]  
+- Fine-tune aesthetics of `theme_unikn()` and `theme_grau()` for use with **ggplot2**. [2020-08-27]  
 
-- Added [Travis](https://travis-ci.org/) support for [GitHub](https://github.com/) builds. [2020-08-25]  
+- Add [Travis](https://travis-ci.org/) support for [GitHub](https://github.com/) builds. [2020-08-25]  
 
 <!-- Add blank line.  --> 
 
@@ -73,11 +73,11 @@ Changes since last release:
 
 ## Major changes 
 
-- Added `theme_grau()` to provide an alternative **ggplot2** theme. [2020-08-24]  
+- Add `theme_grau()` to provide an alternative **ggplot2** theme. [2020-08-24]  
 
 ## Minor changes
 
-- Added `pal_names` argument to `seecol()` function to allow re-labeling color palettes and colors. [2020-08-22]  
+- Add `pal_names` argument to `seecol()` function to allow re-labeling color palettes and colors. [2020-08-22]  
 
 ## Bug fixes 
 
@@ -101,27 +101,27 @@ Changes since last release:
 
 New functionality: 
 
-- Added a `newpal()` function for defining new color palettes (as a named vector or data frame). [2019-07-05]
+- Add a `newpal()` function for defining new color palettes (as a named vector or data frame). [2019-07-05]
 
-- Added a `theme_unikn()` function to provide a basic **ggplot2** theme. [2019-06-20]
+- Add a `theme_unikn()` function to provide a basic **ggplot2** theme. [2019-06-20]
 
 
 ## Minor changes
 
 Changes in existing functionality: 
 
-- Added a `col_bg` argument to the `seecol()` function to allow setting background color. [2019-09-24]
+- Add a `col_bg` argument to the `seecol()` function to allow setting background color. [2019-09-24]
 
-- Added a `title` argument to the `seecol()` function to allow overwriting the default title (created when `title = NA`). [2019-07-17]
+- Add a `title` argument to the `seecol()` function to allow overwriting the default title (created when `title = NA`). [2019-07-17]
 
-- Added `lwd_brd` argument to the `seecol()` function to allow setting the linewidth of shapes (and setting sensible defaults in combination with `col_brd`). [2019-07-18]
+- Add `lwd_brd` argument to the `seecol()` function to allow setting the linewidth of shapes (and setting sensible defaults in combination with `col_brd`). [2019-07-18]
 
 
 ## Bug fixes 
 
 - Fix an error in `seecol()` and `usecol()` that prevented using functions in other packages (by requiring list of palettes). [2019-09-18]
 
-- Removed packages not needed for running **unikn** from list of suggested packages. [2019-07-20] 
+- Remove packages not needed for running **unikn** from list of suggested packages. [2019-07-20] 
 
 - Prevent showing duplicate color names in `seecol()`, due to searching both the current set of color palettes and **base** R `colors`. 
 Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27] 
@@ -141,6 +141,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2021-04-29.]
+[File `NEWS.md` updated on 2021-12-31.]
 
 <!-- eof. -->
