@@ -17,7 +17,7 @@ Default: \code{col_1 = "black"}.}
 Default: \code{col_n = "white"}.}
 
 \item{alpha}{A factor modifying the opacity alpha 
-(as in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
+(as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
 Default: \code{alpha = NA} (i.e., no modification of opacity).}
 }
 \description{
@@ -54,6 +54,7 @@ seecol(wine_white, col_brd = "black", lwd_brd = .5,
 \code{\link{grepal}} for finding named colors.
 
 Other color functions: 
+\code{\link{ac}()},
 \code{\link{grepal}()},
 \code{\link{newpal}()},
 \code{\link{seecol}()},

@@ -53,7 +53,7 @@ color palette \code{pal}, the color palette is reduced or extrapolated
 Default: \code{n = "all"} (i.e., show all colors in palette).}
 
 \item{alpha}{A factor modifying the opacity alpha 
-(as in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
+(as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
 Default: \code{alpha = NA} (i.e., no modification of opacity).}
 
 \item{hex}{Should HEX color values be shown? 
@@ -160,13 +160,14 @@ seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
 
 }
 \seealso{
-\code{\link{usecol}} for using a color palette; 
-\code{\link{defpal}} to define new color palettes; 
+\code{\link{usecol}} for using color palettes; 
+\code{\link{defpal}} for defining new color palettes; 
 \code{\link{grepal}} for finding named colors; 
 \code{\link{shades_of}} to define shades of a given color; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color functions: 
+\code{\link{ac}()},
 \code{\link{grepal}()},
 \code{\link{newpal}()},
 \code{\link{shades_of}()},

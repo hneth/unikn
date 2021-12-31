@@ -70,6 +70,7 @@ seecol(grepal("blau", pal_unikn_pref), title = "All 'blau' colors in pal_unikn_p
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color functions: 
+\code{\link{ac}()},
 \code{\link{newpal}()},
 \code{\link{seecol}()},
 \code{\link{shades_of}()},
