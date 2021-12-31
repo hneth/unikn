@@ -1,5 +1,5 @@
 ## color_fun.R | unikn
-## spds | uni.kn | 2021 04 24
+## spds | uni.kn | 2021 12 31
 ## ---------------------------
 
 ## Define color-related functions 
@@ -27,7 +27,7 @@
 #' \code{n} compresses or extends the palette using \code{\link{colorRampPalette}}.
 #' 
 #' @param alpha A factor modifying the opacity alpha 
-#' (as in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
+#' (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
 #' Default: \code{alpha = NA} (i.e., no modification of opacity).
 #' 
 #' @param use_names A logical value indicating whether colors should be returned as a named vector.
@@ -67,6 +67,8 @@
 #' \code{\link{grepal}} for finding named colors; 
 #' \code{\link{shades_of}} to define shades of a given color; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette. 
+#' 
+#' @import grDevices 
 #'
 #' @export
 
@@ -419,7 +421,7 @@ usecol <- function(pal = pal_unikn,
 #' Default: \code{n = "all"} (i.e., show all colors in palette). 
 #' 
 #' @param alpha A factor modifying the opacity alpha 
-#' (as in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
+#' (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
 #' Default: \code{alpha = NA} (i.e., no modification of opacity). 
 #' 
 #' @param hex Should HEX color values be shown? 
@@ -506,8 +508,8 @@ usecol <- function(pal = pal_unikn,
 #' @aliases seepal 
 #'
 #' @seealso 
-#' \code{\link{usecol}} for using a color palette; 
-#' \code{\link{defpal}} to define new color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{defpal}} for defining new color palettes; 
 #' \code{\link{grepal}} for finding named colors; 
 #' \code{\link{shades_of}} to define shades of a given color; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
@@ -1409,7 +1411,7 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
 #' Default: \code{col_n = "white"}.  
 #' 
 #' @param alpha A factor modifying the opacity alpha 
-#' (as in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
+#' (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
 #' Default: \code{alpha = NA} (i.e., no modification of opacity).
 #' 
 #' @examples
