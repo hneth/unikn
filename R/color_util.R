@@ -1,5 +1,5 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2020 12 21
+## spds | uni.kn | 2020 12 31
 ## ---------------------------
 
 ## Utility functions for converting colors, 
@@ -7,6 +7,77 @@
 
 
 ## 1. General functions: -------
+
+# ac as a grDevices::adjustcolor() wrapper: ------ 
+
+# Goal: Wrap essentials of grDevices::adjustcolor 
+#       as a more convenient utility function:
+
+#' Adjust the transparency of a color or color palette.
+#'
+#' \code{ac} adjusts the transparency of a color or color palette \code{col} 
+#' to an opacity level \code{alpha}.
+#'
+#' \code{ac} is merely a convenient wrapper for 
+#' \code{\link{adjustcolor}} of the \strong{grDevices} package. 
+#'
+#'
+#' @param col A (required) color or color palette (as a vector). 
+#' 
+#' @param alpha A factor modifying the opacity alpha 
+#' (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
+#' Default: \code{alpha = .50} (i.e., medium opacity).
+#' 
+#' @return A color vector of the same length as \code{col}, 
+#' transformed by \code{link{adjustcolor}}. 
+#' 
+#' @examples
+#' ac("black")  # using alpha = .5 by default
+#' 
+#' blacks <- c(ac("black", .25), ac("black"), ac("black", .75))
+#' seecol(blacks)
+#' 
+#' seecol(ac(pal_unikn_pref, .67), title = "Adding color transparency by ac()")
+#'  
+#' @family color functions
+#'
+#' @seealso
+#' \code{\link{seecol}} to plot color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{defpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @import grDevices 
+#'
+#' @export
+
+ac <- function(col, alpha = .5) {
+  
+  # ToDo: 
+  # 1. Allow a vectorized solution (using multiple alphas).
+  # 2. Adjust color names (indicating alpha)
+  
+  # pass to grDevices::adjustcolor 
+  grDevices::adjustcolor(col, alpha.f = alpha)
+  
+} # ac end. 
+
+## Check:
+# ac("black")  # using alpha = .5 by default
+#
+# blacks <- c(ac("black", .25), ac("black"), ac("black", .75))
+# seecol(blacks)
+#
+# ToDo: 
+# 1. Allow a vectorized solution (using multiple alphas).
+# 2. Adjust color names (indicating alpha)
+#
+# seecol(ac(pal_unikn_pref, .67), title = "Adding color transparency by ac()")
+# 
+# seecol(ac(pal_unikn_pref))  # default alpha = .5
+# seecol(ac(pal_unikn_pref, .25))
+# seecol(ac(pal_unikn_pref, .75))
+
 
 # col2rgb in grDevices: ------ 
 
