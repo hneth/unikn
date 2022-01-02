@@ -65,10 +65,11 @@ seecol(pal_3)
 
 }
 \seealso{
-\code{\link{seecol}} to plot color palettes; 
-\code{\link{defpal}} to define new color palettes; 
+\code{\link{seecol}} for plotting/seeing color palettes; 
+\code{\link{newpal}} for defining new color palettes; 
 \code{\link{grepal}} for finding named colors; 
-\code{\link{shades_of}} to define shades of a given color; 
+\code{\link{shades_of}} to defining shades of a given color; 
+\code{\link{ac}} for adjusting color transparency; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color functions: 

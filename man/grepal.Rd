@@ -63,10 +63,11 @@ seecol(grepal("blau", pal_unikn_pref), title = "All 'blau' colors in pal_unikn_p
 
 }
 \seealso{
-\code{\link{seepal}} to plot color palettes;  
-\code{\link{usecol}} to use a color palette; 
-\code{\link{defpal}} to define new color palettes; 
-\code{\link{shades_of}} to define shades of a given color; 
+\code{\link{seepal}} for plotting color palettes;  
+\code{\link{usecol}} for using color palettes; 
+\code{\link{newpal}} for defining new color palettes; 
+\code{\link{shades_of}} to defining shades of a given color; 
+\code{\link{ac}} for adjusting color transparency; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color functions: 

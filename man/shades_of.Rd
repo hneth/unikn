@@ -48,10 +48,11 @@ seecol(wine_white, col_brd = "black", lwd_brd = .5,
   
 }
 \seealso{
-\code{\link{seepal}} to plot color palettes;  
-\code{\link{usecol}} to use a color palette; 
-\code{\link{defpal}} to define new color palettes; 
-\code{\link{grepal}} for finding named colors.
+\code{\link{seepal}} for plotting color palettes;  
+\code{\link{usecol}} for using color palettes; 
+\code{\link{newpal}} for defining new color palettes; 
+\code{\link{grepal}} for finding named colors; 
+\code{\link{ac}} for adjusting color transparency.
 
 Other color functions: 
 \code{\link{ac}()},
