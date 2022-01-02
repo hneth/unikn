@@ -1497,27 +1497,27 @@ shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
 #' @return A color vector of the same length as \code{col}, 
 #' transformed by \code{link{adjustcolor}}. 
 #' 
-#' @examples
-# ac("black")  # using alpha = .5 by default
-# 
-# # multiple colors:
-# cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
-# seecol(cols, title = "Transparent colors")
-# 
-# # multiple alphas:
-# blacks <- ac("black", alpha = 5:0/5)
-# seecol(blacks, title = "One col several alpha values")
-# 
-# bgc <- ac(c("black", "gold"), alpha = 1:6/6)
-# seecol(bgc, title = "More alpha values than cols")
-# 
-# # Using a color palette:
-# seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
-# 
-# # Color names:
-# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
-# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
-#'  
+#' @examples 
+#' ac("black")  # using alpha = .5 by default
+#' 
+#' # multiple colors:
+#' cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
+#' seecol(cols, title = "Transparent colors")
+#' 
+#' # multiple alphas:
+#' blacks <- ac("black", alpha = 5:0/5)
+#' seecol(blacks, title = "One col several alpha values")
+#' 
+#' bgc <- ac(c("black", "gold"), alpha = 1:6/6)
+#' seecol(bgc, title = "More alpha values than cols")
+#' 
+#' # Using a color palette:
+#' seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
+#' 
+#' # Color names:
+#' seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
+#' seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
+#' 
 #' @family color functions
 #'
 #' @seealso
