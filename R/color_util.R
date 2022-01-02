@@ -18,9 +18,10 @@
 #' \code{ac} adjusts the transparency of a color or color palette \code{col} 
 #' to an opacity level \code{alpha}.
 #'
-#' \code{ac} is merely a convenient wrapper for 
-#' \code{\link{adjustcolor}} of the \strong{grDevices} package. 
-#'
+#' \code{ac} is primarily a convenient wrapper for 
+#' \code{\link{adjustcolor}} of the \strong{grDevices} package, 
+#' but allows for more flexible combinations of 
+#' (multiple) \code{col} and \code{alpha} values. 
 #'
 #' @param col A (required) color or color palette (as a vector). 
 #' 
@@ -28,16 +29,33 @@
 #' (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
 #' Default: \code{alpha = .50} (i.e., medium opacity).
 #' 
+#' @param use_names A logical value indicating whether color names should be adjusted 
+#' to include the values of \code{alpha}. 
+#' Default: \code{use_names = TRUE}.  
+#' 
 #' @return A color vector of the same length as \code{col}, 
 #' transformed by \code{link{adjustcolor}}. 
 #' 
 #' @examples
-#' ac("black")  # using alpha = .5 by default
-#' 
-#' blacks <- c(ac("black", .25), ac("black"), ac("black", .75))
-#' seecol(blacks)
-#' 
-#' seecol(ac(pal_unikn_pref, .67), title = "Adding color transparency by ac()")
+# ac("black")  # using alpha = .5 by default
+# 
+# # multiple colors:
+# cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
+# seecol(cols, title = "Transparent colors")
+# 
+# # multiple alphas:
+# blacks <- ac("black", alpha = 5:0/5)
+# seecol(blacks, title = "One col several alpha values")
+# 
+# bgc <- ac(c("black", "gold"), alpha = 1:6/6)
+# seecol(bgc, title = "More alpha values than cols")
+# 
+# # Using a color palette:
+# seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
+# 
+# # Color names:
+# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
+# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
 #'  
 #' @family color functions
 #'
@@ -51,32 +69,87 @@
 #'
 #' @export
 
-ac <- function(col, alpha = .5) {
+ac <- function(col, alpha = .50, use_names = TRUE) {
   
-  # ToDo: 
-  # 1. Allow a vectorized solution (using multiple alphas).
-  # 2. Adjust color names (indicating alpha)
+  # (A) Adjust color vector (col_adj): ------ 
+  len_col   <- length(col)
+  len_alpha <- length(alpha)
+  n_col     <- max(len_col, len_alpha)
+  col_adj   <- rep(NA, n_col)  # initialize 
   
-  # pass to grDevices::adjustcolor 
-  grDevices::adjustcolor(col, alpha.f = alpha)
+  if (len_alpha == 1){ # 1. default case (len_alpha == 1):
+    
+    # Main-1: Pass to grDevices::adjustcolor 
+    col_adj <- grDevices::adjustcolor(col, alpha.f = alpha)
+    
+  } else { # 2. multiple alpha values:
+    
+    # Adjust length of col or alpha vector: 
+    if (len_alpha > len_col){ # 1a. extend col to len_alpha:
+      col <- rep(col, ceiling(len_alpha/len_col))[1:len_alpha]
+    }
+    
+    if (len_col > len_alpha){ # 1b. extend alpha to len_col:
+      alpha <- rep(alpha, ceiling(len_col/len_alpha))[1:len_col]
+    }
+    
+    # Main-2: Pass each pair of col and alpha to grDevices::adjustcolor():
+    for (i in 1:n_col){
+      col_adj[i] <- grDevices::adjustcolor(col[i], alpha.f = alpha[i])
+    }
+    
+  }
+  
+  # (B) Add/adjust color names (to indicate alpha): ------ 
+  
+  if (use_names){
+    
+    if (is.null(names(col))){ # no existing names:
+      
+      names(col_adj) <- paste0(as.character(col), "_", round(alpha, 2))  
+      
+    } else { # adjust existing names:
+      
+      names(col_adj) <- paste0(names(col), "_", round(alpha, 2))
+      
+    }
+    
+  } else { 
+    
+    # names(col_adj) <- NULL      # remove ALL names    
+    names(col_adj) <- names(col)  # keep pre-existing names (if present)
+    
+  } # if (use_names) end. 
+  
+  # (C) Finish: ------ 
+  
+  return(col_adj)
   
 } # ac end. 
 
 ## Check:
 # ac("black")  # using alpha = .5 by default
-#
-# blacks <- c(ac("black", .25), ac("black"), ac("black", .75))
-# seecol(blacks)
-#
-# ToDo: 
-# 1. Allow a vectorized solution (using multiple alphas).
-# 2. Adjust color names (indicating alpha)
-#
-# seecol(ac(pal_unikn_pref, .67), title = "Adding color transparency by ac()")
 # 
-# seecol(ac(pal_unikn_pref))  # default alpha = .5
-# seecol(ac(pal_unikn_pref, .25))
-# seecol(ac(pal_unikn_pref, .75))
+# # multiple colors:
+# cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
+# seecol(cols, title = "Transparent colors")
+# 
+# # multiple alphas:
+# blacks <- ac("black", alpha = 5:0/5)
+# seecol(blacks, title = "One col several alpha values")
+# 
+# bgc <- ac(c("black", "gold"), alpha = 1:6/6)
+# seecol(bgc, title = "More alpha values than cols")
+# 
+# # Without adjusting names:
+# seecol(ac(c("black", "gold"), alpha = 1:6/6, use_names = FALSE))
+#
+# # Using a color palette:
+# seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
+# 
+# # Color names:
+# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
+# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
 
 
 # col2rgb in grDevices: ------ 
