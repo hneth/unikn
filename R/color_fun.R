@@ -6,9 +6,9 @@
 ## (e.g., for choosing from, plotting, and creating color palettes). 
 
 
-## usecol: Use a color palette (as is): ---------  
+# 1. usecol(): Use a color palette (as is): ---------  
 
-# - Documentation: ---- 
+# - Documentation: ------ 
 
 #' Use a color or color palette.
 #'
@@ -62,10 +62,11 @@
 #' @family color functions
 #'
 #' @seealso
-#' \code{\link{seecol}} to plot color palettes; 
-#' \code{\link{defpal}} to define new color palettes; 
+#' \code{\link{seecol}} for plotting/seeing color palettes; 
+#' \code{\link{newpal}} for defining new color palettes; 
 #' \code{\link{grepal}} for finding named colors; 
-#' \code{\link{shades_of}} to define shades of a given color; 
+#' \code{\link{shades_of}} to defining shades of a given color; 
+#' \code{\link{ac}} for adjusting color transparency; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette. 
 #' 
 #' @import grDevices 
@@ -364,8 +365,8 @@ usecol <- function(pal = pal_unikn,
 
 
 
-## seecol: Plot the colors of a palette or multiple palettes: ---------- 
-# - Documentation: ---- 
+# 2. seecol(): Plot/see the colors of a palette or multiple palettes: ---------- 
+# - Documentation: ------ 
 
 #' Plot color palettes (to see their colors).
 #'
@@ -509,10 +510,11 @@ usecol <- function(pal = pal_unikn,
 #'
 #' @seealso 
 #' \code{\link{usecol}} for using color palettes; 
-#' \code{\link{defpal}} for defining new color palettes; 
+#' \code{\link{newpal}} for defining new color palettes; 
 #' \code{\link{grepal}} for finding named colors; 
-#' \code{\link{shades_of}} to define shades of a given color; 
-#' \code{\link{pal_unikn}} for the default uni.kn color palette.
+#' \code{\link{shades_of}} to defining shades of a given color; 
+#' \code{\link{ac}} for adjusting color transparency; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette. 
 #'
 #' @import graphics 
 #' @import grDevices 
@@ -520,7 +522,7 @@ usecol <- function(pal = pal_unikn,
 #' 
 #' @export
 
-# - Definition: ------- 
+# - Definition: ------ 
 
 seecol <- function(pal = "unikn_all",  # which palette to output?
                    n = "all",
@@ -1023,9 +1025,9 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 # par(op)
 
 
-## newpal: Define a new color palette: ---------- 
+# 3. newpal(): Define a new color palette: ---------- 
 
-# - Documentation: ---- 
+# - Documentation: ------ 
 
 #' Define new color palettes.
 #'
@@ -1113,8 +1115,12 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 #' @aliases defcol
 #' 
 #' @seealso 
-#' \code{\link{seepal}} to plot color palettes;  
-#' \code{\link{usecol}} to use a color palette.  
+#' \code{\link{seepal}} for plotting color palettes;  
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{grepal}} for finding named colors; 
+#' \code{\link{shades_of}} to defining shades of a given color; 
+#' \code{\link{ac}} for adjusting color transparency; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette. 
 #'
 #' @import graphics 
 #' @import grDevices 
@@ -1130,7 +1136,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 # \code{n} (an integer for specifying the number of desired colors in the palette) 
 # and \code{alpha} (opacity value from 0 to 1). 
 
-# - Definition: ------- 
+# - Definition: ------ 
 
 newpal <- function(col,            # a vector of colors
                    names = NA,     # a vector of names
@@ -1258,9 +1264,9 @@ newpal <- function(col,            # a vector of colors
 #        title = "Comparing custom color palettes")
 
 
-## grepal: Get a color vector (from colors() or a named df) matching a regex -------
+# 4. grepal(): Get a color vector (from colors() or a named df) matching a regex -------
 
-# - Documentation: ---- 
+# - Documentation: ------ 
 
 #' Get a vector of colors whose names match a regular expression. 
 #'
@@ -1319,17 +1325,18 @@ newpal <- function(col,            # a vector of colors
 #' @family color functions
 #' 
 #' @seealso 
-#' \code{\link{seepal}} to plot color palettes;  
-#' \code{\link{usecol}} to use a color palette; 
-#' \code{\link{defpal}} to define new color palettes; 
-#' \code{\link{shades_of}} to define shades of a given color; 
+#' \code{\link{seepal}} for plotting color palettes;  
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{shades_of}} to defining shades of a given color; 
+#' \code{\link{ac}} for adjusting color transparency; 
 #' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #' 
 #' @import grDevices 
 #' 
 #' @export 
 
-# - Definition: ------- 
+# - Definition: ------ 
 
 grepal <- function(pattern, x = colors(), ignore_case = TRUE){
   
@@ -1382,9 +1389,9 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
 
 
 
-## shades_of(): Get n lighter or darker versions of a given color: ------ 
+# 5. shades_of(): Get n lighter or darker versions of a given color: ------ 
 
-# - Documentation: ---- 
+# - Documentation: ------ 
 
 #' Get n shades of a color. 
 #'
@@ -1428,16 +1435,17 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
 #' @family color functions
 #' 
 #' @seealso 
-#' \code{\link{seepal}} to plot color palettes;  
-#' \code{\link{usecol}} to use a color palette; 
-#' \code{\link{defpal}} to define new color palettes; 
-#' \code{\link{grepal}} for finding named colors. 
+#' \code{\link{seepal}} for plotting color palettes;  
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors; 
+#' \code{\link{ac}} for adjusting color transparency.  
 #'
 #' @import grDevices 
 #' 
 #' @export 
 
-# - Definition: ------- 
+# - Definition: ------ 
 
 shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
   
@@ -1457,6 +1465,156 @@ shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
 # shades_of(4)
 # seecol(shades_of(4, col_1 = Pinky, col_n = "black"))
 # seecol(shades_of(4, col_1 = Bordeaux, alpha = .5))
+
+
+# 6. ac() as an adjustcolor() wrapper: ------ 
+
+# Goal: Wrap essentials of grDevices::adjustcolor 
+#       as a more convenient utility function:
+
+# - Documentation: ------ 
+
+#' Adjust the transparency of a color or color palette.
+#'
+#' \code{ac} adjusts the transparency of a color or color palette \code{col} 
+#' to an opacity level \code{alpha}.
+#'
+#' \code{ac} is primarily a convenient wrapper for 
+#' \code{\link{adjustcolor}} of the \strong{grDevices} package, 
+#' but allows for more flexible combinations of 
+#' (multiple) \code{col} and \code{alpha} values. 
+#'
+#' @param col A (required) color or color palette (as a vector). 
+#' 
+#' @param alpha A factor modifying the opacity alpha 
+#' (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
+#' Default: \code{alpha = .50} (i.e., medium opacity).
+#' 
+#' @param use_names A logical value indicating whether color names should be adjusted 
+#' to include the values of \code{alpha}. 
+#' Default: \code{use_names = TRUE}.  
+#' 
+#' @return A color vector of the same length as \code{col}, 
+#' transformed by \code{link{adjustcolor}}. 
+#' 
+#' @examples
+# ac("black")  # using alpha = .5 by default
+# 
+# # multiple colors:
+# cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
+# seecol(cols, title = "Transparent colors")
+# 
+# # multiple alphas:
+# blacks <- ac("black", alpha = 5:0/5)
+# seecol(blacks, title = "One col several alpha values")
+# 
+# bgc <- ac(c("black", "gold"), alpha = 1:6/6)
+# seecol(bgc, title = "More alpha values than cols")
+# 
+# # Using a color palette:
+# seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
+# 
+# # Color names:
+# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
+# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
+#'  
+#' @family color functions
+#'
+#' @seealso
+#' \code{\link{seecol}} to plot color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @import grDevices 
+#'
+#' @export
+
+# - Definition: ------ 
+
+ac <- function(col, alpha = .50, use_names = TRUE) {
+  
+  # (A) Adjust color vector (col_adj): ------ 
+  len_col   <- length(col)
+  len_alpha <- length(alpha)
+  n_col     <- max(len_col, len_alpha)
+  col_adj   <- rep(NA, n_col)  # initialize 
+  
+  if (len_alpha == 1){ # 1. default case (len_alpha == 1):
+    
+    # Main-1: Pass to grDevices::adjustcolor 
+    col_adj <- grDevices::adjustcolor(col, alpha.f = alpha)
+    
+  } else { # 2. multiple alpha values:
+    
+    # Adjust length of col or alpha vector: 
+    if (len_alpha > len_col){ # 1a. extend col to len_alpha:
+      col <- rep(col, ceiling(len_alpha/len_col))[1:len_alpha]
+    }
+    
+    if (len_col > len_alpha){ # 1b. extend alpha to len_col:
+      alpha <- rep(alpha, ceiling(len_col/len_alpha))[1:len_col]
+    }
+    
+    # Main-2: Pass each pair of col and alpha to grDevices::adjustcolor():
+    for (i in 1:n_col){
+      col_adj[i] <- grDevices::adjustcolor(col[i], alpha.f = alpha[i])
+    }
+    
+  }
+  
+  # (B) Add/adjust color names (to indicate alpha): ------ 
+  
+  if (use_names){
+    
+    if (is.null(names(col))){ # no existing names:
+      
+      names(col_adj) <- paste0(as.character(col), "_", round(alpha, 2))  
+      
+    } else { # adjust existing names:
+      
+      names(col_adj) <- paste0(names(col), "_", round(alpha, 2))
+      
+    }
+    
+  } else { 
+    
+    # names(col_adj) <- NULL      # remove ALL names    
+    names(col_adj) <- names(col)  # keep pre-existing names (if present)
+    
+  } # if (use_names) end. 
+  
+  # (C) Finish: ------ 
+  
+  return(col_adj)
+  
+} # ac(). 
+
+
+## Check:
+# ac("black")  # using alpha = .5 by default
+# 
+# # multiple colors:
+# cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
+# seecol(cols, title = "Transparent colors")
+# 
+# # multiple alphas:
+# blacks <- ac("black", alpha = 5:0/5)
+# seecol(blacks, title = "One col several alpha values")
+# 
+# bgc <- ac(c("black", "gold"), alpha = 1:6/6)
+# seecol(bgc, title = "More alpha values than cols")
+# 
+# # Without adjusting names:
+# seecol(ac(c("black", "gold"), alpha = 1:6/6, use_names = FALSE))
+#
+# # Using a color palette:
+# seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
+# 
+# # Color names:
+# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
+# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
+
 
 
 ## ToDo: ------
