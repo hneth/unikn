@@ -1,5 +1,5 @@
 ## color_fun.R | unikn
-## spds | uni.kn | 2021 12 31
+## spds | uni.kn | 2022 01 02
 ## ---------------------------
 
 ## Define color-related functions 
@@ -537,7 +537,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
                    ...              # additional arguments to plot.default().
 ) {
   
-  ## 1. Preparations: ----- 
+  # 1. Preparations: ----- 
   
   op <- par(no.readonly = TRUE)  # save original plotting settings.
   keys <- c("all", "unikn_all", "all_unikn",  # all palettes
@@ -674,7 +674,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   }
   
   
-  ## 2. Plotting parameters: ------ 
+  # 2. Plotting parameters: ------ 
   
   distance <- 0   # set distance of boxes?
   xlen <- 1       # set x length of color boxes.
@@ -692,12 +692,12 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   pal_mat <- cbind(pal_tmp, length(pal_tmp):1)  # ToDo: Note that a single palette needs to be a list of length 1!
   
   
-  ## 3. Plotting: ------ 
+  # 3. Plotting: ------ 
   
   # 1. multiple list entries --> compare palettes
   # 2. only one list entry --> details of a palette
   
-  # 3.1 Plot a list of palettes: -----  
+  # 3-1. Plot a list of palettes: -----  
   
   if (length(pal_tmp) > 1) {
     
@@ -776,7 +776,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
   } else {  # if length(pal_tmp) list is NOT > 1:
     
-    # 3.2 Detailed view of 1 palette: -----  
+    # 3-2. Plot a detailed view of 1 palette: -----  
     
     names(pal_tmp) <- NULL  # remove first order names! 
     
