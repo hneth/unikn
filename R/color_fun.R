@@ -1,5 +1,5 @@
 ## color_fun.R | unikn
-## spds | uni.kn | 2022 01 02
+## spds | uni.kn | 2022 07 31
 ## ---------------------------
 
 ## Define color-related functions 
@@ -1479,10 +1479,9 @@ shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
 #' \code{ac} adjusts the transparency of a color or color palette \code{col} 
 #' to an opacity level \code{alpha}.
 #'
-#' \code{ac} is primarily a convenient wrapper for 
-#' \code{\link{adjustcolor}} of the \strong{grDevices} package, 
-#' but allows for more flexible combinations of 
-#' (multiple) \code{col} and \code{alpha} values. 
+#' \code{ac} is primarily a wrapper for \code{\link{adjustcolor}} 
+#' of the \strong{grDevices} package, but allows for more flexible 
+#' combinations of (multiple) \code{col} and \code{alpha} values. 
 #'
 #' @param col A (required) color or color palette (as a vector). 
 #' 
