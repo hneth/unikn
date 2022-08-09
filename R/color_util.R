@@ -73,6 +73,68 @@ isCol <- function(color) {
 # BUT note: 
 # isCol(col2rgb("white"))  # => FALSE FALSE FALSE
 
+# col_distance: Color distance (in RGB space): ------
+
+col_distance <- function(col_1, col_2){
+
+  # Vectorize (if needed):
+  len_1 <- length(col_1)
+  len_2 <- length(col_2)
+  
+  if (len_1 > len_2){ # extend col_2:
+    fct <- ceiling(len_1/len_2)
+    col_2 <- rep(col_2, fct)[1:len_1]
+  }
+  
+  if (len_2 > len_1){ # extend col_1:
+    fct <- ceiling(len_2/len_1)
+    col_1 <- rep(col_1, fct)[1:len_2]
+  }
+  
+  # Convert to RGB:
+  rgb_1 <- col2rgb(col_1)
+  rgb_2 <- col2rgb(col_2)
+  
+  # Output (as matrix): 
+  abs(rgb_1 - rgb_2)
+  
+} # col_distance().
+
+## Check: 
+# # (a) individual colors: ----
+# col_distance("red", "red")
+# col_distance("black", "white")
+# 
+# # (b) Color palette: ----
+# # col2rgb(palette())
+# pal <- palette()
+# names(pal) <- palette()
+# col_distance("black", pal)  # No names vs.
+# col_distance(pal, "black")  # Note names
+
+
+# # Towards a simcol() function: ------ 
+# cur_col <- "deepskyblue1"
+# tol <- 55
+# 
+# # Using named colors():
+# candi_cols <- colors()
+# names(candi_cols) <- colors()
+# 
+# # # Using unikn palettes:
+# # candi_cols <- pal_unikn_pref
+# # names(candi_cols) <- pal_unikn_pref
+# 
+# lmx <- t(col_distance(candi_cols, cur_col)) <= tol  # Distances (as logical matrix)
+# 
+# sim_df <- dplyr::filter(as.data.frame(lmx), red == TRUE, green == TRUE, blue == TRUE)  # filter rows
+# result <- rownames(sim_df)  # color names
+# 
+# all_cols <- unique(c(cur_col, result))
+# 
+# # Show:
+# seecol(all_cols, title = "Similar colors")
+
 
 ## 2. Color getting functions: ------
 
@@ -428,6 +490,9 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
   )
   
 } # plot_col end. 
+
+
+## 
 
 
 ## ToDo: ------
