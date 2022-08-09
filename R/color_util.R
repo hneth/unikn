@@ -1,5 +1,5 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2022 01 02
+## spds | uni.kn | 2022 08 09
 ## ---------------------------
 
 ## Utility functions for converting colors, 
