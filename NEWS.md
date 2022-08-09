@@ -1,5 +1,5 @@
 
-# unikn 0.4.0.9006
+# unikn 0.4.0.9008
 
 The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -141,6 +141,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-01-02.]
+[File `NEWS.md` updated on 2022-08-09.]
 
 <!-- eof. -->
