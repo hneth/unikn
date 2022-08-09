@@ -1,5 +1,5 @@
 ## color_fun.R | unikn
-## spds | uni.kn | 2022 07 31
+## spds | uni.kn | 2022 08 09
 ## ---------------------------
 
 ## Define color-related functions 
@@ -1618,9 +1618,11 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 
 ## ToDo: ------
 
+# - simcol(): Idea: Find (named?) colors similar to a given color, within some tolerance.
+
 # - seecol(): Add options for showing HCL values (see HCL_color_exploration.Rmd). 
 # - seecol(): Add options for printing multiple palettes with fixed width and as continuous color palettes.
 # - seecol() and newpal(): Add option for margin notes/crediting color sources.
-# - grepal(): Consider alternative that allows searching for similar colors (based on hue/color distance)
+# - grepal(): Consider alternative simcol() that allows searching for similar colors (based on hue/color distance)
 
 ## eof. ----------
