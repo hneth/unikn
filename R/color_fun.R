@@ -1658,6 +1658,9 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 #' either 1 or 3 numeric values, in RGB range from 0 to 255).
 #' Default: \code{tol = c(25, 50, 75)}. 
 #' 
+#' @param plot Boolean: Plot the output (using \code{\link{seecol}})? 
+#' Default: \code{plot = TRUE}. 
+#' 
 #' @return A named vector of colors or color values. 
 #' 
 #' @examples 
@@ -1670,6 +1673,9 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 #' # More fine-grained color matching:
 #' simcol(Seeblau, tol = 30)  # = simcol(Seeblau, tol = c(30, 30, 30))
 #' simcol(Seeblau, tol = c(20, 20, 80))
+#' 
+#' # Increasing tolerance values widens range:
+#' simcol("grey", c("black", "grey", "white"), tol = 255, plot = FALSE)
 #' 
 #' @family color functions
 #'
@@ -1687,7 +1693,7 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 
 # - Definition: ------ 
 
-simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75)){
+simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), plot = TRUE){
   
   # 1. Prepare: ---- 
   
@@ -1771,16 +1777,19 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75)){
   
   # 3. Plot (as side effect): ----
   
-  if (is.null(names(col_target)) == FALSE){
-    col_target_name <- names(col_target) 
-  } else {
-    col_target_name <- as.character(col_target)
-  }
-  
-  caption <- paste0("Colors similar to ", col_target_name)
-  
-  seecol(out, title = caption)
-  
+  if (plot){
+    
+    if (is.null(names(col_target)) == FALSE){
+      col_target_name <- names(col_target) 
+    } else {
+      col_target_name <- as.character(col_target)
+    }
+    
+    caption <- paste0("Colors similar to ", col_target_name)
+    
+    seecol(out, title = caption)
+    
+  } # if (plot).
   
   # 4. Output: ----
   
