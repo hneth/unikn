@@ -1668,8 +1668,8 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 #' simcol("blue", col_candidates = pal_unikn_pref, tol = 120)
 #' 
 #' # More fine-grained color matching:
-#' simcol(Seeblau, tol = 40)  # = simcol(Seeblau, tol = c(40, 40, 40))
-#' simcol(Seeblau, tol = c(10, 30, 60))
+#' simcol(Seeblau, tol = 30)  # = simcol(Seeblau, tol = c(30, 30, 30))
+#' simcol(Seeblau, tol = c(20, 20, 80))
 #' 
 #' @family color functions
 #'
@@ -1764,14 +1764,12 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75)){
   out <- col_candidates[ix_all_true]
   
   # f. Process out:
-  out <- unique(out)                    # remove duplicates (ToDo: Use RGB values to identify color duplicates)
-  out <- out[out != col_target]         # remove col_target (ToDo: Use RGB values to identify color identity)
+  out <- c(col_target, out) # add col_target to front
+  out <- col_unique(out)    # remove duplicate colors (using HEX values to judge identity)
   out <- usecol(out, use_names = TRUE)  # use color names
   
   
   # 3. Plot (as side effect): ----
-  
-  col_pal <- usecol(c(col_target, out))
   
   if (is.null(names(col_target)) == FALSE){
     col_target_name <- names(col_target) 
@@ -1781,7 +1779,7 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75)){
   
   caption <- paste0("Colors similar to ", col_target_name)
   
-  seecol(col_pal, title = caption)
+  seecol(out, title = caption)
   
   
   # 4. Output: ----
@@ -1806,6 +1804,10 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75)){
 # simcol(Seeblau, tol = 40) # same as:
 # simcol(Seeblau, tol = c(40, 40, 40))
 # simcol(Seeblau, tol = c(10, 30, 60))
+# 
+# pal <- c(Seeblau, "deepskyblue")
+# seecol(pal)
+# simcol(Seeblau, tol = c(20, 20, 100))
 
 
 ## Snippets: Towards simcol() function: 
@@ -1856,6 +1858,7 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75)){
 # 
 # # Show:
 # seecol(col_pal, title = "Similar colors")
+
 
 
 ## ToDo: ------
