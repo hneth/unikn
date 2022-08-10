@@ -362,8 +362,7 @@ usecol <- function(pal = pal_unikn,
   
   return(out_col)
   
-} # usecol end.
-
+} # usecol().
 
 
 # 2. seecol(): Plot/see the colors of a palette or multiple palettes: ---------- 
@@ -1633,8 +1632,9 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 #' from a palette of color candidates \code{col_candidates} that are similar 
 #' to some target color \code{col_target}.
 #' 
-#' \code{simcol} returns a vector of (named) colors or color values that 
-#' are similar to the specified target color \code{col_target}. 
+#' \code{simcol} returns a vector of the (named) colors or color values in 
+#' \code{col_candidates} (set to `colors()` of \strong{grDevices} per default) 
+#' that are similar to the specified target color \code{col_target}. 
 #' 
 #' If \code{plot = TRUE}, \code{simcol} also uses \code{\link{seecol}} 
 #' to visualize its results (as a side-effect).
@@ -1774,8 +1774,8 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), p
   out <- col_candidates[ix_all_true]
   
   # f. Process out:
-  out <- c(col_target, out) # add col_target to front
-  out <- col_unique(out)    # remove duplicate colors (using HEX values to judge identity)
+  out <- c(col_target, out)  # add col_target to front
+  out <- col_distinct(out)   # remove duplicate colors (using HEX values to judge identity)
   out <- usecol(out, use_names = TRUE)  # use color names
   
   

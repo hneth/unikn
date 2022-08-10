@@ -25,7 +25,7 @@
 
 rgb2hex <- function(R, G, B) {
   rgb(R, G, B, maxColorValue = 255)
-}
+} # rgb2hex().
 
 ## Check:
 # rgb2hex(255, 255, 255)
@@ -36,7 +36,7 @@ rgb2hex <- function(R, G, B) {
 
 col2hex <- function(col, alpha = alpha) {
   rgb(t(col2rgb(col)), alpha = alpha, maxColorValue = 255)
-}
+} # col2hex().
 
 ## Check: 
 # hex1 <- col2hex("black", alpha = 255/2)
@@ -44,13 +44,16 @@ col2hex <- function(col, alpha = alpha) {
 # hex3 <- col2hex("gold", alpha = 255/2)
 # hex4 <- col2hex("steelblue", alpha = 255/2)
 # seecol(pal = c(hex1, hex2, hex3, hex4), n = "all")
-
+# 
+# # Note: As col2hex assumes a SCALAR alpha value,
+#         the following does currently NOT work:
+# col2hex("black", alpha = c(1/4, 1/2, 3/4))
 
 # isHexCol: Helper function to detect HEX-colors: ------ 
 
 isHexCol <- function(color) {
   return(grepl(pattern = "^#[0-9A-Fa-f]{6,}", color))
-}
+} # isHexCol().
 
 ## Check:
 # isHexCol("black")
@@ -62,7 +65,7 @@ isHexCol <- function(color) {
 
 isCol <- function(color) {
   return(isHexCol(color) | color %in% colors())
-}
+} # isCol(). 
 
 ## Check:
 # isCol("white")
@@ -113,12 +116,16 @@ col_distance <- function(col_1, col_2){
 # col_distance(pal, "black")  # Note names
 
 
-# col_unique: A unique() function for color values (using HEX codes): ------
+# col_distinct: A unique() function for color values (using HEX codes): ------
 
-# Goal: Remove duplicate colors (using HEX values to judge the identiy of colors, 
+# Goal: Remove visual duplicate colors (using HEX values to judge the identiy of colors, 
 #       rather than color names). 
+#
+# Note: 
+# - grDevices::colors() has a 'distinct = TRUE' argument to remove visual duplicates.
+# - Color transparency is currently being ignored (in col2hex() utlity function).
 
-col_unique <- function(pal){
+col_distinct <- function(pal){
   
   if (any(isCol(pal) == FALSE)){
     stop("pal contains non-colors")
@@ -131,20 +138,33 @@ col_unique <- function(pal){
   
   pal[ix_pal_duplicated == FALSE]
   
-} # col_unique().
+} # col_distinct().
 
 ## Check:
 # p1 <- c("gray", "grey", "black", "grey0", "red", "red1", "red2", "red3")
-# col_unique(p1)
+# col_distinct(p1)
 # 
 # p2 <- usecol(c(pal_unikn, pal_seeblau))
-# col_unique(p2)
+# col_distinct(p2)
 #
-# col_unique(c("black", "foo", "white"))
+# col_distinct(c("black", "some non color", "white"))
+
+## Note: Color transparency is being ignored:
+# tblack <- ac("black", alpha = seq(0, 1, by = 0.25))
+# seecol(tblack)        # Shows 3 shades, but
+# col_distinct(tblack)  # all share same basic color!
+# 
+# # Reason:
+# col2hex(tblack) # ignores transparency!
+# # ToDo: Allow retaining transparency in col2hex: 
+# col2hex(tblack, alpha = alpha(tblack))
+
+
 
 
 
 ## 2. Color getting functions: ------
+
 
 # parse_pal(): Parse a palette input ------ 
 
@@ -278,7 +298,7 @@ parse_pal <- function(pal) {
   # Output:
   return(out)
   
-} # parse_pal end. 
+} # parse_pal().
 
 
 # getpal_key(): Get a palette or list of palettes by keyword: -------
@@ -370,7 +390,7 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
   
   return(out)
   
-} # getpal_key end. 
+} # getpal_key(). 
 
 
 
@@ -428,7 +448,7 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of shape
     
   } 
   
-} # plot_shape end.
+} # plot_shape().
 
 
 
@@ -497,10 +517,7 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
              ...  # graphics parameters (e.g., lwd)
   )
   
-} # plot_col end. 
-
-
-## 
+} # plot_col().
 
 
 ## ToDo: ------
