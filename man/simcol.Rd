@@ -28,8 +28,9 @@ from a palette of color candidates \code{col_candidates} that are similar
 to some target color \code{col_target}.
 }
 \details{
-\code{simcol} returns a vector of (named) colors or color values that 
-are similar to the specified target color \code{col_target}. 
+\code{simcol} returns a vector of the (named) colors or color values in 
+\code{col_candidates} (set to `colors()` of \strong{grDevices} per default) 
+that are similar to the specified target color \code{col_target}. 
 
 If \code{plot = TRUE}, \code{simcol} also uses \code{\link{seecol}} 
 to visualize its results (as a side-effect).
