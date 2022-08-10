@@ -1,5 +1,5 @@
 
-# unikn 0.4.0.9008
+# unikn 0.4.0.9009
 
 The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -7,6 +7,7 @@ The current development version of **unikn** (0.4.0.9001+) is available at <http
 
 ## Major changes 
 
+- Add a `simcol()` function to find similar colors. [2022-08-10] 
 - Add an `ac()` function as a flexible wrapper of `grDevices::adjustcolor()`. [2022-01-02] 
 - Add a `shades_of()` function to conveniently get `n`\ shades of a color. [2021-04-06] 
 
@@ -141,6 +142,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-08-09.]
+[File `NEWS.md` updated on 2022-08-10.]
 
 <!-- eof. -->
