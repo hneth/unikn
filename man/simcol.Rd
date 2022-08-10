@@ -4,7 +4,7 @@
 \alias{simcol}
 \title{Find similar colors.}
 \usage{
-simcol(col_target, col_candidates = colors(), tol = c(25, 50, 75))
+simcol(col_target, col_candidates = colors(), tol = c(25, 50, 75), plot = TRUE)
 }
 \arguments{
 \item{col_target}{A (required) target color.}
@@ -15,6 +15,9 @@ Default: \code{col_candidates = colors()}.}
 \item{tol}{Numeric tolerance value(s) (must be 
 either 1 or 3 numeric values, in RGB range from 0 to 255).
 Default: \code{tol = c(25, 50, 75)}.}
+
+\item{plot}{Boolean: Plot the output (using \code{\link{seecol}})? 
+Default: \code{plot = TRUE}.}
 }
 \value{
 A named vector of colors or color values.
@@ -51,6 +54,9 @@ simcol("blue", col_candidates = pal_unikn_pref, tol = 120)
 # More fine-grained color matching:
 simcol(Seeblau, tol = 30)  # = simcol(Seeblau, tol = c(30, 30, 30))
 simcol(Seeblau, tol = c(20, 20, 80))
+
+# Increasing tolerance values widens range:
+simcol("grey", c("black", "grey", "white"), tol = 255, plot = FALSE)
 
 }
 \seealso{
