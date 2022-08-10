@@ -1,5 +1,5 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2022 08 09
+## spds | uni.kn | 2022 08 10
 ## ---------------------------
 
 ## Utility functions for converting colors, 
@@ -92,8 +92,8 @@ col_distance <- function(col_1, col_2){
   }
   
   # Convert to RGB:
-  rgb_1 <- col2rgb(col_1)
-  rgb_2 <- col2rgb(col_2)
+  rgb_1 <- grDevices::col2rgb(col_1)
+  rgb_2 <- grDevices::col2rgb(col_2)
   
   # Output (as matrix): 
   abs(rgb_1 - rgb_2)
@@ -113,27 +113,6 @@ col_distance <- function(col_1, col_2){
 # col_distance(pal, "black")  # Note names
 
 
-# # Towards a simcol() function: ------ 
-# cur_col <- "deepskyblue1"
-# tol <- 55
-# 
-# # Using named colors():
-# candi_cols <- colors()
-# names(candi_cols) <- colors()
-# 
-# # # Using unikn palettes:
-# # candi_cols <- pal_unikn_pref
-# # names(candi_cols) <- pal_unikn_pref
-# 
-# lmx <- t(col_distance(candi_cols, cur_col)) <= tol  # Distances (as logical matrix)
-# 
-# sim_df <- dplyr::filter(as.data.frame(lmx), red == TRUE, green == TRUE, blue == TRUE)  # filter rows
-# result <- rownames(sim_df)  # color names
-# 
-# all_cols <- unique(c(cur_col, result))
-# 
-# # Show:
-# seecol(all_cols, title = "Similar colors")
 
 
 ## 2. Color getting functions: ------
