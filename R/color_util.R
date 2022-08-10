@@ -76,7 +76,7 @@ isCol <- function(color) {
 # col_distance: Color distance (in RGB space): ------
 
 col_distance <- function(col_1, col_2){
-
+  
   # Vectorize (if needed):
   len_1 <- length(col_1)
   len_2 <- length(col_2)
@@ -101,17 +101,16 @@ col_distance <- function(col_1, col_2){
 } # col_distance().
 
 ## Check: 
-# # (a) individual colors: ----
+# # (a) individual colors: 
 # col_distance("red", "red")
 # col_distance("black", "white")
 # 
-# # (b) Color palette: ----
+# # (b) Color palette: 
 # # col2rgb(palette())
 # pal <- palette()
 # names(pal) <- palette()
 # col_distance("black", pal)  # No names vs.
 # col_distance(pal, "black")  # Note names
-
 
 
 # col_unique: A unique() function for color values (using HEX codes): ------
@@ -120,6 +119,10 @@ col_distance <- function(col_1, col_2){
 #       rather than color names). 
 
 col_unique <- function(pal){
+  
+  if (any(isCol(pal) == FALSE)){
+    stop("pal contains non-colors")
+  }
   
   # Convert to HEX:
   pal_hex <- col2hex(pal)
@@ -136,6 +139,9 @@ col_unique <- function(pal){
 # 
 # p2 <- usecol(c(pal_unikn, pal_seeblau))
 # col_unique(p2)
+#
+# col_unique(c("black", "foo", "white"))
+
 
 
 ## 2. Color getting functions: ------
