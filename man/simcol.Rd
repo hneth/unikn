@@ -49,8 +49,8 @@ simcol("gold", tol = c(20, 30, 40))
 simcol("blue", col_candidates = pal_unikn_pref, tol = 120)
 
 # More fine-grained color matching:
-simcol(Seeblau, tol = 40)  # = simcol(Seeblau, tol = c(40, 40, 40))
-simcol(Seeblau, tol = c(10, 30, 60))
+simcol(Seeblau, tol = 30)  # = simcol(Seeblau, tol = c(30, 30, 30))
+simcol(Seeblau, tol = c(20, 20, 80))
 
 }
 \seealso{
