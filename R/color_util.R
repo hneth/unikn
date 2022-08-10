@@ -114,6 +114,29 @@ col_distance <- function(col_1, col_2){
 
 
 
+# col_unique: A unique() function for color values (using HEX codes): ------
+
+# Goal: Remove duplicate colors (using HEX values to judge the identiy of colors, 
+#       rather than color names). 
+
+col_unique <- function(pal){
+  
+  # Convert to HEX:
+  pal_hex <- col2hex(pal)
+  
+  ix_pal_duplicated <- duplicated(pal_hex)
+  
+  pal[ix_pal_duplicated == FALSE]
+  
+} # col_unique().
+
+## Check:
+# p1 <- c("gray", "grey", "black", "grey0", "red", "red1", "red2", "red3")
+# col_unique(p1)
+# 
+# p2 <- usecol(c(pal_unikn, pal_seeblau))
+# col_unique(p2)
+
 
 ## 2. Color getting functions: ------
 
