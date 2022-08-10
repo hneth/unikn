@@ -197,7 +197,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
   # on.exit(par(opar)) # restore original settings
   invisible() # restores par(opar)
   
-} # plot_box() end. 
+} # plot_box(). 
 
 
 # - Check: ------ 

@@ -130,7 +130,7 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
       plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
       complete = TRUE)
   
-} # theme_unikn end. 
+} # theme_unikn().
 
 
 ## theme_grau: Alternative theme for ggplot2: ------ 
@@ -241,7 +241,7 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
       complete = TRUE)
   
-} # theme_grau end. 
+} # theme_grau().
 
 
 ## ToDo: ------

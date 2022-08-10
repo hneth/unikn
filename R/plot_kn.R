@@ -450,7 +450,7 @@ plot_kn <- function(axes = FALSE,
   
   # return what?
   
-} # plot_kn end. 
+} # plot_kn().
 
 
 ## Check: ----- 

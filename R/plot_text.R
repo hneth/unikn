@@ -756,7 +756,7 @@ plot_text <- function(labels = NA,        # labels of text element(s)
     
   } # if (mark) etc.
   
-} # plot_text() end.
+} # plot_text().
 
 
 # - Check: ------ 

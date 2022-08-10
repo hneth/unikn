@@ -16,7 +16,8 @@ unikn.guide <- function() {
   # utils::vignette(topic = "User Guide", package = "unikn")
   utils::browseVignettes(package = "unikn")
 
-}
+} # unikn.guide().
+
 
 ## Initialize package: ------
 
@@ -53,13 +54,16 @@ unikn.guide <- function() {
   # all cases:
   packageStartupMessage("unikn.guide() opens user guides.")
 
-}
+  
+} # .onAttach(). 
 
 
 ## Done: ------
-## - ...
+
+## - etc.
 
 ## ToDo: ------
-## - ...
+
+## - etc.
 
 ## eof. ----------

@@ -32,16 +32,16 @@
 # - Definition: ---- 
 
 url_unikn <- function(url = "https://www.uni-konstanz.de/"){
-
+  
   # initialize:
   out <- url  
-    
+  
   # list all elements to remove (from front to middle):
   remove <- c("https", "http", "://", "www.")
-
+  
   # loop through remove:
   for (i in 1:length(remove)) {
-      
+    
     pattern <- remove[i]
     
     # remove pattern (from front):
@@ -51,7 +51,7 @@ url_unikn <- function(url = "https://www.uni-konstanz.de/"){
   
   # Remove any final "/":
   out <- gsub("/$", "", x = out)
-
+  
   # Unicode for dashes:
   # "\u2011": (non-breaking) hyphen
   # "\u2012": figure-dash
@@ -65,7 +65,7 @@ url_unikn <- function(url = "https://www.uni-konstanz.de/"){
   
   return(out)
   
-}
+} # url_unikn().
 
 ## Check:
 # url_unikn()
@@ -73,7 +73,7 @@ url_unikn <- function(url = "https://www.uni-konstanz.de/"){
 # url_unikn("https://www.uni-konstanz.de/www/https/http/_test_//")
 
 ## (B) Utility functions for plotting: --------  
- 
+
 
 ## monotonic: Check if a vector is monotonically increasing: ------ 
 
@@ -83,11 +83,11 @@ monotonic <-function(v) {
   
   mono_increasing <- all(v == cummax(v))
   mono_decreasing <- all(v == cummin(v))
-
+  
   mono <- (mono_increasing | mono_decreasing)
   
   return(mono)
-}
+} # monotonic().
 
 ## Check:
 # monotonic(c(1, 2, 2, 3))
@@ -97,8 +97,7 @@ monotonic <-function(v) {
 
 ## plot_mar: Set plotting margins: ------ 
 
-plot_mar <- function(mar_all = 0,
-                     oma_all = 0){
+plot_mar <- function(mar_all = 0, oma_all = 0){
   
   # Record graphical parameters (par):
   opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
@@ -122,7 +121,7 @@ plot_mar <- function(mar_all = 0,
   # Return:
   invisible()
   
-}
+} # plot_mar().
 
 ## Check:
 
@@ -174,7 +173,7 @@ plot_grid <- function(col = grey(0, .50)){
     } else {
       y_top <- y_max
     }
-  
+    
     # Add default grid: ---- 
     
     grid(col = col)
@@ -190,7 +189,7 @@ plot_grid <- function(col = grey(0, .50)){
     # (b) figure:
     points(0,     0,     pch = 1, col = col, cex = 2)  # plot origin
     points(x_top, y_top, pch = 0, col = col, cex = 2)  # plot max
-
+    
     
     # Plot a grid of points: ---- 
     
@@ -211,10 +210,10 @@ plot_grid <- function(col = grey(0, .50)){
     
   }
   
-} # plot_grid end.
+} # plot_grid().
 
 ## Check: 
- 
+
 # # Defaults: 
 # plot.new()
 # plot_grid()
@@ -371,7 +370,7 @@ kill_all <- function(){
   
   rm(list = ls())  # kill all (WITHOUT warning)
   
-}
+} # kill_all().
 
 ## Check: 
 # kill_all()
