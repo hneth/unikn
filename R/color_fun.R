@@ -1,5 +1,5 @@
 ## color_fun.R | unikn
-## spds | uni.kn | 2022 08 09
+## spds | uni.kn | 2022 08 10
 ## ---------------------------
 
 ## Define color-related functions 
@@ -63,6 +63,7 @@
 #'
 #' @seealso
 #' \code{\link{seecol}} for plotting/seeing color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
 #' \code{\link{newpal}} for defining new color palettes; 
 #' \code{\link{grepal}} for finding named colors; 
 #' \code{\link{shades_of}} to defining shades of a given color; 
@@ -510,6 +511,7 @@ usecol <- function(pal = pal_unikn,
 #'
 #' @seealso 
 #' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
 #' \code{\link{newpal}} for defining new color palettes; 
 #' \code{\link{grepal}} for finding named colors; 
 #' \code{\link{shades_of}} to defining shades of a given color; 
@@ -1117,6 +1119,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 #' @seealso 
 #' \code{\link{seepal}} for plotting color palettes;  
 #' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
 #' \code{\link{grepal}} for finding named colors; 
 #' \code{\link{shades_of}} to defining shades of a given color; 
 #' \code{\link{ac}} for adjusting color transparency; 
@@ -1325,8 +1328,9 @@ newpal <- function(col,            # a vector of colors
 #' @family color functions
 #' 
 #' @seealso 
-#' \code{\link{seepal}} for plotting color palettes;  
+#' \code{\link{seepal}} for plotting color palettes;
 #' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
 #' \code{\link{newpal}} for defining new color palettes; 
 #' \code{\link{shades_of}} to defining shades of a given color; 
 #' \code{\link{ac}} for adjusting color transparency; 
@@ -1437,6 +1441,7 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
 #' @seealso 
 #' \code{\link{seepal}} for plotting color palettes;  
 #' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors;  
 #' \code{\link{newpal}} for defining new color palettes; 
 #' \code{\link{grepal}} for finding named colors; 
 #' \code{\link{ac}} for adjusting color transparency.  
@@ -1494,7 +1499,7 @@ shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
 #' Default: \code{use_names = TRUE}.  
 #' 
 #' @return A color vector of the same length as \code{col}, 
-#' transformed by \code{link{adjustcolor}}. 
+#' transformed by \code{\link{adjustcolor}}. 
 #' 
 #' @examples 
 #' ac("black")  # using alpha = .5 by default
@@ -1520,10 +1525,11 @@ shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
 #' @family color functions
 #'
 #' @seealso
-#' \code{\link{seecol}} to plot color palettes; 
-#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{seecol}} for plotting/seeing color palettes; 
+#' \code{\link{usecol}} for using color palettes;
+#' \code{\link{simcol}} for finding similar colors;  
 #' \code{\link{newpal}} for defining new color palettes; 
-#' \code{\link{grepal}} for finding named colors. 
+#' \code{\link{grepal}} for finding named colors.
 #' 
 #' @import grDevices 
 #'
@@ -1615,10 +1621,244 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 # seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
 
 
+# 7. simcol(): Find/see similar colors: ------
+
+# Goal: Find (named) colors similar to a given color, within some tolerance value(s).
+
+# - Documentation: ------ 
+
+#' Find similar colors.
+#'
+#' \code{simcol} finds and shows colors 
+#' from a palette of color candidates \code{col_candidates} that are similar 
+#' to some target color \code{col_target}.
+#' 
+#' \code{simcol} returns a vector of (named) colors or color values, 
+#' but also uses \code{\link{seecol}} to visualize its results.
+#' 
+#' Color similarity is defined in terms of the distance between colors'  
+#' RGB values, within some numeric tolerance threshold(s) provided by \code{tol}. 
+#' Higher \code{tol} values correspond to more permissive similarity judgments.  
+#' 
+#' If \code{tol} is a scalar, all three RGB values of \code{col_candidates}
+#' must be within the corresponding values of \code{col_target} 
+#' to be considered 'similar'.
+#' If \code{tol} contains three values, the three RGB dimension are compared 
+#' in order of the dimensions' rank in \code{col_target} 
+#' (i.e., the primary dimension must be within \code{tol[1]}, etc.). 
+#' Thus, providing three \code{tol} values allows for 
+#' more fine-grained similarity matching. 
+#' 
+#' @param col_target A (required) target color. 
+#' 
+#' @param col_candidates Palette of color candidates. 
+#' Default: \code{col_candidates = colors()}.
+#' 
+#' @param tol Numeric tolerance value(s) (must be 
+#' either 1 or 3 numeric values, in RGB range from 0 to 255).
+#' Default: \code{tol = c(25, 50, 75)}. 
+#' 
+#' @return A named vector of colors or color values. 
+#' 
+#' @examples 
+#' # Basic uses:
+#' simcol(col_target = "red")
+#' simcol(Seeblau, tol = 30)
+#' simcol("gold", tol = c(20, 30, 40))
+#' simcol("blue", col_candidates = pal_unikn_pref, tol = 120)
+#' 
+#' # More fine-grained color matching:
+#' simcol(Seeblau, tol = 40)  # = simcol(Seeblau, tol = c(40, 40, 40))
+#' simcol(Seeblau, tol = c(10, 30, 60))
+#' 
+#' @family color functions
+#'
+#' @seealso
+#' \code{\link{seecol}} for plotting/seeing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors; 
+#' \code{\link{shades_of}} to defining shades of a given color; 
+#' \code{\link{ac}} for adjusting color transparency.
+#' 
+#' @import grDevices 
+#'
+#' @export
+
+# - Definition: ------ 
+
+simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75)){
+  
+  # 1. Prepare: ---- 
+  
+  if (length(col_target) != 1){
+    stop("col_target must be a scalar (length 1)")
+  }
+  
+  if (isCol(col_target) == FALSE){
+    stop("col_target is no color")
+  }
+  
+  if (any(isCol(col_candidates) == FALSE)){
+    stop("col_candidates contains non-colors")
+  }
+  
+  if (is.numeric(tol) == FALSE){
+    stop("tol must be numeric")
+  }
+  
+  len_tol <- length(tol)
+  
+  if (len_tol %in% c(1, 3) == FALSE){
+    stop("tol must be of length 1 or 3")
+  }
+  
+  if (any(tol < 0) | any(tol > 255)){
+    stop("tol values must range from 0 to 255")
+  }
+  
+  out <- NA  # initialize
+  
+  
+  # 2. Main: ----
+  
+  # a. Matrix of color distances (in RGB):
+  dmx <- t(col_distance(col_candidates, col_target))
+  
+  if (len_tol == 1){ # 1: tol is scalar:
+    
+    # a. Logical matrix: Color distance <= tol (in RGB):
+    lmx <- t(col_distance(col_candidates, col_target)) <= tol
+    
+    # b. as df:
+    ldf <- as.data.frame(lmx)
+    
+    # c. Create filter:
+    ix_all_true <- ldf$red & ldf$green & ldf$blue
+    
+    
+  } else if (len_tol == 3){ # 2: use 3 tol values to sort RGB dims:
+    
+    # a. Analyze col_target:
+    rgb_target <- grDevices::col2rgb(col_target)
+    rgb_ranks <- rank(rgb_target, ties.method = "first")
+    
+    # b. as df:
+    ddf <- as.data.frame(dmx)
+    
+    # c. Make 3 comparisons (choosing RGB columns in order of tol values):  
+    ix_1_true <- ddf[ , which(rgb_ranks == 3)] <= tol[1]  # 1st
+    ix_2_true <- ddf[ , which(rgb_ranks == 2)] <= tol[2]  # 2nd
+    ix_3_true <- ddf[ , which(rgb_ranks == 1)] <= tol[3]  # 3rd
+    
+    # d. Create filter:
+    ix_all_true <- (ix_1_true & ix_2_true & ix_3_true)
+    
+  } else {
+    
+    stop("tol is neither of length 1 nor length 3.")
+    
+  }
+  
+  # e. Apply filter:
+  out <- col_candidates[ix_all_true]
+  
+  # f. Process out:
+  out <- unique(out)                    # remove duplicates (ToDo: Use RGB values to identify color duplicates)
+  out <- out[out != col_target]         # remove col_target (ToDo: Use RGB values to identify color identity)
+  out <- usecol(out, use_names = TRUE)  # use color names
+  
+  
+  # 3. Plot (as side effect): ----
+  
+  col_pal <- usecol(c(col_target, out))
+  
+  if (is.null(names(col_target)) == FALSE){
+    col_target_name <- names(col_target) 
+  } else {
+    col_target_name <- as.character(col_target)
+  }
+  
+  caption <- paste0("Colors similar to ", col_target_name)
+  
+  seecol(col_pal, title = caption)
+  
+  
+  # 4. Output: ----
+  
+  return(out)
+  
+} # simcol().
+
+# # Check:
+# simcol("deepskyblue")
+# simcol("deeppink", tol = 50)
+# simcol(Seeblau, tol = 40)
+# simcol(Seegruen, tol = 40)
+# simcol("deepskyblue", col_candidates = pal_unikn, tol = 100)
+# simcol("deeppink", col_candidates = pal_unikn_pref, tol = 120)
+# 
+# # More fine-grained search (3 tol values):
+# simcol("deepskyblue", tol = 50) # same as:
+# simcol("deepskyblue", tol = c(50, 50, 50))
+# simcol("deepskyblue", tol = c(10, 50, 150))
+# 
+# simcol(Seeblau, tol = 40) # same as:
+# simcol(Seeblau, tol = c(40, 40, 40))
+# simcol(Seeblau, tol = c(10, 30, 60))
+
+
+## Snippets: Towards simcol() function: 
+# 
+# col_target <- "deepskyblue1"
+# tol <- 50
+# 
+# # Using named colors():
+# col_candidates <- colors()
+# names(col_candidates) <- colors()
+# 
+# # # Using unikn palettes:
+# # col_candidates <- pal_unikn_pref
+# # names(col_candidates) <- pal_unikn_pref
+# 
+# # Matrix of color distances (in RGB space):
+# (dmx <- t(col_distance(col_candidates, col_target)))
+# 
+# # Logical matrix (color distance <= tol, in RGB): 
+# (lmx <- dmx <= tol)
+# 
+# tol <- c(10, 50, 100)
+# 
+# if (length(tol) == 3){ # use more sophisticated similarity judgment (sorted by the rank of RGB values):
+#   
+#   # Analyze col_target:
+#   (rgb_target <- grDevices::col2rgb(col_target))
+#   (rgb_ranks <- rank(rgb_target))
+#   
+#   (ddf <- as.data.frame(dmx))
+#   
+#   # Make 3 comparisons:  
+#   ix_1_true <- ddf[ , which(rgb_ranks == 3)] <= tol[1]  # 1st
+#   ix_2_true <- ddf[ , which(rgb_ranks == 2)] <= tol[2]  # 2nd
+#   ix_3_true <- ddf[ , which(rgb_ranks == 1)] <= tol[3]  # 3rd
+#   
+#   ix_all_true <- (ix_1_true & ix_2_true & ix_3_true)
+#   
+#   # Apply:
+#   col_candidates[ix_all_true]
+#   
+# }
+# 
+# sim_df <- dplyr::filter(as.data.frame(lmx), red == TRUE, green == TRUE, blue == TRUE)  # filter rows
+# result <- rownames(sim_df)  # color names
+# 
+# col_pal <- usecol(unique(c(col_target, result)))
+# 
+# # Show:
+# seecol(col_pal, title = "Similar colors")
+
 
 ## ToDo: ------
-
-# - simcol(): Idea: Find (named?) colors similar to a given color, within some tolerance.
 
 # - seecol(): Add options for showing HCL values (see HCL_color_exploration.Rmd). 
 # - seecol(): Add options for printing multiple palettes with fixed width and as continuous color palettes.
