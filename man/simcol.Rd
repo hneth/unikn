@@ -28,16 +28,20 @@ from a palette of color candidates \code{col_candidates} that are similar
 to some target color \code{col_target}.
 }
 \details{
-\code{simcol} returns a vector of (named) colors or color values, 
-but also uses \code{\link{seecol}} to visualize its results.
+\code{simcol} returns a vector of (named) colors or color values that 
+are similar to the specified target color \code{col_target}. 
 
-Color similarity is defined in terms of the distance between colors'  
-RGB values, within some numeric tolerance threshold(s) provided by \code{tol}. 
+If \code{plot = TRUE}, \code{simcol} also uses \code{\link{seecol}} 
+to visualize its results (as a side-effect).
+
+Color similarity is defined in terms of the distance between colors' RGB values, 
+which must be within the numeric tolerance threshold(s) specified by \code{tol} 
+(with \code{0 <= tol <= 255}). 
 Higher \code{tol} values correspond to more permissive similarity judgments.  
 
-If \code{tol} is a scalar, all three RGB values of \code{col_candidates}
-must be within the corresponding values of \code{col_target} 
-to be considered 'similar'.
+If \code{tol} is a scalar, the values of all three RGB dimensions 
+of \code{col_candidates} must be within the corresponding values of 
+\code{col_target} to be judged as 'similar'. 
 If \code{tol} contains three values, the three RGB dimension are compared 
 in order of the dimensions' rank in \code{col_target} 
 (i.e., the primary dimension must be within \code{tol[1]}, etc.). 
