@@ -92,6 +92,7 @@ seecol(my_pals, col_brd = "white", lwd_brd = 5,
 \seealso{
 \code{\link{seepal}} for plotting color palettes;  
 \code{\link{usecol}} for using color palettes; 
+\code{\link{simcol}} for finding similar colors; 
 \code{\link{grepal}} for finding named colors; 
 \code{\link{shades_of}} to defining shades of a given color; 
 \code{\link{ac}} for adjusting color transparency; 
@@ -102,6 +103,7 @@ Other color functions:
 \code{\link{grepal}()},
 \code{\link{seecol}()},
 \code{\link{shades_of}()},
+\code{\link{simcol}()},
 \code{\link{usecol}()}
 }
 \concept{color functions}

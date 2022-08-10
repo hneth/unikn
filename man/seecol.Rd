@@ -161,6 +161,7 @@ seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
 }
 \seealso{
 \code{\link{usecol}} for using color palettes; 
+\code{\link{simcol}} for finding similar colors; 
 \code{\link{newpal}} for defining new color palettes; 
 \code{\link{grepal}} for finding named colors; 
 \code{\link{shades_of}} to defining shades of a given color; 
@@ -172,6 +173,7 @@ Other color functions:
 \code{\link{grepal}()},
 \code{\link{newpal}()},
 \code{\link{shades_of}()},
+\code{\link{simcol}()},
 \code{\link{usecol}()}
 }
 \concept{color functions}

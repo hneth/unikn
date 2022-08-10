@@ -19,17 +19,16 @@ Default: \code{use_names = TRUE}.}
 }
 \value{
 A color vector of the same length as \code{col}, 
-transformed by \code{link{adjustcolor}}.
+transformed by \code{\link{adjustcolor}}.
 }
 \description{
 \code{ac} adjusts the transparency of a color or color palette \code{col} 
 to an opacity level \code{alpha}.
 }
 \details{
-\code{ac} is primarily a convenient wrapper for 
-\code{\link{adjustcolor}} of the \strong{grDevices} package, 
-but allows for more flexible combinations of 
-(multiple) \code{col} and \code{alpha} values.
+\code{ac} is primarily a wrapper for \code{\link{adjustcolor}} 
+of the \strong{grDevices} package, but allows for more flexible 
+combinations of (multiple) \code{col} and \code{alpha} values.
 }
 \examples{
 ac("black")  # using alpha = .5 by default
@@ -54,8 +53,9 @@ seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
 
 }
 \seealso{
-\code{\link{seecol}} to plot color palettes; 
-\code{\link{usecol}} for using color palettes; 
+\code{\link{seecol}} for plotting/seeing color palettes; 
+\code{\link{usecol}} for using color palettes;
+\code{\link{simcol}} for finding similar colors;  
 \code{\link{newpal}} for defining new color palettes; 
 \code{\link{grepal}} for finding named colors.
 
@@ -64,6 +64,7 @@ Other color functions:
 \code{\link{newpal}()},
 \code{\link{seecol}()},
 \code{\link{shades_of}()},
+\code{\link{simcol}()},
 \code{\link{usecol}()}
 }
 \concept{color functions}
