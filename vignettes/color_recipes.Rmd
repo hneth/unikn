@@ -1,7 +1,7 @@
 ---
 title: "Color recipes"
 author: "SPDS, uni.kn"
-date: "2021 04 06"
+date: "2022 08 10"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -81,6 +81,7 @@ plot(x = runif(99), y = runif(99), type = "p",
 par(opar)  # re-store current settings
 ```
 
+
 ## Using colors in **ggplot2**
 
 **Task:** Using **unikn** colors in visualizations created by the **ggplot2** package.
@@ -150,7 +151,7 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
 For easily viewing a new color palette (e.g., provided by the new HCL color palettes `hcl.pals()` of\ R), 
 use the palette as the `pal`\ argument of the `seecol()` function: 
 
-```{r seecol-example-1, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+```{r seecol-example-1, fig.width = 5, fig.asp = .80, fig.align = 'center'}
 col_pal <- hcl.colors(10, "Vik")  # some color palette
 
 seecol(col_pal)  # see its colors and details 
@@ -203,6 +204,34 @@ seecol(pal = l_pal,
 ```
 
 
+## Finding similar colors
+
+**Task:** Find a color that is similar to some given color.
+
+Use the `simcol()` function for finding (and plotting/seeing) similar colors: 
+
+```{r simcol-example-01, fig.width = 5, fig.asp = .90, fig.align = 'center', fig.show = "hold"}
+simcol("forestgreen")
+```
+
+The `simcol()` function compares a require target color (`col_target`) with 
+a set of candidate colors (`col_candidates`, set to `colors()` by default). 
+Color similarity is defined in terms of the colors' pair-wise distances in RGB values. 
+If this distance falls below some tolerance value(s) (`tol`), the corresponding `col_candidates` are shown and returned. 
+Thus, increasing the tolerance value yields a wider range of colors:
+
+```{r simcol-example-02, fig.width = 5, fig.asp = .90, fig.align = 'center', fig.show = "hold"}
+simcol(col_target = "orange", col_candidates = pal_unikn_pref, tol = 150)
+```
+
+Specifying a vector of three `tol` values compares RGB dimensions in the order of their rank. 
+This allows for more fine-grained similarity searches:
+
+```{r simcol-example-03, fig.width = 5, fig.asp = .90, fig.align = 'center', fig.show = "hold"}
+simcol(col_target = Seeblau, tol = c(20, 20, 80))
+```
+
+
 ## Creating new color palettes 
 
 **Task:** Create a new color palette (with color names).
@@ -248,7 +277,7 @@ The new palette `pal_google` can now be used in R graphics and modified in vario
 
 Here are some additional examples for using the `grepal()` function for finding colors by their names (or a pattern): 
 
-```{r grepal-example-1, fig.width=5, fig.height=4, fig.align = 'center'}
+```{r grepal-example-1, fig.width = 5, fig.height = 4, fig.align = 'center'}
 # Get color palettes matching a pattern:
 pal_1 <- grepal("orange")
 pal_2 <- grepal("olive")
@@ -262,7 +291,7 @@ seecol(pal_3, title = "Hues of 'white' colors()", col_bg = "grey90")
 
 Providing a list of color palettes to the `pal` argument of the `seecol()` function allows comparing multiple color palettes: 
 
-```{r grepal-example-2, fig.width=6, fig.asp=.50, fig.align = 'center'}
+```{r grepal-example-2, fig.width = 6, fig.asp = .50, fig.align = 'center'}
 # See multiple color palettes:
 seecol(pal = list(pal_1, pal_2, pal_3), 
        pal_names = c("orange", "olive", "white"), 
@@ -273,7 +302,7 @@ The last example illustrates that (a)\ the `pattern`\ argument of `grepal()` can
 
 Let's compare different types of "blue", "orange", and "purple or violet" provided by the **grDevices** vector of named `colors()` with various shades of "blau", "pink", "peach" and "bordeaux" provided by **unikn** color palettes: 
 
-```{r grepal-example-3, fig.width=6, fig.align=.50, fig.align = 'center'} 
+```{r grepal-example-3, fig.width = 6, fig.align = .50, fig.align = 'center'} 
 # Search colors() with specific patterns (in their names): 
 blues    <- grepal("blue$")   # ending on "blue"
 oranges  <- grepal("orange")  # containing "orange"
@@ -304,7 +333,7 @@ The `shades_of()` function returns a vector of \code{n}\ colors that are shades
 By default, `shades_of(n)` yields `n`\ shades ranging from `col_1 = "black"` to `col_n = "white` 
 (i.e., `n`\ shades of grey): 
 
-```{r shades-of-example-1, fig.width = 5, fig.asp = .9, fig.align = 'center'}
+```{r shades-of-example-1, fig.width = 5, fig.asp = .90, fig.align = 'center'}
 greys <- shades_of(10)
 seecol(greys, title = "10 shades of grey")
 ```
@@ -312,14 +341,14 @@ seecol(greys, title = "10 shades of grey")
 By adjusting\ `n`, the initial color\ `col_1`, and/or the final color\ `col_n`, 
 we can conveniently create simple color ranges: 
 
-```{r shades-of-example-2, fig.width = 5, fig.asp = .9, fig.align = 'center'}
+```{r shades-of-example-2, fig.width = 5, fig.asp = .90, fig.align = 'center'}
 seecol(shades_of(4, Seeblau, "black"), title = "4 shades of Seeblau")
 seecol(shades_of(7, "forestgreen"), title = "7 shades of 'forestgreen'")
 ```
 
 Using `alpha` in the range $[0; 1]$ allows adjusting the transparency of the obtained colors: 
 
-```{r shades-of-example-3, fig.width = 5, fig.asp = .9, fig.align = 'center'}
+```{r shades-of-example-3, fig.width = 5, fig.asp = .90, fig.align = 'center'}
 wine_gold <- shades_of(4, Bordeaux, col_n = "gold", alpha = .65)
 seecol(wine_gold, title = "5 transparent shades from Bordeaux to gold")
 ```
