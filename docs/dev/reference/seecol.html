@@ -18,7 +18,7 @@ the colors of a palette or comparing multiple color palettes.'><meta property="o
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9010</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9012</span>
       </span>
     </div>
 
@@ -190,7 +190,9 @@ Default: <code>pal_names = NA</code> (for default names).</p></dd>
 <p>Plot the current color palette and optional details on its colors.</p></li>
 <li><p>if <code>pal = "unikn_all"</code> or a list of <em>multiple</em> color palettes:</p>
 <p>Plot visual vectors of all current color palettes for comparing them.</p></li>
-</ol><p>The <code>title</code> and <code>pal_names</code> arguments add control over plotted text labels. 
+</ol><p>Specifying <code>distinct = TRUE</code> removes visual duplicate colors (based on HEX values, 
+ignoring transparency), but only when showing an individual color palette <code>pal</code>.</p>
+<p>The <code>title</code> and <code>pal_names</code> arguments add control over plotted text labels. 
 However, the length of a character vector provided to <code>pal_names</code> must correspond 
 to the number of (custom) color palettes or colors.</p>
     </div>
