@@ -1,5 +1,5 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2022 08 10
+## spds | uni.kn | 2022 08 11
 ## ---------------------------
 
 ## Utility functions for converting colors, 
@@ -19,6 +19,18 @@
 # col2rgb("white", alpha = FALSE)
 # col2rgb("white", alpha = TRUE)
 # col2rgb("#FFFFFF")
+
+
+# get_alpha: Get color transparency / alpha values: ------
+
+get_alpha <- function(pal){
+  grDevices::col2rgb(pal, alpha = TRUE)["alpha", ] 
+} # get_alpha().
+
+## Check:
+# get_alpha("red")
+# get_alpha(shades_of(10, "black"))  # all same alpha
+# get_alpha(ac(col = "black", alpha = seq(0, 1, by = 0.10)))  # 11 different alphas
 
 
 # rgb2hex color conversion function: ------ 
@@ -45,9 +57,18 @@ col2hex <- function(col, alpha = alpha) {
 # hex4 <- col2hex("steelblue", alpha = 255/2)
 # seecol(pal = c(hex1, hex2, hex3, hex4), n = "all")
 # 
-# # Note: As col2hex assumes a SCALAR alpha value,
-#         the following does currently NOT work:
+# # Note 2 limitations: 
+# 1. As col2hex assumes a SCALAR alpha value,
+#    the following does currently NOT work:
 # col2hex("black", alpha = c(1/4, 1/2, 3/4))
+# # ToDo 1: Vectorize col2hex arguments.
+#
+# 2. Current col2hex does not detect/use transparency differences: 
+# col2hex(tblack)  # ignores transparency!
+# # ToDo 2: Allow retaining transparency in col2hex:
+# col2hex(tblack, alpha = alpha(tblack))
+# # (and consider using get_alpha() for this).
+
 
 # isHexCol: Helper function to detect HEX-colors: ------ 
 
@@ -121,45 +142,70 @@ col_distance <- function(col_1, col_2){
 # Goal: Remove visual duplicate colors (using HEX values to judge the identiy of colors, 
 #       rather than color names). 
 #
-# Note: 
+# Notes: 
+# - The function aims to detect visual duplicates (i.e., colors that look the same, 
+#   irrespective of their names/values).
+# - Color transparency is only considered when use_alpha = TRUE.
 # - grDevices::colors() has a 'distinct = TRUE' argument to remove visual duplicates.
-# - Color transparency is currently being ignored (in col2hex() utlity function).
 
-col_distinct <- function(pal){
+col_distinct <- function(pal, use_alpha = FALSE){
+  
+  # Prepare: ---- 
   
   if (any(isCol(pal) == FALSE)){
     stop("pal contains non-colors")
   }
   
-  # Convert to HEX:
-  pal_hex <- col2hex(pal)
   
-  ix_pal_duplicated <- duplicated(pal_hex)
+  # Main: ----
   
-  pal[ix_pal_duplicated == FALSE]
+  # 1. alpha values:
+  if (use_alpha){
+    
+    # Get transparency values:
+    pal_alpha <- get_alpha(pal)
+    
+    ix_alpha_dupes <- duplicated(pal_alpha)  # duplicate alpha values
+    
+  } else {
+    
+    ix_alpha_dupes <- TRUE  # default: all same alpha values
+    
+  }
+  
+  # 2. HEX values:
+  pal_hex <- col2hex(pal)  # ignores transparency!
+  
+  ix_hex_dupes <- duplicated(pal_hex)  # duplicated hex values
+  
+  
+  # Combine logical indices:
+  ix_pal_dupes <- ix_hex_dupes & ix_alpha_dupes
+  
+  
+  # Output: ----
+  
+  # Return pal without duplicates: 
+  pal[ix_pal_dupes == FALSE]
   
 } # col_distinct().
+
 
 ## Check:
 # p1 <- c("gray", "grey", "black", "grey0", "red", "red1", "red2", "red3")
 # col_distinct(p1)
 # 
-# p2 <- usecol(c(pal_unikn, pal_seeblau))
+# (p2 <- usecol(c(pal_unikn, pal_seeblau)))
 # col_distinct(p2)
-#
-# col_distinct(c("black", "some non color", "white"))
-
-## Note: Color transparency is being ignored:
-# tblack <- ac("black", alpha = seq(0, 1, by = 0.25))
-# seecol(tblack)        # Shows 3 shades, but
-# col_distinct(tblack)  # all share same basic color!
 # 
-# # Reason:
-# col2hex(tblack) # ignores transparency!
-# # ToDo: Allow retaining transparency in col2hex: 
-# col2hex(tblack, alpha = alpha(tblack))
-
-
+# # By default, color transparency is being ignored:
+# tblack <- ac("black", alpha = seq(0, 1, by = 0.25))
+# seecol(tblack)        # Shows 5 shades, but
+# col_distinct(tblack)  # all share same basic color!
+# col_distinct(tblack, use_alpha = TRUE)  # USES color transparency!
+# 
+# # Invalid inputs:
+# col_distinct(c("black", "NOT a color", "white"))
 
 
 
@@ -522,6 +568,7 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
 
 ## ToDo: ------
 
+# - col2hex(): Improve by vectorizing arguments and considering transparency/alpha values (see 2 ToDos above). 
 # - plot_col(): Add option for scaling multiple color palettes to fixed width rectangles. 
 # - Add functions for translating to/from HCL values (see HCL_color_exploration.Rmd). 
 
