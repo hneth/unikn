@@ -109,6 +109,9 @@ the colors of a palette or comparing multiple color palettes.
 
 }
 
+Specifying \code{distinct = TRUE} removes visual duplicate colors (based on HEX values, 
+ignoring transparency), but only when showing an individual color palette \code{pal}. 
+
 The \code{title} and \code{pal_names} arguments add control over plotted text labels. 
 However, the length of a character vector provided to \code{pal_names} must correspond 
 to the number of (custom) color palettes or colors.

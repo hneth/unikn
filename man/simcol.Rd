@@ -4,7 +4,13 @@
 \alias{simcol}
 \title{Find similar colors.}
 \usage{
-simcol(col_target, col_candidates = colors(), tol = c(25, 50, 75), plot = TRUE)
+simcol(
+  col_target,
+  col_candidates = colors(),
+  tol = c(25, 50, 75),
+  distinct = TRUE,
+  plot = TRUE
+)
 }
 \arguments{
 \item{col_target}{A (required) target color.}
@@ -15,6 +21,9 @@ Default: \code{col_candidates = colors()}.}
 \item{tol}{Numeric tolerance value(s) (must be 
 either 1 or 3 numeric values, in RGB range from 0 to 255).
 Default: \code{tol = c(25, 50, 75)}.}
+
+\item{distinct}{Boolean: Return only visually distinct colors? 
+Default: \code{distinct = TRUE} (i.e., remove duplicate colors).}
 
 \item{plot}{Boolean: Plot the output (using \code{\link{seecol}})? 
 Default: \code{plot = TRUE}.}

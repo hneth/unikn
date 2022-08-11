@@ -8,6 +8,7 @@ usecol(
   pal = pal_unikn,
   n = "all",
   alpha = NA,
+  distinct = FALSE,
   use_names = FALSE,
   use_col_ramp = FALSE
 )
@@ -26,6 +27,9 @@ For all other palettes and values of \code{n} larger than \code{length(pal)},
 \item{alpha}{A factor modifying the opacity alpha 
 (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
 Default: \code{alpha = NA} (i.e., no modification of opacity).}
+
+\item{distinct}{Boolean: Return only visually distinct colors? 
+Default: \code{distinct = FALSE} (i.e., include duplicate colors).}
 
 \item{use_names}{A logical value indicating whether colors should be returned as a named vector.
 Default: \code{use_names = FALSE}, for compatibility with \code{ggplot}.}
@@ -62,6 +66,10 @@ names(pal_princeton_1) <- c("orange_w", "white", "black")
 
 pal_3 <- usecol(pal_princeton_1, n = 7)
 seecol(pal_3)
+
+# Removing visual duplicates:
+usecol(c("gray", "grey", "red", "red1"), distinct = TRUE)
+seecol(usecol(c(pal_unikn, pal_seeblau), distinct = TRUE), title = "Showing only unique colors")
 
 }
 \seealso{
