@@ -1,5 +1,5 @@
 ## color_fun.R | unikn
-## spds | uni.kn | 2022 08 10
+## spds | uni.kn | 2022 08 11
 ## ---------------------------
 
 ## Define color-related functions 
@@ -37,7 +37,7 @@
 #' should be overridden and \code{\link{colorRampPalette}} should be used to process \code{n}. 
 #' Default: \code{use_col_ramp = FALSE}. 
 #' 
-#' @return A vector of colors (in character format). 
+#' @return A (named) vector of colors (of type character). 
 #' 
 #' @examples 
 #' usecol(pal = pal_unikn, n = "all")  # default color palette 
@@ -376,14 +376,14 @@ usecol <- function(pal = pal_unikn,
 #' \code{seecol} has two main modes, based on the contents of its \code{pal} argument:
 #' 
 #' \enumerate{
-#'
-#'   \item if \code{pal = "unikn_all"} or a list of multiple color palettes: 
-#'
-#'   Plot visual vectors of all current color palettes for comparing them. 
-#'
-#'   \item if \code{pal} is set to a specific color palette (or a vector of multiple colors or color palettes):
+#' 
+#'   \item if \code{pal} is set to a \emph{specific} color palette (or a vector of multiple colors or color palettes):
 #'
 #'   Plot the current color palette and optional details on its colors.
+#'
+#'   \item if \code{pal = "unikn_all"} or a list of \emph{multiple} color palettes: 
+#'
+#'   Plot visual vectors of all current color palettes for comparing them. 
 #'
 #' }
 #' 
@@ -394,13 +394,14 @@ usecol <- function(pal = pal_unikn,
 #' @param pal A single color palette (as a vector of colors), 
 #' multiple color palettes (as a list), 
 #' or a recognized keyword (as a character string). 
-#' Default: \code{pal = "unikn_all"}. 
+#' Default: \code{pal = "unikn_all"} (i.e., plot all color palettes 
+#' provided by the \bold{unikn} package). 
 #' 
 #' Recognized keywords are: 
 #' 
 #' \enumerate{
 #'
-#'   \item \code{"unikn_all"}: All color palettes defined in \code{unikn}
+#'   \item \code{"unikn_all"}: All color palettes defined in \bold{unikn}
 #'
 #'   \item \code{"unikn_basic"}: All basic palettes. 
 #'   
@@ -1146,11 +1147,9 @@ newpal <- function(col,            # a vector of colors
                    # ...           # additional arguments to usecol().
 ) {
   
-  ## 0. Preparations: ----- 
+  # Prepare: ----- 
   
-  outpal <- NA  # initialize
-  
-  # 0. Robustify inputs:
+  # Robustify inputs:
   if ( any(is.na(col)) ) stop("'col' must be a vector of (named or hex) colors without NA values.")
   
   if ( any(!isCol(col)) ) stop("'col' must be a vector containing ONLY (named or hex) colors.")
@@ -1163,10 +1162,14 @@ newpal <- function(col,            # a vector of colors
     
   }
   
-  # 1. Create data.frame or vector of col: ----- 
+  outpal <- NA  # initialize
+  
+  
+  # Main: Create data.frame or vector of col: ----- 
+  
   outpal <- col  # copy col vector
   
-  # 2. Add names:
+  # Add names:
   if ( all(!is.na(names)) ) {
     names(outpal) <- names
   } else {
@@ -1183,7 +1186,9 @@ newpal <- function(col,            # a vector of colors
     outpal <- data.frame(outpal, row.names = NULL, stringsAsFactors = FALSE)
   }
   
-  # 2. Return: ----- 
+  
+  # Output: ----- 
+  
   return(outpal)
   
 } # newpal().  
@@ -1406,8 +1411,7 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
 #' but specifying different initial and final colors yields 
 #' other color ranges. 
 #' 
-#' \code{shades_of} is only a convenient wrapper function for 
-#' a common \code{\link{usecol}} command. 
+#' \code{shades_of} is mostly a wrapper for a special \code{\link{usecol}} command. 
 #' However, \code{\link{usecol}} allows defining more 
 #' complex color gradients (e.g., by specifying more than two colors). 
 #'
@@ -1467,7 +1471,7 @@ shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
 
 ## Check:
 # shades_of(4)
-# seecol(shades_of(4, col_1 = Pinky, col_n = "black"))
+# seecol(shades_of(4, col_1 = Pinky, col_n = "gold"))
 # seecol(shades_of(4, col_1 = Bordeaux, alpha = .5))
 
 
@@ -1699,7 +1703,7 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 
 simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), plot = TRUE){
   
-  # 1. Prepare: ---- 
+  # Prepare: ---- 
   
   if (length(col_target) != 1){
     stop("col_target must be a scalar (length 1)")
@@ -1727,10 +1731,10 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), p
     stop("tol values must range from 0 to 255")
   }
   
-  out <- NA  # initialize
+  outpal <- NA  # initialize
   
   
-  # 2. Main: ----
+  # Main: Compute distances and compare with tol criterion ----
   
   # a. Matrix of color distances (in RGB):
   dmx <- t(col_distance(col_candidates, col_target))
@@ -1771,15 +1775,15 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), p
   }
   
   # e. Apply filter:
-  out <- col_candidates[ix_all_true]
+  outpal <- col_candidates[ix_all_true]
   
-  # f. Process out:
-  out <- c(col_target, out)  # add col_target to front
-  out <- col_distinct(out)   # remove duplicate colors (using HEX values to judge identity)
-  out <- usecol(out, use_names = TRUE)  # use color names
+  # f. Process outpal:
+  outpal <- c(col_target, outpal)  # add col_target to front
+  outpal <- col_distinct(outpal)   # remove duplicate colors (using HEX values to judge identity, ignoring transparency)
+  outpal <- usecol(outpal, use_names = TRUE)  # use color names
   
   
-  # 3. Plot (as side effect): ----
+  # Plot (as side effect): ----
   
   if (plot){
     
@@ -1791,13 +1795,13 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), p
     
     caption <- paste0("Colors similar to ", col_target_name)
     
-    seecol(out, title = caption)
+    seecol(outpal, title = caption)
     
   } # if (plot).
   
-  # 4. Output: ----
+  # Output: ----
   
-  return(out)
+  return(outpal)
   
 } # simcol().
 
@@ -1875,6 +1879,9 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), p
 
 
 ## ToDo: ------
+
+# - Add a distinct = TRUE argument to seecol() and/or usecol() that allows to remove visual duplicates
+#   by verifying col_distinct(pal) [but note that transparency is currently ignored by utility function]. 
 
 # - seecol(): Add options for showing HCL values (see HCL_color_exploration.Rmd). 
 # - seecol(): Add options for printing multiple palettes with fixed width and as continuous color palettes.
