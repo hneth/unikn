@@ -1877,11 +1877,11 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), p
 # seecol(col_pal, title = "Similar colors")
 
 
-
 ## ToDo: ------
 
-# - Add a distinct = TRUE argument to seecol() and/or usecol() that allows to remove visual duplicates
-#   by verifying col_distinct(pal) [but note that transparency is currently ignored by utility function]. 
+# - Add a distinct = FALSE/TRUE argument to seecol(), usecol(), and/or grepal() that allows removing visual duplicates
+#   by verifying col_distinct(pal) --- with or w/o considering color transparency (see use_alpha argument).
+#   Note: colors() also uses a distinct = TRUE argument to remove visual duplicates. 
 
 # - seecol(): Add options for showing HCL values (see HCL_color_exploration.Rmd). 
 # - seecol(): Add options for printing multiple palettes with fixed width and as continuous color palettes.
