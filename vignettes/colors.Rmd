@@ -1,7 +1,7 @@
 ---
 title: "Colors and color functions"
 author: "SPDS, uni.kn"
-date: "2022 08 10"
+date: "2022 08 11"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -52,7 +52,7 @@ library('unikn')             # loads the package
 The **unikn** package provides some colors (e.g., `Seeblau`) and color palettes (e.g., `pal_unikn`). 
 However, its functionality mainly comes from color-related functions that are useful beyond the dedicated colors of this package. 
 
-<!-- A. Primary functions: -->
+<!-- A. Primary functions: Seeing and using colors -->
 
 The package provides two main functions for interacting with color palettes: `seecol()` and `usecol()`. 
 
@@ -62,10 +62,11 @@ The `seecol()` function takes two main arguments:
     - `pal` provides either one or multiple color palettes (with a default of `pal = "all"`);  
     - `n` specifies the number of desired colors (with a default of `n = "all"`).  
 
-Based on the setting of `pal`, the `seecol()` function distinguishes between two modes:
+Based on the input of `pal`, the `seecol()` function distinguishes between two modes:
 
-  - _comparing_ a set of multiple color palettes (when providing a keyword or `list`-object);  
-  - viewing the _details_ of a single color palette (when providing only one color palette).   
+  - A. _viewing the details_ of a _single_ color palette (when providing only one color palette); 
+  - B. _comparing multiple_ color palettes (when providing a keyword or `list`-object).   
+   
 
 2. `usecol()` allows **using colors or color palettes** (e.g., when creating visualizations) without showing its details. 
 The `usecol()` function also takes arguments for conveniently manipulating color palettes:
@@ -75,20 +76,20 @@ The `usecol()` function also takes arguments for conveniently manipulating color
     - `alpha` adjusts the opacity of all colors in `pal` (e.g., `alpha = .50` for medium transparency). 
 
 
-<!-- B. Secondary functions: -->
+<!-- B. Secondary functions: Finding colors and defining color palettes -->
 
-Three additional functions provide general color functionality:
+Three additional functions provide general functionality for finding colors and defining color palettes:
 
-1. `newpal()` allows **defining new color palettes** (usually as data frames with dedicated color names); 
+1. `simcol()` allows **finding similar colors** (given a target color, a set of candidate colors, and some tolerance threshold(s));  
 
-2. `simcol()` allows **finding similar colors** (given a target color, a set of candidate colors, and some tolerance threshold(s)); 
+2. `grepal()` allows **searching the names of color palettes** (i.e., a vector of color names or data frame of named colors) for a `pattern` and returns those colors that match the pattern (or regular expression);  
 
-3. `grepal()` allows **searching the names of color palettes** (i.e., a vector of color names or data frame of named colors) for a `pattern` and returns those colors that match the pattern (or regular expression). 
+3. `newpal()` allows **defining new color palettes** (usually as data frames with dedicated color names).  
 
 
-<!-- C. Auxiliary functions: -->
+<!-- C. Auxiliary functions: Adding transparency and getting color gradients/shades -->
 
-Finally, the follwing functions serve in auxiliary roles: 
+Finally, two more functions serve in auxiliary roles: 
 
 1. `ac()` is a flexible wrapper for `adjustcolor()` that allows **setting color transparency**; 
 
@@ -103,12 +104,55 @@ The rest of this vignette provides examples of using and details on these functi
 
 ## Viewing colors and color palettes with `seecol()`
 
-The behavior of the `seecol()` function depends on the inputs to its `pal` argument. 
-It either allows comparing multiple color palettes or shows the details of a single color palette.
+The behavior of the `seecol()` function disinguishes between two modes and depends on the input to its initial `pal` argument. 
+It either shows (A)\ the details of a single color palette, or (B)\ allows comparing multiple color palettes. 
+The next two sections will address both modes in turn. 
 
-### Viewing and comparing available color palettes
 
-When the `pal` argument specifies (a list of) multiple color palettes, `seecol()` plots a vector for each palette to allow comparing these palettes. 
+### A. Viewing details of a single color palette 
+
+When the `pal` argument of the `seecol()` function specifies a _single_ color palette, the function plots a more detailed view of this particular color palette: 
+
+```{r unikn-palette, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+seecol(pal_unikn)  # view details of pal_unikn 
+```
+
+The detailed overview of a color palette provides us with 
+
+- the color names (where available),  
+- their numeric indices (within the color palette),     
+- the HEX values for each color,   
+- the RGB values for each color.  
+
+When a color palette contains too many colors, the HEX and RGB values are no longer printed. 
+However, setting `hex` and `rgb` to\ TRUE will force them to be shown. 
+
+<!-- Seeing and saving a color palette: -->
+
+Note that `seecol()` also returns the color palette that is being shown. 
+Thus, a typical workflow comprises both _seeing_ a particular color palette and _saving_ it (for storing and applying it later):   
+
+```{r save-seecol, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+my_pal <- seecol(pal_unikn_light)  # view details of AND save a color palette  
+```
+
+Due to saving the color palette (here to `my_pal`) we can later use it in a visualization: 
+
+```{r my-pal-example, fig.width = 5, fig.asp = .65, fig.align = 'center'}
+barplot(1/sqrt(1:10), col = my_pal)  # use my_pal in a plot
+```
+
+Note that `seecol()` _invisibly_ returns the color palette.  
+Thus, the following will only plot the palette without doing anything else with the color vector:
+
+```{r invisible-seecol, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+seecol(pal_bordeaux)
+```
+
+
+### B. Viewing and comparing multiple color palettes
+
+When the `pal` argument of `seecol()` specifies (a list of) _multiple_ color palettes, the function plots a vector for each palette to allow comparing these palettes. 
 Some special keywords within the **unikn** package denote sets of color palettes: `"unikn_all"`, `"unikn_basic"`, `pair_all"`, `"pref_all"` and `"grad_all"`. Calling `seecol` with `pal` set to these keywords allows comparing pre-defined sets of the color palettes:   
 
 Viewing _all_ available color palettes:
@@ -143,39 +187,6 @@ seecol("pref_all")
 seecol("grad_all")
 ```
 
-### Viewing and saving a palette 
-
-When the `pal` argument of the `seecol()` function specifies a single color palette, the function plots a more detailed view of this particular color palette: 
-
-```{r unikn-palette, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-seecol(pal_unikn)  # view details of pal_unikn 
-```
-
-The detailed overview of a single color palette provides us with 
-
-- the color names (where available),  
-- their numeric indices (within the color palette),     
-- the HEX values for each color,   
-- the RGB values for each color.  
-
-A typical workflow comprises first _seeing_ a color palette, then saving it, and using it in a plot.  
-
-```{r save-seecol, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-my_pal <- seecol(pal_unikn_light)  # view details of AND save pal_unikn_light to my_pal  
-```
-
-After saving the color palette you can use the palette object in your plot: 
-
-```{r my-pal-example, fig.width = 5, fig.asp = .65, fig.align = 'center'}
-barplot(1/sqrt(1:10), col = my_pal)  # use my_pal in a plot
-```
-
-Note that `seecol()` _invisibly_ returns the color palette.  
-Thus, the following will only plot the palette without doing anything else with the color vector:
-
-```{r invisible-seecol, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-seecol(pal_bordeaux)
-```
 
 ### Other parameters of `seecol()`
 
@@ -375,24 +386,6 @@ seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
 
 
 
-## Defining new color palettes with `newpal()`
-
-The `newpal()` function makes it easy to define new named color palettes: 
-
-```{r newpal-1, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-col_flag <- c("#000000", "#dd0000", "#ffce00")  # source: www.schemecolor.com
-
-flag_de  <- newpal(col = col_flag,
-                   names = c("black", "red", "gold"))
-
-seecol(flag_de, title = "Defining a flag_de color palette")
-```
-
-By default, `newpal()` returns the new color palette as a data frame. 
-Setting `as_df = FALSE` returns a (named) vector. 
-
-
-
 ## Finding similar colors with `simcol()` 
 
 Assuming that our favorite color is `"deeppink"`, a good question is: How can we find similar colors? 
@@ -432,11 +425,56 @@ By default, `grepal()` searches the vector of named colors `x = colors()` (provi
 However, it also allows searching color palettes provided as data frames (with color names):
 
 ```{r grepal-3, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-grepal("see", pal_unikn)
+grepal("see", pal_unikn)  # finding "see" in (the names of) a color palette
 
 seecol(grepal("blau", pal_unikn_pref), title = "Finding 'blau' in pal_unikn_pref")
 ```
 
+
+## Creating color gradients with `shades_of()`
+
+We have seen that the main `usecol()` function allows squeezing and stretching color palettes and thus creating complex color gradients. 
+An even simpler way for creating color gradients is provided by the `shades_of()` function:
+
+```{r shades-of-1, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+seecol(shades_of(n = 7, col_1 = Karpfenblau), title = "Shades of Karpfenblau")
+```
+
+Internally, `shades_of()` is merely a convenient wrapper for a special `usecol()` function.
+The limitation of `shades_of()` is that it only allows creating bi-polar color palettes (i.e., gradients between two colors), whereas `usecol()` allows creating color gradients between an arbitrary number of colors. 
+Thus, the following two palettes are identical:
+
+```{r shades-of-2, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+shady_1 <- usecol(c("deeppink", "gold"), 5)
+shady_2 <- shades_of(5, "deeppink", "gold")
+
+all.equal(shady_1, shady_2)
+seecol(shady_2, title = "A bi-polar color gradient")
+```
+
+
+## Defining new color palettes with `newpal()`
+
+Having created, combined or found all those beautiful colors, we may wish to define a new color palette. 
+Defining a new named color palette allows to consistently access and apply colors (e.g., to a series of visualizations in a report or publication). 
+The `newpal()` function makes it easy to define color palettes: 
+
+```{r newpal-1, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+col_flag <- c("#000000", "#dd0000", "#ffce00")  # source: www.schemecolor.com
+
+flag_de  <- newpal(col = col_flag,
+                   names = c("black", "red", "gold"))
+
+seecol(flag_de, title = "Defining a flag_de color palette")
+```
+
+By default, `newpal()` returns the new color palette as a data frame. 
+Setting `as_df = FALSE` returns a (named) vector. 
+
+<!-- Conclusion: -->
+
+This was a quick tour through the color functions contained in the **unikn** package. 
+We hope that they enable you to easily create, find, and apply beautiful colors ---\ may your life be graphic and full of brilliant, vivid and flamboyant visualizations! 
 
 
 ## Resources
