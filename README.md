@@ -24,15 +24,15 @@
 
 ### Enabling corporate design elements in R
 
-The **unikn** package provides color functions — by defining dedicated
-colors and color palettes, and commands for changing, viewing, and using
-them — and styled text elements (e.g., for marking, underlining, or
-plotting colored titles). The pre-defined range of colors and text
-functions is based on the corporate design of the [University of
-Konstanz](https://www.uni-konstanz.de/) (see [this
+The **unikn** package provides useful color functions — by defining
+dedicated colors and color palettes, and commands for changing, viewing,
+and using them — and styled text elements (e.g., for marking,
+underlining, or plotting colored titles) in R. The package’s pre-defined
+range of colors and text functions is based on the corporate design of
+the [University of Konstanz](https://www.uni-konstanz.de/) (see [this
 link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
-for details), but can be adapted and extended for other institutions and
-purposes.
+for details), but can easily be adapted and extended for other
+institutions or purposes.
 
 ## Background
 
@@ -818,9 +818,9 @@ Color definitions are based on the specifications at:
     (PDF)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf)
 
 <!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
-<!-- Update: -->
+<!-- footer: -->
 
-(Updated on 2021-12-31.)
+\[Updated on 2022-08-11.\]
 
 <!-- eof. -->
 
