@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2021 12 31
+## spds, uni.kn | 2022 08 11
 ## -----------------------------------------------
 
 ## site info: ----------
@@ -78,8 +78,9 @@ reference:
   contents:
   - seecol
   - usecol
-  - newpal
+  - simcol
   - grepal
+  - newpal
   - shades_of 
   - ac 
 - title: Graphics
