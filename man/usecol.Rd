@@ -35,7 +35,7 @@ should be overridden and \code{\link{colorRampPalette}} should be used to proces
 Default: \code{use_col_ramp = FALSE}.}
 }
 \value{
-A vector of colors (in character format).
+A (named) vector of colors (of type character).
 }
 \description{
 \code{usecol} allows using a color or color palette \code{pal} (e.g., for plotting).

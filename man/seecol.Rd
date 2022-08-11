@@ -25,13 +25,14 @@ seecol(
 \item{pal}{A single color palette (as a vector of colors), 
 multiple color palettes (as a list), 
 or a recognized keyword (as a character string). 
-Default: \code{pal = "unikn_all"}. 
+Default: \code{pal = "unikn_all"} (i.e., plot all color palettes 
+provided by the \bold{unikn} package). 
 
 Recognized keywords are: 
 
 \enumerate{
 
-  \item \code{"unikn_all"}: All color palettes defined in \code{unikn}
+  \item \code{"unikn_all"}: All color palettes defined in \bold{unikn}
 
   \item \code{"unikn_basic"}: All basic palettes. 
   
@@ -98,13 +99,13 @@ the colors of a palette or comparing multiple color palettes.
 
 \enumerate{
 
-  \item if \code{pal = "unikn_all"} or a list of multiple color palettes: 
-
-  Plot visual vectors of all current color palettes for comparing them. 
-
-  \item if \code{pal} is set to a specific color palette (or a vector of multiple colors or color palettes):
+  \item if \code{pal} is set to a \emph{specific} color palette (or a vector of multiple colors or color palettes):
 
   Plot the current color palette and optional details on its colors.
+
+  \item if \code{pal = "unikn_all"} or a list of \emph{multiple} color palettes: 
+
+  Plot visual vectors of all current color palettes for comparing them. 
 
 }
 

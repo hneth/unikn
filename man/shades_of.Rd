@@ -30,8 +30,7 @@ By default, the colors range from the initial color
 but specifying different initial and final colors yields 
 other color ranges. 
 
-\code{shades_of} is only a convenient wrapper function for 
-a common \code{\link{usecol}} command. 
+\code{shades_of} is mostly a wrapper for a special \code{\link{usecol}} command. 
 However, \code{\link{usecol}} allows defining more 
 complex color gradients (e.g., by specifying more than two colors).
 }
