@@ -27,6 +27,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9004</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9010</span>
       </span>
     </div>
 
@@ -47,13 +49,13 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa-home"></span>
+    <span class="fa fa-home"></span>
      
     Home
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     All articles
      
     <span class="caret"></span>
@@ -83,7 +85,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://hneth.github.io/unikn/">
-    <span class="fas fa-github"></span>
+    <span class="fa fa-github"></span>
      
   </a>
 </li>
@@ -107,35 +109,29 @@
 [![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
--->
-<div id="unikn-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#unikn-" class="anchor"></a>unikn <img src="./inst/pix/unikn.png" align="right" alt="unikn::" width="150px">
+--><div class="section level1">
+<div class="page-header"><h1 id="unikn-">unikn <img src="./inst/pix/unikn.png" align="right" alt="unikn::" width="150px"><a class="anchor" aria-label="anchor" href="#unikn-"></a>
 </h1></div>
-<!-- unikn pkg logo and link: -->
-<!-- <a href = "https://CRAN.R-project.org/package=unikn">
+<!-- unikn pkg logo and link: --><!-- <a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
 </a> 
--->
-<div id="enabling-corporate-design-elements-in-r" class="section level3">
-<h3 class="hasAnchor">
-<a href="#enabling-corporate-design-elements-in-r" class="anchor"></a>Enabling corporate design elements in R</h3>
-<p>The <strong>unikn</strong> package provides color functions — by defining dedicated colors and color palettes, and commands for changing, viewing, and using them — and styled text elements (e.g., for marking, underlining, or plotting colored titles). The pre-defined range of colors and text functions is based on the corporate design of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> (see <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">this link</a> for details), but can be adapted and extended for other institutions and purposes.</p>
+--><div class="section level3">
+<h3 id="enabling-corporate-design-elements-in-r">Enabling corporate design elements in R<a class="anchor" aria-label="anchor" href="#enabling-corporate-design-elements-in-r"></a>
+</h3>
+<p>The <strong>unikn</strong> package provides color functions — by defining dedicated colors and color palettes, and commands for changing, viewing, and using them — and styled text elements (e.g., for marking, underlining, or plotting colored titles). The pre-defined range of colors and text functions is based on the corporate design of the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a> (see <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/" class="external-link">this link</a> for details), but can be adapted and extended for other institutions and purposes.</p>
 </div>
-<div id="background" class="section level2">
-<h2 class="hasAnchor">
-<a href="#background" class="anchor"></a>Background</h2>
-<p>Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. In 2014, the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> introduced a highly recognizable corporate design. Its key component is the ubiquitous use of a <code>Seeblau</code> color and a corresponding color palette that blends various shades of <code>Seeblau</code> (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">corporate design</a> pages and the <a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf">Corporate Design Manual (pdf)</a> for details.)</p>
-<!-- Goals of the unikn pgk: -->
-<p>The <strong>unikn</strong> package facilitates the use of corporate design elements for users of <a href="https://www.r-project.org/">R</a>. While this renders the correct use of default specifications simple and straightforward, we leave some flexibility for experienced users (e.g., for creating scientific visualizations).</p>
-<!-- Overview: -->
-<p>The <strong>unikn</strong> package currently provides five types of objects and functions:</p>
-<ol>
+<div class="section level2">
+<h2 id="background">Background<a class="anchor" aria-label="anchor" href="#background"></a>
+</h2>
+<p>Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. In 2014, the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a> introduced a highly recognizable corporate design. Its key component is the ubiquitous use of a <code>Seeblau</code> color and a corresponding color palette that blends various shades of <code>Seeblau</code> (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/" class="external-link">corporate design</a> pages and the <a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf" class="external-link">Corporate Design Manual (pdf)</a> for details.)</p>
+<!-- Goals of the unikn pgk: --><p>The <strong>unikn</strong> package facilitates the use of corporate design elements for users of <a href="https://www.r-project.org/" class="external-link">R</a>. While this renders the correct use of default specifications simple and straightforward, we leave some flexibility for experienced users (e.g., for creating scientific visualizations).</p>
+<!-- Overview: --><p>The <strong>unikn</strong> package currently provides five types of objects and functions:</p>
+<ol style="list-style-type: decimal">
 <li>Dedicated colors and color palettes;<br>
 </li>
-<li>Functions for viewing, changing, and comparing color palettes (i.e., <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code>);<br>
+<li>Functions for viewing, changing, and comparing color palettes (i.e., <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code>);<br>
 </li>
-<li>Functions for creating new color palettes and for finding colors by their names (i.e., <code><a href="reference/newpal.html">newpal()</a></code> and <code><a href="reference/grepal.html">grepal()</a></code>);<br>
+<li>Functions for creating new color palettes and for finding colors by their names (i.e., <code><a href="reference/newpal.html">newpal()</a></code> and <code><a href="reference/grepal.html">grepal()</a></code>);<br>
 </li>
 <li>Functions for plotting graphical objects (e.g., boxes and frames);<br>
 </li>
@@ -144,25 +140,25 @@
 </ol>
 <p>Additional elements may be added as they become available. Please use responsibly!</p>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>The latest release of <strong>unikn</strong> is available from <a href="https://CRAN.R-project.org/">CRAN</a> at <a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a>:</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>The latest release of <strong>unikn</strong> is available from <a href="https://CRAN.R-project.org/" class="external-link">CRAN</a> at <a href="https://CRAN.R-project.org/package=unikn" class="external-link uri">https://CRAN.R-project.org/package=unikn</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">'unikn'</span>)  <span class="co"># install from CRAN client</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">library</span>(<span class="st">'unikn'</span>)           <span class="co"># loads the package</span></span></code></pre></div>
-<p>The current development version can be installed from its <a href="https://github.com">GitHub</a> repository at <a href="https://github.com/hneth/unikn/" class="uri">https://github.com/hneth/unikn/</a>:</p>
+<p>The current development version can be installed from its <a href="https://github.com" class="external-link">GitHub</a> repository at <a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co"># install.packages('devtools')  # (if not installed yet)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">'hneth/unikn'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">library</span>(<span class="st">'unikn'</span>)  <span class="co"># loads the package</span></span></code></pre></div>
 </div>
-<div id="colors-and-color-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#colors-and-color-functions" class="anchor"></a>Colors and color functions</h2>
-<p>A distinctive and recognizable color scheme is the most recognizable element of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>’s corporate design.</p>
-<div id="basic-color-palettes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#basic-color-palettes" class="anchor"></a>Basic color palettes</h3>
-<p>Basic color palettes are specified according to the <strong>Corporate Design Manual</strong> <a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf">(pdf)</a>:</p>
+<div class="section level2">
+<h2 id="colors-and-color-functions">Colors and color functions<a class="anchor" aria-label="anchor" href="#colors-and-color-functions"></a>
+</h2>
+<p>A distinctive and recognizable color scheme is the most recognizable element of the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>’s corporate design.</p>
+<div class="section level3">
+<h3 id="basic-color-palettes">Basic color palettes<a class="anchor" aria-label="anchor" href="#basic-color-palettes"></a>
+</h3>
+<p>Basic color palettes are specified according to the <strong>Corporate Design Manual</strong> <a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf" class="external-link">(pdf)</a>:</p>
 <p>The default color palette <code>pal_unikn</code> combines:</p>
 <ul>
 <li>5 shades of <code>pal_seeblau</code> (reversed, i.e., from darker to lighter);<br>
@@ -180,23 +176,22 @@
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="co"># View color palette (by plotting it): ----- </span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn)</span></code></pre></div>
 <p><img src="inst/pix/README-pal-unikn-1.png" style="display: block; margin: auto;"></p>
-<!-- <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/> -->
-<ul>
-<li><p>A shorter version consisting of 10 colors is provided as <code>pal_unikn_web</code>.</p></li>
-<li><p>An alternative color palette with 10 more muted colors (intended for PowerPoint presentations) is provided as <code>pal_unikn_ppt</code>.</p></li>
+<!-- <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/> --><ul>
+<li><p>A shorter version consisting of 10 colors is provided as <code>pal_unikn_web</code>.</p></li>
+<li><p>An alternative color palette with 10 more muted colors (intended for PowerPoint presentations) is provided as <code>pal_unikn_ppt</code>.</p></li>
 </ul>
-<p>Evaluating <code><a href="reference/seecol.html">seecol(pal = "unikn_basic")</a></code> shows these three basic unikn color palettes.</p>
+<p>Evaluating <code>seecol(pal = "unikn_basic")</code> shows these three basic unikn color palettes.</p>
 </div>
-<div id="all-color-palettes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#all-color-palettes" class="anchor"></a>All color palettes</h3>
+<div class="section level3">
+<h3 id="all-color-palettes">All color palettes<a class="anchor" aria-label="anchor" href="#all-color-palettes"></a>
+</h3>
 <p>Beyond the three variants of <code>pal_unikn</code>, the <strong>unikn</strong> package provides the following color palettes:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="st">"all"</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-pal-all-1.png" style="display: block; margin: auto;"></p>
-<p>Specifically, an Excel file called <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">Colours for complex graphics</a> defines 9 additional color palettes that are exported by <strong>unikn</strong> as the following named color palettes:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co"># Show 9 color gradient palettes:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="dt">pal =</span> <span class="st">"grad_all"</span>)</span></code></pre></div>
-<p>For details, evaluate or apply <code><a href="reference/seecol.html">seecol()</a></code> on the following color palettes:</p>
+<p>The color palettes <code><a href="reference/pal_unikn_web.html">pal_unikn_web()</a></code> and <code><a href="reference/pal_unikn_ppt.html">pal_unikn_ppt()</a></code> correspond to the official definitions of color palettes for electronic and print media, respectively. The default palette <code>pal_unikn</code> of <strong>unikn</strong> combines the five shades of blue in <code>pal_seeblau</code> with the six non-blue colors from <code><a href="reference/pal_unikn_web.html">pal_unikn_web()</a></code> to create a symmetrical palette of 11 colors.</p>
+<p>All color palettes exported by <strong>unikn</strong> are built from elements consisting of nine different color hues. Specifically, an Excel file entitled <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/" class="external-link">Colours for complex graphics</a> defines 9 color gradients that are created and exported by <strong>unikn</strong> as the following named color palettes:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="dt">pal =</span> <span class="st">"grad_all"</span>)</span></code></pre></div>
+<p>Overall, the <strong>unikn</strong> package exports 16 dedicated color palettes, plus the nine preferred colors of <code>pal_unikn_pref</code> (e.g., <code>Seeblau</code>, <code>Seegruen</code>, etc.) as named colors. For details on each named color hue, evaluate <code><a href="reference/seecol.html">seecol()</a></code> on the following color palettes:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co"># 8 mono-tone palettes: ----- </span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="co"># Name:          Nr:           Tone:          </span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>pal_seeblau      <span class="co"># 5 shades of seeblau</span></span>
@@ -206,64 +201,67 @@
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>pal_seegruen     <span class="co"># 5           seegruen </span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>pal_karpfenblau  <span class="co"># 5           karpfenblau</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>pal_pinky        <span class="co"># 5           pink</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>pal_Bordeaux     <span class="co"># 5           Bordeaux</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>pal_bordeaux     <span class="co"># 5           Bordeaux</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a><span class="co"># 1 signal (Ampel) palette: ----- </span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>pal_signal       <span class="co"># 3           signal/Ampel</span></span></code></pre></div>
-<p>Each color palette contains a preferred color.[1] All preferred colors are contained in a corresponding color palette <code>pal_unikn_pref</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co"># Using preferred colors: ----- </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>pal_unikn_pref             <span class="co"># color palette of preferred colors</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>pal_unikn_pref[<span class="dv">1</span>]          <span class="co"># preferred (named) color 1</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>pal_unikn_pref[[<span class="dv">1</span>]]        <span class="co"># color value 1: #59C7EB"</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>pal_unikn_pref[<span class="st">"Seeblau"</span>]  <span class="co"># preferred color by name</span></span></code></pre></div>
-<p>Additional pre-defined color palettes include:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co"># Plot additional color palettes: ----- </span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_pref)   <span class="co"># palette of  9 preferred colors</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_light)  <span class="co"># palette of  8 light colors (in 4 pairs)</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_dark)   <span class="co"># palette of  8 dark colors (in 4 pairs)</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_pair)   <span class="co"># palette of 16 paired colors (in 8 pairs)</span></span></code></pre></div>
+<p>Each color palette contains a preferred color.[1] All preferred colors (i.e., named colors of distinct color hues) are contained in a corresponding color palette <code>pal_unikn_pref</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co"># See the palette of 9 preferred colors/hues: </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_pref)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="co"># Using preferred colors:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>pal_unikn_pref             <span class="co"># color palette of 9 preferred colors</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>pal_unikn_pref[<span class="dv">1</span>]          <span class="co"># preferred (named) color 1</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>pal_unikn_pref[[<span class="dv">1</span>]]        <span class="co"># color value 1: #59C7EB"</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>pal_unikn_pref[<span class="st">"Seeblau"</span>]  <span class="co"># preferred color by name</span></span></code></pre></div>
+<p>Additional pre-defined color palettes in <strong>unikn</strong> include:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co"># See additional color palettes:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_light)  <span class="co"># palette of  8 light colors (in 4 pairs)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_dark)   <span class="co"># palette of  8 dark colors (in 4 pairs)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn_pair)   <span class="co"># palette of 16 paired colors (in 8 pairs)</span></span></code></pre></div>
 <p>More flexible and complex color palettes can be created by using the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions.</p>
 </div>
-<div id="overview-of-color-related-functions" class="section level3">
-<h3 class="hasAnchor">
-<a href="#overview-of-color-related-functions" class="anchor"></a>Overview of color-related functions</h3>
-<p>Two main functions <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> provide a convenient interface for <em>viewing</em> and <em>using</em> color palettes.</p>
-<p>Two additional functions <code><a href="reference/newpal.html">newpal()</a></code> and <code><a href="reference/grepal.html">grepal()</a></code> serve in auxiliary roles (by allowing to create new color palettes and finding colors whose names match some pattern).</p>
+<div class="section level3">
+<h3 id="overview-of-color-related-functions">Overview of color-related functions<a class="anchor" aria-label="anchor" href="#overview-of-color-related-functions"></a>
+</h3>
+<p>Two main functions — <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> — provide a simple interface for <em>viewing</em> and <em>using</em> color palettes.</p>
+<p>Additional color functions (i.e., <code><a href="reference/newpal.html">newpal()</a></code>, <code><a href="reference/grepal.html">grepal()</a></code>, <code><a href="reference/shades_of.html">shades_of()</a></code>, and <code><a href="reference/ac.html">ac()</a></code>) provide auxiliary functionality (like creating new color palettes, finding colors whose names match some pattern, creating color gradients, or adding transparency to colors).</p>
 </div>
-<div id="viewing-color-palettes-with-seecol" class="section level3">
-<h3 class="hasAnchor">
-<a href="#viewing-color-palettes-with-seecol" class="anchor"></a>Viewing color palettes with <code>seecol()</code>
+<div class="section level3">
+<h3 id="viewing-color-palettes-with-seecol">Viewing color palettes with <code>seecol()</code>
+<a class="anchor" aria-label="anchor" href="#viewing-color-palettes-with-seecol"></a>
 </h3>
 <p>The <code><a href="reference/seecol.html">seecol()</a></code> function enables a quick inspection of a color palette. It provides a quick overview over the details of a color palette and allows comparisons between multiple color palettes:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co"># Plot a color palette: ----- </span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co"># Plot a color palette: </span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="dt">pal =</span> pal_unikn_pref,            <span class="co"># palette to plot</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>       <span class="dt">col_brd =</span> <span class="st">"white"</span>, <span class="dt">lwd_brd =</span> <span class="dv">5</span>)  <span class="co"># color and width of borders</span></span></code></pre></div>
 <p><img src="inst/pix/README-seecol-pref-1.png" style="display: block; margin: auto;"></p>
-<div id="partial-color-palettes" class="section level4">
-<h4 class="hasAnchor">
-<a href="#partial-color-palettes" class="anchor"></a>Partial color palettes</h4>
+<div class="section level4">
+<h4 id="partial-color-palettes">Partial color palettes<a class="anchor" aria-label="anchor" href="#partial-color-palettes"></a>
+</h4>
 <p>When only a subset of a color palette are needed, the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions provide a reasonable subset of a known <strong>unikn</strong> color palette:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="co"># All color palettes: ----- </span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="co"># Subset of all color palettes: </span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="dt">n =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-pal-n-1.png" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="co"># Only pal_seeblau: ----- </span></span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="co"># Details of a partial palette: </span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="co"># seecol(pal_seeblau, n = 4)</span></span></code></pre></div>
 </div>
-<div id="changing-and-creating-color-palettes" class="section level4">
-<h4 class="hasAnchor">
-<a href="#changing-and-creating-color-palettes" class="anchor"></a>Changing and creating color palettes</h4>
-<p>The <code>usecol</code> and <code>seecol</code> functions provide some generic options for manipulating and showing color gradients based on given colors or color palettes. This serves 2 main functions:</p>
-<ol>
+<div class="section level4">
+<h4 id="changing-and-creating-color-palettes">Changing and creating color palettes<a class="anchor" aria-label="anchor" href="#changing-and-creating-color-palettes"></a>
+</h4>
+<p>The <code><a href="reference/usecol.html">usecol()</a></code> and <code><a href="reference/seecol.html">seecol()</a></code> functions provide some generic options for manipulating and showing color gradients based on given colors or color palettes. This serves two main functions:</p>
+<ol style="list-style-type: decimal">
 <li>Reducing or extending existing color palettes (to arbitrary lengths).</li>
 <li>Mixing and merging colors and color palettes into new color palettes.</li>
 </ol>
-<p>Here are some examples of these functions in action:</p>
-<ul>
-<li>Extending or reducing an existing color palette:</li>
-</ul>
-<!-- --><div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn, <span class="dt">n =</span> <span class="dv">21</span>)  </span></code></pre></div>
+<p>Here are some examples of both functions in action:</p>
+<ul><li>Extending or reducing an existing color palette:</li></ul>
+<!-- --><div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">seecol</span>(pal_unikn, <span class="dt">n =</span> <span class="dv">21</span>)  <span class="co"># extend a color palette</span></span></code></pre></div>
 <p><img src="inst/pix/README-col-scale-1-1.png" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="co"># seecol(pal_seeblau, n = 8)  # provides a subset of "good" colors</span></span></code></pre></div>
+<p>Users of the <code>%&gt;%</code> operator (from the <strong>magrittr</strong> package) may prefer the following pipe:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="kw">usecol</span>(pal_unikn, <span class="dt">n =</span> <span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">seecol</span>()</span></code></pre></div>
 <p>Note that reducing an <strong>unikn</strong> color palette selects a suitable subset of its colors, rather than just truncating the scale.</p>
 <!-- 
 
@@ -281,29 +279,21 @@ seecol(c(Seeblau, "white", Pinky), 11)
 # seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
 ```
 
--->
-<ul>
-<li>Mixing and merging colors and color palettes into new color palettes:</li>
-</ul>
-<!-- --><div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="co"># Combining color palettes (and colors): ----- </span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_petrol),  <span class="st">"white"</span>, pal_bordeaux), <span class="dv">11</span>,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>       <span class="dt">col_bg =</span> <span class="st">"grey90"</span>)</span></code></pre></div>
+--><ul><li>Mixing and merging colors and visualizing color palettes is possible on the fly:</li></ul>
+<!-- --><div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_petrol), <span class="st">"white"</span>, pal_bordeaux), <span class="dv">11</span>, <span class="dt">col_bg =</span> <span class="st">"grey90"</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-col-scale-3-1.png" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="co"># Related combinations:</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_seeblau), <span class="st">"white"</span>, pal_pinky), <span class="dv">11</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_seeblau), <span class="st">"white"</span>, pal_seegruen), <span class="dv">11</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_seeblau), <span class="st">"white"</span>, pal_peach), <span class="dv">11</span>)</span></code></pre></div>
+<p>Related examples include:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_seeblau), <span class="st">"white"</span>, pal_pinky), <span class="dv">11</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_seeblau), <span class="st">"white"</span>, pal_seegruen), <span class="dv">11</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="kw">seecol</span>(<span class="kw">c</span>(<span class="kw">rev</span>(pal_seeblau), <span class="st">"white"</span>, pal_peach), <span class="dv">11</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="using-color-palettes-with-usecol" class="section level3">
-<h3 class="hasAnchor">
-<a href="#using-color-palettes-with-usecol" class="anchor"></a>Using color palettes with <code>usecol()</code>
+<div class="section level3">
+<h3 id="using-color-palettes-with-usecol">Using color palettes with <code>usecol()</code>
+<a class="anchor" aria-label="anchor" href="#using-color-palettes-with-usecol"></a>
 </h3>
-<p>The <strong>unikn</strong> package exports the color palettes shown by <code><a href="reference/seecol.html">seecol(pal = "all")</a></code> and the nine preferred colors of <code>pal_unikn_pref</code> (e.g., <code>Seeblau</code>, <code>Seegruen</code>, etc.) as named colors.</p>
 <p>The <code><a href="reference/usecol.html">usecol()</a></code> function provides convenient access and additional options for using them in graphs. Here are some examples:</p>
-<ol>
-<li>Using <strong>unikn</strong> color palettes and functions in <strong>base</strong> R plots:</li>
-</ol>
+<ol style="list-style-type: decimal"><li>Using <strong>unikn</strong> color palettes and functions in <strong>base</strong> R plots:</li></ol>
 <p>By default, simply set the color argument of a plot to <code><a href="reference/usecol.html">usecol()</a></code> with some <strong>unikn</strong> color palette:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="co"># (a) Using a color palette:</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="kw">barplot</span>(<span class="dv">1</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>),  <span class="dt">col =</span> <span class="kw">usecol</span>(pal_unikn))</span></code></pre></div>
@@ -337,9 +327,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 
 <img src="inst/pix/README-usepal-demo-scatter-1.png" width="40%" style="display: block; margin: auto;" />
 
---><ol>
-<li>Visualizing <strong>unikn</strong> color palettes (using <code><a href="https://rdrr.io/r/graphics/image.html">image()</a></code> from <strong>graphics</strong>):</li>
-</ol>
+--><ol style="list-style-type: decimal"><li>Visualizing <strong>unikn</strong> color palettes (using <code><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image()</a></code> from <strong>graphics</strong>):</li></ol>
 <!-- --><div class="sourceCode" id="cb17"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="co"># Random images:</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">20</span></span>
@@ -352,9 +340,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true"></a><span class="kw">image</span>(m, <span class="dt">col =</span> <span class="kw">usecol</span>(pal_seeblau, <span class="dt">n =</span> <span class="dv">50</span>), </span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true"></a>      <span class="dt">main =</span> <span class="st">"50 shades of Seeblau"</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-use-pal-demo-image-1.png" style="display: block; margin: auto;"></p>
-<ol>
-<li>Using <strong>unikn</strong> in <code>ggplot()</code> commands (using <strong>ggplot2</strong>):</li>
-</ol>
+<ol style="list-style-type: decimal"><li>Using <strong>unikn</strong> in <code>ggplot()</code> commands (using <strong>ggplot2</strong>):</li></ol>
 <!-- --><div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="co"># 0. Create data: ---- </span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a><span class="co"># Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">50</span></span>
@@ -392,24 +378,22 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <span id="cb18-35"><a href="#cb18-35" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> cur_col) <span class="op">+</span></span>
 <span id="cb18-36"><a href="#cb18-36" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span></span>
 <span id="cb18-37"><a href="#cb18-37" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
-<!-- Image: ggplot2 with pal_unikn palette as link (in HTML): -->
-<p style="text-align:center;">
-<img src="./inst/pix/README-use_pal_ggplot2-1.png" align="center" alt="Using pal_unikn in ggplot" style="width: 500px; border:10;"></p>
+<!-- Image: ggplot2 with pal_unikn palette as link (in HTML): --><p style="text-align:center;"><img src="./inst/pix/README-use_pal_ggplot2-1.png" align="center" alt="Using pal_unikn in ggplot" style="width: 500px; border:10;"></p>
 </div>
-<div id="creating-color-palettes-with-newpal" class="section level3">
-<h3 class="hasAnchor">
-<a href="#creating-color-palettes-with-newpal" class="anchor"></a>Creating color palettes with <code>newpal()</code>
+<div class="section level3">
+<h3 id="creating-color-palettes-with-newpal">Creating color palettes with <code>newpal()</code>
+<a class="anchor" aria-label="anchor" href="#creating-color-palettes-with-newpal"></a>
 </h3>
 <p>The <code><a href="reference/newpal.html">newpal()</a></code> function allows creating new color palettes (typically as data frames with dedicated color names).</p>
-<p>The color palettes included in the <strong>unikn</strong> package are based on the CD manual of the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>, Germany. However, the functionality provided by the package makes it easy and straightforward to define and use your own color scales. In the following, we provide examples to illustrate how this can be achieved for other corporations or institutions.</p>
-<div id="the-colors-of-princeton-university" class="section level4">
-<h4 class="hasAnchor">
-<a href="#the-colors-of-princeton-university" class="anchor"></a>The colors of Princeton University</h4>
+<p>The color palettes included in the <strong>unikn</strong> package are based on the CD manual of the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>, Germany. However, the functionality provided by the package makes it easy and straightforward to define and use your own color scales. In the following, we provide examples to illustrate how this can be achieved for other corporations or institutions.</p>
+<div class="section level4">
+<h4 id="the-colors-of-princeton-university">The colors of Princeton University<a class="anchor" aria-label="anchor" href="#the-colors-of-princeton-university"></a>
+</h4>
 <p><img src="./inst/pix/logo_princeton.jpg" align="right" width="200px" alt="Princeton University" style="border:10;"></p>
-<p>The color scheme of <a href="https://princeton.edu/">Princeton University</a> is easily recognized by its combination of orange with black and white elements. The official guidelines (available <a href="https://communications.princeton.edu/guides-tools/logo-graphic-identity">here</a>) define “Princeton Orange” as Pantone (PMS) 158 C.</p>
+<p>The color scheme of <a href="https://princeton.edu/" class="external-link">Princeton University</a> is easily recognized by its combination of orange with black and white elements. The official guidelines (available <a href="https://communications.princeton.edu/guides-tools/logo-graphic-identity" class="external-link">here</a>) define “Princeton Orange” as Pantone (PMS) 158 C.</p>
 <ul>
 <li>
-<p>The PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/158-C" class="uri">https://www.pantone.com/color-finder/158-C</a> yields the following color values:</p>
+<p>The PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/158-C" class="external-link uri">https://www.pantone.com/color-finder/158-C</a> yields the following color values:</p>
 <ul>
 <li>RGB: <code>232 119 34</code><br>
 </li>
@@ -462,17 +446,15 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> my_pal) <span class="op">+</span></span>
 <span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span></span>
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div>
-<!-- Image: ggplot2 with Princeton palette as link (in HTML): -->
-<p style="text-align:center;">
-<img src="./inst/pix/README-use_ggplot2_princeton-1.png" alt="pal_princeton_1" style="width: 500px; border:10;"></p>
+<!-- Image: ggplot2 with Princeton palette as link (in HTML): --><p style="text-align:center;"><img src="./inst/pix/README-use_ggplot2_princeton-1.png" alt="pal_princeton_1" style="width: 500px; border:10;"></p>
 </div>
-<div id="the-colors-of-google" class="section level4">
-<h4 class="hasAnchor">
-<a href="#the-colors-of-google" class="anchor"></a>The colors of Google</h4>
-<p>Color palettes for other entities and purposes can easily be created. To illustrate the steps involved, let’s create a color palette of the well-known <a href="https://www.google.com/">Google</a> logo.</p>
+<div class="section level4">
+<h4 id="the-colors-of-google">The colors of Google<a class="anchor" aria-label="anchor" href="#the-colors-of-google"></a>
+</h4>
+<p>Color palettes for other entities and purposes can easily be created. To illustrate the steps involved, let’s create a color palette of the well-known <a href="https://www.google.com/" class="external-link">Google</a> logo.</p>
 <p>The typical steps of creating a new palette are:</p>
-<ol>
-<li><p>Choose some colors (and their R color names, or as RGB/HEX/HCL values, e.g., from sites like <a href="https://www.schemecolor.com" class="uri">https://www.schemecolor.com</a>).</p></li>
+<ol style="list-style-type: decimal">
+<li><p>Choose some colors (and their R color names, or as RGB/HEX/HCL values, e.g., from sites like <a href="https://www.schemecolor.com" class="external-link uri">https://www.schemecolor.com</a>).</p></li>
 <li><p>Define the colors as an R vector (of type character).</p></li>
 <li><p>Define their names as a second R vector (of type character).</p></li>
 <li><p>Use the <code><a href="reference/newpal.html">newpal()</a></code> command to define the new color palette.</p></li>
@@ -499,13 +481,13 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <p>See the vignette on “Institutional colors” of the <strong>unikn</strong> package for additional examples.</p>
 </div>
 </div>
-<div id="finding-colors-with-grepal" class="section level3">
-<h3 class="hasAnchor">
-<a href="#finding-colors-with-grepal" class="anchor"></a>Finding colors with <code>grepal()</code>
+<div class="section level3">
+<h3 id="finding-colors-with-grepal">Finding colors with <code>grepal()</code>
+<a class="anchor" aria-label="anchor" href="#finding-colors-with-grepal"></a>
 </h3>
 <p>The <code><a href="reference/grepal.html">grepal()</a></code> function allows finding colors in a color palettes by matching their name to a pattern.</p>
-<p>Specifically, <code><a href="reference/grepal.html">grepal(pattern, x)</a></code> searches a color palette <code>x</code> (i.e., a vector of color names or data frame of named colors) for elements that match a <code>pattern</code> and returns those elements (colors) that match the pattern. The <code>pattern</code> can be a regular expression.</p>
-<p>By default, <code><a href="reference/grepal.html">grepal()</a></code> searches the 657 named colors provided by <code><a href="https://rdrr.io/r/grDevices/colors.html">colors()</a></code> in <strong>base</strong> R:</p>
+<p>Specifically, <code>grepal(pattern, x)</code> searches a color palette <code>x</code> (i.e., a vector of color names or data frame of named colors) for elements that match a <code>pattern</code> and returns those elements (colors) that match the pattern. The <code>pattern</code> can be a regular expression.</p>
+<p>By default, <code><a href="reference/grepal.html">grepal()</a></code> searches the 657 named colors provided by <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> in <strong>base</strong> R:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="co"># Find colors matching a pattern: </span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a>oranges &lt;-<span class="st"> </span><span class="kw">grepal</span>(<span class="st">"orange"</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a></span>
@@ -516,7 +498,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <p><img src="inst/pix/README-grepal-example-1-1.png" style="display: block; margin: auto;"></p>
 <p>Providing a list of color palettes to the <code>pal</code> argument of the <code><a href="reference/seecol.html">seecol()</a></code> function allows comparing multiple color palettes:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="co"># Find colors:</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>pink_olive &lt;-<span class="st"> </span><span class="kw">grepal</span>(<span class="st">"(pink)|(olive)"</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>pink_olive    &lt;-<span class="st"> </span><span class="kw">grepal</span>(<span class="st">"(pink)|(olive)"</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true"></a>purple_orange &lt;-<span class="st"> </span><span class="kw">grepal</span>(<span class="st">"(purple)|(orange)"</span>)</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true"></a></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true"></a><span class="co"># See color palettes:</span></span>
@@ -524,32 +506,32 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true"></a>       <span class="dt">pal_names =</span> <span class="kw">c</span>(<span class="st">"pink|olive"</span>, <span class="st">"purple|orange"</span>), </span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true"></a>       <span class="dt">title =</span> <span class="st">"Comparing pink olives and purple oranges"</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-grepal-example-2-1.png" style="display: block; margin: auto;"></p>
-<p>To make <code><a href="reference/grepal.html">grepal()</a></code> more powerful, its <code>pattern</code> argument can use regular expressions, and its <code>x</code> argument works with both vectors and data frames (e.g., the <strong>unikn</strong> color palettes).</p>
+<p>To make the <code><a href="reference/grepal.html">grepal()</a></code> more flexible, its <code>pattern</code> argument can use regular expressions, and its <code>x</code> argument works with both vectors and data frames (e.g., the <strong>unikn</strong> color palettes).</p>
 </div>
 </div>
-<div id="text-decorations" class="section level2">
-<h2 class="hasAnchor">
-<a href="#text-decorations" class="anchor"></a>Text decorations</h2>
-<p>Beyond color functions, <strong>unikn</strong> also provides some functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining). By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the <code>new_plot</code> argument specifies a type of plot to be generated. As the use of these functions is explained in detail in <code>vignette("Text")</code>, we only provide some examples here:</p>
-<div id="mark" class="section level3">
-<h3 class="hasAnchor">
-<a href="#mark" class="anchor"></a>Mark</h3>
+<div class="section level2">
+<h2 id="text-decorations">Text decorations<a class="anchor" aria-label="anchor" href="#text-decorations"></a>
+</h2>
+<p>Beyond color functions, <strong>unikn</strong> provides additional functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining). By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the <code>new_plot</code> argument specifies a type of plot to be generated. As the use of these functions is explained in detail in <code>vignette("Text")</code>, we only provide some examples here:</p>
+<div class="section level3">
+<h3 id="mark">Mark<a class="anchor" aria-label="anchor" href="#mark"></a>
+</h3>
 <p>The <code><a href="reference/mark.html">mark()</a></code> function allows emphasizing text by plotting it with colored background (to provide the functionality of “Markieren”):</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="kw">mark</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Markieren"</span>, <span class="st">"ist ein Bestandteil"</span>, <span class="st">"von Studieren."</span>), </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a>     <span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="fl">.8</span>, <span class="dt">y_layout =</span> <span class="fl">.03</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>, <span class="dt">new_plot =</span> <span class="st">"slide"</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-mark-new-plot-1.png" style="display: block; margin: auto;"></p>
 </div>
-<div id="underline" class="section level3">
-<h3 class="hasAnchor">
-<a href="#underline" class="anchor"></a>Underline</h3>
+<div class="section level3">
+<h3 id="underline">Underline<a class="anchor" aria-label="anchor" href="#underline"></a>
+</h3>
 <p>The <code><a href="reference/uline.html">uline()</a></code> function allows emphasizing text by plotting it with colored underlining (to provide the functionality of “Unterstreichen”):</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="kw">uline</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Geradlinig"</span>, <span class="st">"Authentisch"</span>, <span class="st">"Beweglich"</span>, <span class="st">"Offen"</span>, <span class="st">"Paradiesisch"</span>), </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a>      <span class="dt">x =</span> <span class="fl">.05</span>, <span class="dt">y =</span> <span class="fl">.9</span>, <span class="dt">y_layout =</span> <span class="st">"even"</span>, <span class="dt">cex =</span> <span class="fl">1.1</span>, <span class="dt">font =</span> <span class="dv">2</span>, <span class="dt">new_plot =</span> <span class="st">"slide"</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-uline-demo-1.png" style="display: block; margin: auto;"></p>
 </div>
-<div id="post" class="section level3">
-<h3 class="hasAnchor">
-<a href="#post" class="anchor"></a>Post</h3>
+<div class="section level3">
+<h3 id="post">Post<a class="anchor" aria-label="anchor" href="#post"></a>
+</h3>
 <p>The <code><a href="reference/post.html">post()</a></code> function allows adding text to a rectangular <code>xbox</code> (to provide the functionality of “Merken”):</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="kw">xbox</span>(<span class="dt">col =</span> <span class="kw">usecol</span>(pal_seeblau[[<span class="dv">5</span>]]), <span class="dt">dim =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a><span class="kw">post</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Für eine"</span>, <span class="st">"Kultur der"</span>, <span class="st">"Kreativität"</span>), <span class="dt">x =</span> <span class="fl">.1</span>, <span class="dt">y =</span> <span class="fl">.8</span>, <span class="dt">cex =</span> <span class="fl">1.4</span>, <span class="dt">font =</span> <span class="dv">2</span>)</span></code></pre></div>
@@ -560,9 +542,9 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true"></a>     <span class="dt">col_bg =</span> pal_seegruen[[<span class="dv">1</span>]], <span class="dt">col =</span> <span class="kw">c</span>(Petrol, Pinky))</span></code></pre></div>
 <p><img src="inst/pix/README-post-demo-2-1.png" style="display: block; margin: auto;"></p>
 </div>
-<div id="headings" class="section level3">
-<h3 class="hasAnchor">
-<a href="#headings" class="anchor"></a>Headings</h3>
+<div class="section level3">
+<h3 id="headings">Headings<a class="anchor" aria-label="anchor" href="#headings"></a>
+</h3>
 <p>The <code><a href="reference/heading.html">heading()</a></code> function is a convenient wrapper around <code>mark</code>:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a><span class="kw">heading</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"pa-"</span>, <span class="st">"ra-"</span>, <span class="st">"die-"</span>, <span class="st">"sisch"</span>))</span></code></pre></div>
 <p><img src="inst/pix/README-heading-demo-1-1.png" style="display: block; margin: auto;"></p>
@@ -572,33 +554,27 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true"></a><span class="co">#&gt; Step-wise titles are discouraged: Consider re-arranging?</span></span></code></pre></div>
 <p><img src="inst/pix/README-heading-demo-2-1.png" style="display: block; margin: auto;"></p>
 </div>
-<div id="urls" class="section level3">
-<h3 class="hasAnchor">
-<a href="#urls" class="anchor"></a>URLs</h3>
+<div class="section level3">
+<h3 id="urls">URLs<a class="anchor" aria-label="anchor" href="#urls"></a>
+</h3>
 <p>Finally, the <code><a href="reference/url_unikn.html">url_unikn()</a></code> function allows formatting URLs the uni.kn way:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a>my_url &lt;-<span class="st"> </span><span class="kw">url_unikn</span>(<span class="st">"https://www.uni-konstanz.de/"</span>)  <span class="co"># input URL as copied from web browser</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a><span class="kw">post</span>(<span class="dt">labels =</span> my_url, <span class="dt">x =</span> <span class="fl">.2</span>, <span class="dt">y =</span> <span class="fl">.1</span>, <span class="dt">font =</span> <span class="dv">4</span>, <span class="dt">new_plot =</span> <span class="st">"xbox"</span>)</span></code></pre></div>
 <p><img src="inst/pix/README-url-post-1.png" style="display: block; margin: auto;"></p>
 </div>
-<div id="using-custom-color-palettes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#using-custom-color-palettes" class="anchor"></a>Using custom color palettes</h3>
-<!-- Uni Freiburg: -->
-<!-- MPG:  -->
-<p>If custom color palettes are available, the text decoration functions can be used for graphical annotations.</p>
-<ul>
-<li>For instance, using color palettes of other academic institutions (defined in the vignette on “Institutional colors”):</li>
-</ul>
+<div class="section level3">
+<h3 id="using-custom-color-palettes">Using custom color palettes<a class="anchor" aria-label="anchor" href="#using-custom-color-palettes"></a>
+</h3>
+<!-- Uni Freiburg: --><!-- MPG:  --><p>If custom color palettes are available, the text decoration functions can be used for graphical annotations.</p>
+<ul><li>For instance, using color palettes of other academic institutions (defined in the vignette on “Institutional colors”):</li></ul>
 <p><img src="inst/pix/README-others-txt-demo-1.png" style="display: block; margin: auto;"></p>
-<ul>
-<li>Using the color palette <code>pal_google</code> (defined above):</li>
-</ul>
+<ul><li>Using the color palette <code>pal_google</code> (defined above):</li></ul>
 <p><img src="inst/pix/README-others-google-1.png" style="display: block; margin: auto;"></p>
 </div>
-<div id="caveats" class="section level3">
-<h3 class="hasAnchor">
-<a href="#caveats" class="anchor"></a>Caveats</h3>
+<div class="section level3">
+<h3 id="caveats">Caveats<a class="anchor" aria-label="anchor" href="#caveats"></a>
+</h3>
 <p>Please note the following caveats:</p>
 <ul>
 <li><p>Plotting text (i.e., graphically rendering characters) is rarely a good idea. It typically doesn’t scale (when changing the size of images) and cannot be recognized automatically (e.g., copied, indexed, or scraped). Hence, the following functions should only be used in contexts in which no better solutions are available or practical (e.g., when specifically creating images, or needing to add text to graphs).</p></li>
@@ -607,9 +583,9 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <p>Overall, we hope that the following functions will be useful for plotting graphical elements (e.g., boxes, logos, etc.) and achieving a uniform look when styling visualizations.</p>
 </div>
 </div>
-<div id="todo" class="section level2">
-<h2 class="hasAnchor">
-<a href="#todo" class="anchor"></a>ToDo</h2>
+<div class="section level2">
+<h2 id="todo">ToDo<a class="anchor" aria-label="anchor" href="#todo"></a>
+</h2>
 <p><img src="./inst/pix/todo.png" alt="ToDo" align="right" width="140px" style="width: 140px; float: right; border:10;"></p>
 <p>The <strong>unikn</strong> package is work in progress. We are still working on:</p>
 <ul>
@@ -617,11 +593,11 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 </li>
 <li>Additional templates for images and slides</li>
 </ul>
-<p>Please <a href="https://www.spds.uni-konstanz.de/">contact us</a> in case you need additional features or want to help us implementing them.</p>
+<p>Please <a href="https://www.spds.uni-konstanz.de/" class="external-link">contact us</a> in case you need additional features or want to help us implementing them.</p>
 </div>
-<div id="resources" class="section level2">
-<h2 class="hasAnchor">
-<a href="#resources" class="anchor"></a>Resources</h2>
+<div class="section level2">
+<h2 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
+</h2>
 <p>The following versions of <strong>unikn</strong> and corresponding resources are currently available:</p>
 <table class="table">
 <colgroup>
@@ -637,13 +613,13 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <tbody>
 <tr class="odd">
 <td align="left">A. <strong>unikn</strong> (R package):</td>
-<td align="left"><a href="https://CRAN.R-project.org/package=unikn">Release version</a></td>
-<td align="left"><a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a></td>
+<td align="left"><a href="https://CRAN.R-project.org/package=unikn" class="external-link">Release version</a></td>
+<td align="left"><a href="https://CRAN.R-project.org/package=unikn" class="external-link uri">https://CRAN.R-project.org/package=unikn</a></td>
 </tr>
 <tr class="even">
 <td align="left"> </td>
-<td align="left"><a href="https://github.com/hneth/unikn/">Development version</a></td>
-<td align="left"><a href="https://github.com/hneth/unikn/" class="uri">https://github.com/hneth/unikn/</a></td>
+<td align="left"><a href="https://github.com/hneth/unikn/" class="external-link">Development version</a></td>
+<td align="left"><a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a></td>
 </tr>
 <tr class="odd">
 <td align="left">B. Online documentation:</td>
@@ -658,18 +634,16 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 </tbody>
 </table>
 </div>
-<div id="contact" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contact" class="anchor"></a>Contact</h2>
-<p>Please report any <strong>unikn</strong>-related issues at <a href="https://github.com/hneth/unikn/issues" class="uri">https://github.com/hneth/unikn/issues</a>. We appreciate your feedback, comments, or questions.</p>
+<div class="section level2">
+<h2 id="contact">Contact<a class="anchor" aria-label="anchor" href="#contact"></a>
+</h2>
+<p>Please report any <strong>unikn</strong>-related issues at <a href="https://github.com/hneth/unikn/issues" class="external-link uri">https://github.com/hneth/unikn/issues</a>. We appreciate your feedback, comments, or questions.</p>
 </div>
-<div id="copyrights" class="section level2">
-<h2 class="hasAnchor">
-<a href="#copyrights" class="anchor"></a>Copyrights</h2>
-<!-- uni.kn logo and link: -->
-<!-- ![](./inst/pix/logo.svg) -->
-<p><a href="https://www.uni-konstanz.de/"> <img src="./inst/pix/logo_unikn.png" alt="uni.kn" width="280px" align="right" style="width: 280px; float: right; border:12;"></a></p>
-<p>The <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">University of Konstanz’s Corporate Design</a> (CD) was created by <a href="https://www.strichpunkt-design.de/">Strichpunkt GmbH</a> and the <a href="https://www.uni-konstanz.de/">University of Konstanz</a> in 2014. The <strong>unikn</strong> package authors belong to the research group on <a href="https://www.spds.uni-konstanz.de/">Social Psychology and Decision Sciences</a> (SPDS) at the <a href="https://www.uni-konstanz.de/">University of Konstanz</a>. We make some CD elements available to fellow users of R (e.g., for creating scientific visualizations), but all copyrights remain with the original copyright holders.</p>
+<div class="section level2">
+<h2 id="copyrights">Copyrights<a class="anchor" aria-label="anchor" href="#copyrights"></a>
+</h2>
+<!-- uni.kn logo and link: --><!-- ![](./inst/pix/logo.svg) --><p><a href="https://www.uni-konstanz.de/" class="external-link"> <img src="./inst/pix/logo_unikn.png" alt="uni.kn" width="280px" align="right" style="width: 280px; float: right; border:12;"></a></p>
+<p>The <a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/" class="external-link">University of Konstanz’s Corporate Design</a> (CD) was created by <a href="https://www.strichpunkt-design.de/" class="external-link">Strichpunkt GmbH</a> and the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a> in 2014. The <strong>unikn</strong> package authors belong to the research group on <a href="https://www.spds.uni-konstanz.de/" class="external-link">Social Psychology and Decision Sciences</a> (SPDS) at the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>. We make some CD elements available to fellow users of R (e.g., for creating scientific visualizations), but all copyrights remain with the original copyright holders.</p>
 <p>We aim for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also tend to cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we allow for some liberties, mostly by relaxing some restrictions. Examples include:</p>
 <ul>
 <li>enabling finer color gradients and arbitrary combinations of color palettes (by applying the <code><a href="reference/seecol.html">seecol()</a></code> and <code><a href="reference/usecol.html">usecol()</a></code> functions to color palettes);<br>
@@ -679,35 +653,26 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 <li>using the spelling “color” (rather than “colour”) throughout the <strong>unikn</strong> package.</li>
 </ul>
 </div>
-<div id="license" class="section level2">
-<h2 class="hasAnchor">
-<a href="#license" class="anchor"></a>License</h2>
-<!-- unikn pkg logo and link: -->
-<p><a href="https://CRAN.R-project.org/package=unikn"> <img src="./inst/pix/unikn.png" alt="unikn::" align="right" width="150px" style="width: 150px; float: right; border:10;"></a></p>
-<!-- License: CC BY-SA 4.0 (also in Description) -->
-<!-- Image with link: -->
-<p><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a></p>
-<!-- Text with links: -->
-<p><span xmlns:dct="https://purl.org/dc/terms/" property="dct:title"><strong>unikn</strong></span> by <a xmlns:cc="https://creativecommons.org/ns#" href="https://github.com/hneth/unikn" property="cc:attributionName" rel="cc:attributionURL">Hansjörg Neth and Nico Gradwohl</a> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. (Based on a work at <a xmlns:dct="https://purl.org/dc/terms/" href="https://github.com/hneth/unikn" rel="dct:source">https://github.com/hneth/unikn</a>).</p>
+<div class="section level2">
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
+<!-- unikn pkg logo and link: --><p><a href="https://CRAN.R-project.org/package=unikn" class="external-link"> <img src="./inst/pix/unikn.png" alt="unikn::" align="right" width="150px" style="width: 150px; float: right; border:10;"></a></p>
+<!-- License: CC BY-SA 4.0 (also in Description) --><!-- Image with link: --><p><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a></p>
+<!-- Text with links: --><p><span xmlns:dct="https://purl.org/dc/terms/" property="dct:title"><strong>unikn</strong></span> by <a xmlns:cc="https://creativecommons.org/ns#" href="https://github.com/hneth/unikn" property="cc:attributionName" rel="cc:attributionURL" class="external-link">Hansjörg Neth and Nico Gradwohl</a> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Creative Commons Attribution-ShareAlike 4.0 International License</a>. (Based on a work at <a xmlns:dct="https://purl.org/dc/terms/" href="https://github.com/hneth/unikn" rel="dct:source" class="external-link">https://github.com/hneth/unikn</a>).</p>
 </div>
-<div id="references" class="section level2">
-<h2 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h2>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <p>The copyrights to all designs remain with their original creators:</p>
 <ul>
-<li><p>Universität Konstanz, © 2015, Version 1.6, 21. September 2015, <a href="https://www.uni-konstanz.de/">‒ uni-konstanz.de</a></p></li>
-<li><p>Strichpunkt GmbH, <a href="https://www.strichpunkt-design.de/">‒ strichpunkt-design.de</a></p></li>
+<li><p>Universität Konstanz, © 2015, Version 1.6, 21. September 2015, <a href="https://www.uni-konstanz.de/" class="external-link">‒ uni-konstanz.de</a></p></li>
+<li><p>Strichpunkt GmbH, <a href="https://www.strichpunkt-design.de/" class="external-link">‒ strichpunkt-design.de</a></p></li>
 </ul>
 <p>Color definitions are based on the specifications at:</p>
-<ul>
-<li><a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/">Corporate design at uni.kn</a></li>
-</ul>
-<!-- - [Corporate design at uni.kn](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/)   --><ul>
-<li><a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf">Corporate design manual (PDF)</a></li>
-</ul>
-<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   --><!-- Update: --><p>(Updated on 2021-03-28.)</p>
-<!-- eof. -->
-<p>[1] Whereas the official definition does not identify a preferred color for the Ampel color palette (<code>pal_signal</code>), we provide its alert color (i.e., <code>pal_signal[2]</code>) as a designated color <code>Signal</code>.</p>
+<ul><li><a href="https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/" class="external-link">Corporate design at uni.kn</a></li></ul>
+<!-- - [Corporate design at uni.kn](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/)   --><ul><li><a href="https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf" class="external-link">Corporate design manual (PDF)</a></li></ul>
+<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   --><!-- Update: --><p>(Updated on 2021-12-31.)</p>
+<!-- eof. --><p>[1] Whereas the official definition does not identify a preferred color for the Ampel color palette (<code>pal_signal</code>), we provide its alert color (i.e., <code>pal_signal[2]</code>) as a designated color <code>Signal</code>.</p>
 </div>
 </div>
 
@@ -715,57 +680,61 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=unikn">https://​cloud.r-project.org/​package=unikn</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/hneth/unikn/">https://​github.com/​hneth/​unikn/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/hneth/unikn/issues">https://​github.com/​hneth/​unikn/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li>
-<a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> </li>
-</ul>
-</div>
-<div class="citation">
-<h2>Citation</h2>
-<ul class="list-unstyled">
-<li><a href="authors.html">Citing unikn</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>
-<a href="https://www.spds.uni-konstanz.de/hans-neth">Hansjoerg Neth</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-5427-3141" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>
-<a href="https://www.spds.uni-konstanz.de/nico-gradwohl">Nico Gradwohl</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-8703-905X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="https://cloud.r-project.org/package=unikn" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/hneth/unikn/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/hneth/unikn/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=unikn"><img src="https://www.r-pkg.org/badges/version/unikn" alt="CRAN_status"></a></li>
-<li><a href="https://travis-ci.org/hneth/unikn/"><img src="https://travis-ci.org/hneth/unikn.svg?branch=master" alt="Build_status"></a></li>
-<li><a href="https://www.r-pkg.org/pkg/unikn"><img src="https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen" alt="Downloads"></a></li>
+<li>
+<a href="https://creativecommons.org/licenses/by-sa/4.0" class="external-link">CC BY-SA 4.0</a> </li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing unikn</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>
+<a href="https://www.spds.uni-konstanz.de/hans-neth" class="external-link">Hansjoerg Neth</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-5427-3141" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>
+<a href="https://www.spds.uni-konstanz.de/nico-gradwohl" class="external-link">Nico Gradwohl</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-8703-905X" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=unikn" class="external-link"><img src="https://www.r-pkg.org/badges/version/unikn" alt="CRAN_status"></a></li>
+<li><a href="https://travis-ci.org/hneth/unikn/" class="external-link"><img src="https://travis-ci.org/hneth/unikn.svg?branch=master" alt="Build_status"></a></li>
+<li><a href="https://www.r-pkg.org/pkg/unikn" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen" alt="Downloads"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://www.spds.uni-konstanz.de/hans-neth">Hansjoerg Neth</a>, <a href="https://www.spds.uni-konstanz.de/nico-gradwohl">Nico Gradwohl</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://www.spds.uni-konstanz.de/hans-neth" class="external-link">Hansjoerg Neth</a>, <a href="https://www.spds.uni-konstanz.de/nico-gradwohl" class="external-link">Nico Gradwohl</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -773,6 +742,8 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 
   
 
+
+  
 
   </body>
 </html>
