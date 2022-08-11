@@ -15,7 +15,7 @@ The current development version of **unikn** (0.4.0.9001+) is available at <http
 
 ## Minor changes
 
-- Add `distinct` argument to `usecol()` and `simcol()` to include or remove visual duplicates. [2022-08-11]
+- Add a `distinct` argument to `usecol()` and `simcol()` to include or remove visual duplicates. [2022-08-11]
 - Add utility functions for obtaining color transparency values (`get_alpha()`), 
 quantifying color distance (`col_distance()`), and 
 detecting and filtering visual duplicates (`col_distinct()`). [2022-08-11]
