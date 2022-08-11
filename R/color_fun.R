@@ -30,6 +30,9 @@
 #' (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
 #' Default: \code{alpha = NA} (i.e., no modification of opacity).
 #' 
+#' @param distinct Boolean: Return only visually distinct colors? 
+#' Default: \code{distinct = FALSE} (i.e., include duplicate colors).
+#' 
 #' @param use_names A logical value indicating whether colors should be returned as a named vector.
 #' Default: \code{use_names = FALSE}, for compatibility with \code{ggplot}.  
 #' 
@@ -59,6 +62,10 @@
 #' pal_3 <- usecol(pal_princeton_1, n = 7)
 #' seecol(pal_3)
 #' 
+#' # Removing visual duplicates:
+#' usecol(c("gray", "grey", "red", "red1"), distinct = TRUE)
+#' seecol(usecol(c(pal_unikn, pal_seeblau), distinct = TRUE), title = "Showing only unique colors")
+#' 
 #' @family color functions
 #'
 #' @seealso
@@ -78,7 +85,8 @@
 
 usecol <- function(pal = pal_unikn,
                    n = "all",
-                   alpha = NA,  # regulate transparency. 
+                   alpha = NA,  # regulate transparency
+                   distinct = FALSE,   # remove visual duplicates? 
                    use_names = FALSE,  # should colors be returned as a named vector?
                    use_col_ramp = FALSE) {
   
@@ -154,7 +162,7 @@ usecol <- function(pal = pal_unikn,
       
       pal_name <- all_palkn[pal_ix]  # get palette name
       
-      pal <- pal_inp  # redefine. 
+      pal <- pal_inp  # redefine
       
       # Define sets of known palettes:
       set1 <- pal_name %in% c("pal_peach",
@@ -171,7 +179,7 @@ usecol <- function(pal = pal_unikn,
       set6 <- pal_name %in% c("pal_unikn_dark", "pal_unikn_light", "pal_unikn_pref") 
       set7 <- pal_name %in% "pal_signal"
       
-      pal_set <- which(c(set1, set2, set3, set4, set5, set6, set7))  # define a set number.
+      pal_set <- which(c(set1, set2, set3, set4, set5, set6, set7))  # define a set number
       
       # Determine the color output:
       out_col <- switch(pal_set,
@@ -293,7 +301,7 @@ usecol <- function(pal = pal_unikn,
           rev(out_col)
       } # if palette was reversed, reverse result as well.
       
-      pal_def <- TRUE  # set flag that palette is defined.
+      pal_def <- TRUE  # set flag that palette is defined
       
     }
     
@@ -340,7 +348,7 @@ usecol <- function(pal = pal_unikn,
     col_names[is.na(col_names)] <- ""
     
     # Processs name vectors (to avoid duplicates): 
-    col_names[col_names == kn_names] <- ""  # remove duplicates in col names. 
+    col_names[col_names == kn_names] <- ""  # remove duplicates in col names 
     col_names[!col_names == "" & !kn_names == ""] <- 
       paste0("/", col_names[!col_names == "" & !kn_names == ""])
     # adding a slash to distinguish different names for the same color. 
@@ -354,10 +362,14 @@ usecol <- function(pal = pal_unikn,
   
   if ( !(is.null(alpha) | is.na(alpha))) { 
     
-    cmnt <- comment(out_col)  # save palette name.
+    cmnt <- comment(out_col)  # save palette name
     out_col <- adjustcolor(out_col, alpha.f = alpha)
-    comment(out_col) <- cmnt  # restore name.
+    comment(out_col) <- cmnt  # restore name
     
+  }
+  
+  if (distinct){ # remove visual duplicates:
+    out_col <- col_distinct(out_col, use_alpha = FALSE) # (based on HEX values, but ignoring transparency)
   }
   
   return(out_col)
@@ -386,6 +398,9 @@ usecol <- function(pal = pal_unikn,
 #'   Plot visual vectors of all current color palettes for comparing them. 
 #'
 #' }
+#' 
+#' Specifying \code{distinct = TRUE} removes visual duplicate colors (based on HEX values, 
+#' ignoring transparency), but only when showing an individual color palette \code{pal}. 
 #' 
 #' The \code{title} and \code{pal_names} arguments add control over plotted text labels. 
 #' However, the length of a character vector provided to \code{pal_names} must correspond 
@@ -529,16 +544,16 @@ usecol <- function(pal = pal_unikn,
 seecol <- function(pal = "unikn_all",  # which palette to output?
                    n = "all",
                    alpha = NA,
-                   hex = NULL,      # determine by crowdedness, whether hex values should be shown in detail view.
-                   rgb = NULL,      # determine, whether rgb values should be shown in detail view (defaults to TRUE)
-                   col_bg = NULL,   # color of background
-                   col_brd = NULL,  # border color of the boxes
-                   lwd_brd = NULL,  # line width of box borders
-                   grid = TRUE,     # show grid? 
-                   title = NA,      # plot title? Using default title = NA constructs a default title
-                   mar_note = NA,   # optional margin note (on bottom right)
-                   pal_names = NA,  # names of color palettes or colors (as character vector)
-                   ...              # additional arguments to plot.default().
+                   hex = NULL,       # determine by crowdedness, whether hex values should be shown in detail view.
+                   rgb = NULL,       # determine, whether rgb values should be shown in detail view (defaults to TRUE)
+                   col_bg = NULL,    # color of background
+                   col_brd = NULL,   # border color of the boxes
+                   lwd_brd = NULL,   # line width of box borders
+                   grid = TRUE,      # show grid? 
+                   title = NA,       # plot title? Using default title = NA constructs a default title
+                   mar_note = NA,    # optional margin note (on bottom right)
+                   pal_names = NA,   # names of color palettes or colors (as character vector)
+                   ...               # additional arguments to plot.default().
 ) {
   
   # 1. Preparations: ----- 
@@ -780,6 +795,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
   } else {  # if length(pal_tmp) list is NOT > 1:
     
+    
     # 3-2. Plot a detailed view of 1 palette: -----  
     
     names(pal_tmp) <- NULL  # remove first order names! 
@@ -873,21 +889,21 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       rgb <- ifelse(wdth_rgb > xlim[2] | cex_rgb < cex_min, FALSE, TRUE)
     }
     
-    # Plot rectangles:
+    # Plot rectangles: ----
     # if (is.null(lwd_brd)) { lwd_brd <- 1 } # set default lwd_brd
     
     plot_col(x = pal_tmp, ypos = y_rect, shape = "rect", ylen = 0.5, plot.new = FALSE, col_brd = col_brd, lwd = lwd_brd#,
              # ...  # other graphical parameters
     )
     
-    # Plot circles:
+    # Plot circles: ---- 
     circle_len <- ifelse(((xlim[2] / 10) < .70), (xlim[2] / 10), .70)
     
     plot_col(x = pal_tmp, ypos = y_circ, shape = "circle", xlen = circle_len, plot.new = FALSE, col_brd = col_brd, lwd = lwd_brd#,
              # ...  # other graphical parameters
     )
     
-    # Color names:
+    # Color names: ----
     if ((!any(is.na(pal_names))) &                # pal_names were provided
         (length(pal_names) == length(pal_tmp))){  # and of appropriate length:  
       
@@ -924,7 +940,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     text(x = pos_ind, y = 0, labels = txt_ind, pos = 3, xpd = TRUE,
          cex = cex_ixs, col = grey(0, 2/3))
     
-    # HEX values:
+    # HEX values: ---- 
     if (hex) {
       
       # Convert to hex (if not already in this format): 
@@ -932,7 +948,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
         pal_tmp <- rgb(t(col2rgb(pal_tmp)), maxColorValue = 255)
       }
       
-      # Plot HEX values:
+      # Plot HEX values: 
       # cex_hex <- min(cex_hex, cex_rgb)
       wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol
       
@@ -976,7 +992,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       
     } # if (hex) etc.
     
-    # RGB values:
+    # RGB values: ----
     if (rgb) {
       
       text(x = rep(0, 3),
@@ -994,6 +1010,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     } # if (rgb) etc.
     
   }  # if (length(pal_tmp) > 1) etc. 
+  
   
   # Marging note: ----
   
@@ -1348,11 +1365,11 @@ newpal <- function(col,            # a vector of colors
 
 grepal <- function(pattern, x = colors(), ignore_case = TRUE){
   
-  # Initialize: 
+  # Initialize: ----
   ix <- NA  # index
   cv <- NA  # color vector
   
-  # Main: 
+  # Main: ---- 
   if (is.vector(x)){
     # if (ds4psy::is_vector(x) & !is.data.frame(x)){
     
@@ -1371,7 +1388,7 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
     
   } # end if.
   
-  # Output:
+  # Output: ---- 
   return(cv)
   
 } # grepal().  
@@ -1666,6 +1683,9 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 #' either 1 or 3 numeric values, in RGB range from 0 to 255).
 #' Default: \code{tol = c(25, 50, 75)}. 
 #' 
+#' @param distinct Boolean: Return only visually distinct colors? 
+#' Default: \code{distinct = TRUE} (i.e., remove duplicate colors). 
+#' 
 #' @param plot Boolean: Plot the output (using \code{\link{seecol}})? 
 #' Default: \code{plot = TRUE}. 
 #' 
@@ -1701,7 +1721,8 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 
 # - Definition: ------ 
 
-simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), plot = TRUE){
+simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), 
+                   distinct = TRUE, plot = TRUE){
   
   # Prepare: ---- 
   
@@ -1777,9 +1798,15 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), p
   # e. Apply filter:
   outpal <- col_candidates[ix_all_true]
   
-  # f. Process outpal:
+  
+  # Process outpal: ----
+  
   outpal <- c(col_target, outpal)  # add col_target to front
-  outpal <- col_distinct(outpal)   # remove duplicate colors (using HEX values to judge identity, ignoring transparency)
+  
+  if (distinct){ # remove visual duplicates:
+    outpal <- col_distinct(outpal, use_alpha = FALSE) # (based on HEX values, but ignoring transparency)
+  }
+  
   outpal <- usecol(outpal, use_names = TRUE)  # use color names
   
   
@@ -1798,6 +1825,7 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), p
     seecol(outpal, title = caption)
     
   } # if (plot).
+  
   
   # Output: ----
   
