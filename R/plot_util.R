@@ -345,7 +345,9 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
     message(paste0("Minimum y of layout is ", min_y_out, ", while y_bot = ", y_bot))
   }
   
-  # (E) Return: ---- 
+  
+  # (E) Output: ---- 
+  
   return(y_out)
   
 } # layout_y(). 
