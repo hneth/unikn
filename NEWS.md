@@ -1,5 +1,5 @@
 
-# unikn 0.4.0.9009
+# unikn 0.4.0.9010
 
 The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -15,6 +15,9 @@ The current development version of **unikn** (0.4.0.9001+) is available at <http
 
 ## Minor changes
 
+- Add utility functions for obtaining color transparency values (`get_alpha()`), 
+quantifying color distance (`col_distance()`), and 
+detecting and filtering visual duplicates (`col_distinct()`). [2022-08-11]
 - Add an `x_layout` argument to control horizontal positions of text labels (e.g., by numeric increments, centering, right-adjusted). [2021-04-24] 
 
 <!-- Add blank line.  --> 
@@ -142,6 +145,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-08-10.]
+[File `NEWS.md` updated on 2022-08-11.]
 
 <!-- eof. -->
