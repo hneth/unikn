@@ -1693,11 +1693,11 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 #' @examples 
 #' # Basic uses:
 #' simcol(col_target = "red")
-#' simcol(Seeblau, tol = 30)
-#' simcol("gold", tol = c(20, 30, 40))
+#' simcol("tan", tol = 15)
+#' simcol(Seeblau, tol = c(20, 30, 40))
 #' simcol("blue", col_candidates = pal_unikn_pref, tol = 120)
 #' 
-#' # More fine-grained color matching:
+#' # Fine-tuning the range of color matching:
 #' simcol(Seeblau, tol = 30)  # = simcol(Seeblau, tol = c(30, 30, 30))
 #' simcol(Seeblau, tol = c(20, 20, 80))
 #' 
