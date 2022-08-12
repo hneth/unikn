@@ -602,7 +602,7 @@ By default, `grepal()` searches the 657 named colors provided by
 
 ``` r
 # Find colors matching a pattern: 
-oranges <- grepal("orange")
+oranges <- grepal("orange", plot = FALSE)
 
 # See color palette:
 seecol(oranges, 
@@ -617,8 +617,8 @@ Providing a list of color palettes to the `pal` argument of the
 
 ``` r
 # Find colors:
-pink_olive    <- grepal("(pink)|(olive)")
-purple_orange <- grepal("(purple)|(orange)")
+pink_olive    <- grepal("(pink)|(olive)", plot = FALSE)
+purple_orange <- grepal("(purple)|(orange)", plot = FALSE)
 
 # See color palettes:
 seecol(pal = list(pink_olive, purple_orange), 
