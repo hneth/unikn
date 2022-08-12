@@ -1,5 +1,5 @@
 ## color_fun.R | unikn
-## spds | uni.kn | 2022 08 11
+## spds | uni.kn | 2022 08 12
 ## ---------------------------
 
 ## Define color-related functions 
@@ -63,8 +63,8 @@
 #' seecol(pal_3)
 #' 
 #' # Removing visual duplicates:
-#' usecol(c("gray", "grey", "red", "red1"), distinct = TRUE)
-#' seecol(usecol(c(pal_unikn, pal_seeblau), distinct = TRUE), title = "Showing only unique colors")
+#' usecol(c("black", "#000000", "gray", "grey", "red", "red1"), distinct = TRUE)
+#' seecol(usecol(c(pal_unikn, pal_seeblau), distinct = TRUE), title = "Using distinct colors")
 #' 
 #' @family color functions
 #'
@@ -1393,7 +1393,6 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
   
 } # grepal().  
 
-
 ## Check:
 # grepal("cyan")
 # 
@@ -1907,9 +1906,13 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75),
 
 ## ToDo: ------
 
-# - Add a distinct = FALSE/TRUE argument to seecol(), usecol(), and/or grepal() that allows removing visual duplicates
-#   by verifying col_distinct(pal) --- with or w/o considering color transparency (see use_alpha argument).
-#   Note: colors() also uses a distinct = TRUE argument to remove visual duplicates. 
+# - Replace 'title' by 'main' argument (and deprecate 'title') in seecol(). 
+
+# - Consider adding a Boolean 'plot' argument to grepal(), as in simcol(). 
+
+# - Consider adding distinct = FALSE/TRUE argument to seecol() or grepal() 
+#   to allow removing visual duplicates by verifying col_distinct(pal) --- with or w/o considering color transparency (see use_alpha argument).
+#   Note: colors() also uses a 'distinct' argument to remove visual duplicates. 
 
 # - seecol(): Add options for showing HCL values (see HCL_color_exploration.Rmd). 
 # - seecol(): Add options for printing multiple palettes with fixed width and as continuous color palettes.
