@@ -1296,12 +1296,15 @@ newpal <- function(col,            # a vector of colors
 #'
 #' \code{grepal} returns a vector of colors whose names match a regular expression (regex). 
 #' 
-#' By default, the \strong{base} R vector of named colors (i.e., \code{colors()}) is searched 
+#' By default, the \bold{base} R vector of named colors (i.e., \code{colors()}) is searched 
 #' for names matching a \code{pattern} (which can be a simple string or regular expression). 
 #' 
 #' If \code{x} (i.e., the object to be searched) is provided, 
 #' it is must be a vector of color names or a data frame of named color objects 
 #' (i.e., a color palette). 
+#' 
+#' If \code{plot = TRUE}, \code{grepal} also visualizes the detected colors  
+#' (by passing its result to \code{\link{seecol}}, as a side-effect).
 #' 
 #' This function facilitates searching colors by name and 
 #' yields (a vector of) colors of similar color hue (provided 
@@ -1317,34 +1320,34 @@ newpal <- function(col,            # a vector of colors
 #' 
 #' @param ignore_case Should the case of pattern be ignored 
 #' (passed to \code{ignore.case} of the \code{grep} function)?   
-#' Default: \code{ignore_case = TRUE}. 
+#' Default: \code{ignore_case = TRUE}.
+#' 
+#' @param plot Boolean: Plot the output (using \code{\link{seecol}})? 
+#' Default: \code{plot = TRUE}. 
 #' 
 #' @examples
-#' grepal("cyan")
+#' grepal("tan")
 #' 
 #' # With regular expressions:
-#' some_grey  <- grepal("gr(a|e)y")
-#' start_grey <- grepal("^gr(a|e)y")
-#' only_grey  <- grepal("^gr(a|e)y$")
+#' some_grey  <- grepal("gr(a|e)y", plot = FALSE)
+#' start_grey <- grepal("^gr(a|e)y", plot = FALSE)
+#' only_grey  <- grepal("^gr(a|e)y$", plot = FALSE)
 #' 
 #' length(some_grey)
 #' length(only_grey)
 #' 
 #' # With other color objects (df as x):
 #' grepal("blau", x = pal_unikn)
-#' grepal("SEE", x = pal_unikn_pref)
+#' grepal("SEE", x = pal_unikn_pref, ignore_case = FALSE)
 #' 
 #' # Applications:
 #' seecol(grepal("white"), col_bg = "lightblue2", title = "See 'white' colors()")
 #' 
-#' olives  <- grepal("olive")
-#' oranges <- grepal("orange")
+#' olives  <- grepal("olive", plot = FALSE)
+#' oranges <- grepal("orange", plot = FALSE)
 #' seecol(list(olives, oranges), 
 #'        pal_names = c("olives", "oranges"), 
 #'        title = "Comparing olives and oranges")
-#' 
-#' seecol(grepal("SEE", pal_unikn), title = "All 'SEE' colors in pal_unikn")
-#' seecol(grepal("blau", pal_unikn_pref), title = "All 'blau' colors in pal_unikn_pref")
 #' 
 #' @family color functions
 #' 
@@ -1363,13 +1366,15 @@ newpal <- function(col,            # a vector of colors
 
 # - Definition: ------ 
 
-grepal <- function(pattern, x = colors(), ignore_case = TRUE){
+grepal <- function(pattern, x = colors(), ignore_case = TRUE, plot = TRUE){
   
   # Initialize: ----
+  
   ix <- NA  # index
   cv <- NA  # color vector
   
   # Main: ---- 
+  
   if (is.vector(x)){
     # if (ds4psy::is_vector(x) & !is.data.frame(x)){
     
@@ -1388,7 +1393,27 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
     
   } # end if.
   
+  
+  # Plot: ----
+  
+  if (plot){
+    
+    n <- length(cv)
+    
+    if (n == 1L) { cword <- "color" } else { cword <- "colors" }
+    caption <- paste0("Found ", n, " ", cword, " matching ", "'", pattern, "'")
+    
+    if (n > 0){
+      seecol(usecol(cv), title = caption)
+    } else {
+      message(caption)
+    }
+    
+  } # if (plot).
+  
+  
   # Output: ---- 
+  
   return(cv)
   
 } # grepal().  
@@ -1410,7 +1435,9 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE){
 # seecol(grepal("white"), col_bg = "lightblue2")
 # seecol(grepal("SEE", pal_unikn))
 # seecol(grepal("blau", pal_unikn_pref))
-
+# 
+# grepal("SEE", pal_unikn)
+# seecol(grepal("blau", pal_unikn_pref, plot = FALSE), title = "All colors matching 'blau'")
 
 
 # 5. shades_of(): Get n lighter or darker versions of a given color: ------ 
@@ -1558,7 +1585,8 @@ shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
 
 ac <- function(col, alpha = .50, use_names = TRUE) {
   
-  # (A) Adjust color vector (col_adj): ------ 
+  # Adjust color vector (col_adj): ------ 
+  
   len_col   <- length(col)
   len_alpha <- length(alpha)
   n_col     <- max(len_col, len_alpha)
@@ -1587,7 +1615,8 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
     
   }
   
-  # (B) Add/adjust color names (to indicate alpha): ------ 
+  
+  # Add/adjust color names (to indicate alpha): ------ 
   
   if (use_names){
     
@@ -1608,7 +1637,8 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
     
   } # if (use_names) end. 
   
-  # (C) Finish: ------ 
+  
+  # Finish: ------ 
   
   return(col_adj)
   
@@ -1656,8 +1686,8 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 #' \code{col_candidates} (set to `colors()` of \strong{grDevices} per default) 
 #' that are similar to the specified target color \code{col_target}. 
 #' 
-#' If \code{plot = TRUE}, \code{simcol} also uses \code{\link{seecol}} 
-#' to visualize its results (as a side-effect).
+#' If \code{plot = TRUE}, \code{simcol} also visualizes the detected colors  
+#' (by passing its result to \code{\link{seecol}}, as a side-effect).
 #' 
 #' Color similarity is defined in terms of the distance between colors' RGB values, 
 #' which must be within the numeric tolerance threshold(s) specified by \code{tol} 
@@ -1809,7 +1839,7 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75),
   outpal <- usecol(outpal, use_names = TRUE)  # use color names
   
   
-  # Plot (as side effect): ----
+  # Plot: ----
   
   if (plot){
     
@@ -1819,7 +1849,7 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75),
       col_target_name <- as.character(col_target)
     }
     
-    caption <- paste0("Colors similar to ", col_target_name)
+    caption <- paste0("Colors similar to ", "'", col_target_name, "'")
     
     seecol(outpal, title = caption)
     
