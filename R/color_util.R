@@ -254,6 +254,7 @@ parse_pal <- function(pal) {
     }
     
     # Split input string; getting everything within the parentheses:
+    
     if ( grepl("\\(", tmp) ) {  # only if any parenthesis exists.
       
       tmp <- sub(".*?\\(+(.*)\\).*", "\\1", tmp, perl=TRUE)
@@ -278,13 +279,14 @@ parse_pal <- function(pal) {
     elem <- sub(".*?\\(+(.*)\\).*", "\\1", elem, perl = TRUE)
     
     # Existence checks: ----- 
+    
     ## Now ask for every element, whether it exists:
     elemex <- sapply(elem, function(x) exists(x) & x != "pal")
     # also ask, whether the element is named pal, to prevent name conflicts!
     # Was: elemex <- sapply(elem, exists)
     
     
-    if ( any(!elemex) ) {  # only if not all inputs have been resolved
+    if ( any(!elemex) ) { # only if not all inputs have been resolved
       
       # Those which are still unknown: Are those colors? 
       elemex[!elemex] <- sapply(elem[!elemex], isCol)
@@ -299,7 +301,8 @@ parse_pal <- function(pal) {
       
     }
     
-    # Handle undefined palettes: 
+    # Handle undefined palettes: ---- 
+    
     if (!all(elemex)) {
       
       nex <- gsub("pal_", "", elem[!elemex])  # remove any "pal_" string parts. 
@@ -318,10 +321,10 @@ parse_pal <- function(pal) {
       
     }
     
-    # Get all palettes:
+    # Get all palettes: 
     out <- lapply(elem, function(x) if( isCol(x) ) x else get(x) )
     
-    # Apply any previously detected functions: 
+    # Apply any previously detected functions: ----  
     if ( any(!is.na(funs)) ) {
       
       out[!is.na(funs)] <- apply(rbind(out, funs), MARGIN = 2, FUN = function(x) {
@@ -341,7 +344,8 @@ parse_pal <- function(pal) {
   ix_nameless <- is.null(names(out)) | names(out) == ""
   names(out)[ix_nameless] <- out[ix_nameless]
   
-  # Output:
+  # Output: ---- 
+  
   return(out)
   
 } # parse_pal().
