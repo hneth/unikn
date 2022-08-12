@@ -279,9 +279,9 @@ Here are some additional examples for using the `grepal()` function for finding 
 
 ```{r grepal-example-1, fig.width = 5, fig.height = 4, fig.align = 'center'}
 # Get color palettes matching a pattern:
-pal_1 <- grepal("orange")
-pal_2 <- grepal("olive")
-pal_3 <- grepal("white")
+pal_1 <- grepal("orange", plot = FALSE)
+pal_2 <- grepal("olive", plot = FALSE)
+pal_3 <- grepal("white", plot = FALSE)
 
 # See individual palettes:
 # seecol(pal_1, title = "Hues of 'orange' colors()")
@@ -304,16 +304,16 @@ Let's compare different types of "blue", "orange", and "purple or violet" provid
 
 ```{r grepal-example-3, fig.width = 6, fig.align = .50, fig.align = 'center'} 
 # Search colors() with specific patterns (in their names): 
-blues    <- grepal("blue$")   # ending on "blue"
-oranges  <- grepal("orange")  # containing "orange"
-purpviol <- grepal("purple|violet")  # containing "purple" or "violet"
+blues    <- grepal("blue$", plot = FALSE)   # ending on "blue"
+oranges  <- grepal("orange", plot = FALSE)  # containing "orange"
+purpviol <- grepal("purple|violet", plot = FALSE)  # containing "purple" or "violet"
 
 # Search unikn palettes for color names: 
-blaus_1 <- grepal("blau", pal_unikn)
-blaus_2 <- grepal("blau", pal_karpfenblau)
-pinks <- grepal("pink", pal_pinky)
-peach <- grepal("peach", pal_peach)
-baux  <- grepal("bordeaux", pal_bordeaux)
+blaus_1 <- grepal("blau", pal_unikn, plot = FALSE)
+blaus_2 <- grepal("blau", pal_karpfenblau, plot = FALSE)
+pinks <- grepal("pink", pal_pinky, plot = FALSE)
+peach <- grepal("peach", pal_peach, plot = FALSE)
+baux  <- grepal("bordeaux", pal_bordeaux, plot = FALSE)
 
 # See multiple color palettes: 
 seecol(list(blues, oranges, purpviol, 

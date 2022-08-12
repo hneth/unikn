@@ -405,29 +405,28 @@ simcol("deepskyblue", col_candidates = pal_unikn, tol = c(50, 50, 100))
 
 ## Searching for color names with `grepal()` 
 
-A common situation in R is that we want some particular shade of color (e.g., some sort of red), but also know that the color named "red" is _not_ the one we want. Instead, we would like to see all colors that contain "red" in its name. This is what `grepal()` is made for:
+A common situation in\ R is that we want some particular shade of color (e.g., some sort of purple), but also know that the color named "purple" is _not_ the one we want. 
+Instead, we would like to see all colors that contain the keyword "purple" in its name. 
+This is what `grepal()` is made for:
 
-```{r grepal-1, fig.width = 6, fig.height = 4, fig.align = 'center'}
-grepal("red")  # get 27 names of colors() with "red" in their name
-
-seecol(grepal("red"))  # see all colors() with "red" in their name
+```{r grepal-1, fig.width = 6, fig.height = 4, fig.align = 'center', fig.show = 'hold'}
+grepal("purple")  # get & see 10 names of colors() with "purple" in their name
 ```
 
 Note that the `grepal()` allows for regular expressions:
 
 ```{r grepal-2}
-length(grepal("gr(a|e)y"))   # shades of "gray" or "grey"
-length(grepal("^gr(a|e)y"))  # shades starting with "gray" or "grey"
-length(grepal("^gr(a|e)y$")) # shades starting and ending with "gray" or "grey"
+length(grepal("gr(a|e)y", plot = FALSE))    # shades of "gray" or "grey"
+length(grepal("^gr(a|e)y", plot = FALSE))   # shades starting with "gray" or "grey"
+length(grepal("^gr(a|e)y$", plot = FALSE))  # shades starting and ending with "gray" or "grey"
 ```
 
-By default, `grepal()` searches the vector of named colors `x = colors()` (provided by **grDevices**). 
-However, it also allows searching color palettes provided as data frames (with color names):
+By default, `grepal()` searches the vector of named colors `x = colors()` (provided by **grDevices**) and plots its results (as a side effect). 
+However, it also allows for searching color palettes provided as data frames (with color names) and for suppressing the visualization (by setting `plot = FALSE`): 
 
 ```{r grepal-3, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-grepal("see", pal_unikn)  # finding "see" in (the names of) a color palette
-
-seecol(grepal("blau", pal_unikn_pref), title = "Finding 'blau' in pal_unikn_pref")
+grepal("see", pal_unikn)  # finding "see" in (the names of) pal_unikn (as df)
+grepal("blau", pal_unikn_pref, plot = FALSE)  # finding "blau" in pal_unikn_pref
 ```
 
 
@@ -447,8 +446,8 @@ Thus, the following two palettes are identical:
 ```{r shades-of-2, fig.width = 5, fig.asp = .8, fig.align = 'center'}
 shady_1 <- usecol(c("deeppink", "gold"), 5)
 shady_2 <- shades_of(5, "deeppink", "gold")
-
 all.equal(shady_1, shady_2)
+
 seecol(shady_2, title = "A bi-polar color gradient")
 ```
 
