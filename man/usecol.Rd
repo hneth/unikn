@@ -68,8 +68,8 @@ pal_3 <- usecol(pal_princeton_1, n = 7)
 seecol(pal_3)
 
 # Removing visual duplicates:
-usecol(c("gray", "grey", "red", "red1"), distinct = TRUE)
-seecol(usecol(c(pal_unikn, pal_seeblau), distinct = TRUE), title = "Showing only unique colors")
+usecol(c("black", "#000000", "gray", "grey", "red", "red1"), distinct = TRUE)
+seecol(usecol(c(pal_unikn, pal_seeblau), distinct = TRUE), title = "Using distinct colors")
 
 }
 \seealso{
