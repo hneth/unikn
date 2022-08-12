@@ -62,18 +62,23 @@ scientific visualizations).
 The **unikn** package currently provides five types of objects and
 functions:
 
-1.  Dedicated colors and color palettes;  
-2.  Functions for viewing, changing, and comparing color palettes (i.e.,
-    `seecol()` and `usecol()`);  
-3.  Functions for creating new color palettes and for finding colors by
-    their names (i.e., `newpal()` and `grepal()`);  
-4.  Functions for plotting graphical objects (e.g., boxes and frames);  
-5.  Functions for plotting styled text elements (e.g., highlighting and
-    underlining text).  
+1.  Some dedicated **colors** and **color palettes** (e.g., `Seeblau`
+    and `pal_unikn`);  
+2.  Functions for **viewing and comparing**, and for **changing and
+    using** color palettes (`seecol()` and `usecol()`);  
+3.  Functions for **creating color palettes** (`newpal()`), for
+    **finding similar colors** (`simcol()`), and for **searching color
+    names** (`grepal()`);  
+4.  Functions for **plotting graphical objects** (e.g., boxes and
+    frames);  
+5.  Functions for **plotting styled text** elements (e.g., highlighting
+    and underlining text).  
     <!-- 6. Graphical support (e.g., commands and themes for creating scientific visualizations). -->
 
-Additional elements may be added as they become available. Please use
-responsibly!
+Essentially, **unikn** began by defining some colors, but has now grown
+into a toolbox for addressing color- and plotting-related tasks in R. As
+we have fun creating it, we hope you find the package useful too — and
+please use responsibly!
 
 ## Installation
 
@@ -741,22 +746,23 @@ Please note the following caveats:
 -   Plotting text (i.e., graphically rendering characters) is rarely a
     good idea. It typically doesn’t scale (when changing the size of
     images) and cannot be recognized automatically (e.g., copied,
-    indexed, or scraped). Hence, the following functions should only be
-    used in contexts in which no better solutions are available or
-    practical (e.g., when specifically creating images, or needing to
-    add text to graphs).
+    indexed, or scraped). Hence, the corresponding **unikn** functions
+    should only be used in contexts in which no better solutions are
+    available or practical (e.g., when specifically creating images, or
+    adding annotations to graphs).
 
--   Like all other templates, our renderings are subject to constraints
-    and limitations. As a standard installation of R lacks the official
-    “Theinhardt” fonts, we can only mimic the design specifications (in
+-   Like all templates, our offers are subject to constraints and
+    limitations. As a standard installation of R lacks the “Theinhardt”
+    fonts, we can only mimic the official design specifications (in
     Arial, sans serif). Nevertheless, the **unikn** package helps
     preventing common mistakes by novices (e.g., boxes or lines
     extending beyond text, or step-functions in multi-line titles) and
     can be customized and improved by expert users.
 
-Overall, we hope that the following functions will be useful for
-plotting graphical elements (e.g., boxes, logos, etc.) and achieving a
-uniform look when styling visualizations.
+Overall, the **unikn** functions can be useful for solving color-related
+tasks and plotting graphical elements (e.g., boxes, logos, etc.).
+Ideally, it should help you in creating a stylish and recognizable
+design for your presentations and visualizations.
 
 ## ToDo
 
@@ -764,8 +770,8 @@ uniform look when styling visualizations.
 
 The **unikn** package is work in progress. We are still working on:
 
--   Graphical themes for **ggplot2** that use **unikn** color palettes
-    and text elements  
+-   Additional themes for **ggplot2** that use the **unikn** color
+    palettes  
 -   Additional templates for images and slides
 
 Please [contact us](https://www.spds.uni-konstanz.de/) in case you need
@@ -873,7 +879,7 @@ Color definitions are based on the specifications at:
 
 <!-- Footer: -->
 
-\[File `README.md` last updated on 2022-08-11.\]
+\[File `README.md` last updated on 2022-08-12.\]
 
 <!-- eof. -->
 
