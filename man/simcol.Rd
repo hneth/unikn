@@ -41,8 +41,8 @@ to some target color \code{col_target}.
 \code{col_candidates} (set to `colors()` of \strong{grDevices} per default) 
 that are similar to the specified target color \code{col_target}. 
 
-If \code{plot = TRUE}, \code{simcol} also uses \code{\link{seecol}} 
-to visualize its results (as a side-effect).
+If \code{plot = TRUE}, \code{simcol} also visualizes the detected colors  
+(by passing its result to \code{\link{seecol}}, as a side-effect).
 
 Color similarity is defined in terms of the distance between colors' RGB values, 
 which must be within the numeric tolerance threshold(s) specified by \code{tol} 

@@ -4,7 +4,7 @@
 \alias{grepal}
 \title{Get a vector of colors whose names match a regular expression.}
 \usage{
-grepal(pattern, x = colors(), ignore_case = TRUE)
+grepal(pattern, x = colors(), ignore_case = TRUE, plot = TRUE)
 }
 \arguments{
 \item{pattern}{A regular expression 
@@ -17,17 +17,23 @@ Default: \code{x = colors()}.}
 \item{ignore_case}{Should the case of pattern be ignored 
 (passed to \code{ignore.case} of the \code{grep} function)?   
 Default: \code{ignore_case = TRUE}.}
+
+\item{plot}{Boolean: Plot the output (using \code{\link{seecol}})? 
+Default: \code{plot = TRUE}.}
 }
 \description{
 \code{grepal} returns a vector of colors whose names match a regular expression (regex).
 }
 \details{
-By default, the \strong{base} R vector of named colors (i.e., \code{colors()}) is searched 
+By default, the \bold{base} R vector of named colors (i.e., \code{colors()}) is searched 
 for names matching a \code{pattern} (which can be a simple string or regular expression). 
 
 If \code{x} (i.e., the object to be searched) is provided, 
 it is must be a vector of color names or a data frame of named color objects 
 (i.e., a color palette). 
+
+If \code{plot = TRUE}, \code{grepal} also visualizes the detected colors  
+(by passing its result to \code{\link{seecol}}, as a side-effect).
 
 This function facilitates searching colors by name and 
 yields (a vector of) colors of similar color hue (provided 
@@ -35,31 +41,28 @@ that the color's hue is expressed in a color's name).
 Its name \code{grepal} is an abbreviation of \code{grep} and "pal".
 }
 \examples{
-grepal("cyan")
+grepal("tan")
 
 # With regular expressions:
-some_grey  <- grepal("gr(a|e)y")
-start_grey <- grepal("^gr(a|e)y")
-only_grey  <- grepal("^gr(a|e)y$")
+some_grey  <- grepal("gr(a|e)y", plot = FALSE)
+start_grey <- grepal("^gr(a|e)y", plot = FALSE)
+only_grey  <- grepal("^gr(a|e)y$", plot = FALSE)
 
 length(some_grey)
 length(only_grey)
 
 # With other color objects (df as x):
 grepal("blau", x = pal_unikn)
-grepal("SEE", x = pal_unikn_pref)
+grepal("SEE", x = pal_unikn_pref, ignore_case = FALSE)
 
 # Applications:
 seecol(grepal("white"), col_bg = "lightblue2", title = "See 'white' colors()")
 
-olives  <- grepal("olive")
-oranges <- grepal("orange")
+olives  <- grepal("olive", plot = FALSE)
+oranges <- grepal("orange", plot = FALSE)
 seecol(list(olives, oranges), 
        pal_names = c("olives", "oranges"), 
        title = "Comparing olives and oranges")
-
-seecol(grepal("SEE", pal_unikn), title = "All 'SEE' colors in pal_unikn")
-seecol(grepal("blau", pal_unikn_pref), title = "All 'blau' colors in pal_unikn_pref")
 
 }
 \seealso{
