@@ -1,5 +1,5 @@
 
-# unikn 0.4.0.9012
+# unikn 0.4.0.9013
 
 The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -15,7 +15,8 @@ The current development version of **unikn** (0.4.0.9001+) is available at <http
 
 ## Minor changes
 
-- Add a `distinct` argument to `usecol()` and `simcol()` to include or remove visual duplicates. [2022-08-11]
+- Add a `plot` argument to `grepal()` and `simcol()` to visualize results. [2022-08-12]
+- Add a `distinct` argument to `usecol()` and `simcol()` to remove visual duplicates. [2022-08-11]
 - Add utility functions for obtaining color transparency values (`get_alpha()`), 
 quantifying color distance (`col_distance()`), and 
 detecting and filtering visual duplicates (`col_distinct()`). [2022-08-11]
@@ -41,7 +42,7 @@ Changes since last release:
 
 ## Major changes 
 
-- Add a `grepal()` function to conveniently search `colors()` or color palettes by name. [2020-12-18]
+- Add a `grepal()` function to match patterns in the names of `colors()` or color palettes. [2020-12-18]
 
 - Change color sequence of `pal_unikn_pref` to increase contrast between adjacent colors. [2020-09-04] 
 
@@ -146,6 +147,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-08-11.]
+[File `NEWS.md` updated on 2022-08-13.]
 
 <!-- eof. -->
