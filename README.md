@@ -31,8 +31,8 @@ underlining, or plotting colored titles) in R. The package’s pre-defined
 range of colors and text functions is based on the corporate design of
 the [University of Konstanz](https://www.uni-konstanz.de/) (see [this
 link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
-for details), but can easily be adapted and extended for other
-institutions or purposes.
+for details), but can easily be adapted and extended to other purposes
+or institutions.
 
 ## Background
 
@@ -52,10 +52,10 @@ for details.)
 <!-- Goals of the unikn pgk: -->
 
 The **unikn** package facilitates the use of corporate design elements
-for users of [R](https://www.r-project.org/). While this renders the
-correct use of default specifications simple and straightforward, we
-leave some flexibility for experienced users (e.g., for creating
-scientific visualizations).
+for users of [R](https://www.r-project.org/). While this renders the use
+of default specifications simple and straightforward, experienced users
+can apply the color tools in a flexible and creative fashion (e.g., for
+designing color palettes to be used in scientific visualizations).
 
 <!-- Overview: -->
 
@@ -63,14 +63,18 @@ The **unikn** package currently provides five types of objects and
 functions:
 
 1.  Some dedicated **colors** and **color palettes** (e.g., `Seeblau`
-    and `pal_unikn`);  
-2.  Functions for **viewing and comparing**, and for **changing and
-    using** color palettes (`seecol()` and `usecol()`);  
+    and `pal_unikn`);
+
+2.  Functions for **viewing and comparing colors** (`seecol()`), and for
+    **using or changing color palettes** (`usecol()`);  
+
 3.  Functions for **creating color palettes** (`newpal()`), for
     **finding similar colors** (`simcol()`), and for **searching color
-    names** (`grepal()`);  
+    names** (`grepal()`);
+
 4.  Functions for **plotting graphical objects** (e.g., boxes and
     frames);  
+
 5.  Functions for **plotting styled text** elements (e.g., highlighting
     and underlining text).  
     <!-- 6. Graphical support (e.g., commands and themes for creating scientific visualizations). -->
@@ -879,7 +883,7 @@ Color definitions are based on the specifications at:
 
 <!-- Footer: -->
 
-\[File `README.md` last updated on 2022-08-12.\]
+\[File `README.md` updated on 2022-08-13.\]
 
 <!-- eof. -->
 
