@@ -1,5 +1,5 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2022 08 11
+## spds | uni.kn | 2022 08 13
 ## ---------------------------
 
 ## Utility functions for converting colors, 
@@ -21,6 +21,7 @@
 # col2rgb("#FFFFFF")
 
 
+
 # get_alpha: Get color transparency / alpha values: ------
 
 get_alpha <- function(pal){
@@ -33,6 +34,7 @@ get_alpha <- function(pal){
 # get_alpha(ac(col = "black", alpha = seq(0, 1, by = 0.10)))  # 11 different alphas
 
 
+
 # rgb2hex color conversion function: ------ 
 
 rgb2hex <- function(R, G, B) {
@@ -42,6 +44,7 @@ rgb2hex <- function(R, G, B) {
 ## Check:
 # rgb2hex(255, 255, 255)
 # rgb2hex(0, 0, 0)
+
 
 
 # col2hex color conversion function: ------ 
@@ -70,6 +73,7 @@ col2hex <- function(col, alpha = alpha) {
 # # (and consider using get_alpha() for this).
 
 
+
 # isHexCol: Helper function to detect HEX-colors: ------ 
 
 isHexCol <- function(color) {
@@ -80,6 +84,7 @@ isHexCol <- function(color) {
 # isHexCol("black")
 # isHexCol(col2hex("black"))
 # isHexCol(rgb2hex(0, 0, 0))
+
 
 
 # isCol: Helper function to detect any color (in an individual character string): ------ 
@@ -96,6 +101,8 @@ isCol <- function(color) {
 
 # BUT note: 
 # isCol(col2rgb("white"))  # => FALSE FALSE FALSE
+
+
 
 # col_distance: Color distance (in RGB space): ------
 
@@ -135,6 +142,7 @@ col_distance <- function(col_1, col_2){
 # names(pal) <- palette()
 # col_distance("black", pal)  # No names vs.
 # col_distance(pal, "black")  # Note names
+
 
 
 # col_distinct: A unique() function for color values (using HEX codes): ------
@@ -209,7 +217,9 @@ col_distinct <- function(pal, use_alpha = FALSE){
 
 
 
+
 ## 2. Color getting functions: ------
+
 
 
 # parse_pal(): Parse a palette input ------ 
@@ -351,6 +361,7 @@ parse_pal <- function(pal) {
 } # parse_pal().
 
 
+
 # getpal_key(): Get a palette or list of palettes by keyword: -------
 
 getpal_key <- function(pal = "all", n = "all", alpha = NA) {
@@ -444,7 +455,9 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
 
 
 
+
 ## 3. Plotting functions: ------
+
 
 
 # plot_shape: Plot a shape in a certain color: ------
@@ -570,10 +583,14 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
 } # plot_col().
 
 
+
+
 ## ToDo: ------
 
-# - col2hex(): Improve by vectorizing arguments and considering transparency/alpha values (see 2 ToDos above). 
-# - plot_col(): Add option for scaling multiple color palettes to fixed width rectangles. 
-# - Add functions for translating to/from HCL values (see HCL_color_exploration.Rmd). 
+# - Consider exporting utility functions `get_alpha()`, `col_distance()` and `col_distinct()`.
+
+# - `col2hex()`: Improve by vectorizing arguments and considering transparency/alpha values (see 2 ToDos above). 
+# - `plot_col()`: Add option for scaling multiple color palettes to fixed width rectangles. 
+# - Add functions for translating to/from HCL values (see `HCL_color_exploration.Rmd`). 
 
 ## eof. ----------

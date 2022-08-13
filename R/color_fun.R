@@ -1,5 +1,5 @@
 ## color_fun.R | unikn
-## spds | uni.kn | 2022 08 12
+## spds | uni.kn | 2022 08 13
 ## ---------------------------
 
 ## Define color-related functions 
@@ -1884,69 +1884,19 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75),
 # simcol(Seeblau, tol = c(20, 20, 100))
 
 
-## Snippets: Towards simcol() function: 
-# 
-# col_target <- "deepskyblue1"
-# tol <- 50
-# 
-# # Using named colors():
-# col_candidates <- colors()
-# names(col_candidates) <- colors()
-# 
-# # # Using unikn palettes:
-# # col_candidates <- pal_unikn_pref
-# # names(col_candidates) <- pal_unikn_pref
-# 
-# # Matrix of color distances (in RGB space):
-# (dmx <- t(col_distance(col_candidates, col_target)))
-# 
-# # Logical matrix (color distance <= tol, in RGB): 
-# (lmx <- dmx <= tol)
-# 
-# tol <- c(10, 50, 100)
-# 
-# if (length(tol) == 3){ # use more sophisticated similarity judgment (sorted by the rank of RGB values):
-#   
-#   # Analyze col_target:
-#   (rgb_target <- grDevices::col2rgb(col_target))
-#   (rgb_ranks <- rank(rgb_target))
-#   
-#   (ddf <- as.data.frame(dmx))
-#   
-#   # Make 3 comparisons:  
-#   ix_1_true <- ddf[ , which(rgb_ranks == 3)] <= tol[1]  # 1st
-#   ix_2_true <- ddf[ , which(rgb_ranks == 2)] <= tol[2]  # 2nd
-#   ix_3_true <- ddf[ , which(rgb_ranks == 1)] <= tol[3]  # 3rd
-#   
-#   ix_all_true <- (ix_1_true & ix_2_true & ix_3_true)
-#   
-#   # Apply:
-#   col_candidates[ix_all_true]
-#   
-# }
-# 
-# sim_df <- dplyr::filter(as.data.frame(lmx), red == TRUE, green == TRUE, blue == TRUE)  # filter rows
-# result <- rownames(sim_df)  # color names
-# 
-# col_pal <- usecol(unique(c(col_target, result)))
-# 
-# # Show:
-# seecol(col_pal, title = "Similar colors")
-
-
 ## ToDo: ------
 
-# - Replace 'title' by 'main' argument (and deprecate 'title') in seecol(). 
-
-# - Consider adding a Boolean 'plot' argument to grepal(), as in simcol(). 
-
-# - Consider adding distinct = FALSE/TRUE argument to seecol() or grepal() 
-#   to allow removing visual duplicates by verifying col_distinct(pal) --- with or w/o considering color transparency (see use_alpha argument).
-#   Note: colors() also uses a 'distinct' argument to remove visual duplicates. 
-
-# - seecol(): Add options for showing HCL values (see HCL_color_exploration.Rmd). 
-# - seecol(): Add options for printing multiple palettes with fixed width and as continuous color palettes.
-# - seecol() and newpal(): Add option for margin notes/crediting color sources.
-# - grepal(): Consider alternative simcol() that allows searching for similar colors (based on hue/color distance)
+# - Replace `title` by `main` argument (and deprecate `title`) in `seecol()`.
+# 
+# - Consider creating more vivid versions of some
+#   `pal_unikn_pref` colors (e.g., "deepskyblue", "deeppink", etc.)
+# 
+# - Consider adding Boolean `distinct` argument to `seecol()` or `grepal()` 
+#   to allow removing visual duplicates by verifying `col_distinct(pal)` --- with or w/o considering color transparency (see use_alpha argument).
+#   Note: `colors()` also uses a `distinct` argument to remove visual duplicates.
+# 
+# - `seecol()`: Add options for showing HCL values (see HCL_color_exploration.Rmd).
+# - `seecol()`: Add options for printing multiple palettes with fixed width and as continuous color palettes.
+# - `seecol()` and `newpal()`: Add option for margin notes/crediting color sources.
 
 ## eof. ----------
