@@ -2,14 +2,14 @@
 ## spds | uni.kn |  2021 12 08
 ## ---------------------------
 
-## Function to plot unikn logo:
+## plot_unikn: Function to plot unikn logo: ------ 
 
 plot_kn <- function(axes = FALSE, 
                     back = TRUE, 
                     city = TRUE, 
                     univ = TRUE){
   
-  # Parameters: ------
+  # Parameters: ----
   
   # Booleans (for parts and use of areas/colors): ---- 
   
@@ -145,7 +145,7 @@ plot_kn <- function(axes = FALSE,
   
   # Draw segments: ---- 
   
-  # (1) Shapes (optional polygons, in background): ------ 
+  # (1) Shapes (optional polygons, in background): ---- 
   
   if (use_areas){ 
     
@@ -189,7 +189,7 @@ plot_kn <- function(axes = FALSE,
   
   # (2) Lines: ------ 
   
-  # Background parts: ----- 
+  # Background parts: ---- 
   
   if (back){
     
@@ -216,7 +216,7 @@ plot_kn <- function(axes = FALSE,
   } # back end. 
   
   
-  # Lower half: ----- 
+  # Lower half: ---- 
   
   if (road & city){
     
@@ -284,7 +284,7 @@ plot_kn <- function(axes = FALSE,
   } # house end. 
   
   
-  # Upper half: ----- 
+  # Upper half: ----  
   
   if (univ){
     
