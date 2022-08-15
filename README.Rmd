@@ -732,6 +732,7 @@ A. **unikn** (R package): | [Release version](https://CRAN.R-project.org/package
 B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)            | <https://hneth.github.io/unikn/> | 
     &nbsp;                | [Development version](https://hneth.github.io/unikn/dev/)    | <https://hneth.github.io/unikn/dev/> | 
 
+
 ## Contact
 
 Please report any **unikn**-related issues at <https://github.com/hneth/unikn/issues>. 
@@ -746,7 +747,7 @@ We appreciate your feedback, comments, or questions.
 </a>
 
 The [University of Konstanz's Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)\ (CD) was created by [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and the [University of Konstanz](https://www.uni-konstanz.de/) in\ 2014. 
-The **unikn** package authors belong to the research group on [Social Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/) (SPDS) at the [University of Konstanz](https://www.uni-konstanz.de/). We make some CD elements available to fellow users of\ R (e.g., for creating scientific visualizations), but all copyrights remain with the original copyright holders. 
+The **unikn** package authors are members of the research group [Social Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/) (SPDS) at the [University of Konstanz](https://www.uni-konstanz.de/). We facilitate access to CD elements for fellow users of\ R (e.g., for creating scientific visualizations), but all copyrights on the design remain with the original copyright holders. 
 
 We aim for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also tend to cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we allow for some liberties, mostly by relaxing some restrictions. Examples include: 
 
@@ -755,7 +756,7 @@ We aim for an authentic representation of a highly-specified corporate design. W
 - using the spelling "color" (rather than "colour")  throughout the **unikn** package.  
 
 
-## License
+### License
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
@@ -773,7 +774,19 @@ We aim for an authentic representation of a highly-specified corporate design. W
 <span xmlns:dct="https://purl.org/dc/terms/" property="dct:title"><strong>unikn</strong></span> by <a xmlns:cc="https://creativecommons.org/ns#" href="https://github.com/hneth/unikn" property="cc:attributionName" rel="cc:attributionURL">Hansjörg Neth and Nico Gradwohl</a> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. (Based on a work at <a xmlns:dct="https://purl.org/dc/terms/" href="https://github.com/hneth/unikn" rel="dct:source">https://github.com/hneth/unikn</a>).
 
 
-## References
+### Citation and References
+
+To support our development, please cite the **unikn** package when using it in publications or derivations:
+
+<!-- Citation (in APA format): -->
+
+- Neth, H., & Gradwohl, N., (2022). 
+unikn: Graphical elements of the University of Konstanz's corporate design. 
+Social Psychology and Decision Sciences, University of Konstanz, Germany.
+Computer software (R package version 0.5.0, August 15, 2022). 
+Retrieved from <https://CRAN.R-project.org/package=unikn>.
+
+<!-- Copyrights of designs: -->
 
 The copyrights to all designs remain with their original creators:  
 
