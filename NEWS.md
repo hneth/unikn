@@ -1,7 +1,9 @@
 
-# unikn 0.4.0.9013
+# unikn 0.5.0
 
-The current development version of **unikn** (0.4.0.9001+) is available at <https://github.com/hneth/unikn/>. 
+This release of **unikn** (v0.5.0) adds new functionality and fixes some bugs. [2022-08-15]  
+
+Changes since last release: 
 
 <!-- Add blank line.  --> 
 
@@ -30,6 +32,11 @@ detecting and filtering visual duplicates (`col_distinct()`). [2022-08-11]
 - `slide()` now uses the `dim` argument. [2021-04-24]
 
 <!-- Add blank line.  --> 
+
+The current development version of **unikn** (0.5.0.9001+) is available at <https://github.com/hneth/unikn/>. 
+
+<!-- Add blank line.  --> 
+
 
 ---------- 
 
@@ -147,6 +154,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-08-13.]
+[File `NEWS.md` updated on 2022-08-15.]
 
 <!-- eof. -->
