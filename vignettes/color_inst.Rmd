@@ -117,7 +117,7 @@ seecol(pal_freiburg_info)            # view color palette
 
 The color scheme of [Princeton University](https://princeton.edu/) is easily recognized by its combination of orange with black and white elements. The official guidelines (available [here](https://communications.princeton.edu/guides-tools/logo-graphic-identity)) define "Princeton Orange" as Pantone (PMS) 158&nbsp;C. 
 
-- The PANTONE&trade; color finder at <https://www.pantone.com/color-finder/158-C> yields the following color values:
+- The PANTONE&trade; color finder at <https://www.pantone.com/connect/158-C> yields the following color values:
 
     - RGB: `232 119 34`  
     - HEX/HTML: `#E87722`  
@@ -162,13 +162,13 @@ seecol(pal_princeton_1,  # view color palette
 
 The CD manual (available [here](https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html)) of the [Max Planck Society](https://www.mpg.de/de) specifies the use of 2&nbsp;primary colors: 
 
-- Green as Pantone 328: Using the PANTONE&trade; color finder at <https://www.pantone.com/color-finder/328-C> yields the following color values:
+- Green as Pantone 328: Using the PANTONE&trade; color finder at <https://www.pantone.com/connect/328-C> yields the following color values:
 
     - RGB: `0 115 103`    
     - HEX/HTML: `#007367`   
     - CMYK: `100 10 61 38`  
 
-- Grey as Pantone 427: Using the PANTONE&trade; color finder at <https://www.pantone.com/color-finder/427-C> yields the following color values: 
+- Grey as Pantone 427: Using the PANTONE&trade; color finder at <https://www.pantone.com/connect/427-C> yields the following color values: 
 
     - RGB: `208 211 212`  
     - HEX/HTML: `#D0D3D4`   

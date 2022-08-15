@@ -397,7 +397,7 @@ In the following, we provide examples to illustrate how this can be achieved for
 
 The color scheme of [Princeton University](https://princeton.edu/) is easily recognized by its combination of orange with black and white elements. The official guidelines (available [here](https://communications.princeton.edu/guides-tools/logo-graphic-identity)) define "Princeton Orange" as Pantone (PMS) 158\ C. 
 
-- The PANTONE&trade; color finder at <https://www.pantone.com/color-finder/158-C> yields the following color values:
+- The PANTONE&trade; color finder at <https://www.pantone.com/connect/158-C> yields the following color values:
 
     - RGB: `232 119 34`  
     - HEX/HTML: `#E87722`  
@@ -609,7 +609,9 @@ post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
 <!-- Uni Freiburg: -->
 
 ```{r freiburg-cols, echo = FALSE}
-# Basic colors: https://www.zuv.uni-freiburg.de/service/cd/cd-manual/farbwelt
+# Source: http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben
+
+# Basic colors: ----
 
 pal_freiburg_bluered <- c("#004a99", "#c1002a")
 names(pal_freiburg_bluered) <- c("uni-blau", "uni-rot")
@@ -617,7 +619,7 @@ names(pal_freiburg_bluered) <- c("uni-blau", "uni-rot")
 pal_freiburg_basic <- c("#004a99", "white", "#c1002a")  # add "white" for better gradients
 names(pal_freiburg_basic) <- c("uni-blau", "weiss", "uni-rot")
 
-# Web colors: https://www.zuv.uni-freiburg.de/service/wsg/webstyleguide/farben  
+# Web colors: ----
 
 pal_freiburg_blue <- c("#004a99", "#2a6ebb", "#6f9ad3")
 names(pal_freiburg_blue) <- c("blue-1", "blue-2", "blue-3")
@@ -788,21 +790,15 @@ Retrieved from <https://CRAN.R-project.org/package=unikn>.
 
 <!-- Copyrights of designs: -->
 
-The copyrights to all designs remain with their original creators:  
+The copyrights to all designs remain with their original creators:   
 
-- Universität Konstanz, © 2015, Version 1.6, 21. September 2015, [`r url_unikn("https://www.uni-konstanz.de/")`](https://www.uni-konstanz.de/)  
+- Universität Konstanz, © 2015, Version 1.6, 21. September 2015, [`r url_unikn("https://www.uni-konstanz.de/")`](https://www.uni-konstanz.de/) 
+- Strichpunkt GmbH, [`r url_unikn("https://www.strichpunkt-design.de/")`](https://www.strichpunkt-design.de/) 
 
-- Strichpunkt GmbH, [`r url_unikn("https://www.strichpunkt-design.de/")`](https://www.strichpunkt-design.de/)  
+Color and text box definitions are based on the following [corporate design at uni.kn](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) specifications:  
 
-Color definitions are based on the specifications at:
-
-- [Corporate design at uni.kn](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
-
-<!-- - [Corporate design at uni.kn](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/)   -->
-
-- [Corporate design manual (PDF)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf)  
-
-<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
+- [The University of Konstanz’s corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) 
+- [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 ------ 
 

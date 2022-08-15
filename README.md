@@ -449,7 +449,7 @@ elements. The official guidelines (available
 define “Princeton Orange” as Pantone (PMS) 158 C.
 
 -   The PANTONE™ color finder at
-    <a href="https://www.pantone.com/color-finder/158-C" class="uri">https://www.pantone.com/color-finder/158-C</a>
+    <a href="https://www.pantone.com/connect/158-C" class="uri">https://www.pantone.com/connect/158-C</a>
     yields the following color values:
 
     -   RGB: `232 119 34`  
@@ -826,21 +826,18 @@ The copyrights to all designs remain with their original creators:
 
 -   Universität Konstanz, © 2015, Version 1.6, 21. September 2015, [‒
     uni-konstanz.de](https://www.uni-konstanz.de/)
-
 -   Strichpunkt GmbH, [‒
     strichpunkt-design.de](https://www.strichpunkt-design.de/)
 
-Color definitions are based on the specifications at:
+Color and text box definitions are based on the following [corporate
+design at
+uni.kn](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
+specifications:
 
--   [Corporate design at
-    uni.kn](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
-
-<!-- - [Corporate design at uni.kn](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/das-cd-der-universitaet-konstanz/)   -->
-
--   [Corporate design manual
-    (PDF)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf)
-
-<!-- - [Colours for complex graphics (xls)](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)   -->
+-   [The University of Konstanz’s corporate
+    design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/)
+-   [Colours for complex
+    graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 ------------------------------------------------------------------------
 
