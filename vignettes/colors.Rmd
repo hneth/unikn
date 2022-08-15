@@ -104,7 +104,7 @@ The rest of this vignette provides examples of using and details on these functi
 
 ## Viewing colors and color palettes with `seecol()`
 
-The behavior of the `seecol()` function disinguishes between two modes and depends on the input to its initial `pal` argument. 
+The behavior of the `seecol()` function distinguishes between two modes and depends on the input to its initial `pal` argument. 
 It either shows (A)\ the details of a single color palette, or (B)\ allows comparing multiple color palettes. 
 The next two sections will address both modes in turn. 
 
