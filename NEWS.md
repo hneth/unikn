@@ -1,11 +1,39 @@
 
+# unikn 0.5.0.9001+
+
+The current development version of **unikn** (0.5.0.9001+) is available at <https://github.com/hneth/unikn/>. 
+
+Changes since last release: 
+
+<!-- Blank line.  --> 
+
+## Major changes 
+
+- none yet. 
+
+<!-- Blank line.  --> 
+
+## Minor changes
+
+- none yet. 
+
+<!-- Blank line.  --> 
+
+## Bug fixes
+
+- none yet. 
+
+<!-- Older versions:  --> 
+
+---------- 
+
 # unikn 0.5.0
 
 This release of **unikn** (v0.5.0) adds new functionality and fixes some bugs. [2022-08-15]  
 
 Changes since last release: 
 
-<!-- Add blank line.  --> 
+<!-- Blank line.  --> 
 
 ## Major changes 
 
@@ -13,7 +41,7 @@ Changes since last release:
 - Add an `ac()` function as a flexible wrapper of `grDevices::adjustcolor()`. [2022-01-02] 
 - Add a `shades_of()` function to conveniently get `n`\ shades of a color. [2021-04-06] 
 
-<!-- Add blank line.  --> 
+<!-- Blank line.  --> 
 
 ## Minor changes
 
@@ -24,19 +52,14 @@ quantifying color distance (`col_distance()`), and
 detecting and filtering visual duplicates (`col_distinct()`). [2022-08-11]
 - Add an `x_layout` argument to control horizontal positions of text labels (e.g., by numeric increments, centering, right-adjusted). [2021-04-24] 
 
-<!-- Add blank line.  --> 
+<!-- Blank line.  --> 
 
 ## Bug fixes
 
 - Fix some bugs in README and vignettes. [2021-04-29]
 - `slide()` now uses the `dim` argument. [2021-04-24]
 
-<!-- Add blank line.  --> 
-
-The current development version of **unikn** (0.5.0.9001+) is available at <https://github.com/hneth/unikn/>. 
-
-<!-- Add blank line.  --> 
-
+<!-- Blank line.  --> 
 
 ---------- 
 
@@ -53,7 +76,7 @@ Changes since last release:
 
 - Change color sequence of `pal_unikn_pref` to increase contrast between adjacent colors. [2020-09-04] 
 
-<!-- Add blank line.  --> 
+<!-- Blank line.  --> 
 
 
 ## Minor changes
@@ -66,7 +89,7 @@ Changes since last release:
 
 - Add [Travis](https://www.travis-ci.com/) support for [GitHub](https://github.com/) builds. [2020-08-25]  
 
-<!-- Add blank line.  --> 
+<!-- Blank line.  --> 
 
 
 ## Bug fixes 
@@ -74,7 +97,7 @@ Changes since last release:
 - Adjust display of HEX codes in `seecol()`:  
 Show HEX codes on two alternating lines (or with diagonal labels) when length of codes exceed line length(s). [2020-12-26] 
 
-<!-- Add blank line.  --> 
+<!-- Blank line.  --> 
 
 ---------- 
 
@@ -100,7 +123,7 @@ Changes since last release:
 
 - Clean up and update online documentation.  
 
-<!-- Add blank line.  --> 
+<!-- Blank line.  --> 
 
 ---------- 
 
@@ -142,7 +165,7 @@ Different names for the same color are now separated by a forward slash (/), dup
 - Fix an error in `isHexCol()` which failed to recognize hexadecimal color values starting with lowercase letters. [2019-06-27] 
 
 
-<!-- Add blank line.  --> 
+<!-- Blank line.  --> 
 
 ---------- 
 
@@ -150,7 +173,7 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 - Initial release of **unikn** (v0.1.0) on CRAN: <https://CRAN.R-project.org/package=unikn>. [2019-06-15] 
 
-<!-- Add blank line.  --> 
+<!-- Blank line.  --> 
 
 ---------- 
 
