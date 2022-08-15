@@ -64,7 +64,7 @@ Changes since last release:
 
 - Fine-tune aesthetics of `theme_unikn()` and `theme_grau()` for use with **ggplot2**. [2020-08-27]  
 
-- Add [Travis](https://travis-ci.com/) support for [GitHub](https://github.com/) builds. [2020-08-25]  
+- Add [Travis](https://www.travis-ci.com/) support for [GitHub](https://github.com/) builds. [2020-08-25]  
 
 <!-- Add blank line.  --> 
 

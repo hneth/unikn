@@ -45,9 +45,7 @@ palette that blends various shades of `Seeblau` (in boxes, lines, and
 other graphical elements) with text (in black-and-white). (See the
 [corporate
 design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
-pages and the [Corporate Design Manual
-(pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf)
-for details.)
+pages for details.)
 
 <!-- Goals of the unikn pgk: -->
 
@@ -109,9 +107,10 @@ corporate design.
 
 ### Basic color palettes
 
-Basic color palettes are specified according to the **Corporate Design
-Manual**
-[(pdf)](https://www.uni-konstanz.de/typo3temp/secure_downloads/57014/0/0143c03b80bd1fa99843c8f8686f806305928078/UKN_CD_Manual_4.11.2019.pdf):
+Basic color palettes are defined according to the **Corporate Design
+Manual** (see the [corporate
+design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
+specifications).
 
 The default color palette `pal_unikn` combines:
 
