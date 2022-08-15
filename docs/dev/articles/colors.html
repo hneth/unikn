@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9012</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9000</span>
       </span>
     </div>
 
@@ -174,7 +174,7 @@
 <div class="section level2">
 <h2 id="viewing-colors-and-color-palettes-with-seecol">Viewing colors and color palettes with <code>seecol()</code><a class="anchor" aria-label="anchor" href="#viewing-colors-and-color-palettes-with-seecol"></a>
 </h2>
-<p>The behavior of the <code><a href="../reference/seecol.html">seecol()</a></code> function disinguishes between two modes and depends on the input to its initial <code>pal</code> argument. It either shows (A) the details of a single color palette, or (B) allows comparing multiple color palettes. The next two sections will address both modes in turn.</p>
+<p>The behavior of the <code><a href="../reference/seecol.html">seecol()</a></code> function distinguishes between two modes and depends on the input to its initial <code>pal</code> argument. It either shows (A) the details of a single color palette, or (B) allows comparing multiple color palettes. The next two sections will address both modes in turn.</p>
 <div class="section level3">
 <h3 id="a--viewing-details-of-a-single-color-palette">A. Viewing details of a single color palette<a class="anchor" aria-label="anchor" href="#a--viewing-details-of-a-single-color-palette"></a>
 </h3>
@@ -430,52 +430,47 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level2">
 <h2 id="searching-for-color-names-with-grepal">Searching for color names with <code>grepal()</code><a class="anchor" aria-label="anchor" href="#searching-for-color-names-with-grepal"></a>
 </h2>
-<p>A common situation in R is that we want some particular shade of color (e.g., some sort of red), but also know that the color named “red” is <em>not</em> the one we want. Instead, we would like to see all colors that contain “red” in its name. This is what <code><a href="../reference/grepal.html">grepal()</a></code> is made for:</p>
+<p>A common situation in R is that we want some particular shade of color (e.g., some sort of purple), but also know that the color named “purple” is <em>not</em> the one we want. Instead, we would like to see all colors that contain the keyword “purple” in its name. This is what <code><a href="../reference/grepal.html">grepal()</a></code> is made for:</p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"red"</span><span class="op">)</span>  <span class="co"># get 27 names of colors() with "red" in their name</span></span>
-<span><span class="co">#&gt;  [1] "darkred"         "indianred"       "indianred1"      "indianred2"     </span></span>
-<span><span class="co">#&gt;  [5] "indianred3"      "indianred4"      "mediumvioletred" "orangered"      </span></span>
-<span><span class="co">#&gt;  [9] "orangered1"      "orangered2"      "orangered3"      "orangered4"     </span></span>
-<span><span class="co">#&gt; [13] "palevioletred"   "palevioletred1"  "palevioletred2"  "palevioletred3" </span></span>
-<span><span class="co">#&gt; [17] "palevioletred4"  "red"             "red1"            "red2"           </span></span>
-<span><span class="co">#&gt; [21] "red3"            "red4"            "violetred"       "violetred1"     </span></span>
-<span><span class="co">#&gt; [25] "violetred2"      "violetred3"      "violetred4"</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"red"</span><span class="op">)</span><span class="op">)</span>  <span class="co"># see all colors() with "red" in their name</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"purple"</span><span class="op">)</span>  <span class="co"># get &amp; see 10 names of colors() with "purple" in their name</span></span>
+<span><span class="co">#&gt;  [1] "mediumpurple"  "mediumpurple1" "mediumpurple2" "mediumpurple3"</span></span>
+<span><span class="co">#&gt;  [5] "mediumpurple4" "purple"        "purple1"       "purple2"      </span></span>
+<span><span class="co">#&gt;  [9] "purple3"       "purple4"</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/grepal-1-1.png" width="576" style="display: block; margin: auto;"></p>
 <p>Note that the <code><a href="../reference/grepal.html">grepal()</a></code> allows for regular expressions:</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"gr(a|e)y"</span><span class="op">)</span><span class="op">)</span>   <span class="co"># shades of "gray" or "grey"</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"gr(a|e)y"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>    <span class="co"># shades of "gray" or "grey"</span></span>
 <span><span class="co">#&gt; [1] 224</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"^gr(a|e)y"</span><span class="op">)</span><span class="op">)</span>  <span class="co"># shades starting with "gray" or "grey"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"^gr(a|e)y"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>   <span class="co"># shades starting with "gray" or "grey"</span></span>
 <span><span class="co">#&gt; [1] 204</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"^gr(a|e)y$"</span><span class="op">)</span><span class="op">)</span> <span class="co"># shades starting and ending with "gray" or "grey"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"^gr(a|e)y$"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>  <span class="co"># shades starting and ending with "gray" or "grey"</span></span>
 <span><span class="co">#&gt; [1] 2</span></span></code></pre></div>
-<p>By default, <code><a href="../reference/grepal.html">grepal()</a></code> searches the vector of named colors <code>x = colors()</code> (provided by <strong>grDevices</strong>). However, it also allows searching color palettes provided as data frames (with color names):</p>
+<p>By default, <code><a href="../reference/grepal.html">grepal()</a></code> searches the vector of named colors <code>x = colors()</code> (provided by <strong>grDevices</strong>) and plots its results (as a side effect). However, it also allows for searching color palettes provided as data frames (with color names) and for suppressing the visualization (by setting <code>plot = FALSE</code>):</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"see"</span>, <span class="va">pal_unikn</span><span class="op">)</span>  <span class="co"># finding "see" in (the names of) a color palette</span></span>
-<span><span class="co">#&gt;   seeblau5 seeblau4 seeblau3 seeblau2 seeblau1 seegrau1 seegrau2 seegrau3</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"see"</span>, <span class="va">pal_unikn</span><span class="op">)</span>  <span class="co"># finding "see" in (the names of) pal_unikn (as df)</span></span></code></pre></div>
+<p><img src="colors_files/figure-html/grepal-3-1.png" width="480" style="display: block; margin: auto;"></p>
+<pre><code><span><span class="co">#&gt;   seeblau5 seeblau4 seeblau3 seeblau2 seeblau1 seegrau1 seegrau2 seegrau3</span></span>
 <span><span class="co">#&gt; 1  #008ECE  #00A9E0  #59C7EB  #A6E1F4  #CCEEF9  #E5E5E5  #CCCCCC  #999999</span></span>
 <span><span class="co">#&gt;   seegrau4</span></span>
 <span><span class="co">#&gt; 1  #666666</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"blau"</span>, <span class="va">pal_unikn_pref</span><span class="op">)</span>, title <span class="op">=</span> <span class="st">"Finding 'blau' in pal_unikn_pref"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="colors_files/figure-html/grepal-3-1.png" width="480" style="display: block; margin: auto;"></p>
+<span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"blau"</span>, <span class="va">pal_unikn_pref</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>  <span class="co"># finding "blau" in pal_unikn_pref</span></span>
+<span><span class="co">#&gt;   Seeblau Karpfenblau</span></span>
+<span><span class="co">#&gt; 1 #59C7EB     #3E5496</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="creating-color-gradients-with-shades_of">Creating color gradients with <code>shades_of()</code><a class="anchor" aria-label="anchor" href="#creating-color-gradients-with-shades_of"></a>
 </h2>
 <p>We have seen that the main <code><a href="../reference/usecol.html">usecol()</a></code> function allows squeezing and stretching color palettes and thus creating complex color gradients. An even simpler way for creating color gradients is provided by the <code><a href="../reference/shades_of.html">shades_of()</a></code> function:</p>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">7</span>, col_1 <span class="op">=</span> <span class="va">Karpfenblau</span><span class="op">)</span>, title <span class="op">=</span> <span class="st">"Shades of Karpfenblau"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/shades-of-1-1.png" width="480" style="display: block; margin: auto;"></p>
 <p>Internally, <code><a href="../reference/shades_of.html">shades_of()</a></code> is merely a convenient wrapper for a special <code><a href="../reference/usecol.html">usecol()</a></code> function. The limitation of <code><a href="../reference/shades_of.html">shades_of()</a></code> is that it only allows creating bi-polar color palettes (i.e., gradients between two colors), whereas <code><a href="../reference/usecol.html">usecol()</a></code> allows creating color gradients between an arbitrary number of colors. Thus, the following two palettes are identical:</p>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">shady_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/usecol.html">usecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"deeppink"</span>, <span class="st">"gold"</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="va">shady_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">5</span>, <span class="st">"deeppink"</span>, <span class="st">"gold"</span><span class="op">)</span></span>
-<span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">shady_1</span>, <span class="va">shady_2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">shady_2</span>, title <span class="op">=</span> <span class="st">"A bi-polar color gradient"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/shades-of-2-1.png" width="480" style="display: block; margin: auto;"></p>
 </div>
@@ -483,7 +478,7 @@ Thus, the following will only plot the palette without doing anything else with 
 <h2 id="defining-new-color-palettes-with-newpal">Defining new color palettes with <code>newpal()</code><a class="anchor" aria-label="anchor" href="#defining-new-color-palettes-with-newpal"></a>
 </h2>
 <p>Having created, combined or found all those beautiful colors, we may wish to define a new color palette. Defining a new named color palette allows to consistently access and apply colors (e.g., to a series of visualizations in a report or publication). The <code><a href="../reference/newpal.html">newpal()</a></code> function makes it easy to define color palettes:</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">col_flag</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#000000"</span>, <span class="st">"#dd0000"</span>, <span class="st">"#ffce00"</span><span class="op">)</span>  <span class="co"># source: www.schemecolor.com</span></span>
 <span></span>
 <span><span class="va">flag_de</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newpal.html">newpal</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">col_flag</span>,</span>

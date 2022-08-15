@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9012</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9000</span>
       </span>
     </div>
 
@@ -74,26 +74,29 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="0.4.0.9012" id="unikn-0409012">unikn 0.4.0.9012<a class="anchor" aria-label="anchor" href="#unikn-0409012"></a></h2>
-<p>The current development version of <strong>unikn</strong> (0.4.0.9001+) is available at <a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a>.</p>
+<h2 class="page-header" data-toc-text="0.5.0" id="unikn-050">unikn 0.5.0<a class="anchor" aria-label="anchor" href="#unikn-050"></a></h2>
+<p>This release of <strong>unikn</strong> (v0.5.0) adds new functionality and fixes some bugs. [2022-08-15]</p>
+<p>Changes since last release:</p>
 <!-- Add blank line.  --><div class="section level3">
-<h3 id="major-changes-0-4-0-9012">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-4-0-9012"></a></h3>
+<h3 id="major-changes-0-5-0">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-5-0"></a></h3>
 <ul><li>Add a <code><a href="../reference/simcol.html">simcol()</a></code> function to find similar colors. [2022-08-10]</li>
 <li>Add an <code><a href="../reference/ac.html">ac()</a></code> function as a flexible wrapper of <code><a href="https://rdrr.io/r/grDevices/adjustcolor.html" class="external-link">grDevices::adjustcolor()</a></code>. [2022-01-02]</li>
 <li>Add a <code><a href="../reference/shades_of.html">shades_of()</a></code> function to conveniently get <code>n</code> shades of a color. [2021-04-06]</li>
 </ul><!-- Add blank line.  --></div>
 <div class="section level3">
-<h3 id="minor-changes-0-4-0-9012">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-0-4-0-9012"></a></h3>
-<ul><li>Add <code>distinct</code> argument to <code><a href="../reference/usecol.html">usecol()</a></code> and <code><a href="../reference/simcol.html">simcol()</a></code> to include or remove visual duplicates. [2022-08-11]</li>
+<h3 id="minor-changes-0-5-0">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-0-5-0"></a></h3>
+<ul><li>Add a <code>plot</code> argument to <code><a href="../reference/grepal.html">grepal()</a></code> and <code><a href="../reference/simcol.html">simcol()</a></code> to visualize results. [2022-08-12]</li>
+<li>Add a <code>distinct</code> argument to <code><a href="../reference/usecol.html">usecol()</a></code> and <code><a href="../reference/simcol.html">simcol()</a></code> to remove visual duplicates. [2022-08-11]</li>
 <li>Add utility functions for obtaining color transparency values (<code>get_alpha()</code>), quantifying color distance (<code>col_distance()</code>), and detecting and filtering visual duplicates (<code>col_distinct()</code>). [2022-08-11]</li>
 <li>Add an <code>x_layout</code> argument to control horizontal positions of text labels (e.g., by numeric increments, centering, right-adjusted). [2021-04-24]</li>
 </ul><!-- Add blank line.  --></div>
 <div class="section level3">
-<h3 id="bug-fixes-0-4-0-9012">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-4-0-9012"></a></h3>
+<h3 id="bug-fixes-0-5-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-5-0"></a></h3>
 <ul><li>Fix some bugs in README and vignettes. [2021-04-29]</li>
 <li>
 <code><a href="../reference/slide.html">slide()</a></code> now uses the <code>dim</code> argument. [2021-04-24]</li>
-</ul><!-- Add blank line.  --><hr></div>
+</ul><!-- Add blank line.  --><p>The current development version of <strong>unikn</strong> (0.5.0.9001+) is available at <a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a>.</p>
+<!-- Add blank line.  --><hr></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.0" id="unikn-040">unikn 0.4.0<small>2021-03-27</small><a class="anchor" aria-label="anchor" href="#unikn-040"></a></h2>
@@ -101,7 +104,7 @@
 <p>Changes since last release:</p>
 <div class="section level3">
 <h3 id="major-changes-0-4-0">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-4-0"></a></h3>
-<ul><li><p>Add a <code><a href="../reference/grepal.html">grepal()</a></code> function to conveniently search <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> or color palettes by name. [2020-12-18]</p></li>
+<ul><li><p>Add a <code><a href="../reference/grepal.html">grepal()</a></code> function to match patterns in the names of <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> or color palettes. [2020-12-18]</p></li>
 <li><p>Change color sequence of <code>pal_unikn_pref</code> to increase contrast between adjacent colors. [2020-09-04]</p></li>
 </ul><!-- Add blank line.  --></div>
 <div class="section level3">
@@ -109,7 +112,7 @@
 <ul><li><p>Add <code>mar_note</code> argument to <code><a href="../reference/seecol.html">seecol()</a></code> for margin note option. [2021-01-05]</p></li>
 <li><p>Add two new vignettes (on “Color recipes” and “Institutional colors”). [2020-12-18]</p></li>
 <li><p>Fine-tune aesthetics of <code><a href="../reference/theme_unikn.html">theme_unikn()</a></code> and <code><a href="../reference/theme_grau.html">theme_grau()</a></code> for use with <strong>ggplot2</strong>. [2020-08-27]</p></li>
-<li><p>Add <a href="https://travis-ci.org/" class="external-link">Travis</a> support for <a href="https://github.com/" class="external-link">GitHub</a> builds. [2020-08-25]</p></li>
+<li><p>Add <a href="https://www.travis-ci.com/" class="external-link">Travis</a> support for <a href="https://github.com/" class="external-link">GitHub</a> builds. [2020-08-25]</p></li>
 </ul><!-- Add blank line.  --></div>
 <div class="section level3">
 <h3 id="bug-fixes-0-4-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-4-0"></a></h3>
@@ -160,7 +163,7 @@ Show HEX codes on two alternating lines (or with diagonal labels) when length of
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.0" id="unikn-010">unikn 0.1.0<small>2019-06-15</small><a class="anchor" aria-label="anchor" href="#unikn-010"></a></h2>
-<ul><li>Initial release of <strong>unikn</strong> (v0.1.0) on CRAN: <a href="https://CRAN.R-project.org/package=unikn" class="external-link uri">https://CRAN.R-project.org/package=unikn</a>. [2019-06-15]</li></ul><!-- Add blank line.  --><hr><p>[File <code>NEWS.md</code> updated on 2022-08-11.]</p>
+<ul><li>Initial release of <strong>unikn</strong> (v0.1.0) on CRAN: <a href="https://CRAN.R-project.org/package=unikn" class="external-link uri">https://CRAN.R-project.org/package=unikn</a>. [2019-06-15]</li></ul><!-- Add blank line.  --><hr><p>[File <code>NEWS.md</code> updated on 2022-08-15.]</p>
 <!-- eof. -->
 </div>
   </div>

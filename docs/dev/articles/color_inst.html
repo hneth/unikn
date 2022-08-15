@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9012</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9000</span>
       </span>
     </div>
 
@@ -130,18 +130,18 @@
 <h3 id="a--university-of-freiburg-germany">A. <a href="https://uni-freiburg.de/" class="external-link">University of Freiburg</a>, Germany:<a class="anchor" aria-label="anchor" href="#a--university-of-freiburg-germany"></a>
 </h3>
 <p><img src="../inst/pix/logo_freiburg.png" align="right" width="120px" alt="Uni Freiburg" style="border:10;"></p>
-<p>The <a href="https://uni-freiburg.de/" class="external-link">Albert-Ludwigs Universität Freiburg</a> provides fairly extensive information on its corporate color scheme (available <a href="https://www.zuv.uni-freiburg.de/service/cd/cd-manual/farbwelt" class="external-link">here</a> and <a href="https://www.zuv.uni-freiburg.de/service/wsg/webstyleguide/farben" class="external-link">here</a>). Colors can be defined in a variety of ways, but R comes with convenient tools (like <code>col2rgb</code> and <code>convertColor</code> in <strong>grDevices</strong>) to handle most cases. The most straightforward way of creating a new color palette in R is by using its HEX/HTML code (provided in character format). As the <a href="https://uni-freiburg.de/" class="external-link">University of Freiburg</a> kindly provides their colors in this format, we can easily define the corresponding color palettes as named vectors:</p>
+<p>The <a href="https://uni-freiburg.de/" class="external-link">Albert-Ludwigs Universität Freiburg</a> provides fairly extensive information on its corporate color scheme (available <a href="http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben" class="external-link">here</a>). Colors can be defined in a variety of ways, but R comes with convenient tools (like <code>col2rgb</code> and <code>convertColor</code> in <strong>grDevices</strong>) to handle most cases. The most straightforward way of creating a new color palette in R is by using its HEX/HTML code (provided in character format). As the <a href="https://uni-freiburg.de/" class="external-link">University of Freiburg</a> kindly provides their colors in this format, we can easily define the corresponding color palettes as named vectors:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Basic colors: https://www.zuv.uni-freiburg.de/service/cd/cd-manual/farbwelt</span></span>
+<code class="sourceCode R"><span><span class="co"># Source: http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben</span></span>
 <span></span>
+<span><span class="co"># Basic colors: ---- </span></span>
 <span><span class="va">pal_freiburg_bluered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#004a99"</span>, <span class="st">"#c1002a"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">pal_freiburg_bluered</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"uni-blau"</span>, <span class="st">"uni-rot"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">pal_freiburg_basic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#004a99"</span>, <span class="st">"white"</span>, <span class="st">"#c1002a"</span><span class="op">)</span>  <span class="co"># add "white" for better gradients</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">pal_freiburg_basic</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"uni-blau"</span>, <span class="st">"weiss"</span>, <span class="st">"uni-rot"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Web colors: https://www.zuv.uni-freiburg.de/service/wsg/webstyleguide/farben</span></span>
-<span></span>
+<span><span class="co"># Web colors: ----</span></span>
 <span><span class="va">pal_freiburg_blue</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#004a99"</span>, <span class="st">"#2a6ebb"</span>, <span class="st">"#6f9ad3"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">pal_freiburg_blue</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"blue-1"</span>, <span class="st">"blue-2"</span>, <span class="st">"blue-3"</span><span class="op">)</span></span>
 <span></span>
@@ -176,7 +176,7 @@
 <p>The color scheme of <a href="https://princeton.edu/" class="external-link">Princeton University</a> is easily recognized by its combination of orange with black and white elements. The official guidelines (available <a href="https://communications.princeton.edu/guides-tools/logo-graphic-identity" class="external-link">here</a>) define “Princeton Orange” as Pantone (PMS) 158 C.</p>
 <ul>
 <li>
-<p>The PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/158-C" class="external-link uri">https://www.pantone.com/color-finder/158-C</a> yields the following color values:</p>
+<p>The PANTONE™ color finder at <a href="https://www.pantone.com/connect/158-C" class="external-link uri">https://www.pantone.com/connect/158-C</a> yields the following color values:</p>
 <ul>
 <li>RGB: <code>232 119 34</code><br>
 </li>
@@ -230,7 +230,7 @@
 <p>The CD manual (available <a href="https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html" class="external-link">here</a>) of the <a href="https://www.mpg.de/de" class="external-link">Max Planck Society</a> specifies the use of 2 primary colors:</p>
 <ul>
 <li>
-<p>Green as Pantone 328: Using the PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/328-C" class="external-link uri">https://www.pantone.com/color-finder/328-C</a> yields the following color values:</p>
+<p>Green as Pantone 328: Using the PANTONE™ color finder at <a href="https://www.pantone.com/connect/328-C" class="external-link uri">https://www.pantone.com/connect/328-C</a> yields the following color values:</p>
 <ul>
 <li>RGB: <code>0 115 103</code><br>
 </li>
@@ -241,7 +241,7 @@
 </ul>
 </li>
 <li>
-<p>Grey as Pantone 427: Using the PANTONE™ color finder at <a href="https://www.pantone.com/color-finder/427-C" class="external-link uri">https://www.pantone.com/color-finder/427-C</a> yields the following color values:</p>
+<p>Grey as Pantone 427: Using the PANTONE™ color finder at <a href="https://www.pantone.com/connect/427-C" class="external-link uri">https://www.pantone.com/connect/427-C</a> yields the following color values:</p>
 <ul>
 <li>RGB: <code>208 211 212</code><br>
 </li>

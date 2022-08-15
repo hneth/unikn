@@ -19,7 +19,7 @@ to some target color col_target."><meta property="og:image" content="https://hne
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9012</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9000</span>
       </span>
     </div>
 
@@ -130,8 +130,8 @@ Default: <code>plot = TRUE</code>.</p></dd>
     <p><code>simcol</code> returns a vector of the (named) colors or color values in 
 <code>col_candidates</code> (set to `colors()` of <strong>grDevices</strong> per default) 
 that are similar to the specified target color <code>col_target</code>.</p>
-<p>If <code>plot = TRUE</code>, <code>simcol</code> also uses <code><a href="seecol.html">seecol</a></code> 
-to visualize its results (as a side-effect).</p>
+<p>If <code>plot = TRUE</code>, <code>simcol</code> also visualizes the detected colors  
+(by passing its result to <code><a href="seecol.html">seecol</a></code>, as a side-effect).</p>
 <p>Color similarity is defined in terms of the distance between colors' RGB values, 
 which must be within the numeric tolerance threshold(s) specified by <code>tol</code> 
 (with <code>0 &lt;= tol &lt;= 255</code>). 
@@ -169,22 +169,22 @@ more fine-grained similarity matching.</p>
 <span class="r-plt img"><img src="simcol-1.png" alt="" width="700" height="433"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          red   firebrick1   firebrick2    orangered   orangered2         red2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        "red" "firebrick1" "firebrick2"  "orangered" "orangered2"       "red2" </span>
-<span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="va">Seeblau</span>, tol <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="st">"tan"</span>, tol <span class="op">=</span> <span class="fl">15</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="simcol-2.png" alt="" width="700" height="433"></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Seeblau   steelblue1   steelblue2    turquoise </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    "#59C7EB" "steelblue1" "steelblue2"  "turquoise" </span>
-<span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="st">"gold"</span>, tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">30</span>, <span class="fl">40</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            tan      burlywood     burlywood3   navajowhite3     peachpuff3 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          "tan"    "burlywood"   "burlywood3" "navajowhite3"   "peachpuff3" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         wheat3 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "wheat3" </span>
+<span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="va">Seeblau</span>, tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">30</span>, <span class="fl">40</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="simcol-3.png" alt="" width="700" height="433"></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             gold   darkgoldenrod1            gold2       goldenrod1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           "gold" "darkgoldenrod1"          "gold2"     "goldenrod1" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          yellow2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        "yellow2" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Seeblau     skyblue2   steelblue1   steelblue2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    "#59C7EB"   "skyblue2" "steelblue1" "steelblue2" </span>
 <span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="st">"blue"</span>, col_candidates <span class="op">=</span> <span class="va">pal_unikn_pref</span>, tol <span class="op">=</span> <span class="fl">120</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="simcol-4.png" alt="" width="700" height="433"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        blue Karpfenblau      Petrol </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      "blue"   "#3E5496"   "#077187" </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># More fine-grained color matching:</span></span></span>
+<span class="r-in"><span><span class="co"># Fine-tuning the range of color matching:</span></span></span>
 <span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="va">Seeblau</span>, tol <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>  <span class="co"># = simcol(Seeblau, tol = c(30, 30, 30))</span></span></span>
 <span class="r-plt img"><img src="simcol-5.png" alt="" width="700" height="433"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      Seeblau   steelblue1   steelblue2    turquoise </span>

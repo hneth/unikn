@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9012</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9000</span>
       </span>
     </div>
 
@@ -79,7 +79,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">grepal</span><span class="op">(</span><span class="va">pattern</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a></span><span class="op">(</span><span class="op">)</span>, ignore_case <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">grepal</span><span class="op">(</span><span class="va">pattern</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a></span><span class="op">(</span><span class="op">)</span>, ignore_case <span class="op">=</span> <span class="cn">TRUE</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -100,14 +100,21 @@ Default: <code>x = colors()</code>.</p></dd>
 (passed to <code>ignore.case</code> of the <code>grep</code> function)?   
 Default: <code>ignore_case = TRUE</code>.</p></dd>
 
+
+<dt>plot</dt>
+<dd><p>Boolean: Plot the output (using <code><a href="seecol.html">seecol</a></code>)? 
+Default: <code>plot = TRUE</code>.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
-    <p>By default, the <strong>base</strong> R vector of named colors (i.e., <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code>) is searched 
+    <p>By default, the <b>base</b> R vector of named colors (i.e., <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code>) is searched 
 for names matching a <code>pattern</code> (which can be a simple string or regular expression).</p>
 <p>If <code>x</code> (i.e., the object to be searched) is provided, 
 it is must be a vector of color names or a data frame of named color objects 
 (i.e., a color palette).</p>
+<p>If <code>plot = TRUE</code>, <code>grepal</code> also visualizes the detected colors  
+(by passing its result to <code><a href="seecol.html">seecol</a></code>, as a side-effect).</p>
 <p>This function facilitates searching colors by name and 
 yields (a vector of) colors of similar color hue (provided 
 that the color's hue is expressed in a color's name). 
@@ -133,15 +140,14 @@ Its name <code>grepal</code> is an abbreviation of <code>grep</code> and "pal".<
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">grepal</span><span class="op">(</span><span class="st">"cyan"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "cyan"       "cyan1"      "cyan2"      "cyan3"      "cyan4"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "darkcyan"   "lightcyan"  "lightcyan1" "lightcyan2" "lightcyan3"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "lightcyan4"</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">grepal</span><span class="op">(</span><span class="st">"tan"</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="grepal-1.png" alt="" width="700" height="433"></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "tan"  "tan1" "tan2" "tan3" "tan4"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># With regular expressions:</span></span></span>
-<span class="r-in"><span><span class="va">some_grey</span>  <span class="op">&lt;-</span> <span class="fu">grepal</span><span class="op">(</span><span class="st">"gr(a|e)y"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">start_grey</span> <span class="op">&lt;-</span> <span class="fu">grepal</span><span class="op">(</span><span class="st">"^gr(a|e)y"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">only_grey</span>  <span class="op">&lt;-</span> <span class="fu">grepal</span><span class="op">(</span><span class="st">"^gr(a|e)y$"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">some_grey</span>  <span class="op">&lt;-</span> <span class="fu">grepal</span><span class="op">(</span><span class="st">"gr(a|e)y"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">start_grey</span> <span class="op">&lt;-</span> <span class="fu">grepal</span><span class="op">(</span><span class="st">"^gr(a|e)y"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">only_grey</span>  <span class="op">&lt;-</span> <span class="fu">grepal</span><span class="op">(</span><span class="st">"^gr(a|e)y$"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">some_grey</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 224</span>
@@ -150,27 +156,24 @@ Its name <code>grepal</code> is an abbreviation of <code>grep</code> and "pal".<
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># With other color objects (df as x):</span></span></span>
 <span class="r-in"><span><span class="fu">grepal</span><span class="op">(</span><span class="st">"blau"</span>, x <span class="op">=</span> <span class="va">pal_unikn</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="grepal-2.png" alt="" width="700" height="433"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   seeblau5 seeblau4 seeblau3 seeblau2 seeblau1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  #008ECE  #00A9E0  #59C7EB  #A6E1F4  #CCEEF9</span>
-<span class="r-in"><span><span class="fu">grepal</span><span class="op">(</span><span class="st">"SEE"</span>, x <span class="op">=</span> <span class="va">pal_unikn_pref</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Seeblau Seegruen</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 #59C7EB  #0A9086</span>
+<span class="r-in"><span><span class="fu">grepal</span><span class="op">(</span><span class="st">"SEE"</span>, x <span class="op">=</span> <span class="va">pal_unikn_pref</span>, ignore_case <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Found 0 colors matching 'SEE'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 1 row</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Applications:</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="fu">grepal</span><span class="op">(</span><span class="st">"white"</span><span class="op">)</span>, col_bg <span class="op">=</span> <span class="st">"lightblue2"</span>, title <span class="op">=</span> <span class="st">"See 'white' colors()"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="grepal-1.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="grepal-3.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="grepal-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">olives</span>  <span class="op">&lt;-</span> <span class="fu">grepal</span><span class="op">(</span><span class="st">"olive"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">oranges</span> <span class="op">&lt;-</span> <span class="fu">grepal</span><span class="op">(</span><span class="st">"orange"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">olives</span>  <span class="op">&lt;-</span> <span class="fu">grepal</span><span class="op">(</span><span class="st">"olive"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">oranges</span> <span class="op">&lt;-</span> <span class="fu">grepal</span><span class="op">(</span><span class="st">"orange"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">olives</span>, <span class="va">oranges</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>       pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"olives"</span>, <span class="st">"oranges"</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>       title <span class="op">=</span> <span class="st">"Comparing olives and oranges"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="grepal-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="fu">grepal</span><span class="op">(</span><span class="st">"SEE"</span>, <span class="va">pal_unikn</span><span class="op">)</span>, title <span class="op">=</span> <span class="st">"All 'SEE' colors in pal_unikn"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="grepal-3.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="fu">grepal</span><span class="op">(</span><span class="st">"blau"</span>, <span class="va">pal_unikn_pref</span><span class="op">)</span>, title <span class="op">=</span> <span class="st">"All 'blau' colors in pal_unikn_pref"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="grepal-4.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="grepal-5.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

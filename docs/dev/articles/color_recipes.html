@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.4.0.9012</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9000</span>
       </span>
     </div>
 
@@ -281,9 +281,9 @@
 <p>Here are some additional examples for using the <code><a href="../reference/grepal.html">grepal()</a></code> function for finding colors by their names (or a pattern):</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Get color palettes matching a pattern:</span></span>
-<span><span class="va">pal_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"orange"</span><span class="op">)</span></span>
-<span><span class="va">pal_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"olive"</span><span class="op">)</span></span>
-<span><span class="va">pal_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"white"</span><span class="op">)</span></span>
+<span><span class="va">pal_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"orange"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">pal_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"olive"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">pal_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"white"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># See individual palettes:</span></span>
 <span><span class="co"># seecol(pal_1, title = "Hues of 'orange' colors()")</span></span>
@@ -301,16 +301,16 @@
 <p>Let’s compare different types of “blue”, “orange”, and “purple or violet” provided by the <strong>grDevices</strong> vector of named <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> with various shades of “blau”, “pink”, “peach” and “bordeaux” provided by <strong>unikn</strong> color palettes:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Search colors() with specific patterns (in their names): </span></span>
-<span><span class="va">blues</span>    <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"blue$"</span><span class="op">)</span>   <span class="co"># ending on "blue"</span></span>
-<span><span class="va">oranges</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"orange"</span><span class="op">)</span>  <span class="co"># containing "orange"</span></span>
-<span><span class="va">purpviol</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"purple|violet"</span><span class="op">)</span>  <span class="co"># containing "purple" or "violet"</span></span>
+<span><span class="va">blues</span>    <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"blue$"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>   <span class="co"># ending on "blue"</span></span>
+<span><span class="va">oranges</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"orange"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>  <span class="co"># containing "orange"</span></span>
+<span><span class="va">purpviol</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"purple|violet"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>  <span class="co"># containing "purple" or "violet"</span></span>
 <span></span>
 <span><span class="co"># Search unikn palettes for color names: </span></span>
-<span><span class="va">blaus_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"blau"</span>, <span class="va">pal_unikn</span><span class="op">)</span></span>
-<span><span class="va">blaus_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"blau"</span>, <span class="va">pal_karpfenblau</span><span class="op">)</span></span>
-<span><span class="va">pinks</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"pink"</span>, <span class="va">pal_pinky</span><span class="op">)</span></span>
-<span><span class="va">peach</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"peach"</span>, <span class="va">pal_peach</span><span class="op">)</span></span>
-<span><span class="va">baux</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"bordeaux"</span>, <span class="va">pal_bordeaux</span><span class="op">)</span></span>
+<span><span class="va">blaus_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"blau"</span>, <span class="va">pal_unikn</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">blaus_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"blau"</span>, <span class="va">pal_karpfenblau</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">pinks</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"pink"</span>, <span class="va">pal_pinky</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">peach</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"peach"</span>, <span class="va">pal_peach</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">baux</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"bordeaux"</span>, <span class="va">pal_bordeaux</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># See multiple color palettes: </span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">blues</span>, <span class="va">oranges</span>, <span class="va">purpviol</span>, </span>
