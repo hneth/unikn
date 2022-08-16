@@ -1,9 +1,13 @@
 ## color_fun.R | unikn
-## spds | uni.kn | 2022 08 13
+## spds | uni.kn | 2022 08 16
 ## ---------------------------
 
 ## Define color-related functions 
 ## (e.g., for choosing from, plotting, and creating color palettes). 
+
+
+
+## (A) Main functions: ---------- 
 
 
 # 1. usecol(): Use a color palette (as is): ---------  
@@ -1044,7 +1048,12 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 # par(op)
 
 
-# 3. newpal(): Define a new color palette: ---------- 
+
+
+## (B) Auxiliary functions: ---------- 
+
+
+# newpal(): Define a new color palette: ---------- 
 
 # - Documentation: ------ 
 
@@ -1288,7 +1297,7 @@ newpal <- function(col,            # a vector of colors
 #        title = "Comparing custom color palettes")
 
 
-# 4. grepal(): Get a color vector (from colors() or a named df) matching a regex -------
+# grepal(): Find colors matching a pattern (in palette names): -------
 
 # - Documentation: ------ 
 
@@ -1440,237 +1449,7 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE, plot = TRUE){
 # seecol(grepal("blau", pal_unikn_pref, plot = FALSE), title = "All colors matching 'blau'")
 
 
-# 5. shades_of(): Get n lighter or darker versions of a given color: ------ 
-
-# - Documentation: ------ 
-
-#' Get n shades of a color. 
-#'
-#' \code{shades_of} returns a vector of \code{n} colors that are 
-#' shades of an initial color \code{col_1}. 
-#' 
-#' By default, the colors range from the initial color 
-#' \code{col_1 = "black"} to \code{col_n = "white"}, 
-#' but specifying different initial and final colors yields 
-#' other color ranges. 
-#' 
-#' \code{shades_of} is mostly a wrapper for a special \code{\link{usecol}} command. 
-#' However, \code{\link{usecol}} allows defining more 
-#' complex color gradients (e.g., by specifying more than two colors). 
-#'
-#' @param n Number of desired colors.  
-#' Default: \code{n = 5}.  
-#' 
-#' @param col_1 Initial color.   
-#' Default: \code{col_1 = "black"}.  
-#' 
-#' @param col_n Final (n-th) color.   
-#' Default: \code{col_n = "white"}.  
-#' 
-#' @param alpha A factor modifying the opacity alpha 
-#' (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
-#' Default: \code{alpha = NA} (i.e., no modification of opacity).
-#' 
-#' @examples
-#' grey50 <- shades_of(50, col_1 = 'grey1')
-#' seecol(grey50, title = "50 shades of grey1")
-#' 
-#' blue_black <- shades_of(5, Seeblau, col_n = "black")
-#' seecol(blue_black, title = "5 shades from Seeblau to black")
-#'
-#' wine_white <- shades_of(6, Bordeaux, alpha = 1/2)
-#' seecol(wine_white, col_brd = "black", lwd_brd = .5, 
-#'        title = "Shades of semi-transparent Bordeaux")
-#'   
-#' @family color functions
-#' 
-#' @seealso 
-#' \code{\link{seepal}} for plotting color palettes;  
-#' \code{\link{usecol}} for using color palettes; 
-#' \code{\link{simcol}} for finding similar colors;  
-#' \code{\link{newpal}} for defining new color palettes; 
-#' \code{\link{grepal}} for finding named colors; 
-#' \code{\link{ac}} for adjusting color transparency.  
-#'
-#' @import grDevices 
-#' 
-#' @export 
-
-# - Definition: ------ 
-
-shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
-  
-  # Initialize: 
-  cv <- NA  # color vector
-  
-  # Main: Pass to usecol()
-  cv <- usecol(pal = c(col_1, col_n), n = n, alpha = alpha)
-  
-  # Output:
-  return(cv)
-  
-} # shades_of(). 
-
-
-## Check:
-# shades_of(4)
-# seecol(shades_of(4, col_1 = Pinky, col_n = "gold"))
-# seecol(shades_of(4, col_1 = Bordeaux, alpha = .5))
-
-
-# 6. ac() as an adjustcolor() wrapper: ------ 
-
-# Goal: Wrap essentials of grDevices::adjustcolor 
-#       as a more convenient utility function:
-
-# - Documentation: ------ 
-
-#' Adjust the transparency of a color or color palette.
-#'
-#' \code{ac} adjusts the transparency of a color or color palette \code{col} 
-#' to an opacity level \code{alpha}.
-#'
-#' \code{ac} is primarily a wrapper for \code{\link{adjustcolor}} 
-#' of the \strong{grDevices} package, but allows for more flexible 
-#' combinations of (multiple) \code{col} and \code{alpha} values. 
-#'
-#' @param col A (required) color or color palette (as a vector). 
-#' 
-#' @param alpha A factor modifying the opacity alpha 
-#' (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
-#' Default: \code{alpha = .50} (i.e., medium opacity).
-#' 
-#' @param use_names A logical value indicating whether color names should be adjusted 
-#' to include the values of \code{alpha}. 
-#' Default: \code{use_names = TRUE}.  
-#' 
-#' @return A color vector of the same length as \code{col}, 
-#' transformed by \code{\link{adjustcolor}}. 
-#' 
-#' @examples 
-#' ac("black")  # using alpha = .5 by default
-#' 
-#' # multiple colors:
-#' cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
-#' seecol(cols, title = "Transparent colors")
-#' 
-#' # multiple alphas:
-#' blacks <- ac("black", alpha = 5:0/5)
-#' seecol(blacks, title = "One col several alpha values")
-#' 
-#' bgc <- ac(c("black", "gold"), alpha = 1:6/6)
-#' seecol(bgc, title = "More alpha values than cols")
-#' 
-#' # Using a color palette:
-#' seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
-#' 
-#' # Color names:
-#' seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
-#' seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
-#' 
-#' @family color functions
-#'
-#' @seealso
-#' \code{\link{seecol}} for plotting/seeing color palettes; 
-#' \code{\link{usecol}} for using color palettes;
-#' \code{\link{simcol}} for finding similar colors;  
-#' \code{\link{newpal}} for defining new color palettes; 
-#' \code{\link{grepal}} for finding named colors.
-#' 
-#' @import grDevices 
-#'
-#' @export
-
-# - Definition: ------ 
-
-ac <- function(col, alpha = .50, use_names = TRUE) {
-  
-  # Adjust color vector (col_adj): ------ 
-  
-  len_col   <- length(col)
-  len_alpha <- length(alpha)
-  n_col     <- max(len_col, len_alpha)
-  col_adj   <- rep(NA, n_col)  # initialize 
-  
-  if (len_alpha == 1){ # 1. default case (len_alpha == 1):
-    
-    # Main-1: Pass to grDevices::adjustcolor 
-    col_adj <- grDevices::adjustcolor(col, alpha.f = alpha)
-    
-  } else { # 2. multiple alpha values:
-    
-    # Adjust length of col or alpha vector: 
-    if (len_alpha > len_col){ # 1a. extend col to len_alpha:
-      col <- rep(col, ceiling(len_alpha/len_col))[1:len_alpha]
-    }
-    
-    if (len_col > len_alpha){ # 1b. extend alpha to len_col:
-      alpha <- rep(alpha, ceiling(len_col/len_alpha))[1:len_col]
-    }
-    
-    # Main-2: Pass each pair of col and alpha to grDevices::adjustcolor():
-    for (i in 1:n_col){
-      col_adj[i] <- grDevices::adjustcolor(col[i], alpha.f = alpha[i])
-    }
-    
-  }
-  
-  
-  # Add/adjust color names (to indicate alpha): ------ 
-  
-  if (use_names){
-    
-    if (is.null(names(col))){ # no existing names:
-      
-      names(col_adj) <- paste0(as.character(col), "_", round(alpha, 2))  
-      
-    } else { # adjust existing names:
-      
-      names(col_adj) <- paste0(names(col), "_", round(alpha, 2))
-      
-    }
-    
-  } else { 
-    
-    # names(col_adj) <- NULL      # remove ALL names    
-    names(col_adj) <- names(col)  # keep pre-existing names (if present)
-    
-  } # if (use_names) end. 
-  
-  
-  # Finish: ------ 
-  
-  return(col_adj)
-  
-} # ac(). 
-
-
-## Check:
-# ac("black")  # using alpha = .5 by default
-# 
-# # multiple colors:
-# cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
-# seecol(cols, title = "Transparent colors")
-# 
-# # multiple alphas:
-# blacks <- ac("black", alpha = 5:0/5)
-# seecol(blacks, title = "One col several alpha values")
-# 
-# bgc <- ac(c("black", "gold"), alpha = 1:6/6)
-# seecol(bgc, title = "More alpha values than cols")
-# 
-# # Without adjusting names:
-# seecol(ac(c("black", "gold"), alpha = 1:6/6, use_names = FALSE))
-#
-# # Using a color palette:
-# seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
-# 
-# # Color names:
-# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
-# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
-
-
-# 7. simcol(): Find/see similar colors: ------
+# simcol(): Find/see similar colors: ------
 
 # Goal: Find (named) colors similar to a given color, within some tolerance value(s).
 
@@ -1882,6 +1661,238 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75),
 # pal <- c(Seeblau, "deepskyblue")
 # seecol(pal)
 # simcol(Seeblau, tol = c(20, 20, 100))
+
+
+
+# shades_of(): Get n lighter or darker versions of a given color: ------ 
+
+# - Documentation: ------ 
+
+#' Get n shades of a color. 
+#'
+#' \code{shades_of} returns a vector of \code{n} colors that are 
+#' shades of an initial color \code{col_1}. 
+#' 
+#' By default, the colors range from the initial color 
+#' \code{col_1 = "black"} to \code{col_n = "white"}, 
+#' but specifying different initial and final colors yields 
+#' other color ranges. 
+#' 
+#' \code{shades_of} is mostly a wrapper for a special \code{\link{usecol}} command. 
+#' However, \code{\link{usecol}} allows defining more 
+#' complex color gradients (e.g., by specifying more than two colors). 
+#'
+#' @param n Number of desired colors.  
+#' Default: \code{n = 5}.  
+#' 
+#' @param col_1 Initial color.   
+#' Default: \code{col_1 = "black"}.  
+#' 
+#' @param col_n Final (n-th) color.   
+#' Default: \code{col_n = "white"}.  
+#' 
+#' @param alpha A factor modifying the opacity alpha 
+#' (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
+#' Default: \code{alpha = NA} (i.e., no modification of opacity).
+#' 
+#' @examples
+#' grey50 <- shades_of(50, col_1 = 'grey1')
+#' seecol(grey50, title = "50 shades of grey1")
+#' 
+#' blue_black <- shades_of(5, Seeblau, col_n = "black")
+#' seecol(blue_black, title = "5 shades from Seeblau to black")
+#'
+#' wine_white <- shades_of(6, Bordeaux, alpha = 1/2)
+#' seecol(wine_white, col_brd = "black", lwd_brd = .5, 
+#'        title = "Shades of semi-transparent Bordeaux")
+#'   
+#' @family color functions
+#' 
+#' @seealso 
+#' \code{\link{seepal}} for plotting color palettes;  
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors;  
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors; 
+#' \code{\link{ac}} for adjusting color transparency.  
+#'
+#' @import grDevices 
+#' 
+#' @export 
+
+# - Definition: ------ 
+
+shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
+  
+  # Initialize: 
+  cv <- NA  # color vector
+  
+  # Main: Pass to usecol()
+  cv <- usecol(pal = c(col_1, col_n), n = n, alpha = alpha)
+  
+  # Output:
+  return(cv)
+  
+} # shades_of(). 
+
+
+## Check:
+# shades_of(4)
+# seecol(shades_of(4, col_1 = Pinky, col_n = "gold"))
+# seecol(shades_of(4, col_1 = Bordeaux, alpha = .5))
+
+
+# ac(): Wrap adjustcolor(): ------ 
+
+# Goal: Wrap essentials of grDevices::adjustcolor 
+#       as a more convenient utility function:
+
+# - Documentation: ------ 
+
+#' Adjust the transparency of a color or color palette.
+#'
+#' \code{ac} adjusts the transparency of a color or color palette \code{col} 
+#' to an opacity level \code{alpha}.
+#'
+#' \code{ac} is primarily a wrapper for \code{\link{adjustcolor}} 
+#' of the \strong{grDevices} package, but allows for more flexible 
+#' combinations of (multiple) \code{col} and \code{alpha} values. 
+#'
+#' @param col A (required) color or color palette (as a vector). 
+#' 
+#' @param alpha A factor modifying the opacity alpha 
+#' (as \code{alpha.f} in \code{\link{adjustcolor}}) to a value in \code{[0, 1]}. 
+#' Default: \code{alpha = .50} (i.e., medium opacity).
+#' 
+#' @param use_names A logical value indicating whether color names should be adjusted 
+#' to include the values of \code{alpha}. 
+#' Default: \code{use_names = TRUE}.  
+#' 
+#' @return A color vector of the same length as \code{col}, 
+#' transformed by \code{\link{adjustcolor}}. 
+#' 
+#' @examples 
+#' ac("black")  # using alpha = .5 by default
+#' 
+#' # multiple colors:
+#' cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
+#' seecol(cols, title = "Transparent colors")
+#' 
+#' # multiple alphas:
+#' blacks <- ac("black", alpha = 5:0/5)
+#' seecol(blacks, title = "One col several alpha values")
+#' 
+#' bgc <- ac(c("black", "gold"), alpha = 1:6/6)
+#' seecol(bgc, title = "More alpha values than cols")
+#' 
+#' # Using a color palette:
+#' seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
+#' 
+#' # Color names:
+#' seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
+#' seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
+#' 
+#' @family color functions
+#'
+#' @seealso
+#' \code{\link{seecol}} for plotting/seeing color palettes; 
+#' \code{\link{usecol}} for using color palettes;
+#' \code{\link{simcol}} for finding similar colors;  
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors.
+#' 
+#' @import grDevices 
+#'
+#' @export
+
+# - Definition: ------ 
+
+ac <- function(col, alpha = .50, use_names = TRUE) {
+  
+  # Adjust color vector (col_adj): ------ 
+  
+  len_col   <- length(col)
+  len_alpha <- length(alpha)
+  n_col     <- max(len_col, len_alpha)
+  col_adj   <- rep(NA, n_col)  # initialize 
+  
+  if (len_alpha == 1){ # 1. default case (len_alpha == 1):
+    
+    # Main-1: Pass to grDevices::adjustcolor 
+    col_adj <- grDevices::adjustcolor(col, alpha.f = alpha)
+    
+  } else { # 2. multiple alpha values:
+    
+    # Adjust length of col or alpha vector: 
+    if (len_alpha > len_col){ # 1a. extend col to len_alpha:
+      col <- rep(col, ceiling(len_alpha/len_col))[1:len_alpha]
+    }
+    
+    if (len_col > len_alpha){ # 1b. extend alpha to len_col:
+      alpha <- rep(alpha, ceiling(len_col/len_alpha))[1:len_col]
+    }
+    
+    # Main-2: Pass each pair of col and alpha to grDevices::adjustcolor():
+    for (i in 1:n_col){
+      col_adj[i] <- grDevices::adjustcolor(col[i], alpha.f = alpha[i])
+    }
+    
+  }
+  
+  
+  # Add/adjust color names (to indicate alpha): ------ 
+  
+  if (use_names){
+    
+    if (is.null(names(col))){ # no existing names:
+      
+      names(col_adj) <- paste0(as.character(col), "_", round(alpha, 2))  
+      
+    } else { # adjust existing names:
+      
+      names(col_adj) <- paste0(names(col), "_", round(alpha, 2))
+      
+    }
+    
+  } else { 
+    
+    # names(col_adj) <- NULL      # remove ALL names    
+    names(col_adj) <- names(col)  # keep pre-existing names (if present)
+    
+  } # if (use_names) end. 
+  
+  
+  # Finish: ------ 
+  
+  return(col_adj)
+  
+} # ac(). 
+
+
+## Check:
+# ac("black")  # using alpha = .5 by default
+# 
+# # multiple colors:
+# cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
+# seecol(cols, title = "Transparent colors")
+# 
+# # multiple alphas:
+# blacks <- ac("black", alpha = 5:0/5)
+# seecol(blacks, title = "One col several alpha values")
+# 
+# bgc <- ac(c("black", "gold"), alpha = 1:6/6)
+# seecol(bgc, title = "More alpha values than cols")
+# 
+# # Without adjusting names:
+# seecol(ac(c("black", "gold"), alpha = 1:6/6, use_names = FALSE))
+#
+# # Using a color palette:
+# seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
+# 
+# # Color names:
+# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
+# seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
+
 
 
 ## ToDo: ------
