@@ -73,7 +73,6 @@ Changes since last release:
 ## Major changes 
 
 - Add a `grepal()` function to match patterns in the names of `colors()` or color palettes. [2020-12-18]
-
 - Change color sequence of `pal_unikn_pref` to increase contrast between adjacent colors. [2020-09-04] 
 
 <!-- Blank line.  --> 
@@ -82,11 +81,8 @@ Changes since last release:
 ## Minor changes
 
 - Add `mar_note` argument to `seecol()` for margin note option. [2021-01-05] 
-
 - Add two new vignettes (on "Color recipes" and "Institutional colors"). [2020-12-18] 
-
 - Fine-tune aesthetics of `theme_unikn()` and `theme_grau()` for use with **ggplot2**. [2020-08-27]  
-
 - Add [Travis](https://www.travis-ci.com/) support for [GitHub](https://github.com/) builds. [2020-08-25]  
 
 <!-- Blank line.  --> 
@@ -118,9 +114,7 @@ Changes since last release:
 ## Bug fixes 
 
 - Bug fix: Use `seecol()` to flexibly plot color palettes provided by name or incomplete names. [2020-08-20]  
-
 - Revise documentation of `seecol()` and `usecol()` functions.  
-
 - Clean up and update online documentation.  
 
 <!-- Blank line.  --> 
@@ -138,7 +132,6 @@ Changes since last release:
 New functionality: 
 
 - Add a `newpal()` function for defining new color palettes (as a named vector or data frame). [2019-07-05]
-
 - Add a `theme_unikn()` function to provide a basic **ggplot2** theme. [2019-06-20]
 
 
@@ -147,23 +140,17 @@ New functionality:
 Changes in existing functionality: 
 
 - Add a `col_bg` argument to the `seecol()` function to allow setting background color. [2019-09-24]
-
 - Add a `title` argument to the `seecol()` function to allow overwriting the default title (created when `title = NA`). [2019-07-17]
-
 - Add `lwd_brd` argument to the `seecol()` function to allow setting the linewidth of shapes (and setting sensible defaults in combination with `col_brd`). [2019-07-18]
 
 
 ## Bug fixes 
 
 - Fix an error in `seecol()` and `usecol()` that prevented using functions in other packages (by requiring list of palettes). [2019-09-18]
-
 - Remove packages not needed for running **unikn** from list of suggested packages. [2019-07-20] 
-
 - Prevent showing duplicate color names in `seecol()`, due to searching both the current set of color palettes and **base** R `colors`. 
 Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27] 
-
 - Fix an error in `isHexCol()` which failed to recognize hexadecimal color values starting with lowercase letters. [2019-06-27] 
-
 
 <!-- Blank line.  --> 
 
@@ -177,6 +164,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-08-15.]
+[File `NEWS.md` updated on 2022-08-16.]
 
 <!-- eof. -->
