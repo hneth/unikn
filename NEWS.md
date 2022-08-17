@@ -7,17 +7,20 @@ Changes since last release:
 
 <!-- Blank line.  --> 
 
+
 ## Major changes 
 
 - none yet. 
 
 <!-- Blank line.  --> 
 
+
 ## Minor changes
 
-- none yet. 
+- Maintenance: Distribute color functions into two separate files. [2022-08-17]
 
 <!-- Blank line.  --> 
+
 
 ## Bug fixes
 
@@ -164,6 +167,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-08-16.]
+[File `NEWS.md` updated on 2022-08-17.]
 
 <!-- eof. -->
