@@ -17,6 +17,7 @@ Changes since last release:
 
 ## Minor changes
 
+- Add a `sub` argument to `seecol()` for plotting optional subtitles. [2022-08-17] 
 - Maintenance: Distribute color functions into two separate files. [2022-08-17]
 
 <!-- Blank line.  --> 
