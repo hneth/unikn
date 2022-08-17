@@ -471,6 +471,9 @@ usecol <- function(pal = pal_unikn,
 #' @param title Plot title (as a character string). 
 #' Default: \code{title = NA} creates a default title.
 #' 
+#' @param sub Optional subtitle (as a character string). 
+#' Default: \code{sub = NULL} (i.e., no subtitle).
+#' 
 #' @param mar_note Optional margin note (on bottom right). 
 #' Default: \code{mar_note = NA} (i.e., no margin note). 
 #' 
@@ -557,13 +560,14 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
                    col_brd = NULL,   # border color of the boxes
                    lwd_brd = NULL,   # line width of box borders
                    grid = TRUE,      # show grid? 
-                   title = NA,       # plot title? Using default title = NA constructs a default title
+                   title = NA,       # plot title? Using the default title = NA constructs a default title
+                   sub = NULL,       # plot subtile (on bottom)
                    mar_note = NA,    # optional margin note (on bottom right)
                    pal_names = NA,   # names of color palettes or colors (as character vector)
                    ...               # additional arguments to plot.default().
 ) {
   
-  # 1. Preparations: ----- 
+  # 1. Preparations: ------- 
   
   op <- par(no.readonly = TRUE)  # save original plotting settings.
   keys <- c("all", "unikn_all", "all_unikn",  # all palettes
@@ -573,12 +577,12 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
             "grad", "grad_all", "all_grad"  # the gradients.
   )
   
-  # Robustify inputs:
+  # Robustify inputs: ----
   
   if ( !(is.null(hex) | is.logical(hex)) ) stop("Please specify a valid value for 'hex'.")
   if ( !(is.null(rgb) | is.logical(rgb)) ) stop("Please specify a valid value for 'rgb'.")
   
-  # Check for keyword:
+  # Check for keyword: ---- 
   by_key <- tryCatch(
     { 
       all(pal %in% keys)
@@ -601,7 +605,8 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   # Getting a list of palettes by keyword: 
   if (by_key) {
     
-    # Plot title:
+    # Default plot titles: ---- 
+    
     # Define title given keyword:
     if (is.na(title)){
       if (pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
@@ -618,7 +623,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     pal_tmp <- lapply(X = pal, usecol, n = n, alpha = alpha, use_names = TRUE)  # get all palettes separately. 
     
     if (is.na(title)){
-      title <- "Compare a custom set of color palettes"
+      title <- "Compare a custom set of color palettes"  # default
     }
     
     # Set or get palette names:
@@ -700,7 +705,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   }
   
   
-  # 2. Plotting parameters: ------ 
+  # 2. Plotting parameters: -------- 
   
   distance <- 0   # set distance of boxes?
   xlen <- 1       # set x length of color boxes.
@@ -718,26 +723,33 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   pal_mat <- cbind(pal_tmp, length(pal_tmp):1)  # ToDo: Note that a single palette needs to be a list of length 1!
   
   
-  # 3. Plotting: ------ 
+  # 3. Plotting: -------- 
   
   # 1. multiple list entries --> compare palettes
-  # 2. only one list entry --> details of a palette
+  # 2. only ONE list entry   --> details of a palette
   
-  # 3-1. Plot a list of palettes: -----  
+  # 3-1. Plot a list of palettes: -------  
   
   if (length(pal_tmp) > 1) {
     
     # Set margins:
-    par(mar = c(3, 6, 3, 1))
+    if ((is.null(sub) == FALSE) && (is.na(sub) == FALSE) && (sub != "") ){
+      par(mar = c(5.1, 6, 3, 1))  # enable subtitle at bottom (line 5)
+    } else { # default:
+      par(mar = c(3, 6, 3, 1))    # mar default is c(5, 4, 4, 2) + 0.1       
+    }
     
     # Set bg color:
     par(bg = col_bg)
     
     # Prepare canvas/blank plot: 
-    plot(x = 0, type = "n", xlim = xlim, ylim = ylim,
+    plot(x = 0, 
+         type = "n", 
+         xlim = xlim, ylim = ylim,
          xaxt = "n", yaxt = "n",  # hide axes.
          xlab = "", ylab = "", 
          main = title,
+         sub = sub, 
          bty = "n",
          ...  # other graphical parameters
     )
@@ -803,23 +815,31 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   } else {  # if length(pal_tmp) list is NOT > 1:
     
     
-    # 3-2. Plot a detailed view of 1 palette: -----  
+    
+    # 3-2. Plot a detailed view of 1 palette: -------  
     
     names(pal_tmp) <- NULL  # remove first order names! 
     
     pal_tmp <- unlist(pal_tmp)  
     
     # Set margins:
-    par(mar = c(3, 2, 3, 1))
+    if ((is.null(sub) == FALSE) && (is.na(sub) == FALSE) && (sub != "") ){
+      par(mar = c(5.1, 2, 3, 1))  # enable subtitle at bottom (line 5)
+    } else { # default:
+      par(mar = c(3, 2, 3, 1))    # mar default is c(5, 4, 4, 2) + 0.1       
+    }
     
     # Set bg color:
     par(bg = col_bg)
     
     # Create empty plot:
-    plot(x = 0, type = "n", xlim = xlim, ylim = c(-1, 2),
+    plot(x = 0, 
+         type = "n", 
+         xlim = xlim, ylim = c(-1, 2),
          xaxt = "n", yaxt = "n",  # hide axes.
          xlab = "", ylab = "", 
          main = title,
+         sub = sub, 
          bty = "n", 
          ...  # other graphical parameters
     )  
@@ -896,7 +916,9 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       rgb <- ifelse(wdth_rgb > xlim[2] | cex_rgb < cex_min, FALSE, TRUE)
     }
     
+    
     # Plot rectangles: ----
+    
     # if (is.null(lwd_brd)) { lwd_brd <- 1 } # set default lwd_brd
     
     plot_col(x = pal_tmp, ypos = y_rect, shape = "rect", ylen = 0.5, plot.new = FALSE, col_brd = col_brd, lwd = lwd_brd#,
@@ -910,7 +932,9 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
              # ...  # other graphical parameters
     )
     
+    
     # Color names: ----
+    
     if ((!any(is.na(pal_names))) &                # pal_names were provided
         (length(pal_names) == length(pal_tmp))){  # and of appropriate length:  
       
@@ -947,7 +971,9 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     text(x = pos_ind, y = 0, labels = txt_ind, pos = 3, xpd = TRUE,
          cex = cex_ixs, col = grey(0, 2/3))
     
+    
     # HEX values: ---- 
+    
     if (hex) {
       
       # Convert to hex (if not already in this format): 
@@ -999,7 +1025,9 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       
     } # if (hex) etc.
     
+    
     # RGB values: ----
+    
     if (rgb) {
       
       text(x = rep(0, 3),
@@ -1028,6 +1056,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   }
   
   mtext(mar_note, side = 1, line = 1, adj = 1.0, cex = .90, col = col_note)
+  
   
   # Reset plotting parameters: 
   par(op)
