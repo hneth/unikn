@@ -574,13 +574,21 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   # 1. Preparations: ------- 
   
-  # Deprecated arguments:
-  if (is.null(title) == FALSE){
-    message("The 'title' argument is deprecated. Please use 'main' instead")
+  # Deprecated arguments: ---- 
+  
+  if ((is.null(title) == FALSE) & (is.na(main))){
+    # Replace title by main (quietly, to accommodate ggplot users): 
     main <- title 
+    title <- NULL
   }
   
-  # Constants/parameters:
+  if (is.null(title) == FALSE){
+    message("The 'title' argument is deprecated. Please use 'main' instead")
+    main <- title  # Note: Any prior settings of main is lost.
+  }
+  
+  # Constants/parameters: ---- 
+  
   op <- par(no.readonly = TRUE)  # save original plotting settings.
   keys <- c("all", "unikn_all", "all_unikn",  # all palettes
             "basic", "unikn_basic", "basic_unikn",  # the basic palettes. 
