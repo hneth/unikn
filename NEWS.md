@@ -17,7 +17,7 @@ Changes since last release:
 
 ## Minor changes
 
-- Add a `sub` argument to `seecol()` for plotting optional subtitles. [2022-08-17] 
+- In `seecol()`: Deprecate the `title` argument and replace by standard `main` and `sub` arguments. [2022-08-19] 
 - Maintenance: Distribute color functions into two separate files. [2022-08-17]
 
 <!-- Blank line.  --> 
@@ -168,6 +168,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-08-17.]
+[File `NEWS.md` updated on 2022-08-19.]
 
 <!-- eof. -->
