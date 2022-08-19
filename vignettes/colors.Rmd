@@ -1,7 +1,7 @@
 ---
 title: "Colors and color functions"
 author: "SPDS, uni.kn"
-date: "2022 08 11"
+date: "2022 08 20"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -194,13 +194,13 @@ The `seecol()` function provides some aesthetic parameters for adjusting how col
 
 - `col_brd` allows specifying the color of box borders (if shown. Default: `col_brd = NULL`);  
 - `lwd_brd` allows specifying the line width of box borders (if shown. Default: `lwd_brd = NULL`);   
-- `title` allows replacing the default title with a custom title.  
+- `main` and `sub` allow replacing the default titles with custom titles.  
 
 Examples:
 
 ```{r seecol-aesthetic-parameters, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-seecol("grad_all", col_brd = "black", lwd_brd = 1, title = "Color gradients (with black borders)")
-seecol(pal_seegruen, col_brd = "white", lwd_brd = 10, title = "A color palette (with white borders)")
+seecol("grad_all", col_brd = "black", lwd_brd = 1, main = "Color gradients (with black borders)")
+seecol(pal_seegruen, col_brd = "white", lwd_brd = 10, main = "A color palette (with white borders)")
 ```
 
 
@@ -320,13 +320,13 @@ Setting opacity for a custom color palette:
 ```{r transparency-four, fig.width = 5, fig.asp = .8, fig.align = 'center'}
 four_cols <- usecol(c("steelblue", "gold", "firebrick", "forestgreen"), alpha = 2/3)
 
-seecol(four_cols, title = "Four named colors with added transparency")
+seecol(four_cols, main = "Four named colors with added transparency")
 ```
 
 Setting opacity for comparing of multiple color palettes: 
 
 ```{r transparency-all, fig.width = 5, fig.height = 4, fig.align = 'center'}
-seecol("grad", alpha = 0.67, title = "Seeing color palettes with added transparency")
+seecol("grad", alpha = 0.67, main = "Seeing color palettes with added transparency")
 ```
 
 <!-- Note on ac(): -->
@@ -361,7 +361,7 @@ Labeling only custom palettes works by setting the `pal_names` argument to a cha
 ```{r set-custom-palette-names, fig.width = 5, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
        pal_names = c("my_pair", "blue_bord", "blue_yell"),
-       title = "Labeling custom color palettes")
+       main = "Labeling custom color palettes")
 ```
 
 If the `pal_names` argument is specified and corresponds to the length of _all_ color palettes, the default names of all color palettes are overwritten by `pal_names`:
@@ -369,7 +369,7 @@ If the `pal_names` argument is specified and corresponds to the length of _all_ 
 ```{r set-all-palette-names, fig.width = 5, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
        pal_names = c("my_pair", "blue_bord", "blue_yell", "blue_black", "mix_pair"),
-       title = "Comparing and labeling custom color palettes")
+       main = "Comparing and labeling custom color palettes")
 ```
 
 As before, we can use the `n`\ argument for obtaining shorter subsets of color palettes: 
@@ -436,7 +436,7 @@ We have seen that the main `usecol()` function allows squeezing and stretching c
 An even simpler way for creating color gradients is provided by the `shades_of()` function:
 
 ```{r shades-of-1, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-seecol(shades_of(n = 7, col_1 = Karpfenblau), title = "Shades of Karpfenblau")
+seecol(shades_of(n = 7, col_1 = Karpfenblau), main = "Shades of Karpfenblau")
 ```
 
 Internally, `shades_of()` is merely a convenient wrapper for a special `usecol()` function.
@@ -448,7 +448,7 @@ shady_1 <- usecol(c("deeppink", "gold"), 5)
 shady_2 <- shades_of(5, "deeppink", "gold")
 all.equal(shady_1, shady_2)
 
-seecol(shady_2, title = "A bi-polar color gradient")
+seecol(shady_2, main = "A bi-polar color gradient")
 ```
 
 
@@ -464,7 +464,7 @@ col_flag <- c("#000000", "#dd0000", "#ffce00")  # source: www.schemecolor.com
 flag_de  <- newpal(col = col_flag,
                    names = c("black", "red", "gold"))
 
-seecol(flag_de, title = "Defining a flag_de color palette")
+seecol(flag_de, main = "Defining a flag_de color palette")
 ```
 
 By default, `newpal()` returns the new color palette as a data frame. 

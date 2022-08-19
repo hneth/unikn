@@ -153,7 +153,7 @@ pal_princeton_2 <- newpal(col = c(orange_black, "black", "white"),
 
 # View color palette (with custom background color and title):
 seecol(pal_princeton_1,  # view color palette
-       col_bg = "grey90", title = "Color palette of Princeton University")
+       col_bg = "grey90", main = "Color palette of Princeton University")
 ```
 
 ### C. [Max Planck Society](https://www.mpg.de/de), Germany: 
@@ -219,7 +219,7 @@ As before, can now use the `seecol()` and `usecol()` functions to view, modify, 
 ```{r mpg-seecol, fig.width = 5, fig.asp = .80, fig.align = 'center', collapse = TRUE}
 seecol(pal_mpg,
        col_brd = "black", lwd_brd = 1, 
-       title = "Colors of the Max Planck Society")
+       main = "Colors of the Max Planck Society")
 ```
 
 
@@ -234,7 +234,7 @@ Once a new palette has been defined (and is available in your current R environm
 # Scaled version: 
 seecol(list(pal_freiburg_basic, pal_princeton_1, pal_mpg, pal_unikn), n = 9,
        pal_names = c("Uni Freiburg", "Princeton Uni", "Max Planck", "Uni Konstanz"),
-       title = "Comparing scaled color palettes")
+       main = "Comparing scaled color palettes")
 ```
 
 

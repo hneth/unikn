@@ -40,7 +40,7 @@
 #' pal_flag_de <- newpal(col = c("black", "firebrick3", "gold"),
 #'                       names = c("Schwarz", "Rot", "Gold"))
 #' 
-#' seecol(pal_flag_de, title = "Colors in the flag of Germany")
+#' seecol(pal_flag_de, main = "Colors in the flag of Germany")
 #' 
 #' # (2) From HEX values:  -----
 #' # (a) Google logo colors:
@@ -48,7 +48,7 @@
 #' color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
 #' names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
 #' pal_google   <- newpal(color_google, names_google)
-#' seecol(pal_google, title = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
+#' seecol(pal_google, main = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
 #' 
 #' # (b) German flag revised:
 #' # Based on a different source at
@@ -56,13 +56,13 @@
 #' pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
 #'                         names = c("black", "red", "gold")
 #'                         )
-#' seecol(pal_flag_de_2, title = "Colors of the German flag (www.schemecolor.com)")
+#' seecol(pal_flag_de_2, main = "Colors of the German flag (www.schemecolor.com)")
 #' 
 #' # (c) MPG colors:
 #' pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
 #'                   names = c("mpg green", "white", "mpg grey")
 #'                   )
-#' seecol(pal_mpg, title = "Colors of the Max Planck Society")
+#' seecol(pal_mpg, main = "Colors of the Max Planck Society")
 #' 
 #' # (3) From RGB values:  -----
 #' # Barrier-free color palette
@@ -88,12 +88,12 @@
 #'                         names = o_i_names)
 #' 
 #' seecol(pal_okabe_ito,
-#'        title = "Color-blind friendly color scale (Okabe & Ito, 2002)")
+#'        main = "Color-blind friendly color scale (Okabe & Ito, 2002)")
 #' 
 #' # Compare custom color palettes:
 #' my_pals <- list(pal_flag_de, pal_flag_de_2, pal_google, pal_mpg, pal_okabe_ito)
 #' seecol(my_pals, col_brd = "white", lwd_brd = 5,
-#'        title = "Comparing custom color palettes")
+#'        main = "Comparing custom color palettes")
 #' 
 #' @family color functions
 #' 
@@ -193,7 +193,7 @@ newpal <- function(col,            # a vector of colors
 # pal_flag_de <- newpal(col = c("black", "firebrick", "gold"),
 #                       names = c("Schwarz", "Rot", "Gold"))
 # 
-# seecol(pal_flag_de, title = "Colors in the flag of Germany")
+# seecol(pal_flag_de, main = "Colors in the flag of Germany")
 
 # # (2) From HEX values:
 
@@ -204,20 +204,20 @@ newpal <- function(col,            # a vector of colors
 #                         names = c("black", "electric red", "tangerine yellow"))
 # pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
 #                         names = c("black", "red", "gold"))
-# seecol(pal_flag_de_2, title = "Colors of German flag (www.schemecolor.com)")
+# seecol(pal_flag_de_2, main = "Colors of German flag (www.schemecolor.com)")
 
 # # (b) Google logo colors:
 # # Source: https://www.schemecolor.com/google-logo-colors.php
 # color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
 # names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
 # pal_google   <- newpal(color_google, names_google)
-# seecol(pal_google, title = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
+# seecol(pal_google, main = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
 
 # # (c) MPG colors:
 # pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
 #                   names = c("mpg green", "white", "mpg grey")
 #                   )
-# seecol(pal_mpg, title = "Colors of the Max Planck Society")
+# seecol(pal_mpg, main = "Colors of the Max Planck Society")
 
 # # (3) From RGB values: 
 # 
@@ -247,12 +247,12 @@ newpal <- function(col,            # a vector of colors
 # 
 # # Show color palette: 
 # seecol(pal_okabe_ito, 
-#        title = "Color-blind friendly color scale (Okabe & Ito, 2002)")
+#        main = "Color-blind friendly color scale (Okabe & Ito, 2002)")
 
 # # Compare custom color palettes:
 # my_pals <- list(pal_flag_de, pal_flag_de_2, pal_google, pal_mpg, pal_okabe_ito)
 # seecol(my_pals, col_brd = "white", lwd_brd = 5,
-#        title = "Comparing custom color palettes")
+#        main = "Comparing custom color palettes")
 
 
 # grepal(): Find colors matching a pattern (in palette names): -------
@@ -308,13 +308,13 @@ newpal <- function(col,            # a vector of colors
 #' grepal("SEE", x = pal_unikn_pref, ignore_case = FALSE)
 #' 
 #' # Applications:
-#' seecol(grepal("white"), col_bg = "lightblue2", title = "See 'white' colors()")
+#' seecol(grepal("white"), col_bg = "lightblue2", main = "See 'white' colors()")
 #' 
 #' olives  <- grepal("olive", plot = FALSE)
 #' oranges <- grepal("orange", plot = FALSE)
 #' seecol(list(olives, oranges), 
 #'        pal_names = c("olives", "oranges"), 
-#'        title = "Comparing olives and oranges")
+#'        main = "Comparing olives and oranges")
 #' 
 #' @family color functions
 #' 
@@ -371,7 +371,7 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE, plot = TRUE){
     caption <- paste0("Found ", n, " ", cword, " matching ", "'", pattern, "'")
     
     if (n > 0){
-      seecol(usecol(cv), title = caption)
+      seecol(usecol(cv), main = caption)
     } else {
       message(caption)
     }
@@ -404,7 +404,7 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE, plot = TRUE){
 # seecol(grepal("blau", pal_unikn_pref))
 # 
 # grepal("SEE", pal_unikn)
-# seecol(grepal("blau", pal_unikn_pref, plot = FALSE), title = "All colors matching 'blau'")
+# seecol(grepal("blau", pal_unikn_pref, plot = FALSE), main = "All colors matching 'blau'")
 
 
 # simcol(): Find/see similar colors: ------
@@ -588,7 +588,7 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75),
     
     caption <- paste0("Colors similar to ", "'", col_target_name, "'")
     
-    seecol(outpal, title = caption)
+    seecol(outpal, main = caption)
     
   } # if (plot).
   
@@ -655,14 +655,14 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75),
 #' 
 #' @examples
 #' grey50 <- shades_of(50, col_1 = 'grey1')
-#' seecol(grey50, title = "50 shades of grey1")
+#' seecol(grey50, main = "50 shades of grey1")
 #' 
 #' blue_black <- shades_of(5, Seeblau, col_n = "black")
-#' seecol(blue_black, title = "5 shades from Seeblau to black")
+#' seecol(blue_black, main = "5 shades from Seeblau to black")
 #'
 #' wine_white <- shades_of(6, Bordeaux, alpha = 1/2)
 #' seecol(wine_white, col_brd = "black", lwd_brd = .5, 
-#'        title = "Shades of semi-transparent Bordeaux")
+#'        main = "Shades of semi-transparent Bordeaux")
 #'   
 #' @family color functions
 #' 
@@ -734,17 +734,17 @@ shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
 #' 
 #' # multiple colors:
 #' cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
-#' seecol(cols, title = "Transparent colors")
+#' seecol(cols, main = "Transparent colors")
 #' 
 #' # multiple alphas:
 #' blacks <- ac("black", alpha = 5:0/5)
-#' seecol(blacks, title = "One col several alpha values")
+#' seecol(blacks, main = "One col several alpha values")
 #' 
 #' bgc <- ac(c("black", "gold"), alpha = 1:6/6)
-#' seecol(bgc, title = "More alpha values than cols")
+#' seecol(bgc, main = "More alpha values than cols")
 #' 
 #' # Using a color palette:
-#' seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
+#' seecol(ac(pal_unikn_pref, 2/3), main = "Adding color transparency by ac()")
 #' 
 #' # Color names:
 #' seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
@@ -832,20 +832,20 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 # 
 # # multiple colors:
 # cols <- ac(c("black", "gold", "deepskyblue"), alpha = .50)
-# seecol(cols, title = "Transparent colors")
+# seecol(cols, main = "Transparent colors")
 # 
 # # multiple alphas:
 # blacks <- ac("black", alpha = 5:0/5)
-# seecol(blacks, title = "One col several alpha values")
+# seecol(blacks, main = "One col several alpha values")
 # 
 # bgc <- ac(c("black", "gold"), alpha = 1:6/6)
-# seecol(bgc, title = "More alpha values than cols")
+# seecol(bgc, main = "More alpha values than cols")
 # 
 # # Without adjusting names:
 # seecol(ac(c("black", "gold"), alpha = 1:6/6, use_names = FALSE))
 #
 # # Using a color palette:
-# seecol(ac(pal_unikn_pref, 2/3), title = "Adding color transparency by ac()")
+# seecol(ac(pal_unikn_pref, 2/3), main = "Adding color transparency by ac()")
 # 
 # # Color names:
 # seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
@@ -855,8 +855,6 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 
 ## ToDo: ------
 
-# - Replace `title` by `main` argument (and deprecate `title`) in `seecol()`.
-# 
 # - Consider creating more vivid versions of some
 #   `pal_unikn_pref` colors (e.g., "deepskyblue", "deeppink", etc.)
 # 

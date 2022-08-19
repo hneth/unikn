@@ -494,7 +494,7 @@ pal_google <- newpal(color_google, names_google)
 # 5. Inspect color palette:
 seecol(pal_google, 
        col_brd = "white", lwd_brd = 8,
-       title = "Colors of the Google logo")
+       main = "Colors of the Google logo")
 ```
 
 The new palette `pal_google` can now be used in R graphics and modified in various ways (e.g., by the `usecol()` function). 
@@ -518,7 +518,7 @@ oranges <- grepal("orange", plot = FALSE)
 # See color palette:
 seecol(oranges, 
        col_brd = "white", lwd_brd = 2, 
-       title = "Shades of 'orange' in colors()")
+       main = "Shades of 'orange' in colors()")
 ```
 
 Providing a list of color palettes to the `pal` argument of the `seecol()` function allows comparing multiple color palettes: 
@@ -531,7 +531,7 @@ purple_orange <- grepal("(purple)|(orange)", plot = FALSE)
 # See color palettes:
 seecol(pal = list(pink_olive, purple_orange), 
        pal_names = c("pink|olive", "purple|orange"), 
-       title = "Comparing pink olives and purple oranges")
+       main = "Comparing pink olives and purple oranges")
 ```
 
 To make the `grepal()` more flexible, its `pattern`\ argument can use regular expressions, and its `x`\ argument works with both vectors and data frames (e.g., the **unikn** color palettes). 

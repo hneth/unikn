@@ -548,7 +548,7 @@ The typical steps of creating a new palette are:
     # 5. Inspect color palette:
     seecol(pal_google, 
            col_brd = "white", lwd_brd = 8,
-           title = "Colors of the Google logo")
+           main = "Colors of the Google logo")
 
 <img src="inst/pix/README-newpal-google-1.png" style="display: block; margin: auto;" />
 
@@ -577,7 +577,7 @@ By default, `grepal()` searches the 657 named colors provided by
     # See color palette:
     seecol(oranges, 
            col_brd = "white", lwd_brd = 2, 
-           title = "Shades of 'orange' in colors()")
+           main = "Shades of 'orange' in colors()")
 
 <img src="inst/pix/README-grepal-example-1-1.png" style="display: block; margin: auto;" />
 
@@ -591,7 +591,7 @@ Providing a list of color palettes to the `pal` argument of the
     # See color palettes:
     seecol(pal = list(pink_olive, purple_orange), 
            pal_names = c("pink|olive", "purple|orange"), 
-           title = "Comparing pink olives and purple oranges")
+           main = "Comparing pink olives and purple oranges")
 
 <img src="inst/pix/README-grepal-example-2-1.png" style="display: block; margin: auto;" />
 
@@ -842,7 +842,7 @@ specifications:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2022-08-15.\]
+\[File `README.md` updated on 2022-08-19.\]
 
 <!-- eof. -->
 
