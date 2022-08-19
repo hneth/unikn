@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 08 17
+## spds | uni.kn | 2022 08 19
 ## ---------------------------
 
 ## Define color-related functions 
@@ -114,11 +114,11 @@ usecol <- function(pal = pal_unikn,
       # seecol always triggers this part
       pal <- deparse(substitute(expr = pal, env = parenv))
       
-      ## Remove slashes and quotes:
+      # Remove slashes and quotes:
       pal <- gsub("\\\\", "", pal)
       pal <- gsub("\"", "", pal)
       
-      ## Reparse with new input: 
+      # Reparse with new input: 
       parse_pal(pal = pal)
       
     }
@@ -409,7 +409,8 @@ usecol <- function(pal = pal_unikn,
 #' Specifying \code{distinct = TRUE} removes visual duplicate colors (based on HEX values, 
 #' ignoring transparency), but only when showing an individual color palette \code{pal}. 
 #' 
-#' The \code{title} and \code{pal_names} arguments add control over plotted text labels. 
+#' Various title options (i.e., \code{main}, \code{sub}, and \code{mar_note}) and 
+#' a \code{pal_names} argument add control over plotted text labels. 
 #' However, the length of a character vector provided to \code{pal_names} must correspond 
 #' to the number of (custom) color palettes or colors. 
 #' 
@@ -468,11 +469,14 @@ usecol <- function(pal = pal_unikn,
 #' @param grid Show grid in the color plot?  
 #' Default: \code{grid = TRUE}. 
 #' 
-#' @param title Plot title (as a character string). 
-#' Default: \code{title = NA} creates a default title.
+#' @param main Main plot title (as a character string). 
+#' Default: \code{main = NA} creates a default title.
 #' 
 #' @param sub Optional subtitle (as a character string). 
 #' Default: \code{sub = NULL} (i.e., no subtitle).
+#' 
+#' @param title Deprecated plot title. 
+#' Use \code{main} instead.
 #' 
 #' @param mar_note Optional margin note (on bottom right). 
 #' Default: \code{mar_note = NA} (i.e., no margin note). 
@@ -501,13 +505,13 @@ usecol <- function(pal = pal_unikn,
 #' seecol(n = 12)  # viewing extended ranges of all palettes
 #' 
 #' seecol(pal_unikn, n = 5, 
-#'        title = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
+#'        main = "Reduced version of pal_unikn (n = 5)")  # reducing pal_unikn
 #' seecol(pal_seeblau, n = 8, 
-#'        title = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
+#'        main = "Extended version of pal_seeblau (n = 8)")  # extending pal_seeblau
 #' 
 #' # Combining and extending color palettes: 
 #' seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17, 
-#'        title = "Diverging custom color palette (with 17 colors)")
+#'        main = "Diverging custom color palette (with 17 colors)")
 #' 
 #' # Defining custom color palettes:
 #' pal_mpg <- c("#007367", "white", "#D0D3D4")  # mixing hex values and color names
@@ -516,12 +520,12 @@ usecol <- function(pal = pal_unikn,
 #' pal_bdg <- usecol(c(Bordeaux, "gold"), n = 10)  # using usecol
 #' 
 #' # Viewing extended color palette: 
-#' seecol(pal_mpg, n = 9, title = "Custom color palette of the Max Planck Society")
+#' seecol(pal_mpg, n = 9, main = "Custom color palette of the Max Planck Society")
 #' 
 #' # Comparing (and labeling) custom color palettes: 
 #' seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
 #'        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
-#'        title = "Comparing and labeling custom color palettes")
+#'        main = "Comparing and labeling custom color palettes")
 #' 
 #' ## Viewing color palettes from other packages: 
 #' # library(RColorBrewer)
@@ -560,8 +564,9 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
                    col_brd = NULL,   # border color of the boxes
                    lwd_brd = NULL,   # line width of box borders
                    grid = TRUE,      # show grid? 
-                   title = NA,       # plot title? Using the default title = NA constructs a default title
-                   sub = NULL,       # plot subtile (on bottom)
+                   main = NA,        # main plot title (using the default 'main = NA' constructs a default title)
+                   sub = NULL,       # plot subtitle (on bottom)
+                   title = NULL,     # Deprecated plot title (replaced by main)
                    mar_note = NA,    # optional margin note (on bottom right)
                    pal_names = NA,   # names of color palettes or colors (as character vector)
                    ...               # additional arguments to plot.default().
@@ -569,6 +574,13 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   
   # 1. Preparations: ------- 
   
+  # Deprecated arguments:
+  if (is.null(title) == FALSE){
+    message("The 'title' argument is deprecated. Please use 'main' instead")
+    main <- title 
+  }
+  
+  # Constants/parameters:
   op <- par(no.readonly = TRUE)  # save original plotting settings.
   keys <- c("all", "unikn_all", "all_unikn",  # all palettes
             "basic", "unikn_basic", "basic_unikn",  # the basic palettes. 
@@ -605,15 +617,15 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   # Getting a list of palettes by keyword: 
   if (by_key) {
     
-    # Default plot titles: ---- 
+    # Main plot titles: ---- 
     
-    # Define title given keyword:
-    if (is.na(title)){
-      if (pal %in% c("all", "unikn_all", "all_unikn") ) title <- "See all unikn color palettes"
-      if (pal %in% c("basic", "unikn_basic", "basic_unikn")) title <- "See all basic unikn color palettes"
-      if (pal %in% c("pair", "all_pair", "pair_all")) title <- "See all pairwise unikn color palettes"
-      if (pal %in% c("pref", "pref_all", "all_pref")) title <- "See all preferred unikn colors and gradients"
-      if (pal %in% c("grad", "grad_all", "all_grad")) title <- "See all unikn color gradients"
+    # Default main title given a keyword:
+    if (is.na(main)){
+      if (pal %in% c("all", "unikn_all", "all_unikn") ) main <- "See all unikn color palettes"
+      if (pal %in% c("basic", "unikn_basic", "basic_unikn")) main <- "See all basic unikn color palettes"
+      if (pal %in% c("pair", "all_pair", "pair_all")) main <- "See all pairwise unikn color palettes"
+      if (pal %in% c("pref", "pref_all", "all_pref")) main <- "See all preferred unikn colors and gradients"
+      if (pal %in% c("grad", "grad_all", "all_grad")) main <- "See all unikn color gradients"
     }
     
     pal_tmp <- getpal_key(pal = pal, n = n, alpha = alpha)  # get the color by key.
@@ -622,8 +634,8 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
     pal_tmp <- lapply(X = pal, usecol, n = n, alpha = alpha, use_names = TRUE)  # get all palettes separately. 
     
-    if (is.na(title)){
-      title <- "Compare a custom set of color palettes"  # default
+    if (is.na(main)){
+      main <- "Compare a custom set of color palettes"  # default
     }
     
     # Set or get palette names:
@@ -647,7 +659,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
         if ((!any(is.na(pal_names))) &           # pal_names were provided
             (length(pal_names) == sum(ix_cp))){  # and of appropriate length:  
           
-          names(pal_tmp)[ix_cp] <- pal_names  # use custom pal_names. 
+          names(pal_tmp)[ix_cp] <- pal_names  # use custom pal_names
           
         } else { # use default names: 
           
@@ -660,21 +672,21 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   } else { # if no keyword or list was provided: One palette 
     
     # Get palette:
-    pal_tmp <- usecol(pal = pal, n = n, alpha = alpha, use_names = TRUE)  # create a list of length 1.
+    pal_tmp <- usecol(pal = pal, n = n, alpha = alpha, use_names = TRUE)  # create a list of length 1
     
     # Debugging:
     nm <- ifelse(length(unlist(pal_tmp)) == 1 | comment(pal_tmp) == "custom", 
                  "", paste0(" ", comment(pal_tmp)))   
     
-    pl <- ifelse(length(unlist(pal_tmp)) == 1, names(pal_tmp), "palette")  # classify as palette or not.
+    pl <- ifelse(length(unlist(pal_tmp)) == 1, names(pal_tmp), "palette")  # classify as palette or not
     
     cst <- ifelse(comment(pal_tmp) == "custom" & length(unlist(pal_tmp)) != 1, "custom ", "")
     
-    if (is.na(title)){
-      title <- paste0("See ", cst, "color ", pl, nm)  # assemble title. 
+    if (is.na(main)){
+      main <- paste0("See ", cst, "color ", pl, nm)  # assemble main title 
     }
     
-    pal_tmp <- list(pal_tmp)  # list the palette (leave the comment attribute).
+    pal_tmp <- list(pal_tmp)  # list the palette (leave the comment attribute)
     
   }
   
@@ -683,8 +695,8 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     alp_txt <- ifelse(!is.na(alpha), paste0("alpha = ", alpha), "")
     comma <- ifelse(nchar(n_txt) == 0 | nchar(alp_txt) == 0, "", ", ")
     
-    if (is.na(title)){
-      title <- paste0(title, " (", alp_txt, comma, n_txt, ")")
+    if (is.na(main)){
+      main <- paste0(main, " (", alp_txt, comma, n_txt, ")")  # assemble main title 
     }
   }
   
@@ -734,7 +746,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
     # Set margins:
     if ((is.null(sub) == FALSE) && (is.na(sub) == FALSE) && (sub != "") ){
-      par(mar = c(5.1, 6, 3, 1))  # enable subtitle at bottom (line 5)
+      par(mar = c(5.2, 6, 3, 1))  # enable subtitle at bottom (line 5)
     } else { # default:
       par(mar = c(3, 6, 3, 1))    # mar default is c(5, 4, 4, 2) + 0.1       
     }
@@ -748,7 +760,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
          xlim = xlim, ylim = ylim,
          xaxt = "n", yaxt = "n",  # hide axes.
          xlab = "", ylab = "", 
-         main = title,
+         main = main,
          sub = sub, 
          bty = "n",
          ...  # other graphical parameters
@@ -824,7 +836,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
     # Set margins:
     if ((is.null(sub) == FALSE) && (is.na(sub) == FALSE) && (sub != "") ){
-      par(mar = c(5.1, 2, 3, 1))  # enable subtitle at bottom (line 5)
+      par(mar = c(5.2, 2, 3, 1))  # enable subtitle at bottom (line 5)
     } else { # default:
       par(mar = c(3, 2, 3, 1))    # mar default is c(5, 4, 4, 2) + 0.1       
     }
@@ -838,7 +850,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
          xlim = xlim, ylim = c(-1, 2),
          xaxt = "n", yaxt = "n",  # hide axes.
          xlab = "", ylab = "", 
-         main = title,
+         main = main,
          sub = sub, 
          bty = "n", 
          ...  # other graphical parameters
@@ -1073,7 +1085,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 # unikn::usecol(c("black","blue3","white"), n=12) %>% unikn::seecol(hex = TRUE)
 # unikn::usecol(c("black","blue3","white"), n=20) %>% unikn::seecol(hex = TRUE)
 
-## Margin notes (and custom colors for title and note):
+## Margin notes (and custom colors for titles and note):
 # op <- par(no.readonly = TRUE)
 # par("col.main" = "blue", "col.sub" = "red")
 # seecol(c("black", "white"), n = 5, mar_note = "This is a note.")
