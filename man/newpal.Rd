@@ -33,7 +33,7 @@ newpal(col = c("black", "white"), names = c("dark", "bright"))
 pal_flag_de <- newpal(col = c("black", "firebrick3", "gold"),
                       names = c("Schwarz", "Rot", "Gold"))
 
-seecol(pal_flag_de, title = "Colors in the flag of Germany")
+seecol(pal_flag_de, main = "Colors in the flag of Germany")
 
 # (2) From HEX values:  -----
 # (a) Google logo colors:
@@ -41,7 +41,7 @@ seecol(pal_flag_de, title = "Colors in the flag of Germany")
 color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
 names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
 pal_google   <- newpal(color_google, names_google)
-seecol(pal_google, title = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
+seecol(pal_google, main = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
 
 # (b) German flag revised:
 # Based on a different source at
@@ -49,13 +49,13 @@ seecol(pal_google, title = "Colors of the Google logo", col_brd = "white", lwd_b
 pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
                         names = c("black", "red", "gold")
                         )
-seecol(pal_flag_de_2, title = "Colors of the German flag (www.schemecolor.com)")
+seecol(pal_flag_de_2, main = "Colors of the German flag (www.schemecolor.com)")
 
 # (c) MPG colors:
 pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
                   names = c("mpg green", "white", "mpg grey")
                   )
-seecol(pal_mpg, title = "Colors of the Max Planck Society")
+seecol(pal_mpg, main = "Colors of the Max Planck Society")
 
 # (3) From RGB values:  -----
 # Barrier-free color palette
@@ -81,12 +81,12 @@ pal_okabe_ito <- newpal(col = o_i_colors,
                         names = o_i_names)
 
 seecol(pal_okabe_ito,
-       title = "Color-blind friendly color scale (Okabe & Ito, 2002)")
+       main = "Color-blind friendly color scale (Okabe & Ito, 2002)")
 
 # Compare custom color palettes:
 my_pals <- list(pal_flag_de, pal_flag_de_2, pal_google, pal_mpg, pal_okabe_ito)
 seecol(my_pals, col_brd = "white", lwd_brd = 5,
-       title = "Comparing custom color palettes")
+       main = "Comparing custom color palettes")
 
 }
 \seealso{

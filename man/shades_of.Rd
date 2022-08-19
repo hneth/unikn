@@ -36,14 +36,14 @@ complex color gradients (e.g., by specifying more than two colors).
 }
 \examples{
 grey50 <- shades_of(50, col_1 = 'grey1')
-seecol(grey50, title = "50 shades of grey1")
+seecol(grey50, main = "50 shades of grey1")
 
 blue_black <- shades_of(5, Seeblau, col_n = "black")
-seecol(blue_black, title = "5 shades from Seeblau to black")
+seecol(blue_black, main = "5 shades from Seeblau to black")
 
 wine_white <- shades_of(6, Bordeaux, alpha = 1/2)
 seecol(wine_white, col_brd = "black", lwd_brd = .5, 
-       title = "Shades of semi-transparent Bordeaux")
+       main = "Shades of semi-transparent Bordeaux")
   
 }
 \seealso{

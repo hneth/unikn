@@ -56,13 +56,13 @@ grepal("blau", x = pal_unikn)
 grepal("SEE", x = pal_unikn_pref, ignore_case = FALSE)
 
 # Applications:
-seecol(grepal("white"), col_bg = "lightblue2", title = "See 'white' colors()")
+seecol(grepal("white"), col_bg = "lightblue2", main = "See 'white' colors()")
 
 olives  <- grepal("olive", plot = FALSE)
 oranges <- grepal("orange", plot = FALSE)
 seecol(list(olives, oranges), 
        pal_names = c("olives", "oranges"), 
-       title = "Comparing olives and oranges")
+       main = "Comparing olives and oranges")
 
 }
 \seealso{
