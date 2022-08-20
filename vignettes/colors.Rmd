@@ -392,13 +392,13 @@ Assuming that our favorite color is `"deeppink"`, a good question is: How can we
 Given some target color, the `simcol()` function searches through a set of colors to find and return visually similar ones: 
 
 ```{r simcol-1, fig.width = 5, fig.asp = .8, fig.align = 'center', fig.show = 'hold'}
-simcol("deeppink")
+simcol("deeppink", plot = FALSE)
 ```
 
-By default, `simcol()` searches though all named R\ colors of `colors()` (of the **grDevices** package), but adjusting the `col_candidates` and `tol` arguments allows more fine-grained searches:
+By default, `simcol()` searches though all named R\ colors of `colors()` (of the **grDevices** package), but adjusting the `col_candidates` and `tol` arguments allows for more fine-grained searches:
 
 ```{r simcol-2, fig.width = 5, fig.asp = .8, fig.align = 'center', fig.show = 'hold'}
-simcol("deepskyblue", col_candidates = pal_unikn, tol = c(50, 50, 100))
+simcol("deepskyblue", col_candidates = pal_seeblau, tol = c(50, 50, 100))
 ```
 
 
@@ -436,19 +436,21 @@ We have seen that the main `usecol()` function allows squeezing and stretching c
 An even simpler way for creating color gradients is provided by the `shades_of()` function:
 
 ```{r shades-of-1, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-seecol(shades_of(n = 7, col_1 = Karpfenblau), main = "Shades of Karpfenblau")
+seecol(shades_of(n = 5, col_1 = Karpfenblau), main = "5 shades of Karpfenblau")
 ```
 
 Internally, `shades_of()` is merely a convenient wrapper for a special `usecol()` function.
-The limitation of `shades_of()` is that it only allows creating bi-polar color palettes (i.e., gradients between two colors), whereas `usecol()` allows creating color gradients between an arbitrary number of colors. 
-Thus, the following two palettes are identical:
+The limitation of `shades_of()` is that it only allows creating bi-polar color palettes (i.e., gradients between two colors). 
+When the final color `col_n` is unspecified, its default of "white" is used (as in the example). 
+By contrast, the `usecol()` function allows creating color gradients between an arbitrary number of colors. 
+Thus, the following two expressions yield identical color palettes: 
 
 ```{r shades-of-2, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-shady_1 <- usecol(c("deeppink", "gold"), 5)
-shady_2 <- shades_of(5, "deeppink", "gold")
-all.equal(shady_1, shady_2)
+pg_1 <- usecol(c("deeppink", "gold"), 5)
+pg_2 <- shades_of(5, "deeppink", "gold")
+all.equal(pg_1, pg_2)
 
-seecol(shady_2, main = "A bi-polar color gradient")
+seecol(pg_2, main = "A bi-polar color gradient")
 ```
 
 
@@ -472,8 +474,8 @@ Setting `as_df = FALSE` returns a (named) vector.
 
 <!-- Conclusion: -->
 
-This was a quick tour through the color functions contained in the **unikn** package. 
-We hope that they enable you to easily create, find, and apply beautiful colors ---\ may your life be graphic and full of brilliant, vivid and flamboyant visualizations! 
+This concludes our quick tour through the color functions of the **unikn** package. 
+We hope that they enable you to create, find, and apply beautiful colors ---\ and spice up your designs by vivid and flamboyant visualizations! 
 
 
 ## Resources
