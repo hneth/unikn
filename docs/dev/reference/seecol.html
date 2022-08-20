@@ -18,7 +18,7 @@ the colors of a palette or comparing multiple color palettes.'><meta property="o
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9002</span>
       </span>
     </div>
 
@@ -71,7 +71,7 @@ the colors of a palette or comparing multiple color palettes.'><meta property="o
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Plot color palettes (to see their colors).</h1>
-    <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/HEAD/R/color_fun.R" class="external-link"><code>R/color_fun.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/HEAD/R/color_fun_1.R" class="external-link"><code>R/color_fun_1.R</code></a></small>
     <div class="hidden name"><code>seecol.Rd</code></div>
     </div>
 
@@ -91,7 +91,9 @@ the colors of a palette or comparing multiple color palettes.</p>
 <span>  col_brd <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  lwd_brd <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  grid <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  title <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  main <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  sub <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  title <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  mar_note <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  pal_names <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  <span class="va">...</span></span>
@@ -162,9 +164,19 @@ Default: <code>lwd_brd = NULL</code>.</p></dd>
 Default: <code>grid = TRUE</code>.</p></dd>
 
 
+<dt>main</dt>
+<dd><p>Main plot title (as a character string). 
+Default: <code>main = NA</code> creates a default title.</p></dd>
+
+
+<dt>sub</dt>
+<dd><p>Optional subtitle (as a character string). 
+Default: <code>sub = NULL</code> (i.e., no subtitle).</p></dd>
+
+
 <dt>title</dt>
-<dd><p>Plot title (as a character string). 
-Default: <code>title = NA</code> creates a default title.</p></dd>
+<dd><p>Deprecated plot title. 
+Use <code>main</code> instead.</p></dd>
 
 
 <dt>mar_note</dt>
@@ -192,7 +204,8 @@ Default: <code>pal_names = NA</code> (for default names).</p></dd>
 <p>Plot visual vectors of all current color palettes for comparing them.</p></li>
 </ol><p>Specifying <code>distinct = TRUE</code> removes visual duplicate colors (based on HEX values, 
 ignoring transparency), but only when showing an individual color palette <code>pal</code>.</p>
-<p>The <code>title</code> and <code>pal_names</code> arguments add control over plotted text labels. 
+<p>Various title options (i.e., <code>main</code>, <code>sub</code>, and <code>mar_note</code>) and 
+a <code>pal_names</code> argument add control over plotted text labels. 
 However, the length of a character vector provided to <code>pal_names</code> must correspond 
 to the number of (custom) color palettes or colors.</p>
     </div>
@@ -239,15 +252,15 @@ to the number of (custom) color palettes or colors.</p>
 <span class="r-plt img"><img src="seecol-7.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">seecol</span><span class="op">(</span><span class="va">pal_unikn</span>, n <span class="op">=</span> <span class="fl">5</span>, </span></span>
-<span class="r-in"><span>       title <span class="op">=</span> <span class="st">"Reduced version of pal_unikn (n = 5)"</span><span class="op">)</span>  <span class="co"># reducing pal_unikn</span></span></span>
+<span class="r-in"><span>       main <span class="op">=</span> <span class="st">"Reduced version of pal_unikn (n = 5)"</span><span class="op">)</span>  <span class="co"># reducing pal_unikn</span></span></span>
 <span class="r-plt img"><img src="seecol-8.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="fu">seecol</span><span class="op">(</span><span class="va">pal_seeblau</span>, n <span class="op">=</span> <span class="fl">8</span>, </span></span>
-<span class="r-in"><span>       title <span class="op">=</span> <span class="st">"Extended version of pal_seeblau (n = 8)"</span><span class="op">)</span>  <span class="co"># extending pal_seeblau</span></span></span>
+<span class="r-in"><span>       main <span class="op">=</span> <span class="st">"Extended version of pal_seeblau (n = 8)"</span><span class="op">)</span>  <span class="co"># extending pal_seeblau</span></span></span>
 <span class="r-plt img"><img src="seecol-9.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Combining and extending color palettes: </span></span></span>
 <span class="r-in"><span><span class="fu">seecol</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="va">pal_seeblau</span><span class="op">)</span>, <span class="st">"white"</span>, <span class="va">pal_bordeaux</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">17</span>, </span></span>
-<span class="r-in"><span>       title <span class="op">=</span> <span class="st">"Diverging custom color palette (with 17 colors)"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>       main <span class="op">=</span> <span class="st">"Diverging custom color palette (with 17 colors)"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="seecol-10.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Defining custom color palettes:</span></span></span>
@@ -257,13 +270,13 @@ to the number of (custom) color palettes or colors.</p>
 <span class="r-in"><span><span class="va">pal_bdg</span> <span class="op">&lt;-</span> <span class="fu"><a href="usecol.html">usecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">Bordeaux</span>, <span class="st">"gold"</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>  <span class="co"># using usecol</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Viewing extended color palette: </span></span></span>
-<span class="r-in"><span><span class="fu">seecol</span><span class="op">(</span><span class="va">pal_mpg</span>, n <span class="op">=</span> <span class="fl">9</span>, title <span class="op">=</span> <span class="st">"Custom color palette of the Max Planck Society"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">seecol</span><span class="op">(</span><span class="va">pal_mpg</span>, n <span class="op">=</span> <span class="fl">9</span>, main <span class="op">=</span> <span class="st">"Custom color palette of the Max Planck Society"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="seecol-11.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Comparing (and labeling) custom color palettes: </span></span></span>
 <span class="r-in"><span><span class="fu">seecol</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">pal_mpg</span>, <span class="va">pal_bdg</span>, <span class="va">pal_unikn</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">7</span>,</span></span>
 <span class="r-in"><span>       pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Max Planck"</span>, <span class="st">"Bordeaux-Gold"</span>, <span class="st">"Uni Konstanz"</span><span class="op">)</span>, </span></span>
-<span class="r-in"><span>       title <span class="op">=</span> <span class="st">"Comparing and labeling custom color palettes"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>       main <span class="op">=</span> <span class="st">"Comparing and labeling custom color palettes"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="seecol-12.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Viewing color palettes from other packages: </span></span></span>
