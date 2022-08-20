@@ -1,5 +1,5 @@
 
-# unikn 0.5.0.9001+
+# unikn 0.5.0.9002
 
 The current development version of **unikn** (0.5.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -10,15 +10,17 @@ Changes since last release:
 
 ## Major changes 
 
-- none yet. 
+- In `seecol()`: Deprecate the `title` argument and replace by standard `main` and `sub` arguments. [2022-08-19] 
 
 <!-- Blank line.  --> 
 
 
 ## Minor changes
 
-- In `seecol()`: Deprecate the `title` argument and replace by standard `main` and `sub` arguments. [2022-08-19] 
-- Maintenance: Distribute color functions into two separate files. [2022-08-17]
+- Maintenance: 
+    - Rename utility functions `isCol()` and `isHexCol()` to `is_col()` and `is_hex_col()`. [2022-08-20]
+    - Distribute color functions into separate files. [2022-08-17]
+
 
 <!-- Blank line.  --> 
 
@@ -168,6 +170,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-08-19.]
+[File `NEWS.md` updated on 2022-08-20.]
 
 <!-- eof. -->
