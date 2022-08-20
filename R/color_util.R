@@ -1,5 +1,5 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2022 08 13
+## spds | uni.kn | 2022 08 20
 ## ---------------------------
 
 ## Utility functions for converting colors, 
@@ -25,7 +25,9 @@
 # get_alpha: Get color transparency / alpha values: ------
 
 get_alpha <- function(pal){
+  
   grDevices::col2rgb(pal, alpha = TRUE)["alpha", ] 
+  
 } # get_alpha().
 
 ## Check:
@@ -38,7 +40,9 @@ get_alpha <- function(pal){
 # rgb2hex color conversion function: ------ 
 
 rgb2hex <- function(R, G, B) {
+  
   rgb(R, G, B, maxColorValue = 255)
+  
 } # rgb2hex().
 
 ## Check:
@@ -50,7 +54,9 @@ rgb2hex <- function(R, G, B) {
 # col2hex color conversion function: ------ 
 
 col2hex <- function(col, alpha = alpha) {
+  
   rgb(t(col2rgb(col)), alpha = alpha, maxColorValue = 255)
+  
 } # col2hex().
 
 ## Check: 
@@ -74,33 +80,37 @@ col2hex <- function(col, alpha = alpha) {
 
 
 
-# isHexCol: Helper function to detect HEX-colors: ------ 
+# is_hex_col: Helper function to detect HEX-colors: ------ 
 
-isHexCol <- function(color) {
+is_hex_col <- function(color) {
+  
   return(grepl(pattern = "^#[0-9A-Fa-f]{6,}", color))
-} # isHexCol().
+  
+} # is_hex_col().
 
 ## Check:
-# isHexCol("black")
-# isHexCol(col2hex("black"))
-# isHexCol(rgb2hex(0, 0, 0))
+# is_hex_col("black")
+# is_hex_col(col2hex("black"))
+# is_hex_col(rgb2hex(0, 0, 0))
 
 
 
-# isCol: Helper function to detect any color (in an individual character string): ------ 
+# is_col: Helper function to detect any color (in an individual character string): ------ 
 
-isCol <- function(color) {
-  return(isHexCol(color) | color %in% colors())
-} # isCol(). 
+is_col <- function(color) {
+  
+  return(is_hex_col(color) | color %in% colors())
+  
+} # is_col(). 
 
 ## Check:
-# isCol("white")
-# isCol(col2hex("black", alpha = 255/2))
-# isCol(NA)
-# isCol("bumblebee")
+# is_col("white")
+# is_col(col2hex("black", alpha = 255/2))
+# is_col(NA)
+# is_col("bumblebee")
 
 # BUT note: 
-# isCol(col2rgb("white"))  # => FALSE FALSE FALSE
+# is_col(col2rgb("white"))  # => FALSE FALSE FALSE
 
 
 
@@ -160,7 +170,7 @@ col_distinct <- function(pal, use_alpha = FALSE){
   
   # Prepare: ---- 
   
-  if (any(isCol(pal) == FALSE)){
+  if (any(is_col(pal) == FALSE)){
     stop("pal contains non-colors")
   }
   
@@ -231,7 +241,7 @@ parse_pal <- function(pal) {
   # Check if pal is legible (already a color palette): 
   vector_input <- tryCatch(
     {
-      all(sapply(pal, isCol))
+      all(sapply(pal, is_col))
     },
     
     error = function(e) {
@@ -299,7 +309,7 @@ parse_pal <- function(pal) {
     if ( any(!elemex) ) { # only if not all inputs have been resolved
       
       # Those which are still unknown: Are those colors? 
-      elemex[!elemex] <- sapply(elem[!elemex], isCol)
+      elemex[!elemex] <- sapply(elem[!elemex], is_col)
       
     }
     
@@ -331,8 +341,10 @@ parse_pal <- function(pal) {
       
     }
     
-    # Get all palettes: 
-    out <- lapply(elem, function(x) if( isCol(x) ) x else get(x) )
+    
+    # Get all palettes: ---- 
+    out <- lapply(elem, function(x) if (is_col(x)) {x} else {get(x)} )
+    
     
     # Apply any previously detected functions: ----  
     if ( any(!is.na(funs)) ) {
@@ -343,18 +355,18 @@ parse_pal <- function(pal) {
       
     }
     
-    # Create the output: 
+    # Create the output: ---- 
     out <- unname(out)  # finish the palette by removing upper level (palette) names.
     
   }
+  
+  # Output: ---- 
   
   out <- unlist(out)
   
   # Provide missing names, by using the color:
   ix_nameless <- is.null(names(out)) | names(out) == ""
   names(out)[ix_nameless] <- out[ix_nameless]
-  
-  # Output: ---- 
   
   return(out)
   
@@ -412,7 +424,7 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
       if ( !typeof(x) %in% c("vector", "list") ) {
         is_color <- FALSE
       } else {
-        is_color <- isHexCol(color = x)
+        is_color <- is_hex_col(color = x)
       }
       return(all(is_color))  # are all entries colors?
       
@@ -455,9 +467,7 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
 
 
 
-
 ## 3. Plotting functions: ------
-
 
 
 # plot_shape: Plot a shape in a certain color: ------
@@ -548,27 +558,30 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
     if (dev.cur() == 1) {
       stop("No graphic device to be plotted on.  Please open a plot or set plot.new to 'TRUE'.")
     }
+    
   }
+  
   
   # 2. Position parameters: -----
   
   # Shape centers:
-  xpos <- (1:len_x) - 0.5  # Note: Subtracting .5 assumes a shape width of 1.
+  xpos <- (1:len_x) - 0.5  # subtracting 0.5 assumes a shape width of 1.
   
-  # +++ here now +++: Allow scaling shape widths to fill a FIXED total width 
-  #                   (e.g., each shape a width of 10/len_x).
+  # ToDo: Allow scaling shape widths to fill a FIXED total width 
+  #       (e.g., each shape with a width of 10/len_x).
   
   # Adjust xpos by distance:
   mid <- mean(xpos)  # get midpoint. 
-  add <- cumsum(rep(distance, sum(xpos < mid)))  # values to be added to the first half. 
-  sub <- add * (-1)                              # values to be subtracted from the second half. 
-  xpos <- xpos + if(len_x %% 2 == 0) c(rev(sub), add) else  # even numbers: no center position needed.
-    c(rev(sub), 0, add)                                     # odd numbers: include the middle (0). 
+  add <- cumsum(rep(distance, sum(xpos < mid)))  # values to be added to the 1st half 
+  sub <- add * (-1)                              # values to be subtracted from the 2nd half 
+  xpos <- xpos + if (len_x %% 2 == 0) {c(rev(sub), add)} else  # even numbers: no center position needed
+  {c(rev(sub), 0, add)}                                      # odd numbers: include a middle (0)
   
   # Recycle other constants (to len_x):
   ypos <- rep(ypos, length.out = len_x) 
   xlen <- rep(xlen, length.out = len_x)
   ylen <- rep(ylen, length.out = len_x)
+  
   
   # 3. Plot shapes: ------ 
   

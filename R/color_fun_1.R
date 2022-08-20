@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 08 19
+## spds | uni.kn | 2022 08 20
 ## ---------------------------
 
 ## Define color-related functions 
@@ -997,7 +997,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     if (hex) {
       
       # Convert to hex (if not already in this format): 
-      if (!all(isHexCol(pal_tmp))) { 
+      if (!all(is_hex_col(pal_tmp))) { 
         pal_tmp <- rgb(t(col2rgb(pal_tmp)), maxColorValue = 255)
       }
       
