@@ -468,8 +468,8 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE, plot = TRUE){
 #' simcol(Seeblau, tol = 30)  # = simcol(Seeblau, tol = c(30, 30, 30))
 #' simcol(Seeblau, tol = c(20, 20, 80))
 #' 
-#' # Increasing tolerance values widens range:
-#' simcol("grey", c("black", "grey", "white"), tol = 255, plot = FALSE)
+#' # Increasing tolerance widens range:
+#' simcol("grey", c("white", "grey", "black"), tol = 255, distinct = FALSE, plot = FALSE)
 #' 
 #' @family color functions
 #'
@@ -566,6 +566,14 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75),
   
   
   # Process outpal: ----
+  
+  # Sort results by color name? (Default: Sorted by order of col_candidates)
+  sort_by_name <- FALSE
+  
+  if (sort_by_name){
+    outpal <- usecol(outpal, use_names = TRUE)  # use color names
+    outpal <- outpal[sort(names(outpal))]  # sort by alphabetic names
+  }
   
   outpal <- c(col_target, outpal)  # add col_target to front
   
