@@ -69,8 +69,8 @@ simcol("blue", col_candidates = pal_unikn_pref, tol = 120)
 simcol(Seeblau, tol = 30)  # = simcol(Seeblau, tol = c(30, 30, 30))
 simcol(Seeblau, tol = c(20, 20, 80))
 
-# Increasing tolerance values widens range:
-simcol("grey", c("black", "grey", "white"), tol = 255, plot = FALSE)
+# Increasing tolerance widens range:
+simcol("grey", c("white", "grey", "black"), tol = 255, distinct = FALSE, plot = FALSE)
 
 }
 \seealso{
