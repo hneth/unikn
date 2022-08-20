@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 08 17
+## spds | uni.kn | 2022 08 20
 ## ---------------------------
 
 ## Define color-related functions 
@@ -136,7 +136,7 @@ newpal <- function(col,            # a vector of colors
   # Robustify inputs:
   if ( any(is.na(col)) ) stop("'col' must be a vector of (named or hex) colors without NA values.")
   
-  if ( any(!isCol(col)) ) stop("'col' must be a vector containing ONLY (named or hex) colors.")
+  if ( any(!is_col(col)) ) stop("'col' must be a vector containing ONLY (named or hex) colors.")
   
   if ( any(!is.na(names)) && ((length(col) != length(names))) ) {
     
@@ -496,11 +496,11 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75),
     stop("col_target must be a scalar (length 1)")
   }
   
-  if (isCol(col_target) == FALSE){
+  if (is_col(col_target) == FALSE){
     stop("col_target is no color")
   }
   
-  if (any(isCol(col_candidates) == FALSE)){
+  if (any(is_col(col_candidates) == FALSE)){
     stop("col_candidates contains non-colors")
   }
   
@@ -570,6 +570,7 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75),
   outpal <- c(col_target, outpal)  # add col_target to front
   
   if (distinct){ # remove visual duplicates:
+    
     outpal <- col_distinct(outpal, use_alpha = FALSE) # (based on HEX values, but ignoring transparency)
   }
   
@@ -581,8 +582,11 @@ simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75),
   if (plot){
     
     if (is.null(names(col_target)) == FALSE){
+      
       col_target_name <- names(col_target) 
+      
     } else {
+      
       col_target_name <- as.character(col_target)
     }
     
