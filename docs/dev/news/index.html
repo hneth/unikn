@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9002</span>
       </span>
     </div>
 
@@ -74,29 +74,44 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="0.5.0" id="unikn-050">unikn 0.5.0<a class="anchor" aria-label="anchor" href="#unikn-050"></a></h2>
+<h2 class="page-header" data-toc-text="0.5.0.9002" id="unikn-0509002">unikn 0.5.0.9002<a class="anchor" aria-label="anchor" href="#unikn-0509002"></a></h2>
+<p>The current development version of <strong>unikn</strong> (0.5.0.9001+) is available at <a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a>.</p>
+<p>Changes since last release:</p>
+<!-- Blank line.  --><div class="section level3">
+<h3 id="major-changes-0-5-0-9002">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-5-0-9002"></a></h3>
+<ul><li>In <code><a href="../reference/seecol.html">seecol()</a></code>: Deprecate the <code>title</code> argument and replace by standard <code>main</code> and <code>sub</code> arguments. [2022-08-19]</li></ul><!-- Blank line.  --></div>
+<div class="section level3">
+<h3 id="minor-changes-0-5-0-9002">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-0-5-0-9002"></a></h3>
+<ul><li>Maintenance:<ul><li>Rename utility functions <code>isCol()</code> and <code>isHexCol()</code> to <code>is_col()</code> and <code>is_hex_col()</code>. [2022-08-20]</li>
+<li>Distribute color functions into separate files. [2022-08-17]</li>
+</ul></li></ul><!-- Blank line.  --></div>
+<div class="section level3">
+<h3 id="bug-fixes-0-5-0-9002">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-5-0-9002"></a></h3>
+<ul><li>none yet.</li></ul><!-- Older versions:  --><hr></div>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.5.0" id="unikn-050">unikn 0.5.0<small>2022-08-15</small><a class="anchor" aria-label="anchor" href="#unikn-050"></a></h2>
 <p>This release of <strong>unikn</strong> (v0.5.0) adds new functionality and fixes some bugs. [2022-08-15]</p>
 <p>Changes since last release:</p>
-<!-- Add blank line.  --><div class="section level3">
+<!-- Blank line.  --><div class="section level3">
 <h3 id="major-changes-0-5-0">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-5-0"></a></h3>
 <ul><li>Add a <code><a href="../reference/simcol.html">simcol()</a></code> function to find similar colors. [2022-08-10]</li>
 <li>Add an <code><a href="../reference/ac.html">ac()</a></code> function as a flexible wrapper of <code><a href="https://rdrr.io/r/grDevices/adjustcolor.html" class="external-link">grDevices::adjustcolor()</a></code>. [2022-01-02]</li>
 <li>Add a <code><a href="../reference/shades_of.html">shades_of()</a></code> function to conveniently get <code>n</code> shades of a color. [2021-04-06]</li>
-</ul><!-- Add blank line.  --></div>
+</ul><!-- Blank line.  --></div>
 <div class="section level3">
 <h3 id="minor-changes-0-5-0">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-0-5-0"></a></h3>
 <ul><li>Add a <code>plot</code> argument to <code><a href="../reference/grepal.html">grepal()</a></code> and <code><a href="../reference/simcol.html">simcol()</a></code> to visualize results. [2022-08-12]</li>
 <li>Add a <code>distinct</code> argument to <code><a href="../reference/usecol.html">usecol()</a></code> and <code><a href="../reference/simcol.html">simcol()</a></code> to remove visual duplicates. [2022-08-11]</li>
 <li>Add utility functions for obtaining color transparency values (<code>get_alpha()</code>), quantifying color distance (<code>col_distance()</code>), and detecting and filtering visual duplicates (<code>col_distinct()</code>). [2022-08-11]</li>
 <li>Add an <code>x_layout</code> argument to control horizontal positions of text labels (e.g., by numeric increments, centering, right-adjusted). [2021-04-24]</li>
-</ul><!-- Add blank line.  --></div>
+</ul><!-- Blank line.  --></div>
 <div class="section level3">
 <h3 id="bug-fixes-0-5-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-5-0"></a></h3>
 <ul><li>Fix some bugs in README and vignettes. [2021-04-29]</li>
 <li>
 <code><a href="../reference/slide.html">slide()</a></code> now uses the <code>dim</code> argument. [2021-04-24]</li>
-</ul><!-- Add blank line.  --><p>The current development version of <strong>unikn</strong> (0.5.0.9001+) is available at <a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a>.</p>
-<!-- Add blank line.  --><hr></div>
+</ul><!-- Blank line.  --><hr></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.0" id="unikn-040">unikn 0.4.0<small>2021-03-27</small><a class="anchor" aria-label="anchor" href="#unikn-040"></a></h2>
@@ -104,20 +119,20 @@
 <p>Changes since last release:</p>
 <div class="section level3">
 <h3 id="major-changes-0-4-0">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-4-0"></a></h3>
-<ul><li><p>Add a <code><a href="../reference/grepal.html">grepal()</a></code> function to match patterns in the names of <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> or color palettes. [2020-12-18]</p></li>
-<li><p>Change color sequence of <code>pal_unikn_pref</code> to increase contrast between adjacent colors. [2020-09-04]</p></li>
-</ul><!-- Add blank line.  --></div>
+<ul><li>Add a <code><a href="../reference/grepal.html">grepal()</a></code> function to match patterns in the names of <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> or color palettes. [2020-12-18]</li>
+<li>Change color sequence of <code>pal_unikn_pref</code> to increase contrast between adjacent colors. [2020-09-04]</li>
+</ul><!-- Blank line.  --></div>
 <div class="section level3">
 <h3 id="minor-changes-0-4-0">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-0-4-0"></a></h3>
-<ul><li><p>Add <code>mar_note</code> argument to <code><a href="../reference/seecol.html">seecol()</a></code> for margin note option. [2021-01-05]</p></li>
-<li><p>Add two new vignettes (on “Color recipes” and “Institutional colors”). [2020-12-18]</p></li>
-<li><p>Fine-tune aesthetics of <code><a href="../reference/theme_unikn.html">theme_unikn()</a></code> and <code><a href="../reference/theme_grau.html">theme_grau()</a></code> for use with <strong>ggplot2</strong>. [2020-08-27]</p></li>
-<li><p>Add <a href="https://www.travis-ci.com/" class="external-link">Travis</a> support for <a href="https://github.com/" class="external-link">GitHub</a> builds. [2020-08-25]</p></li>
-</ul><!-- Add blank line.  --></div>
+<ul><li>Add <code>mar_note</code> argument to <code><a href="../reference/seecol.html">seecol()</a></code> for margin note option. [2021-01-05]</li>
+<li>Add two new vignettes (on “Color recipes” and “Institutional colors”). [2020-12-18]</li>
+<li>Fine-tune aesthetics of <code><a href="../reference/theme_unikn.html">theme_unikn()</a></code> and <code><a href="../reference/theme_grau.html">theme_grau()</a></code> for use with <strong>ggplot2</strong>. [2020-08-27]<br></li>
+<li>Add <a href="https://www.travis-ci.com/" class="external-link">Travis</a> support for <a href="https://github.com/" class="external-link">GitHub</a> builds. [2020-08-25]</li>
+</ul><!-- Blank line.  --></div>
 <div class="section level3">
 <h3 id="bug-fixes-0-4-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-4-0"></a></h3>
 <ul><li>Adjust display of HEX codes in <code><a href="../reference/seecol.html">seecol()</a></code>:<br>
-Show HEX codes on two alternating lines (or with diagonal labels) when length of codes exceed line length(s). [2020-12-26]</li></ul><!-- Add blank line.  --><hr></div>
+Show HEX codes on two alternating lines (or with diagonal labels) when length of codes exceed line length(s). [2020-12-26]</li></ul><!-- Blank line.  --><hr></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.0" id="unikn-030">unikn 0.3.0<small>2020-08-24</small><a class="anchor" aria-label="anchor" href="#unikn-030"></a></h2>
@@ -131,10 +146,10 @@ Show HEX codes on two alternating lines (or with diagonal labels) when length of
 <ul><li>Add <code>pal_names</code> argument to <code><a href="../reference/seecol.html">seecol()</a></code> function to allow re-labeling color palettes and colors. [2020-08-22]</li></ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-0-3-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-3-0"></a></h3>
-<ul><li><p>Bug fix: Use <code><a href="../reference/seecol.html">seecol()</a></code> to flexibly plot color palettes provided by name or incomplete names. [2020-08-20]</p></li>
-<li><p>Revise documentation of <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> functions.</p></li>
-<li><p>Clean up and update online documentation.</p></li>
-</ul><!-- Add blank line.  --><hr></div>
+<ul><li>Bug fix: Use <code><a href="../reference/seecol.html">seecol()</a></code> to flexibly plot color palettes provided by name or incomplete names. [2020-08-20]<br></li>
+<li>Revise documentation of <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> functions.<br></li>
+<li>Clean up and update online documentation.</li>
+</ul><!-- Blank line.  --><hr></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.0" id="unikn-020">unikn 0.2.0<small>2019-09-25</small><a class="anchor" aria-label="anchor" href="#unikn-020"></a></h2>
@@ -143,27 +158,27 @@ Show HEX codes on two alternating lines (or with diagonal labels) when length of
 <div class="section level3">
 <h3 id="major-changes-0-2-0">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-2-0"></a></h3>
 <p>New functionality:</p>
-<ul><li><p>Add a <code><a href="../reference/newpal.html">newpal()</a></code> function for defining new color palettes (as a named vector or data frame). [2019-07-05]</p></li>
-<li><p>Add a <code><a href="../reference/theme_unikn.html">theme_unikn()</a></code> function to provide a basic <strong>ggplot2</strong> theme. [2019-06-20]</p></li>
+<ul><li>Add a <code><a href="../reference/newpal.html">newpal()</a></code> function for defining new color palettes (as a named vector or data frame). [2019-07-05]</li>
+<li>Add a <code><a href="../reference/theme_unikn.html">theme_unikn()</a></code> function to provide a basic <strong>ggplot2</strong> theme. [2019-06-20]</li>
 </ul></div>
 <div class="section level3">
 <h3 id="minor-changes-0-2-0">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-0-2-0"></a></h3>
 <p>Changes in existing functionality:</p>
-<ul><li><p>Add a <code>col_bg</code> argument to the <code><a href="../reference/seecol.html">seecol()</a></code> function to allow setting background color. [2019-09-24]</p></li>
-<li><p>Add a <code>title</code> argument to the <code><a href="../reference/seecol.html">seecol()</a></code> function to allow overwriting the default title (created when <code>title = NA</code>). [2019-07-17]</p></li>
-<li><p>Add <code>lwd_brd</code> argument to the <code><a href="../reference/seecol.html">seecol()</a></code> function to allow setting the linewidth of shapes (and setting sensible defaults in combination with <code>col_brd</code>). [2019-07-18]</p></li>
+<ul><li>Add a <code>col_bg</code> argument to the <code><a href="../reference/seecol.html">seecol()</a></code> function to allow setting background color. [2019-09-24]</li>
+<li>Add a <code>title</code> argument to the <code><a href="../reference/seecol.html">seecol()</a></code> function to allow overwriting the default title (created when <code>title = NA</code>). [2019-07-17]</li>
+<li>Add <code>lwd_brd</code> argument to the <code><a href="../reference/seecol.html">seecol()</a></code> function to allow setting the linewidth of shapes (and setting sensible defaults in combination with <code>col_brd</code>). [2019-07-18]</li>
 </ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-0-2-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-2-0"></a></h3>
-<ul><li><p>Fix an error in <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> that prevented using functions in other packages (by requiring list of palettes). [2019-09-18]</p></li>
-<li><p>Remove packages not needed for running <strong>unikn</strong> from list of suggested packages. [2019-07-20]</p></li>
-<li><p>Prevent showing duplicate color names in <code><a href="../reference/seecol.html">seecol()</a></code>, due to searching both the current set of color palettes and <strong>base</strong> R <code>colors</code>. Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27]</p></li>
-<li><p>Fix an error in <code>isHexCol()</code> which failed to recognize hexadecimal color values starting with lowercase letters. [2019-06-27]</p></li>
-</ul><!-- Add blank line.  --><hr></div>
+<ul><li>Fix an error in <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> that prevented using functions in other packages (by requiring list of palettes). [2019-09-18]</li>
+<li>Remove packages not needed for running <strong>unikn</strong> from list of suggested packages. [2019-07-20]</li>
+<li>Prevent showing duplicate color names in <code><a href="../reference/seecol.html">seecol()</a></code>, due to searching both the current set of color palettes and <strong>base</strong> R <code>colors</code>. Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27]</li>
+<li>Fix an error in <code>isHexCol()</code> which failed to recognize hexadecimal color values starting with lowercase letters. [2019-06-27]</li>
+</ul><!-- Blank line.  --><hr></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.0" id="unikn-010">unikn 0.1.0<small>2019-06-15</small><a class="anchor" aria-label="anchor" href="#unikn-010"></a></h2>
-<ul><li>Initial release of <strong>unikn</strong> (v0.1.0) on CRAN: <a href="https://CRAN.R-project.org/package=unikn" class="external-link uri">https://CRAN.R-project.org/package=unikn</a>. [2019-06-15]</li></ul><!-- Add blank line.  --><hr><p>[File <code>NEWS.md</code> updated on 2022-08-15.]</p>
+<ul><li>Initial release of <strong>unikn</strong> (v0.1.0) on CRAN: <a href="https://CRAN.R-project.org/package=unikn" class="external-link uri">https://CRAN.R-project.org/package=unikn</a>. [2019-06-15]</li></ul><!-- Blank line.  --><hr><p>[File <code>NEWS.md</code> updated on 2022-08-20.]</p>
 <!-- eof. -->
 </div>
   </div>
