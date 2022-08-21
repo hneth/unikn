@@ -28,15 +28,14 @@ plot_kn <- function(axes = FALSE,
   
   # univ <- TRUE  # draw university?
   
+  # Canvas settings: ------ 
   
-  # Canvas: ---- 
-  
+  # par: ----
   opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
-  on.exit(par(opar))  # par(opar)  # restore original par() settings
-  
+  on.exit(par(opar))  # par(opar)  # restore original par() settings  
   
   if (axes) {
-    par(mar = c(0, 0, 0, 0) + 2.1)   # min. margins (with axes)
+    par(mar = c(0, 0, 0, 0) + 2.1)  # min. margins (with axes)
   } else {
     par(mar = c(0, 0, 0, 0) + 4.1)  # symmetrical margins
   }
@@ -45,6 +44,7 @@ plot_kn <- function(axes = FALSE,
   par("fg" = "black")
   
   
+
   # Dimensions: ---- 
   
   # xmin <-  0  # (not needed)
@@ -52,10 +52,29 @@ plot_kn <- function(axes = FALSE,
   xmax <- 48
   ymax <- 48
   
+
+  # Scale x-dimension: ----- 
+  
   # ToDo: Add option to enforce 1:1 aspect ratio 
   #       (by re-scaling based on current canvas dimensions).
   
+  # (a) Current device: Determine plot aspect ratio (for scaling purposes):
+  plot_xy <- dev.size("in")            # use EITHER par("pin") OR dev.size("in")
+  plot_ratio <- plot_xy[1]/plot_xy[2]  # current aspect ratio
+  xsf <- 1/plot_ratio                  # multiplicative scaling factor (for x-widths)
   
+  # (b) Current box dimensions (code from plot_box.R):
+  # xsf <- box_height/box_width
+  
+  # (b) Assume square:
+  # xsf <- 1
+  
+  # print(paste0("X scaling factor xsf = ", xsf)) # 4debugging
+  
+  # # Apply to ALL x-coords: 
+  # xmax <- xmax * xsf  # FAILS, as only x-differences should be scaled (not all x-values)
+  
+
   # Colors: ---- 
   
   # (a) Main colors:
@@ -123,14 +142,14 @@ plot_kn <- function(axes = FALSE,
   
   if (axes){
     
-    # x_ax_seq <- seq(0, 100, by = 10)
+    x_ax_seq <- seq(0,  50, by =  5) # square OR (scaled: y_ax_seq * xsf) 
+    x_ax_lbl <- seq(0,  50, by =  5)
     y_ax_seq <- seq(0,  50, by =  5)
-    x_ax_seq <- y_ax_seq  # square 
     
-    axis(1, at = x_ax_seq, col = col_axes)
-    axis(2, at = y_ax_seq, col = col_axes)
-    axis(3, at = x_ax_seq, col = col_axes)
-    axis(4, at = y_ax_seq, col = col_axes)
+    axis(1, at = x_ax_seq, labels = x_ax_lbl, col = col_axes)  # x-bottom
+    axis(2, at = y_ax_seq, col = col_axes)  # y-left
+    axis(3, at = x_ax_seq, labels = x_ax_lbl, col = col_axes)  # x-top
+    axis(4, at = y_ax_seq, col = col_axes)  # y-right
     
   } # axes end. 
   
