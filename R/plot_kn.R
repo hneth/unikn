@@ -1,5 +1,5 @@
 ## plot_kn.R | unikn
-## spds | uni.kn |  2021 12 08
+## spds | uni.kn |  2022 08 21
 ## ---------------------------
 
 ## plot_unikn: Function to plot unikn logo: ------ 
@@ -51,6 +51,9 @@ plot_kn <- function(axes = FALSE,
   # ymin <-  0  # (not needed)
   xmax <- 48
   ymax <- 48
+  
+  # ToDo: Add option to enforce 1:1 aspect ratio 
+  #       (by re-scaling based on current canvas dimensions).
   
   
   # Colors: ---- 
@@ -466,8 +469,9 @@ plot_kn <- function(axes = FALSE,
 
 ## ToDo: ------
 
-# - fix curves of bridge/waves
-# - add option to enforce 1:1 aspect ratio (by scaling to current canvas dimensions)
-# - add coordinates to function?
+# - Add more color options (e.g., random color areas).
+# - Fix curves of bridge/waves. 
+# - Add option to enforce 1:1 aspect ratio (by re-scaling based on current canvas dimensions). 
+# - Add starting coordinate (and size argument) to function?
 
 ## eof. ----------
