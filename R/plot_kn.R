@@ -1,5 +1,5 @@
 ## plot_kn.R | unikn
-## spds | uni.kn |  2022 08 22
+## spds | uni.kn |  2022 08 23
 ## ---------------------------
 
 ## plot_unikn: Function to plot unikn logo: ------ 
@@ -22,12 +22,13 @@ plot_kn <- function(back = TRUE,
   
   # back <- TRUE   # draw background lines?
   
-  # city  <- TRUE  # wrapper for road/house/cath
+  # city  <- TRUE  # draw city (road/house/cath)?
   road  <- TRUE # FALSE
   house <- TRUE # FALSE
   cath  <- TRUE # FALSE
   
   # univ <- TRUE  # draw university?
+  
   
   # Canvas settings: ------ 
   
@@ -90,7 +91,7 @@ plot_kn <- function(back = TRUE,
   # (c) Specific parts:
   if (use_colors){
     
-    # line colors: 
+    # 1. Line colors: 
     line_pal <- usecol(c(pal_grau[[3]], Karpfenblau, pal_grau[[5]], Petrol, Bordeaux))
     if (rand_col) { line_pal <- sample(line_pal) }
     
@@ -100,7 +101,7 @@ plot_kn <- function(back = TRUE,
     col_cath  <- line_pal[4]
     col_univ  <- line_pal[5]
     
-    # area colors (only used if use_areas = TRUE and use_colors = TRUE): 
+    # 2. Area colors (only used if use_areas = TRUE and use_colors = TRUE): 
     area_pal <- usecol(c(pal_pinky[[1]], pal_pinky[[2]], pal_peach[[2]], pal_seegruen[[2]]))
     if (rand_col) { area_pal <- sample(area_pal) }
     
@@ -109,10 +110,15 @@ plot_kn <- function(back = TRUE,
     col_sail <- area_pal[3]
     col_flap <- area_pal[4]
     
+    # 3. Background colors: 
     back_pal <- usecol(pal = pal_unikn, alpha = 1)  # color range (11)
     # back_pal <- usecol(c(Seeblau, "white", Bordeaux), n = 11, alpha = 1)  # color gradient (11)
     # seecol(back_pal)
     if (rand_col) { back_pal <- sample(back_pal) }
+    
+    # 4. Window colors (for highlights):
+    win_pal <- pal_signal
+    if (rand_col) { win_pal <- sample(win_pal) }
     
   } else {
     
@@ -194,25 +200,45 @@ plot_kn <- function(back = TRUE,
       rect(xleft = 12/48 * xmax, ybottom = 12/48 * ymax, xright = 24/48 * xmax, ytop = 24/48 * ymax, border = col_back, col = back_pal[[6]])  # 16th: row_3 col_2
       
       rect(xleft = 00/48 * xmax, ybottom = 00/48 * ymax, xright = 12/48 * xmax, ytop = 12/48 * ymax, border = col_back, col = back_pal[[6]])  # 16th: row_4 col_1
-    }
+      
+    } # if (back).
     
-    if (city & house){
+    
+    if (city){
       
-      polygon(x = c(12, 15, 18)/48 * xmax, y = c(06, 12, 06)/48 * ymax, border = col_house, col = col_roof)  # roof of low house left
-      polygon(x = c(18, 21, 24)/48 * xmax, y = c(06, 12, 06)/48 * ymax, border = col_house, col = col_roof)  # roof of low house right
-      polygon(x = c(42, 45, 48)/48 * xmax, y = c(12, 18, 12)/48 * ymax, border = col_house, col = col_roof)  # roof of high house
+      if (house){
+        
+        polygon(x = c(12, 15, 18)/48 * xmax, y = c(06, 12, 06)/48 * ymax, border = col_house, col = col_roof)  # roof of low house left
+        polygon(x = c(18, 21, 24)/48 * xmax, y = c(06, 12, 06)/48 * ymax, border = col_house, col = col_roof)  # roof of low house right
+        polygon(x = c(42, 45, 48)/48 * xmax, y = c(12, 18, 12)/48 * ymax, border = col_house, col = col_roof)  # roof of high house
+        
+        rect(xleft = 12/48 * xmax, ybottom = 03/48 * ymax, xright = 18/48 * xmax, ytop = 06/48 * ymax, border = col_house, col = back_pal[[4]])  # low house left
+        rect(xleft = 18/48 * xmax, ybottom = 03/48 * ymax, xright = 24/48 * xmax, ytop = 06/48 * ymax, border = col_house, col = back_pal[[5]])  # low house right
+        rect(xleft = 42/48 * xmax, ybottom = 00/48 * ymax, xright = 48/48 * xmax, ytop = 06/48 * ymax, border = col_house, col = back_pal[[7]])  # high house bottom
+        rect(xleft = 42/48 * xmax, ybottom = 06/48 * ymax, xright = 48/48 * xmax, ytop = 12/48 * ymax, border = col_house, col = back_pal[[6]])  # high house top
+        
+      }
       
-      rect(xleft = 12/48 * xmax, ybottom = 03/48 * ymax, xright = 18/48 * xmax, ytop = 06/48 * ymax, border = col_house, col = back_pal[[4]])  # low house left
-      rect(xleft = 18/48 * xmax, ybottom = 03/48 * ymax, xright = 24/48 * xmax, ytop = 06/48 * ymax, border = col_house, col = back_pal[[5]])  # low house right
-      rect(xleft = 42/48 * xmax, ybottom = 00/48 * ymax, xright = 48/48 * xmax, ytop = 06/48 * ymax, border = col_house, col = back_pal[[7]])  # bottom of high house
-      rect(xleft = 42/48 * xmax, ybottom = 06/48 * ymax, xright = 48/48 * xmax, ytop = 12/48 * ymax, border = col_house, col = back_pal[[6]])  # top of high house
+      if (cath){
+        
+        rect(xleft = 24/48 * xmax, ybottom = 00/48 * ymax, xright = 42/48 * xmax, ytop = 18/48 * ymax, border = col_cath, col = back_pal[[8]])  # cathedral base
+        rect(xleft = 30/48 * xmax, ybottom = 00/48 * ymax, xright = 36/48 * xmax, ytop = 24/48 * ymax, border = col_cath, col = back_pal[[8]])  # cathedral tower
+        
+        rect(xleft = 26/48 * xmax, ybottom = 06/48 * ymax, xright = 28/48 * xmax, ytop = 15/48 * ymax, border = col_cath, col = win_pal[[2]])  # cathedral window left
+        rect(xleft = 32/48 * xmax, ybottom = 06/48 * ymax, xright = 34/48 * xmax, ytop = 15/48 * ymax, border = col_cath, col = win_pal[[2]])  # cathedral window middle
+        rect(xleft = 38/48 * xmax, ybottom = 06/48 * ymax, xright = 40/48 * xmax, ytop = 15/48 * ymax, border = col_cath, col = win_pal[[2]])  # cathedral window right
+        
+      }
       
-      rect(xleft = 24/48 * xmax, ybottom = 00/48 * ymax, xright = 42/48 * xmax, ytop = 18/48 * ymax, border = col_cath, col = back_pal[[8]])  # cathedral base
-      rect(xleft = 30/48 * xmax, ybottom = 00/48 * ymax, xright = 36/48 * xmax, ytop = 24/48 * ymax, border = col_cath, col = back_pal[[8]])  # cathedral tower
+      if (road){
+        
+        rect(xleft = 00/48 * xmax, ybottom = 00/48 * ymax, xright = 24/48 * xmax, ytop = 03/48 * ymax, border = col_back, col = back_pal[[3]])  # river/lake
+        
+      }
       
-      rect(xleft = 00/48 * xmax, ybottom = 00/48 * ymax, xright = 24/48 * xmax, ytop = 03/48 * ymax, border = col_back, col = back_pal[[3]])  # river/lake
       
-    }
+    } # if (city).
+    
     
     if (univ){
       
@@ -223,9 +249,9 @@ plot_kn <- function(back = TRUE,
       polygon(x = c(18, 21, 24)/48 * xmax, y = c(36, 34, 36)/48 * ymax, border = col_univ, col = col_flap)  # flap middle
       polygon(x = c(36, 39, 42)/48 * xmax, y = c(36, 34, 36)/48 * ymax, border = col_univ, col = col_flap)  # flap right
       
-    }
+    } # if (univ). 
     
-  } # use_areas end. 
+  } # if (use_areas). 
   
   
   # (2) Lines: ------ 
@@ -254,12 +280,12 @@ plot_kn <- function(back = TRUE,
     # upper half: 
     segments(x0 = 36/48 * xmax, y0 = 36/48 * ymax, x1 = 36/48 * xmax, y1 = 48/48 * ymax, col = col_back) # vertical upper right square
     
-  } # back end. 
+  } # if (back).
   
   
   # Lower half: ---- 
   
-  if (road & city){
+  if (city & road){
     
     # bridge lines:
     segments(x0 = 00/48 * xmax, y0 = 03/48 * ymax, x1 = 24/48 * xmax, y1 = 03/48 * ymax, col = col_road)  # horizontal bridge (redundant)
@@ -282,10 +308,10 @@ plot_kn <- function(back = TRUE,
     
     # grid.circle(x = (03/48 * xmax), y = (10/48 * ymax), r = (02/48 * xmax), gp = gpar(), draw = TRUE)
     
-  } # road end. 
+  } # if (city & road). 
   
   
-  if (house & city){
+  if (city & house){
     
     # horizontal:
     segments(x0 = 12/48 * xmax, y0 = 06/48 * ymax, x1 = 18/48 * xmax, y1 = 06/48 * ymax, col = col_house)  # low house left top
@@ -322,7 +348,7 @@ plot_kn <- function(back = TRUE,
     segments(x0 = 48/48 * xmax, y0 = 12/48 * ymax, x1 = 45/48 * xmax, y1 = 18/48 * ymax, col = col_house)
     # polygon(x = c(42, 45, 48)/48 * xmax, y = c(12, 18, 12)/48 * xmax, border = col_house, col = col_roof)  # upper roof 
     
-  } # house end. 
+  } # if (city & house).
   
   
   # Upper half: ----  
@@ -443,7 +469,7 @@ plot_kn <- function(back = TRUE,
     # polygon(x = c(36, 39, 42)/48 * xmax, y = c(36, 34, 36)/48 * ymax, border = col_univ, col = col_flap)  # right flap
     
     
-  } # univ end. 
+  } # if (univ). 
   
   
   # Cathedral (Münster): ---- 
@@ -484,7 +510,7 @@ plot_kn <- function(back = TRUE,
     segments(x0 = 33/48 * xmax, y0 = 07/48 * ymax, x1 = 33/48 * xmax, y1 = 13/48 * ymax, col = col_cath)  # window mid.
     segments(x0 = 39/48 * xmax, y0 = 07/48 * ymax, x1 = 39/48 * xmax, y1 = 13/48 * ymax, col = col_cath)  # window right
     
-  } # cath end. 
+  } # if (cath & city). 
   
   # restore original par() settings: ---- 
   # par(opar)
