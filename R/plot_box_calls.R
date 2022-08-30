@@ -1,5 +1,5 @@
 ## plot_box_calls.R | unikn
-## spds | uni.kn |  2021 04 24
+## spds | uni.kn |  2022 08 30
 ## ---------------------------
 
 ## Specialized functions to plot rectangular boxes (e.g., frames, slides, etc.)
@@ -18,10 +18,13 @@
 #' at the correct aspect ratio (as defined by \code{dim}). 
 #' 
 #' @param col The color to fill the box with (i.e., its background color).  
-#' Default: \code{col = unlist(seeblau)}. 
+#' Default: \code{col = Seeblau}. 
 #' 
-#' @param dim The x- and y-dimensions of the box. 
-#' Default: \code{dim = c(1, 1)} (i.e., a unit square). 
+#' @param dim The x- and y-dimensions of the box (as numeric). 
+#' Default: \code{dim = c(1, 1)} (i.e., a unit square).
+#' 
+#' @param use_x Plot a cross in upper right corner (as logical)? 
+#' Default: \code{use_x = TRUE}. 
 #' 
 #' @family plot functions
 #' 
@@ -43,24 +46,43 @@
 # - Definition: ---- 
 
 xbox <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB")
-                 dim = c(1, 1)   # default dimensions: dim = c(1, 1) (i.e., unit square).
+                 dim = c(1, 1),  # default dimensions: dim = c(1, 1) (i.e., unit square).
+                 use_x = TRUE    # plot "X" in upper right corner? (default: use_x = TRUE)
                  # ...  # etc. 
 ) {
+
+  # Verify inputs: ------ 
   
-  # Dimensions:
+  # col: 
+  if (is_col(col) == FALSE){
+    message("col must be a color. Using Seeblau...")
+    col <- Seeblau
+  }
+
+  # dim:
   if (length(dim) == 1){  # only 1 value provided: 
     dim <- c(dim[1], dim[1])  # use as square
   }
+    
+  # use_x:
+  if (is.null(use_x) || is.na(use_x) || is.logical(use_x) == FALSE){
+    message("use_x must be TRUE or FALSE. Using TRUE...")
+    use_x <- TRUE  # default
+  }
+    
+  
+  # Main: ------ 
   
   # Call expert function (with sensible defaults):
   plot_box(col = col,
            box_dim = c(0, 0, dim[1], dim[2]),
            mar_all = 0,
-           oma_all = 0
+           oma_all = 0,
+           cross = use_x
            # ...  # etc.
   )
   
-} # xbox end. 
+} # xbox().
 
 ## Check:
 # xbox()  # default xbox
@@ -143,7 +165,7 @@ slide <- function(col = NA,         # default box bg/fill color: none/white/tran
            # ...  # etc.
   )
   
-} # slide end.
+} # slide().
 
 ## Check:
 # slide()  # default slide
