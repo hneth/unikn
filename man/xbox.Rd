@@ -4,14 +4,17 @@
 \alias{xbox}
 \title{Plot a box (with x).}
 \usage{
-xbox(col = Seeblau, dim = c(1, 1))
+xbox(col = Seeblau, dim = c(1, 1), use_x = TRUE)
 }
 \arguments{
 \item{col}{The color to fill the box with (i.e., its background color).
-Default: \code{col = unlist(seeblau)}.}
+Default: \code{col = Seeblau}.}
 
-\item{dim}{The x- and y-dimensions of the box. 
+\item{dim}{The x- and y-dimensions of the box (as numeric). 
 Default: \code{dim = c(1, 1)} (i.e., a unit square).}
+
+\item{use_x}{Plot a cross in upper right corner (as logical)? 
+Default: \code{use_x = TRUE}.}
 }
 \description{
 \code{xbox} plots a box with a cross (x) in its top-right corner.
