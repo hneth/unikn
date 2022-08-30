@@ -1,5 +1,5 @@
 ## plot_box.R | unikn
-## spds | uni.kn | 2021 04 24
+## spds | uni.kn | 2022 08 30
 ## ---------------------------
 
 ## General function to plot rectangular boxes (e.g., frames, slides, etc.)
@@ -32,7 +32,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
                      ...  # etc. (passed to rect, not to segments)
 ) {
   
-  # (0) Interpret inputs: -----
+  # 0. Interpret inputs: -----
   
   # Box parameters:
   # box_dim <- c(0, 0, 1, 1) # xleft ybottom xright ytop (as in rect)
@@ -48,11 +48,11 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
   # "x" parameters: 
   x_dis <- x_dis * min(box_width, box_height)  # scale x_dis by box size 
   
-  # (1) Create a new plot: -----
+  # 1. Create a new plot: -----
   
-  # Preamble: ----- 
+  #    - Preamble: ----- 
   
-  # Plotting area: ----- 
+  #    - Plotting area: ----- 
   
   # Record graphical parameters (par):
   opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
@@ -96,7 +96,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
     
   }
   
-  # (2) Scale x-dimension: ----- 
+  # 2. Scale x-dimension: ----- 
   
   # (a) Current device: Determine plot aspect ratio (for scaling purposes):
   # plot_xy <- dev.size("in")            # use EITHER par("pin") OR dev.size("in")
@@ -112,7 +112,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
   # print(paste0("scale_X = ", scale_x)) # 4debugging
   
   
-  # (3) Plot a colored box (using rect): ----- 
+  # 3. Plot a colored box (using rect): ----- 
   
   # Draw rectangle:
   rect(xleft = box_left, ybottom = box_bot, xright = box_right, ytop = box_top,
@@ -125,7 +125,7 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
        ...  # etc. 
   )
   
-  # (4) Plot an "x" (in top right corner): ----- 
+  # 4. Plot an "x" (in top right corner): ----- 
   
   if (cross) {
     
@@ -192,7 +192,8 @@ plot_box <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C
     
   } # if (cross) etc. 
   
-  # (5) Exit: ----- 
+  
+  # 5. Output: ----- 
   
   # on.exit(par(opar)) # restore original settings
   invisible() # restores par(opar)
