@@ -1,5 +1,5 @@
 ## start_unikn.R | unikn
-## spds | uni.kn |  2019 08 07
+## spds | uni.kn |  2022 08 31
 ## ---------------------------
 
 ## Open package guide: -----------------------
@@ -26,18 +26,32 @@ unikn.guide <- function() {
   ## Welcome message: ------
 
   pkg_version <- utils::packageVersion("unikn", lib.loc = NULL)
-  # welcome_message <- paste0("Welcome to unikn!")
-  welcome_message <- paste0("Welcome to unikn (v", pkg_version, ")!")
-
-  packageStartupMessage(welcome_message)
-
+  
+  # welcome_message <- paste0("Welcome to unikn (v", pkg_version, ")!")
+  # packageStartupMessage(in_grau(welcome_message))
+  
+  packageStartupMessage(in_grau("Welcome to ", in_seeblau("unikn"), " (v", pkg_version, ")!", sep = ""))
+  
+  
   ## User guidance: ------
 
   ## Roll unikn dice: ------
-  dice <- sample(1:3, 1)
+  dice <- sample(1:6, 1)
 
+  if (dice == -66){
+    
+    packageStartupMessage(black(in_bordeaux("bordeaux"), 
+                                in_grau("grau"),
+                                in_karpfenblau("karpfenblau"), 
+                                in_peach("peach"), 
+                                in_petrol("petrol"), 
+                                in_pinky("pinky"), 
+                                in_seeblau("seeblau"), 
+                                in_seegruen("seegruen"), sep = " | "))
+  }
+  
   if (dice == -77) {
-    pkg_version <- utils::packageVersion("unikn", lib.loc = NULL)
+    
     pkg_message <- paste0("Running unikn (v", pkg_version, ")...")
 
     packageStartupMessage(" ")
@@ -46,13 +60,14 @@ unikn.guide <- function() {
   }
 
   if (dice == -88) {
+    
     packageStartupMessage(" ")
     packageStartupMessage("citation('unikn') provides citation info.")
     packageStartupMessage(" ")
   }
 
   # all cases:
-  packageStartupMessage("unikn.guide() opens user guides.")
+  packageStartupMessage(in_grau(in_pinky("unikn.guide()"), "opens user guides."))
 
   
 } # .onAttach(). 
