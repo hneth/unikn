@@ -18,6 +18,7 @@ Changes since last release:
 
 ## Minor changes
 
+- Enable **crayon** styles for console messages. [2022-08-31] 
 - Maintenance: 
     - Rename utility functions `isCol()` and `isHexCol()` to `is_col()` and `is_hex_col()`. [2022-08-20]
     - Distribute color functions into separate files. [2022-08-17]
@@ -172,6 +173,6 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-08-30.]
+[File `NEWS.md` updated on 2022-08-31.]
 
 <!-- eof. -->
