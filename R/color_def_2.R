@@ -331,15 +331,15 @@ in_karpfenblau <- crayon::make_style(pal_karpfenblau[[4]])
 
 demo_crayons <- function(){
   
-  cat(black(in_bordeaux("bordeaux"), 
-            in_grau("grau"),
-            in_karpfenblau("karpfenblau"), 
-            in_peach("peach"), 
-            in_petrol("petrol"), 
-            in_pinky("pinky"), 
-            in_seeblau("seeblau"), 
-            in_seegruen("seegruen"), 
-            sep = " | ")
+  cat(crayon::black(in_bordeaux("bordeaux"), 
+                    in_grau("grau"),
+                    in_karpfenblau("karpfenblau"), 
+                    in_peach("peach"), 
+                    in_petrol("petrol"), 
+                    in_pinky("pinky"), 
+                    in_seeblau("seeblau"), 
+                    in_seegruen("seegruen"), 
+                    sep = " | ")
   )
   
 } # demo_crayons().

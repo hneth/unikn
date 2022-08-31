@@ -12,19 +12,19 @@
 #' @export
 
 unikn.guide <- function() {
-
+  
   # utils::vignette(topic = "User Guide", package = "unikn")
   utils::browseVignettes(package = "unikn")
-
+  
 } # unikn.guide().
 
 
 ## Initialize package: ------
 
 .onAttach <- function(libname, pkgname) {
-
+  
   ## Welcome message: ------
-
+  
   pkg_version <- utils::packageVersion("unikn", lib.loc = NULL)
   
   # welcome_message <- paste0("Welcome to unikn (v", pkg_version, ")!")
@@ -34,41 +34,43 @@ unikn.guide <- function() {
   
   
   ## User guidance: ------
-
+  
   ## Roll unikn dice: ------
   dice <- sample(1:6, 1)
-
+  
   if (dice == -66){
     
-    packageStartupMessage(black(in_bordeaux("bordeaux"), 
-                                in_grau("grau"),
-                                in_karpfenblau("karpfenblau"), 
-                                in_peach("peach"), 
-                                in_petrol("petrol"), 
-                                in_pinky("pinky"), 
-                                in_seeblau("seeblau"), 
-                                in_seegruen("seegruen"), sep = " | "))
+    packageStartupMessage(crayon::black(in_bordeaux("bordeaux"), 
+                                        in_grau("grau"),
+                                        in_karpfenblau("karpfenblau"), 
+                                        in_peach("peach"), 
+                                        in_petrol("petrol"), 
+                                        in_pinky("pinky"), 
+                                        in_seeblau("seeblau"), 
+                                        in_seegruen("seegruen"), 
+                                        sep = " | ")
+    )
   }
   
   if (dice == -77) {
     
     pkg_message <- paste0("Running unikn (v", pkg_version, ")...")
-
+    
     packageStartupMessage(" ")
     packageStartupMessage(pkg_message)
     packageStartupMessage(" ")
   }
-
+  
   if (dice == -88) {
     
     packageStartupMessage(" ")
     packageStartupMessage("citation('unikn') provides citation info.")
     packageStartupMessage(" ")
   }
-
+  
   # all cases:
   packageStartupMessage(in_grau(in_pinky("unikn.guide()"), "opens user guides."))
-
+  
   
 } # .onAttach(). 
 
