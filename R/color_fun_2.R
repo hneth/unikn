@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 08 20
+## spds | uni.kn | 2022 09 02
 ## ---------------------------
 
 ## Define color-related functions 
@@ -340,25 +340,22 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE, plot = TRUE){
   ix <- NA  # index
   cv <- NA  # color vector
   
+  
   # Main: ---- 
   
   if (is.vector(x)){
     # if (ds4psy::is_vector(x) & !is.data.frame(x)){
-    
-    # message("x is a vector:")
-    
+  
     ix <- grep(x = x, pattern = pattern, ignore.case = ignore_case)
     cv <- x[ix]
     
   } else if (is.data.frame(x)){
     
-    # message("x is a data frame:")    
-    
     df <- x  # work with df: 
     ix <- grep(x = names(df), pattern = pattern, ignore.case = ignore_case)
     cv <- df[ix]
     
-  } # end if.
+  } # if().
   
   
   # Plot: ----
