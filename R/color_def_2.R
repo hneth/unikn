@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2022 08 31
+## spds | uni.kn  | 2022 09 02
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -316,15 +316,21 @@ rownames(pal_unikn_pair) <- "1"  # fix/set rownames() of palette
 
 # Define crayon styles: ------ 
 
-in_grau     <- crayon::make_style(pal_grau[[5]])
-in_peach    <- crayon::make_style(pal_peach[[5]])
-in_pinky    <- crayon::make_style(pal_pinky[[5]])
-in_seeblau  <- crayon::make_style(pal_seeblau[[5]])
-in_seegruen <- crayon::make_style(pal_seegruen[[5]])
+# lighter:
+in_grau     <- crayon::make_style(pal_grau[[4]], grey = TRUE, colors = 256)
+in_peach    <- crayon::make_style(pal_peach[[5]],    colors = 256)
+in_pinky    <- crayon::make_style(pal_pinky[[5]],    colors = 256)
+in_seeblau  <- crayon::make_style(pal_seeblau[[5]],  colors = 256)
+in_seegruen <- crayon::make_style(pal_seegruen[[5]], colors = 256)
 
-in_bordeaux    <- crayon::make_style(pal_bordeaux[[4]])
-in_petrol      <- crayon::make_style(pal_petrol[[4]])
-in_karpfenblau <- crayon::make_style(pal_karpfenblau[[4]])
+# darker:
+in_bordeaux    <- crayon::make_style(pal_bordeaux[[4]],    colors = 256)
+in_petrol      <- crayon::make_style(pal_petrol[[4]],      colors = 256)
+in_karpfenblau <- crayon::make_style(pal_karpfenblau[[4]], colors = 256)
+
+# Notes:
+# - See details of ?crayon::make_style() for using the grey and colors arguments.  
+# - In contexts outside the unikn pkg, the RStudio terminal only shows the 256 ANSI colors.
 
 
 # demo_crayons: ------
@@ -345,12 +351,13 @@ demo_crayons <- function(){
 } # demo_crayons().
 
 
-## unikn color sources: ------ 
+## On unikn color sources: ------ 
 
 # Defining CD elements according to specifications publicly provided at https://www.uni-konstanz.de. 
 # Sources for color definitions: 
 # https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/ 
 # https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/ 
+
 
 ## ToDo: ------
 
