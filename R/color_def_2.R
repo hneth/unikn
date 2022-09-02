@@ -337,7 +337,8 @@ in_karpfenblau <- crayon::make_style(pal_karpfenblau[[4]], colors = 256)
 
 demo_crayons <- function(){
   
-  cat(crayon::black(in_bordeaux("bordeaux"), 
+  cat(crayon::black(# "Crayon colors:",
+                    in_bordeaux("bordeaux"), 
                     in_grau("grau"),
                     in_karpfenblau("karpfenblau"), 
                     in_peach("peach"), 
