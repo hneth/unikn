@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9002</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9004</span>
       </span>
     </div>
 
@@ -79,19 +79,24 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">xbox</span><span class="op">(</span>col <span class="op">=</span> <span class="va">Seeblau</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">xbox</span><span class="op">(</span>col <span class="op">=</span> <span class="va">Seeblau</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>, use_x <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>col</dt>
 <dd><p>The color to fill the box with (i.e., its background color).
-Default: <code>col = unlist(seeblau)</code>.</p></dd>
+Default: <code>col = Seeblau</code>.</p></dd>
 
 
 <dt>dim</dt>
-<dd><p>The x- and y-dimensions of the box. 
+<dd><p>The x- and y-dimensions of the box (as numeric). 
 Default: <code>dim = c(1, 1)</code> (i.e., a unit square).</p></dd>
+
+
+<dt>use_x</dt>
+<dd><p>Plot a cross in upper right corner (as logical)? 
+Default: <code>use_x = TRUE</code>.</p></dd>
 
 </dl></div>
     <div id="details">
