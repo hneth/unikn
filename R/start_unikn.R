@@ -1,5 +1,5 @@
 ## start_unikn.R | unikn
-## spds | uni.kn |  2022 08 31
+## spds | uni.kn |  2022 09 02
 ## ---------------------------
 
 ## Open package guide: -----------------------
@@ -23,7 +23,7 @@ unikn.guide <- function() {
 
 .onAttach <- function(libname, pkgname) {
   
-  ## Welcome message: ------
+  # Welcome message: ------
   
   pkg_version <- utils::packageVersion("unikn", lib.loc = NULL)
   
@@ -33,9 +33,9 @@ unikn.guide <- function() {
   packageStartupMessage(in_grau("Welcome to ", in_seeblau("unikn"), " (v", pkg_version, ")!", sep = ""))
   
   
-  ## User guidance: ------
+  # User guidance: ------
   
-  ## Roll unikn dice: ------
+  # 1. Roll unikn dice: ---- 
   dice <- sample(1:6, 1)
   
   if (dice == -66){
@@ -68,19 +68,21 @@ unikn.guide <- function() {
     packageStartupMessage(" ")
   }
   
-  # all cases:
-  packageStartupMessage(in_grau(in_pinky("unikn.guide()"), "opens user guides."))
+  # 2. Always: ----
+  packageStartupMessage(in_grau(in_pinky("unikn.guide()"), " opens user guides.", sep = ""))
   
   
 } # .onAttach(). 
 
 
+
 ## Done: ------
 
-## - etc.
+# - Enabled colored startup messages (using crayon styles).
+
 
 ## ToDo: ------
 
-## - etc.
+# - Consider adding probabilistic startup messages (e.g., color-related slogans). 
 
 ## eof. ----------
