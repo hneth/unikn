@@ -1,5 +1,5 @@
 
-# unikn 0.5.0.9003
+# unikn 0.5.0.9004
 
 The current development version of **unikn** (0.5.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -18,7 +18,8 @@ Changes since last release:
 
 ## Minor changes
 
-- Enable **crayon** styles for console messages. [2022-08-31] 
+- Enable probabilistic welcoming message. [2022-09-02]
+- Enable **crayon** styles for console text. [2022-08-31]
 - Maintenance: 
     - Rename utility functions `isCol()` and `isHexCol()` to `is_col()` and `is_hex_col()`. [2022-08-20]
     - Distribute color functions into separate files. [2022-08-17]
@@ -27,12 +28,12 @@ Changes since last release:
 <!-- Blank line.  --> 
 
 
-## Bug fixes
+## Details 
 
 - none yet. 
 
 
-<!-- Older versions:  --> 
+<!-- Previous versions: -->  
 
 ---------- 
 
@@ -63,12 +64,13 @@ detecting and filtering visual duplicates (`col_distinct()`). [2022-08-11]
 
 <!-- Blank line.  --> 
 
-## Bug fixes
+## Details
 
 - Fix some bugs in README and vignettes. [2021-04-29]
 - `slide()` now uses the `dim` argument. [2021-04-24]
 
-<!-- Blank line.  --> 
+
+<!-- Previous version: --> 
 
 ---------- 
 
@@ -97,12 +99,13 @@ Changes since last release:
 <!-- Blank line.  --> 
 
 
-## Bug fixes 
+## Details 
 
 - Adjust display of HEX codes in `seecol()`:  
 Show HEX codes on two alternating lines (or with diagonal labels) when length of codes exceed line length(s). [2020-12-26] 
 
-<!-- Blank line.  --> 
+
+<!-- Previous version: --> 
 
 ---------- 
 
@@ -120,13 +123,14 @@ Changes since last release:
 
 - Add `pal_names` argument to `seecol()` function to allow re-labeling color palettes and colors. [2020-08-22]  
 
-## Bug fixes 
+## Details
 
 - Bug fix: Use `seecol()` to flexibly plot color palettes provided by name or incomplete names. [2020-08-20]  
 - Revise documentation of `seecol()` and `usecol()` functions.  
 - Clean up and update online documentation.  
 
-<!-- Blank line.  --> 
+
+<!-- Previous version: --> 
 
 ---------- 
 
@@ -153,15 +157,15 @@ Changes in existing functionality:
 - Add `lwd_brd` argument to the `seecol()` function to allow setting the linewidth of shapes (and setting sensible defaults in combination with `col_brd`). [2019-07-18]
 
 
-## Bug fixes 
+## Details 
 
-- Fix an error in `seecol()` and `usecol()` that prevented using functions in other packages (by requiring list of palettes). [2019-09-18]
-- Remove packages not needed for running **unikn** from list of suggested packages. [2019-07-20] 
-- Prevent showing duplicate color names in `seecol()`, due to searching both the current set of color palettes and **base** R `colors`. 
-Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27] 
-- Fix an error in `isHexCol()` which failed to recognize hexadecimal color values starting with lowercase letters. [2019-06-27] 
+- Bug fix: Correct an error in `seecol()` and `usecol()` that prohibited use in other packages (by requiring list of palettes). [2019-09-18] 
+- Bug fix: Prevent showing duplicate color names in `seecol()`, due to searching both the current set of color palettes and **base** R `colors()`. Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. [2019-06-27] 
+- Bug fix: Allow `isHexCol()` to recognize hexadecimal color values starting with lowercase letters. [2019-06-27] 
+- Cleanup: Remove packages not needed from list of suggested packages. [2019-07-20] 
 
-<!-- Blank line.  --> 
+
+<!-- Previous version: --> 
 
 ---------- 
 
@@ -169,10 +173,11 @@ Different names for the same color are now separated by a forward slash (/), dup
 
 - Initial release of **unikn** (v0.1.0) on CRAN: <https://CRAN.R-project.org/package=unikn>. [2019-06-15] 
 
-<!-- Blank line.  --> 
+
+<!-- Footer:  --> 
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-08-31.]
+[File `NEWS.md` updated on 2022-09-02.]
 
 <!-- eof. -->
