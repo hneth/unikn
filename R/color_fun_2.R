@@ -377,6 +377,7 @@ grepal <- function(pattern,
   #   
   # } # if().
   
+  
   # Simplify: Only distinguish named from non-named data structures:
   
   if (is.null(names(x))){ # No names: Search the values of x:
@@ -393,10 +394,11 @@ grepal <- function(pattern,
     ix <- grep(x = names(x), pattern = pattern, ignore.case = ignore_case)
     cv <- x[ix]
     
-  }
+  } # if (names).
   
   # Reset character(0) and named character(0) to NA: 
   if (length(cv) == 0) { cv <- NA }  # to unify types & names
+  
   
   # Plot: ----
   
