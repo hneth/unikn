@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 08 20
+## spds | uni.kn | 2022 09 03
 ## ---------------------------
 
 ## Define color-related functions 
@@ -1100,7 +1100,67 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 # par(op)
 
 
+# 3. all_colors: Combine all unikn color palettes with all R colors(): ------
 
+#' A function providing all unikn colors and base R colors.
+#' 
+#' \code{all_colors} combines the \strong{unikn} color gradients with the 
+#' 657 named colors provided by \code{\link{colors}} of \strong{grDevices}. 
+#' 
+#' The \code{distinct} option removes colors with duplicate color values or names.
+#' 
+#' @param distinct Boolean: Return only colors with unique values and names? 
+#' Default: \code{distinct = TRUE} (i.e., remove duplicate values and names). 
+
+all_colors <- function(distinct = TRUE){
+  
+  # initialize:
+  out <- NA 
+  
+  # 1. unikn colors:
+  unikn_colors <- usecol(c("black", "white",
+                           pal_grau, pal_bordeaux, pal_petrol, pal_peach, 
+                           pal_seeblau, pal_pinky, pal_seegruen, pal_karpfenblau, 
+                           pal_signal), use_names = TRUE)
+  
+  unikn_colors_s <- unikn_colors[sort(names(unikn_colors))]
+  # unikn_colors_s
+  
+  # 2. add R colors():
+  unikn_and_R_colors <- usecol(c(unikn_colors_s, colors()), use_names = TRUE)
+  unikn_and_R_colors[1:10]
+  
+  if (distinct){
+    
+    # Remove duplicates:
+    # col_unique_name <- unikn_and_R_colors[duplicated(names(unikn_and_R_colors)) == FALSE]  # 1. unique names
+    # col_unique_value <- col_distinct(col_unique_name)  # 2. unique color value (visually distinct)
+    
+    unique_colors <- col_distinct(pal = unikn_and_R_colors, use_hex = TRUE, use_alpha = FALSE, use_names = TRUE)
+    
+    out <- unique_colors
+    
+  } else {
+    
+    out <- unikn_and_R_colors
+    
+  }
+  
+  # Output:
+  return(out)
+  
+} # all_colors().
+
+## Check:
+# all_colors()[1:50]
+# length(all_colors(distinct = TRUE))   # 545
+# length(all_colors(distinct = FALSE))  # 702
+# grepal("see", all_colors())   # finds unikn colors
+# grepal("purple", all_colors())  # finds base R colors
+# 
+# grepal("black", all_colors())  # only 1 "black"
+# grepal("signal", all_colors())
+# grepal("alice", all_colors())
 
 
 ## ToDo: ------
