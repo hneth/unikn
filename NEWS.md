@@ -1,5 +1,5 @@
 
-# unikn 0.5.0.9004
+# unikn 0.5.0.9005
 
 The current development version of **unikn** (0.5.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -20,17 +20,17 @@ Changes since last release:
 
 - Enable probabilistic welcoming message. [2022-09-02]
 - Enable **crayon** styles for console text. [2022-08-31]
-- Maintenance: 
-    - Rename utility functions `isCol()` and `isHexCol()` to `is_col()` and `is_hex_col()`. [2022-08-20]
-    - Distribute color functions into separate files. [2022-08-17]
-
 
 <!-- Blank line.  --> 
 
 
 ## Details 
 
-- none yet. 
+- Add options to internal `col_distinct` function. [2022-09-03]
+- Fix a bug in `grepal()` that caused an error when no color is found. [2022-09-03]
+- Maintenance: 
+    - Rename utility functions `isCol()` and `isHexCol()` to `is_col()` and `is_hex_col()`. [2022-08-20]
+    - Distribute color functions into separate files. [2022-08-17]
 
 
 <!-- Previous versions: -->  
@@ -178,6 +178,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-09-02.]
+[File `NEWS.md` updated on 2022-09-03.]
 
 <!-- eof. -->
