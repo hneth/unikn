@@ -165,65 +165,107 @@ col_distance <- function(col_1, col_2){
 #   irrespective of their names/values).
 # - Color transparency is only considered when use_alpha = TRUE.
 # - grDevices::colors() has a 'distinct = TRUE' argument to remove visual duplicates.
+# - By default, visually distinct colors (i.e., with different color values) but same NAME are retained, 
+#   but setting use_names = TRUE removes colors with duplicate names (even if their color values differ).
 
-col_distinct <- function(pal, use_alpha = FALSE){
+col_distinct <- function(pal, use_hex = TRUE, use_alpha = FALSE, use_names = FALSE){
   
-  # Prepare: ---- 
+  # Prepare: ------ 
   
   if (any(is_col(pal) == FALSE)){
     stop("pal contains non-colors")
   }
   
+  # Initialize:
+  hex_dupes <- FALSE   # default: all different HEX values
+  alpha_dupes <- TRUE  # default: all same alpha values
+  name_dupes <- FALSE  # default: no names/all different names
   
-  # Main: ----
+  out_pal <- NA
   
-  # 1. alpha values:
+  
+  # Main: ------
+  
+  # 1. Color HEX values: ---- 
+  
+  if (use_hex){
+    
+    pal_hex <- col2hex(pal)  # ignores transparency!
+    hex_dupes <- duplicated(pal_hex)  # logical ix of duplicated hex values
+    
+  } 
+  
+  
+  # 2. alpha values: ----
+  
   if (use_alpha){
     
     # Get transparency values:
     pal_alpha <- get_alpha(pal)
     
-    ix_alpha_dupes <- duplicated(pal_alpha)  # duplicate alpha values
+    alpha_dupes <- duplicated(pal_alpha)  # logical ix of duplicate alpha values
     
-  } else {
+  } 
+  
+  # Apply indices 1+2: ----
+  # print(hex_dupes)   # 4debugging
+  # print(alpha_dupes) # 4debugging
+  
+  cur_pal <- pal[(hex_dupes & alpha_dupes) == FALSE]
+  
+  
+  # 3. Color names (for cur_pal only): ---- 
+  
+  if ((is.null(names(cur_pal)) == FALSE) & use_names){
     
-    ix_alpha_dupes <- TRUE  # default: all same alpha values
+    pal_names <- names(cur_pal)
+    name_dupes <- duplicated(pal_names)
     
   }
   
-  # 2. HEX values:
-  pal_hex <- col2hex(pal)  # ignores transparency!
+  # Apply index 3: ---- 
+  # print(name_dupes) # 4debugging
   
-  ix_hex_dupes <- duplicated(pal_hex)  # duplicated hex values
+  if (use_names){
+    out_pal <- cur_pal[name_dupes == FALSE]
+  } else {
+    out_pal <- cur_pal
+  }
   
   
-  # Combine logical indices:
-  ix_pal_dupes <- ix_hex_dupes & ix_alpha_dupes
+  # Output: ------
   
-  
-  # Output: ----
-  
-  # Return pal without duplicates: 
-  pal[ix_pal_dupes == FALSE]
+  return(out_pal)
   
 } # col_distinct().
 
 
-## Check:
-# p1 <- c("gray", "grey", "black", "grey0", "red", "red1", "red2", "red3")
+# ## Check:
+# (p1 <- c("gray", "grey", "black", "grey0", rgb(0, 0, 0), "red", "red1", rgb(1, 0, 0), "red2", "red3"))
+# seecol(p1)
 # col_distinct(p1)
+# col_distinct(p1, use_hex = FALSE, use_alpha = TRUE, use_names = TRUE)
 # 
-# (p2 <- usecol(c(pal_unikn, pal_seeblau)))
+# # with repeated color values (in custom pals):
+# (p2 <- usecol(c("black", pal_unikn, pal_seeblau, pal_grau, "white")))
 # col_distinct(p2)
+# seecol(col_distinct(p2))
 # 
-# # By default, color transparency is being ignored:
+# # use_names:
+# (p3 <- newpal(col = c("black", "gray", "grey", "white"), names = c("extreme", "med", "med", "extreme")))
+# col_distinct(p3)  # removes duplicate color values, but keeps colors with duplicate names
+# col_distinct(p3, use_names = TRUE)  # removes duplicate names (despite distinct colors)
+# col_distinct(p3, use_hex = FALSE, use_names = TRUE)
+# 
+# # use_alpha: By default, color transparency is being ignored:
 # tblack <- ac("black", alpha = seq(0, 1, by = 0.25))
 # seecol(tblack)        # Shows 5 shades, but
 # col_distinct(tblack)  # all share same basic color!
-# col_distinct(tblack, use_alpha = TRUE)  # USES color transparency!
+# col_distinct(tblack, use_alpha = TRUE)  # USES color transparency (to keep visual different shades of same color)
+# col_distinct(tblack, use_hex = FALSE, use_names = TRUE)
 # 
 # # Invalid inputs:
-# col_distinct(c("black", "NOT a color", "white"))
+# col_distinct(c("black", "NO color", "white"))
 
 
 
@@ -395,7 +437,7 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
   } else {
     
     if ( pal %in% keys[1:3] )   key <- "all"
-    if ( pal %in% keys [4:6] )  key <- "basic"
+    if ( pal %in% keys[4:6] )   key <- "basic"
     if ( pal %in% keys[7:9] )   key <- "pair"
     if ( pal %in% keys[10:12] ) key <- "pref"
     if ( pal %in% keys[13:15] ) key <- "grad"
