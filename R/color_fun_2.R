@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 09 02
+## spds | uni.kn | 2022 09 03
 ## ---------------------------
 
 ## Define color-related functions 
@@ -333,7 +333,10 @@ newpal <- function(col,            # a vector of colors
 
 # - Definition: ------ 
 
-grepal <- function(pattern, x = colors(), ignore_case = TRUE, plot = TRUE){
+grepal <- function(pattern, 
+                   x = colors(),  # ToDo: Consider using all_colors(). 
+                   ignore_case = TRUE, 
+                   plot = TRUE){
   
   # Initialize: ----
   
@@ -343,24 +346,61 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE, plot = TRUE){
   
   # Main: ---- 
   
-  if (is.vector(x)){
-    # if (ds4psy::is_vector(x) & !is.data.frame(x)){
+  # # if (is.vector(x)){ # checks only for absence of attributes other than 'names' (which is FALSE for unikn palettes)!
+  # if (!is.data.frame(x)){
+  # 
+  #   # print("1. x is NOT a data frame:")
+  #       
+  #   if (is.null(names(x))){ # No names: Search the values of x:
+  # 
+  #     # print("Searching the elements of x:")
+  #           
+  #     ix <- grep(x = x, pattern = pattern, ignore.case = ignore_case)
+  #     cv <- x[ix]
+  #     
+  #   } else { # search the names() of x:
+  #     
+  #     # print("Searching the names() of x:")
+  #     
+  #     ix <- grep(x = names(x), pattern = pattern, ignore.case = ignore_case)
+  #     cv <- x[ix]
+  #     
+  #   }
+  #   
+  # } else if (is.data.frame(x)){
+  # 
+  #   print("2. Searching the names() of data frame x:")
+  #       
+  #   df <- x  # work with df: 
+  #   ix <- grep(x = names(df), pattern = pattern, ignore.case = ignore_case)
+  #   cv <- df[ix]
+  #   
+  # } # if().
   
+  # Simplify: Only distinguish named from non-named data structures:
+  
+  if (is.null(names(x))){ # No names: Search the values of x:
+    
+    message(in_petrol("Searching the ", in_bordeaux("elements"), " of x", sep = ""))
+    
     ix <- grep(x = x, pattern = pattern, ignore.case = ignore_case)
     cv <- x[ix]
     
-  } else if (is.data.frame(x)){
+  } else { # search the names() of x:
     
-    df <- x  # work with df: 
-    ix <- grep(x = names(df), pattern = pattern, ignore.case = ignore_case)
-    cv <- df[ix]
+    message(in_petrol("Searching the ", in_bordeaux("names"), " of x", sep = ""))
     
-  } # if().
+    ix <- grep(x = names(x), pattern = pattern, ignore.case = ignore_case)
+    cv <- x[ix]
+    
+  }
   
+  # Reset character(0) and named character(0) to NA: 
+  if (length(cv) == 0) { cv <- NA }  # to unify types & names
   
   # Plot: ----
   
-  if (plot){
+  if (plot & (any(is.na(cv) == FALSE))){
     
     n <- length(cv)
     
@@ -484,8 +524,11 @@ grepal <- function(pattern, x = colors(), ignore_case = TRUE, plot = TRUE){
 
 # - Definition: ------ 
 
-simcol <- function(col_target, col_candidates = colors(), tol = c(25, 50, 75), 
-                   distinct = TRUE, plot = TRUE){
+simcol <- function(col_target, 
+                   col_candidates = colors(),  # ToDo: Consider using all_colors().
+                   tol = c(25, 50, 75), 
+                   distinct = TRUE, 
+                   plot = TRUE){
   
   # Prepare: ---- 
   
@@ -863,6 +906,11 @@ ac <- function(col, alpha = .50, use_names = TRUE) {
 
 
 ## ToDo: ------
+
+# - Consider changing the default arguments x and col_candidates of grepal() and simcol() from colors() to
+#   1. grepal(x = all_colors()) and
+#   2. simcol(col_candidates = all_colors())
+#   IFF exporting all_colors() to user level.
 
 # - Consider creating more vivid versions of some
 #   `pal_unikn_pref` colors (e.g., "deepskyblue", "deeppink", etc.)
