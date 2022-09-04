@@ -22,13 +22,15 @@ Default: \code{alpha = NA} (i.e., no modification of opacity).}
 }
 \description{
 \code{shades_of} returns a vector of \code{n} colors that are 
-shades of an initial color \code{col_1}.
+shades of a color gradient ranging 
+from an initial color \code{col_1} to a final color \code{col_n}.
 }
 \details{
-By default, the colors range from the initial color 
-\code{col_1 = "black"} to \code{col_n = "white"}, 
-but specifying different initial and final colors yields 
-other color ranges. 
+By default, the color gradient returned contains \code{n = 5} colors 
+that range from the initial color \code{col_1 = "black"} 
+to the final color \code{col_n = "white"}.  
+Specifying different values for \code{n} and the 
+initial or final colors yields different color ranges. 
 
 \code{shades_of} is mostly a wrapper for a special \code{\link{usecol}} command. 
 However, \code{\link{usecol}} allows defining more 
