@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 09 03
+## spds | uni.kn | 2022 09 04
 ## ---------------------------
 
 ## Define color-related functions 
@@ -683,12 +683,14 @@ simcol <- function(col_target,
 #' Get n shades of a color. 
 #'
 #' \code{shades_of} returns a vector of \code{n} colors that are 
-#' shades of an initial color \code{col_1}. 
+#' shades of a color gradient ranging 
+#' from an initial color \code{col_1} to a final color \code{col_n}. 
 #' 
-#' By default, the colors range from the initial color 
-#' \code{col_1 = "black"} to \code{col_n = "white"}, 
-#' but specifying different initial and final colors yields 
-#' other color ranges. 
+#' By default, the color gradient returned contains \code{n = 5} colors 
+#' that range from the initial color \code{col_1 = "black"} 
+#' to the final color \code{col_n = "white"}.  
+#' Specifying different values for \code{n} and the 
+#' initial or final colors yields different color ranges. 
 #' 
 #' \code{shades_of} is mostly a wrapper for a special \code{\link{usecol}} command. 
 #' However, \code{\link{usecol}} allows defining more 
