@@ -18,7 +18,7 @@ Changes since last release:
 
 ## Minor changes
 
-- Enable probabilistic welcoming message. [2022-09-02]
+- Enable probabilistic welcoming messages. [2022-09-04]
 - Enable **crayon** styles for console text. [2022-08-31]
 
 <!-- Blank line.  --> 
@@ -178,6 +178,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-09-03.]
+[File `NEWS.md` updated on 2022-09-04.]
 
 <!-- eof. -->
