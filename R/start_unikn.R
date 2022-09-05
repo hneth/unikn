@@ -1,5 +1,5 @@
 ## start_unikn.R | unikn
-## spds | uni.kn |  2022 09 04
+## spds | uni.kn |  2022 09 05
 ## ---------------------------
 
 ## Open package guide: -----------------------
@@ -35,10 +35,7 @@ unikn.guide <- function() {
   
   # User guidance: ------
   
-  pens <- c("in_bordeaux", "in_karpfenblau", "in_pinky")
-  pen1 <- sample(pens, size = 1)
-  pen2 <- sample(pens[pens != pen1], size = 1)
-  
+  pens <- sample(c("in_bordeaux", "in_karpfenblau", "in_petrol", "in_pinky"))  # sample() permutes order
   
   # 1. Probabilistic: ----
   
@@ -46,17 +43,18 @@ unikn.guide <- function() {
   
   switch(dice,
          # 01:
-         packageStartupMessage(in_grau(sapply("seecol()", FUN = pen1), " shows colors or color palettes.", sep = "")),
-         packageStartupMessage(in_grau(sapply("usecol()", FUN = pen1), " allows changing and using color palettes.", sep = "")),
-         packageStartupMessage(in_grau(sapply("simcol()", FUN = pen1), " searches for similar colors.", sep = "")), 
-         packageStartupMessage(in_grau(sapply("grepal()", FUN = pen1), " searches for color names.", sep = "")),
-         packageStartupMessage(in_grau(sapply("shades_of()", FUN = pen1), " creates color gradients.", sep = "")),
-         packageStartupMessage(in_grau(sapply("citation('unikn')", FUN = pen1), " provides citation information.", sep = "")), 
+         packageStartupMessage(in_grau(sapply("seecol()", FUN = pens[1]), " shows colors or color palettes.", sep = "")),
+         packageStartupMessage(in_grau(sapply("usecol()", FUN = pens[1]), " allows changing and using color palettes.", sep = "")),
+         packageStartupMessage(in_grau(sapply("simcol()", FUN = pens[1]), " searches for similar colors.", sep = "")), 
+         packageStartupMessage(in_grau(sapply("grepal()", FUN = pens[1]), " searches for color names.", sep = "")),
+         packageStartupMessage(in_grau(sapply("shades_of()", FUN = pens[1]), " creates color gradients.", sep = "")),
+         packageStartupMessage(in_grau(sapply("citation('unikn')", FUN = pens[1]), " provides citation information.", sep = "")), 
          # 07:
-         packageStartupMessage(in_grau(sapply("seecol()", FUN = pen1), " shows ", 
-                                       sapply("shades_of(5, 'grey0')", FUN = pen2), ".", sep = "")),
+         packageStartupMessage(in_grau("Roses are ", sapply("red", FUN = pens[1]), ", ", 
+                                       "violets are ", sapply("blue", FUN = pens[2]), " \u2014 ", 
+                                       "what color are ", sapply("you", FUN = pens[3]), "?", sep = "")),
          # 08:
-         packageStartupMessage(crayon::black(# "Colors:", 
+         packageStartupMessage(crayon::black(# "unikn colors:", 
            in_bordeaux("bordeaux"), 
            in_grau("grau"),
            in_karpfenblau("karpfenblau"), 
@@ -72,7 +70,10 @@ unikn.guide <- function() {
            packageStartupMessage(in_pinky("black", in_karpfenblau("red"), in_bordeaux("green"), in_seegruen("blue"), in_peach("snow"), in_seeblau("yellow"), sep = "  ")) 
          },
          # 10:
-         packageStartupMessage(in_grau(sapply("unikn.guide()", FUN = pen1), " opens user guides.", sep = ""))
+         packageStartupMessage(in_grau(sapply("unikn.guide()", FUN = pens[1]), " opens user guides.", sep = "")),
+         # 99 (unused):
+         packageStartupMessage(in_grau(sapply("seecol()", FUN = pens[1]), " shows ", 
+                                       sapply("shades_of(5, 'grey0')", FUN = pens[2]), ".", sep = ""))
   )
   
   
