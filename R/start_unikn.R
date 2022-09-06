@@ -56,7 +56,7 @@ unikn.guide <- function() {
              "Roses are ", sapply("red", FUN = pens[1]), ", ", 
              "violets are ", sapply("blue", FUN = pens[2]), " ", 
              # "\u2014 what color are ", sapply("you", FUN = pens[3]), "?", sep = "")),
-             "\u2014 and ", sapply("you", FUN = pens[3]), "?", sep = ""))
+             "\u2014 what about ", sapply("you", FUN = pens[3]), "?", sep = ""))
          },
          
          # 08:
