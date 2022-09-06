@@ -1,5 +1,5 @@
 ## start_unikn.R | unikn
-## spds | uni.kn |  2022 09 05
+## spds | uni.kn |  2022 09 06
 ## ---------------------------
 
 ## Open package guide: -----------------------
@@ -48,32 +48,51 @@ unikn.guide <- function() {
          packageStartupMessage(in_grau(sapply("simcol()", FUN = pens[1]), " searches for similar colors.", sep = "")), 
          packageStartupMessage(in_grau(sapply("grepal()", FUN = pens[1]), " searches for color names.", sep = "")),
          packageStartupMessage(in_grau(sapply("shades_of()", FUN = pens[1]), " creates color gradients.", sep = "")),
-         packageStartupMessage(in_grau(sapply("citation('unikn')", FUN = pens[1]), " provides citation information.", sep = "")), 
+         packageStartupMessage(in_grau(sapply("citation('unikn')", FUN = pens[1]), " provides citation information.", sep = "")),
+         
          # 07:
-         packageStartupMessage(in_grau("Roses are ", sapply("red", FUN = pens[1]), ", ", 
-                                       "violets are ", sapply("blue", FUN = pens[2]), " \u2014 ", 
-                                       "what color are ", sapply("you", FUN = pens[3]), "?", sep = "")),
+         {
+           packageStartupMessage(in_grau(
+             "Roses are ", sapply("red", FUN = pens[1]), ", ", 
+             "violets are ", sapply("blue", FUN = pens[2]), " ", 
+             # "\u2014 what color are ", sapply("you", FUN = pens[3]), "?", sep = "")),
+             "\u2014 and ", sapply("you", FUN = pens[3]), "?", sep = ""))
+         },
+         
          # 08:
-         packageStartupMessage(crayon::black(# "unikn colors:", 
-           in_bordeaux("bordeaux"), 
-           in_grau("grau"),
-           in_karpfenblau("karpfenblau"), 
-           in_peach("peach"), 
-           in_petrol("petrol"), 
-           in_pinky("pinky"), 
-           in_seeblau("seeblau"), 
-           in_seegruen("seegruen"), 
-           sep = " | ")), 
+         {
+           packageStartupMessage(crayon::black(# "unikn colors:", 
+             in_bordeaux("bordeaux"), 
+             in_grau("grau"),
+             in_karpfenblau("karpfenblau"), 
+             in_peach("peach"), 
+             in_petrol("petrol"), 
+             in_pinky("pinky"), 
+             in_seeblau("seeblau"), 
+             in_seegruen("seegruen"), 
+             sep = " | "))
+         },
+         
          # 09: Stroop task:
          {
            packageStartupMessage(crayon::black("Try naming the colors of these words:", sep ="")) 
-           packageStartupMessage(in_pinky("black", in_karpfenblau("red"), in_bordeaux("green"), in_seegruen("blue"), in_peach("snow"), in_seeblau("yellow"), sep = "  ")) 
+           packageStartupMessage(in_grau(
+             sapply("black", FUN = pens[1]), 
+             sapply("red", FUN = pens[2]), 
+             sapply("green", FUN = pens[3]), 
+             sapply("blue", FUN = pens[4]), 
+             in_peach("snow"), 
+             in_seeblau("yellow"), sep = "  ")) 
          },
+         
          # 10:
          packageStartupMessage(in_grau(sapply("unikn.guide()", FUN = pens[1]), " opens user guides.", sep = "")),
+         
          # 99 (unused):
-         packageStartupMessage(in_grau(sapply("seecol()", FUN = pens[1]), " shows ", 
-                                       sapply("shades_of(5, 'grey0')", FUN = pens[2]), ".", sep = ""))
+         {
+           packageStartupMessage(in_grau(sapply("seecol()", FUN = pens[1]), " shows ", 
+                                         sapply("shades_of(5, 'grey0')", FUN = pens[2]), ".", sep = ""))
+         }
   )
   
   
