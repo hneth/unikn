@@ -44,14 +44,17 @@ The package's pre-defined range of colors and text functions is based on the cor
 
 ## Background 
 
-Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. In\ 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. 
+Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. 
+But even when writing an individual article or thesis, it makes sense to define some graphical elements (e.g., a color scheme) and use them consistently throughout the report. 
+In\ 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. 
 Its key component is the ubiquitous use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the [corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) pages for details.) 
 
 
 <!-- Goals of the unikn pgk: --> 
 
 The **unikn** package facilitates the use of corporate design elements for users of [R](https://www.r-project.org/). 
-While this renders the use of default specifications simple and straightforward, experienced users can apply the color tools in a flexible and creative fashion (e.g., for designing color palettes to be used in scientific visualizations). 
+In addition, the package provides a range of color functions that make it very easy to define, modify, find, and use colors and color palettes. 
+While this renders the use of default specifications simple and straightforward, experienced users can apply the tools provided by **unikn** in a flexible and creative fashion (e.g., for designing new color palettes and using them in scientific visualizations). 
 
 <!-- Overview: --> 
 
@@ -196,9 +199,10 @@ Additional color functions (i.e., `newpal()`, `grepal()`, `shades_of()`, and `ac
 The `seecol()` function enables a quick inspection of a color palette. 
 It provides a quick overview over the details of a color palette and allows comparisons between multiple color palettes: 
 
-```{r seecol-pref, eval = TRUE, fig.align = 'center', fig.width = 6, fig.asp=.9}
+```{r seecol-pref, eval = TRUE, fig.align = 'center', fig.width = 7, fig.asp = .80}
 # Plot a color palette: 
-seecol(pal = pal_unikn_pref,            # palette to plot
+seecol(pal = pal_unikn_pref,            # a color palette to plot
+       hex = TRUE,                      # show HEX code of colors?
        col_brd = "white", lwd_brd = 5)  # color and width of borders
 ```
 
