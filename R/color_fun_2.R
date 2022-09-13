@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 09 04
+## spds | uni.kn | 2022 09 13
 ## ---------------------------
 
 ## Define color-related functions 
@@ -337,7 +337,9 @@ newpal <- function(col,            # a vector of colors
 grepal <- function(pattern, 
                    x = colors(),  # ToDo: Consider using all_colors(). 
                    ignore_case = TRUE, 
-                   plot = TRUE){
+                   plot = TRUE
+                   # ...          # additional arguments to seecol().
+){
   
   # Initialize: ----
   
@@ -535,6 +537,7 @@ simcol <- function(col_target,
                    tol = c(25, 50, 75), 
                    distinct = TRUE, 
                    plot = TRUE
+                   # ...          # additional arguments to seecol().
 ){
   
   # Prepare: ---- 
@@ -741,7 +744,11 @@ simcol <- function(col_target,
 
 # - Definition: ------ 
 
-shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
+shades_of <- function(n = 5, 
+                      col_1 = "black", 
+                      col_n = "white", 
+                      alpha = NA
+){
   
   # Initialize: 
   cv <- NA  # color vector
@@ -826,7 +833,10 @@ shades_of <- function(n = 5, col_1 = "black", col_n = "white", alpha = NA){
 
 # - Definition: ------ 
 
-ac <- function(col, alpha = .50, use_names = TRUE) {
+ac <- function(col, 
+               alpha = .50, 
+               use_names = TRUE
+) {
   
   # Adjust color vector (col_adj): ------ 
   
