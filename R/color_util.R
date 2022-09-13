@@ -53,9 +53,17 @@ rgb2hex <- function(R, G, B) {
 
 # col2hex color conversion function: ------ 
 
-col2hex <- function(col, alpha = alpha) {
-  
-  rgb(t(col2rgb(col)), alpha = alpha, maxColorValue = 255)
+col2hex <- function(col, use_alpha = FALSE) {
+
+  if (use_alpha){
+    
+    rgb(t(col2rgb(col)), alpha = get_alpha(col), maxColorValue = 255)
+    
+  } else { # default: 
+    
+    rgb(t(col2rgb(col)), maxColorValue = 255)
+    
+  }
   
 } # col2hex().
 
@@ -70,13 +78,15 @@ col2hex <- function(col, alpha = alpha) {
 # 1. As col2hex assumes a SCALAR alpha value,
 #    the following does currently NOT work:
 # col2hex("black", alpha = c(1/4, 1/2, 3/4))
-# # ToDo 1: Vectorize col2hex arguments.
+# # ToDo: Vectorize col2hex arguments?
 #
-# 2. Current col2hex does not detect/use transparency differences: 
+# # 2. By default, col2hex does not detect/use transparency differences: 
+# tblack <- ac("black", alpha = seq(0, 1, by = 0.25))
+# # seecol(tblack)
 # col2hex(tblack)  # ignores transparency!
-# # ToDo 2: Allow retaining transparency in col2hex:
-# col2hex(tblack, alpha = alpha(tblack))
-# # (and consider using get_alpha() for this).
+# # Use color transparency in col2hex:
+# col2hex(tblack, use_alpha = TRUE)
+# # seecol(col2hex(tblack, use_alpha = TRUE))
 
 
 
