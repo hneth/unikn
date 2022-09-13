@@ -116,12 +116,10 @@
 #' @export 
 
 ## Not used:
-
-# @param ... Additional arguments (passed on to 
-# \code{\link{usecol()}}). 
-# Candiates for additional arguments are 
-# \code{n} (an integer for specifying the number of desired colors in the palette) 
-# and \code{alpha} (opacity value from 0 to 1). 
+## @param ... Additional arguments (passed on to \code{\link{usecol()}}). 
+## Candiates for additional arguments are 
+## \code{n} (an integer for specifying the number of desired colors in the palette) 
+## and \code{alpha} (opacity value from 0 to 1). 
 
 # - Definition: ------ 
 
@@ -331,6 +329,9 @@ newpal <- function(col,            # a vector of colors
 #' 
 #' @export 
 
+## Not used:
+## @param ... Additional arguments (passed on to \code{\link{seecol()}}). 
+
 # - Definition: ------ 
 
 grepal <- function(pattern, 
@@ -524,13 +525,17 @@ grepal <- function(pattern,
 #'
 #' @export
 
+## Not used:
+## @param ... Additional arguments (passed on to \code{\link{seecol()}}). 
+
 # - Definition: ------ 
 
 simcol <- function(col_target, 
                    col_candidates = colors(),  # ToDo: Consider using all_colors().
                    tol = c(25, 50, 75), 
                    distinct = TRUE, 
-                   plot = TRUE){
+                   plot = TRUE
+){
   
   # Prepare: ---- 
   
