@@ -1,5 +1,5 @@
 ## color_util.R  |  unikn
-## spds | uni.kn | 2022 08 20
+## spds | uni.kn | 2022 09 13
 ## ---------------------------
 
 ## Utility functions for converting colors, 
@@ -12,7 +12,7 @@
 # col2rgb in grDevices: ------ 
 
 ## Check: 
-# col2rgb("black", alpha = FALSE)
+# col2rgb("black", alpha = FALSE)  # Note: alpha is Boolean argument.
 # col2rgb("black", alpha = TRUE)
 # col2rgb("black")
 
@@ -53,11 +53,21 @@ rgb2hex <- function(R, G, B) {
 
 # col2hex color conversion function: ------ 
 
-col2hex <- function(col, use_alpha = FALSE) {
-
+col2hex <- function(col, alpha = NA, use_alpha = FALSE) {
+  
   if (use_alpha){
     
-    rgb(t(col2rgb(col)), alpha = get_alpha(col), maxColorValue = 255)
+    if (is.na(alpha)){ # Only get alpha values of col:
+      
+      rgb(t(col2rgb(col)), alpha = get_alpha(col), maxColorValue = 255)
+      
+    } else { # Use the alpha value(s) provided:
+      
+      # ToDo: verify that alpha is numeric and in [0, 1]
+      
+      rgb(t(col2rgb(col)), alpha = alpha * 255, maxColorValue = 255)
+      
+    }
     
   } else { # default: 
     
@@ -68,10 +78,10 @@ col2hex <- function(col, use_alpha = FALSE) {
 } # col2hex().
 
 ## Check: 
-# hex1 <- col2hex("black", alpha = 255/2)
-# hex2 <- col2hex("white", alpha = 255/2)
-# hex3 <- col2hex("gold", alpha = 255/2)
-# hex4 <- col2hex("steelblue", alpha = 255/2)
+# hex1 <- col2hex("black", alpha = 1/2, use_alpha = TRUE)
+# hex2 <- col2hex("white", alpha = 2/3, use_alpha = TRUE)
+# hex3 <- col2hex("gold", alpha = 1/3, use_alpha = TRUE)
+# hex4 <- col2hex("steelblue", alpha = 0, use_alpha = FALSE)
 # seecol(pal = c(hex1, hex2, hex3, hex4), n = "all")
 # 
 # # Note 2 limitations: 
@@ -85,7 +95,7 @@ col2hex <- function(col, use_alpha = FALSE) {
 # # seecol(tblack)
 # col2hex(tblack)  # ignores transparency!
 # # Use color transparency in col2hex:
-# col2hex(tblack, use_alpha = TRUE)
+# col2hex(tblack, use_alpha = TRUE) # uses alpha values without setting them
 # # seecol(col2hex(tblack, use_alpha = TRUE))
 
 
