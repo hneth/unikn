@@ -1,5 +1,5 @@
 
-# unikn 0.5.0.9005
+# unikn 0.5.0.9007
 
 The current development version of **unikn** (0.5.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -26,7 +26,7 @@ Changes since last release:
 
 ## Details 
 
-- Add options to internal `col_distinct` function. [2022-09-03]
+- Add options to internal `col_distinct()` function. [2022-09-03]
 - Fix a bug in `grepal()` that caused an error when no color is found. [2022-09-03]
 - Maintenance: 
     - Rename utility functions `isCol()` and `isHexCol()` to `is_col()` and `is_hex_col()`. [2022-08-20]
@@ -178,6 +178,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-09-04.]
+[File `NEWS.md` updated on 2022-09-14.]
 
 <!-- eof. -->
