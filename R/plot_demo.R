@@ -4,7 +4,7 @@
 
 ## Demo functions for color palettes.
 
-# A. Common components: ------
+# (A) Common components: ------
 
 # set_seed(): ---- 
 
@@ -20,7 +20,7 @@ set_seed <- function(seed){
 
 
 
-# B. Individual functions: -----
+# (B) Individual functions: -----
 
 # plot_bar: Bar plot ---- 
 
@@ -154,20 +154,115 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
 # plot_bar(pal_unikn_pref, n = 4, beside = F, horiz = T, as_prop = T, col_par = NA)
 
 
+# plot_table: Area/mosaic plot: ---- 
 
-# C. Wrapper function: ------
-
-demopal <- function(pal = pal_unikn, col_par = NULL, alpha = 1, type = 1){
+plot_table <- function(pal, col_par = NULL, alpha = 1, 
+                       n = 20,  # scaling: instances per dimension is n * n_col 
+                       pal_name = NULL, 
+                       seed = NULL){
   
-  plot_types <- c("bar")
+  # Prepare: ---- 
+  
+  # Parameters currently fixed:
+  axes <- FALSE
+  
+  # colors:
+  col_pal <- usecol(pal = pal, alpha = alpha)
+  n_col <- length(col_pal)
+  
+  # seed:
+  set_seed(seed)
+  
+  
+  # par: ---- 
+  
+  opar <- par(no.readonly = TRUE)
+  
+  if (is.null(col_par)){ # set default:
+    col_par <- grDevices::grey(2/3, alpha = 1)  # NA hides border/subtitle
+  }
+  
+  if (alpha < 1){
+    col_par <- usecol(col_par, alpha = alpha)  # apply alpha
+  }
+  
+  par(col = col_par)
+  
+  par(mar = c(4, 3, 3, 2) + 0.1) # default: c(5, 4, 4, 2) + 0.1
+  
+  
+  
+  # Create data: ---- 
+  
+  s <- n * n_col
+  x <- sample(1:n_col, size = s, replace = TRUE)
+  y <- sample(1:n_col, size = s, replace = TRUE)
+  
+  tb <- table(x, y)
+  
+  
+  # Main plot: ---- 
+  
+  x_min <- 0
+  x_max <- 1
+  y_min <- 0
+  y_max <- 1
+  
+  plot(#0, 0, type = "n",   # (a) empty plot
+    x = tb, col = col_pal,  # (b) generic plot
+    border = col_par, 
+    main = NA, xlab = NA, ylab = NA
+  )
+  
+  # Background rectangle (if axes == FALSE):
+  bwd <- .06  # border width
+  rect(xleft = (x_min - bwd), ybottom = (y_min - bwd),
+       xright = (x_max + bwd), ytop = (y_max + bwd),
+       border = col_par, xpd = TRUE)
+  
+  # Titles:
+  plot_type <- "mosaic"
+  title(main = paste("A", plot_type, "plot"))
+  
+  if (is.null(pal_name)){
+    pal_name <- deparse(substitute(pal))  # get object name (of input pal)
+  }
+  subnote  <- paste("Illustrating color palette", pal_name)
+  mtext(subnote, side = 1, line = 2, adj = 1, cex = .95)
+  
+  
+  # Output: Reset par ---- 
+  
+  on.exit(par(opar))
+  
+} # plot_table().
+
+# # Check:
+# plot_table(c("steelblue", "gold", "firebrick"), n = 10)
+# plot_table(pal_petrol, col_par = NA, n = 10, seed = 3)
+# plot_table(pal_unikn_pref, alpha = 2/3, n = 10^5)
+
+
+# (C) Wrapper function: ------
+
+demopal <- function(pal = pal_unikn, type = NA, ...){
+  
+  if (is.na(type) | is.numeric(type) == FALSE){
+    
+    plot_types <- c("bar", "table")
+    type <- sample(1:length(plot_types), size = 1)  # random type
+    
+  }
   
   pal_name <- deparse(substitute(pal))  # get object name (of input pal)
   
   switch (type,
-          # 1: 
-          plot_bar(pal = pal, col_par = col_par, alpha = alpha, pal_name = pal_name), 
+          # 1: bar: 
+          plot_bar(pal = pal, pal_name = pal_name, ...), 
+          # 2: mosaic/table:
+          plot_table(pal = pal, pal_name = pal_name, ...), 
           # else:
-          plot_bar(pal = pal, col_par = col_par, alpha = alpha, pal_name = pal_name)
+          plot_bar(pal = pal, pal_name = pal_name, ...)
   )
   
 } # demopal(). 
