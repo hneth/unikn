@@ -1,10 +1,20 @@
 ## plot_util.R | unikn
-## spds | uni.kn |  2020 09 14
+## spds | uni.kn |  2020 09 18
 ## ---------------------------
 
 ## Utility functions (for internal use, not exported).
 
 ## (A) Generic utility functions: ------- 
+
+
+# add_quotes: Add single quotes around string elements ------
+
+add_quotes <- function(x) {
+  
+  toString(sQuote(x))
+  
+} # add_quotes().
+
 
 # url_unikn: Format an URL the unikn way: ------ 
 
