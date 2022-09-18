@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2022 09 17
+## spds | uni.kn | 2022 09 18
 ## ---------------------------
 
 ## Demo functions for color palettes.
@@ -141,9 +141,11 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
   mtext(subnote, side = 1, line = 2, adj = 1, cex = .95)
   
   
-  # Output: Reset par ---- 
+  # Output: ---- 
   
   on.exit(par(opar))
+  
+  return(invisible(mx))
   
 } # plot_bar().
 
@@ -221,7 +223,7 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
        border = col_par, xpd = TRUE)
   
   # Titles:
-  plot_type <- "mosaic"
+  plot_type <- "mosaic" # "table"
   title(main = paste("A", plot_type, "plot"))
   
   if (is.null(pal_name)){
@@ -231,9 +233,11 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
   mtext(subnote, side = 1, line = 2, adj = 1, cex = .95)
   
   
-  # Output: Reset par ---- 
+  # Output: ---- 
   
   on.exit(par(opar))
+  
+  return(invisible(tb))
   
 } # plot_table().
 
@@ -247,23 +251,39 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 
 demopal <- function(pal = pal_unikn, type = NA, ...){
   
+  # Prepare: ---- 
+  plot_types <- c("bar", "mosaic")  # as constant
+  
+  # type: 
+  if (is.character(type)){
+    
+    if (type %in% plot_types){
+      type <- which(type == plot_types)
+    } else {
+      plot_types_q <- add_quotes(plot_types)
+      message(paste("The plot type", add_quotes(type), "is not in", plot_types_q))
+      type <- NA
+    }
+  }
+  
   if (is.na(type) | is.numeric(type) == FALSE){
-    
-    plot_types <- c("bar", "table")
     type <- sample(1:length(plot_types), size = 1)  # random type
-    
   }
   
   pal_name <- deparse(substitute(pal))  # get object name (of input pal)
   
-  switch (type,
-          # 1: bar: 
-          plot_bar(pal = pal, pal_name = pal_name, ...), 
-          # 2: mosaic/table:
-          plot_table(pal = pal, pal_name = pal_name, ...), 
-          # else:
-          plot_bar(pal = pal, pal_name = pal_name, ...)
+  # Main: ---- 
+  
+  switch(type,
+         # 1: bar: 
+         plot_bar(pal = pal, pal_name = pal_name, ...), 
+         # 2: mosaic/table:
+         plot_table(pal = pal, pal_name = pal_name, ...), 
+         # else:
+         plot_bar(pal = pal, pal_name = pal_name, ...)
   )
+  
+  # Output: None ----
   
 } # demopal(). 
 
