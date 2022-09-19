@@ -265,7 +265,7 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 
 # plot_scatter: ---- 
 
-#' @import stats runif 
+#' @importFrom stats runif 
 
 plot_scatter <- function(pal, col_par = NULL, alpha = 1, 
                          n = 500,  # scaling: number of points  
