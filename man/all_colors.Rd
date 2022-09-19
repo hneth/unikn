@@ -17,3 +17,4 @@ Default: \code{distinct = TRUE} (i.e., remove duplicate values and names).}
 \details{
 The \code{distinct} option removes colors with duplicate color values or names.
 }
+\keyword{internal}
