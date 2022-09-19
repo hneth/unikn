@@ -1,5 +1,5 @@
 
-# unikn 0.5.0.9007
+# unikn 0.5.0.9010
 
 The current development version of **unikn** (0.5.0.9001+) is available at <https://github.com/hneth/unikn/>. 
 
@@ -10,6 +10,7 @@ Changes since last release:
 
 ## Major changes 
 
+- Add a `demopal()` function for illustrating color palettes. [2022-09-19]
 - In `xbox()`: Add a `use_x` argument for hiding or showing a cross in upper right corner (default `use_x = TRUE`). [2022-08-30]
 - In `seecol()`: Deprecate the `title` argument and replace by standard `main` and `sub` arguments. [2022-08-19] 
 
@@ -178,6 +179,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-09-14.]
+[File `NEWS.md` updated on 2022-09-19.]
 
 <!-- eof. -->
