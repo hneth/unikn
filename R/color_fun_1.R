@@ -1110,7 +1110,10 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 #' The \code{distinct} option removes colors with duplicate color values or names.
 #' 
 #' @param distinct Boolean: Return only colors with unique values and names? 
-#' Default: \code{distinct = TRUE} (i.e., remove duplicate values and names). 
+#' Default: \code{distinct = TRUE} (i.e., remove duplicate values and names).
+#' 
+#' @keyword internal
+#' 
 
 all_colors <- function(distinct = TRUE){
   
