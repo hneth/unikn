@@ -1,5 +1,5 @@
 ## start_unikn.R | unikn
-## spds | uni.kn |  2022 09 06
+## spds | uni.kn |  2022 09 19
 ## ---------------------------
 
 ## Open package guide: -----------------------
@@ -39,18 +39,20 @@ unikn.guide <- function() {
   
   # 1. Probabilistic: ----
   
-  dice <- sample(1:10, 1)
+  dice <- sample(1:12, 1)
   
   switch(dice,
-         # 01:
+         # 01-08:
          packageStartupMessage(in_grau(sapply("seecol()", FUN = pens[1]), " shows colors or color palettes.", sep = "")),
          packageStartupMessage(in_grau(sapply("usecol()", FUN = pens[1]), " allows changing and using color palettes.", sep = "")),
          packageStartupMessage(in_grau(sapply("simcol()", FUN = pens[1]), " searches for similar colors.", sep = "")), 
          packageStartupMessage(in_grau(sapply("grepal()", FUN = pens[1]), " searches for color names.", sep = "")),
+         packageStartupMessage(in_grau(sapply("demopal()", FUN = pens[1]), " demonstrates a color palette.", sep = "")),
+         packageStartupMessage(in_grau(sapply("ac()", FUN = pens[1]), " adjusts color transparency.", sep = "")),
          packageStartupMessage(in_grau(sapply("shades_of()", FUN = pens[1]), " creates color gradients.", sep = "")),
          packageStartupMessage(in_grau(sapply("citation('unikn')", FUN = pens[1]), " provides citation information.", sep = "")),
          
-         # 07:
+         # 09:
          {
            packageStartupMessage(in_grau(
              "Roses are ", sapply("red", FUN = pens[1]), ", ", 
@@ -59,7 +61,7 @@ unikn.guide <- function() {
              "\u2014 what about ", sapply("you", FUN = pens[3]), "?", sep = ""))
          },
          
-         # 08:
+         # 10:
          {
            packageStartupMessage(crayon::black(# "unikn colors:", 
              in_bordeaux("bordeaux"), 
@@ -73,7 +75,7 @@ unikn.guide <- function() {
              sep = " | "))
          },
          
-         # 09: Stroop task:
+         # 11: Stroop task:
          {
            packageStartupMessage(crayon::black("Try naming the colors of these words:", sep ="")) 
            packageStartupMessage(in_grau(
@@ -85,7 +87,7 @@ unikn.guide <- function() {
              in_seeblau("yellow"), sep = "  ")) 
          },
          
-         # 10:
+         # 12:
          packageStartupMessage(in_grau(sapply("unikn.guide()", FUN = pens[1]), " opens user guides.", sep = "")),
          
          # 99 (unused):
