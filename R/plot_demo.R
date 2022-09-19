@@ -265,6 +265,8 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 
 # plot_scatter: ---- 
 
+#' @import stats runif 
+
 plot_scatter <- function(pal, col_par = NULL, alpha = 1, 
                          n = 500,  # scaling: number of points  
                          # args with defaults:
@@ -312,8 +314,8 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
   y_min <- 1
   y_max <- n_col
   
-  x <- round(runif(n, min = x_min, max = x_max), 2)
-  y <- round(runif(n, min = y_min, max = y_max), 2)
+  x <- round(stats::runif(n, min = x_min, max = x_max), 2)
+  y <- round(stats::runif(n, min = y_min, max = y_max), 2)
   
   df <- data.frame(x = x, y = y)
   
