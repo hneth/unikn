@@ -26,7 +26,7 @@ set_seed <- function(seed){
 
 plot_bar <- function(pal, col_par = NULL, alpha = 1, 
                      n = 5,  # scaling: number of categories (for each color) 
-                     beside = TRUE, horiz = FALSE, as_prop = FALSE, # bar plot specific parameters  
+                     beside = TRUE, horiz = FALSE, as_prop = FALSE,  # type-specific parameter(s)
                      # args with defaults:
                      main = NULL,
                      sub = NULL, 
@@ -166,7 +166,7 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
 # plot_table: Area/mosaic plot: ---- 
 
 plot_table <- function(pal, col_par = NULL, alpha = 1, 
-                       n = 20,  # scaling: instances per dimension is n * n_col 
+                       n = 20,  # scaling: instances per dimension is n * n_col
                        # args with defaults:
                        main = NULL,
                        sub = NULL, 
@@ -268,8 +268,8 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 #' @importFrom stats runif 
 
 plot_scatter <- function(pal, col_par = NULL, alpha = 1, 
-                         n = 500,  # scaling: number of points
-                         cex = 3, 
+                         n = 500,     # scaling: number of points
+                         cex = NULL,  # type-specific parameter(s): point size
                          # args with defaults:
                          main = NULL,
                          sub = NULL, 
@@ -280,7 +280,12 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
   
   # Parameters currently fixed:
   axes <- TRUE
-  # cex_pts <- 3 # sample(c(2, 2.5, 3, 3.5, 4), size = n, replace = TRUE)
+  
+  # Defaults:
+  if (is.null(cex)){
+    # cex <- sample(c(2, 2.5, 3, 3.5, 4), size = n, replace = TRUE)  # (a) different sizes
+    cex <- 3  # (b) all same size
+  }
   
   # colors:
   col_pal <- usecol(pal = pal, alpha = alpha)
