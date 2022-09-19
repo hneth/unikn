@@ -268,7 +268,8 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 #' @importFrom stats runif 
 
 plot_scatter <- function(pal, col_par = NULL, alpha = 1, 
-                         n = 500,  # scaling: number of points  
+                         n = 500,  # scaling: number of points
+                         cex = 3, 
                          # args with defaults:
                          main = NULL,
                          sub = NULL, 
@@ -279,7 +280,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
   
   # Parameters currently fixed:
   axes <- TRUE
-  cex_pts <- 3 # sample(c(2, 2.5, 3, 3.5, 4), size = n, replace = TRUE)
+  # cex_pts <- 3 # sample(c(2, 2.5, 3, 3.5, 4), size = n, replace = TRUE)
   
   # colors:
   col_pal <- usecol(pal = pal, alpha = alpha)
@@ -322,7 +323,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
   # Main plot: ---- 
   
   plot(#0, 0, type = "n",  # (a) empty plot
-    x = df$x, y = df$y, type = "p", pch = 20, col = col_pal, cex = cex_pts, # (b) generic plot
+    x = df$x, y = df$y, type = "p", pch = 20, col = col_pal, cex = cex, # (b) generic plot
     xlim = c(x_min, x_max), ylim = c(y_min, y_max),  
     axes = axes, col.axis = col_par,  
     xlab = NA, ylab = NA)
@@ -368,6 +369,68 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
 
 
 # (C) Wrapper function: ------
+
+# demopal: A general function to call specific functions: ---- 
+
+#' Demonstrate a color palette.
+#'
+#' \code{demopal} provides an example plot of some \code{type} 
+#' to illustrate a color palette \code{pal}. 
+#' 
+#' The \code{demopal} wrapper function passes a range of arguments to more specific functions. 
+#' Common arguments include:
+#' 
+#' \itemize{
+#' 
+#'   \item \code{col_par} Default color for \code{par(col)}; 
+#'   \item \code{alpha} Default value for color transparency (in 0:1);  
+#'   \item \code{n} A scaling parameter (for random data generation);  
+#' 
+#'   \item \code{main} plot title (on top); 
+#'   \item \code{sub} subtitle (on right margin);  
+#'   
+#'   \item \code{pal_name} The name of input color palette \code{pal}; 
+#'   \item \code{seed} A random seed (for reproducible randomness). 
+#'   
+#' }
+#' 
+#' Some functions additionally accept type-specific arguments 
+#' (e.g., \code{beside}, \code{horiz}, and \code{as_prop}, for plot \code{type = "bar"}). 
+#' 
+#' The type-specific functions usually generate some random data 
+#' (scaled by a parameter \code{n}) that is being plotted. 
+#' This data is returned (as an invisible R object)  
+#' to enable a plot's reconstruction. 
+#' 
+#' @param pal A color palette (to be illustrated).
+#' Default: \code{pal = pal_unikn}. 
+#' 
+#' @param type The type of plot to be used (as character or integer index). 
+#' Permissible types are \code{"bar"}, \code{"mosaic"}, \code{"scatter"} (or 1 to 3).
+#' 
+#' @return The random data that was plotted (as an invisible R object). 
+#' 
+#' @examples
+#' demopal(pal_petrol, type = 1)
+#' demopal(c(rev(pal_pinky), pal_seeblau), type = 2)
+#' demopal(type = "scatter", col_par = "black", n = 100, cex = 10, seed = 101)
+#' 
+#' @family color functions
+#' 
+#' @aliases democol
+#' @aliases demofun
+#' 
+#' @seealso 
+#' \code{\link{seepal}} for plotting color palettes;  
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{shades_of}} to defining shades of a given color; 
+#' \code{\link{ac}} for adjusting color transparency; 
+#' \code{\link{pal_unikn}} for the default uni.kn color palette. 
+#'
+#' @import graphics 
+#' @import grDevices 
+#' 
+#' @export 
 
 demopal <- function(pal = pal_unikn, type = NA, ...){
   
