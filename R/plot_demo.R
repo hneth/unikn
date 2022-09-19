@@ -400,7 +400,8 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
 #' }
 #' 
 #' Some functions additionally accept type-specific arguments 
-#' (e.g., \code{beside}, \code{horiz}, and \code{as_prop}, for plot \code{type = "bar"}). 
+#' (e.g., \code{beside}, \code{horiz}, and \code{as_prop}, for plot \code{type = "bar"}, 
+#' and \code{cex} for plot \code{type = "scatter"}). 
 #' 
 #' The type-specific functions usually generate some random data 
 #' (scaled by a parameter \code{n}) that is being plotted. 
