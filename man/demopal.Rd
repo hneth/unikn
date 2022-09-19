@@ -14,6 +14,8 @@ Default: \code{pal = pal_unikn}.}
 
 \item{type}{The type of plot to be used (as character or integer index). 
 Permissible types are \code{"bar"}, \code{"mosaic"}, \code{"scatter"} (or 1 to 3).}
+
+\item{...}{Auxiliary arguments passed to \code{type}-specific plots (see details).}
 }
 \value{
 The random data that was plotted (as an invisible R object).
