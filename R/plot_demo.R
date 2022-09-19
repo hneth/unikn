@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2022 09 18
+## spds | uni.kn | 2022 09 19
 ## ---------------------------
 
 ## Demo functions for color palettes.
@@ -27,6 +27,9 @@ set_seed <- function(seed){
 plot_bar <- function(pal, col_par = NULL, alpha = 1, 
                      n = 5,  # scaling: number of categories (for each color) 
                      beside = TRUE, horiz = FALSE, as_prop = FALSE, # bar plot specific parameters  
+                     # args with defaults:
+                     main = NULL,
+                     sub = NULL, 
                      pal_name = NULL, 
                      seed = NULL){
   
@@ -108,15 +111,17 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
   }
   
   # Titles:
-  plot_type <- "bar"
+  if (is.null(main)){ # default title:
+    plot_type <- "bar"
+    
+    if (!beside) { plot_type <- paste("stacked", plot_type) }  
+    if (horiz) { plot_type <- paste("horizontal", plot_type) }
+    
+    main <- paste("A", plot_type, "plot")
+    if (as_prop) { main <- paste(main, "(as proportions)") }
+  }
   
-  if (!beside) { plot_type <- paste("stacked", plot_type) }  
-  if (horiz) { plot_type <- paste("horizontal", plot_type) }
-  
-  plot_title <- paste("A", plot_type, "plot")
-  if (as_prop) { plot_title <- paste(plot_title, "(as proportions)") }
-  
-  # title(main = paste("A", plot_type, "plot"))  
+  # title(main = main)  
   
   barplot(mx, 
           beside = beside, horiz = horiz, 
@@ -124,7 +129,7 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
           # col.axis = col_par, col.lab = col_par, 
           # names.arg = names(mx), 
           # legend = TRUE, xlim = c(0, x_max),  # if (legend)
-          main = plot_title
+          main = main
   )
   
   # # Background rectangle (if axes == FALSE):
@@ -134,11 +139,13 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
   #      border = col_par, xpd = TRUE)
   
   # Subtitle:
-  if (is.null(pal_name)){
-    pal_name <- deparse(substitute(pal))  # get object name (of input pal)
+  if (is.null(sub)){ # default subtitle:
+    if (is.null(pal_name)){
+      pal_name <- deparse(substitute(pal))  # get object name (of input pal)
+    }
+    sub  <- paste("Illustrating color palette", pal_name)
   }
-  subnote  <- paste("Illustrating color palette", pal_name)
-  mtext(subnote, side = 1, line = 2, adj = 1, cex = .95)
+  mtext(sub, side = 1, line = 2, adj = 1, cex = .95)
   
   
   # Output: ---- 
@@ -160,6 +167,9 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
 
 plot_table <- function(pal, col_par = NULL, alpha = 1, 
                        n = 20,  # scaling: instances per dimension is n * n_col 
+                       # args with defaults:
+                       main = NULL,
+                       sub = NULL, 
                        pal_name = NULL, 
                        seed = NULL){
   
@@ -223,14 +233,19 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
        border = col_par, xpd = TRUE)
   
   # Titles:
-  plot_type <- "mosaic" # "table"
-  title(main = paste("A", plot_type, "plot"))
-  
-  if (is.null(pal_name)){
-    pal_name <- deparse(substitute(pal))  # get object name (of input pal)
+  if (is.null(main)){ # default title:
+    plot_type <- "mosaic" # "table"
+    main <- paste("A", plot_type, "plot")
   }
-  subnote  <- paste("Illustrating color palette", pal_name)
-  mtext(subnote, side = 1, line = 2, adj = 1, cex = .95)
+  title(main = main)
+  
+  if (is.null(sub)){ # default subtitle:
+    if (is.null(pal_name)){
+      pal_name <- deparse(substitute(pal))  # get object name (of input pal)
+    }
+    sub  <- paste("Illustrating color palette", pal_name)
+  }
+  mtext(sub, side = 1, line = 2, adj = 1, cex = .95)
   
   
   # Output: ---- 
@@ -247,12 +262,115 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 # plot_table(pal_unikn_pref, alpha = 2/3, n = 10^5)
 
 
+
+# plot_scatter: ---- 
+
+plot_scatter <- function(pal, col_par = NULL, alpha = 1, 
+                         n = 500,  # scaling: number of points  
+                         # args with defaults:
+                         main = NULL,
+                         sub = NULL, 
+                         pal_name = NULL, 
+                         seed = NULL){
+  
+  # Prepare: ---- 
+  
+  # Parameters currently fixed:
+  axes <- TRUE
+  cex_pts <- 3 # sample(c(2, 2.5, 3, 3.5, 4), size = n, replace = TRUE)
+  
+  # colors:
+  col_pal <- usecol(pal = pal, alpha = alpha)
+  n_col <- length(col_pal)
+  
+  # seed:
+  set_seed(seed)
+  
+  # par: ---- 
+  
+  opar <- par(no.readonly = TRUE)
+  
+  if (is.null(col_par)){ # set default:
+    col_par <- grDevices::grey(2/3, alpha = 1)  # NA hides border/subtitle
+  }
+  
+  if (alpha < 1){
+    col_par <- usecol(col_par, alpha = alpha)  # apply alpha
+  }
+  
+  par(col = col_par)
+  
+  par(mar = c(4, 3, 3, 2) + 0.1) # default: c(5, 4, 4, 2) + 0.1
+  
+  
+  # Create data: ---- 
+  
+  # n <- 500
+  
+  x_min <- 1
+  x_max <- n_col
+  y_min <- 1
+  y_max <- n_col
+  
+  x <- round(runif(n, min = x_min, max = x_max), 2)
+  y <- round(runif(n, min = y_min, max = y_max), 2)
+  
+  df <- data.frame(x = x, y = y)
+  
+  # Main plot: ---- 
+  
+  plot(#0, 0, type = "n",  # (a) empty plot
+    x = df$x, y = df$y, type = "p", pch = 20, col = col_pal, cex = cex_pts, # (b) generic plot
+    xlim = c(x_min, x_max), ylim = c(y_min, y_max),  
+    axes = axes, col.axis = col_par,  
+    xlab = NA, ylab = NA)
+  
+  # # Background rectangle (if axes == FALSE):
+  # bwd <- .08  # border width
+  # rect(xleft = (x_min - bwd), ybottom = (y_min - bwd), 
+  #      xright = (x_max + bwd), ytop = (y_max + bwd), 
+  #      border = col_par, xpd = TRUE)
+  
+  # Titles:
+  if (is.null(main)){ # default title:
+    plot_type <- "scatter"
+    main <- paste("A", plot_type, "plot")
+  }
+  title(main = main)
+  
+  if (is.null(sub)){ # default subtitle:
+    if (is.null(pal_name)){
+      pal_name <- deparse(substitute(pal))  # get object name (of input pal)
+    }
+    sub <- paste("Illustrating color palette", pal_name)
+  }
+  mtext(sub, side = 1, line = 2, adj = 1, cex = .95)
+  
+  # Points:
+  # points(x, y, pch = 20, col = col_pal, cex = 3)
+  
+  
+  # Output: ---- 
+  
+  on.exit(par(opar))
+  
+  return(invisible(df))
+  
+} # plot_scatter().
+
+# # Check:
+# plot_scatter(c("gold", "steelblue", "forestgreen"))
+# plot_scatter(pal_unikn, n = 800, col_par = NA)
+# x <- plot_scatter(pal_unikn_pref, alpha = 2/3, seed = 101)
+# x
+
+
 # (C) Wrapper function: ------
 
 demopal <- function(pal = pal_unikn, type = NA, ...){
   
   # Prepare: ---- 
-  plot_types <- c("bar", "mosaic")  # as constant
+  plot_types <- c("bar", "mosaic", "scatter")  # as constant
   
   # type: 
   if (is.character(type)){
@@ -279,6 +397,8 @@ demopal <- function(pal = pal_unikn, type = NA, ...){
          plot_bar(pal = pal, pal_name = pal_name, ...), 
          # 2: mosaic/table:
          plot_table(pal = pal, pal_name = pal_name, ...), 
+         # 3: scatter/point:
+         plot_scatter(pal = pal, pal_name = pal_name, ...), 
          # else:
          plot_bar(pal = pal, pal_name = pal_name, ...)
   )
