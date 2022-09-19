@@ -414,6 +414,8 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
 #' @param type The type of plot to be used (as character or integer index). 
 #' Permissible types are \code{"bar"}, \code{"mosaic"}, \code{"scatter"} (or 1 to 3).
 #' 
+#' @param ... Auxiliary arguments passed to \code{type}-specific plots (see details). 
+#' 
 #' @return The random data that was plotted (as an invisible R object). 
 #' 
 #' @examples
