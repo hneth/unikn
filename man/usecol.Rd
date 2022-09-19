@@ -83,6 +83,7 @@ seecol(usecol(c(pal_unikn, pal_seeblau), distinct = TRUE), title = "Using distin
 
 Other color functions: 
 \code{\link{ac}()},
+\code{\link{demopal}()},
 \code{\link{grepal}()},
 \code{\link{newpal}()},
 \code{\link{seecol}()},

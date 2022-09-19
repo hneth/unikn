@@ -76,6 +76,7 @@ seecol(list(olives, oranges),
 
 Other color functions: 
 \code{\link{ac}()},
+\code{\link{demopal}()},
 \code{\link{newpal}()},
 \code{\link{seecol}()},
 \code{\link{shades_of}()},

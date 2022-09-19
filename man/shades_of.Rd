@@ -58,6 +58,7 @@ seecol(wine_white, col_brd = "black", lwd_brd = .5,
 
 Other color functions: 
 \code{\link{ac}()},
+\code{\link{demopal}()},
 \code{\link{grepal}()},
 \code{\link{newpal}()},
 \code{\link{seecol}()},

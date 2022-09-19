@@ -83,6 +83,7 @@ simcol("grey", c("white", "grey", "black"), tol = 255, distinct = FALSE, plot = 
 
 Other color functions: 
 \code{\link{ac}()},
+\code{\link{demopal}()},
 \code{\link{grepal}()},
 \code{\link{newpal}()},
 \code{\link{seecol}()},

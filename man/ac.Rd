@@ -60,6 +60,7 @@ seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
 \code{\link{grepal}} for finding named colors.
 
 Other color functions: 
+\code{\link{demopal}()},
 \code{\link{grepal}()},
 \code{\link{newpal}()},
 \code{\link{seecol}()},

@@ -183,6 +183,7 @@ seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
 
 Other color functions: 
 \code{\link{ac}()},
+\code{\link{demopal}()},
 \code{\link{grepal}()},
 \code{\link{newpal}()},
 \code{\link{shades_of}()},
