@@ -447,9 +447,9 @@ pal_princeton_1 <- newpal(col = c("#E77500", "white", "black"),
                           names = c("orange_w", "white", "black"))
 ```
 
-A new color palette can now be evaluated with `seecol()`, scaled by `usecol()`, and used in graphs (e.g., using `demopal()` or **ggplot**):
+A new color palette can now be evaluated with `seecol()`, scaled by `usecol()`, and used in graphs (e.g., using `demopal()` or `ggplot()`): 
 
-```{r uni-princeton-demopal, eval = TRUE, out.width = "65%", fig.asp = .80, fig.align = 'center', collapse = TRUE}
+```{r uni-princeton-demopal, eval = FALSE, fig.width = 6, out.width = "65%", fig.asp = .80, fig.align = 'center', collapse = TRUE}
 # View color palette: 
 # seecol(pal_princeton_1)  
 
@@ -459,6 +459,13 @@ my_pal <- usecol(pal_princeton_1, n = 15)
 # Use my_pal for plotting: 
 demopal(my_pal, type = "polygon", col_par = NA, main = NA, seed = 10)
 ```
+
+<!-- Image: demopal() with Princeton palette: -->
+
+<p style="text-align:center;">
+<img src = "./inst/pix/README-uni-princeton-demopal-1.png" alt = "demopal(pal_princeton_1)" style = "width: 600px; border:10;"/>
+</p>
+
 
 ```{r uni-princeton-ggplot, echo = FALSE, eval = FALSE}
 # Previous plot (using df and ggplot): ----

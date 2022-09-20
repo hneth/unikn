@@ -1,4 +1,44 @@
 
+
+# unikn 0.6.0.9001
+
+This is the development version of **unikn** (v0.6.0.9000+). 
+
+**unikn** (v0.6.0) was released [on CRAN](https://CRAN.R-project.org/package=unikn) on 2022-09-20.
+
+<!-- Log of changes.  --> 
+
+Changes since last release: 
+
+
+## Major changes 
+
+- None yet. 
+
+<!-- Blank line.  --> 
+
+
+## Major changes 
+
+- None yet. 
+
+<!-- Blank line.  --> 
+
+
+## Details 
+
+- Add Zenodo doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191). [2022-09-20] 
+
+
+<!-- Development version:  --> 
+
+The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
+
+
+<!-- Previous versions: -->  
+
+---------- 
+
 # unikn 0.6.0
 
 This release of **unikn** (v0.6.0) adds and revises functionality and fixes some bugs. [2022-09-20]  
@@ -32,11 +72,6 @@ Changes since last release:
 - Maintenance: 
     - Rename utility functions `isCol()` and `isHexCol()` to `is_col()` and `is_hex_col()`. [2022-08-20]
     - Distribute color functions into separate files. [2022-08-17]
-
-
-<!-- Developtment version:  --> 
-
-The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
 
 
 <!-- Previous versions: -->  
