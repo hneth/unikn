@@ -6,7 +6,7 @@
 \alias{demofun}
 \title{Demonstrate a color palette.}
 \usage{
-demopal(pal = pal_unikn, type = NA, ...)
+demopal(pal = pal_unikn, type = NA, pal_name = NULL, ...)
 }
 \arguments{
 \item{pal}{A color palette (to be illustrated).
@@ -14,6 +14,9 @@ Default: \code{pal = pal_unikn}.}
 
 \item{type}{The type of plot to be used (as character or integer index). 
 Permissible types are \code{"bar"}, \code{"mosaic"}, \code{"scatter"} (or 1 to 3).}
+
+\item{pal_name}{A name for the input color palette \code{pal} (shown on bottom-right margin). 
+Default: \code{pal_name = NULL} (deparsing to input name).}
 
 \item{...}{Auxiliary arguments passed to \code{type}-specific plots (see details).}
 }
@@ -35,9 +38,8 @@ Common arguments include:
   \item \code{n} A scaling parameter (for random data generation);  
 
   \item \code{main} plot title (on top); 
-  \item \code{sub} subtitle (on right margin);  
+  \item \code{sub} plot subtitle (on right margin);  
   
-  \item \code{pal_name} The name of input color palette \code{pal}; 
   \item \code{seed} A random seed (for reproducible randomness). 
   
 }
@@ -52,9 +54,15 @@ This data is returned (as an invisible R object)
 to enable a plot's reconstruction.
 }
 \examples{
-demopal(pal_petrol, type = 1)
-demopal(c(rev(pal_pinky), pal_seeblau), type = 2)
-demopal(type = "scatter", col_par = "black", n = 100, cex = 10, seed = 101)
+demopal(pal = pal_petrol, type = 1)
+
+my_pal <- c(rev(pal_pinky), pal_seeblau) 
+# Selecting plot type:
+demopal(my_pal, type = 2)          # by numeric index
+demopal(my_pal, type = "polygon")  # by name
+
+# Passing type-specific arguments:
+demopal(type = "scatter", col_par = "black", n = 200, cex = c(2, 4, 6), seed = 101)
 
 }
 \seealso{
