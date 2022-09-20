@@ -18,7 +18,7 @@ to illustrate a color palette pal."><meta property="og:image" content="https://h
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.5.0.9010</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.0.9001</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@ to illustrate a color palette <code>pal</code>.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">demopal</span><span class="op">(</span>pal <span class="op">=</span> <span class="va">pal_unikn</span>, type <span class="op">=</span> <span class="cn">NA</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">demopal</span><span class="op">(</span>pal <span class="op">=</span> <span class="va">pal_unikn</span>, type <span class="op">=</span> <span class="cn">NA</span>, pal_name <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -94,6 +94,11 @@ Default: <code>pal = pal_unikn</code>.</p></dd>
 <dt>type</dt>
 <dd><p>The type of plot to be used (as character or integer index). 
 Permissible types are <code>"bar"</code>, <code>"mosaic"</code>, <code>"scatter"</code> (or 1 to 3).</p></dd>
+
+
+<dt>pal_name</dt>
+<dd><p>A name for the input color palette <code>pal</code> (shown on bottom-right margin). 
+Default: <code>pal_name = NULL</code> (deparsing to input name).</p></dd>
 
 
 <dt>...</dt>
@@ -114,8 +119,7 @@ Common arguments include:</p>
 <li><p><code>alpha</code> Default value for color transparency (in 0:1);</p></li>
 <li><p><code>n</code> A scaling parameter (for random data generation);</p></li>
 <li><p><code>main</code> plot title (on top);</p></li>
-<li><p><code>sub</code> subtitle (on right margin);</p></li>
-<li><p><code>pal_name</code> The name of input color palette <code>pal</code>;</p></li>
+<li><p><code>sub</code> plot subtitle (on right margin);</p></li>
 <li><p><code>seed</code> A random seed (for reproducible randomness).</p></li>
 </ul><p>Some functions additionally accept type-specific arguments 
 (e.g., <code>beside</code>, <code>horiz</code>, and <code>as_prop</code>, for plot <code>type = "bar"</code>, 
@@ -144,12 +148,19 @@ to enable a plot's reconstruction.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">demopal</span><span class="op">(</span><span class="va">pal_petrol</span>, type <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">demopal</span><span class="op">(</span>pal <span class="op">=</span> <span class="va">pal_petrol</span>, type <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="demopal-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="fu">demopal</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="va">pal_pinky</span><span class="op">)</span>, <span class="va">pal_seeblau</span><span class="op">)</span>, type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">my_pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="va">pal_pinky</span><span class="op">)</span>, <span class="va">pal_seeblau</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="co"># Selecting plot type:</span></span></span>
+<span class="r-in"><span><span class="fu">demopal</span><span class="op">(</span><span class="va">my_pal</span>, type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>          <span class="co"># by numeric index</span></span></span>
 <span class="r-plt img"><img src="demopal-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="fu">demopal</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"scatter"</span>, col_par <span class="op">=</span> <span class="st">"black"</span>, n <span class="op">=</span> <span class="fl">100</span>, cex <span class="op">=</span> <span class="fl">10</span>, seed <span class="op">=</span> <span class="fl">101</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">demopal</span><span class="op">(</span><span class="va">my_pal</span>, type <span class="op">=</span> <span class="st">"polygon"</span><span class="op">)</span>  <span class="co"># by name</span></span></span>
 <span class="r-plt img"><img src="demopal-3.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Passing type-specific arguments:</span></span></span>
+<span class="r-in"><span><span class="fu">demopal</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"scatter"</span>, col_par <span class="op">=</span> <span class="st">"black"</span>, n <span class="op">=</span> <span class="fl">200</span>, cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">101</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="demopal-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
