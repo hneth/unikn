@@ -37,5 +37,5 @@ License: CC BY-SA 4.0
 URL: https://CRAN.R-project.org/package=unikn 
 BugReports: https://github.com/hneth/unikn/issues
 VignetteBuilder: knitr
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Language: en-US
