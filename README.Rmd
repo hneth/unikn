@@ -279,9 +279,11 @@ seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
 The `usecol()` function provides convenient access and additional options for using them in graphs. 
 Here are some examples:  
 
-1. Using **unikn** color palettes and functions in **base** R plots: 
+#### 1. Plotting with **base** R
 
-By default, simply set the color argument of a plot to `usecol()` with some **unikn** color palette: 
+All **unikn** colors, palettes and functions can be used in **base** R plots (using the **graphics** and **grDevices** packages). 
+
+By default, set the plot's color argument to `usecol()` with some **unikn** color palette: 
 
 ```{r usepal-demo-barplot-1, eval = TRUE, fig.width = 5, fig.asp = .65, fig.align = 'center', collapse = TRUE}
 # (a) Using a color palette:
@@ -314,7 +316,7 @@ plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6,
 
 -->
 
-2. Visualizing **unikn** color palettes (using `image()` from **graphics**):  
+Visualizing **unikn** color palettes with `image()` (from the **graphics** package) works as well: 
 
 ```{r use-pal-demo-image, eval = TRUE, fig.width = 3.5, fig.height = 4, fig.show = 'hold', fig.align = 'center'}
 # Random images:
@@ -322,15 +324,17 @@ set.seed(1)
 n <- 20
 m <- matrix(rnorm(n*n), ncol = n, nrow = n)
 
-# image(m, col = seecol(pal_seeblau))  # seecol() shows & use colors 
-# image(m, col = usecol(pal_peach))    # usecol() only uses colors
-# image(m, col = usecol(pal_seegruen))
-# image(m, col = usecol(pal_petrol))
 image(m, col = usecol(pal_seeblau, n = 50), 
       main = "50 shades of Seeblau", axes = FALSE)
 ```
 
 ```{r use-pal-demo-image-2, echo = FALSE, eval = FALSE, fig.width = 3.5, fig.height = 4, fig.show = 'hold', fig.align = 'center'}
+# Alternative image() commands:
+# image(m, col = seecol(pal_seeblau))  # seecol() shows & use colors 
+# image(m, col = usecol(pal_peach))    # usecol() only uses colors
+# image(m, col = usecol(pal_seegruen))
+# image(m, col = usecol(pal_petrol))
+
 # Mix pal_seeblau and pal_seegruen:
 x <- y <- seq(-4 * pi, 4 * pi, len = 15)
 r <- sqrt(outer(x^2, y^2, "+"))
@@ -338,10 +342,14 @@ image(z = cos(r^2) * exp(-r/6), col = usecol(c(pal_petrol, pal_seegruen), n = 10
       main = "Shades of Petrol/Seegruen", axes = FALSE)
 ```
 
-3. Using **unikn** in `ggplot()` commands (using **ggplot2**): 
+#### 2. Plotting with **ggplot2**
+
+Using **unikn** in `ggplot()` commands (using **ggplot2**) or using colors from other color packages (e.g., **RColorBrewer**) is easy as well. 
+Just wrap the color palette to use in `usecol()` (and scale or change transparency as needed): 
 
 ```{r use-pal-ggplot2, eval = FALSE, out.width = "55%", fig.asp = .618, fig.align = 'center', collapse = TRUE}
 # 0. Create data: ---- 
+
 # Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/
 n <- 50
 names <- paste("G_", seq(1, n), sep = "")
@@ -367,11 +375,12 @@ cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # rand
 
 # (b) using unikn:
 library(unikn)
-cur_col <- usecol(pal = pal_unikn, n = n)
+cur_col <- usecol(pal_unikn, n = n)
 # cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
 
-# 2. Plotting: ---- 
+# 2. Plot: ---- 
 library(ggplot2)
+
 ggplot(df, aes(x = X, y = Y, fill = group)) + 
   geom_area(alpha = 1, color = Grau, size = .01 ) +
   theme_bw() + 
@@ -430,25 +439,28 @@ pal_princeton_2 <- c(pal = c(orange_black, "black", "white"))
 names(pal_princeton_2) <- c("orange_b", "black", "white")
 ```
 
-Alternatively, we can define both (colors and names) in 1 step by using the `newpal()` function:
+Alternatively, we can define both (color values and their names) in one step by using the `newpal()` function:
 
 ```{r uni-Princeton-newpal}
 pal_princeton_1 <- newpal(col = c("#E77500", "white", "black"),
-                          names = c("orange_w", "white", "black")
-                          )
-# seecol(pal_princeton_1)
+                          names = c("orange_w", "white", "black"))
 ```
 
-The new color palettes (e.g., `pal_princeton_1`) can now be viewed with `seecol()`, scaled by `usecol()`, and used in graphs (e.g., in `ggplot` commands):
+A new color palette can now be evaluated with `seecol()`, scaled by `usecol()`, and used in graphs (e.g., using `demopal()` or **ggplot**):
 
-```{r uni-princeton-ggplot, eval = FALSE, out.width = "55%", fig.asp = .618, fig.align = 'center', collapse = TRUE}
+```{r uni-princeton-demopal, eval = TRUE, out.width = "65%", fig.asp = .80, fig.align = 'center', collapse = TRUE}
 # View color palette: 
 # seecol(pal_princeton_1)  
 
-# Scale color palette (using df and n from above):
-my_pal <- usecol(pal = pal_princeton_1, n = n)
+# Scale color palette:
+my_pal <- usecol(pal_princeton_1, n = 15)
 
 # Use my_pal for plotting: 
+demopal(my_pal, type = "polygon", col_par = NA, main = NA, seed = 10)
+```
+
+```{r uni-princeton-ggplot, echo = FALSE, eval = FALSE}
+# Previous plot (using df and ggplot): ----
 ggplot(df, aes(x = X, y = Y, fill = group)) + 
   geom_area(alpha = 1, color = Grau, size = .01 ) +
   theme_bw() + 
@@ -459,9 +471,9 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
 
 <!-- Image: ggplot2 with Princeton palette as link (in HTML): -->
 
-<p style="text-align:center;">
-<img src = "./inst/pix/README-use_ggplot2_princeton-1.png" alt = "pal_princeton_1" style = "width: 500px; border:10;"/>
-</p>
+<!-- <p style="text-align:center;"> -->
+<!-- <img src = "./inst/pix/README-use_ggplot2_princeton-1.png" alt = "pal_princeton_1" style = "width: 500px; border:10;"/> -->
+<!-- </p> -->
 
 
 #### The colors of Google 
