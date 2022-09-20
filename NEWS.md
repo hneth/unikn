@@ -1,7 +1,7 @@
 
-# unikn 0.5.0.9010
+# unikn 0.6.0
 
-The current development version of **unikn** (0.5.0.9001+) is available at <https://github.com/hneth/unikn/>. 
+This release of **unikn** (v0.6.0) adds and revises functionality and fixes some bugs. [2022-09-20]  
 
 Changes since last release: 
 
@@ -32,6 +32,11 @@ Changes since last release:
 - Maintenance: 
     - Rename utility functions `isCol()` and `isHexCol()` to `is_col()` and `is_hex_col()`. [2022-08-20]
     - Distribute color functions into separate files. [2022-08-17]
+
+
+<!-- Developtment version:  --> 
+
+The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
 
 
 <!-- Previous versions: -->  
@@ -179,6 +184,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-09-19.]
+[File `NEWS.md` updated on 2022-09-20.]
 
 <!-- eof. -->
