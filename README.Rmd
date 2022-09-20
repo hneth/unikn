@@ -42,11 +42,11 @@ library(unikn)  # load package
 The **unikn** package provides useful color functions ---\ by defining dedicated colors and color palettes, and commands for changing, viewing, and using them\ --- and styled text elements (e.g., for marking, underlining, or plotting colored titles) in\ R. 
 The package's pre-defined range of colors and text functions is based on the corporate design of the [University of Konstanz](https://www.uni-konstanz.de/) (see [this link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) for details), but can easily be adapted and extended to other purposes or institutions. 
 
-## Background 
+## Overview  
 
-Institutions devise corporate design (CD) manuals for creating and maintaining a consistent impression in presentations and publications. 
+Institutions devise corporate designs (CDs) for creating and maintaining a consistent impression in presentations and publications. 
 But even when writing an individual article or thesis, it makes sense to define some graphical elements (e.g., a color scheme) and use them consistently throughout the report. 
-In\ 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable corporate design. 
+In\ 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable\ CD. 
 Its key component is the ubiquitous use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). (See the [corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) pages for details.) 
 
 
@@ -62,8 +62,8 @@ The **unikn** package currently provides five types of objects and functions:
 
 1. Some dedicated **colors** and **color palettes** (e.g., `Seeblau` and `pal_unikn`);  
 
-2. Functions for **viewing and comparing colors** (`seecol()`), and for **using or changing color palettes** (`usecol()`);  
-3. Functions for **creating color palettes** (`newpal()`), for **finding similar colors** (`simcol()`), and for **searching color names** (`grepal()`);  
+2. Functions for **viewing and comparing colors** (`seecol()`), for **using or changing color palettes** (`usecol()`), and for **demonstrating color palettes** (`demopal()`);  
+3. Functions for **creating new color palettes** (`newpal()`), for **finding similar colors** (`simcol()`), and for **searching color names** (`grepal()`);  
 
 4. Functions for **plotting graphical objects** (e.g., boxes and frames);  
 5. Functions for **plotting styled text** elements (e.g., highlighting and underlining text).  
@@ -788,7 +788,7 @@ To support our development, please cite the **unikn** package when using it in p
 - Neth, H., & Gradwohl, N., (2022). 
 unikn: Graphical elements of the University of Konstanz's corporate design. 
 Social Psychology and Decision Sciences, University of Konstanz, Germany.
-Computer software (R package version 0.5.0, August 15, 2022). 
+Computer software (R package version 0.6.0, September 20, 2022). 
 Retrieved from <https://CRAN.R-project.org/package=unikn>.
 
 <!-- Copyrights of designs: -->
