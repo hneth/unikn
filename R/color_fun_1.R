@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 09 19
+## spds | uni.kn | 2022 09 20
 ## ---------------------------
 
 ## Define color-related functions 
@@ -95,7 +95,13 @@ usecol <- function(pal = pal_unikn,
                    use_names = FALSE,  # should colors be returned as a named vector?
                    use_col_ramp = FALSE) {
   
+  ## 0. Handle NA input: ----
+  
+  if (all(is.na(pal))) { return(NA) }
+  
+  
   ## 1. Parse input: ---- 
+  
   parenv <- parent.frame()
   
   # parse_pal(pal = pal)
@@ -573,6 +579,10 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
 ) {
   
   # 1. Preparations: ------- 
+  
+  # Handle NA input: ----
+  
+  if (all(is.na(pal))) { return(NA) }
   
   # Deprecated arguments: ---- 
   
