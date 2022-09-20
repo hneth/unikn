@@ -19,7 +19,7 @@ to some target color col_target."><meta property="og:image" content="https://hne
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
       </span>
     </div>
 
@@ -72,7 +72,7 @@ to some target color col_target."><meta property="og:image" content="https://hne
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Find similar colors.</h1>
-    <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/HEAD/R/color_fun.R" class="external-link"><code>R/color_fun.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/HEAD/R/color_fun_2.R" class="external-link"><code>R/color_fun_2.R</code></a></small>
     <div class="hidden name"><code>simcol.Rd</code></div>
     </div>
 
@@ -155,6 +155,7 @@ more fine-grained similarity matching.</p>
 <code><a href="ac.html">ac</a></code> for adjusting color transparency.</p>
 <p>Other color functions: 
 <code><a href="ac.html">ac</a>()</code>,
+<code><a href="demopal.html">demopal</a>()</code>,
 <code><a href="grepal.html">grepal</a>()</code>,
 <code><a href="newpal.html">newpal</a>()</code>,
 <code><a href="seecol.html">seecol</a>()</code>,
@@ -196,10 +197,10 @@ more fine-grained similarity matching.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        skyblue2      steelblue1 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      "skyblue2"    "steelblue1" </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Increasing tolerance values widens range:</span></span></span>
-<span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="st">"grey"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"grey"</span>, <span class="st">"white"</span><span class="op">)</span>, tol <span class="op">=</span> <span class="fl">255</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    gray   black   white </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  "grey" "black" "white" </span>
+<span class="r-in"><span><span class="co"># Increasing tolerance widens range:</span></span></span>
+<span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="st">"grey"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"white"</span>, <span class="st">"grey"</span>, <span class="st">"black"</span><span class="op">)</span>, tol <span class="op">=</span> <span class="fl">255</span>, distinct <span class="op">=</span> <span class="cn">FALSE</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    gray   white    gray   black </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  "grey" "white"  "grey" "black" </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

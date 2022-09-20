@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
       </span>
     </div>
 
@@ -71,7 +71,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Define new color palettes.</h1>
-    <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/HEAD/R/color_fun.R" class="external-link"><code>R/color_fun.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/HEAD/R/color_fun_2.R" class="external-link"><code>R/color_fun_2.R</code></a></small>
     <div class="hidden name"><code>newpal.Rd</code></div>
     </div>
 
@@ -113,6 +113,7 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 <code><a href="pal_unikn.html">pal_unikn</a></code> for the default uni.kn color palette.</p>
 <p>Other color functions: 
 <code><a href="ac.html">ac</a>()</code>,
+<code><a href="demopal.html">demopal</a>()</code>,
 <code><a href="grepal.html">grepal</a>()</code>,
 <code><a href="seecol.html">seecol</a>()</code>,
 <code><a href="shades_of.html">shades_of</a>()</code>,
@@ -133,7 +134,7 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 <span class="r-in"><span><span class="va">pal_flag_de</span> <span class="op">&lt;-</span> <span class="fu">newpal</span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"firebrick3"</span>, <span class="st">"gold"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                      names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Schwarz"</span>, <span class="st">"Rot"</span>, <span class="st">"Gold"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_flag_de</span>, title <span class="op">=</span> <span class="st">"Colors in the flag of Germany"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_flag_de</span>, main <span class="op">=</span> <span class="st">"Colors in the flag of Germany"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># (2) From HEX values:  -----</span></span></span>
@@ -142,7 +143,7 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 <span class="r-in"><span><span class="va">color_google</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#4285f4"</span>, <span class="st">"#34a853"</span>, <span class="st">"#fbbc05"</span>, <span class="st">"#ea4335"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">names_google</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"blueberry"</span>, <span class="st">"sea green"</span>, <span class="st">"selective yellow"</span>, <span class="st">"cinnabar"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pal_google</span>   <span class="op">&lt;-</span> <span class="fu">newpal</span><span class="op">(</span><span class="va">color_google</span>, <span class="va">names_google</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_google</span>, title <span class="op">=</span> <span class="st">"Colors of the Google logo"</span>, col_brd <span class="op">=</span> <span class="st">"white"</span>, lwd_brd <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_google</span>, main <span class="op">=</span> <span class="st">"Colors of the Google logo"</span>, col_brd <span class="op">=</span> <span class="st">"white"</span>, lwd_brd <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># (b) German flag revised:</span></span></span>
@@ -151,14 +152,14 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 <span class="r-in"><span><span class="va">pal_flag_de_2</span> <span class="op">&lt;-</span> <span class="fu">newpal</span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#000000"</span>, <span class="st">"#dd0000"</span>, <span class="st">"#ffce00"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                        names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"red"</span>, <span class="st">"gold"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>                        <span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_flag_de_2</span>, title <span class="op">=</span> <span class="st">"Colors of the German flag (www.schemecolor.com)"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_flag_de_2</span>, main <span class="op">=</span> <span class="st">"Colors of the German flag (www.schemecolor.com)"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># (c) MPG colors:</span></span></span>
 <span class="r-in"><span><span class="va">pal_mpg</span> <span class="op">&lt;-</span> <span class="fu">newpal</span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#007367"</span>, <span class="st">"white"</span>, <span class="st">"#D0D3D4"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                  names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mpg green"</span>, <span class="st">"white"</span>, <span class="st">"mpg grey"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>                  <span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_mpg</span>, title <span class="op">=</span> <span class="st">"Colors of the Max Planck Society"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_mpg</span>, main <span class="op">=</span> <span class="st">"Colors of the Max Planck Society"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># (3) From RGB values:  -----</span></span></span>
@@ -185,13 +186,13 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 <span class="r-in"><span>                        names <span class="op">=</span> <span class="va">o_i_names</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_okabe_ito</span>,</span></span>
-<span class="r-in"><span>       title <span class="op">=</span> <span class="st">"Color-blind friendly color scale (Okabe &amp; Ito, 2002)"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>       main <span class="op">=</span> <span class="st">"Color-blind friendly color scale (Okabe &amp; Ito, 2002)"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-5.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Compare custom color palettes:</span></span></span>
 <span class="r-in"><span><span class="va">my_pals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">pal_flag_de</span>, <span class="va">pal_flag_de_2</span>, <span class="va">pal_google</span>, <span class="va">pal_mpg</span>, <span class="va">pal_okabe_ito</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">my_pals</span>, col_brd <span class="op">=</span> <span class="st">"white"</span>, lwd_brd <span class="op">=</span> <span class="fl">5</span>,</span></span>
-<span class="r-in"><span>       title <span class="op">=</span> <span class="st">"Comparing custom color palettes"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>       main <span class="op">=</span> <span class="st">"Comparing custom color palettes"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-6.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
