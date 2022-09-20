@@ -152,6 +152,8 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
   
   on.exit(par(opar))
   
+  # print(mx) # as side effect / 4debugging
+  
   return(invisible(mx))
   
 } # plot_bar().
@@ -308,6 +310,8 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
   
   on.exit(par(opar))
   
+  # print(df) # as side effect / 4debugging
+  
   return(invisible(df))
   
 } # plot_polygon().
@@ -338,6 +342,12 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
   # colors:
   col_pal <- usecol(pal = pal, alpha = alpha)
   n_col <- length(col_pal)
+  
+  if (n_col < 2){ # special case: 
+    col_pal <- c(col_pal, par("bg"))  # add bg color of device 
+    # col_pal <- c(par("col"), col_pal, par("bg"))  # add fg and bg color of device 
+    n_col   <- length(col_pal)
+  }
   
   # seed:
   set_seed(seed)
@@ -409,6 +419,8 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
   
   on.exit(par(opar))
   
+  # print(tb) # as side effect / 4debugging
+  
   return(invisible(tb))
   
 } # plot_table().
@@ -472,9 +484,9 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
   
   # n <- 500
   
-  x_min <- 1
+  x_min <- 0
   x_max <- n_col
-  y_min <- 1
+  y_min <- 0
   y_max <- n_col
   
   x <- round(stats::runif(n, min = x_min, max = x_max), 2)
@@ -518,6 +530,8 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
   # Output: ---- 
   
   on.exit(par(opar))
+  
+  # print(df) # as side effect / 4debugging
   
   return(invisible(df))
   
@@ -608,6 +622,9 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
 demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, ...){
   
   # Prepare: ---- 
+  
+  if (all(is.na(pal))) { return(NA) }  # handle pal = NA case
+  
   plot_types <- c("bar", "mosaic", "polygon", "scatter")  # as constant
   
   # type: 
