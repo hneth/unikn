@@ -5,6 +5,7 @@
 [![CRAN\_status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
 [![Build\_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/)
 [![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
 
 <!-- Possible status badges: 
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
@@ -824,7 +825,8 @@ it in publications or derivations:
     Decision Sciences, University of Konstanz, Germany. Computer
     software (R package version 0.6.0, September 20, 2022). Retrieved
     from
-    <a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a>.
+    <a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a>.  
+    <https://doi.org/10.5281/zenodo.7096191>
 
 <!-- Copyrights of designs: -->
 

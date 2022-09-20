@@ -7,7 +7,8 @@ output: github_document
 <!-- Use status badges: --> 
 [![CRAN_status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/) 
-[![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)  
+[![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn) 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191) 
 
 
 <!-- Possible status badges: 
@@ -801,7 +802,9 @@ To support our development, please cite the **unikn** package when using it in p
 unikn: Graphical elements of the University of Konstanz's corporate design. 
 Social Psychology and Decision Sciences, University of Konstanz, Germany.
 Computer software (R package version 0.6.0, September 20, 2022). 
-Retrieved from <https://CRAN.R-project.org/package=unikn>.
+Retrieved from <https://CRAN.R-project.org/package=unikn>.   
+[https://doi.org/10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)
+
 
 <!-- Copyrights of designs: -->
 
