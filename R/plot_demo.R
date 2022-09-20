@@ -54,7 +54,7 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
     col_par <- grDevices::grey(2/3, alpha = 1)  # NA hides border/subtitle
   }
   
-  if (alpha < 1){
+  if ((is.na(alpha) == FALSE) && (alpha < 1)){
     col_par <- usecol(col_par, alpha = alpha)  # apply alpha
   }
   
@@ -201,7 +201,7 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
     col_par <- grDevices::grey(2/3, alpha = 1)  # NA hides border/subtitle
   }
   
-  if ( (alpha < 1) & (is.na(col_par) == FALSE) ){
+  if ((is.na(alpha) == FALSE) && (alpha < 1)){
     col_par <- usecol(col_par, alpha = alpha)  # apply alpha
   }
   
@@ -351,7 +351,7 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
     col_par <- grDevices::grey(2/3, alpha = 1)  # NA hides border/subtitle
   }
   
-  if (alpha < 1){
+  if ((is.na(alpha) == FALSE) && (alpha < 1)){
     col_par <- usecol(col_par, alpha = alpha)  # apply alpha
   }
   
@@ -459,7 +459,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
     col_par <- grDevices::grey(2/3, alpha = 1)  # NA hides border/subtitle
   }
   
-  if (alpha < 1){
+  if ((is.na(alpha) == FALSE) && (alpha < 1)){
     col_par <- usecol(col_par, alpha = alpha)  # apply alpha
   }
   
