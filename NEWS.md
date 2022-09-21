@@ -1,12 +1,11 @@
 
-
 # unikn 0.6.0.9001
 
 This is the development version of the R package **unikn**. 
 
 This version of **unikn** (v0.6.0.9001) revises functionality and fixes some bugs. [2022-09-20]  
 
-<!-- Log of changes.  --> 
+<!-- Log of changes: --> 
 
 Changes since last release: 
 
@@ -20,17 +19,17 @@ Changes since last release:
 
 ## Minor changes 
 
-- Bug fix: Handle `length(pal) == 1` case for all types of `demopal()`.
-- Bug fix: Handle `alpha = NA` case in `demopal()`.
-- Bug fix: Handle `pal = NA` case in `seecol()` and `usecol()`.
+- Increase robustness of `demopal()` function. 
 
 <!-- Blank line.  --> 
 
 
 ## Details 
 
-- Add Zenodo doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191). 
-
+- Bug fix: Handle `length(pal) == 1` case for all types of `demopal()`. 
+- Bug fix: Handle `alpha = NA` case in `demopal()`. 
+- Bug fix: Handle `pal = NA` case in `seecol()` and `usecol()`. 
+- Add Zenodo doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191) for citations. 
 
 <!-- Development version:  --> 
 
@@ -221,6 +220,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-09-20.]
+[File `NEWS.md` updated on 2022-09-21.]
 
 <!-- eof. -->
