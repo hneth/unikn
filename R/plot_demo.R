@@ -30,7 +30,8 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
   n_col <- length(col_pal)
   
   # seed:
-  set_seed(seed)
+  seed <- set_seed(seed)
+  # print(seed)  # replicability / 4debugging
   
   # par: ---- 
   
@@ -178,8 +179,8 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
   }
   
   # seed:
-  set_seed(seed)
-  
+  seed <- set_seed(seed)
+  # print(seed)  # replicability / 4debugging
   
   # par: ---- 
   
@@ -235,10 +236,10 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
   for (i in 1:(n_col - 1)){
     
     # Maximum variability:
-    if (n_col < 5){
+    if (n_col < 10){
       max_var <- 1/5  # constant
     } else {
-      max_var <- 2/i  # mountain range (rugged front, smoother back) 
+      max_var <- 3/(i * 2)  # mountain range (rugged front, smoother back) 
     }
     
     y <- i + round(c(0, cumsum(runif(N, -max_var, +max_var))), 2)
@@ -336,7 +337,8 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
   }
   
   # seed:
-  set_seed(seed)
+  seed <- set_seed(seed)
+  # print(seed)  # replicability / 4debugging
   
   
   # par: ---- 
@@ -447,7 +449,8 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
   n_col <- length(col_pal)
   
   # seed:
-  set_seed(seed)
+  seed <- set_seed(seed)
+  # print(seed)  # replicability / 4debugging
   
   # par: ---- 
   
@@ -551,7 +554,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
 #'   \item \code{main} plot title (on top); 
 #'   \item \code{sub} plot subtitle (on right margin);  
 #'   
-#'   \item \code{seed} A random seed (for reproducible randomness). 
+#'   \item \code{seed} A random seed value (for reproducible randomness). 
 #'   
 #' }
 #' 
