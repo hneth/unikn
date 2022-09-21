@@ -1,13 +1,12 @@
-## color_util.R  |  unikn
-## spds | uni.kn | 2022 09 13
+## util_color.R  |  unikn
+## spds | uni.kn | 2022 09 21
 ## ---------------------------
 
-## Utility functions for converting colors, 
-## and accessing and plotting color palettes. 
+# Color-related utility functions: 
+# Converting and evaluating colors and accessing and plotting color palettes. 
 
 
-## 1. General functions: -------
-
+## A. Color conversion and evaluation functions: -------
 
 # col2rgb in grDevices: ------ 
 
@@ -290,9 +289,9 @@ col_distinct <- function(pal, use_hex = TRUE, use_alpha = FALSE, use_names = FAL
 
 
 
-## 2. Color getting functions: ------
 
 
+## B. Color retrieval functions: ------
 
 # parse_pal(): Parse a palette input ------ 
 
@@ -529,8 +528,9 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
 
 
 
-## 3. Plotting functions: ------
 
+
+## C. Color-related plotting functions: ------
 
 # plot_shape: Plot a shape in a certain color: ------
 
@@ -656,6 +656,7 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
   )
   
 } # plot_col().
+
 
 
 

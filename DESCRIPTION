@@ -19,10 +19,11 @@ Suggests:
     spelling
 Collate: 'color_def_1.R'
          'color_def_2.R'
-         'color_util.R'
+         'util.R'
+         'util_color.R'
+         'util_plot.R'
          'color_fun_1.R'
          'color_fun_2.R'
-         'plot_util.R'
          'plot_box.R'
          'plot_box_calls.R'
          'plot_text.R'
