@@ -4,25 +4,11 @@
 
 ## Demo functions for color palettes.
 
-# (A) Common components: ------
+# (A) Common components: See file plot_util.R --------
 
-# set_seed(): ---- 
+# (B) Individual functions: --------
 
-set_seed <- function(seed){
-  
-  if (is.null(seed) || is.na(seed)){
-    seed <- sample(1:999, size = 1)  # randomize
-  }
-  
-  set.seed(seed)
-  
-} # set_seed().
-
-
-
-# (B) Individual functions: -----
-
-# plot_bar: A bar plot ---- 
+# plot_bar: A bar plot ------ 
 
 plot_bar <- function(pal, col_par = NULL, alpha = 1, 
                      n = 5,  # scaling: number of categories (for each color) 
@@ -166,7 +152,7 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
 
 
 
-# plot_polygon: A polygon/mountain range plot ---- 
+# plot_polygon: A polygon/mountain range plot ------ 
 
 plot_polygon <- function(pal, col_par = NULL, alpha = 1, 
                          n = 100,  # scaling: x-range
@@ -324,7 +310,7 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
 # head(x)
 
 
-# plot_table: An area/mosaic plot ---- 
+# plot_table: An area/mosaic plot ------ 
 
 plot_table <- function(pal, col_par = NULL, alpha = 1, 
                        n = 20,  # scaling: instances per dimension is n * n_col
@@ -432,7 +418,7 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 
 
 
-# plot_scatter: A plot of points ---- 
+# plot_scatter: A plot of points ------ 
 
 #' @importFrom stats runif 
 
@@ -544,9 +530,9 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
 # x
 
 
-# (C) Wrapper function: ------
+# (C) Wrapper function: --------
 
-# demopal: A general function to call specific functions: ---- 
+# demopal: A general function to call specific functions: ------ 
 
 #' Demonstrate a color palette.
 #'
@@ -676,7 +662,7 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, ...){
 } # demopal(). 
 
 
-## ToDo: ------
+## ToDo: --------
 
 # - Add more plot types.
 
