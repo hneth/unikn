@@ -6,9 +6,9 @@
 # Converting and evaluating colors and accessing and plotting color palettes. 
 
 
-## A. Color conversion and evaluation functions: -------
+## 1. Color conversion and evaluation functions: -------
 
-# col2rgb in grDevices: ------ 
+# col2rgb: (in grDevices) ------ 
 
 ## Check: 
 # col2rgb("black", alpha = FALSE)  # Note: alpha is Boolean argument.
@@ -21,7 +21,7 @@
 
 
 
-# get_alpha: Get color transparency / alpha values: ------
+# get_alpha: Get color transparency / alpha values ------
 
 get_alpha <- function(pal){
   
@@ -36,7 +36,7 @@ get_alpha <- function(pal){
 
 
 
-# rgb2hex color conversion function: ------ 
+# rgb2hex: Color conversion function ------ 
 
 rgb2hex <- function(R, G, B) {
   
@@ -50,7 +50,7 @@ rgb2hex <- function(R, G, B) {
 
 
 
-# col2hex color conversion function: ------ 
+# col2hex: Color conversion function ------ 
 
 col2hex <- function(col, alpha = NA, use_alpha = FALSE) {
   
@@ -99,7 +99,7 @@ col2hex <- function(col, alpha = NA, use_alpha = FALSE) {
 
 
 
-# is_hex_col: Helper function to detect HEX-colors: ------ 
+# is_hex_col: Checking for HEX-colors ------ 
 
 is_hex_col <- function(color) {
   
@@ -114,7 +114,7 @@ is_hex_col <- function(color) {
 
 
 
-# is_col: Helper function to detect any color (in an individual character string): ------ 
+# is_col: Checking for any color (in an individual character string) ------ 
 
 is_col <- function(color) {
   
@@ -291,9 +291,10 @@ col_distinct <- function(pal, use_hex = TRUE, use_alpha = FALSE, use_names = FAL
 
 
 
-## B. Color retrieval functions: ------
 
-# parse_pal(): Parse a palette input ------ 
+## 2. Color and color palette retrieval functions: ------
+
+# parse_pal: Parse color palette input ------ 
 
 parse_pal <- function(pal) {
   
@@ -435,7 +436,7 @@ parse_pal <- function(pal) {
 
 
 
-# getpal_key(): Get a palette or list of palettes by keyword: -------
+# getpal_key: Get a color palette or list of palettes by keyword -------
 
 getpal_key <- function(pal = "all", n = "all", alpha = NA) {
   
@@ -526,136 +527,6 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
   
 } # getpal_key(). 
 
-
-
-
-
-## C. Color-related plotting functions: ------
-
-# plot_shape: Plot a shape in a certain color: ------
-
-plot_shape <- function(pos_x, pos_y,  # midpoint of shape  
-                       col_fill,      # fill color  
-                       col_brd = NA,
-                       xlen = 1, ylen = 1,  # height of axis lengths  
-                       shape = "rect",      # shape 
-                       ...  # other graphics parameters (e.g., lwd): passed to symbols() 
-) {
-  
-  # Prepare inputs for vectorized solution: -----
-  
-  len_max <- max(c(length(pos_y), length(pos_x)))  # get length of longer position vector. 
-  
-  # Recycle all vectors to length of longest vector:
-  pos_x <- rep(pos_x, length.out = len_max)
-  pos_y <- rep(pos_y, length.out = len_max)
-  xlen  <- rep(xlen,  length.out = len_max)
-  ylen  <- rep(ylen,  length.out = len_max)
-  
-  
-  # Rectangles: ----- 
-  
-  if (shape == "rect") {
-    
-    symbols(x = pos_x, y = pos_y, 
-            rectangles = cbind(xlen, ylen),  # as matrix: width and height of rectangles
-            add = TRUE,
-            inches = FALSE,  # use unit on x axis
-            fg = col_brd,    # line color
-            bg = col_fill,   # filling
-            ...              # other graphics parameters (e.g., lwd)
-    )
-    
-  }
-  
-  # Circles: ----- 
-  
-  if (shape == "circle") {
-    
-    symbols(x = pos_x, y = pos_y, 
-            circles = xlen/2,  # as vector (only using xlen): radii of circles
-            add = TRUE, 
-            inches = FALSE,  # use unit on x axis 
-            fg = col_brd,    # line color
-            bg = col_fill,   # filling
-            ...              # graphics parameters (e.g., lwd)
-    )
-    
-  } 
-  
-} # plot_shape().
-
-
-
-# plot_col: Plot a vector of colors (as circles or rectangles): -------
-
-plot_col <- function(x,         # a *vector* of colors to be plotted. 
-                     ypos = 1,  # position on y axis. 
-                     shape = "rect",
-                     xlen = 1, ylen = 1, 
-                     distance = 0,     # distance between shapes (to be subtracted from size). 
-                     plot.new = TRUE,  # TODO: Set to FALSE once done! 
-                     ...               # other graphics parameters (e.g., lwd)
-) {
-  
-  # 1. Handle inputs: -----
-  
-  # Key parameters:
-  len_x <- length(x)  # length of vector x (i.e., nr. of colors to plot)
-  
-  # Should a new plot be created? 
-  if (plot.new) {
-    
-    if (distance > 0) {
-      xlim <- c(0 - distance * len_x, len_x * (1 + distance))
-    } else {
-      xlim <- c(0, len_x)
-    }
-    
-    plot(x = 0, type = "n", xlim = xlim, ylim = c(0, 2))  # create an empty plot.
-    
-  } else {
-    
-    # Check for graphic device: 
-    if (dev.cur() == 1) {
-      stop("No graphic device to be plotted on.  Please open a plot or set plot.new to 'TRUE'.")
-    }
-    
-  }
-  
-  
-  # 2. Position parameters: -----
-  
-  # Shape centers:
-  xpos <- (1:len_x) - 0.5  # subtracting 0.5 assumes a shape width of 1.
-  
-  # ToDo: Allow scaling shape widths to fill a FIXED total width 
-  #       (e.g., each shape with a width of 10/len_x).
-  
-  # Adjust xpos by distance:
-  mid <- mean(xpos)  # get midpoint. 
-  add <- cumsum(rep(distance, sum(xpos < mid)))  # values to be added to the 1st half 
-  sub <- add * (-1)                              # values to be subtracted from the 2nd half 
-  xpos <- xpos + if (len_x %% 2 == 0) {c(rev(sub), add)} else  # even numbers: no center position needed
-  {c(rev(sub), 0, add)}                                      # odd numbers: include a middle (0)
-  
-  # Recycle other constants (to len_x):
-  ypos <- rep(ypos, length.out = len_x) 
-  xlen <- rep(xlen, length.out = len_x)
-  ylen <- rep(ylen, length.out = len_x)
-  
-  
-  # 3. Plot shapes: ------ 
-  
-  plot_shape(pos_x = xpos,  # x positions of the shapes. 
-             pos_y = ypos,  # position in y dimension (given). 
-             xlen = xlen, ylen = ylen,  # length of the axes. 
-             col_fill = unlist(x),  # filling color. 
-             shape = shape,  # shape parameter. 
-             ...  # graphics parameters (e.g., lwd)
-  )
-  
-} # plot_col().
 
 
 

@@ -8,51 +8,89 @@
 ## Utility functions for plotting: -------- 
 
 
-# plot_mar: Set plotting margins: ------
+# plot_col: Plot a vector of colors (as circles or rectangles) -------
 
-plot_mar <- function(mar_all = 0, oma_all = 0){
+plot_col <- function(x,         # a *vector* of colors to be plotted. 
+                     ypos = 1,  # position on y axis. 
+                     shape = "rect",
+                     xlen = 1, ylen = 1, 
+                     distance = 0,     # distance between shapes (to be subtracted from size). 
+                     plot.new = TRUE,  # TODO: Set to FALSE once done! 
+                     ...               # other graphics parameters (e.g., lwd)
+) {
   
-  # Record graphical parameters (par):
-  opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
-  on.exit(par(opar)) # restore original settings
+  # 1. Handle inputs: -----
   
-  ## Plotting area: ----- 
+  # Key parameters:
+  len_x <- length(x)  # length of vector x (i.e., nr. of colors to plot)
   
-  ## Margins (in lines): 
-  # mar_all <- 0  # all inner
-  # oma_all <- 0  # all outer
+  # Should a new plot be created? 
+  if (plot.new) {
+    
+    if (distance > 0) {
+      xlim <- c(0 - distance * len_x, len_x * (1 + distance))
+    } else {
+      xlim <- c(0, len_x)
+    }
+    
+    plot(x = 0, type = "n", xlim = xlim, ylim = c(0, 2))  # create an empty plot.
+    
+  } else {
+    
+    # Check for graphic device: 
+    if (dev.cur() == 1) {
+      stop("No graphic device to be plotted on.  Please open a plot or set plot.new to 'TRUE'.")
+    }
+    
+  }
   
-  par(mar = c(0, 0, 0, 0) + mar_all)      # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
-  par(oma = c(0, 0, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
   
-  ## Plot:
-  plot(0, 0, type = "p")
-  grid()
-  points(x = 0, y = 0, pch = 3, cex = 2, col = "forestgreen")
-  text(x = 0, y = 0, labels = "Origin", cex = 1, font = 1, pos = 4, col = "firebrick")
+  # 2. Position parameters: -----
   
-  # Return:
-  invisible()
+  # Shape centers:
+  xpos <- (1:len_x) - 0.5  # subtracting 0.5 assumes a shape width of 1.
   
-} # plot_mar().
+  # ToDo: Allow scaling shape widths to fill a FIXED total width 
+  #       (e.g., each shape with a width of 10/len_x).
+  
+  # Adjust xpos by distance:
+  mid <- mean(xpos)  # get midpoint. 
+  add <- cumsum(rep(distance, sum(xpos < mid)))  # values to be added to the 1st half 
+  sub <- add * (-1)                              # values to be subtracted from the 2nd half 
+  xpos <- xpos + if (len_x %% 2 == 0) {c(rev(sub), add)} else  # even numbers: no center position needed
+  {c(rev(sub), 0, add)}                                      # odd numbers: include a middle (0)
+  
+  # Recycle other constants (to len_x):
+  ypos <- rep(ypos, length.out = len_x) 
+  xlen <- rep(xlen, length.out = len_x)
+  ylen <- rep(ylen, length.out = len_x)
+  
+  
+  # 3. Plot shapes: ------ 
+  
+  plot_shape(pos_x = xpos,  # x positions of the shapes. 
+             pos_y = ypos,  # position in y dimension (given). 
+             xlen = xlen, ylen = ylen,  # length of the axes. 
+             col_fill = unlist(x),  # filling color. 
+             shape = shape,  # shape parameter. 
+             ...  # graphics parameters (e.g., lwd)
+  )
+  
+} # plot_col().
 
-## Check:
 
-# par("mar")  # => # 5.1 4.1 4.1 2.1 (default)
-# par("oma")  # => # 0   0   0   0   (default)
 
-## Outside of function:
-# plot(0, 0, type = "p")
-# grid()
-# points(x = 0, y = 0, pch = 3, cex = 2, col = "forestgreen")
-# text(x = 0, y = 0, labels = "Origin", cex = 1, font = 1, pos = 4, col = "firebrick")
+# plot_exists: Check whether a plot exists ------ 
 
-## Inside of function:
-# plot_mar()
+plot_exists <- function(){
+  
+  if (is.null(dev.list())) {FALSE} else {TRUE}
+  
+} # plot_exists().
 
 
 
-# plot_grid: Plot a grid of points (to position objects): ------ 
+# plot_grid: Plot a grid of points (to position objects) ------ 
 
 plot_grid <- function(col = grey(0, .50)){
   
@@ -140,7 +178,106 @@ plot_grid <- function(col = grey(0, .50)){
 
 
 
-# layout_y: Compute y-coordinates given y range, heights of objects, and layout_type options: ------
+# plot_mar: Set plotting margins ------
+
+plot_mar <- function(mar_all = 0, oma_all = 0){
+  
+  # Record graphical parameters (par):
+  opar <- par(no.readonly = TRUE)  # all par settings that can be changed.
+  on.exit(par(opar)) # restore original settings
+  
+  ## Plotting area: ----- 
+  
+  ## Margins (in lines): 
+  # mar_all <- 0  # all inner
+  # oma_all <- 0  # all outer
+  
+  par(mar = c(0, 0, 0, 0) + mar_all)      # margins; default: par("mar") = 5.1 4.1 4.1 2.1.
+  par(oma = c(0, 0, 0, 0) + oma_all)  # outer margins; default: par("oma") = 0 0 0 0.
+  
+  ## Plot:
+  plot(0, 0, type = "p")
+  grid()
+  points(x = 0, y = 0, pch = 3, cex = 2, col = "forestgreen")
+  text(x = 0, y = 0, labels = "Origin", cex = 1, font = 1, pos = 4, col = "firebrick")
+  
+  # Return:
+  invisible()
+  
+} # plot_mar().
+
+## Check:
+
+# par("mar")  # => # 5.1 4.1 4.1 2.1 (default)
+# par("oma")  # => # 0   0   0   0   (default)
+
+## Outside of function:
+# plot(0, 0, type = "p")
+# grid()
+# points(x = 0, y = 0, pch = 3, cex = 2, col = "forestgreen")
+# text(x = 0, y = 0, labels = "Origin", cex = 1, font = 1, pos = 4, col = "firebrick")
+
+## Inside of function:
+# plot_mar()
+
+
+
+# plot_shape: Plot a shape in some color ------
+
+plot_shape <- function(pos_x, pos_y,  # midpoint of shape  
+                       col_fill,      # fill color  
+                       col_brd = NA,
+                       xlen = 1, ylen = 1,  # height of axis lengths  
+                       shape = "rect",      # shape 
+                       ...  # other graphics parameters (e.g., lwd): passed to symbols() 
+) {
+  
+  # Prepare inputs for vectorized solution: -----
+  
+  len_max <- max(c(length(pos_y), length(pos_x)))  # get length of longer position vector. 
+  
+  # Recycle all vectors to length of longest vector:
+  pos_x <- rep(pos_x, length.out = len_max)
+  pos_y <- rep(pos_y, length.out = len_max)
+  xlen  <- rep(xlen,  length.out = len_max)
+  ylen  <- rep(ylen,  length.out = len_max)
+  
+  
+  # Rectangles: ----- 
+  
+  if (shape == "rect") {
+    
+    symbols(x = pos_x, y = pos_y, 
+            rectangles = cbind(xlen, ylen),  # as matrix: width and height of rectangles
+            add = TRUE,
+            inches = FALSE,  # use unit on x axis
+            fg = col_brd,    # line color
+            bg = col_fill,   # filling
+            ...              # other graphics parameters (e.g., lwd)
+    )
+    
+  }
+  
+  # Circles: ----- 
+  
+  if (shape == "circle") {
+    
+    symbols(x = pos_x, y = pos_y, 
+            circles = xlen/2,  # as vector (only using xlen): radii of circles
+            add = TRUE, 
+            inches = FALSE,  # use unit on x axis 
+            fg = col_brd,    # line color
+            bg = col_fill,   # filling
+            ...              # graphics parameters (e.g., lwd)
+    )
+    
+  } 
+  
+} # plot_shape().
+
+
+
+# layout_y: Compute y-coordinates given y range, heights of objects, and layout_type options ------
 
 layout_y <- function(y_top, y_bot, height_seq, layout_type) {
   
@@ -276,16 +413,6 @@ layout_y <- function(y_top, y_bot, height_seq, layout_type) {
 # layout_y(y_top = 1, y_bot = 0, height_seq = rep(.10, 5), layout_type = c(.1, .2, .3, .4, 99)) # fixed steps as vector (additional value ignored) 
 #
 # layout_y(y_top = 1, y_bot = 0, height_seq = rep(.10, 5), layout_type = "odd")  # warning and return 0.
-
-
-
-# plot_exists: Check whether a plot exists ------ 
-
-plot_exists <- function(){
-  
-  if (is.null(dev.list())) {FALSE} else {TRUE}
-  
-} # plot_exists().
 
 
 
