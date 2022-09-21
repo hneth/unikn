@@ -42,7 +42,7 @@ monotonic <-function(v) {
 
 # set_seed: Set seed or randomize ------ 
 
-set_seed <- function(seed){
+set_seed <- function(seed = NULL){
   
   if (is.null(seed) || is.na(seed)){
     seed <- sample(1:99999, size = 1)  # randomize
