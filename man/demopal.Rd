@@ -40,7 +40,7 @@ Common arguments include:
   \item \code{main} plot title (on top); 
   \item \code{sub} plot subtitle (on right margin);  
   
-  \item \code{seed} A random seed (for reproducible randomness). 
+  \item \code{seed} A random seed value (for reproducible randomness). 
   
 }
 
