@@ -20,16 +20,19 @@ Changes since last release:
 ## Minor changes 
 
 - Increase robustness of `demopal()` function. 
+- Bug fixes: 
+    - Handle `length(pal) == 1` case for all types of `demopal()`. 
+    - Handle `alpha = NA` case in `demopal()`. 
+    - Handle `pal = NA` case in `seecol()` and `usecol()`. 
 
 <!-- Blank line.  --> 
 
 
 ## Details 
 
-- Bug fix: Handle `length(pal) == 1` case for all types of `demopal()`. 
-- Bug fix: Handle `alpha = NA` case in `demopal()`. 
-- Bug fix: Handle `pal = NA` case in `seecol()` and `usecol()`. 
+- Reorganize files of utility functions.
 - Add Zenodo doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191) for citations. 
+
 
 <!-- Development version:  --> 
 
