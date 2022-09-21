@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2022 09 20
+## spds | uni.kn | 2022 09 21
 ## ---------------------------
 
 ## Demo functions for color palettes.
@@ -627,11 +627,20 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, ...){
   
   plot_types <- c("bar", "mosaic", "polygon", "scatter")  # as constant
   
-  # type: 
+  # type:
   if (is.character(type)){
     
-    if (type %in% plot_types){
-      type <- which(type == plot_types)
+    # Increase robustness:
+    type_1_3 <- substr(tolower(type), 1, 3)
+    ptyp_1_3 <- substr(plot_types, 1, 3)
+    
+    # Alternative names: 
+    if (type_1_3 == "are") { type_1_3 <- "mos" }  # "area"  = "mosaic"    
+    if (type_1_3 == "tab") { type_1_3 <- "mos" }  # "table" = "mosaic"
+    if (type_1_3 == "poi") { type_1_3 <- "sca" }  # "point" = "scatter"
+    
+    if (type_1_3 %in% ptyp_1_3){
+      type <- which(type_1_3 == ptyp_1_3)  # numeric
     } else {
       plot_types_q <- add_quotes(plot_types)
       message(paste("The plot type", add_quotes(type), "is not in", plot_types_q))
