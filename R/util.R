@@ -45,10 +45,12 @@ monotonic <-function(v) {
 set_seed <- function(seed){
   
   if (is.null(seed) || is.na(seed)){
-    seed <- sample(1:999, size = 1)  # randomize
+    seed <- sample(1:99999, size = 1)  # randomize
   }
   
   set.seed(seed)
+  
+  return(invisible(seed))
   
 } # set_seed().
 
