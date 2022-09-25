@@ -777,12 +777,24 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, ...){
     ptyp_1_3 <- substr(plot_types, 1, 3)
     
     # Alternative names: 
-    if (type_1_3 == "are") { type_1_3 <- "mos" }  # "area"  = "mosaic"    
-    if (type_1_3 == "tab") { type_1_3 <- "mos" }  # "table" = "mosaic"
-    if (type_1_3 == "poi") { type_1_3 <- "sca" }  # "point" = "scatter"
-    if (type_1_3 == "ncu") { type_1_3 <- "cur" }  # "ncurve" = "curve"
-    if (type_1_3 == "dis") { type_1_3 <- "cur" }  # "distribution" = "curve"
-    if (type_1_3 == "his") { type_1_3 <- "cur" }  # "histogram" = "curve"
+    
+    # "mosaic":
+    if (type_1_3 == "are") { type_1_3 <- "mos" }  # "area"  
+    if (type_1_3 == "tab") { type_1_3 <- "mos" }  # "table"
+    
+    # "polygon":
+    if (type_1_3 == "mou") { type_1_3 <- "pol" }  # "mountain"
+    if (type_1_3 == "rid") { type_1_3 <- "pol" }  # "ridge"
+    
+    # "curve":
+    if (type_1_3 == "dis") { type_1_3 <- "cur" }  # "distribution"
+    if (type_1_3 == "his") { type_1_3 <- "cur" }  # "histogram"
+    if (type_1_3 == "ncu") { type_1_3 <- "cur" }  # "ncurve"
+    if (type_1_3 == "nor") { type_1_3 <- "cur" }  # "normal"
+    if (type_1_3 == "wav") { type_1_3 <- "cur" }  # "wave"
+    
+    # "scatter":
+    if (type_1_3 == "poi") { type_1_3 <- "sca" }  # "point"
     
     if (type_1_3 %in% ptyp_1_3){
       type <- which(type_1_3 == ptyp_1_3)  # numeric
