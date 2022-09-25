@@ -711,6 +711,12 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
 #'   
 #' }
 #' 
+#' The fit between a color palette \code{pal} and plot \code{type} 
+#' depends on the uses of colors in a plot. 
+#' For instance, overlaps of transparent color areas can be evaluated 
+#' with plot \code{type = "curve"} or plot \code{type = "scatter"} 
+#' (and \code{0 < alpha < 1}). 
+#' 
 #' Some functions additionally accept type-specific arguments 
 #' (e.g., \code{beside}, \code{horiz}, and \code{as_prop}, for plot \code{type = "bar"}, 
 #' and \code{cex} for plot \code{type = "scatter"}). 
