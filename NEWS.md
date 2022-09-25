@@ -1,5 +1,5 @@
 
-# unikn 0.6.0.9002
+# unikn 0.6.0.9003
 
 This is the development version of the R package **unikn**. 
 
@@ -12,7 +12,8 @@ Changes since last release:
 
 ## Major changes 
 
-- None yet. 
+- Add a `type = 'curve'` option to `demopal()` for evaluating transparent color palettes. 
+
 
 <!-- Blank line.  --> 
 
@@ -223,6 +224,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-09-24.]
+[File `NEWS.md` updated on 2022-09-25.]
 
 <!-- eof. -->
