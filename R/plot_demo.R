@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2022 09 21
+## spds | uni.kn | 2022 09 25
 ## ---------------------------
 
 ## Demo functions for color palettes.
@@ -22,8 +22,6 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
   # Prepare: ---- 
   
   # Parameters currently fixed:
-  # axes <- FALSE
-  # cex?
   
   # colors:
   col_pal <- usecol(pal = pal, alpha = alpha)
@@ -113,7 +111,7 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
   barplot(mx, 
           beside = beside, horiz = horiz, 
           col = col_pal, border = col_par, density = NA,
-          # col.axis = col_par, col.lab = col_par, 
+          axes = plot_axes(col_par), # col.axis = col_par,
           # names.arg = names(mx), 
           # legend = TRUE, xlim = c(0, x_max),  # if (legend)
           main = main
@@ -153,6 +151,155 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
 
 
 
+# plot_ncurve: Plot overlapping normal curves ------
+
+plot_ncurves <- function(pal, col_par = NULL, alpha = .50, 
+                         n = 100,  # scaling: x_max value 
+                         # args with defaults:
+                         main = NULL,
+                         sub = NULL, 
+                         pal_name = NULL, 
+                         seed = NULL, 
+                         ...
+){
+  
+  # Prepare: ---- 
+  
+  # Parameters currently fixed:
+  
+  # Colors:
+  col_pal <- usecol(pal = pal, alpha = alpha)
+  n_col <- length(col_pal)
+  
+  # Seed:
+  set_seed(seed)
+  
+  
+  # par: ---- 
+  
+  opar <- par(no.readonly = TRUE)
+  
+  if (is.null(col_par)){ # set default:
+    col_par <- grDevices::grey(2/3, alpha = 1)  # NA hides border/subtitle
+  }
+  
+  if (alpha < 1){
+    col_par <- usecol(col_par, alpha = alpha)  # apply alpha
+  }
+  
+  par(col = col_par)
+  
+  par(mar = c(4, 3, 3, 2) + 0.1) # default: c(5, 4, 4, 2) + 0.1
+  
+  
+  # Create data: ---- 
+  
+  # Dimensions: 
+  x_min <- 0
+  x_max <- n
+  
+  delta_x <- abs(x_max - x_min)  
+  n_steps <- max(delta_x + 1, 11)
+  
+  # Curve parameters:
+  mn <- runif(n_col, x_min + n/10, x_max - n/10)
+  sd <- runif(n_col, n/10, n * 3/10)
+  
+  # Hack: 1st curve has medium mean and lowest sd/maximum height:
+  mn[1] <- runif(1, x_min + n * 3/10, x_max - n * 3/10)
+  sd[1] <- n/10  # min sd/max height
+  
+  mn <- round(mn, digits = 2)
+  sd <- round(sd, digits = 2)  
+  
+  df <- data.frame(mn = mn,
+                   sd = sd)
+  
+  # Plot: ----
+  
+  # Color:
+  col_brd <- col_par 
+  
+  # Loop: 1 curve per n_col:
+  for (i in 1:n_col){ 
+    
+    # Polygon boundaries:
+    x_upper <- seq(from = x_min, to = x_max, length.out = n_steps)
+    x_lower <- rev(x_upper)
+    y_upper <- dnorm(x_upper, mean = mn[i], sd = sd[i])
+    y_lower <- rep(0, length(x_lower))
+    
+    xxp <- c(x_lower, x_upper)
+    yyp <- c(y_lower, y_upper)
+    
+    if (i == 1) { # first curve: 
+      
+      # Initialize plot:
+      plot(0, type = "n", 
+           xlim = c(min(xxp), max(xxp)), ylim = c(min(yyp), max(yyp, .05)), 
+           axes = plot_axes(col_par), # col.axis = col_par,
+           xlab = NA, ylab = NA,      # cex.axis = cex_lbl
+           main = NA
+      )
+      
+      # Axes:
+      # if (axes == FALSE) {
+      #   
+      #   x_seq <- seq(x_min, x_max, length.out = 11)
+      #   x_lbl <- paste0(x_seq) 
+      #   y_seq <- seq(min(yyp), max(yyp), length.out = 5)
+      #   y_lbl <- paste0(round(y_seq, 2))
+      #   
+      #   axis(side = 1, at = x_seq, labels = x_lbl)  # x at bottom
+      #   axis(side = 2, at = y_seq, labels = y_lbl)  # y at left
+      #   
+      # }
+      
+      # Titles:
+      if (is.null(main)){ # default title:
+        plot_type <- "curve"  # "normal curve"
+        main <- paste("A", plot_type, "plot")
+      }
+      
+      title(main = main)
+      
+      if (is.null(sub)){ # default subtitle:
+        if (is.null(pal_name)){
+          pal_name <- deparse(substitute(pal))  # get object name (of input pal)
+        }
+        sub <- paste("Illustrating color palette", pal_name)
+      }
+      mtext(sub, side = 1, line = 2, adj = 1, cex = .95)
+      
+      
+      # Draw first polygon:
+      polygon(xxp, yyp, col = col_pal[i], border = col_brd, ...)  
+      
+    } else {
+      
+      # Drow polygons 2 to n_col:
+      polygon(xxp, yyp, col = col_pal[i], border = col_brd, ...) 
+      
+    }
+    
+  } # for i.
+  
+  
+  # Output: ---- 
+  
+  on.exit(par(opar))
+  
+  # print(df) # as side effect / 4debugging
+  
+  return(invisible(df))
+  
+} # plot_ncurves().
+
+# # Check: 
+# plot_ncurves(c("steelblue", "gold", "forestgreen", "firebrick"), alpha = 2/3)
+# plot_ncurves(pal_unikn_pref, col_par = NA, alpha = 1/3)
+
+
 # plot_polygon: A polygon/mountain range plot ------ 
 
 plot_polygon <- function(pal, col_par = NULL, alpha = 1, 
@@ -166,7 +313,6 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
   # Prepare: ---- 
   
   # Parameters currently fixed:
-  axes <- FALSE
   
   # colors:
   col_pal <- usecol(pal = pal, alpha = alpha)
@@ -229,7 +375,9 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
   plot(0, type = "n",     # (a) empty plot
        # x = dt, col = col_pal,  # (b) generic plot
        xlim = c(x_min, x_max), ylim = c(y_min, y_max),
-       main = NA, xlab = NA, ylab = NA
+       axes = plot_axes(col_par), # col.axis = col_par,
+       xlab = NA, ylab = NA,
+       main = NA
   )
   
   # Create n_col - 1 non-overlapping lines in range:
@@ -324,9 +472,8 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
   # Prepare: ---- 
   
   # Parameters currently fixed:
-  axes <- FALSE
   
-  # colors:
+  # Colors:
   col_pal <- usecol(pal = pal, alpha = alpha)
   n_col <- length(col_pal)
   
@@ -378,8 +525,9 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
   plot(#0, 0, type = "n",   # (a) empty plot
     x = tb, col = col_pal,  # (b) generic plot
     border = col_par, 
-    main = NA, xlab = NA, ylab = NA
-  )
+    # axes = plot_axes(col_par), # col.axis = col_par,
+    xlab = NA, ylab = NA,
+    main = NA)
   
   # Background rectangle (if axes == FALSE):
   bwd <- .06  # border width
@@ -392,6 +540,7 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
     plot_type <- "mosaic" # "table"
     main <- paste("A", plot_type, "plot")
   }
+  
   title(main = main)
   
   if (is.null(sub)){ # default subtitle:
@@ -436,7 +585,6 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
   # Prepare: ---- 
   
   # Parameters currently fixed:
-  axes <- TRUE
   
   # Defaults:
   if (is.null(cex)){
@@ -488,8 +636,10 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 1,
   plot(#0, 0, type = "n",  # (a) empty plot
     x = df$x, y = df$y, type = "p", pch = 20, col = col_pal, cex = cex, # (b) generic plot
     xlim = c(x_min, x_max), ylim = c(y_min, y_max),  
-    axes = axes, col.axis = col_par,  
-    xlab = NA, ylab = NA)
+    axes = plot_axes(col_par), # col.axis = col_par,
+    xlab = NA, ylab = NA,
+    main = NA
+  )
   
   # # Background rectangle (if axes == FALSE):
   # bwd <- .08  # border width
@@ -614,7 +764,7 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, ...){
   
   if (all(is.na(pal))) { return(NA) }  # handle pal = NA case
   
-  plot_types <- c("bar", "mosaic", "polygon", "scatter")  # as constant
+  plot_types <- c("bar", "curve", "mosaic", "polygon", "scatter")  # as constant
   
   # type:
   if (is.character(type)){
@@ -627,6 +777,9 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, ...){
     if (type_1_3 == "are") { type_1_3 <- "mos" }  # "area"  = "mosaic"    
     if (type_1_3 == "tab") { type_1_3 <- "mos" }  # "table" = "mosaic"
     if (type_1_3 == "poi") { type_1_3 <- "sca" }  # "point" = "scatter"
+    if (type_1_3 == "ncu") { type_1_3 <- "cur" }  # "ncurve" = "curve"
+    if (type_1_3 == "dis") { type_1_3 <- "cur" }  # "distribution" = "curve"
+    if (type_1_3 == "his") { type_1_3 <- "cur" }  # "histogram" = "curve"
     
     if (type_1_3 %in% ptyp_1_3){
       type <- which(type_1_3 == ptyp_1_3)  # numeric
@@ -650,11 +803,13 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, ...){
   switch(type,
          # 1: bar: 
          plot_bar(pal = pal, pal_name = pal_name, ...), 
-         # 2: mosaic/table:
+         # 2. curves/ncurves:
+         plot_ncurves(pal = pal, pal_name = pal_name, ...), 
+         # 3: mosaic/table:
          plot_table(pal = pal, pal_name = pal_name, ...), 
-         # 3: polygon:
+         # 4: polygon:
          plot_polygon(pal = pal, pal_name = pal_name, ...), 
-         # 4: scatter/point:
+         # 5: scatter/point:
          plot_scatter(pal = pal, pal_name = pal_name, ...), 
          # else:
          plot_polygon(pal = pal, pal_name = pal_name, ...)
