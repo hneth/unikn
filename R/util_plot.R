@@ -1,11 +1,32 @@
 ## util_plot.R | unikn
-## spds | uni.kn |  2020 09 21
+## spds | uni.kn |  2020 09 25
 ## ---------------------------
 
 # Plot-related utility functions (mostly for internal use, not exported).
 
 
 ## Utility functions for plotting: -------- 
+
+
+
+# plot_axes: Check whether axes are desired: ------
+
+# Goal: In demopal() plots: Hide axes when col_par has been set to NA:
+# Return: Boolean/logical value.
+
+plot_axes <- function(col_par){
+  
+  if (!is.null(col_par) && is.na(col_par)) { # if col_par has been set to NA: 
+    
+    FALSE  # w/o axes 
+    
+  } else {
+    
+    TRUE # default
+    
+  }
+  
+} # plot_axes().
 
 
 # plot_col: Plot a vector of colors (as circles or rectangles) -------
