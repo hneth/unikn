@@ -153,6 +153,9 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
 
 # plot_ncurve: Plot overlapping normal curves ------
 
+#' @importFrom stats runif 
+#' @importFrom stats dnorm
+
 plot_ncurves <- function(pal, col_par = NULL, alpha = .50, 
                          n = 100,  # scaling: x_max value 
                          # args with defaults:
