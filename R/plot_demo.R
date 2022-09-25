@@ -144,7 +144,7 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
 } # plot_bar().
 
 # # Check:
-# plot_bar(c("firebrick", "gold", "steelblue", "forestgreen"), col_par = "grey")
+# plot_bar(c("firebrick", "gold", "steelblue", "forestgreen"), col_par = "black")
 # plot_bar(c("firebrick", "gold", "steelblue", "forestgreen"),
 #          n = 7, beside = F, horiz = F, as_prop = F, seed = 7)
 # plot_bar(pal_unikn_pref, n = 4, beside = F, horiz = T, as_prop = T, col_par = NA)
@@ -156,7 +156,7 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
 #' @importFrom stats runif 
 #' @importFrom stats dnorm
 
-plot_ncurves <- function(pal, col_par = NULL, alpha = .50, 
+plot_ncurves <- function(pal, col_par = NULL, alpha = 2/3, 
                          n = 100,  # scaling: x_max value 
                          # args with defaults:
                          main = NULL,
@@ -186,7 +186,7 @@ plot_ncurves <- function(pal, col_par = NULL, alpha = .50,
     col_par <- grDevices::grey(2/3, alpha = 1)  # NA hides border/subtitle
   }
   
-  if (alpha < 1){
+  if ((is.na(alpha) == FALSE) && (alpha < 1)){
     col_par <- usecol(col_par, alpha = alpha)  # apply alpha
   }
   
@@ -205,11 +205,11 @@ plot_ncurves <- function(pal, col_par = NULL, alpha = .50,
   n_steps <- max(delta_x + 1, 11)
   
   # Curve parameters:
-  mn <- runif(n_col, x_min + n/10, x_max - n/10)
-  sd <- runif(n_col, n/10, n * 3/10)
+  mn <- runif(n_col, min = x_min + n/10, max = x_max - n/10)
+  sd <- runif(n_col, min = n/10, max = n * 3/10)
   
   # Hack: 1st curve has medium mean and lowest sd/maximum height:
-  mn[1] <- runif(1, x_min + n * 3/10, x_max - n * 3/10)
+  mn[1] <- runif(1, min = (x_min + n * .20), max = (x_max - n * .20))
   sd[1] <- n/10  # min sd/max height
   
   mn <- round(mn, digits = 2)
@@ -239,7 +239,7 @@ plot_ncurves <- function(pal, col_par = NULL, alpha = .50,
       
       # Initialize plot:
       plot(0, type = "n", 
-           xlim = c(min(xxp), max(xxp)), ylim = c(min(yyp), max(yyp, .05)), 
+           xlim = c(min(xxp), max(xxp)), ylim = c(min(yyp), max(yyp)), 
            axes = plot_axes(col_par), # col.axis = col_par,
            xlab = NA, ylab = NA,      # cex.axis = cex_lbl
            main = NA
@@ -576,7 +576,7 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 
 #' @importFrom stats runif 
 
-plot_scatter <- function(pal, col_par = NULL, alpha = 1, 
+plot_scatter <- function(pal, col_par = NULL, alpha = 2/3, 
                          n = 500,     # scaling: number of points
                          cex = NULL,  # type-specific parameter(s): point size
                          # args with defaults:
