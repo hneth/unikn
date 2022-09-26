@@ -1,5 +1,5 @@
 ## util_plot.R | unikn
-## spds | uni.kn |  2020 09 25
+## spds | uni.kn |  2020 09 26
 ## ---------------------------
 
 # Plot-related utility functions (mostly for internal use, not exported).
@@ -295,6 +295,7 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of shape
   } 
   
 } # plot_shape().
+
 
 
 
