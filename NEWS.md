@@ -224,6 +224,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-09-25.]
+[File `NEWS.md` updated on 2022-09-27.]
 
 <!-- eof. -->

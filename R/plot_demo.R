@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2022 09 26
+## spds | uni.kn | 2022 09 27
 ## ---------------------------
 
 ## Demo functions for color palettes.
