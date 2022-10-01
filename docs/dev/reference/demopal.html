@@ -18,7 +18,7 @@ to illustrate a color palette pal."><meta property="og:image" content="https://h
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.0.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.0.9004</span>
       </span>
     </div>
 
@@ -120,8 +120,13 @@ Common arguments include:</p>
 <li><p><code>n</code> A scaling parameter (for random data generation);</p></li>
 <li><p><code>main</code> plot title (on top);</p></li>
 <li><p><code>sub</code> plot subtitle (on right margin);</p></li>
-<li><p><code>seed</code> A random seed (for reproducible randomness).</p></li>
-</ul><p>Some functions additionally accept type-specific arguments 
+<li><p><code>seed</code> A random seed value (for reproducible randomness).</p></li>
+</ul><p>The fit between a color palette <code>pal</code> and plot <code>type</code> 
+depends on the uses of colors in a plot. 
+For instance, overlaps of transparent color areas can be evaluated 
+with plot <code>type = "curve"</code> or plot <code>type = "scatter"</code> 
+(and <code>0 &lt; alpha &lt; 1</code>).</p>
+<p>Some functions additionally accept type-specific arguments 
 (e.g., <code>beside</code>, <code>horiz</code>, and <code>as_prop</code>, for plot <code>type = "bar"</code>, 
 and <code>cex</code> for plot <code>type = "scatter"</code>).</p>
 <p>The type-specific functions usually generate some random data 
