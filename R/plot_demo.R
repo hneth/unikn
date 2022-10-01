@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2022 09 27
+## spds | uni.kn | 2022 10 01
 ## ---------------------------
 
 ## Demo functions for color palettes.
@@ -637,7 +637,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
   # Main plot: ---- 
   
   plot(#0, 0, type = "n",  # (a) empty plot
-    x = df$x, y = df$y, type = "p", pch = 20, col = col_pal, cex = cex, # (b) generic plot
+    x = df$x, y = df$y, type = "p", pch = 21, bg = col_pal, col = col_par, cex = cex, # (b) generic plot
     xlim = c(x_min, x_max), ylim = c(y_min, y_max),  
     axes = plot_axes(col_par), # col.axis = col_par,
     xlab = NA, ylab = NA,
@@ -684,6 +684,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
 # plot_scatter(pal_unikn, n = 800, col_par = NA)
 # x <- plot_scatter(pal_unikn_pref, alpha = 2/3, seed = 101)
 # x
+
 
 
 # (C) Wrapper function: --------
