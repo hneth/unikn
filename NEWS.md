@@ -1,5 +1,5 @@
 
-# unikn 0.6.0.9003
+# unikn 0.6.0.9004
 
 This is the development version of the R package **unikn**. 
 
@@ -20,7 +20,10 @@ Changes since last release:
 
 ## Minor changes 
 
-- Increase robustness of `demopal()` function. 
+- Adjust `demopal()` function: 
+    - Align point colors for `type = "scatter"` with other options. 
+    - Increase robustness by allowing alternative `type` inputs. 
+
 - Bug fixes: 
     - Handle `length(pal) == 1` case for all types of `demopal()`. 
     - Handle `alpha = NA` case in `demopal()`. 
@@ -224,6 +227,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-09-27.]
+[File `NEWS.md` updated on 2022-10-01.]
 
 <!-- eof. -->
