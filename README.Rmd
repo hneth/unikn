@@ -447,11 +447,12 @@ pal_princeton_1 <- newpal(col = c("#E77500", "white", "black"),
                           names = c("orange_w", "white", "black"))
 ```
 
-A new color palette can now be evaluated with `seecol()`, scaled by `usecol()`, and used in graphs (e.g., using `demopal()` or `ggplot()`): 
+A new color palette can now be evaluated with `seecol()`, scaled by `usecol()`, and then used in visualizations (e.g., using **base** R `plot()` functions or **ggplot2**). 
+Here, we use the `usecol()` function to extend our color palette `pal_princeton_1` to 15\ colors and illustrate the resulting color palette `my_pal` with the `demopal()` function:
 
-```{r uni-princeton-demopal, eval = FALSE, fig.width = 6, out.width = "65%", fig.asp = .80, fig.align = 'center', collapse = TRUE}
+```{r uni-princeton-demopal, eval = FALSE, fig.width = 5, out.width = "65%", fig.asp = .80, fig.align = 'center', collapse = TRUE}
 # View color palette: 
-# seecol(pal_princeton_1)  
+# seecol(pal_princeton_1)
 
 # Scale color palette:
 my_pal <- usecol(pal_princeton_1, n = 15)
@@ -535,7 +536,7 @@ Specifically, `grepal(pattern, x)` searches a color palette\ `x` (i.e., a vector
 
 By default, `grepal()` searches the `r length(colors())`\ named colors provided by `colors()` in **base**\ R: 
 
-```{r grepal-example-1, fig.width=5, fig.asp=.9, fig.align = 'center'}
+```{r grepal-example-1, fig.width = 5, fig.asp = .9, fig.align = 'center'}
 # Find colors matching a pattern: 
 oranges <- grepal("orange", plot = FALSE)
 
@@ -547,7 +548,7 @@ seecol(oranges,
 
 Providing a list of color palettes to the `pal` argument of the `seecol()` function allows comparing multiple color palettes: 
 
-```{r grepal-example-2, fig.width=8, fig.asp=.30, fig.align = 'center'}
+```{r grepal-example-2, fig.width = 8, fig.asp = .30, fig.align = 'center'}
 # Find colors:
 pink_olive    <- grepal("(pink)|(olive)", plot = FALSE)
 purple_orange <- grepal("(purple)|(orange)", plot = FALSE)

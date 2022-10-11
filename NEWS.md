@@ -1,9 +1,9 @@
 
-# unikn 0.6.0.9004
+# unikn 0.6.0.9005
 
 This is the development version of the R package **unikn**. 
 
-This version of **unikn** (v0.6.0.9001) revises functionality and fixes some bugs. [2022-09-20]  
+This version of **unikn** (v0.6.0.9001+) revises functionality and fixes some bugs. [2022-10-10]  
 
 <!-- Log of changes: --> 
 
@@ -227,6 +227,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-10-01.]
+[File `NEWS.md` updated on 2022-10-10.]
 
 <!-- eof. -->
