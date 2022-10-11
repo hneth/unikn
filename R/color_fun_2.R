@@ -932,7 +932,7 @@ ac <- function(col,
 # - Consider changing the default arguments x and col_candidates of grepal() and simcol() from colors() to
 #   1. grepal(x = all_colors()) and
 #   2. simcol(col_candidates = all_colors())
-#   IFF exporting all_colors() to user level.
+#   IFF exporting all_colors() to the user level.
 
 # - Consider creating more vivid versions of some
 #   `pal_unikn_pref` colors (e.g., "deepskyblue", "deeppink", etc.)
