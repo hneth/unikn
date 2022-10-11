@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2022 10 01
+## spds | uni.kn | 2022 10 11
 ## ---------------------------
 
 ## Demo functions for color palettes.
@@ -10,6 +10,8 @@
 
 # plot_bar: A bar plot ------ 
 
+# Note: ... is passed to barplot().
+
 plot_bar <- function(pal, col_par = NULL, alpha = 1, 
                      n = 5,  # scaling: number of categories (for each color) 
                      beside = TRUE, horiz = FALSE, as_prop = FALSE,  # type-specific parameter(s)
@@ -17,7 +19,9 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
                      main = NULL,
                      sub = NULL, 
                      pal_name = NULL, 
-                     seed = NULL){
+                     seed = NULL,
+                     ...
+){
   
   # Prepare: ---- 
   
@@ -114,7 +118,8 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
           axes = plot_axes(col_par), # col.axis = col_par,
           # names.arg = names(mx), 
           # legend = TRUE, xlim = c(0, x_max),  # if (legend)
-          main = main
+          main = main,
+          ...
   )
   
   # # Background rectangle (if axes == FALSE):
@@ -153,17 +158,19 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
 
 # plot_ncurve: Plot overlapping normal curves ------
 
+# Note: ... passed to polygon().
+
 #' @importFrom stats runif 
 #' @importFrom stats dnorm
 
-plot_ncurves <- function(pal, col_par = NULL, alpha = 2/3, 
-                         n = 100,  # scaling: x_max value 
-                         # args with defaults:
-                         main = NULL,
-                         sub = NULL, 
-                         pal_name = NULL, 
-                         seed = NULL, 
-                         ...
+plot_ncurve <- function(pal, col_par = NULL, alpha = 2/3, 
+                        n = 100,  # scaling: x_max value 
+                        # args with defaults:
+                        main = NULL,
+                        sub = NULL, 
+                        pal_name = NULL, 
+                        seed = NULL, 
+                        ...
 ){
   
   # Prepare: ---- 
@@ -237,7 +244,7 @@ plot_ncurves <- function(pal, col_par = NULL, alpha = 2/3,
     
     if (i == 1) { # first curve: 
       
-      # Initialize plot:
+      # Initialize empty plot:
       plot(0, type = "n", 
            xlim = c(min(xxp), max(xxp)), ylim = c(min(yyp), max(yyp)), 
            axes = plot_axes(col_par), # col.axis = col_par,
@@ -296,14 +303,16 @@ plot_ncurves <- function(pal, col_par = NULL, alpha = 2/3,
   
   return(invisible(df))
   
-} # plot_ncurves().
+} # plot_ncurve().
 
 # # Check: 
-# plot_ncurves(c("steelblue", "gold", "forestgreen", "firebrick"), alpha = 2/3)
-# plot_ncurves(pal_unikn_pref, col_par = NA, alpha = 1/3)
+# plot_ncurve(c("steelblue", "gold", "forestgreen", "firebrick"), alpha = 2/3)
+# plot_ncurve(pal_unikn_pref, col_par = NA, alpha = 1/3)
 
 
 # plot_polygon: A polygon/mountain range plot ------ 
+
+# Note: ... passed to polygon().
 
 plot_polygon <- function(pal, col_par = NULL, alpha = 1, 
                          n = 100,  # scaling: x-range
@@ -311,7 +320,9 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
                          main = NULL,
                          sub = NULL, 
                          pal_name = NULL, 
-                         seed = NULL){
+                         seed = NULL,
+                         ...
+){
   
   # Prepare: ---- 
   
@@ -368,15 +379,8 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
   
   col_brd <- col_par 
   
-  # Prepare plot:
-  # plot(x = 0, type = "n", 
-  #      xlim = c(x_min, x_max), 
-  #      ylim = c(y_min, y_max), 
-  #      xlab = "X-value", ylab = "Y-value", 
-  #      main = "A polygon plot")
-  
-  plot(0, type = "n",     # (a) empty plot
-       # x = dt, col = col_pal,  # (b) generic plot
+  # Initialize empty plot:
+  plot(0, type = "n",
        xlim = c(x_min, x_max), ylim = c(y_min, y_max),
        axes = plot_axes(col_par), # col.axis = col_par,
        xlab = NA, ylab = NA,
@@ -405,7 +409,7 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
     df[paste0("y_", i)] <- y  # record current y value
     
     y_plus <- c(y, rev(y_0))  # prepare for polygon
-    polygon(x = x_plus, y = y_plus, col = col_pal[i], border = col_brd) 
+    polygon(x = x_plus, y = y_plus, col = col_pal[i], border = col_brd, ...) 
     
     y_0 <- y  # remember previous/last/lower y-values
     
@@ -418,7 +422,7 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
   df[paste0("y_", n_col)] <- y
   
   y_plus <- c(y, rev(y_0))  # prepare for polygon
-  polygon(x = x_plus, y = y_plus, col = col_pal[n_col], border = col_brd)
+  polygon(x = x_plus, y = y_plus, col = col_pal[n_col], border = col_brd, ...)
   
   
   # # Background rectangle (if axes == FALSE):
@@ -464,13 +468,17 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
 
 # plot_table: An area/mosaic plot ------ 
 
+# Note: ... passed to plot().
+
 plot_table <- function(pal, col_par = NULL, alpha = 1, 
                        n = 20,  # scaling: instances per dimension is n * n_col
                        # args with defaults:
                        main = NULL,
                        sub = NULL, 
                        pal_name = NULL, 
-                       seed = NULL){
+                       seed = NULL,
+                       ...
+){
   
   # Prepare: ---- 
   
@@ -525,12 +533,14 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
   y_min <- 0
   y_max <- 1
   
+  # Generic plot (mosaic plot): 
   plot(#0, 0, type = "n",   # (a) empty plot
     x = tb, col = col_pal,  # (b) generic plot
     border = col_par, 
     # axes = plot_axes(col_par), # col.axis = col_par,
     xlab = NA, ylab = NA,
-    main = NA)
+    main = NA,
+    ...)
   
   # Background rectangle (if axes == FALSE):
   bwd <- .06  # border width
@@ -574,6 +584,8 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 
 # plot_scatter: A plot of points ------ 
 
+# Note: ... passed to plot().
+
 #' @importFrom stats runif 
 
 plot_scatter <- function(pal, col_par = NULL, alpha = 2/3, 
@@ -583,7 +595,9 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
                          main = NULL,
                          sub = NULL, 
                          pal_name = NULL, 
-                         seed = NULL){
+                         seed = NULL,
+                         ...
+){
   
   # Prepare: ---- 
   
@@ -641,7 +655,8 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
     xlim = c(x_min, x_max), ylim = c(y_min, y_max),  
     axes = plot_axes(col_par), # col.axis = col_par,
     xlab = NA, ylab = NA,
-    main = NA
+    main = NA,
+    ...
   )
   
   # # Background rectangle (if axes == FALSE):
@@ -825,8 +840,8 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, ...){
   switch(type,
          # 1: bar: 
          plot_bar(pal = pal, pal_name = pal_name, ...), 
-         # 2. curves/ncurves:
-         plot_ncurves(pal = pal, pal_name = pal_name, ...), 
+         # 2. curve/ncurve:
+         plot_ncurve(pal = pal, pal_name = pal_name, ...), 
          # 3: mosaic/table:
          plot_table(pal = pal, pal_name = pal_name, ...), 
          # 4: polygon:
