@@ -770,6 +770,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
 #' 
 #' @aliases democol
 #' @aliases demofun
+#' @aliases demoplot
 #' 
 #' @seealso 
 #' \code{\link{seepal}} for plotting color palettes;  
