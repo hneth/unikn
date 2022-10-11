@@ -4,6 +4,7 @@
 \alias{demopal}
 \alias{democol}
 \alias{demofun}
+\alias{demoplot}
 \title{Demonstrate a color palette.}
 \usage{
 demopal(pal = pal_unikn, type = NA, pal_name = NULL, ...)
