@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 09 19
+## spds | uni.kn | 2022 10 17
 ## ---------------------------
 
 ## Define color-related functions 
@@ -462,7 +462,7 @@ grepal <- function(pattern,
 #' to some target color \code{col_target}.
 #' 
 #' \code{simcol} returns a vector of the (named) colors or color values in 
-#' \code{col_candidates} (set to `colors()` of \strong{grDevices} per default) 
+#' \code{col_candidates} (set to \code{colors()} of \strong{grDevices} per default) 
 #' that are similar to the specified target color \code{col_target}. 
 #' 
 #' If \code{plot = TRUE}, \code{simcol} also visualizes the detected colors  
@@ -484,15 +484,16 @@ grepal <- function(pattern,
 #' 
 #' @param col_target A (required) target color. 
 #' 
-#' @param col_candidates Palette of color candidates. 
+#' @param col_candidates A palette of color candidates to be considered. 
 #' Default: \code{col_candidates = colors()}.
 #' 
-#' @param tol Numeric tolerance value(s) (must be 
-#' either 1 or 3 numeric values, in RGB range from 0 to 255).
+#' @param tol Numeric tolerance value(s) 
+#' (either 1 or 3 numeric values, in the RGB range from 0 to 255).
+#' Values are considered in the order of the RGB value rank in \code{col_target}. 
 #' Default: \code{tol = c(25, 50, 75)}. 
 #' 
 #' @param distinct Boolean: Return only visually distinct colors? 
-#' Default: \code{distinct = TRUE} (i.e., remove duplicate colors). 
+#' Default: \code{distinct = TRUE} (i.e., remove visual duplicates). 
 #' 
 #' @param plot Boolean: Plot the output (using \code{\link{seecol}})? 
 #' Default: \code{plot = TRUE}. 
