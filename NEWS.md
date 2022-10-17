@@ -35,7 +35,7 @@ Changes since last release:
 
 ## Details 
 
-- Reorganize files of utility functions.
+- Reorganize files of utility functions and update documentation. 
 - Add Zenodo doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191) for citations. 
 
 
@@ -228,6 +228,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-10-12.] 
+[File `NEWS.md` updated on 2022-10-17.] 
 
 <!-- eof. -->
