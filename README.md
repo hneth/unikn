@@ -734,14 +734,14 @@ design for your presentations and visualizations.
 
 <img src = "./inst/pix/todo.png" alt = "ToDo" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/>
 
-The **unikn** package is work in progress. We are still working on:
+The **unikn** package is work in progress. We are currently working on:
 
--   Additional themes for **ggplot2** that use the **unikn** color
-    palettes  
--   Additional templates for images and slides
+-   Adding institutional color palettes
+-   Additional templates and themes (for plots and text decoration)
 
-Please [contact us](https://www.spds.uni-konstanz.de/) in case you need
-additional features or want to help us implementing them.
+Please comment on [GitHub](https://github.com/hneth/unikn) or [contact
+us](https://www.spds.uni-konstanz.de/) if you need additional features
+or want to help creating them.
 
 ## Resources
 
@@ -757,9 +757,9 @@ currently available:
 
 ## Contact
 
-Please report any **unikn**-related issues at
+Please note and report any **unikn**-related issues at
 <a href="https://github.com/hneth/unikn/issues" class="uri">https://github.com/hneth/unikn/issues</a>.
-We appreciate your feedback, comments, or questions.
+We are looking forward to your feedback, comments, or questions.
 
 ## Copyrights
 
@@ -857,7 +857,7 @@ specifications:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2022-10-11.\]
+\[File `README.md` updated on 2022-10-18.\]
 
 <!-- eof. -->
 
