@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 10 17
+## spds | uni.kn | 2022 10 18
 ## ---------------------------
 
 ## Define color-related functions 
@@ -15,10 +15,10 @@
 
 # - Documentation: ------ 
 
-#' Define new color palettes.
+#' Define a new color palette.
 #'
 #' \code{newpal} allows defining new color palettes 
-#' (as data frames). 
+#' (as data frames or vectors). 
 #' 
 #' @param col A required vector of colors 
 #' (specified by their R color names, HEX codes, or RGB values). 
@@ -36,13 +36,15 @@
 #' 
 #' # Example: 3 ways of defining a new color palette:
 #' 
-#' # (1) From R color names:  -----
+#' # (1) From R color names: -----
+#' 
 #' pal_flag_de <- newpal(col = c("black", "firebrick3", "gold"),
 #'                       names = c("Schwarz", "Rot", "Gold"))
 #' 
 #' seecol(pal_flag_de, main = "Colors in the flag of Germany")
 #' 
-#' # (2) From HEX values:  -----
+#' # (2) From HEX values: -----
+#' 
 #' # (a) Google logo colors:
 #' # Source: https://www.schemecolor.com/google-logo-colors.php
 #' color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
@@ -50,7 +52,7 @@
 #' pal_google   <- newpal(color_google, names_google)
 #' seecol(pal_google, main = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
 #' 
-#' # (b) German flag revised:
+#' # (b) German flag (revised):
 #' # Based on a different source at
 #' # <https://www.schemecolor.com/germany-flag-colors.php>:
 #' pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
@@ -64,8 +66,9 @@
 #'                   )
 #' seecol(pal_mpg, main = "Colors of the Max Planck Society")
 #' 
-#' # (3) From RGB values:  -----
-#' # Barrier-free color palette
+#' # (3) From RGB values: -----
+#' 
+#' # A barrier-free color palette
 #' # Source: Okabe & Ito (2002): Color Universal Design (CUD):
 #' #         Fig. 16 of <https://jfly.uni-koeln.de/color/>:  
 #' 
@@ -90,7 +93,8 @@
 #' seecol(pal_okabe_ito,
 #'        main = "Color-blind friendly color scale (Okabe & Ito, 2002)")
 #' 
-#' # Compare custom color palettes:
+#' # (+) Compare custom color palettes: ----- 
+#' 
 #' my_pals <- list(pal_flag_de, pal_flag_de_2, pal_google, pal_mpg, pal_okabe_ito)
 #' seecol(my_pals, col_brd = "white", lwd_brd = 5,
 #'        main = "Comparing custom color palettes")
