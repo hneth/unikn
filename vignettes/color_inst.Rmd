@@ -1,7 +1,7 @@
 ---
 title: "Institutional colors"
 author: "SPDS, uni.kn"
-date: "2020 12 18"
+date: "2022 10 18"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -36,19 +36,18 @@ knitr::opts_chunk$set(echo = TRUE,
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
 </a>
 
-This vignette shows how the color-related tools provided by **unikn** can be applied to other institutions. 
+The color palettes included in the **unikn** package are based on the CD\ manual of the [University of Konstanz](https://www.uni-konstanz.de/). 
+However, the functionality provided by the package makes it easy and straightforward to define and use **your own colors**. 
+This vignette shows how the color-related tools of **unikn** can be used for **creating color palettes** for other purposes and institutions. 
 <!-- Main color info: --> 
-(For a general introduction of the  **unikn** colors, color palettes, and color functions, see the vignette on [Colors and color palettes](colors.html). The vignette on [text](text.html) provides information on creating text boxes and decorations.) 
-
-
-The color palettes included in the **unikn** package are based on the CD\ manual of the [University of Konstanz](https://www.uni-konstanz.de/), Germany. However, the functionality provided by the package makes it easy and straightforward to define and use your own color scales. 
-In the following, we provide examples to illustrate how this can be achieved for other institutions. 
+(For a general introduction of the  **unikn** colors, color palettes, and color functions, see the vignettes on [Colors and color functions](colors.html) and [Color recipes](color_recipes.Rmd). 
+The vignette on [text](text.html) provides information on creating text boxes and decorations.) 
 
 Please install and/or load the **unikn** package to get started: 
 
 ```{r load-pkg-colors, message = FALSE, warning = FALSE}
 # install.packages('unikn')  # install unikn from CRAN client
-library('unikn')             # loads the package
+library('unikn')             # load the package
 ```
 
 
@@ -103,12 +102,20 @@ pal_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
                             )
 ```
 
-Once a new color palette has been defined (and is available in your current R environment), we can use the `seecol()` and `usecol()` functions to view, modify, and use the palette: 
+Using `newpal()` makes it easy to combine colors and their names and return the resulting color palette in either data frame or vector format.
+
+Once a new color palette has been defined (in your current R\ environment), use all color-related functions to view, modify, and use the palette: 
 
 ```{r freiburg-seecol, fig.width = 5, fig.asp = .80, fig.align = 'center', collapse = TRUE}
-seecol(pal_freiburg_info)            # view color palette
+# View color palette:
+seecol(pal_freiburg_info, main = "Colors of the University of Freiburg")
 # seecol(pal_freiburg_basic, n = 7)  # extend color palette
 # seecol(c(pal_freiburg_blue, "white", pal_freiburg_grey))  # mix color palette
+
+# use in a demo plot:
+demopal(pal_freiburg_info, 
+        type = 4, col_par = NA, seed = 79098, 
+        main = "Colors of the University of Freiburg")
 ```
 
 ### B. [Princeton University](https://princeton.edu/), USA: 
