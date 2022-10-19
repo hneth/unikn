@@ -12,6 +12,7 @@ Changes since last release:
 
 ## Major changes 
 
+- Add a call for contributions of user-generated color palettes for other institutions (see [GitHub issue](https://github.com/hneth/unikn/issues/11)). 
 - Add a `type = 'curve'` option to `demopal()` for evaluating transparent color palettes. 
 
 
@@ -228,6 +229,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-10-17.] 
+[File `NEWS.md` updated on 2022-10-19.] 
 
 <!-- eof. -->
