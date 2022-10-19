@@ -748,6 +748,22 @@ Please comment on [GitHub](https://github.com/hneth/unikn) or [contact us](https
 if you need additional features or want to help creating them.  
 
 
+### Call for contributions {-}
+
+Have you used **unikn** to create **your own color palettes**?  
+If so, please **let us know** (e.g., by posting on this [GitHub issue](https://github.com/hneth/unikn/issues/11))!  
+  
+We collect color palettes from other institutions to make them available to R users in future versions of **unikn**.  
+   
+To enable us to verify and provide appropriate credit to your contributions, please provide us with the following information:  
+   
+1. your code (e.g., the `newpal()` command creating your color palette),   
+2. your source (e.g., some URL with color definitions),   
+3. your name and some contact information (e.g., an Email address).  
+  
+We're looking forward to your inputs and contributions!  
+
+
 ## Resources
 
 The following versions of **unikn** and corresponding resources are currently available: 
