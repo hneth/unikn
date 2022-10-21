@@ -9,7 +9,7 @@ citEntry(entry = "Manual",
          address      = "Konstanz, Germany",
          note         = "R package (version 0.6.0, September 20, 2022)",
          url          = "https://CRAN.R-project.org/package=unikn",
-         doi          = "https://doi.org/10.5281/zenodo.7096191", 
+         doi          = "10.5281/zenodo.7096191", 
 
          textVersion  =
            paste("Neth, H., & Gradwohl, N., (2022).",
@@ -17,5 +17,5 @@ citEntry(entry = "Manual",
                  "Social Psychology and Decision Sciences, University of Konstanz, Germany.",
                  "Computer software (R package version 0.6.0, September 20, 2022).",
                  "Retrieved from <https://CRAN.R-project.org/package=unikn>.", 
-                 "doi:<https://doi.org/10.5281/zenodo.7096191>")
+                 "doi <https://doi.org/10.5281/zenodo.7096191>")
          )
