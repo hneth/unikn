@@ -897,14 +897,15 @@ a work at
 To support our development, please cite the **unikn** package when using
 it in publications or derivations:
 
-<!-- Citation (in APA format): -->
+<!-- Citation / reference (in APA format): -->
 
 -   Neth, H., & Gradwohl, N., (2022). unikn: Graphical elements of the
-    University of Konstanz’s corporate design. Social Psychology and
-    Decision Sciences, University of Konstanz, Germany. Computer
-    software (R package version 0.6.0, September 20, 2022). Retrieved
-    from <https://CRAN.R-project.org/package=unikn>.  
-    <https://doi.org/10.5281/zenodo.7096191>
+    University of Konstanz’s corporate design.  
+    Social Psychology and Decision Sciences, University of Konstanz,
+    Germany.  
+    Computer software (R package version 0.6.0, September 20, 2022).  
+    Retrieved from <https://CRAN.R-project.org/package=unikn>.  
+    doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)
 
 <!-- Copyrights of designs: -->
 
@@ -929,7 +930,7 @@ specifications:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2022-10-19.\]
+\[File `README.md` updated on 2022-10-21.\]
 
 <!-- eof. -->
 
