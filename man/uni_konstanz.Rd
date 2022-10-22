@@ -32,12 +32,12 @@ the \href{https://www.uni-konstanz.de/}{University of Konstanz}.
 }
 \examples{
 uni_konstanz
-dim(uni_konstanz)     # 1 11
 seecol(uni_konstanz)  # view color palette
+demopal(uni_konstanz, type = 4, main = "Using Uni Konstanz colors", seed = 1)
 
 }
 \seealso{
-\code{\link{uni_konstanz_pref}} for preferred colors of the University of Konstanz;  
+\code{\link{uni_konstanz_pref}} for the preferred colors of the University of Konstanz;  
 \code{\link{seecol}} for viewing and comparing color palettes; 
 \code{\link{usecol}} for using color palettes; 
 \code{\link{simcol}} for finding similar colors; 
@@ -45,7 +45,15 @@ seecol(uni_konstanz)  # view color palette
 \code{\link{grepal}} for finding named colors.
 
 Other contributed color palettes: 
-\code{\link{uni_konstanz_pref}}
+\code{\link{mpg_pal}},
+\code{\link{uni_freiburg_blue}},
+\code{\link{uni_freiburg_br}},
+\code{\link{uni_freiburg_grey}},
+\code{\link{uni_freiburg_info}},
+\code{\link{uni_konstanz_pref}},
+\code{\link{uni_princeton_0}},
+\code{\link{uni_princeton_1}},
+\code{\link{uni_princeton_2}}
 }
 \author{
 Hansjoerg Neth, 2022-10-20.
