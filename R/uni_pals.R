@@ -65,7 +65,7 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
 #' the \href{https://www.uni-konstanz.de/}{University of Konstanz}.
 #' 
 #' @return 
-#' A named vector of colors (as HEX/HTML codes).
+#' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
 #' Hansjoerg Neth, 2022-10-20.
@@ -111,7 +111,7 @@ uni_konstanz <- newpal(col = pal_unikn,
 #' the \href{https://www.uni-konstanz.de/}{University of Konstanz}. 
 #' 
 #' @return 
-#' A named vector of colors (as HEX/HTML codes).
+#' A named vector of colors (HEX/HTML codes of type character). 
 #' 
 #' @author 
 #' Hansjoerg Neth, 2022-10-20.

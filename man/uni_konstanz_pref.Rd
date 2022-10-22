@@ -5,7 +5,7 @@
 \alias{uni_konstanz_pref}
 \title{Preferred colors of the University of Konstanz.}
 \format{
-An object of class \code{data.frame} with 1 rows and 9 columns.
+An object of class \code{character} of length 9.
 }
 \source{
 R package \strong{unikn}, 
