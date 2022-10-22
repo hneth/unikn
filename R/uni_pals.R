@@ -1,5 +1,5 @@
 ## uni_pals.R | unikn
-## spds | uni.kn |  2022 10 20
+## spds | uni.kn |  2022 10 22
 ## ---------------------------
 
 # Export color palettes of various institutions 
@@ -53,9 +53,93 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
 # https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/ 
 # Last check: 2022-10-20
 
+
+# - uni_konstanz: ---- 
+
+#' Default colors of the University of Konstanz.
+#'
+#' \code{uni_konstanz} provides the default color palette 
+#' of the \href{https://www.uni-konstanz.de/}{University of Konstanz}, Germany. 
+#' 
+#' The \strong{unikn} package provides many additional color palettes for 
+#' the \href{https://www.uni-konstanz.de/}{University of Konstanz}.
+#' 
+#' @return 
+#' A named vector of colors (as HEX/HTML codes).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-10-20.
+#' 
+#' @source 
+#' R package \strong{unikn}, 
+#' retrieved from \url{https://CRAN.R-project.org/package=unikn},    
+#' doi \href{https://doi.org/10.5281/zenodo.7096191}{10.5281/zenodo.7096191}. 
+#' 
+#' Color definitions are based on 
+#' \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/}  
+#' \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/}
+#'
+#' @examples
+#' uni_konstanz
+#' dim(uni_konstanz)     # 1 11
+#' seecol(uni_konstanz)  # view color palette
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_konstanz_pref}} for preferred colors of the University of Konstanz;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' @export
+
 uni_konstanz <- newpal(col = pal_unikn,
                        names = names(pal_unikn),
                        as_df = FALSE)
+
+
+# - uni_konstanz_pref: ---- 
+
+#' Preferred colors of the University of Konstanz.
+#'
+#' \code{uni_konstanz_pref} provides the color palette of preferred colors  
+#' of the \href{https://www.uni-konstanz.de/}{University of Konstanz}, Germany.
+#' 
+#' The \strong{unikn} package provides many additional color palettes for 
+#' the \href{https://www.uni-konstanz.de/}{University of Konstanz}. 
+#' 
+#' @return 
+#' A named vector of colors (as HEX/HTML codes).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-10-20.
+#' 
+#' @source 
+#' R package \strong{unikn}, 
+#' retrieved from \url{https://CRAN.R-project.org/package=unikn},    
+#' doi \href{https://doi.org/10.5281/zenodo.7096191}{10.5281/zenodo.7096191}. 
+#' 
+#' Color definitions are based on 
+#' \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/}  
+#' \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/}
+#'
+#' @examples
+#' uni_konstanz_pref
+#' dim(uni_konstanz_pref)     # 1 9
+#' seecol(uni_konstanz_pref)  # view color palette
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_konstanz}} for default colors of the University of Konstanz;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' @export
 
 uni_konstanz_pref <- newpal(col = pal_unikn_pref,
                             names = names(pal_unikn_pref),
