@@ -128,7 +128,7 @@
 # - Definition: ------ 
 
 newpal <- function(col,            # a vector of colors
-                   names = NA,     # a vector of names
+                   names = NA,     # a vector of color names
                    as_df = FALSE   # return palette as df? 
                    # ...           # additional arguments to usecol().
 ) {
@@ -143,7 +143,7 @@ newpal <- function(col,            # a vector of colors
   if ( any(!is.na(names)) && ((length(col) != length(names))) ) {
     
     message(paste0("Length of 'col' = ", length(col), 
-                   " vs. 'names' = ",    length(names), ". Using default (numeric) names..."))
+                   " vs. 'names' = ",    length(names), ". Using default names..."))
     names <- NA
     
   }
@@ -155,23 +155,43 @@ newpal <- function(col,            # a vector of colors
   
   outpal <- col  # copy col vector
   
-  # Add names:
-  if ( all(!is.na(names)) ) {
-    names(outpal) <- names
-  } else {
-    names(outpal) <- as.character(1:length(col))
-  }
+  # Add names (to outpal):
+  if ( all(!is.na(names)) ) { # 1. names have been provided:
+    
+    names(outpal) <- names  # use names
+    
+  } else if ( is.null(names(col)) == FALSE ) { # 2. col input contained names:
+    
+    names(outpal) <- names(col)  # use names of col input
+    
+  } else { # 3. default:
+    
+    names(outpal) <- as.character(1:length(col))  # use numeric digits as names
+    
+  } # if (names).
+  
+  # ToDo: Recognize existing colors (e.g., "red") and match their existing names. +++ here now +++
   
   # # Apply ... arguments:
   # outpal <- usecol(pal = outpal, use_names = TRUE, ...) 
   
-  # If return as_df: 
+  # Handle as_df: 
   if (as_df) {
+    
+    if (!is.data.frame(outpal)){
+    
     outpal <- data.frame(outpal, stringsAsFactors = FALSE) # df as column
+    
     outpal <- t(outpal) # df as row
+    
     outpal <- data.frame(outpal, row.names = NULL, stringsAsFactors = FALSE)
+    
+    }
+    
   } else {
+    
     outpal <- unlist(outpal)  # as vector
+    
   }
   
   
@@ -935,6 +955,8 @@ ac <- function(col,
 
 
 ## ToDo: ------
+
+# - newpal(): Recognize existing colors (e.g., "red") and match their existing names.
 
 # - Consider changing the default arguments x and col_candidates of grepal() and simcol() from colors() to
 #   1. grepal(x = all_colors()) and
