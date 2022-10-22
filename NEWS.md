@@ -23,10 +23,11 @@ Changes since last release:
 
 - Adjust `demopal()` function: 
     - Align point colors for `type = "scatter"` to those of other options. 
-    - Increase robustness by allowing alternative `type` inputs.
-    - Pass `...` to auxiliary functions.
+    - Increase robustness by allowing alternative `type` inputs. 
+    - Pass `...` to auxiliary functions. 
 
 - Bug fixes: 
+    - Enforce `newpal()` returning vectors when `as_df = FALSE`. 
     - Handle `length(pal) == 1` case for all types of `demopal()`. 
     - Handle `alpha = NA` case in `demopal()`. 
     - Handle `pal = NA` case in `seecol()` and `usecol()`. 
@@ -229,6 +230,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-10-19.] 
+[File `NEWS.md` updated on 2022-10-22.] 
 
 <!-- eof. -->
