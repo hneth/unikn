@@ -94,7 +94,7 @@ seecol(my_pals, col_brd = "white", lwd_brd = 5,
 
 }
 \seealso{
-\code{\link{seepal}} for plotting color palettes;  
+\code{\link{seecol}} for viewing and comparing color palettes;  
 \code{\link{usecol}} for using color palettes; 
 \code{\link{simcol}} for finding similar colors; 
 \code{\link{grepal}} for finding named colors; 

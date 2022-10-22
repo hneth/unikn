@@ -50,8 +50,8 @@ pal_unikn[6] # "white" or "#FFFFFF" as central of 11 colors
 \seealso{
 \code{\link{pal_unikn}} for the default uni.kn color palette; 
 \code{\link{pal_seeblau}} for the uni.kn seeblau color palette; 
-\code{\link{seecol}} to show color palettes;
-\code{\link{usecol}} to use color palettes.
+\code{\link{seecol}} for viewing and comparing color palettes;
+\code{\link{usecol}} for using color palettes.
 
 Other color palettes: 
 \code{\link{pal_bordeaux}},

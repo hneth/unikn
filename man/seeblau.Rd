@@ -29,8 +29,8 @@ seecol(Seeblau)  # view color and details
 \code{\link{pal_seeblau}} for the corresponding color palette; 
 \code{\link{pal_unikn}} for the unikn default color palette with all 5 colors of \code{\link{pal_seeblau}}; 
 \code{\link{pal_unikn_pref}} for a uni.kn color palette with all preferred colors; 
-\code{\link{seecol}} to show color palettes;
-\code{\link{usecol}} to use color palettes.
+\code{\link{seecol}} for viewing and comparing color palettes;
+\code{\link{usecol}} for using color palettes.
 
 Other preferred colors: 
 \code{\link{Bordeaux}},

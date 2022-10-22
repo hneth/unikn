@@ -66,7 +66,7 @@ seecol(list(olives, oranges),
 
 }
 \seealso{
-\code{\link{seepal}} for plotting color palettes;
+\code{\link{seecol}} for viewing and comparing color palettes;
 \code{\link{usecol}} for using color palettes; 
 \code{\link{simcol}} for finding similar colors; 
 \code{\link{newpal}} for defining new color palettes; 
