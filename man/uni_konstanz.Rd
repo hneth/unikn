@@ -20,7 +20,7 @@ Color definitions are based on
 uni_konstanz
 }
 \value{
-A named vector of colors (as HEX/HTML codes).
+A named vector of colors (HEX/HTML codes of type character).
 }
 \description{
 \code{uni_konstanz} provides the default color palette 
