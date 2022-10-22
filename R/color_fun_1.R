@@ -74,7 +74,7 @@
 #' @family color functions
 #'
 #' @seealso
-#' \code{\link{seecol}} for plotting/seeing color palettes; 
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
 #' \code{\link{simcol}} for finding similar colors; 
 #' \code{\link{newpal}} for defining new color palettes; 
 #' \code{\link{grepal}} for finding named colors; 

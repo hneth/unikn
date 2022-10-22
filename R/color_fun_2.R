@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 10 18
+## spds | uni.kn | 2022 10 22
 ## ---------------------------
 
 ## Define color-related functions 
@@ -105,7 +105,7 @@
 #' @aliases defcol
 #' 
 #' @seealso 
-#' \code{\link{seepal}} for plotting color palettes;  
+#' \code{\link{seecol}} for viewing and comparing color palettes;  
 #' \code{\link{usecol}} for using color palettes; 
 #' \code{\link{simcol}} for finding similar colors; 
 #' \code{\link{grepal}} for finding named colors; 
@@ -321,13 +321,13 @@ newpal <- function(col,            # a vector of colors
 #' @family color functions
 #' 
 #' @seealso 
-#' \code{\link{seepal}} for plotting color palettes;
+#' \code{\link{seecol}} for viewing and comparing color palettes;
 #' \code{\link{usecol}} for using color palettes; 
 #' \code{\link{simcol}} for finding similar colors; 
 #' \code{\link{newpal}} for defining new color palettes; 
 #' \code{\link{shades_of}} to defining shades of a given color; 
 #' \code{\link{ac}} for adjusting color transparency; 
-#' \code{\link{pal_unikn}} for the default uni.kn color palette.
+#' \code{\link{pal_unikn}} for the default uni.kn color palette. 
 #' 
 #' @import grDevices 
 #' 
@@ -736,7 +736,7 @@ simcol <- function(col_target,
 #' @family color functions
 #' 
 #' @seealso 
-#' \code{\link{seepal}} for plotting color palettes;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
 #' \code{\link{usecol}} for using color palettes; 
 #' \code{\link{simcol}} for finding similar colors;  
 #' \code{\link{newpal}} for defining new color palettes; 
