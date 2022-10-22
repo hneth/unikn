@@ -61,7 +61,7 @@ While this renders the use of default specifications simple and straightforward,
 
 The **unikn** package currently provides five types of objects and functions: 
 
-1. Some dedicated **colors** and **color palettes** (e.g., `Seeblau` and `pal_unikn`);  
+1. Many dedicated **colors** and **color palettes** (e.g., `Seeblau` and `pal_unikn`);  
 
 2. Functions for **viewing and comparing colors** (`seecol()`), for **using or changing color palettes** (`usecol()`), and for **demonstrating color palettes** (`demopal()`);  
 3. Functions for **creating new color palettes** (`newpal()`), for **finding similar colors** (`simcol()`), and for **searching color names** (`grepal()`);  
@@ -430,32 +430,32 @@ orange_white <- "#E77500"  # orange on white
 orange_black <- "#F58025"  # orange on black
 
 # Defining color palettes:
-pal_princeton <- c(orange_basic, "black")
-names(pal_princeton) <- c("orange", "black")
+uni_princeton_0 <- c(orange_basic, "black")
+names(uni_princeton_0) <- c("orange", "black")
 
-pal_princeton_1 <- c(orange_white, "white", "black")
-names(pal_princeton_1) <- c("orange_w", "white", "black")
+uni_princeton_1 <- c(orange_white, "white", "black")
+names(uni_princeton_1) <- c("orange_w", "white", "black")
 
-pal_princeton_2 <- c(pal = c(orange_black, "black", "white"))
-names(pal_princeton_2) <- c("orange_b", "black", "white")
+uni_princeton_2 <- c(pal = c(orange_black, "black", "white"))
+names(uni_princeton_2) <- c("orange_b", "black", "white")
 ```
 
 Alternatively, we can define both (color values and their names) in one step by using the `newpal()` function:
 
 ```{r uni-Princeton-newpal}
-pal_princeton_1 <- newpal(col = c("#E77500", "white", "black"),
+uni_princeton_1 <- newpal(col = c("#E77500", "white", "black"),
                           names = c("orange_w", "white", "black"))
 ```
 
 A new color palette can now be evaluated with `seecol()`, scaled by `usecol()`, and then used in visualizations (e.g., using **base** R `plot()` functions or **ggplot2**). 
-Here, we use the `usecol()` function to extend our color palette `pal_princeton_1` to 15\ colors and illustrate the resulting color palette `my_pal` with the `demopal()` function:
+Here, we use the `usecol()` function to extend our color palette `uni_princeton_1` to 15\ colors and illustrate the resulting color palette `my_pal` with the `demopal()` function:
 
 ```{r uni-princeton-demopal, eval = FALSE, fig.width = 5, out.width = "65%", fig.asp = .80, fig.align = 'center', collapse = TRUE}
 # View color palette: 
-# seecol(pal_princeton_1)
+# seecol(uni_princeton_1)
 
 # Scale color palette:
-my_pal <- usecol(pal_princeton_1, n = 15)
+my_pal <- usecol(uni_princeton_1, n = 15)
 
 # Use my_pal for plotting: 
 demopal(my_pal, type = "polygon", col_par = NA, main = NA, seed = 10)
@@ -464,7 +464,7 @@ demopal(my_pal, type = "polygon", col_par = NA, main = NA, seed = 10)
 <!-- Image: demopal() with Princeton palette: -->
 
 <p style="text-align:center;">
-<img src = "./inst/pix/README-uni-princeton-demopal-1.png" alt = "demopal(pal_princeton_1)" style = "width: 600px; border:10;"/>
+<img src = "./inst/pix/README-uni-princeton-demopal-1.png" alt = "demopal(uni_princeton_1)" style = "width: 600px; border:10;"/>
 </p>
 
 
@@ -481,7 +481,7 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
 <!-- Image: ggplot2 with Princeton palette as link (in HTML): -->
 
 <!-- <p style="text-align:center;"> -->
-<!-- <img src = "./inst/pix/README-use_ggplot2_princeton-1.png" alt = "pal_princeton_1" style = "width: 500px; border:10;"/> -->
+<!-- <img src = "./inst/pix/README-use_ggplot2_princeton-1.png" alt = "uni_princeton_1" style = "width: 500px; border:10;"/> -->
 <!-- </p> -->
 
 
@@ -637,26 +637,27 @@ post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
 
 # Basic colors: ----
 
-pal_freiburg_bluered <- c("#004a99", "#c1002a")
-names(pal_freiburg_bluered) <- c("uni-blau", "uni-rot")
+uni_freiburg_br <- c("#004a99", "#c1002a")
+names(uni_freiburg_br) <- c("uni-blau", "uni-rot")
 
-pal_freiburg_basic <- c("#004a99", "white", "#c1002a")  # add "white" for better gradients
-names(pal_freiburg_basic) <- c("uni-blau", "weiss", "uni-rot")
+uni_freiburg_basic <- c("#004a99", "white", "#c1002a")  # add "white" for better gradients
+names(uni_freiburg_basic) <- c("uni-blau", "weiss", "uni-rot")
 
 # Web colors: ----
 
-pal_freiburg_blue <- c("#004a99", "#2a6ebb", "#6f9ad3")
-names(pal_freiburg_blue) <- c("blue-1", "blue-2", "blue-3")
+uni_freiburg_blue <- c("#004a99", "#2a6ebb", "#6f9ad3")
+names(uni_freiburg_blue) <- c("blue-1", "blue-2", "blue-3")
 
-pal_freiburg_grey <- c("#f2f3f1", "#e0e1dd", "#d5d6d2", "#c9cac8", 
+uni_freiburg_grey <- c("#f2f3f1", "#e0e1dd", "#d5d6d2", "#c9cac8", 
                        "#b2b4b3", "#9a9b9c", "#747678", "#363534")
-names(pal_freiburg_grey) <- c("grey-0", "grey-1", "grey-2", "grey-3", 
+names(uni_freiburg_grey) <- c("grey-0", "grey-1", "grey-2", "grey-3", 
                               "grey-5", "grey-7", "grey-9", "grey-font")
 
-pal_freiburg_info <- c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
+uni_freiburg_info <- c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
                        "#4d4f53", "#747678", "#b2b4b3", "#d5d6d2", "#e98300", "#efbd47")
-names(pal_freiburg_info) <- c("mid-blau", "hell-blau", "dark-red", "hell-red", "mid-green", "hell-green", 
-                              "anthrazit", "dark-grey", "mid-grey", "hell-grey", "orange", "gelb")
+names(uni_freiburg_info) <- c("mid-blau", "hell-blau", "dark-red", "hell-red", 
+                              "mid-green", "hell-green", "anthrazit", "dark-grey", 
+                              "mid-grey", "hell-grey", "orange", "gelb")
 ```
 
 <!-- MPG:  -->
@@ -667,10 +668,10 @@ col_mpg <- c("#007367", "white", "#D0D3D4")     # color definition
 col_lbl <- c("mpg green", "white", "mpg grey")  # color names
 
 # Create new color palette:
-pal_mpg <- newpal(col = col_mpg, names = col_lbl, as_df = TRUE)
-# seecol(pal_mpg)
-# seecol(usecol(pal_mpg, n = 7))
-# seecol(usecol(pal_mpg, n = 7)[3:1])
+mpg_pal <- newpal(col = col_mpg, names = col_lbl)
+# seecol(mpg_pal, col_bg = "grey90")
+# seecol(usecol(mpg_pal, n = 7))
+# seecol(usecol(mpg_pal, n = 7)[3:1])
 ```
 
 If custom color palettes are available, the text decoration functions can be used for graphical annotations. 
@@ -680,28 +681,29 @@ If custom color palettes are available, the text decoration functions can be use
 ```{r others-txt-demo, echo = FALSE, eval = TRUE, fig.align = 'center', fig.width = 4.5, fig.height = 3}
 x_pos <- .70
 
-# A. Using pal_freiburg_basic and pal_freiburg_blue: 
+# A. Using uni_freiburg_br and uni_freiburg_blue: 
 uline(labels = c("University of Freiburg"), 
-      x = x_pos, y = .85, font = 2, cex = 1, 
-      col = pal_freiburg_basic[[1]], col_bg = pal_freiburg_basic[[3]], 
+      x = x_pos, y = .85, font = 2, cex = 1,
+      col = uni_freiburg_br[1], col_bg = uni_freiburg_br[2], 
       new_plot = "slide")
 mark(labels = c("Die Wahrheit", "wird euch", "frei machen."), 
      x = 0, y = .90, y_layout = 0, cex = 1.2, 
-     col = c("white"), col_bg = rev(usecol(pal_freiburg_blue, 3)))
+     col = c("white"), col_bg = rev(usecol(uni_freiburg_blue, 3)))
 
-# B. Using orange_white or pal_princeton:
+# B. Using orange_white or uni_princeton_0:
 uline(labels = c("Princeton University"), 
       x = x_pos, y = .55, font = 2, cex = 1, col_bg = orange_white)
-mark(labels = c("Go", "tigers!"), 
+mark(#labels = c("In the nation’s", "service and the", "service of humanity."), 
+     labels = c("Go", "tigers!"), 
      x = 0, y = .58, y_layout = 0, cex = 1.2,  
-     col = c("black", "white"), col_bg = pal_princeton)
+     col = c("black", "white"), col_bg = uni_princeton_0)
 
-# C. Using pal_mpg:
+# C. Using mpg_pal:
 uline(labels = c("Max Planck Society"), 
-      x = x_pos, y = .25, font = 2, cex = 1, col_bg = usecol(pal_mpg, 1), col = "black")
+      x = x_pos, y = .25, font = 2, cex = 1, col_bg = usecol(mpg_pal, 1), col = "black")
 mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen."), 
      x = 0, y = .30, y_layout = 0, cex = 1.2, 
-     col = c("white"), col_bg = usecol(pal_mpg, 7)[3:1])
+     col = c("white"), col_bg = usecol(mpg_pal, 7)[3:1])
 ```
 
 - Using the color palette `pal_google` (defined above): 
