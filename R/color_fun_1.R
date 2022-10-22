@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 09 20
+## spds | uni.kn | 2022 10 22
 ## ---------------------------
 
 ## Define color-related functions 
@@ -197,7 +197,7 @@ usecol <- function(pal = pal_unikn,
                         
                         # Get indices for pal_set:
                         
-                        # Set1: -----
+                        # Set 1: -----
                         switch(n,
                                pal[4],
                                pal[c(4, 2)],
@@ -205,7 +205,7 @@ usecol <- function(pal = pal_unikn,
                                pal[c(5, 4, 2, 1)],
                                pal),
                         
-                        # Set2: -----
+                        # Set 2: -----
                         switch(n,
                                pal[3],
                                pal[c(4, 2)],
@@ -213,7 +213,7 @@ usecol <- function(pal = pal_unikn,
                                pal[c(5, 4, 2, 1)],
                                pal),
                         
-                        # Set3: -----
+                        # Set 3: -----
                         switch(n,
                                pal[2],  # 1
                                pal[c(1, 3)],  # 2
@@ -226,26 +226,26 @@ usecol <- function(pal = pal_unikn,
                                pal[c(1, 2, 3, 4, 5, 7, 8, 9, 10)],  # 9
                                pal),
                         
-                        # Set4: -----
+                        # Set 4: -----
                         switch(
                           n,
                           pal[c("seeblau3")],
-                          # 1 preferred color
+                          # 1 preferred color:
                           pal[c("seeblau4", "seeblau2")],
-                          # 2
+                          # 2:
                           pal[c("seeblau4", "seeblau2", "white")],
-                          # 3
+                          # 3:
                           pal[c("seeblau4", "seeblau2", "white", "black")],
-                          # 4
+                          # 4:
                           pal[c("seeblau4", "seeblau2", "white", "seegrau3", "black")],
-                          # 5
+                          # 5:
                           pal[c("seeblau4",
                                 "seeblau3",
                                 "seeblau1",
                                 "white",
                                 "seegrau3",
                                 "black")],
-                          # 6
+                          # 6:
                           pal[c("seeblau4",
                                 "seeblau3",
                                 "seeblau1",
@@ -253,7 +253,7 @@ usecol <- function(pal = pal_unikn,
                                 "seegrau2",
                                 "seegrau4",
                                 "black")],
-                          # 7
+                          # 7:
                           pal[c(
                             "seeblau4",
                             "seeblau3",
@@ -264,7 +264,7 @@ usecol <- function(pal = pal_unikn,
                             "seegrau4",
                             "black"
                           )],
-                          # 8
+                          # 8:
                           pal[c(
                             "seeblau4",
                             "seeblau3",
@@ -276,7 +276,7 @@ usecol <- function(pal = pal_unikn,
                             "seegrau3",
                             "black"
                           )],
-                          # 9
+                          # 9:
                           pal[c(
                             "seeblau5",
                             "seeblau4",
@@ -289,7 +289,7 @@ usecol <- function(pal = pal_unikn,
                             "seegrau3",
                             "black"
                           )],
-                          # 10
+                          # 10:
                           pal  # all 11 colors of pal_unikn (previously known as pal_unikn_plus) 
                         ),
                         
@@ -304,7 +304,8 @@ usecol <- function(pal = pal_unikn,
                         # Set 7: -----
                         pal[c("signal1", "signal3", "signal2")[1:n]]
                         
-                        # Set 8: -----
+                        # etc. 
+                        
       )
       
       if (rev_pal) {
@@ -330,58 +331,65 @@ usecol <- function(pal = pal_unikn,
       
     } else {
       
-      # use the colorRamp (this eats all names): 
-      out_col <- colorRampPalette(pal_inp)(n) 
+      # use the colorRamp (removing all names): 
+      out_col <- grDevices::colorRampPalette(pal_inp)(n) 
       
     }
     
   } # if (!pal_def) end. 
   
   
+  # Process out_col: ------ 
+  
   # Name the palette (as comment attribute): ---- 
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
   
-  # Search for names (if no names are given):
+  # Search for color names (if no names are given):
   if ( all(is.null(names(out_col))) ) {
     
-    tst <- out_col
+    # tst <- out_col  # Not needed?  +++ here now +++
     
-    # Names from defined kn palettes:
-    kn_names <- names(unlist(all_pals1))[match(tst, unlist(all_pals1))]
+    # 1. Names from predefined kn palettes:
+    kn_names <- names(unlist(all_pals1))[match(out_col, unlist(all_pals1))]
     
-    # Predefined color names:
+    # 2. Predefined color names (in R colors()):
     col_names <- colors()[match(
-      rgb(t(col2rgb(tst)), maxColorValue = 255), 
-      c(rgb(t(col2rgb(colors())), maxColorValue = 255))
+      grDevices::rgb(t(grDevices::col2rgb(out_col)), maxColorValue = 255), 
+      c(grDevices::rgb(t(grDevices::col2rgb(colors())), maxColorValue = 255))
     )]
     
-    kn_names[is.na(kn_names)] <- ""
+    # Replace NA values by "": 
+    kn_names[is.na(kn_names)]   <- ""
     col_names[is.na(col_names)] <- ""
     
     # Processs name vectors (to avoid duplicates): 
     col_names[col_names == kn_names] <- ""  # remove duplicates in col names 
     col_names[!col_names == "" & !kn_names == ""] <- 
-      paste0("/", col_names[!col_names == "" & !kn_names == ""])
-    # adding a slash to distinguish different names for the same color. 
+      paste0("/", col_names[!col_names == "" & !kn_names == ""]) # distinguish different names for the same color
     
     names(out_col) <- paste0(kn_names, col_names)
     
-  }
+  } # if (no names in out_col).
   
   # Remove names if required (default): ---- 
   if ( !use_names ) { out_col <- unname(out_col) }
   
+  # Handle alpha: ----
   if ( !(is.null(alpha) | is.na(alpha))) { 
     
     cmnt <- comment(out_col)  # save palette name
-    out_col <- adjustcolor(out_col, alpha.f = alpha)
+    out_col <- grDevices::adjustcolor(out_col, alpha.f = alpha)
     comment(out_col) <- cmnt  # restore name
     
   }
   
-  if (distinct){ # remove visual duplicates:
+  # Remove visual duplicates: ---- 
+  if ( distinct ){
     out_col <- col_distinct(out_col, use_alpha = FALSE) # (based on HEX values, but ignoring transparency)
   }
+  
+  
+  # Output: ---- 
   
   return(out_col)
   
