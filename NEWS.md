@@ -1,9 +1,9 @@
 
-# unikn 0.6.0.9006
+# unikn 0.6.0.9007
 
 This is the development version of the R package **unikn**. 
 
-This version of **unikn** (v0.6.0.9001+) revises functionality and fixes some bugs. [2022-10-12] 
+This version of **unikn** (v0.6.0.9001+) revises functionality and fixes several bugs. [2022-10-22] 
 
 <!-- Log of changes: --> 
 
@@ -27,6 +27,7 @@ Changes since last release:
     - Pass `...` to auxiliary functions. 
 
 - Bug fixes: 
+    - Preserve color names in `newpal()`. 
     - Enforce `newpal()` returning vectors when `as_df = FALSE`. 
     - Handle `length(pal) == 1` case for all types of `demopal()`. 
     - Handle `alpha = NA` case in `demopal()`. 
