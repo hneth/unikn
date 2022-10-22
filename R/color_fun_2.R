@@ -170,6 +170,8 @@ newpal <- function(col,            # a vector of colors
     outpal <- data.frame(outpal, stringsAsFactors = FALSE) # df as column
     outpal <- t(outpal) # df as row
     outpal <- data.frame(outpal, row.names = NULL, stringsAsFactors = FALSE)
+  } else {
+    outpal <- unlist(outpal)  # as vector
   }
   
   
