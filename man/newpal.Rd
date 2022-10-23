@@ -6,14 +6,15 @@
 \alias{defcol}
 \title{Define a new color palette.}
 \usage{
-newpal(col, names = NA, as_df = FALSE)
+newpal(col, names = NULL, as_df = FALSE)
 }
 \arguments{
 \item{col}{A required vector of colors 
-(specified by their R color names, HEX codes, or RGB values).}
+(specified as R color names, HEX codes, or RGB values).}
 
-\item{names}{An optional character vector of names. 
-Default: \code{names = NA}, yielding numeric names.}
+\item{names}{An optional character vector of color names. 
+Default: \code{names = NULL}, using default color names. 
+Setting \code{names = NA} removes all color names.}
 
 \item{as_df}{Should the new color palette be returned as 
 a data frame (rather than as a vector)? 
@@ -33,7 +34,6 @@ newpal(col = c("black", "white"), names = c("dark", "bright"))
 
 pal_flag_de <- newpal(col = c("black", "firebrick3", "gold"),
                       names = c("Schwarz", "Rot", "Gold"))
-
 seecol(pal_flag_de, main = "Colors in the flag of Germany")
 
 # (2) From HEX values: -----
