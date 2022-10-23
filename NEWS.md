@@ -1,5 +1,5 @@
 
-# unikn 0.6.0.9007
+# unikn 0.6.0.9008
 
 This is the development version of the R package **unikn**. 
 
