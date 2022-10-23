@@ -822,7 +822,7 @@ We aim for an authentic representation of a highly-specified corporate design. W
 
 ### Citation and References
 
-To support our development, please cite the **unikn** package when using it in publications or derivations:
+To support our efforts, please cite the **unikn** package in derivations or publications: 
 
 <!-- Citation / reference (in APA format): -->
 
@@ -832,6 +832,14 @@ Social Psychology and Decision Sciences, University of Konstanz, Germany.
 Computer software (R package version 0.6.0, September 20, 2022).  
 Retrieved from <https://CRAN.R-project.org/package=unikn>.   
 doi\ [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)  
+
+A BibTeX entry for LaTeX users is:
+
+```{r pkg-citation, echo = FALSE, comment = ""}
+x <- citation(package = 'unikn')
+# print(x, prefix = "")
+toBibtex(x)
+```
 
 
 <!-- Copyrights of designs: -->

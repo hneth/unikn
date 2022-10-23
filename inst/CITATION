@@ -1,4 +1,4 @@
-citHeader("To cite unikn in derivations and publications use:")
+citHeader("To cite 'unikn' in derivations and publications, please use:")
 
 citEntry(entry = "Manual",
          title        = "unikn: Graphical elements of the University of Konstanz's corporate design",
