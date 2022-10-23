@@ -907,6 +907,8 @@ or publications:
     Retrieved from <https://CRAN.R-project.org/package=unikn>.  
     doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)
 
+<!-- BibTeX:  -->
+
 A BibTeX entry for LaTeX users is:
 
     @Manual{,

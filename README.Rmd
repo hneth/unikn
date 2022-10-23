@@ -833,9 +833,11 @@ Computer software (R package version 0.6.0, September 20, 2022).
 Retrieved from <https://CRAN.R-project.org/package=unikn>.   
 doi\ [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)  
 
+<!-- BibTeX:  -->
+
 A BibTeX entry for LaTeX users is:
 
-```{r pkg-citation, echo = FALSE, comment = ""}
+```{r pkg-citation, echo = FALSE, comment = "", highlight = FALSE}
 x <- citation(package = 'unikn')
 # print(x, prefix = "")
 toBibtex(x)
