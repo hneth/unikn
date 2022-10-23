@@ -3,7 +3,7 @@
 
 This is the development version of the R package **unikn**. 
 
-This version of **unikn** (v0.6.0.9001+) revises functionality and fixes several bugs. [2022-10-22] 
+This version of **unikn** (v0.6.0.9001+) revises functionality and fixes several bugs. [2022-10-23] 
 
 <!-- Log of changes: --> 
 
@@ -12,9 +12,8 @@ Changes since last release:
 
 ## Major changes 
 
-- Add a call for contributions of user-generated color palettes for other institutions (see [GitHub issue](https://github.com/hneth/unikn/issues/11)). 
+- Add contributed `uni_` and `_pal` color palettes. 
 - Add a `type = 'curve'` option to `demopal()` for evaluating transparent color palettes. 
-
 
 <!-- Blank line.  --> 
 
@@ -26,9 +25,11 @@ Changes since last release:
     - Increase robustness by allowing alternative `type` inputs. 
     - Pass `...` to auxiliary functions. 
 
-- Bug fixes: 
-    - Preserve color names in `newpal()`. 
-    - Enforce `newpal()` returning vectors when `as_df = FALSE`. 
+- Improve `newpal()` function: 
+    - Enforce return of vectors when `as_df = FALSE`. 
+    - Revise `names` to enable automatic naming and non-named palettes. 
+    
+- Bug fixes:
     - Handle `length(pal) == 1` case for all types of `demopal()`. 
     - Handle `alpha = NA` case in `demopal()`. 
     - Handle `pal = NA` case in `seecol()` and `usecol()`. 
@@ -38,6 +39,7 @@ Changes since last release:
 
 ## Details 
 
+- Add a call for contributions of user-generated color palettes for other institutions (see [GitHub issue](https://github.com/hneth/unikn/issues/11)). 
 - Reorganize files of utility functions and update documentation. 
 - Add Zenodo doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191) for citations. 
 
@@ -231,6 +233,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-10-22.] 
+[File `NEWS.md` updated on 2022-10-23.] 
 
 <!-- eof. -->
