@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 10 22
+## spds | uni.kn | 2022 10 23
 ## ---------------------------
 
 ## Define color-related functions 
@@ -362,7 +362,7 @@ usecol <- function(pal = pal_unikn,
     kn_names[is.na(kn_names)]   <- ""
     col_names[is.na(col_names)] <- ""
     
-    # Processs name vectors (to avoid duplicates): 
+    # Combine name vectors (to avoid duplicates): 
     col_names[col_names == kn_names] <- ""  # remove duplicates in col names 
     col_names[!col_names == "" & !kn_names == ""] <- 
       paste0("/", col_names[!col_names == "" & !kn_names == ""]) # distinguish different names for the same color
@@ -654,11 +654,11 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       if (pal %in% c("grad", "grad_all", "all_grad")) main <- "See all unikn color gradients"
     }
     
-    pal_tmp <- getpal_key(pal = pal, n = n, alpha = alpha)  # get the color by key.
+    pal_tmp <- get_pal_key(pal = pal, n = n, alpha = alpha)  # get color palette by its key
     
   } else if (compare){
     
-    pal_tmp <- lapply(X = pal, usecol, n = n, alpha = alpha, use_names = TRUE)  # get all palettes separately. 
+    pal_tmp <- lapply(X = pal, usecol, n = n, alpha = alpha, use_names = TRUE)  # get all palettes separately 
     
     if (is.na(main)){
       main <- "Compare a custom set of color palettes"  # default
@@ -676,7 +676,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       
       if (is.null(names(pal_tmp))){ # no names exist: 
         
-        names(pal_tmp) <- paste0("pal_", 1:length(pal_tmp))  # use default names.
+        names(pal_tmp) <- paste0("pal_", 1:length(pal_tmp))  # use default names
         
       } else if (any(names(pal_tmp) == "custom")) {
         

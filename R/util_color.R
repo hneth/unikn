@@ -1,5 +1,5 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2022 09 21
+## spds | uni.kn | 2022 10 23
 ## ---------------------------
 
 # Color-related utility functions: 
@@ -133,7 +133,7 @@ is_col <- function(color) {
 
 
 
-# col_distance: Color distance (in RGB space): ------
+# col_distance: Color distance (in RGB space) ------
 
 col_distance <- function(col_1, col_2){
   
@@ -174,7 +174,7 @@ col_distance <- function(col_1, col_2){
 
 
 
-# col_distinct: A unique() function for color values (using HEX codes): ------
+# col_distinct: A unique() function for color values (using HEX codes) ------
 
 # Goal: Remove visual duplicate colors (using HEX values to judge the identiy of colors, 
 #       rather than color names). 
@@ -436,9 +436,9 @@ parse_pal <- function(pal) {
 
 
 
-# getpal_key: Get a color palette or list of palettes by keyword -------
+# get_pal_key: Get a color palette or list of palettes by keyword -------
 
-getpal_key <- function(pal = "all", n = "all", alpha = NA) {
+get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   
   # Process the 'pal' argument: ----- 
   
@@ -525,7 +525,9 @@ getpal_key <- function(pal = "all", n = "all", alpha = NA) {
   
   return(out)
   
-} # getpal_key(). 
+} # get_pal_key(). 
+
+
 
 
 
