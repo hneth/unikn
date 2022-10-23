@@ -528,18 +528,18 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
 } # get_pal_key(). 
 
 
-# get_col_names: Get default and custom color names ------
+# get_col_names: Get custom and default color names ------
 
-get_col_names <- function(col, pal_list = all_palkn){
+get_col_names <- function(col, custom_pals = all_palkn){
 
-  # 1. Customized names from predefined list of color palettes:
-  get_all_pals <- lapply(pal_list, get)
-  cus_names <- names(unlist(get_all_pals))[match(col, unlist(get_all_pals))]
+  # 1. Customized names from custom color palettes:
+  cus_pals <- lapply(X = custom_pals, FUN = get)
+  cus_names <- names(unlist(cus_pals))[match(col, unlist(cus_pals))]
   
-  # 2. Default names: Predefined color names (in R grDevices::colors()):
+  # 2. Default names: Predefined color names (in grDevices):
   def_names <- grDevices::colors()[match(
     grDevices::rgb(t(grDevices::col2rgb(col)), maxColorValue = 255), 
-    c(grDevices::rgb(t(grDevices::col2rgb(colors())), maxColorValue = 255))
+    c(grDevices::rgb(t(grDevices::col2rgb(grDevices::colors())), maxColorValue = 255))
   )]
   
   # Replace NA values by "": 
@@ -562,7 +562,7 @@ get_col_names <- function(col, pal_list = all_palkn){
 # get_col_names(pal_unikn_pref)  # unikn color palettes
 # get_col_names(pal_unikn)  # colors with multiple names (prioritizing custom names)
 # get_col_names(c("black", Grau, "white", Seeblau))  # combinations
-# get_col_names(usecol(c("black", "white"), n = 5)) # derivations (AFTER evaluating usecol())
+# get_col_names(usecol(c("black", "white"), n = 5))  # derivations (AFTER evaluating usecol())
 
 
 ## ToDo: ------
