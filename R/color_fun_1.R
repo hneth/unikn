@@ -137,12 +137,11 @@ usecol <- function(pal = pal_unikn,
   pal_def <- FALSE  # assume default, that an undefined palette is used.
   # Check this in the next step (this variable serves to control flow).
   
-  if ( all(unlist(lapply(all_palkn, exists))) ) {  # test whether the palettes in all_palkn are defined. 
+  if ( all(unlist(lapply(X = all_palkn, FUN = exists))) ) {  # if all palettes in all_palkn are defined: 
     
-    # Test whether equal to any palette:
-    all_pals <- lapply(all_palkn, get)  # get all palettes from the first part.
+    all_pals <- lapply(X = all_palkn, FUN = get)  # get the values of all_palkn 
     
-  } else {  # if not all palettes are defined:
+  } else {  # not all palettes are defined:
     
     all_pals <- NA
     
@@ -150,25 +149,22 @@ usecol <- function(pal = pal_unikn,
   
   # Is the input one of the defined palettes? ----- 
   if ( !use_col_ramp ) {
-    # execute, if not always the colorRamp should be used.
     
     pal_ix <- 
       sapply(all_pals, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }
       )  # Test, whether specified palette is there.
     
     # If none fits, test for reversed palettes:
-    rev_pal <- FALSE  # should the palette be reversed?
+    rev_pal <- FALSE  # should palette be reversed?
     
     if (!any(pal_ix)) {
-      pal_ix <-
-        sapply(all_pals, function(x)
-          isTRUE(all.equal(rev(pal_inp), x)))
-      if (any(pal_ix)) {
-        rev_pal <- TRUE
-      }  # if palette is reversed, set pal_rev to TRUE.
+      
+      pal_ix <- sapply(X = all_pals, FUN = function(x) isTRUE(all.equal(rev(pal_inp), x)))  # check for reversed pal_inp
+      
+      if (any(pal_ix)) { rev_pal <- TRUE }  # if palette is reversed, set pal_rev to TRUE.
     }
     
-    # If input fits with any palette:
+    # If input corresponds to any palette: ----- 
     if ( any(pal_ix) & length(pal_inp) >= n) {
       
       pal_name <- all_palkn[pal_ix]  # get palette name
@@ -314,13 +310,14 @@ usecol <- function(pal = pal_unikn,
       
       pal_def <- TRUE  # set flag that palette is defined
       
-    }
+    } # if ( any(pal_ix) & length(pal_inp) >= n).
     
-  }
+  } # if ( !use_col_ramp ).
   
   
   # If no defined palette is used or the number exceeds 
   # the number of colors use colorRamp: ----- 
+  
   if (!pal_def) {
     
     # Decide, whether to use colorRamp or not:
@@ -333,9 +330,9 @@ usecol <- function(pal = pal_unikn,
       # use the colorRamp (removing all names): 
       out_col <- grDevices::colorRampPalette(pal_inp)(n) 
       
-    }
+    } # if (n == length(pal_inp)).
     
-  } # if (!pal_def) end. 
+  } # if (!pal_def). 
   
   
   # Process out_col: ------ 
@@ -343,34 +340,39 @@ usecol <- function(pal = pal_unikn,
   # Name the palette (as comment attribute): ---- 
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
   
-  # Get color names (if no names are given):
-  if ( all(is.null(names(out_col))) ) {
+  # Get color names (if no names are given): ---- 
+  if ( use_names & all(is.null(names(out_col))) ) {
 
-    # tst <- out_col  # Not needed?
+    # # (A) Combine kn_names with color() names:
+    # 
+    # # 1. Names from predefined kn palettes:
+    # kn_names <- names(unlist(all_pals))[match(out_col, unlist(all_pals))]
+    # 
+    # # 2. Predefined color names (in R colors()):
+    # col_names <- colors()[match(
+    #   grDevices::rgb(t(grDevices::col2rgb(out_col)), maxColorValue = 255),
+    #   c(grDevices::rgb(t(grDevices::col2rgb(colors())), maxColorValue = 255))
+    # )]
+    # 
+    # # Replace NA values by "":
+    # kn_names[is.na(kn_names)]   <- ""
+    # col_names[is.na(col_names)] <- ""
+    # 
+    # # Combine name vectors (to avoid duplicates):
+    # col_names[col_names == kn_names] <- ""  # remove duplicates in col names
+    # col_names[!col_names == "" & !kn_names == ""] <-
+    #   paste0("/", col_names[!col_names == "" & !kn_names == ""]) # distinguish different names for the same color
+    # 
+    # names(out_col) <- paste0(kn_names, col_names)
 
-    # 1. Names from predefined kn palettes:
-    kn_names <- names(unlist(all_pals))[match(out_col, unlist(all_pals))]
-
-    # 2. Predefined color names (in R colors()):
-    col_names <- colors()[match(
-      grDevices::rgb(t(grDevices::col2rgb(out_col)), maxColorValue = 255),
-      c(grDevices::rgb(t(grDevices::col2rgb(colors())), maxColorValue = 255))
-    )]
-
-    # Replace NA values by "":
-    kn_names[is.na(kn_names)]   <- ""
-    col_names[is.na(col_names)] <- ""
-
-    # Combine name vectors (to avoid duplicates):
-    col_names[col_names == kn_names] <- ""  # remove duplicates in col names
-    col_names[!col_names == "" & !kn_names == ""] <-
-      paste0("/", col_names[!col_names == "" & !kn_names == ""]) # distinguish different names for the same color
-
-    names(out_col) <- paste0(kn_names, col_names)
-
-    # # Replace by: +++ here now +++     
-    # names(out_col) <- get_col_names(col = out_col, pal_list = all_pals)  # use helper function
     
+    # (B) Use new helper function (in util_color.R):  +++ here now +++
+
+    # FAILS:     
+    # names(out_col) <- get_col_names(col = out_col, custom_pals = all_pals)  # use helper function (with all_pals)
+    
+    # WORKS: 
+    names(out_col) <- get_col_names(col = out_col, custom_pals = all_palkn)  # use helper function (with default pals)
     
   } # if (no names in out_col).
   
@@ -388,7 +390,9 @@ usecol <- function(pal = pal_unikn,
   
   # Remove visual duplicates: ---- 
   if ( distinct ){
+    
     out_col <- col_distinct(out_col, use_alpha = FALSE) # (based on HEX values, but ignoring transparency)
+    
   }
   
   
@@ -401,11 +405,16 @@ usecol <- function(pal = pal_unikn,
 # ## Check:
 # usecol(c("black", "white"), use_names = TRUE)
 # usecol(c("black", "white"), n = 5, use_names = TRUE)
+# usecol(c("black", "white"), n = 5, use_names = FALSE)
 # 
 # usecol(pal_unikn, use_names = TRUE)
 # usecol(pal_unikn, n =  5, use_names = TRUE)
 # usecol(pal_unikn, n = 15, use_names = TRUE)
-
+# usecol(pal_unikn, n = 15, use_names = FALSE)
+# 
+# usecol(c(Seeblau, "deepskyblue", Pinky, "deeppink"), use_names = TRUE)
+# usecol(c(Seeblau, "deepskyblue", Pinky, "deeppink"), use_names = FALSE)
+# seecol(usecol(c(Seeblau, "deepskyblue", Pinky, "deeppink"), use_names = TRUE))
 
 
 # 2. seecol(): Plot/see the colors of a palette or multiple palettes: ---------- 
