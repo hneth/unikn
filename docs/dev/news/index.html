@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.0.9004</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.0.9008</span>
       </span>
     </div>
 
@@ -74,20 +74,26 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="0.6.0.9004" id="unikn-0609004">unikn 0.6.0.9004<a class="anchor" aria-label="anchor" href="#unikn-0609004"></a></h2>
+<h2 class="page-header" data-toc-text="0.6.0.9008" id="unikn-0609008">unikn 0.6.0.9008<a class="anchor" aria-label="anchor" href="#unikn-0609008"></a></h2>
 <p>This is the development version of the R package <strong>unikn</strong>.</p>
-<p>This version of <strong>unikn</strong> (v0.6.0.9001) revises functionality and fixes some bugs. [2022-09-20]</p>
+<p>This version of <strong>unikn</strong> (v0.6.0.9001+) revises functionality and fixes several bugs. [2022-10-23]</p>
 <!-- Log of changes: -->
 <p>Changes since last release:</p>
 <div class="section level3">
-<h3 id="major-changes-0-6-0-9004">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-6-0-9004"></a></h3>
-<ul><li>Add a <code>type = 'curve'</code> option to <code><a href="../reference/demopal.html">demopal()</a></code> for evaluating transparent color palettes.</li>
+<h3 id="major-changes-0-6-0-9008">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-6-0-9008"></a></h3>
+<ul><li>Add contributed <code>uni_</code> and <code>_pal</code> color palettes.</li>
+<li>Add a <code>type = 'curve'</code> option to <code><a href="../reference/demopal.html">demopal()</a></code> for evaluating transparent color palettes.</li>
 </ul><!-- Blank line.  --></div>
 <div class="section level3">
-<h3 id="minor-changes-0-6-0-9004">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-0-6-0-9004"></a></h3>
+<h3 id="minor-changes-0-6-0-9008">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-0-6-0-9008"></a></h3>
 <ul><li>Adjust <code><a href="../reference/demopal.html">demopal()</a></code> function:
-<ul><li>Align point colors for <code>type = "scatter"</code> with other options.</li>
+<ul><li>Align point colors for <code>type = "scatter"</code> to those of other options.</li>
 <li>Increase robustness by allowing alternative <code>type</code> inputs.</li>
+<li>Pass <code>...</code> to auxiliary functions.</li>
+</ul></li>
+<li>Improve <code><a href="../reference/newpal.html">newpal()</a></code> function:
+<ul><li>Enforce return of vectors when <code>as_df = FALSE</code>.</li>
+<li>Revise <code>names</code> to enable automatic naming and non-named palettes.</li>
 </ul></li>
 <li>Bug fixes:
 <ul><li>Handle <code>length(pal) == 1</code> case for all types of <code><a href="../reference/demopal.html">demopal()</a></code>.</li>
@@ -96,8 +102,9 @@
 </ul></li>
 </ul><!-- Blank line.  --></div>
 <div class="section level3">
-<h3 id="details-0-6-0-9004">Details<a class="anchor" aria-label="anchor" href="#details-0-6-0-9004"></a></h3>
-<ul><li>Reorganize files of utility functions.</li>
+<h3 id="details-0-6-0-9008">Details<a class="anchor" aria-label="anchor" href="#details-0-6-0-9008"></a></h3>
+<ul><li>Add a call for contributions of user-generated color palettes for other institutions (see <a href="https://github.com/hneth/unikn/issues/11" class="external-link">GitHub issue</a>).</li>
+<li>Reorganize files of utility functions and update documentation.</li>
 <li>Add Zenodo doi <a href="https://doi.org/10.5281/zenodo.7096191" class="external-link">10.5281/zenodo.7096191</a> for citations.</li>
 </ul><!-- Development version:  --><p>The current development version of <strong>unikn</strong> is available at <a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a>.</p>
 <!-- Previous versions: -->
@@ -223,7 +230,7 @@ Show HEX codes on two alternating lines (or with diagonal labels) when length of
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.0" id="unikn-010">unikn 0.1.0<small>2019-06-15</small><a class="anchor" aria-label="anchor" href="#unikn-010"></a></h2>
 <ul><li>Initial release of <strong>unikn</strong> (v0.1.0) on CRAN: <a href="https://CRAN.R-project.org/package=unikn" class="external-link uri">https://CRAN.R-project.org/package=unikn</a>. [2019-06-15]</li>
-</ul><!-- Footer:  --><hr><p>[File <code>NEWS.md</code> updated on 2022-10-01.]</p>
+</ul><!-- Footer:  --><hr><p>[File <code>NEWS.md</code> updated on 2022-10-23.]</p>
 <!-- eof. -->
 </div>
   </div>

@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.0.9007</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.0.9008</span>
       </span>
     </div>
 
@@ -103,7 +103,8 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Colors and color functions</h1>
-                        <h4 data-toc-skip class="author">SPDS, uni.kn</h4>
+                        <h4 data-toc-skip class="author">SPDS,
+uni.kn</h4>
             
             <h4 data-toc-skip class="date">2022 08 20</h4>
       
@@ -115,70 +116,113 @@
     
     
 <!-- unikn pkg logo and link: -->
-<p><a href="https://github.com/hneth/unikn/" class="external-link"> <img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="140px" style="width: 140px; float: right; border:0;"></a></p>
-<p>This vignette explains the colors, color palettes, and color-related functions provided by the <strong>unikn</strong> package. (See the vignettes on <a href="color_recipes.html">color recipes</a> and <a href="color_inst.html">institutional colors</a> for more specialized tasks and the vignette on <a href="text.html">text</a> for information on text boxes and decorations.)</p>
-<p>Please install and/or load the <strong>unikn</strong> package to get started:</p>
+<p><a href="https://github.com/hneth/unikn/" class="external-link">
+<img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="140px" style="width: 140px; float: right; border:0;"></a></p>
+<p>This vignette explains the colors, color palettes, and color-related
+functions provided by the <strong>unikn</strong> package. (See the
+vignettes on <a href="color_recipes.html">color recipes</a> and <a href="color_inst.html">institutional colors</a> for more specialized
+tasks and the vignette on <a href="text.html">text</a> for information
+on text boxes and decorations.)</p>
+<p>Please install and/or load the <strong>unikn</strong> package to get
+started:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages('unikn')  # install unikn from CRAN client</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://CRAN.R-project.org/package=unikn" class="external-link">'unikn'</a></span><span class="op">)</span>             <span class="co"># loads the package</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>The <strong>unikn</strong> package provides some colors (e.g., <code>Seeblau</code>) and color palettes (e.g., <code>pal_unikn</code>). However, its functionality mainly comes from color-related functions that are useful beyond the dedicated colors of this package.</p>
+<p>The <strong>unikn</strong> package provides some colors (e.g.,
+<code>Seeblau</code>) and color palettes (e.g., <code>pal_unikn</code>).
+However, its functionality mainly comes from color-related functions
+that are useful beyond the dedicated colors of this package.</p>
 <!-- A. Primary functions: Seeing and using colors -->
-<p>The package provides two main functions for interacting with color palettes: <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code>.</p>
+<p>The package provides two main functions for interacting with color
+palettes: <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code>.</p>
 <ol style="list-style-type: decimal">
 <li>
-<p><code><a href="../reference/seecol.html">seecol()</a></code> is a general-purpose tool for <strong>seeing (or visualizing) colors or color palettes</strong>. The <code><a href="../reference/seecol.html">seecol()</a></code> function takes two main arguments:</p>
+<p><code><a href="../reference/seecol.html">seecol()</a></code> is a general-purpose tool for
+<strong>seeing (or visualizing) colors or color palettes</strong>. The
+<code><a href="../reference/seecol.html">seecol()</a></code> function takes two main arguments:</p>
 <ul>
 <li>
-<code>pal</code> provides either one or multiple color palettes (with a default of <code>pal = "all"</code>);<br>
+<code>pal</code> provides either one or multiple color palettes
+(with a default of <code>pal = "all"</code>);<br>
 </li>
 <li>
-<code>n</code> specifies the number of desired colors (with a default of <code>n = "all"</code>).</li>
+<code>n</code> specifies the number of desired colors (with a
+default of <code>n = "all"</code>).</li>
 </ul>
 </li>
 </ol>
-<p>Based on the input of <code>pal</code>, the <code><a href="../reference/seecol.html">seecol()</a></code> function distinguishes between two modes:</p>
+<p>Based on the input of <code>pal</code>, the <code><a href="../reference/seecol.html">seecol()</a></code>
+function distinguishes between two modes:</p>
 <ul>
-<li>A. <em>viewing the details</em> of a <em>single</em> color palette (when providing only one color palette);</li>
-<li>B. <em>comparing multiple</em> color palettes (when providing a keyword or <code>list</code>-object).</li>
+<li>A. <em>viewing the details</em> of a <em>single</em> color palette
+(when providing only one color palette);</li>
+<li>B. <em>comparing multiple</em> color palettes (when providing a
+keyword or <code>list</code>-object).</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li>
-<p><code><a href="../reference/usecol.html">usecol()</a></code> allows <strong>using colors or color palettes</strong> (e.g., when creating visualizations) without showing its details. The <code><a href="../reference/usecol.html">usecol()</a></code> function also takes arguments for conveniently manipulating color palettes:</p>
+<p><code><a href="../reference/usecol.html">usecol()</a></code> allows <strong>using colors or color
+palettes</strong> (e.g., when creating visualizations) without showing
+its details. The <code><a href="../reference/usecol.html">usecol()</a></code> function also takes arguments for
+conveniently manipulating color palettes:</p>
 <ul>
 <li>
-<code>pal</code> provides either one or multiple color palettes (with a default of <code>pal = pal_unikn</code>);<br>
+<code>pal</code> provides either one or multiple color palettes
+(with a default of <code>pal = pal_unikn</code>);<br>
 </li>
 <li>
-<code>n</code> specifies the number of desired colors (with a default of <code>n = "all"</code>);</li>
+<code>n</code> specifies the number of desired colors (with a
+default of <code>n = "all"</code>);</li>
 <li>
-<code>alpha</code> adjusts the opacity of all colors in <code>pal</code> (e.g., <code>alpha = .50</code> for medium transparency).</li>
+<code>alpha</code> adjusts the opacity of all colors in
+<code>pal</code> (e.g., <code>alpha = .50</code> for medium
+transparency).</li>
 </ul>
 </li>
 </ol>
-<!-- B. Secondary functions: Finding colors and defining color palettes --><p>Three additional functions provide general functionality for finding colors and defining color palettes:</p>
+<!-- B. Secondary functions: Finding colors and defining color palettes --><p>Three additional functions provide general functionality for finding
+colors and defining color palettes:</p>
 <ol style="list-style-type: decimal">
-<li><p><code><a href="../reference/simcol.html">simcol()</a></code> allows <strong>finding similar colors</strong> (given a target color, a set of candidate colors, and some tolerance threshold(s));</p></li>
-<li><p><code><a href="../reference/grepal.html">grepal()</a></code> allows <strong>searching the names of color palettes</strong> (i.e., a vector of color names or data frame of named colors) for a <code>pattern</code> and returns those colors that match the pattern (or regular expression);</p></li>
-<li><p><code><a href="../reference/newpal.html">newpal()</a></code> allows <strong>defining new color palettes</strong> (usually as data frames with dedicated color names).</p></li>
+<li><p><code><a href="../reference/simcol.html">simcol()</a></code> allows <strong>finding similar
+colors</strong> (given a target color, a set of candidate colors, and
+some tolerance threshold(s));</p></li>
+<li><p><code><a href="../reference/grepal.html">grepal()</a></code> allows <strong>searching the names of color
+palettes</strong> (i.e., a vector of color names or data frame of named
+colors) for a <code>pattern</code> and returns those colors that match
+the pattern (or regular expression);</p></li>
+<li><p><code><a href="../reference/newpal.html">newpal()</a></code> allows <strong>defining new color
+palettes</strong> (usually as data frames with dedicated color
+names).</p></li>
 </ol>
 <!-- C. Auxiliary functions: Adding transparency and getting color gradients/shades --><p>Finally, two more functions serve in auxiliary roles:</p>
 <ol style="list-style-type: decimal">
-<li><p><code><a href="../reference/ac.html">ac()</a></code> is a flexible wrapper for <code><a href="https://rdrr.io/r/grDevices/adjustcolor.html" class="external-link">adjustcolor()</a></code> that allows <strong>setting color transparency</strong>;</p></li>
-<li><p><code><a href="../reference/shades_of.html">shades_of()</a></code> provides a color vector that consists of <code>n</code> <strong>shades of some color</strong>.</p></li>
+<li><p><code><a href="../reference/ac.html">ac()</a></code> is a flexible wrapper for
+<code><a href="https://rdrr.io/r/grDevices/adjustcolor.html" class="external-link">adjustcolor()</a></code> that allows <strong>setting color
+transparency</strong>;</p></li>
+<li><p><code><a href="../reference/shades_of.html">shades_of()</a></code> provides a color vector that consists of
+<code>n</code> <strong>shades of some color</strong>.</p></li>
 </ol>
-<!-- Transition: --><p>The rest of this vignette provides examples of using and details on these functions. (See the <a href="color_recipes.html">Color recipes</a> vignette for more examples of solving color-related tasks.)</p>
+<!-- Transition: --><p>The rest of this vignette provides examples of using and details on
+these functions. (See the <a href="color_recipes.html">Color recipes</a>
+vignette for more examples of solving color-related tasks.)</p>
 </div>
 <div class="section level2">
 <h2 id="viewing-colors-and-color-palettes-with-seecol">Viewing colors and color palettes with <code>seecol()</code><a class="anchor" aria-label="anchor" href="#viewing-colors-and-color-palettes-with-seecol"></a>
 </h2>
-<p>The behavior of the <code><a href="../reference/seecol.html">seecol()</a></code> function distinguishes between two modes and depends on the input to its initial <code>pal</code> argument. It either shows (A) the details of a single color palette, or (B) allows comparing multiple color palettes. The next two sections will address both modes in turn.</p>
+<p>The behavior of the <code><a href="../reference/seecol.html">seecol()</a></code> function distinguishes
+between two modes and depends on the input to its initial
+<code>pal</code> argument. It either shows (A) the details of a single
+color palette, or (B) allows comparing multiple color palettes. The next
+two sections will address both modes in turn.</p>
 <div class="section level3">
 <h3 id="a--viewing-details-of-a-single-color-palette">A. Viewing details of a single color palette<a class="anchor" aria-label="anchor" href="#a--viewing-details-of-a-single-color-palette"></a>
 </h3>
-<p>When the <code>pal</code> argument of the <code><a href="../reference/seecol.html">seecol()</a></code> function specifies a <em>single</em> color palette, the function plots a more detailed view of this particular color palette:</p>
+<p>When the <code>pal</code> argument of the <code><a href="../reference/seecol.html">seecol()</a></code>
+function specifies a <em>single</em> color palette, the function plots a
+more detailed view of this particular color palette:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_unikn</span><span class="op">)</span>  <span class="co"># view details of pal_unikn </span></span></code></pre></div>
 <p><img src="colors_files/figure-html/unikn-palette-1.png" width="480" style="display: block; margin: auto;"></p>
@@ -192,18 +236,26 @@
 </li>
 <li>the RGB values for each color.</li>
 </ul>
-<p>When a color palette contains too many colors, the HEX and RGB values are no longer printed. However, setting <code>hex</code> and <code>rgb</code> to TRUE will force them to be shown.</p>
+<p>When a color palette contains too many colors, the HEX and RGB values
+are no longer printed. However, setting <code>hex</code> and
+<code>rgb</code> to TRUE will force them to be shown.</p>
 <!-- Seeing and saving a color palette: -->
-<p>Note that <code><a href="../reference/seecol.html">seecol()</a></code> also returns the color palette that is being shown. Thus, a typical workflow comprises both <em>seeing</em> a particular color palette and <em>saving</em> it (for storing and applying it later):</p>
+<p>Note that <code><a href="../reference/seecol.html">seecol()</a></code> also returns the color palette that
+is being shown. Thus, a typical workflow comprises both <em>seeing</em>
+a particular color palette and <em>saving</em> it (for storing and
+applying it later):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_unikn_light</span><span class="op">)</span>  <span class="co"># view details of AND save a color palette  </span></span></code></pre></div>
 <p><img src="colors_files/figure-html/save-seecol-1.png" width="480" style="display: block; margin: auto;"></p>
-<p>Due to saving the color palette (here to <code>my_pal</code>) we can later use it in a visualization:</p>
+<p>Due to saving the color palette (here to <code>my_pal</code>) we can
+later use it in a visualization:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>, col <span class="op">=</span> <span class="va">my_pal</span><span class="op">)</span>  <span class="co"># use my_pal in a plot</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/my-pal-example-1.png" width="480" style="display: block; margin: auto;"></p>
-<p>Note that <code><a href="../reference/seecol.html">seecol()</a></code> <em>invisibly</em> returns the color palette.<br>
-Thus, the following will only plot the palette without doing anything else with the color vector:</p>
+<p>Note that <code><a href="../reference/seecol.html">seecol()</a></code> <em>invisibly</em> returns the color
+palette.<br>
+Thus, the following will only plot the palette without doing anything
+else with the color vector:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_bordeaux</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/invisible-seecol-1.png" width="480" style="display: block; margin: auto;"></p>
@@ -211,7 +263,15 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level3">
 <h3 id="b--viewing-and-comparing-multiple-color-palettes">B. Viewing and comparing multiple color palettes<a class="anchor" aria-label="anchor" href="#b--viewing-and-comparing-multiple-color-palettes"></a>
 </h3>
-<p>When the <code>pal</code> argument of <code><a href="../reference/seecol.html">seecol()</a></code> specifies (a list of) <em>multiple</em> color palettes, the function plots a vector for each palette to allow comparing these palettes. Some special keywords within the <strong>unikn</strong> package denote sets of color palettes: <code>"unikn_all"</code>, <code>"unikn_basic"</code>, <code>pair_all"</code>, <code>"pref_all"</code> and <code>"grad_all"</code>. Calling <code>seecol</code> with <code>pal</code> set to these keywords allows comparing pre-defined sets of the color palettes:</p>
+<p>When the <code>pal</code> argument of <code><a href="../reference/seecol.html">seecol()</a></code> specifies
+(a list of) <em>multiple</em> color palettes, the function plots a
+vector for each palette to allow comparing these palettes. Some special
+keywords within the <strong>unikn</strong> package denote sets of color
+palettes: <code>"unikn_all"</code>, <code>"unikn_basic"</code>,
+<code>pair_all"</code>, <code>"pref_all"</code> and
+<code>"grad_all"</code>. Calling <code>seecol</code> with
+<code>pal</code> set to these keywords allows comparing pre-defined sets
+of the color palettes:</p>
 <p>Viewing <em>all</em> available color palettes:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="st">"unikn_all"</span><span class="op">)</span>  <span class="co"># same as seecol("all")</span></span></code></pre></div>
@@ -222,7 +282,8 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="st">"unikn_basic"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/seecol-unikn-basic-2-1.png" width="576" style="display: block; margin: auto;"></p>
-<p>Note, that <code>pal_unikn_web</code> and <code>pal_unikn_ppt</code> are almost identical, but differ in how vibrant their colors are.</p>
+<p>Note, that <code>pal_unikn_web</code> and <code>pal_unikn_ppt</code>
+are almost identical, but differ in how vibrant their colors are.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>three <em>paired</em> color palettes:</li>
 </ol>
@@ -230,7 +291,8 @@ Thus, the following will only plot the palette without doing anything else with 
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="st">"pair_all"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/seecol-pair-all-1.png" width="576" style="display: block; margin: auto;"></p>
 <ol start="3" style="list-style-type: decimal">
-<li>all <em>preferred</em> colors from the spectrum and their respective <em>gradients</em>:</li>
+<li>all <em>preferred</em> colors from the spectrum and their respective
+<em>gradients</em>:</li>
 </ol>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="st">"pref_all"</span><span class="op">)</span></span></code></pre></div>
@@ -245,16 +307,20 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level3">
 <h3 id="other-parameters-of-seecol">Other parameters of <code>seecol()</code><a class="anchor" aria-label="anchor" href="#other-parameters-of-seecol"></a>
 </h3>
-<p>The <code><a href="../reference/seecol.html">seecol()</a></code> function provides some aesthetic parameters for adjusting how color palettes are plotted:</p>
+<p>The <code><a href="../reference/seecol.html">seecol()</a></code> function provides some aesthetic parameters
+for adjusting how color palettes are plotted:</p>
 <ul>
 <li>
-<code>col_brd</code> allows specifying the color of box borders (if shown. Default: <code>col_brd = NULL</code>);<br>
+<code>col_brd</code> allows specifying the color of box borders (if
+shown. Default: <code>col_brd = NULL</code>);<br>
 </li>
 <li>
-<code>lwd_brd</code> allows specifying the line width of box borders (if shown. Default: <code>lwd_brd = NULL</code>);<br>
+<code>lwd_brd</code> allows specifying the line width of box borders
+(if shown. Default: <code>lwd_brd = NULL</code>);<br>
 </li>
 <li>
-<code>main</code> and <code>sub</code> allow replacing the default titles with custom titles.</li>
+<code>main</code> and <code>sub</code> allow replacing the default
+titles with custom titles.</li>
 </ul>
 <p>Examples:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -266,15 +332,29 @@ Thus, the following will only plot the palette without doing anything else with 
 </div>
 </div>
 <div class="section level2">
-<h2 id="using-a-color-palette-with-usecol-without-seeing-it">Using a color palette with <code>usecol()</code> (without seeing it)<a class="anchor" aria-label="anchor" href="#using-a-color-palette-with-usecol-without-seeing-it"></a>
+<h2 id="using-a-color-palette-with-usecol-without-seeing-it">Using a color palette with <code>usecol()</code> (without seeing
+it)<a class="anchor" aria-label="anchor" href="#using-a-color-palette-with-usecol-without-seeing-it"></a>
 </h2>
-<p>The <code><a href="../reference/usecol.html">usecol()</a></code> function allows directly using a color palette in a plot (i.e., without first viewing it). <code><a href="../reference/usecol.html">usecol()</a></code> corresponds to <code><a href="../reference/seecol.html">seecol()</a></code> by taking the same main arguments (<code>pal</code> and <code>n</code>). However, as its purpose is <em>using</em> the colors specified by <code>pal</code>, rather than plotting (or <em>seeing</em>) them, its <code>pal</code> argument typically contains only one color palette:</p>
+<p>The <code><a href="../reference/usecol.html">usecol()</a></code> function allows directly using a color
+palette in a plot (i.e., without first viewing it).
+<code><a href="../reference/usecol.html">usecol()</a></code> corresponds to <code><a href="../reference/seecol.html">seecol()</a></code> by taking the
+same main arguments (<code>pal</code> and <code>n</code>). However, as
+its purpose is <em>using</em> the colors specified by <code>pal</code>,
+rather than plotting (or <em>seeing</em>) them, its
+<code>pal</code> argument typically contains only one color palette:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Using a color palette:</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">11</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="../reference/usecol.html">usecol</a></span><span class="op">(</span><span class="va">pal_unikn</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/usecol-default-use-1.png" width="480" style="display: block; margin: auto;"></p>
 <!-- Flexibility in providing color palette pal: -->
-<p>Note that the <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> functions are both quite permissive with respect to specifying their <code>pal</code> argument: A particular color palette (e.g., <code>pal_seegruen</code>) can not only be displayed by providing it (as an object) but also by providing its name (i.e., <code>"pal_seegruen"</code>) or even an incomplete object name or name (i.e., <code>"seegruen"</code> or <code>seegruen</code>). Hence, the following expressions all yield the same result:</p>
+<p>Note that the <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code>
+functions are both quite permissive with respect to specifying their
+<code>pal</code> argument: A particular color palette (e.g.,
+<code>pal_seegruen</code>) can not only be displayed by providing it (as
+an object) but also by providing its name (i.e.,
+<code>"pal_seegruen"</code>) or even an incomplete object name or name
+(i.e., <code>"seegruen"</code> or <code>seegruen</code>). Hence, the
+following expressions all yield the same result:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_seegruen</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="st">"pal_seegruen"</span><span class="op">)</span></span>
@@ -284,15 +364,26 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level2">
 <h2 id="customizing-color-palettes">Customizing color palettes<a class="anchor" aria-label="anchor" href="#customizing-color-palettes"></a>
 </h2>
-<p>Both the <code><a href="../reference/seecol.html">seecol()</a></code> and the <code><a href="../reference/usecol.html">usecol()</a></code> functions allow flexible on-the-fly customizations of color palettes.</p>
-<p>Specifying a value for the <code>n</code> argument of <code><a href="../reference/seecol.html">seecol()</a></code> an <code><a href="../reference/usecol.html">usecol()</a></code> allows:</p>
+<p>Both the <code><a href="../reference/seecol.html">seecol()</a></code> and the <code><a href="../reference/usecol.html">usecol()</a></code>
+functions allow flexible on-the-fly customizations of color
+palettes.</p>
+<p>Specifying a value for the <code>n</code> argument of
+<code><a href="../reference/seecol.html">seecol()</a></code> an <code><a href="../reference/usecol.html">usecol()</a></code> allows:</p>
 <ul>
-<li>specifying subsets of colors and comparing these subsets for different palettes for <code>n</code> <em>smaller</em> than the length of the color palette;<br>
+<li>specifying subsets of colors and comparing these subsets for
+different palettes for <code>n</code> <em>smaller</em> than the length
+of the color palette;<br>
 </li>
-<li>extending color palettes and comparing different palettes for <code>n</code> <em>greater</em> than the length of the color palette.</li>
+<li>extending color palettes and comparing different palettes for
+<code>n</code> <em>greater</em> than the length of the color
+palette.</li>
 </ul>
-<p>Passing a vector of colors and/or color palettes allows users to create and view their own color palettes.</p>
-<p>Finally, specifying a value for <code>alpha</code> (in a range from 0 to 1) allows controlling the transparency of the color palette(s), with higher values for <code>alpha</code> corresponding to higher transparency (i.e., lower opacity).</p>
+<p>Passing a vector of colors and/or color palettes allows users to
+create and view their own color palettes.</p>
+<p>Finally, specifying a value for <code>alpha</code> (in a range from 0
+to 1) allows controlling the transparency of the color palette(s), with
+higher values for <code>alpha</code> corresponding to higher
+transparency (i.e., lower opacity).</p>
 <div class="section level3">
 <h3 id="selecting-subsets">Selecting subsets<a class="anchor" aria-label="anchor" href="#selecting-subsets"></a>
 </h3>
@@ -303,7 +394,10 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_unikn</span>, <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/use-subset-2.png" width="480" style="display: block; margin: auto;"></p>
-<p>Importantly, when using pre-defined color palettes of <strong>unikn</strong> but a value of <code>n</code> that is smaller than the length of the current color palette, <code>usecol</code> and <code>seecol</code> select a predefined subset of colors:</p>
+<p>Importantly, when using pre-defined color palettes of
+<strong>unikn</strong> but a value of <code>n</code> that is smaller
+than the length of the current color palette, <code>usecol</code> and
+<code>seecol</code> select a predefined subset of colors:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="../reference/usecol.html">usecol</a></span><span class="op">(</span><span class="va">pal_seeblau</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="../reference/usecol.html">usecol</a></span><span class="op">(</span><span class="va">pal_seeblau</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -312,7 +406,9 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level3">
 <h3 id="extending-color-palettes">Extending color palettes<a class="anchor" aria-label="anchor" href="#extending-color-palettes"></a>
 </h3>
-<p>For values of <code>n</code> that are larger than the number of available colors in <code>pal</code>, the specified color palette is extended using <code>ColorRampPalette</code>:</p>
+<p>For values of <code>n</code> that are larger than the number of
+available colors in <code>pal</code>, the specified color palette is
+extended using <code>ColorRampPalette</code>:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="st">"all"</span>, n <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/use-superset-all-1.png" width="480" style="display: block; margin: auto;"></p>
@@ -327,18 +423,24 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level3">
 <h3 id="mixing-color-palettes">Mixing color palettes<a class="anchor" aria-label="anchor" href="#mixing-color-palettes"></a>
 </h3>
-<p>By passing a vector to <code>pal</code>, we can concatenate 2 color palettes and connect them with a color (here: <code>"white"</code>) as the midpoint of a new color palette:</p>
+<p>By passing a vector to <code>pal</code>, we can concatenate 2 color
+palettes and connect them with a color (here: <code>"white"</code>) as
+the midpoint of a new color palette:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span>pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="va">pal_petrol</span><span class="op">)</span>, <span class="st">"white"</span>, <span class="va">pal_bordeaux</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/combine-pals-1.png" width="480" style="display: block; margin: auto;"></p>
-<p>We can combine a set of colors and extend this palette by specifying an <code>n</code> argument that is larger than the length of the specified palette:</p>
+<p>We can combine a set of colors and extend this palette by specifying
+an <code>n</code> argument that is larger than the length of the
+specified palette:</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span>pal <span class="op">=</span> <span class="fu"><a href="../reference/usecol.html">usecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">Karpfenblau</span>, <span class="va">Seeblau</span>, <span class="st">"gold"</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/combine-pals-n-1.png" width="480" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Note, that redundant use of seecol and usecol shows HEX values as names.</span></span>
 <span><span class="co"># seecol(pal = c(Karpfenblau, Seeblau, "gold"), n = 10)  # would work, but show no intermediate names</span></span></code></pre></div>
-<p>These custom palettes can easily be used in a plot. For instance, we can define and use a subset of the <code>pal_unikn_pair</code> palette as follows:</p>
+<p>These custom palettes can easily be used in a plot. For instance, we
+can define and use a subset of the <code>pal_unikn_pair</code> palette
+as follows:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_pair</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_unikn_pair</span>, n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/use-my-pair-1.png" width="480" style="display: block; margin: auto;"></p>
@@ -354,8 +456,13 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level3">
 <h3 id="controlling-transparency">Controlling transparency<a class="anchor" aria-label="anchor" href="#controlling-transparency"></a>
 </h3>
-<p>Both <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> accept an <code>alpha</code> argument (in a range from 0 to 1) for controlling the transparency of color palettes, with higher values for <code>alpha</code> corresponding to lower transparency (i.e., higher opacity).</p>
-<p>Displaying a specific color palette at a medium opacity/transparency:</p>
+<p>Both <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> accept an
+<code>alpha</code> argument (in a range from 0 to 1) for controlling the
+transparency of color palettes, with higher values for
+<code>alpha</code> corresponding to lower transparency (i.e., higher
+opacity).</p>
+<p>Displaying a specific color palette at a medium
+opacity/transparency:</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_unikn</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/transparency1-pal-1.png" width="480" style="display: block; margin: auto;"></p>
@@ -370,7 +477,11 @@ Thus, the following will only plot the palette without doing anything else with 
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="st">"grad"</span>, alpha <span class="op">=</span> <span class="fl">0.67</span>, main <span class="op">=</span> <span class="st">"Seeing color palettes with added transparency"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/transparency-all-1.png" width="480" style="display: block; margin: auto;"></p>
 <!-- Note on ac(): -->
-<p>The <code><a href="../reference/ac.html">ac()</a></code> function provides a flexible wrapper around the <code><a href="https://rdrr.io/r/grDevices/adjustcolor.html" class="external-link">adjustcolor()</a></code> function of the <strong>grDevices</strong> package. Its key functionality is that it allows for <em>vectorized</em> <code>col</code> and <code>alpha</code> arguments:</p>
+<p>The <code><a href="../reference/ac.html">ac()</a></code> function provides a flexible wrapper around the
+<code><a href="https://rdrr.io/r/grDevices/adjustcolor.html" class="external-link">adjustcolor()</a></code> function of the <strong>grDevices</strong>
+package. Its key functionality is that it allows for
+<em>vectorized</em> <code>col</code> and <code>alpha</code>
+arguments:</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"firebrick"</span>, <span class="st">"forestgreen"</span>, <span class="st">"gold"</span>, <span class="st">"steelblue"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/ac.html">ac</a></span><span class="op">(</span><span class="va">my_cols</span>, alpha <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">.25</span>, <span class="fl">5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">.75</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -379,7 +490,12 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level3">
 <h3 id="creating-and-comparing-custom-palettes">Creating and comparing custom palettes<a class="anchor" aria-label="anchor" href="#creating-and-comparing-custom-palettes"></a>
 </h3>
-<p>Suppose we want to compare a newly created color palette to existing color palettes. To achieve this, advanced users can use the <code><a href="../reference/seecol.html">seecol()</a></code> function for displaying and comparing different custom palettes. When provided with a list of color palettes as the input to its <code>pal</code> argument, <code><a href="../reference/seecol.html">seecol()</a></code> will show a <em>comparison</em> of the inputs:</p>
+<p>Suppose we want to compare a newly created color palette to existing
+color palettes. To achieve this, advanced users can use the
+<code><a href="../reference/seecol.html">seecol()</a></code> function for displaying and comparing different
+custom palettes. When provided with a list of color palettes as the
+input to its <code>pal</code> argument, <code><a href="../reference/seecol.html">seecol()</a></code> will show
+a <em>comparison</em> of the inputs:</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define 2 palettes: </span></span>
 <span><span class="va">pal1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="va">pal_seeblau</span><span class="op">)</span>, <span class="st">"white"</span>, <span class="va">pal_bordeaux</span><span class="op">)</span></span>
@@ -388,20 +504,26 @@ Thus, the following will only plot the palette without doing anything else with 
 <span><span class="co"># Show the my_pair palette from above, the 2 palettes just defined, and 2 pre-defined palettes:  </span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">my_pair</span>, <span class="va">pal1</span>, <span class="va">pal2</span>, <span class="va">pal_unikn</span>, <span class="va">pal_unikn_pair</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/compare-custom-palettes-1.png" width="480" style="display: block; margin: auto;"></p>
-<p>Note that unknown color palettes are named <code>pal_</code><span class="math inline">\(n\)</span>, in increasing order. Palettes known to <code><a href="../reference/seecol.html">seecol()</a></code> are labeled by their respective names.</p>
-<p>Labeling only custom palettes works by setting the <code>pal_names</code> argument to a character vector of appropriate length:</p>
+<p>Note that unknown color palettes are named <code>pal_</code><span class="math inline">\(n\)</span>, in increasing order. Palettes known to
+<code><a href="../reference/seecol.html">seecol()</a></code> are labeled by their respective names.</p>
+<p>Labeling only custom palettes works by setting the
+<code>pal_names</code> argument to a character vector of appropriate
+length:</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">my_pair</span>, <span class="va">pal1</span>, <span class="va">pal2</span>, <span class="va">pal_unikn</span>, <span class="va">pal_unikn_pair</span><span class="op">)</span>, </span>
 <span>       pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"my_pair"</span>, <span class="st">"blue_bord"</span>, <span class="st">"blue_yell"</span><span class="op">)</span>,</span>
 <span>       main <span class="op">=</span> <span class="st">"Labeling custom color palettes"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/set-custom-palette-names-1.png" width="480" style="display: block; margin: auto;"></p>
-<p>If the <code>pal_names</code> argument is specified and corresponds to the length of <em>all</em> color palettes, the default names of all color palettes are overwritten by <code>pal_names</code>:</p>
+<p>If the <code>pal_names</code> argument is specified and corresponds
+to the length of <em>all</em> color palettes, the default names of all
+color palettes are overwritten by <code>pal_names</code>:</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">my_pair</span>, <span class="va">pal1</span>, <span class="va">pal2</span>, <span class="va">pal_unikn</span>, <span class="va">pal_unikn_pair</span><span class="op">)</span>, </span>
 <span>       pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"my_pair"</span>, <span class="st">"blue_bord"</span>, <span class="st">"blue_yell"</span>, <span class="st">"blue_black"</span>, <span class="st">"mix_pair"</span><span class="op">)</span>,</span>
 <span>       main <span class="op">=</span> <span class="st">"Comparing and labeling custom color palettes"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/set-all-palette-names-1.png" width="480" style="display: block; margin: auto;"></p>
-<p>As before, we can use the <code>n</code> argument for obtaining shorter subsets of color palettes:</p>
+<p>As before, we can use the <code>n</code> argument for obtaining
+shorter subsets of color palettes:</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">my_pair</span>, <span class="va">pal1</span>, <span class="va">pal2</span>, <span class="va">pal_unikn</span>, <span class="va">pal_unikn_pair</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/subset-compare-1.png" width="480" style="display: block; margin: auto;"></p>
@@ -414,12 +536,18 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level2">
 <h2 id="finding-similar-colors-with-simcol">Finding similar colors with <code>simcol()</code><a class="anchor" aria-label="anchor" href="#finding-similar-colors-with-simcol"></a>
 </h2>
-<p>Assuming that our favorite color is <code>"deeppink"</code>, a good question is: How can we find similar colors? Given some target color, the <code><a href="../reference/simcol.html">simcol()</a></code> function searches through a set of colors to find and return visually similar ones:</p>
+<p>Assuming that our favorite color is <code>"deeppink"</code>, a good
+question is: How can we find similar colors? Given some target color,
+the <code><a href="../reference/simcol.html">simcol()</a></code> function searches through a set of colors to
+find and return visually similar ones:</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/simcol.html">simcol</a></span><span class="op">(</span><span class="st">"deeppink"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt;     deeppink    deeppink2      maroon1      maroon2   violetred1   violetred2 </span></span>
 <span><span class="co">#&gt;   "deeppink"  "deeppink2"    "maroon1"    "maroon2" "violetred1" "violetred2"</span></span></code></pre></div>
-<p>By default, <code><a href="../reference/simcol.html">simcol()</a></code> searches though all named R colors of <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> (of the <strong>grDevices</strong> package), but adjusting the <code>col_candidates</code> and <code>tol</code> arguments allows for more fine-grained searches:</p>
+<p>By default, <code><a href="../reference/simcol.html">simcol()</a></code> searches though all named R colors
+of <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> (of the <strong>grDevices</strong> package),
+but adjusting the <code>col_candidates</code> and <code>tol</code>
+arguments allows for more fine-grained searches:</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/simcol.html">simcol</a></span><span class="op">(</span><span class="st">"deepskyblue"</span>, col_candidates <span class="op">=</span> <span class="va">pal_seeblau</span>, tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">50</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   deepskyblue      seeblau3      seeblau4      seeblau5 </span></span>
@@ -429,14 +557,19 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level2">
 <h2 id="searching-for-color-names-with-grepal">Searching for color names with <code>grepal()</code><a class="anchor" aria-label="anchor" href="#searching-for-color-names-with-grepal"></a>
 </h2>
-<p>A common situation in R is that we want some particular shade of color (e.g., some sort of purple), but also know that the color named “purple” is <em>not</em> the one we want. Instead, we would like to see all colors that contain the keyword “purple” in its name. This is what <code><a href="../reference/grepal.html">grepal()</a></code> is made for:</p>
+<p>A common situation in R is that we want some particular shade of
+color (e.g., some sort of purple), but also know that the color named
+“purple” is <em>not</em> the one we want. Instead, we would like to see
+all colors that contain the keyword “purple” in its name. This is what
+<code><a href="../reference/grepal.html">grepal()</a></code> is made for:</p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"purple"</span><span class="op">)</span>  <span class="co"># get &amp; see 10 names of colors() with "purple" in their name</span></span>
 <span><span class="co">#&gt;  [1] "mediumpurple"  "mediumpurple1" "mediumpurple2" "mediumpurple3"</span></span>
 <span><span class="co">#&gt;  [5] "mediumpurple4" "purple"        "purple1"       "purple2"      </span></span>
 <span><span class="co">#&gt;  [9] "purple3"       "purple4"</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/grepal-1-1.png" width="576" style="display: block; margin: auto;"></p>
-<p>Note that the <code><a href="../reference/grepal.html">grepal()</a></code> allows for regular expressions:</p>
+<p>Note that the <code><a href="../reference/grepal.html">grepal()</a></code> allows for regular
+expressions:</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"gr(a|e)y"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>    <span class="co"># shades of "gray" or "grey"</span></span>
 <span><span class="co">#&gt; [1] 224</span></span>
@@ -444,7 +577,12 @@ Thus, the following will only plot the palette without doing anything else with 
 <span><span class="co">#&gt; [1] 204</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"^gr(a|e)y$"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>  <span class="co"># shades starting and ending with "gray" or "grey"</span></span>
 <span><span class="co">#&gt; [1] 2</span></span></code></pre></div>
-<p>By default, <code><a href="../reference/grepal.html">grepal()</a></code> searches the vector of named colors <code>x = colors()</code> (provided by <strong>grDevices</strong>) and plots its results (as a side effect). However, it also allows for searching color palettes provided as data frames (with color names) and for suppressing the visualization (by setting <code>plot = FALSE</code>):</p>
+<p>By default, <code><a href="../reference/grepal.html">grepal()</a></code> searches the vector of named colors
+<code>x = colors()</code> (provided by <strong>grDevices</strong>) and
+plots its results (as a side effect). However, it also allows for
+searching color palettes provided as data frames (with color names) and
+for suppressing the visualization (by setting
+<code>plot = FALSE</code>):</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"see"</span>, <span class="va">pal_unikn</span><span class="op">)</span>  <span class="co"># finding "see" in (the names of) pal_unikn (as df)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/grepal-3-1.png" width="480" style="display: block; margin: auto;"></p>
@@ -459,11 +597,21 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level2">
 <h2 id="creating-color-gradients-with-shades_of">Creating color gradients with <code>shades_of()</code><a class="anchor" aria-label="anchor" href="#creating-color-gradients-with-shades_of"></a>
 </h2>
-<p>We have seen that the main <code><a href="../reference/usecol.html">usecol()</a></code> function allows squeezing and stretching color palettes and thus creating complex color gradients. An even simpler way for creating color gradients is provided by the <code><a href="../reference/shades_of.html">shades_of()</a></code> function:</p>
+<p>We have seen that the main <code><a href="../reference/usecol.html">usecol()</a></code> function allows
+squeezing and stretching color palettes and thus creating complex color
+gradients. An even simpler way for creating color gradients is provided
+by the <code><a href="../reference/shades_of.html">shades_of()</a></code> function:</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, col_1 <span class="op">=</span> <span class="va">Karpfenblau</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"5 shades of Karpfenblau"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/shades-of-1-1.png" width="480" style="display: block; margin: auto;"></p>
-<p>Internally, <code><a href="../reference/shades_of.html">shades_of()</a></code> is merely a convenient wrapper for a special <code><a href="../reference/usecol.html">usecol()</a></code> function. The limitation of <code><a href="../reference/shades_of.html">shades_of()</a></code> is that it only allows creating bi-polar color palettes (i.e., gradients between two colors). When the final color <code>col_n</code> is unspecified, its default of “white” is used (as in the example). By contrast, the <code><a href="../reference/usecol.html">usecol()</a></code> function allows creating color gradients between an arbitrary number of colors. Thus, the following two expressions yield identical color palettes:</p>
+<p>Internally, <code><a href="../reference/shades_of.html">shades_of()</a></code> is merely a convenient wrapper
+for a special <code><a href="../reference/usecol.html">usecol()</a></code> function. The limitation of
+<code><a href="../reference/shades_of.html">shades_of()</a></code> is that it only allows creating bi-polar color
+palettes (i.e., gradients between two colors). When the final color
+<code>col_n</code> is unspecified, its default of “white” is used (as in
+the example). By contrast, the <code><a href="../reference/usecol.html">usecol()</a></code> function allows
+creating color gradients between an arbitrary number of colors. Thus,
+the following two expressions yield identical color palettes:</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pg_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/usecol.html">usecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"deeppink"</span>, <span class="st">"gold"</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="va">pg_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">5</span>, <span class="st">"deeppink"</span>, <span class="st">"gold"</span><span class="op">)</span></span>
@@ -476,7 +624,11 @@ Thus, the following will only plot the palette without doing anything else with 
 <div class="section level2">
 <h2 id="defining-new-color-palettes-with-newpal">Defining new color palettes with <code>newpal()</code><a class="anchor" aria-label="anchor" href="#defining-new-color-palettes-with-newpal"></a>
 </h2>
-<p>Having created, combined or found all those beautiful colors, we may wish to define a new color palette. Defining a new named color palette allows to consistently access and apply colors (e.g., to a series of visualizations in a report or publication). The <code><a href="../reference/newpal.html">newpal()</a></code> function makes it easy to define color palettes:</p>
+<p>Having created, combined or found all those beautiful colors, we may
+wish to define a new color palette. Defining a new named color palette
+allows to consistently access and apply colors (e.g., to a series of
+visualizations in a report or publication). The <code><a href="../reference/newpal.html">newpal()</a></code>
+function makes it easy to define color palettes:</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">col_flag</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#000000"</span>, <span class="st">"#dd0000"</span>, <span class="st">"#ffce00"</span><span class="op">)</span>  <span class="co"># source: www.schemecolor.com</span></span>
 <span></span>
@@ -485,14 +637,20 @@ Thus, the following will only plot the palette without doing anything else with 
 <span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">flag_de</span>, main <span class="op">=</span> <span class="st">"Defining a flag_de color palette"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="colors_files/figure-html/newpal-1-1.png" width="480" style="display: block; margin: auto;"></p>
-<p>By default, <code><a href="../reference/newpal.html">newpal()</a></code> returns the new color palette as a data frame. Setting <code>as_df = FALSE</code> returns a (named) vector.</p>
+<p>By default, <code><a href="../reference/newpal.html">newpal()</a></code> returns the new color palette as a
+data frame. Setting <code>as_df = FALSE</code> returns a (named)
+vector.</p>
 <!-- Conclusion: -->
-<p>This concludes our quick tour through the color functions of the <strong>unikn</strong> package. We hope that they enable you to create, find, and apply beautiful colors — and spice up your designs by vivid and flamboyant visualizations!</p>
+<p>This concludes our quick tour through the color functions of the
+<strong>unikn</strong> package. We hope that they enable you to create,
+find, and apply beautiful colors — and spice up your designs by vivid
+and flamboyant visualizations!</p>
 </div>
 <div class="section level2">
 <h2 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
 </h2>
-<p>The following versions of <strong>unikn</strong> and corresponding resources are currently available:</p>
+<p>The following versions of <strong>unikn</strong> and corresponding
+resources are currently available:</p>
 <table class="table">
 <colgroup>
 <col width="32%">
@@ -512,12 +670,14 @@ Thus, the following will only plot the palette without doing anything else with 
 </tr>
 <tr class="even">
 <td align="left"> </td>
-<td align="left"><a href="https://github.com/hneth/unikn/" class="external-link">Development version</a></td>
+<td align="left"><a href="https://github.com/hneth/unikn/" class="external-link">Development
+version</a></td>
 <td align="left"><a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a></td>
 </tr>
 <tr class="odd">
 <td align="left">B. Online documentation:</td>
-<td align="left"><a href="https://hneth.github.io/unikn/">Release version</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn/">Release
+version</a></td>
 <td align="left"><a href="https://hneth.github.io/unikn/" class="uri">https://hneth.github.io/unikn/</a></td>
 </tr>
 <tr class="even">
@@ -532,10 +692,18 @@ Thus, the following will only plot the palette without doing anything else with 
 <h2 id="vignettes">Vignettes<a class="anchor" aria-label="anchor" href="#vignettes"></a>
 </h2>
 <!-- unikn pkg logo and link: -->
-<p><a href="https://github.com/hneth/unikn/" class="external-link"> <img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="140px" style="width: 140px; float: right; border:0;"></a></p>
-<p>The following vignettes provide instructions and examples for using the <strong>unikn</strong> colors, color palettes, and color functions:</p>
+<p><a href="https://github.com/hneth/unikn/" class="external-link">
+<img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="140px" style="width: 140px; float: right; border:0;"></a></p>
+<p>The following vignettes provide instructions and examples for using
+the <strong>unikn</strong> colors, color palettes, and color
+functions:</p>
 <!-- Table of vignettes: -->
 <table class="table">
+<colgroup>
+<col width="15%">
+<col width="38%">
+<col width="46%">
+</colgroup>
 <thead><tr class="header">
 <th align="right">Nr.</th>
 <th align="left">Vignette</th>

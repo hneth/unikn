@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.0.9007</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.0.9008</span>
       </span>
     </div>
 
@@ -81,19 +81,20 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">newpal</span><span class="op">(</span><span class="va">col</span>, names <span class="op">=</span> <span class="cn">NA</span>, as_df <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">newpal</span><span class="op">(</span><span class="va">col</span>, names <span class="op">=</span> <span class="cn">NULL</span>, as_df <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>col</dt>
 <dd><p>A required vector of colors 
-(specified by their R color names, HEX codes, or RGB values).</p></dd>
+(specified as R color names, HEX codes, or RGB values).</p></dd>
 
 
 <dt>names</dt>
-<dd><p>An optional character vector of names. 
-Default: <code>names = NA</code>, yielding numeric names.</p></dd>
+<dd><p>An optional character vector of color names. 
+Default: <code>names = NULL</code>, using default color names. 
+Setting <code>names = NA</code> removes all color names.</p></dd>
 
 
 <dt>as_df</dt>
@@ -134,7 +135,6 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">pal_flag_de</span> <span class="op">&lt;-</span> <span class="fu">newpal</span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"firebrick3"</span>, <span class="st">"gold"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                      names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Schwarz"</span>, <span class="st">"Rot"</span>, <span class="st">"Gold"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_flag_de</span>, main <span class="op">=</span> <span class="st">"Colors in the flag of Germany"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
