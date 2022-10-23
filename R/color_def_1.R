@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## spds | uni.kn |  2022 10 22
+## spds | uni.kn |  2022 10 23
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -1243,7 +1243,7 @@ names(Signal) <- "Signal"
 # Signal  # "#EFDC60"
 
 
-## Lookup list of palettes: ----------
+## Lookup lists of palettes: ----------
 
 ## Definition: -------
 # all_pal_names1 <- ls()[grepl("pal_", ls())]  # utils::apropos("pal_")
@@ -1258,7 +1258,7 @@ all_palkn_pref <- c("pal_unikn_pref", all_palkn_grad)
 all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
 
 
-## Color sources: ------ 
+## Sources: Links to unikn color definitions ------ 
 
 # Defining CD elements according to specifications publicly provided at https://www.uni-konstanz.de. 
 # Sources for color definitions: 
@@ -1271,7 +1271,7 @@ all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
 # - Seeblau seems like a muted variant of "deepskyblue"
 # - Pinky seems like a muted variant of "deeppink"
 # - Petrol is similar to "deepskyblue4"
-
+# 
 # # Demo:
 # comp_cols <- c(Seeblau, "deepskyblue", Pinky, "deeppink", Petrol, "deepskyblue4")
 # seecol(comp_cols, col_brd = "white", lwd_brd = 5)

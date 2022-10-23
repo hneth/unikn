@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2022 09 02
+## spds | uni.kn  | 2022 10 23
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -312,6 +312,7 @@ rownames(pal_unikn_pair) <- "1"  # fix/set rownames() of palette
 
 
 
+
 # (D) Crayon colors: -------- 
 
 # Define crayon styles: ------ 
@@ -352,7 +353,8 @@ demo_crayons <- function(){
 } # demo_crayons().
 
 
-## On unikn color sources: ------ 
+
+## Sources: Links to unikn color definitions ------ 
 
 # Defining CD elements according to specifications publicly provided at https://www.uni-konstanz.de. 
 # Sources for color definitions: 
