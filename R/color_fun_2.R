@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 10 22
+## spds | uni.kn | 2022 10 23
 ## ---------------------------
 
 ## Define color-related functions 
@@ -21,10 +21,11 @@
 #' (as data frames or vectors). 
 #' 
 #' @param col A required vector of colors 
-#' (specified by their R color names, HEX codes, or RGB values). 
+#' (specified as R color names, HEX codes, or RGB values). 
 #' 
-#' @param names An optional character vector of names. 
-#' Default: \code{names = NA}, yielding numeric names. 
+#' @param names An optional character vector of color names. 
+#' Default: \code{names = NULL}, using default color names. 
+#' Setting \code{names = NA} removes all color names.
 #' 
 #' @param as_df Should the new color palette be returned as 
 #' a data frame (rather than as a vector)? 
@@ -40,7 +41,6 @@
 #' 
 #' pal_flag_de <- newpal(col = c("black", "firebrick3", "gold"),
 #'                       names = c("Schwarz", "Rot", "Gold"))
-#' 
 #' seecol(pal_flag_de, main = "Colors in the flag of Germany")
 #' 
 #' # (2) From HEX values: -----
@@ -128,7 +128,7 @@
 # - Definition: ------ 
 
 newpal <- function(col,            # a vector of colors
-                   names = NA,     # a vector of color names
+                   names = NULL,   # a vector of color names
                    as_df = FALSE   # return palette as df? 
                    # ...           # additional arguments to usecol().
 ) {
@@ -144,48 +144,63 @@ newpal <- function(col,            # a vector of colors
     
     message(paste0("Length of 'col' = ", length(col), 
                    " vs. 'names' = ",    length(names), ". Using default names..."))
-    names <- NA
+    names <- NULL
     
   }
   
-  outpal <- NA  # initialize
+  if ( is.null(names) ) {
+    
+    # if ( length(col) == length(names(col)) ){ # all cols have names:
+    
+    if ( all(nchar(names(col)) > 0) ){ # all cols have names:
+      
+      names <- names(col)  # keep col names
+      
+    }
+  }
   
   
   # Main: Create data.frame or vector of col: ----- 
   
-  outpal <- col  # copy col vector
+  outpal <- col  # copy input (df or vector)
   
-  # Add names (to outpal):
-  if ( all(!is.na(names)) ) { # 1. names have been provided:
+  
+  # Handle names: ----
+  
+  if ( !is.null(names) && all(is.na(names)) ) { # 1. names were SET to NA:
     
-    names(outpal) <- names  # use names
+    outpal <- unname(outpal)  # remove names
     
-  } else if ( is.null(names(col)) == FALSE ) { # 2. col input contained names:
+  } else if ( !is.null(names) && all(!is.na(names)) ) { # 2. names exist:
     
-    names(outpal) <- names(col)  # use names of col input
+    names(outpal) <- names  # use existing names
     
-  } else { # 3. default:
+    # } else if ( is.null(names(col)) == FALSE ) { # 2. col input contained SOME names:
+    #   
+    #  names(outpal) <- names(col)  # use the names of col input
     
-    names(outpal) <- as.character(1:length(col))  # use numeric digits as names
+  } else { # 3. get default color names:
+    
+    names(outpal) <- get_col_names(col)  # (a) use helper functions (for default and custom color names)
+    
+    # names(outpal) <- as.character(1:length(col))  # (b) use numeric digits as names
     
   } # if (names).
-  
-  # ToDo: Recognize existing colors (e.g., "red") and match their existing names. +++ here now +++
   
   # # Apply ... arguments:
   # outpal <- usecol(pal = outpal, use_names = TRUE, ...) 
   
-  # Handle as_df: 
+  # Handle as_df: ----  
   if (as_df) {
     
     if (!is.data.frame(outpal)){
-    
-    outpal <- data.frame(outpal, stringsAsFactors = FALSE) # df as column
-    
-    outpal <- t(outpal) # df as row
-    
-    outpal <- data.frame(outpal, row.names = NULL, stringsAsFactors = FALSE)
-    
+      
+      outpal <- data.frame(outpal, stringsAsFactors = FALSE) # df as column
+      
+      outpal <- t(outpal) # df as row
+      
+      outpal <- data.frame(outpal, row.names = NULL, stringsAsFactors = FALSE)
+      
     }
     
   } else {
@@ -201,26 +216,40 @@ newpal <- function(col,            # a vector of colors
   
 } # newpal().  
 
-
-## Check: 
-# Basics:
-# newpal(col = c("black", "white"), names = c("b", "w"), as_df = FALSE)  # as vector
-# newpal(col = c("black", "white"), names = c("b", "w"), as_df = TRUE)   # as data.frame
+# ## Check:
+# # (0) Basics:
+# newpal(col = c("black", "white"))  # as named vector (with automatic names)
+# newpal(col = c("black", "white"), names = c("b", "w"), as_df = FALSE)  # as vector (with new names)
+# newpal(col = c("black", "white"), names = c("b", "w"), as_df = TRUE)   # as data.frame (with new names)
+# #
+# # # Custom colors / palettes:
+# newpal(col = pal_unikn)  # unikn palette (with default names)
+# newpal(col = pal_unikn, names = NA)  # unikn palette (without names, as set to NA)
+# newpal(col = pal_unikn, names = paste0("c_", 1:11))  # with new names
+# newpal(col = pal_unikn, names = paste0("c_", 1:10))  # with default names
 # 
-# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE))   # as df
+# # Combinations: unikn & default colors()
+# newpal(col = c(Seeblau, "white", Pinky))  # with automatic names
+# newpal(col = c(Seeblau, "white", Pinky), names = LETTERS[1:3])  # with new names 
+# newpal(col = c("deeppink", pal_unikn))    # with automatic names
+# newpal(col = c("deeppink", pal_unikn), names = letters[1:12])  # with new names
+# 
+# # As df vs. vector:
+# newpal(col = c("black", "white"), as_df = FALSE)  # default: named vector
+# newpal(col = c("black", "white"), as_df = TRUE)   # as named df
+# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE))   # as named df
 # seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE))  # as named vector
 # 
-# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE), n = 5) 
-# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE), n = 5) 
+# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = TRUE), n = 5)  # scaled df
+# seecol(newpal(col = c("black", "white"), names = c("dark", "bright"), as_df = FALSE), n = 5) # scaled vector
 
 # # (1) From R color names:
 # pal_flag_de <- newpal(col = c("black", "firebrick", "gold"),
 #                       names = c("Schwarz", "Rot", "Gold"))
-# 
 # seecol(pal_flag_de, main = "Colors in the flag of Germany")
 
 # # (2) From HEX values:
-
+# 
 # # (a) German flag colors revised: 
 # # According to a different source:
 # # https://www.schemecolor.com/germany-flag-colors.php
@@ -229,32 +258,31 @@ newpal <- function(col,            # a vector of colors
 # pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
 #                         names = c("black", "red", "gold"))
 # seecol(pal_flag_de_2, main = "Colors of German flag (www.schemecolor.com)")
-
+# 
 # # (b) Google logo colors:
 # # Source: https://www.schemecolor.com/google-logo-colors.php
 # color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
 # names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
 # pal_google   <- newpal(color_google, names_google)
 # seecol(pal_google, main = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
-
+#
 # # (c) MPG colors:
 # pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
 #                   names = c("mpg green", "white", "mpg grey")
 #                   )
 # seecol(pal_mpg, main = "Colors of the Max Planck Society")
 
-# # (3) From RGB values: 
+# # (3) From RGB values:
 # 
-# # Source: 
-# # Okabe & Ito (2002): 
-# # Color Universal Design (CUD): 
+# # Source: Okabe & Ito (2002):
+# # Color Universal Design (CUD):
 # # How to make figures and presentations that are friendly to Colorblind people
-# # Fig. 16 of <https://jfly.uni-koeln.de/color/>:  
+# # Fig. 16 of <https://jfly.uni-koeln.de/color/>:
 # 
 # # (a) Vector of colors (as RGB values):
 # o_i_colors <- c(rgb(  0,   0,   0, maxColorValue = 255),  # black
 #                 rgb(230, 159,   0, maxColorValue = 255),  # orange
-#                 rgb( 86, 180, 233, maxColorValue = 255),  # skyblue         
+#                 rgb( 86, 180, 233, maxColorValue = 255),  # skyblue
 #                 rgb(  0, 158, 115, maxColorValue = 255),  # green
 #                 rgb(240, 228,  66, maxColorValue = 255),  # yellow
 #                 rgb(  0, 114, 178, maxColorValue = 255),  # blue
@@ -265,12 +293,12 @@ newpal <- function(col,            # a vector of colors
 # # (b) Vector of color names:
 # o_i_names <- c("black", "orange", "skyblue", "green", "yellow", "blue", "vermillion", "purple")
 # 
-# # (c) Create color palette (with newpal): 
-# pal_okabe_ito <- newpal(col = o_i_colors, 
+# # (c) Create color palette (with newpal):
+# pal_okabe_ito <- newpal(col = o_i_colors,
 #                         names = o_i_names)
 # 
-# # Show color palette: 
-# seecol(pal_okabe_ito, 
+# # Show color palette:
+# seecol(pal_okabe_ito,
 #        main = "Color-blind friendly color scale (Okabe & Ito, 2002)")
 
 # # Compare custom color palettes:
