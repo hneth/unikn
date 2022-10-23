@@ -1243,7 +1243,7 @@ names(Signal) <- "Signal"
 # Signal  # "#EFDC60"
 
 
-## Lookup lists of palettes: ----------
+## Lookup vectors of palette names: ----------
 
 ## Definition: -------
 # all_pal_names1 <- ls()[grepl("pal_", ls())]  # utils::apropos("pal_")
