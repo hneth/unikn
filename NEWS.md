@@ -3,7 +3,7 @@
 
 This is the development version of the R package **unikn**. 
 
-This version of **unikn** (v0.6.0.9001+) revises functionality and fixes several bugs. [2022-10-23] 
+This version of **unikn** (v0.6.0.9001+) revises functionality and fixes several bugs. [2022-10-24] 
 
 <!-- Log of changes: --> 
 
@@ -20,7 +20,7 @@ Changes since last release:
 
 ## Minor changes 
 
-- Adjust `demopal()` function: 
+- Improve `demopal()` function: 
     - Align point colors for `type = "scatter"` to those of other options. 
     - Increase robustness by allowing alternative `type` inputs. 
     - Pass `...` to auxiliary functions. 
@@ -39,8 +39,9 @@ Changes since last release:
 
 ## Details 
 
-- Add a call for contributions of user-generated color palettes for other institutions (see [GitHub issue](https://github.com/hneth/unikn/issues/11)). 
-- Reorganize files of utility functions and update documentation. 
+- Call for contributions of user-generated color palettes from other institutions (see [GitHub issue](https://github.com/hneth/unikn/issues/11)). 
+- Fine-tune parameters of plotting HEX values with `seecol()`. 
+- Reorganize files of utility functions. 
 - Add Zenodo doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191) for citations. 
 
 
@@ -233,6 +234,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-10-23.] 
+[File `NEWS.md` updated on 2022-10-24.] 
 
 <!-- eof. -->
