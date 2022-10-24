@@ -837,7 +837,8 @@ doi\ [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)
 
 A BibTeX entry for LaTeX users is:
 
-```{r pkg-citation, echo = FALSE, comment = "", highlight = FALSE}
+```{r pkg-unikn-citation, echo = FALSE, eval = TRUE, comment = "", highlight = FALSE}
+# From package citation:
 x <- citation(package = 'unikn')
 # print(x, prefix = "")
 toBibtex(x)
