@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 10 23
+## spds | uni.kn | 2022 10 24
 ## ---------------------------
 
 ## Define color-related functions 
@@ -342,7 +342,7 @@ usecol <- function(pal = pal_unikn,
   
   # Get color names (if no names are given): ---- 
   if ( use_names & all(is.null(names(out_col))) ) {
-
+    
     # # (A) Combine kn_names with color() names:
     # 
     # # 1. Names from predefined kn palettes:
@@ -364,10 +364,10 @@ usecol <- function(pal = pal_unikn,
     #   paste0("/", col_names[!col_names == "" & !kn_names == ""]) # distinguish different names for the same color
     # 
     # names(out_col) <- paste0(kn_names, col_names)
-
+    
     
     # (B) Use new helper function (in util_color.R):  +++ here now +++
-
+    
     # FAILS:     
     # names(out_col) <- get_col_names(col = out_col, custom_pals = all_pals)  # use helper function (with all_pals)
     
@@ -939,23 +939,24 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     # Determine whether to display hex values:
     cex_hex <- .96  # was par("cex")
     
-    placeholder <- ifelse(is.na(alpha), " #XXXXXX", " #XXXXXXXX")
+    placeholder <- ifelse(is.na(alpha), " #FFFFFF", " #FFFFFFFF")
     wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol  # + strwidth("Hex: ", cex = cex_hex)  # width of HEX strings
     
-    while ((wdth_hex > (xlim[2] + 1)) & (cex_hex > cex_min)) {
+    while ((wdth_hex > (xlim[2] + 1/2)) & (cex_hex > cex_min)) {
       
       cex_hex  <- (cex_hex - .01)  # reduce size
       wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol  # + strwidth("Hex: ", cex = cex_hex)  # is width small enough?
       
     }
     
-    # If hex is NULL, determine based on width and max cex.
-    # Otherwise, use the provided value: 
-    if ( is.null(hex) ) {
+    # If hex is NULL (as per default), determine hex based on width and max cex:
+    if ( is.null(hex) ) { # Can/should hex be displayed?
       
-      hex <- ifelse((wdth_hex > xlim[2] | (cex_hex < cex_min)), FALSE, TRUE)  # test, whether hex can be displayed.
+      # hex <- ifelse((wdth_hex > (xlim[2] + 1) | (cex_hex < cex_min)), FALSE, TRUE)  # conservative
       
-    }
+      hex <- ifelse((wdth_hex > (3/2 * xlim[2])), FALSE, TRUE)  # relaxed (given 3 HEX options below)
+      
+    } # otherwise: use the hex value provided.
     
     # Determine, whether to display RGB values:
     cex_rgb <- 0.96
@@ -968,11 +969,12 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
       
     }
     
-    # If rgb is NULL, determine based on width and max cex.
-    # Otherwise use the provided value: 
+    # If rgb is NULL (as per default), determine rgb based on width and max cex:
     if ( is.null(rgb) ) {
+      
       rgb <- ifelse(wdth_rgb > xlim[2] | cex_rgb < cex_min, FALSE, TRUE)
-    }
+      
+    } # otherwise: use the rgb value provided.
     
     
     # Plot rectangles: ----
@@ -1034,49 +1036,49 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
     if (hex) {
       
-      # Convert to hex (if not already in this format): 
+      # Convert pal_tmp to hex values (if not already in this format): 
       if (!all(is_hex_col(pal_tmp))) { 
-        pal_tmp <- rgb(t(col2rgb(pal_tmp)), maxColorValue = 255)
+        pal_tmp <- grDevices::rgb(t(col2rgb(pal_tmp)), maxColorValue = 255)
       }
       
-      # Plot HEX values: 
-      # cex_hex <- min(cex_hex, cex_rgb)
-      wdth_hex <- strwidth(placeholder, cex = cex_hex) * max_ncol
+      # 3 ways to plot HEX values: 
+      wdth_hex   <- strwidth(placeholder, cex = cex_hex) * max_ncol
+      wdth_hex_2 <- strwidth(placeholder, cex = max(cex_hex, cex_rgb)) * max_ncol  # using larger font size (on 2 lines)
       
-      if (wdth_hex > (2 * xlim[2])){ # HEX is too long for 2 lines:  
+      if ( wdth_hex_2 > ((2.0 * xlim[2])) ){ # (c) too long for 2 lines:
         
         y_hex  <- -0.25  # Hex label height
         
-        # rotate HEX labels:
+        # (c) rotated HEX values (45 degrees):
         text(x = txt_pos, y = y_hex, labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 45)  
         
-      } else if (wdth_hex > (xlim[2] + 1)){ # HEX is too long for 1 line:  
+      } else if (wdth_hex > (1.0 * xlim[2])){ # (b) too long for 1 line:  
         
-        cex_hex <- max(cex_hex, cex_rgb)  # use the larger of both font sizes
+        cex_hex <- max(cex_hex, cex_rgb)  # use larger font size (on 2 lines)
         
         y_hex  <- -0.15  # Hex label height
         yshift  <- 0.15  # downward shift
         
         text(x = 0, y = y_hex, labels = "Hex:", font = 2, pos = 2, offset = 0, 
-             xpd = TRUE, cex = cex_hex)  # Hex label
+             xpd = TRUE, cex = cex_hex)  # title label
         
-        # (a) print HEX on 2 levels:
-        
-        is_odd <- (1:length(pal_tmp) %% 2 == 1)  # odd elements 
+        # (b) horizontal HEX values (on 2 lines):
+        is_odd <- (1:length(pal_tmp) %% 2 == 1)  # odd elements (as logical) 
         text(x = txt_pos, y = y_hex - (is_odd * yshift), 
              labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 0)
         
-        # (b) rotate HEX labels:
+        # (b/c) rotate HEX labels:
         # text(x = txt_pos, y = y_hex, labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 45)         
         
         
-      } else { # All HEX values on same line (default):
+      } else { # (a) default: horizontal HEX values (on same line):
         
         y_hex  <- -0.25  # Hex label height
         
         text(x = 0, y = y_hex, labels = "Hex:", font = 2, pos = 2, offset = 0, 
-             xpd = TRUE, cex = cex_hex)  # Hex label
+             xpd = TRUE, cex = cex_hex)  # title label
         
+        # (a) linear HEX values (on 1 line): 
         text(x = txt_pos, y = y_hex, labels = pal_tmp, pos = NULL, xpd = TRUE, cex = cex_hex, srt = 0)        
         
       }
@@ -1167,8 +1169,8 @@ all_colors <- function(distinct = TRUE){
   ), 
   use_names = TRUE)
   
+  # Sort colors (by name):
   unikn_colors_s <- unikn_colors[sort(names(unikn_colors))]
-  # unikn_colors_s
   
   # 2. Add R colors() (from grDevices):
   unikn_and_R_colors <- usecol(c(unikn_colors_s, grDevices::colors()), use_names = TRUE)
