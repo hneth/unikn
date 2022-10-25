@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## spds | uni.kn |  2022 10 23
+## spds | uni.kn |  2022 10 25
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -1256,6 +1256,15 @@ all_palkn_grad <- c("pal_seeblau", "pal_peach", "pal_grau", "pal_petrol", "pal_s
                     "pal_signal")
 all_palkn_pref <- c("pal_unikn_pref", all_palkn_grad)
 all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
+
+add_pals <- c("eth_pal", "eth_pal_light", "eth_pal_black_grey", 
+              "mpg_pal", 
+              "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
+              "uni_konstanz", "uni_konstanz_pref",
+              "uni_princeton_0", "uni_princeton_1", "uni_princeton_2"
+              )
+
+all_pals <- c(all_palkn, add_pals)
 
 
 ## Sources: Links to unikn color definitions ------ 
