@@ -34,16 +34,19 @@ Recognized keywords are:
 
 \enumerate{
 
-  \item \code{"unikn_all"}: All color palettes defined in \bold{unikn}
+  \item \code{"all"}: All color palettes of the \bold{unikn} package.
 
-  \item \code{"unikn_basic"}: All basic palettes. 
-  
-  \item \code{"pair_all"}: All palettes with pairwise colors. 
-  
-  \item \code{"pref_all"}: All preferred colors and their gradients. 
-  
-  \item \code{"grad_all"}: 
+  \item \code{"unikn_all"}: All uni.kn color palettes.
 
+  \item \code{"unikn_basic"}: All basic uni.kn palettes. 
+  
+  \item \code{"grad_all"}: All uni.kn palettes with color gradients. 
+  
+  \item \code{"pair_all"}: All uni.kn palettes with pairwise colors. 
+  
+  \item \code{"pref_all"}: All preferred uni.kn colors and their gradients. 
+  
+  \item \code{"add"}: Additional/contributed color palettes of the \bold{unikn} package.
 }
 
 \code{seecol} does also recognize keywords (e.g., \code{"all_unikn"}) or 
