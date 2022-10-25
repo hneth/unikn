@@ -2,12 +2,275 @@
 ## spds | uni.kn |  2022 10 25
 ## ---------------------------
 
-# Export color palettes of various institutions 
-# (and contributed color palettes).
+# Add color palettes of various institutions 
+# (and export contributed color palettes).
 
 # Notes: 
 # - Many users only want to use, rather than to manipulate color palettes. 
 # - For convencience, uni_pals are provided as named vectors (not data frames).
+
+
+# ETH Zurich / Eidgenössische Technische Hochschule, Zürich, CH: ------
+
+# Source: https://ethz.ch/staffnet/en/service/communication/corporate-design/digital-media/web-colours.html
+# Last check: 2022-10-25
+
+# Colour definition:
+# Seven corporate design colours form the basis of our colour schemes, interactive elements and design elements. 
+# White text should always be used on coloured backgrounds to ensure readability/accessibility.
+
+# - eth_pal: ---- 
+
+# ETH Blue: 
+#   RGB 33, 92, 175 
+#   "#215CAF"
+# 
+# ETH Petrol:
+#   RGB 0, 120, 148
+#   "#007894"
+# 
+# ETH Green:
+#   RGB 98, 115, 19
+#   "#627313"
+# 
+# ETH Bronze:
+#   RGB 142, 103, 19
+#   "#8E6713"
+# 
+# ETH Red:
+#   RGB 183, 53, 45
+#   "#B7352D"
+# 
+# ETH Purple:
+#   RGB 167, 17, 122
+#   "#A7117A"
+# 
+# ETH Grey:
+#   RGB 111, 111, 111
+#   "#6F6F6F"
+
+col_ETH <- c("#215CAF", "#007894", "#627313", "#8E6713", "#B7352D", "#A7117A", "#6F6F6F")
+nam_ETH <- c("ETH Blue", "ETH Petrol", "ETH Green", "ETH Bronze", "ETH Red", "ETH Purple", "ETH Grey")
+
+
+#' Default colors of the ETH Zurich.
+#'
+#' \code{eth_pal} provides the default color palette 
+#' of the \href{https://ethz.ch/}{ETH Zürich}, Switzerland. 
+#' 
+#' The Swiss abbreviation "ETH" stands for "Eidgenössische Technische Hochschule".
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-10-25.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://ethz.ch/staffnet/en/service/communication/corporate-design/digital-media/web-colours.html}. 
+#' 
+#' @examples
+#' eth_pal
+#' seecol(eth_pal)  # view color palette
+#' demopal(eth_pal, type = 3, main = "Default colors of the ETH Zürich")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{eth_pal_light}} and \code{\link{eth_pal_black_grey}} for alternative colors of the ETH Zurich;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+eth_pal <- newpal(col = col_ETH, 
+                  names = nam_ETH,
+                  as_df = FALSE)
+
+
+# - eth_pal_light: ---- 
+
+# Lighter shades:
+# Light colours are also available and can be used to make certain elements (like text boxes) stand out. 
+# Black text must be used on light-coloured backgrounds for accessibility reasons.
+
+# ETH Blau 10%:
+#   RGB 233, 239, 247
+#   "#E9EFF7"
+#   
+# ETH Petrol 10%:
+#   RGB 321, 244, 247   # Note error in specification: R value should be 231.
+#   "#E7F4F7"
+# 
+# ETH Green 10%:
+#   RGB 239, 241, 231
+#   "#EFF1E7"
+# 
+# ETH Bronze 10%:
+#   RGB 244, 240, 231
+#   "#F4F0E7"
+# 
+# ETH Red 10%:
+#   RGB 248, 235, 234
+#   "#F8EBEA"
+# 
+# ETH Purple 10%:
+#   RGB 248, 232, 243
+#   "#F8E8F3"	
+# 
+# ETH Grey 10%:
+#   RGB 241, 241, 241
+#   "#F1F1F1"
+
+col_ETH_light <- c("#E9EFF7", "#E7F4F7", "#EFF1E7", "#F4F0E7", "#F8EBEA", "#F8E8F3", "#F1F1F1")
+nam_ETH_light <- c("ETH Blue 10%", "ETH Petrol 10%", "ETH Green 10%", "ETH Bronze 10%", "ETH Red 10%", "ETH Purple 10%", "ETH Grey 10%")
+
+
+#' Lighter shades of the ETH Zurich colors.
+#'
+#' \code{eth_pal_light} provides the lighter shades of the color palette 
+#' of the \href{https://ethz.ch/}{ETH Zürich}, Switzerland. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-10-25.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://ethz.ch/staffnet/en/service/communication/corporate-design/digital-media/web-colours.html}. 
+#' 
+#' @examples
+#' eth_pal_light
+#' seecol(eth_pal_light)  # view color palette
+#' demopal(eth_pal_light, type = 4, main = "Light shades of the ETH Zürich colors")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{eth_pal}} and \code{\link{eth_pal_black_grey}} for alternative colors of the ETH Zurich;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+eth_pal_light <- newpal(col = col_ETH_light, 
+                        names = nam_ETH_light,
+                        as_df = FALSE)
+
+
+# - eth_pal_black_grey: ---- 
+
+# Using black and shades of grey:
+# Shades of grey can be used to visually structure content and delineate different elements. 
+
+# The following shades of gray are used on the ETH website:
+
+# - Black: ETH logo, text colour
+#   RGB 0, 0, 0,
+#   "#00000"
+
+eth_black <- usecol("#000000")
+
+# - Black light: black backgrounds such as meta-navigation and buttons
+#   RGB 34, 34, 34
+#   "#222222"
+
+eth_black_light <- usecol("#222222")
+
+# - Black, 60% opacity: standard interactive colour
+#   RGBA 0, 0, 0, 0.6
+#   "#00000" x 60%
+
+eth_black_60 <- usecol("#000000", alpha = .60)
+
+# - Black, 48% opacity, contrast 3:1: icon colour
+#   RGBA 34, 34, 34, 0.48
+#   "#222222" x 48%
+
+eth_black_48 <- usecol("#222222", alpha = .48)
+
+# - Black, 20% opacity, contrast 1.5:1: line colour
+#   RGBA 34, 34, 34, 0.20
+#   "#222222" x 20%
+
+eth_black_20 <- usecol("#222222", alpha = .20)
+
+# + ETH Grey 10%:
+#   RGB 241, 241, 241
+#   "#F1F1F1"
+
+eth_grey_10 <- usecol("#F1F1F1")
+
+# - ETH Grey 5%: standard background colour for flyout menus, related content (navigation), highlight container, table borders, keyword lists, etc.
+#   RGB 246, 246, 246
+#   "#F6F6F6"
+
+eth_grey_05 <- usecol("#F6F6F6")
+
+# - White: backgrounds, text colour on dark backgrounds
+# - Black, 80% opacity: hover colour for links
+
+col_eth_black_grey <- c(eth_black, eth_black_light, 
+                        eth_black_60, eth_black_48, eth_black_20, 
+                        eth_grey_10, eth_grey_05)
+
+nam_eth_black_grey <- c("ETH Black", "ETH Black Light", 
+                        "ETH Black 60%", "ETH Black 48%", "ETH Black 20%",
+                        "ETH Grey 10%", "ETH Grey 5%")
+
+
+#' Black and grey colors of the ETH Zurich.
+#'
+#' \code{eth_pal_black_grey} provides the shades of black and grey 
+#' used by the \href{https://ethz.ch/}{ETH Zürich}, Switzerland. 
+#' 
+#' These shades of gray can be used to visually structure content 
+#' and delineate different elements. 
+#' 
+#' Note that \code{eth_pal_black_grey} mixes colors of 
+#' varying opacity / transparency levels.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-10-25.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://ethz.ch/staffnet/en/service/communication/corporate-design/digital-media/web-colours.html}. 
+#' 
+#' @examples
+#' eth_pal_black_grey
+#' seecol(eth_pal_black_grey)  # view color palette
+#' demopal(eth_pal_black_grey, type = 2, main = "Black and grey colors of the ETH Zürich")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{eth_pal}} and \code{\link{eth_pal_light}} for alternative colors of the ETH Zurich;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+eth_pal_black_grey <- newpal(col = col_eth_black_grey, 
+                             names = nam_eth_black_grey,
+                             as_df = FALSE)
+
+
 
 
 # Max Planck Society / Max-Planck-Gesellschaft (MPG): ------
