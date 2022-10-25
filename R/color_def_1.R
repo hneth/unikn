@@ -1266,7 +1266,7 @@ add_pals <- c("eth_pal", "eth_pal_light", "eth_pal_grey",
               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2"
 )
 
-# all palettes (of unikn package):
+# all palettes / largest set (of unikn package):
 
 all_pals <- c(all_palkn, add_pals)
 
