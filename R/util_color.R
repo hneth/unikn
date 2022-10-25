@@ -1,5 +1,5 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2022 10 23
+## spds | uni.kn | 2022 10 25
 ## ---------------------------
 
 # Color-related utility functions: 
@@ -443,37 +443,53 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   # Process the 'pal' argument: ----- 
   
   # Getting palettes by keyword: ----- 
-  keys <- c("all", "unikn_all", "all_unikn",  # all palettes
-            "basic", "unikn_basic", "basic_unikn",  # basic palettes 
-            "pair", "pair_all", "all_pair",   # paired palettes 
-            "pref", "pref_all", "all_pref",   # preferred palettes and gradients 
-            "grad", "grad_all", "all_grad"    # gradients
+  keys <- c(#
+    # (a) all palettes (of the unikn package):
+    "all",                            # 1. all palettes (of the unikn package)
+    # (b) local/uni.kn palettes:
+    "unikn_all", "all_unikn",         # 2:3. all local/uni.kn palettes
+    "basic", "unikn_basic", "basic_unikn", # 4:6. basic palettes 
+    "pair", "pair_all", "all_pair",   # 7:9. paired palettes 
+    "pref", "pref_all", "all_pref",   # 10:12. preferred palettes and gradients 
+    "grad", "grad_all", "all_grad",   # 13:15. gradients
+    # (c) added/contributed palettes: 
+    "add", "uni"                      # 16+. additional/contributed palettes
   )
   
   # Throw an error, if no valid keyword is specified:
   if ( !pal %in% keys ) {
     stop('Invalid keyword specified. Allowed keywords are 
-                            c("all", "unikn_all", "all_unikn", "pref_all", "all_pref", "grad_all", "all_grad")')
+                            c("all", "unikn_all", "all_unikn", "pref_all", "all_pref", "grad_all", "all_grad", "add")')
   } else {
     
-    if ( pal %in% keys[1:3] )   key <- "all"
+    # (a) all palettes (of the unikn package):
+    if ( pal %in% keys[1] )     key <- "all"
+    # (b) local/uni.kn palettes:
+    if ( pal %in% keys[2:3] )   key <- "all_kn"    
     if ( pal %in% keys[4:6] )   key <- "basic"
     if ( pal %in% keys[7:9] )   key <- "pair"
     if ( pal %in% keys[10:12] ) key <- "pref"
     if ( pal %in% keys[13:15] ) key <- "grad"
+    # (c) added/contributed palettes: 
+    if ( pal %in% keys[16:17] ) key <- "add"    
     
   }
   
   # Get all color palettes with the prefix "pal_" from the environment: ----- 
   
-  # Distinguish 5 cases:
+  # Distinguish 7 cases:
   pal_names <- switch(
     key,
-    all = all_palkn,
+    # (a) all palettes (of the unikn package):
+    all = all_pals,
+    # (b) local/uni.kn palettes:
+    all_kn = all_palkn,
     basic = all_palkn_basic,
     pair = all_palkn_pair,
     pref = all_palkn_pref,
-    grad = all_palkn_grad
+    grad = all_palkn_grad,
+    # (c) added/contributed palettes:
+    add = add_pals
   )
   
   # Get list of palettes specified by keyword:
@@ -531,9 +547,9 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
 # get_col_names: Get custom and default color names ------
 
 get_col_names <- function(col, custom_pals = all_palkn){
-
+  
   # 1. Customized names from custom color palettes:
-  cus_pals <- lapply(X = custom_pals, FUN = get)
+  cus_pals  <- lapply(X = custom_pals, FUN = get)
   cus_names <- names(unlist(cus_pals))[match(col, unlist(cus_pals))]
   
   # 2. Default names: Predefined color names (in grDevices):
@@ -545,7 +561,7 @@ get_col_names <- function(col, custom_pals = all_palkn){
   # Replace NA values by "": 
   def_names[is.na(def_names)] <- ""
   cus_names[is.na(cus_names)] <- ""
-
+  
   # Combine both name vectors (to avoid duplicates): 
   def_names[def_names == cus_names] <- ""  # remove duplicates 
   def_names[!def_names == "" & !cus_names == ""] <- 
