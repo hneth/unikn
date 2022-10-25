@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 10 24
+## spds | uni.kn | 2022 10 25
 ## ---------------------------
 
 ## Define color-related functions 
@@ -458,16 +458,19 @@ usecol <- function(pal = pal_unikn,
 #' 
 #' \enumerate{
 #'
-#'   \item \code{"unikn_all"}: All color palettes defined in \bold{unikn}
+#'   \item \code{"all"}: All color palettes of the \bold{unikn} package.
 #'
-#'   \item \code{"unikn_basic"}: All basic palettes. 
-#'   
-#'   \item \code{"pair_all"}: All palettes with pairwise colors. 
-#'   
-#'   \item \code{"pref_all"}: All preferred colors and their gradients. 
-#'   
-#'   \item \code{"grad_all"}: 
+#'   \item \code{"unikn_all"}: All uni.kn color palettes.
 #'
+#'   \item \code{"unikn_basic"}: All basic uni.kn palettes. 
+#'   
+#'   \item \code{"grad_all"}: All uni.kn palettes with color gradients. 
+#'   
+#'   \item \code{"pair_all"}: All uni.kn palettes with pairwise colors. 
+#'   
+#'   \item \code{"pref_all"}: All preferred uni.kn colors and their gradients. 
+#'   
+#'   \item \code{"add"}: Additional/contributed color palettes of the \bold{unikn} package.
 #' }
 #' 
 #' \code{seecol} does also recognize keywords (e.g., \code{"all_unikn"}) or 
@@ -628,11 +631,17 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   # Constants/parameters: ---- 
   
   op <- par(no.readonly = TRUE)  # save original plotting settings.
-  keys <- c("all", "unikn_all", "all_unikn",  # all palettes
-            "basic", "unikn_basic", "basic_unikn",  # the basic palettes. 
-            "pair", "all_pair", "pair_all",  # all paired palettes. 
-            "pref", "pref_all", "all_pref",  # the preferred palettes and gradients. 
-            "grad", "grad_all", "all_grad"  # the gradients.
+  keys <- c(# 
+    # (a) all palettes (of the unikn package):
+    "all", 
+    # (b) local/uni.kn palettes:
+    "unikn_all", "all_unikn",  # all uni.kn palettes
+    "basic", "unikn_basic", "basic_unikn",  # basic uni.kn palettes. 
+    "pair", "all_pair", "pair_all",  # paired uni.kn palettes. 
+    "pref", "pref_all", "all_pref",  # preferred uni.kn palettes and gradients. 
+    "grad", "grad_all", "all_grad",  # uni.kn gradients.
+    # (c) added/contributed palettes:
+    "add"
   )
   
   # Robustify inputs: ----
@@ -654,7 +663,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
   # Check whether pal input is a list: 
   compare <- tryCatch(
     {
-      is.list(pal) & any(lapply(pal, length) > 1)   # get length of each component. 
+      is.list(pal) & any(lapply(pal, length) > 1)  # get length of each component. 
     },
     error = function(e) {FALSE},
     silent = TRUE
@@ -667,11 +676,16 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
     # Default main title given a keyword:
     if (is.na(main)){
-      if (pal %in% c("all", "unikn_all", "all_unikn") ) main <- "See all unikn color palettes"
-      if (pal %in% c("basic", "unikn_basic", "basic_unikn")) main <- "See all basic unikn color palettes"
-      if (pal %in% c("pair", "all_pair", "pair_all")) main <- "See all pairwise unikn color palettes"
-      if (pal %in% c("pref", "pref_all", "all_pref")) main <- "See all preferred unikn colors and gradients"
-      if (pal %in% c("grad", "grad_all", "all_grad")) main <- "See all unikn color gradients"
+      # (a) all palettes (of the unikn package):
+      if (pal %in% c("all") ) main <- "See all unikn color palettes"
+      # (b) local/uni.kn palettes:
+      if (pal %in% c("unikn_all", "all_unikn") ) main <- "See all uni.kn color palettes"
+      if (pal %in% c("basic", "unikn_basic", "basic_unikn")) main <- "See all basic uni.kn color palettes"
+      if (pal %in% c("pair", "all_pair", "pair_all")) main <- "See all pairwise uni.kn color palettes"
+      if (pal %in% c("pref", "pref_all", "all_pref")) main <- "See all preferred uni.kn colors and gradients"
+      if (pal %in% c("grad", "grad_all", "all_grad")) main <- "See all uni.kn color gradients"
+      # (c) added/contributed palettes:
+      if (pal %in% c("add") ) main <- "Additional unikn color palettes"      
     }
     
     pal_tmp <- get_pal_key(pal = pal, n = n, alpha = alpha)  # get color palette by its key
@@ -681,7 +695,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     pal_tmp <- lapply(X = pal, usecol, n = n, alpha = alpha, use_names = TRUE)  # get all palettes separately 
     
     if (is.na(main)){
-      main <- "Compare a custom set of color palettes"  # default
+      main <- "Compare a custom set of color palettes"  # default title
     }
     
     # Set or get palette names:
