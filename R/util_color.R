@@ -289,9 +289,6 @@ col_distinct <- function(pal, use_hex = TRUE, use_alpha = FALSE, use_names = FAL
 
 
 
-
-
-
 ## 2. Color and color palette retrieval functions: ------
 
 # parse_pal: Parse color palette input ------ 
@@ -453,13 +450,13 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
     "pref", "pref_all", "all_pref",   # 10:12. preferred palettes and gradients 
     "grad", "grad_all", "all_grad",   # 13:15. gradients
     # (c) added/contributed palettes: 
-    "add", "uni"                      # 16+. additional/contributed palettes
+    "add", "uni"                      # 16:17. additional/contributed palettes
   )
   
   # Throw an error, if no valid keyword is specified:
   if ( !pal %in% keys ) {
     stop('Invalid keyword specified. Allowed keywords are 
-                            c("all", "unikn_all", "all_unikn", "pref_all", "all_pref", "grad_all", "all_grad", "add")')
+         c("all", "unikn_all", "all_unikn", "pref_all", "all_pref", "grad_all", "all_grad", "add")')
   } else {
     
     # (a) all palettes (of the unikn package):
@@ -471,7 +468,7 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
     if ( pal %in% keys[10:12] ) key <- "pref"
     if ( pal %in% keys[13:15] ) key <- "grad"
     # (c) added/contributed palettes: 
-    if ( pal %in% keys[16:17] ) key <- "add"    
+    if ( pal %in% keys[16:17] ) key <- "add" 
     
   }
   
