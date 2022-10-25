@@ -45,7 +45,7 @@ demopal(uni_konstanz_pref, type = 3, main = "Preferred colors of the Uni Konstan
 \code{\link{grepal}} for finding named colors.
 
 Other contributed color palettes: 
-\code{\link{eth_pal_black_grey}},
+\code{\link{eth_pal_grey}},
 \code{\link{eth_pal_light}},
 \code{\link{eth_pal}},
 \code{\link{mpg_pal}},

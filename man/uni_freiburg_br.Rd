@@ -39,7 +39,7 @@ demopal(uni_freiburg_br, type = 2, main = "Colors of the University of Freiburg"
 \code{\link{grepal}} for finding named colors.
 
 Other contributed color palettes: 
-\code{\link{eth_pal_black_grey}},
+\code{\link{eth_pal_grey}},
 \code{\link{eth_pal_light}},
 \code{\link{eth_pal}},
 \code{\link{mpg_pal}},

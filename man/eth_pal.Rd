@@ -31,7 +31,7 @@ demopal(eth_pal, type = 3, main = "Default colors of the ETH Zürich")
 
 }
 \seealso{
-\code{\link{eth_pal_light}} and \code{\link{eth_pal_black_grey}} for alternative colors of the ETH Zurich;  
+\code{\link{eth_pal_light}} and \code{\link{eth_pal_grey}} for alternative colors of the ETH Zurich;  
 \code{\link{seecol}} for viewing and comparing color palettes; 
 \code{\link{usecol}} for using color palettes; 
 \code{\link{simcol}} for finding similar colors; 
@@ -39,7 +39,7 @@ demopal(eth_pal, type = 3, main = "Default colors of the ETH Zürich")
 \code{\link{grepal}} for finding named colors.
 
 Other contributed color palettes: 
-\code{\link{eth_pal_black_grey}},
+\code{\link{eth_pal_grey}},
 \code{\link{eth_pal_light}},
 \code{\link{mpg_pal}},
 \code{\link{uni_freiburg_blue}},

@@ -45,7 +45,7 @@ demopal(uni_konstanz, type = 4, main = "Using Uni Konstanz colors", seed = 1)
 \code{\link{grepal}} for finding named colors.
 
 Other contributed color palettes: 
-\code{\link{eth_pal_black_grey}},
+\code{\link{eth_pal_grey}},
 \code{\link{eth_pal_light}},
 \code{\link{eth_pal}},
 \code{\link{mpg_pal}},
