@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2022 10 23
+## spds | uni.kn  | 2022 10 25
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -40,8 +40,9 @@
 #' pal_unikn["seeblau5"]   # new color "seeblau5" (as df) 
 #' pal_unikn[["seeblau5"]] # new color value "#008ECE"
 #' 
-#' # Plotting palette:
+#' # Viewing/using color palette:
 #' seecol(pal_unikn)
+#' demopal(pal_unikn, type = "curve", main = "Default colors of Konstanz University")
 #' 
 #' # Note:
 #' pal_unikn[6] # "white" or "#FFFFFF" as central of 11 colors
@@ -109,8 +110,9 @@ pal_unikn_pref <- data.frame(  # Element:
 #' pal_unikn_pref["Seeblau"]   # color "seeblau3" (as df) 
 #' pal_unikn_pref[["Seeblau"]] # color value "#59C7EB" 
 #' 
-#' # Plotting palette:
+#' # Viewing/using color palette:
 #' seecol(pal_unikn_pref)
+#' demopal(pal_unikn_pref, type = "mosaic", main = "Preferred colors of Konstanz University")
 #' 
 #' @family color palettes
 #'
@@ -158,8 +160,9 @@ rownames(pal_unikn_pref) <- "1"  # fix/set rownames() of palette
 #' pal_unikn_light["seeblau3"]   # color "seeblau3" (as df) 
 #' pal_unikn_light[["seeblau3"]] # color value "#59C7EB"  
 #' 
-#' # Plotting palette:
+#' # Viewing/using color palette:
 #' seecol(pal_unikn_light)
+#' demopal(pal_unikn_light, type = "bar", main = "Light colors of Konstanz University")
 #' 
 #' @family color palettes
 #'
@@ -209,8 +212,9 @@ rownames(pal_unikn_light) <- "1"  # fix/set rownames() of palette
 #' pal_unikn_dark[[1]]  # color value by position: #324376"
 #' pal_unikn_dark["karpfenblau5"]  # color value by name
 #' 
-#' # Plotting palette:
+#' # Viewing/using color palette:
 #' seecol(pal_unikn_dark)
+#' demopal(pal_unikn_dark, type = "points", main = "Dark colors of Konstanz University")
 #' 
 #' @family color palettes
 #'
@@ -259,8 +263,9 @@ rownames(pal_unikn_dark) <- "1"  # fix/set rownames() of palette
 #' pal_unikn_pair[[1]]  # color value by position: #3E5496"
 #' pal_unikn_pair["karpfenblau4"]  # color value by name
 #' 
-#' # Plotting palette:
+#' # Viewing/using color palette:
 #' seecol(pal_unikn_pair)
+#' demopal(pal_unikn_pair, type = "polygon", main = "A pair-wise color palette")
 #' 
 #' @family color palettes
 #'
@@ -306,9 +311,6 @@ rownames(pal_unikn_pair) <- "1"  # fix/set rownames() of palette
 ## Check:
 # pal_unikn_pair
 # seecol(pal_unikn_pair)
-
-
-
 
 
 
