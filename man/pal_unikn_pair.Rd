@@ -25,8 +25,9 @@ pal_unikn_pair[1]    # color "karpfenblau4" by position
 pal_unikn_pair[[1]]  # color value by position: #3E5496"
 pal_unikn_pair["karpfenblau4"]  # color value by name
 
-# Plotting palette:
+# Viewing/using color palette:
 seecol(pal_unikn_pair)
+demopal(pal_unikn_pair, type = "polygon", main = "A pair-wise color palette")
 
 }
 \seealso{

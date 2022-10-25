@@ -25,8 +25,9 @@ pal_unikn_dark[1]    # color "karpfenblau5" by position
 pal_unikn_dark[[1]]  # color value by position: #324376"
 pal_unikn_dark["karpfenblau5"]  # color value by name
 
-# Plotting palette:
+# Viewing/using color palette:
 seecol(pal_unikn_dark)
+demopal(pal_unikn_dark, type = "points", main = "Dark colors of Konstanz University")
 
 }
 \seealso{

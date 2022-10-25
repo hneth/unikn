@@ -30,8 +30,9 @@ pal_unikn_light[[1]]  # color value "#59C7EB"
 pal_unikn_light["seeblau3"]   # color "seeblau3" (as df) 
 pal_unikn_light[["seeblau3"]] # color value "#59C7EB"  
 
-# Plotting palette:
+# Viewing/using color palette:
 seecol(pal_unikn_light)
+demopal(pal_unikn_light, type = "bar", main = "Light colors of Konstanz University")
 
 }
 \seealso{

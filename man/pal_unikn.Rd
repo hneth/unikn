@@ -40,8 +40,9 @@ pal_unikn[[1]]  # new color value "#008ECE"
 pal_unikn["seeblau5"]   # new color "seeblau5" (as df) 
 pal_unikn[["seeblau5"]] # new color value "#008ECE"
 
-# Plotting palette:
+# Viewing/using color palette:
 seecol(pal_unikn)
+demopal(pal_unikn, type = "curve", main = "Default colors of Konstanz University")
 
 # Note:
 pal_unikn[6] # "white" or "#FFFFFF" as central of 11 colors
