@@ -337,7 +337,7 @@ parse_pal <- function(pal) {
     
     # Split input string; getting everything within the parentheses:
     
-    if ( grepl("\\(", tmp) ) {  # only if any parenthesis exists.
+    if ( grepl("\\(", tmp) ) {  # if a parenthesis exists: 
       
       tmp <- sub(".*?\\(+(.*)\\).*", "\\1", tmp, perl = TRUE)
       # .\*?   matches anything but stops at the first match of what follows
@@ -363,7 +363,7 @@ parse_pal <- function(pal) {
     
     # Existence checks: ----- 
     
-    ## Now ask for every element, whether it exists:
+    ## Check existence of every element:
     elemex <- sapply(elem, function(x) exists(x) & x != "pal")
     # also ask, whether the element is named pal, to prevent name conflicts!
     # Was: elemex <- sapply(elem, exists)
@@ -495,25 +495,34 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   # Get list of palettes specified by keyword:
   lst_pal <- sapply(pal_names, get)
   
-  # Check if these are actually color palettes:
-  is_pal <- lapply(
-    lst_pal,
-    FUN = function(x) {
-      if ( !typeof(x) %in% c("vector", "list") ) {
-        is_color <- FALSE
-      } else {
-        is_color <- is_hex_col(color = x)
-      }
-      return(all(is_color))  # are all entries colors?
-      
-    }
+  # Check if lst_pal elements are actually color palettes:
+  is_pal <- lapply(X = lst_pal,
+                   FUN = function(x) {
+                     
+                     # if ( !typeof(x) %in% c("vector", "list") ) {  # BUG: uni-pals are of type "character"!
+                     if ( !is.vector(x) & !is.list(x) ) { # palettes are vectors or lists:
+                       
+                       is_color_ix <- FALSE
+                       
+                     } else { # check all elements:
+                       
+                       # is_color_ix <- is_hex_col(color = x)  # Why only check for HEX colors?
+                       is_color_ix <- is_col(color = x)
+                       
+                     }
+                     
+                     return(all(is_color_ix))  # TRUE iff ALL elements are colors
+                     
+                   }
   )
   
-  # Remove all non-colors:
-  tmp <- lst_pal[unlist(is_pal)]
+  # print(is_pal)  # 4debugging
+  
+  # Remove non-colors:
+  col_pals <- lst_pal[unlist(is_pal)]
   
   # Check if palette is non-empty:
-  if (length(tmp) == 0) {
+  if (length(col_pals) == 0) {
     stop("No color palettes found in the current environment.")
   }
   
@@ -521,17 +530,17 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   if (n != "all" ) {
     
     # Get the subset of each palette , as defined in usecol():
-    out <- lapply(tmp, FUN = usecol, n = n, alpha = alpha, use_names = TRUE)
+    out <- lapply(col_pals, FUN = usecol, n = n, alpha = alpha, use_names = TRUE)
     
   } else {
     
     if ( !is.na(alpha) ) {
       
-      out <- lapply(tmp, FUN = adjustcolor, alpha.f = alpha)  # adjust alpha
+      out <- lapply(col_pals, FUN = adjustcolor, alpha.f = alpha)  # adjust alpha
       
     } else { # if n is un-specified: 
       
-      out <- tmp  # return list as is
+      out <- col_pals  # return list as is
       
     }
     
