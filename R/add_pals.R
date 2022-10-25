@@ -1,5 +1,5 @@
-## uni_pals.R | unikn
-## spds | uni.kn |  2022 10 22
+## add_pals.R | unikn
+## spds | uni.kn |  2022 10 25
 ## ---------------------------
 
 # Export color palettes of various institutions 
