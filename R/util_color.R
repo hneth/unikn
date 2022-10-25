@@ -319,7 +319,7 @@ parse_pal <- function(pal) {
     
     out <- pal
     
-  } else {  # otherwise:
+  } else { # otherwise:
     
     # Deparse argument: 
     if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
@@ -339,7 +339,7 @@ parse_pal <- function(pal) {
     
     if ( grepl("\\(", tmp) ) {  # only if any parenthesis exists.
       
-      tmp <- sub(".*?\\(+(.*)\\).*", "\\1", tmp, perl=TRUE)
+      tmp <- sub(".*?\\(+(.*)\\).*", "\\1", tmp, perl = TRUE)
       # .\*?   matches anything but stops at the first match of what follows
       # \\s+   matches one or more blank spaces
       # (.\*)  matches any number of characters, because it is in parentheses
@@ -360,13 +360,13 @@ parse_pal <- function(pal) {
     # Remove functions: 
     elem <- sub(".*?\\(+(.*)\\).*", "\\1", elem, perl = TRUE)
     
+    
     # Existence checks: ----- 
     
     ## Now ask for every element, whether it exists:
     elemex <- sapply(elem, function(x) exists(x) & x != "pal")
     # also ask, whether the element is named pal, to prevent name conflicts!
     # Was: elemex <- sapply(elem, exists)
-    
     
     if ( any(!elemex) ) { # only if not all inputs have been resolved
       
@@ -495,7 +495,7 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   # Get list of palettes specified by keyword:
   lst_pal <- sapply(pal_names, get)
   
-  # Indicator, whether these are actually color palettes:
+  # Check if these are actually color palettes:
   is_pal <- lapply(
     lst_pal,
     FUN = function(x) {
@@ -514,7 +514,7 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   
   # Check if palette is non-empty:
   if (length(tmp) == 0) {
-    stop("No color palettes defined in the current environment.")
+    stop("No color palettes found in the current environment.")
   }
   
   # If only color subsets should be displayed:
@@ -527,17 +527,17 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
     
     if ( !is.na(alpha) ) {
       
-      out <- lapply(tmp, FUN = adjustcolor, alpha.f = alpha)   # adjust for alpha if specified.
+      out <- lapply(tmp, FUN = adjustcolor, alpha.f = alpha)  # adjust alpha
       
-    } else {
+    } else { # if n is un-specified: 
       
-      out <- tmp  # if n n is specified return list as is.
+      out <- tmp  # return list as is
       
     }
     
   }
   
-  pal_nm <- names(out)  # get palette names from listnames.
+  pal_nm <- names(out)  # get palette names from listnames # ToDo: Used/needed anywhere???
   
   return(out)
   
@@ -546,7 +546,7 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
 
 # get_col_names: Get custom and default color names ------
 
-get_col_names <- function(col, custom_pals = all_palkn){
+get_col_names <- function(col, custom_pals = all_pals){
   
   # 1. Customized names from custom color palettes:
   cus_pals  <- lapply(X = custom_pals, FUN = get)
