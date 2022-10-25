@@ -592,21 +592,21 @@ usecol <- function(pal = pal_unikn,
 
 # - Definition: ------ 
 
-seecol <- function(pal = "unikn_all",  # which palette to output?
-                   n = "all",
-                   alpha = NA,
-                   hex = NULL,       # determine by crowdedness, whether hex values should be shown in detail view.
-                   rgb = NULL,       # determine, whether rgb values should be shown in detail view (defaults to TRUE)
-                   col_bg = NULL,    # color of background
-                   col_brd = NULL,   # border color of the boxes
-                   lwd_brd = NULL,   # line width of box borders
-                   grid = TRUE,      # show grid? 
-                   main = NA,        # main plot title (using the default 'main = NA' constructs a default title)
-                   sub = NULL,       # plot subtitle (on bottom)
-                   title = NULL,     # Deprecated plot title (replaced by main)
-                   mar_note = NA,    # optional margin note (on bottom right)
-                   pal_names = NA,   # names of color palettes or colors (as character vector)
-                   ...               # additional arguments to plot.default().
+seecol <- function(pal = "unikn_all",  # which palette?
+                   n = "all",          # n of colors
+                   alpha = NA,         # opacity / transparency level
+                   hex = NULL,         # determine by crowdedness, whether hex values should be shown in detail view.
+                   rgb = NULL,         # determine, whether rgb values should be shown in detail view (defaults to TRUE)
+                   col_bg = NULL,      # color of background
+                   col_brd = NULL,     # border color of the boxes
+                   lwd_brd = NULL,     # line width of box borders
+                   grid = TRUE,        # show grid? 
+                   main = NA,          # main plot title (using the default 'main = NA' constructs a default title)
+                   sub = NULL,         # plot subtitle (on bottom)
+                   title = NULL,       # Deprecated: plot title (replaced by main)
+                   mar_note = NA,      # optional margin note (on bottom right)
+                   pal_names = NA,     # names of color palettes or colors (as character vector)
+                   ...                 # additional arguments to plot.default().
 ) {
   
   # 1. Preparations: ------- 
