@@ -1259,7 +1259,7 @@ all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
 
 # additional/contributed palettes:
 
-add_pals <- c("eth_pal", "eth_pal_light", "eth_pal_black_grey", 
+add_pals <- c("eth_pal", "eth_pal_light", "eth_pal_grey", 
               "mpg_pal", 
               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
               "uni_konstanz", "uni_konstanz_pref",

@@ -78,7 +78,7 @@ nam_ETH <- c("ETH Blue", "ETH Petrol", "ETH Green", "ETH Bronze", "ETH Red", "ET
 #' @family contributed color palettes
 #'
 #' @seealso 
-#' \code{\link{eth_pal_light}} and \code{\link{eth_pal_black_grey}} for alternative colors of the ETH Zurich;  
+#' \code{\link{eth_pal_light}} and \code{\link{eth_pal_grey}} for alternative colors of the ETH Zurich;  
 #' \code{\link{seecol}} for viewing and comparing color palettes; 
 #' \code{\link{usecol}} for using color palettes; 
 #' \code{\link{simcol}} for finding similar colors; 
@@ -153,7 +153,7 @@ nam_ETH_light <- c("ETH Blue 10%", "ETH Petrol 10%", "ETH Green 10%", "ETH Bronz
 #' @family contributed color palettes
 #'
 #' @seealso 
-#' \code{\link{eth_pal}} and \code{\link{eth_pal_black_grey}} for alternative colors of the ETH Zurich;  
+#' \code{\link{eth_pal}} and \code{\link{eth_pal_grey}} for alternative colors of the ETH Zurich;  
 #' \code{\link{seecol}} for viewing and comparing color palettes; 
 #' \code{\link{usecol}} for using color palettes; 
 #' \code{\link{simcol}} for finding similar colors; 
@@ -167,7 +167,7 @@ eth_pal_light <- newpal(col = col_ETH_light,
                         as_df = FALSE)
 
 
-# - eth_pal_black_grey: ---- 
+# - eth_pal_grey: ---- 
 
 # Using black and shades of grey:
 # Shades of grey can be used to visually structure content and delineate different elements. 
@@ -219,24 +219,24 @@ eth_grey_05 <- usecol("#F6F6F6")
 # - White: backgrounds, text colour on dark backgrounds
 # - Black, 80% opacity: hover colour for links
 
-col_eth_black_grey <- c(eth_black, eth_black_light, 
-                        eth_black_60, eth_black_48, eth_black_20, 
-                        eth_grey_10, eth_grey_05)
+col_eth_grey <- c(eth_black, eth_black_light, 
+                  eth_black_60, eth_black_48, eth_black_20, 
+                  eth_grey_10, eth_grey_05)
 
-nam_eth_black_grey <- c("ETH Black", "ETH Black Light", 
-                        "ETH Black 60%", "ETH Black 48%", "ETH Black 20%",
-                        "ETH Grey 10%", "ETH Grey 5%")
+nam_eth_grey <- c("ETH Black", "ETH Black Light", 
+                  "ETH Black 60%", "ETH Black 48%", "ETH Black 20%",
+                  "ETH Grey 10%", "ETH Grey 5%")
 
 
 #' Black and grey colors of the ETH Zurich.
 #'
-#' \code{eth_pal_black_grey} provides the shades of black and grey 
+#' \code{eth_pal_grey} provides the shades of black and grey 
 #' used by the \href{https://ethz.ch/}{ETH Zürich}, Switzerland. 
 #' 
 #' These shades of gray can be used to visually structure content 
 #' and delineate different elements. 
 #' 
-#' Note that \code{eth_pal_black_grey} mixes colors of 
+#' Note that \code{eth_pal_grey} mixes colors of 
 #' varying opacity / transparency levels.
 #' 
 #' @return 
@@ -250,9 +250,9 @@ nam_eth_black_grey <- c("ETH Black", "ETH Black Light",
 #' \url{https://ethz.ch/staffnet/en/service/communication/corporate-design/digital-media/web-colours.html}. 
 #' 
 #' @examples
-#' eth_pal_black_grey
-#' seecol(eth_pal_black_grey)  # view color palette
-#' demopal(eth_pal_black_grey, type = 2, main = "Black and grey colors of the ETH Zürich")
+#' eth_pal_grey
+#' seecol(eth_pal_grey)  # view color palette
+#' demopal(eth_pal_grey, type = 2, main = "Black and grey colors of the ETH Zürich")
 #'
 #' @family contributed color palettes
 #'
@@ -266,10 +266,9 @@ nam_eth_black_grey <- c("ETH Black", "ETH Black Light",
 #' 
 #' @export
 
-eth_pal_black_grey <- newpal(col = col_eth_black_grey, 
-                             names = nam_eth_black_grey,
-                             as_df = FALSE)
-
+eth_pal_grey <- newpal(col = col_eth_grey, 
+                       names = nam_eth_grey,
+                       as_df = FALSE)
 
 
 
