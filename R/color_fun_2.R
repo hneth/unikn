@@ -1,6 +1,6 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 10 23
-## ---------------------------
+## spds | uni.kn | 2022 10 26
+## --------------------------
 
 ## Define color-related functions 
 ## (e.g., for finding similar colors, match patterns in color names, and creating color palettes). 

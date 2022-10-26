@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## spds | uni.kn |  2022 10 25
+## spds | uni.kn |  2022 10 26
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -12,7 +12,7 @@
 
 # Definition: 
 
-pal_unikn_web <- data.frame(                                 #  element: 
+pal_unikn_web <- data.frame(                             #  Element: 
   "seeblau1" = rgb(204, 238, 249, maxColorValue = 255),  #  1. seeblau1 (non-transparent)
   "seeblau2" = rgb(166, 225, 244, maxColorValue = 255),  #  2. seeblau2 (non-transparent)
   "seeblau3" = rgb( 89, 199, 235, maxColorValue = 255),  #  3. seeblau3 (non-transparent) == preferred color: "Seeblau"
@@ -24,7 +24,6 @@ pal_unikn_web <- data.frame(                                 #  element:
   "seegrau1" = rgb(229, 229, 229, maxColorValue = 255),  #  9. grey90 (non-transparent)
   "white"    = rgb(255, 255, 255, maxColorValue = 255),  # 10. white
   stringsAsFactors = FALSE)
-# pal_unikn
 
 # Note: Web (sRGB) colors appear to be more vibrant than pal_unikn_ppt variant (below). 
 
@@ -82,7 +81,7 @@ pal_unikn_web <- pal_unikn_web[c(4:1, 10:5)] # seeblau (2 as default) > white (5
 
 # Definition:
 
-pal_unikn_ppt <- data.frame(                             #  element:
+pal_unikn_ppt <- data.frame(                             #  Element:
   "seeblau1" = rgb(200, 229, 239, maxColorValue = 255),  #  1. seeblau1 (non-transparent)
   "seeblau2" = rgb(160, 211, 230, maxColorValue = 255),  #  2. seeblau2 (non-transparent)
   "seeblau3" = rgb( 89, 182, 220, maxColorValue = 255),  #  3. seeblau3 (non-transparent) == preferred color: "Seeblau"
@@ -209,7 +208,7 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 
 #   (c) Definition: ---- 
 
-pal_seeblau <- data.frame(                               #  element: 
+pal_seeblau <- data.frame(                               #  Element: 
   "seeblau1" = rgb(204, 238, 249, maxColorValue = 255),  #  1. seeblau1 (non-transparent):  20%
   "seeblau2" = rgb(166, 225, 244, maxColorValue = 255),  #  2. seeblau2 (non-transparent):  35%
   "seeblau3" = rgb( 89, 199, 235, maxColorValue = 255),  #  3. seeblau3 (non-transparent):  65%: preferred color: "seeblau"
@@ -443,7 +442,7 @@ names(Peach) <- "Peach"
 
 #   (c) Definition: ---- 
 
-pal_grau <- data.frame(                               #  element: 
+pal_grau <- data.frame(                               #  Element: 
   "grau1" = rgb(225, 226, 229, maxColorValue = 255),  #  1. grau1 (non-transparent)
   "grau2" = rgb(184, 188, 193, maxColorValue = 255),  #  2. grau2 (non-transparent)
   "grau3" = rgb(154, 160, 167, maxColorValue = 255),  #  3. grau3 (non-transparent): preferred color: "grau"
@@ -563,7 +562,7 @@ names(Grau) <- "Grau"
 
 #   (c) Definition: ---- 
 
-pal_petrol <- data.frame(                               #  element: 
+pal_petrol <- data.frame(                               #  Element: 
   "petrol1" = rgb(156, 198, 207, maxColorValue = 255),  #  1. petrol1 (non-transparent)
   "petrol2" = rgb(106, 170, 183, maxColorValue = 255),  #  2. petrol2 (non-transparent)
   "petrol3" = rgb( 57, 141, 159, maxColorValue = 255),  #  3. petrol3 (non-transparent)
@@ -680,7 +679,7 @@ names(Petrol) <- "Petrol"
 
 #   (c) Definition: ---- 
 
-pal_seegruen <- data.frame(                               #  element: 
+pal_seegruen <- data.frame(                               #  Element: 
   "seegruen1" = rgb(113, 209, 204, maxColorValue = 255),  #  1. seegruen1 (non-transparent)
   "seegruen2" = rgb( 84, 191, 183, maxColorValue = 255),  #  2. seegruen2 (non-transparent)
   "seegruen3" = rgb( 10, 163, 152, maxColorValue = 255),  #  3. seegruen3 (non-transparent)
@@ -798,7 +797,7 @@ names(Seegruen) <- "Seegruen"
 
 #   (c) Definition: ---- 
 
-pal_karpfenblau <- data.frame(                               #  element: 
+pal_karpfenblau <- data.frame(                               #  Element: 
   "karpfenblau1" = rgb(180, 188, 214, maxColorValue = 255),  #  1. karpfenblau1 (non-transparent)
   "karpfenblau2" = rgb(130, 144, 187, maxColorValue = 255),  #  2. karpfenblau2 (non-transparent)
   "karpfenblau3" = rgb( 88, 107, 164, maxColorValue = 255),  #  3. karpfenblau3 (non-transparent)
