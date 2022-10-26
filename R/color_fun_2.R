@@ -823,7 +823,7 @@ shades_of <- function(n = 5,
 # seecol(shades_of(4, col_1 = Bordeaux, alpha = .5))
 
 
-# ac(): Wrap adjustcolor(): ------ 
+# ac(): A flexible wrapper of adjustcolor(): ------ 
 
 # Goal: Wrap essentials of grDevices::adjustcolor 
 #       as a more convenient utility function:
