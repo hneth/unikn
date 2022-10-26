@@ -1,6 +1,6 @@
 ## color_fun_1.R | unikn
 ## spds | uni.kn | 2022 10 26
-## ---------------------------
+## --------------------------
 
 ## Define color-related functions 
 ## (e.g., for choosing from, using, plotting, and viewing color palettes). 
@@ -1180,7 +1180,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
 # par(op)
 
 
-# 3. all_colors: Combine all unikn color palettes with all R colors(): ------
+# 3. all_colors: Combine all unikn color palettes with default R colors(): ------
 
 #' A function providing all unikn colors and base R colors.
 #' 
@@ -1197,34 +1197,43 @@ seecol <- function(pal = "unikn_all",  # which palette?
 
 all_colors <- function(distinct = TRUE){
   
-  # initialize:
-  out <- NA 
+  out <- NA  # initialize
   
-  # 1. All unikn colors:
-  unikn_colors <- usecol(c("black", "white",
+  # 1. All colors (of unikn package): ---- 
+  unikn_pkg_colors <- usecol(c("black", "white",
+                           # Local uni.kn colors:
                            pal_grau, pal_bordeaux, pal_petrol, pal_peach, 
                            pal_seeblau, pal_pinky, pal_seegruen, pal_karpfenblau, 
                            pal_signal, 
-                           pal_unikn  # contains 4 "seegrau" variants of "grey"
-  ), 
+                           pal_unikn,  # contains 4 "seegrau" variants of "grey"
+                           # Added/contributed color palettes:
+                           eth_pal, eth_pal_light, eth_pal_grey,  
+                           mpg_pal, 
+                           uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
+                           # uni_konstanz, uni_konstanz_pref, # duplicates of pal_ above.
+                           uni_princeton_0, uni_princeton_1, uni_princeton_2
+                           ), 
   use_names = TRUE)
   
   # Sort colors (by name):
-  unikn_colors_s <- unikn_colors[sort(names(unikn_colors))]
+  unikn_pkg_colors_s <- unikn_pkg_colors[sort(names(unikn_pkg_colors))]
   
-  # 2. Add R colors() (from grDevices):
-  unikn_and_R_colors <- usecol(c(unikn_colors_s, grDevices::colors()), use_names = TRUE)
+  # 2. Add R colors() (from grDevices): ---- 
+  unikn_and_R_colors <- usecol(c(unikn_pkg_colors_s, grDevices::colors()), use_names = TRUE)
   # unikn_and_R_colors[1:10]
   
-  if (distinct){
+  if (distinct){ # Remove duplicates (3 ways): ---- 
     
-    # Remove duplicates:
     # col_unique_name <- unikn_and_R_colors[duplicated(names(unikn_and_R_colors)) == FALSE]  # 1. unique names
-    # col_unique_value <- col_distinct(col_unique_name)  # 2. unique color value (visually distinct)
+    # col_unique_value <- col_distinct(col_unique_name)  # 2. unique color values (visually distinct)
     
-    unique_colors <- col_distinct(pal = unikn_and_R_colors, use_hex = TRUE, use_alpha = FALSE, use_names = TRUE)
+    # 3. Using col_distinct() helper function: 
+    all_unique_colors <- col_distinct(pal = unikn_and_R_colors, 
+                                      use_hex = TRUE, 
+                                      use_alpha = FALSE, 
+                                      use_names = TRUE)
     
-    out <- unique_colors
+    out <- all_unique_colors
     
   } else {
     
@@ -1232,21 +1241,26 @@ all_colors <- function(distinct = TRUE){
     
   }
   
-  # Output:
+  # Output: ---- 
   return(out)
   
 } # all_colors().
 
 # ## Check:
 # all_colors()[1:50]
-# length(all_colors(distinct = TRUE))   # 545
-# length(all_colors(distinct = FALSE))  # 713
+# length(all_colors(distinct = TRUE))   # 579 [on 2022-10-26]
+# length(all_colors(distinct = FALSE))  # 762 [on 2022-10-26]
 # grepal("see", all_colors())     # finds unikn colors (and matching colors())
-# grepal("purple", all_colors())  # finds base R colors
+# grepal("purple", all_colors())  # finds added and base R colors
 # 
-# grepal("black", all_colors())  # only 1 "black"
+# grepal("black", all_colors(), ignore_case = FALSE)  # only 1 "black"
+# grepal("black", all_colors(), ignore_case = TRUE)   # 2 variants of "black"
 # grepal("signal", all_colors()) # 3 signal colors
-# grepal("alice", all_colors())  # 1 color
+# grepal("alice", all_colors())  # 1 base R color
+# 
+# simcol(Petrol, all_colors())
+# simcol(mpg_pal[1], all_colors())
+# simcol(uni_princeton_0[1], all_colors())
 
 
 ## ToDo: ------
