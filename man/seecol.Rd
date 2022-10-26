@@ -36,7 +36,8 @@ Recognized keywords are:
 
   \item \code{"all"}: All color palettes of the \bold{unikn} package.
 
-  \item \code{"unikn_all"}: All uni.kn color palettes.
+  \item \code{"all_unikn"} or \code{"unikn_all"}: All uni.kn color palettes 
+  (of the \href{https://www.uni-konstanz.de/}{University of Konstanz}).
 
   \item \code{"unikn_basic"}: All basic uni.kn palettes. 
   
