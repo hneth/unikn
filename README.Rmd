@@ -91,13 +91,26 @@ library('unikn')  # loads the package
 ```
 
 
-## Colors and color functions
+## Colors and color palettes
 
-A distinctive and recognizable color scheme is the most recognizable element of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design. 
+The **unikn** contains two categories of color palettes: 
 
-### Basic color palettes
+- 16 palettes implementing the colors of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design; 
+- 13 additional color palettes from various institutions. 
 
-Basic color palettes are defined according to the **Corporate Design Manual** (see the [corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) specifications). 
+
+### The colors of Konstanz University
+
+Originally, the **unikn** package primarily provided the 16\ color palettes of the [University of Konstanz](https://www.uni-konstanz.de/):
+
+```{r pal-all, fig.align = 'center', fig.width = 6, out.width = "70%", fig.asp = .90}
+seecol("all_unikn")
+```
+
+The distinctive and recognizable colors of these palettes were defined in the local **Corporate Design Manual** (see the [corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) specifications). 
+
+
+#### Basic color palette
 
 The default color palette `pal_unikn` combines:  
 
@@ -108,11 +121,8 @@ The default color palette `pal_unikn` combines:
 
 This yields a diverging, symmetrical default color palette `pal_unikn` consisting of 11\ colors: 
 
-```{r pal-unikn, eval = TRUE, fig.width = 6, fig.asp = .75, fig.align = 'center'}
-# Default color palette: ----- 
-# pal_unikn  # 11 default colors
-
-# View color palette (by plotting it): ----- 
+```{r pal-unikn, eval = TRUE, fig.width = 7, fig.asp = .75, fig.align = 'center'}
+# See/inspect color palette: ----- 
 seecol(pal_unikn)
 ```
 
@@ -124,26 +134,38 @@ seecol(pal_unikn)
 
 Evaluating `seecol(pal = "unikn_basic")` shows these three basic unikn color palettes. 
 
-### All color palettes
 
-Beyond the three variants of `pal_unikn`, the **unikn** package provides the following color palettes: 
+#### Special color palettes
 
-```{r pal-all, eval = TRUE, fig.align = 'center', fig.width = 5, fig.height = 5}
-seecol("all")
-```
-
-The color palettes `pal_unikn_web()` and `pal_unikn_ppt()` correspond to the official definitions of color palettes for electronic and print media, respectively. The default palette `pal_unikn` of **unikn** combines the five shades of blue in `pal_seeblau` with the six non-blue colors from `pal_unikn_web()` to create a symmetrical palette of 11\ colors. 
-
-All color palettes exported by **unikn** are built from elements consisting of nine different color hues. 
-Specifically, an\ Excel file entitled [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) defines 9\ color gradients that are created and exported by **unikn** as the following named color palettes: 
+Several more specialized color palettes are combine the elements of nine different color hues. 
+Specifically, an\ Excel file entitled [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) defines 9\ color gradients that are created and exported by **unikn** as named color palettes: 
 
 ```{r pal-additional, eval = FALSE}
 seecol(pal = "grad_all")
 ```
 
-Overall, the **unikn** package exports 16\ dedicated color palettes, plus the nine preferred colors of `pal_unikn_pref` (e.g., `Seeblau`, `Seegruen`, etc.) as named colors. For details on each named color hue, evaluate `seecol()` on the following color palettes: 
+For instance, the 9\ preferred colors (i.e., named colors of distinct color hues) are contained in palette\ `pal_unikn_pref`: 
 
-```{r pal-additional-list, eval = FALSE}
+```{r pal-unikn-pref, eval = TRUE, fig.width = 6, fig.asp = .75, fig.align = 'center'}
+# See the palette of 9 preferred colors/hues: 
+seecol(pal_unikn_pref)
+```
+
+All these color palettes are exported as data frames that can be accessed by number, value, or name:
+
+```{r pal-access, eval = FALSE}
+# Using preferred colors:
+pal_unikn_pref             # color palette of 9 preferred colors
+pal_unikn_pref[1]          # preferred (named) color 1
+pal_unikn_pref[[1]]        # color value 1: #59C7EB"
+pal_unikn_pref["Seeblau"]  # preferred color by name
+```
+
+<!-- #### Details {-} -->
+
+<!-- Overall, the colors of the [University of Konstanz](https://www.uni-konstanz.de/) make up 16\ dedicated palettes, plus nine individual colors of `pal_unikn_pref` (e.g., `Seeblau`, `Seegruen`, etc.) as named colors. For details on each named color hue, evaluate `seecol()` on the following color palettes:  -->
+
+```{r pal-additional-list, echo = FALSE, eval = FALSE}
 # 8 mono-tone palettes: ----- 
 # Name:          Nr:           Tone:          
 pal_seeblau      # 5 shades of seeblau
@@ -159,41 +181,77 @@ pal_bordeaux     # 5           Bordeaux
 pal_signal       # 3           signal/Ampel
 ```
 
-Each color palette contains a preferred color.[^1] 
-All preferred colors (i.e., named colors of distinct color hues) are contained in a corresponding color palette\ `pal_unikn_pref`: 
+<!-- Each color palette contains a preferred color.[^1]  -->
 
-```{r pal-unikn-pref, eval = FALSE}
-# See the palette of 9 preferred colors/hues: 
-seecol(pal_unikn_pref)
+<!-- [^1]: Whereas the official definition does not identify a preferred color for the Ampel color palette (`pal_signal`),  -->
+<!-- we provide its alert color (i.e., `pal_signal[2]`) as a designated color\ `Signal`.  -->
 
-# Using preferred colors:
-pal_unikn_pref             # color palette of 9 preferred colors
-pal_unikn_pref[1]          # preferred (named) color 1
-pal_unikn_pref[[1]]        # color value 1: #59C7EB"
-pal_unikn_pref["Seeblau"]  # preferred color by name
-```
 
-[^1]: Whereas the official definition does not identify a preferred color for the Ampel color palette (`pal_signal`), 
-we provide its alert color (i.e., `pal_signal[2]`) as a designated color\ `Signal`. 
+<!-- - The color palettes `pal_unikn_web()` and `pal_unikn_ppt()` correspond to the official definitions of color palettes for electronic and print media, respectively.  -->
 
-Additional pre-defined color palettes in **unikn** include:
+<!-- - The default palette `pal_unikn` of **unikn** combines the five shades of blue in `pal_seeblau` with the six non-blue colors from `pal_unikn_web()` to create a symmetrical palette of 11\ colors.  -->
 
-```{r pal-unikn-more, eval = FALSE}
+<!-- - Additional pre-defined color palettes in **unikn** include: -->
+
+```{r pal-unikn-more, echo = FALSE, eval = FALSE}
 # See additional color palettes:
 seecol(pal_unikn_light)  # palette of  8 light colors (in 4 pairs)
 seecol(pal_unikn_dark)   # palette of  8 dark colors (in 4 pairs)
 seecol(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
 ```
 
-More flexible and complex color palettes can be created by using the `seecol()` and `usecol()` functions. 
+<!-- More flexible and complex color palettes can be created by using the `seecol()` and `usecol()` functions.  -->
 
 
-### Overview of color-related functions
+### Additional color palettes
 
-Two main functions ---\ `seecol()` and `usecol()`\ --- provide a simple interface for _viewing_ and _using_ color palettes. 
+In addition to the 16\ specific color palettes of the [University of Konstanz](https://www.uni-konstanz.de/), 
+**unikn** currently provides the general color palettes of the following institutions: 
 
-Additional color functions (i.e., `newpal()`, `grepal()`, `shades_of()`, and `ac()`) provide auxiliary functionality (like creating new color palettes, finding colors whose names match some pattern, creating color gradients, or adding transparency to colors). 
+- [ETH Zurich](https://ethz.ch/): `eth_pal`, `eth_pal_light`, `eth_pal_grey`
+- [Max Planck Society](https://www.mpg.de/): `mpg_pal`
+- [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`  
+- [University of Konstanz](https://www.uni-konstanz.de/): `uni_konstanz`, `uni_konstanz_pref`
+- [Princeton University](https://www.princeton.edu/): `uni_princeton_0`, `uni_princeton_1`, `uni_princeton_2` 
 
+
+```{r seecol-add-pals, fig.width = 7.5, out.width = "70%", fig.align = 'center', fig.asp = .90}
+seecol("add", main = "Color palettes from various institutions")
+```
+
+These palettes are exported (as named vectors), documented (to credit their contributors and sources), and can be used by the R community (e.g., when creating visualizations or modified with the **unikn** [color functions](colors.html)). 
+
+
+<!-- Collecting contributed color palettes: -->
+
+#### Call for contributions {-}
+
+**Collecting color palettes**
+
+Are you using **unikn** to create **your own color palettes**?  
+If so, please **let us know** (e.g., by posting on this [GitHub issue](https://github.com/hneth/unikn/issues/11))!  
+  
+We collect color palettes from other institutions to make them available to R users in future versions of **unikn**.  
+   
+To enable us to verify and provide appropriate credit to your contributions, please provide us with the following information:  
+   
+1. your code (e.g., the `newpal()` command creating your color palette),   
+2. your source (e.g., some URL with color definitions),   
+3. your name and some contact information (e.g., an Email address).  
+  
+We're looking forward to your inputs and contributions! 
+
+
+
+## Color-related functions
+
+Beyond defining colors and color palettes, the **unikn** package provides a range of tools for viewing and manipulating colors:
+
+- Two main functions ---\ `seecol()` and `usecol()`\ --- provide a simple interface for _viewing_ and _using_ color palettes. 
+
+- Additional color functions (i.e., `simcol()`, `grepal()`, `newpal()`, `shades_of()`, or `ac()`) provide auxiliary functionality (for finding similar colors and color names, creating new color palettes and color gradients, or adjusting transparency). 
+
+<!-- Examples: -->
 
 ### Viewing color palettes with `seecol()` 
 
@@ -201,22 +259,22 @@ The `seecol()` function enables a quick inspection of a color palette.
 It provides a quick overview over the details of a color palette and allows comparisons between multiple color palettes: 
 
 ```{r seecol-pref, eval = TRUE, fig.align = 'center', fig.width = 7, fig.asp = .80}
-# Plot a color palette: 
-seecol(pal = pal_unikn_pref,            # a color palette to plot
-       hex = TRUE,                      # show HEX code of colors?
-       col_brd = "white", lwd_brd = 5)  # color and width of borders
+# See/inspect color palette: 
+seecol(pal = eth_pal,                    # a color palette to plot
+       hex = TRUE,                       # show HEX code of colors?
+       col_brd = "white", lwd_brd = 5,   # color and width of borders
+       main = "Colors of the ETH Zurich")  
 ```
 
 #### Partial color palettes
 
-When only a subset of a color palette are needed, the `seecol()` and `usecol()` functions provide a reasonable subset of a known **unikn** color palette: 
+When only a subset of a color palette are needed, the `seecol()` and `usecol()` functions aim to provide a reasonable subset of a **unikn** color palette: 
 
-```{r pal-n, eval = TRUE, fig.width = 5, fig.asp = .75, fig.align = 'center', collapse = TRUE}
-# Subset of all color palettes: 
-seecol(n = 4)
-
-# Details of a partial palette: 
-# seecol(pal_seeblau, n = 4)
+```{r pal-n, eval = TRUE, fig.width = 6, fig.asp = .75, fig.align = 'center'}
+# Scale color palettes: 
+seecol(pal = "add", n = 3, 
+       col_brd = "black", lwd_brd = .5,
+       main = "Scaled color palettes (n = 3)")
 ```
 
 #### Changing and creating color palettes
@@ -749,21 +807,6 @@ The **unikn** package is work in progress. We are currently working on:
 Please comment on [GitHub](https://github.com/hneth/unikn) or [contact us](https://www.spds.uni-konstanz.de/) 
 if you need additional features or want to help creating them.  
 
-
-### Call for contributions {-}
-
-Have you used **unikn** to create **your own color palettes**?  
-If so, please **let us know** (e.g., by posting on this [GitHub issue](https://github.com/hneth/unikn/issues/11))!  
-  
-We collect color palettes from other institutions to make them available to R users in future versions of **unikn**.  
-   
-To enable us to verify and provide appropriate credit to your contributions, please provide us with the following information:  
-   
-1. your code (e.g., the `newpal()` command creating your color palette),   
-2. your source (e.g., some URL with color definitions),   
-3. your name and some contact information (e.g., an Email address).  
-  
-We're looking forward to your inputs and contributions!  
 
 
 ## Resources
