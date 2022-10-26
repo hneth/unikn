@@ -486,7 +486,8 @@ usecol <- function(pal = pal_unikn,
 #'
 #'   \item \code{"all"}: All color palettes of the \bold{unikn} package.
 #'
-#'   \item \code{"unikn_all"}: All uni.kn color palettes.
+#'   \item \code{"all_unikn"} or \code{"unikn_all"}: All uni.kn color palettes 
+#'   (of the \href{https://www.uni-konstanz.de/}{University of Konstanz}).
 #'
 #'   \item \code{"unikn_basic"}: All basic uni.kn palettes. 
 #'   
@@ -661,11 +662,11 @@ seecol <- function(pal = "unikn_all",  # which palette?
     # (a) all palettes (of the unikn package):
     "all", 
     # (b) local/uni.kn palettes:
-    "unikn_all", "all_unikn",  # all uni.kn palettes
+    "all_unikn", "unikn_all",               # all local/uni.kn palettes
     "basic", "unikn_basic", "basic_unikn",  # basic uni.kn palettes. 
-    "pair", "all_pair", "pair_all",  # paired uni.kn palettes. 
-    "pref", "pref_all", "all_pref",  # preferred uni.kn palettes and gradients. 
-    "grad", "grad_all", "all_grad",  # uni.kn gradients.
+    "pair", "all_pair", "pair_all",         # paired uni.kn palettes. 
+    "pref", "pref_all", "all_pref",         # preferred uni.kn palettes and gradients. 
+    "grad", "grad_all", "all_grad",         # uni.kn gradients.
     # (c) added/contributed palettes:
     "add"
   )
@@ -705,7 +706,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
       # (a) all palettes (of the unikn package):
       if (pal %in% c("all") ) main <- "All unikn color palettes"
       # (b) local/uni.kn palettes:
-      if (pal %in% c("unikn_all", "all_unikn") ) main <- "See uni.kn color palettes"
+      if (pal %in% c("all_unikn", "unikn_all")) main <- "See uni.kn color palettes"
       if (pal %in% c("basic", "unikn_basic", "basic_unikn")) main <- "See basic uni.kn color palettes"
       if (pal %in% c("pair", "all_pair", "pair_all")) main <- "See pairwise uni.kn color palettes"
       if (pal %in% c("pref", "pref_all", "all_pref")) main <- "See preferred uni.kn colors and gradients"
