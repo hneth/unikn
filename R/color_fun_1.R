@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 10 25
+## spds | uni.kn | 2022 10 26
 ## ---------------------------
 
 ## Define color-related functions 
@@ -132,6 +132,7 @@ usecol <- function(pal = pal_unikn,
   
   
   # Set n to length pal_inp, if n == "all": -----
+  
   if (n == "all") { n <- length(pal_inp) }
   
   pal_def <- FALSE  # assume by default that an undefined palette is used.
@@ -139,37 +140,54 @@ usecol <- function(pal = pal_unikn,
   
   if ( all(unlist(lapply(X = all_pals, FUN = exists))) ) { # if all palettes in all_pals exist: 
     
-    cur_pals <- lapply(X = all_pals, FUN = get)  # get values of all_pals 
+    val_all_pals_lst <- lapply(X = all_pals, FUN = get)  # get VALUES of all_pals (as list) 
     
   } else { # not all current palettes are pre-defined:
     
-    cur_pals <- NA
+    val_all_pals_lst <- NA
     
   }
+
   
   # Is the input one of the pre-defined palettes? ----- 
-  if ( !use_col_ramp ) {
+  
+  if (!use_col_ramp) {
     
-    pal_ix <- 
-      sapply(cur_pals, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }
-      )  # Test, whether specified palette is there.
+    # Get index vector of specified pal_inp (as logical):
+    pal_ix <- sapply(val_all_pals_lst, function(x) { return(isTRUE(all.equal(pal_inp, unlist(x)))) }) 
     
-    # If none fits, test for reversed palettes:
-    rev_pal <- FALSE  # should palette be reversed?
+    # If none fits, check reversed palettes:
+    
+    rev_pal <- FALSE  # initialize flag
     
     if (!any(pal_ix)) {
       
-      pal_ix <- sapply(X = cur_pals, FUN = function(x) isTRUE(all.equal(rev(pal_inp), x)))  # check for reversed pal_inp
+      pal_ix <- sapply(X = val_all_pals_lst, FUN = function(x) isTRUE(all.equal(rev(pal_inp), x))) # check for reversed pal_inp
       
-      if (any(pal_ix)) { rev_pal <- TRUE }  # if palette is reversed, set pal_rev to TRUE.
+      if (any(pal_ix)) { rev_pal <- TRUE }  # if palette is reversed, update pal_rev to TRUE.
     }
     
+    # +++ here now +++:
+    
+    # Problem: The palettes pal_unikn and uni_konstanz contain the SAME colors. 
+    #          => pal_ix contains 2 TRUE positions.   
+    if (sum(pal_ix) > 1){ # HACK: If there are multiple TRUE in pal_ix: 
+      
+      pos_true <- which(pal_ix)
+      pal_ix[pos_true[-1]] <- FALSE  # set all but 1st to FALSE
+      
+    }
+    
+    
     # If input corresponds to any palette: ----- 
-    if ( any(pal_ix) & length(pal_inp) >= n) {
+    
+    if ( any(pal_ix) & (length(pal_inp) >= n) ) {
       
       pal_name <- all_pals[pal_ix]  # get palette name (from ALL pre-defined palettes)
+      # print(pal_name)  # 4debugging
       
       pal <- pal_inp  # redefine
+      # print(pal)  # 4debugging
       
       # Define sets of known palettes:
       set1 <- pal_name %in% c("pal_peach",
@@ -181,22 +199,24 @@ usecol <- function(pal = pal_unikn,
                               "pal_seegruen")
       set2 <- pal_name %in% c("pal_grau", "pal_seeblau")
       set3 <- pal_name %in% c("pal_unikn_web", "pal_unikn_ppt") 
-      set4 <- pal_name %in% "pal_unikn"
-      set5 <- pal_name %in% "pal_unikn_pair"
+      set4 <- pal_name %in% c("pal_unikn")
+      set5 <- pal_name %in% c("pal_unikn_pair")
       set6 <- pal_name %in% c("pal_unikn_dark", "pal_unikn_light", "pal_unikn_pref")  # categorical scales
-      set7 <- pal_name %in% "pal_signal"  # categorical scale
+      set7 <- pal_name %in% c("pal_signal")  # categorical scale
       
       set8 <- pal_name %in% add_pals  # (8a) all added/contributed palettes
       # (8b) categorical/non-gradient scales of added/contributed palettes:
       # set8 <- pal_name %in% c("eth_pal", "eth_pal_light", "uni_freiburg_info", "uni_konstanz_pref")  
       
-      pal_set <- which(c(set1, set2, set3, set4, set5, set6, set7, set8))  # set as number
-      # print(pal_set)  # 4debugging
+      # Determine pal_set (as a number):
+      pal_set <- which(c(set1, set2, set3, set4, set5, set6, set7, set8))
+      # print(paste0("pal_set = ", pal_set))  # 4debugging
       
-      # Determine color output:
+      
+      # Determine color output for pal_set:
       out_col <- switch(pal_set,
                         
-                        # Get indices for pal_set:
+                        # Set colors based on pal_set and n:
                         
                         # Set 1: -----
                         switch(n,
@@ -290,7 +310,7 @@ usecol <- function(pal = pal_unikn,
                                  "black"
                                )],
                                # 10:
-                               pal  # all 11 colors of pal_unikn (previously known as pal_unikn_plus) 
+                               pal  # all 11 colors of pal_unikn (previously: pal_unikn_plus) 
                         ),
                         
                         # Set 5: "pal_unikn_pair" -----
@@ -298,25 +318,23 @@ usecol <- function(pal = pal_unikn,
                               "petrol2", "bordeaux4", "bordeaux2", "seegruen4", "seegruen2",
                               "peach4", "peach2", "karpfenblau4", "karpfenblau2", "grau2", "grau1")[1:n]],
                         
-                        # Set 6: categorical uni.kn scales -----
-                        pal[1:n],
+                        # Set 6: In categorical uni.kn scales -----
+                        pal[1:n],  # first n colors
                         
                         # Set 7: "pal_signal" -----
-                        pal[c("signal1", "signal3", "signal2")[1:n]],
+                        pal[c("signal1", "signal3", "signal2")[1:n]],  # first n of SWAPPED signal colors
                         
-                        # Set 8: add_pals -----
+                        # Set 8: In add_pals -----
                         pal[1:n]  # first n colors
                         
                         # etc. 
                         
       )
       
-      if (rev_pal) {
-        out_col <-
-          rev(out_col)
-      } # if palette was reversed, reverse result as well.
+      # If palette was reversed, reverse result as well:
+      if (rev_pal) { out_col <- rev(out_col) } 
       
-      pal_def <- TRUE  # set flag that palette is defined
+      pal_def <- TRUE  # flag that palette is defined
       
     } # if ( any(pal_ix) & length(pal_inp) >= n).
     
@@ -354,7 +372,7 @@ usecol <- function(pal = pal_unikn,
     # # (A) Combine kn_names with color() names:
     # 
     # # 1. Names from predefined kn palettes:
-    # kn_names <- names(unlist(cur_pals))[match(out_col, unlist(cur_pals))]
+    # kn_names <- names(unlist(val_all_pals_lst))[match(out_col, unlist(val_all_pals_lst))]
     # 
     # # 2. Predefined color names (in R colors()):
     # col_names <- colors()[match(
@@ -377,10 +395,10 @@ usecol <- function(pal = pal_unikn,
     # (B) Use new helper function (in util_color.R):
     
     # FAILS:     
-    # names(out_col) <- get_col_names(col = out_col, custom_pals = cur_pals)  # use helper function (with cur_pals)
+    # names(out_col) <- get_col_names(col = out_col, custom_pals = val_all_pals_lst)  # use helper function (with VALUES of val_all_pals_lst)
     
     # WORKS: 
-    names(out_col) <- get_col_names(col = out_col, custom_pals = all_pals)  # use helper function (with default pals)
+    names(out_col) <- get_col_names(col = out_col, custom_pals = all_pals)  # use helper function (with NAMES of all pals)
     
   } # if (no names in out_col).
   
