@@ -1187,7 +1187,12 @@ seecol <- function(pal = "unikn_all",  # which palette?
 #' \code{all_colors} combines the \strong{unikn} color gradients with the 
 #' 657 named colors provided by \code{\link{colors}} of \strong{grDevices}. 
 #' 
+#' The color values returned (as a named character vector) 
+#' are either HEX/HTML codes or \strong{base} R color names.
+#' 
 #' The \code{distinct} option removes colors with duplicate color values or names.
+#' 
+#' @return A named vector of color values (of type character).
 #' 
 #' @param distinct Boolean: Return only colors with unique values and names? 
 #' Default: \code{distinct = TRUE} (i.e., remove duplicate values and names).
