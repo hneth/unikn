@@ -47,23 +47,23 @@ report.
 <!-- Contents/goals of the unikn pgk: -->
 
 The **unikn** package facilitates the use of corporate design elements
-for R users. It currently contains 16 dedicated color palettes of the
-[University of Konstanz](https://www.uni-konstanz.de/), plus
-13 additional color palettes from other institutions. In addition, the
-package provides a range of color functions that make it very easy to
-define, modify, find, and use colors and color palettes. While this
-renders the use of default specifications simple and straightforward,
-experienced users can apply the tools provided by **unikn** in a
-flexible and creative fashion (e.g., for designing new color palettes
-and using them in scientific visualizations).
+for R users. It currently contains dedicated **colors** and **color
+palettes** of the [University of
+Konstanz](https://www.uni-konstanz.de/), plus many additional color
+palettes from other institutions. In addition, **unikn** provides a
+range of **color functions** that make it easy to define, modify, find,
+and use colors in R. While this renders the use of default
+specifications simple and straightforward, experienced users can apply
+the tools in a flexible and creative fashion (e.g., for designing new
+color palettes and using them in scientific visualizations).
 
 <!-- Overview: -->
 
 The **unikn** package currently provides five types of objects and
 functions:
 
-1.  Many dedicated **colors** and **color palettes** (e.g., `Seeblau`
-    and `pal_unikn`);
+1.  Pre-defined **colors** and **color palettes** (e.g., `Seeblau` and
+    `pal_unikn`);
 
 2.  Functions for **viewing and comparing colors** (`seecol()`), for
     **using or changing color palettes** (`usecol()`), and for
@@ -80,10 +80,10 @@ functions:
     and underlining text).  
     <!-- 6. Graphical support (e.g., commands and themes for creating scientific visualizations). -->
 
-Essentially, **unikn** began by defining some colors, but has now grown
-into a toolbox for addressing color- and plotting-related tasks in R. As
-we have fun creating it, we hope you find the package useful too — and
-please use responsibly!
+Essentially, the **unikn** package began by defining some colors, but
+has now grown into a toolbox for addressing color- and plotting-related
+tasks in R. As we had fun creating it, we hope that you enjoy using it
+as well!
 
 ## Installation
 
@@ -106,8 +106,9 @@ The current development version can be installed from its
 The **unikn** contains two categories of color palettes:
 
 -   16 palettes implementing the colors of the [University of
-    Konstanz](https://www.uni-konstanz.de/)’s corporate design,
--   13 additional color palettes from various institutions.
+    Konstanz](https://www.uni-konstanz.de/)’s corporate design
+
+-   13 additional color palettes from various institutions
 
 ### The colors of Konstanz University
 
@@ -148,10 +149,7 @@ specifications for details.)
 <!-- - 4\ shades of grey (`pal_grau[1:4]`);   -->
 <!-- - the base R color `"black"` (as the last color).    -->
 <!-- This yields a diverging, symmetrical default color palette `pal_unikn` consisting of 11\ colors:  -->
-<!-- <!-- <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/> -->
-
-–&gt;
-
+<!-- <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/> -->
 <!-- - A shorter version consisting of 10\ colors is provided as\ `pal_unikn_web`.  -->
 <!-- - An alternative color palette with 10\ more muted colors (intended for PowerPoint presentations) is provided as\ `pal_unikn_ppt`.  -->
 <!-- Evaluating `seecol(pal = "unikn_basic")` shows these three basic unikn color palettes.  -->
