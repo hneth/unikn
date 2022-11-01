@@ -297,15 +297,40 @@ example, we can easily use colors in combination with
 
 <!-- -->
 
-    # Mix Bordeaux and "gold" colors:
+    # Data:
     x <- y <- seq(-4 * pi, 4 * pi, len = 15)
     r <- sqrt(outer(x^2, y^2, "+"))
-    image(z = cos(r^2) * exp(-r/6), col = usecol(c(Bordeaux, "gold"), n = 9), 
-          main = 'Shades of Bordeaux/"gold"', axes = FALSE)
+
+    # Mix a palette with a named color:
+    my_col <- usecol(c(Seegruen, "white"), n = 7)
+
+    # Image:
+    image(z = cos(r^2) * exp(-r/10), 
+          col = my_col, axes = FALSE)
 
 <img src="inst/pix/README-usecol-2-1.png" style="display: block; margin: auto;" />
 
 -   the `ggplot()` function of the **ggplot2** package:
+
+<!-- -->
+
+    # Data:
+    # knitr::kable(head(my_data))
+    n <- length(levels(my_data$Group))
+
+    # Mix a color gradient: 
+    my_col <- usecol(c(Bordeaux, "white", Petrol), n = n)
+
+    # Plot (with ggplot2):
+    library(ggplot2)
+
+    ggplot(my_data, aes(x = X, y = Y, fill = Group)) + 
+      geom_area() +
+      scale_fill_manual(values = my_col) +
+      theme_void() +
+      theme(legend.position = "none")
+
+<img src="inst/pix/README-usecol-ggplot2-1.png" width="55%" style="display: block; margin: auto;" />
 
 <!-- +++ here now +++ -->
 
