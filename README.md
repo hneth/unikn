@@ -272,11 +272,47 @@ allows comparisons between multiple color palettes:
 
 <img src="inst/pix/README-seecol-pref-1.png" width="65%" style="display: block; margin: auto;" />
 
+### Using color palettes with `usecol()`
+
+Colors and color palettes in R come in various types (e.g., as named
+colors, RGB values or Hex codes) and forms (e.g., as data frames or
+vectors). The `usecol()` function provides a generic wrapper for
+changing (e.g., mixing and re-scaling) and using color palettes. This
+allows using colors in **base** R and most other R packages. For
+example, we can easily use colors in combination with
+
+-   the `barplot()` function of the **grDevices** package:
+
+<!-- -->
+
+    # Mix some colors into a new palette:
+    my_pal <- usecol(c(Seeblau, "white", Pinky), n = 9)
+
+    # Use color palette:
+    barplot(1/sqrt(1:9),  col = my_pal)
+
+<img src="inst/pix/README-usecol-1-1.png" style="display: block; margin: auto;" />
+
+-   the `image()` function of the **graphics** package:
+
+<!-- -->
+
+    # Mix Bordeaux and "gold" colors:
+    x <- y <- seq(-4 * pi, 4 * pi, len = 15)
+    r <- sqrt(outer(x^2, y^2, "+"))
+    image(z = cos(r^2) * exp(-r/6), col = usecol(c(Bordeaux, "gold"), n = 9), 
+          main = 'Shades of Bordeaux/"gold"', axes = FALSE)
+
+<img src="inst/pix/README-usecol-2-1.png" style="display: block; margin: auto;" />
+
+-   the `ggplot()` function of the **ggplot2** package:
+
+<!-- +++ here now +++ -->
+
 #### Using partial color palettes
 
-When only a subset of a color palette are needed, the `seecol()` and
-`usecol()` functions aim to provide a reasonable subset of a **unikn**
-color palette:
+When only some colors of a color palette are needed, the `seecol()` and
+`usecol()` functions provide reasonable subsets of a **unikn** palette:
 
     # Scale a color palette:
     usecol(pal_unikn, n = 3, use_names = TRUE)
@@ -290,7 +326,6 @@ color palette:
 
 <img src="inst/pix/README-pal-n-1.png" width="55%" style="display: block; margin: auto;" />
 
-<!-- +++ here now +++ -->
 <!-- - Using: base / ggplot -->
 <!-- - Changing color palettes -->
 <!-- - Finding: by color / by name -->
@@ -453,9 +488,9 @@ change transparency as needed):
 
     # (a) using RColorBrewer: 
     library(RColorBrewer)
-    cur_col <- brewer.pal(11, "Paired") 
+    cur_col <- brewer.pal(11, "Spectral") 
     cur_col <- colorRampPalette(cur_col)(n)
-    cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
+    # cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
 
     # (b) using unikn:
     library(unikn)
@@ -915,6 +950,6 @@ specifications:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2022-10-27.\]
+\[File `README.md` updated on 2022-11-01.\]
 
 <!-- eof. -->
