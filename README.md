@@ -314,12 +314,11 @@ example, we can easily use colors in combination with
 
 <!-- -->
 
-    # Data:
-    # knitr::kable(head(my_data))
-    n <- length(levels(my_data$Group))
+    # Data: 
+    # my_data
 
     # Mix a color gradient: 
-    my_col <- usecol(c(Bordeaux, "white", Petrol), n = n)
+    my_col <- usecol(c(Bordeaux, "white", Petrol), n = 50)
 
     # Plot (with ggplot2):
     library(ggplot2)
@@ -334,7 +333,7 @@ example, we can easily use colors in combination with
 
 <!-- +++ here now +++ -->
 
-#### Using partial color palettes
+#### Partial color palettes
 
 When only some colors of a color palette are needed, the `seecol()` and
 `usecol()` functions provide reasonable subsets of a **unikn** palette:
@@ -526,7 +525,7 @@ change transparency as needed):
     library(ggplot2)
 
     ggplot(df, aes(x = X, y = Y, fill = group)) + 
-      geom_area(alpha = 1, color = Grau, size = .01 ) +
+      geom_area(alpha = 1, color = Grau, size = .01) +
       theme_bw() + 
       scale_fill_manual(values = cur_col) +
       theme_void() +
@@ -631,33 +630,29 @@ well-known [Google](https://www.google.com/) logo.
 
 The typical steps of creating a new palette are:
 
-1.  Choose some colors (and their R color names, or as RGB/HEX/HCL
-    values, e.g., from sites like
+1.  Choose some colors (from named R colors, or by RGB/HEX/HCL values,
+    e.g., from sites like
     <a href="https://www.schemecolor.com" class="uri">https://www.schemecolor.com</a>).
 
-2.  Define the colors as an R vector (of type character).
+2.  Define the colors (and optional color names) as R vectors (of type
+    character).
 
-3.  Define their names as a second R vector (of type character).
+3.  Use the `newpal()` command to define a new color palette.
 
-4.  Use the `newpal()` command to define the new color palette.
-
-5.  Use the `seepal()` command to inspect the new color palette.
-
-<!-- -->
+We can now use the new palette in visualizations, e.g., inspect it with
+the `seecol()` function.
 
     # 1. Choose colors:
     # Google logo colors (from <https://www.schemecolor.com/google-logo-colors.php>)
 
-    # 2. Define colors (as vector):
+    # 2. Define colors and color names (as vectors):
     color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
-
-    # 3. Define color names (as vector):
     names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
 
-    # 4. Define color palette:
+    # 3. Define color palette:
     pal_google <- newpal(color_google, names_google)
 
-    # 5. Inspect color palette:
+    # Inspect color palette:
     seecol(pal_google, 
            col_brd = "white", lwd_brd = 8,
            main = "Colors of the Google logo")
@@ -667,8 +662,7 @@ The typical steps of creating a new palette are:
 The new palette `pal_google` can now be used in R graphics and modified
 in various ways (e.g., by the `usecol()` function).
 
-See the vignette on “Institutional colors” of the **unikn** package for
-additional examples.
+See the vignette on “Institutional colors” for additional examples.
 
 ### Finding colors with `grepal()`
 
@@ -975,6 +969,6 @@ specifications:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2022-11-01.\]
+\[File `README.md` updated on 2022-11-02.\]
 
 <!-- eof. -->
