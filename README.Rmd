@@ -111,7 +111,7 @@ seecol("all_unikn")
 In\ 2014, the [University of Konstanz](https://www.uni-konstanz.de/) introduced a highly recognizable\ CD. 
 Its key component is the ubiquitous use of a `Seeblau` color and a corresponding color palette that blends various shades of `Seeblau` (in boxes, lines, and other graphical elements) with text (in black-and-white). 
 
-#### Basic color palette 
+#### Basic color palette {-}
 
 The default **unikn** color palette `pal_unikn` combines shades of `pal_seeblau` and `pal_grau` with the base R colors "white" and "black" into a diverging, symmetrical palette (of 11\ colors):
 
@@ -141,7 +141,7 @@ A shorter version (with 10\ colors) and an alternative (with more muted colors f
 <!-- Evaluating `seecol(pal = "unikn_basic")` shows these three basic unikn color palettes.  -->
 
 
-#### Special color palettes
+#### Special color palettes {-}
 
 Several more specialized color palettes combine the elements of nine color hues. 
 The preferred colors are contained in palette\ `pal_unikn_pref`: 
@@ -262,10 +262,13 @@ Beyond defining colors and color palettes, the **unikn** package provides a rang
 
 <!-- Examples: -->
 
-### Viewing color palettes with `seecol()` 
+### Seeing color palettes with `seecol()` 
 
-The `seecol()` function enables a quick inspection of a color palette. 
-It provides a quick overview over the details of a color palette and allows comparisons between multiple color palettes: 
+The `seecol()` function enables quick inspections of a color palette or comparisons between multiple color palettes. 
+
+#### Viewing a color palette {-}
+
+Using `seecol()` on an individual color palette provides a quick overview over its colors and details: 
 
 ```{r seecol-pref, fig.width = 7, out.width = "65%", fig.align = 'center', fig.asp = .80}
 # Inspect an individual color palette:
@@ -274,6 +277,19 @@ seecol(pal = eth_pal,                      # a color palette / list of palettes 
        col_brd = "white", lwd_brd = 5,     # color and width of borders
        main = "Colors of the ETH Zurich")  # plot title 
 ```
+
+#### Comparing color palettes {-}
+
+When `seecol()` is used with a recognized keyword or a list of color palettes, the function displays a comparison between them. 
+When only some colors of a color palette are needed, the `seecol()` and `usecol()` functions provide reasonable subsets of a **unikn** palette: 
+
+```{r pal-n, fig.width = 6, out.width = "55%", fig.align = 'center', fig.asp = .75}
+# Compare a list of (scaled) color palettes: 
+seecol(pal = "grad_all", n = 3, 
+       col_brd = "black", lwd_brd = .5,
+       main = "Color gradient palettes (scaled to n = 3)")
+```
+
 
 ### Using color palettes with `usecol()` 
 
@@ -336,9 +352,6 @@ my_data <- df  # copy
 ```
 
 ```{r usecol-ggplot2, eval = TRUE, out.width = "55%", fig.asp = .618, fig.align = 'center', collapse = TRUE}
-# Data: 
-# my_data
-
 # Mix a color gradient: 
 my_col <- usecol(c(Bordeaux, "white", Petrol), n = 50)
 
@@ -352,28 +365,57 @@ ggplot(my_data, aes(x = X, y = Y, fill = Group)) +
   theme(legend.position = "none")
 ```
 
-<!-- +++ here now +++ -->
+#### Illustrating color palettes {-}
 
-#### Partial color palettes
+The `demopal()` function provides a quick illustration of a native or modified color palette:
 
-When only some colors of a color palette are needed, the `seecol()` and `usecol()` functions provide reasonable subsets of a **unikn** palette: 
-
-```{r pal-n, fig.width = 6, out.width = "55%", fig.align = 'center', fig.asp = .75}
-# Scale a color palette:
-usecol(pal_unikn, n = 3, use_names = TRUE)
-
-# Compare a list of (scaled) color palettes: 
-seecol(pal = "grad_all", n = 3, 
-       col_brd = "black", lwd_brd = .5,
-       main = "Scaled color palettes (n = 3)")
+```{r demopal, out.width = "55%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
+demopal(usecol(uni_princeton_1, n = 7), 
+        type = "curve", seed = 2)
 ```
 
 
+### Creating color palettes with `newpal()`
 
-<!-- - Using: base / ggplot -->
-<!-- - Changing color palettes -->
-<!-- - Finding: by color / by name -->
+The `newpal()` function allows creating new color palettes (as data frames or vectors, with optional color names). 
+Whereas **unikn** was developed in an academic context, color palettes for other entities and purposes can easily be created. 
+For instance, let's define a color palette of the well-known [Google](https://www.google.com/) logo in 3\ steps:
+
+1. Choose some colors (from named R colors, or by RGB/HEX/HCL values, e.g., from sites like <https://www.schemecolor.com>). 
+
+2. Define the colors (and optional color names) as R vectors (of type character). 
+
+3. Use the `newpal()` command to define a new color palette. 
+
+We can now use the new palette in visualizations, e.g., inspect it with the `seecol()` function. 
+
+```{r newpal-google, fig.width = 5, fig.asp = .9, fig.align = 'center'}
+# 1. Choose colors:
+# Google logo colors (from <https://www.schemecolor.com/google-logo-colors.php>)
+
+# 2. Define colors and color names (as vectors):
+color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
+names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
+
+# 3. Define color palette:
+pal_google <- newpal(color_google, names_google)
+
+# Inspect color palette:
+seecol(pal_google, 
+       col_brd = "white", lwd_brd = 8,
+       main = "Colors of the Google logo")
+```
+
+The new palette `pal_google` can now be used in R graphics and modified in various ways (e.g., by the `usecol()` function). 
+
+See the vignette on "Institutional colors" for additional examples. 
+
+
+<!-- +++ here now +++ -->
+
 <!-- - Creating new palettes -->
+<!-- - Finding: by color / by name -->
+
 
 
 
@@ -643,44 +685,6 @@ ggplot(df, aes(x = X, y = Y, fill = group)) +
 <!-- <p style="text-align:center;"> -->
 <!-- <img src = "./inst/pix/README-use_ggplot2_princeton-1.png" alt = "uni_princeton_1" style = "width: 500px; border:10;"/> -->
 <!-- </p> -->
-
-
-#### The colors of Google
-
-Color palettes for other entities and purposes can easily be created. 
-To illustrate the steps involved, let's create a color palette of the well-known [Google](https://www.google.com/) logo. 
-
-The typical steps of creating a new palette are: 
-
-1. Choose some colors (from named R colors, or by RGB/HEX/HCL values, e.g., from sites like <https://www.schemecolor.com>). 
-
-2. Define the colors (and optional color names) as R vectors (of type character). 
-
-3. Use the `newpal()` command to define a new color palette. 
-
-We can now use the new palette in visualizations, e.g., inspect it with the `seecol()` function. 
-
-```{r newpal-google, fig.width = 5, fig.asp = .9, fig.align = 'center'}
-# 1. Choose colors:
-# Google logo colors (from <https://www.schemecolor.com/google-logo-colors.php>)
-
-# 2. Define colors and color names (as vectors):
-color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
-names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
-
-# 3. Define color palette:
-pal_google <- newpal(color_google, names_google)
-
-# Inspect color palette:
-seecol(pal_google, 
-       col_brd = "white", lwd_brd = 8,
-       main = "Colors of the Google logo")
-```
-
-The new palette `pal_google` can now be used in R graphics and modified in various ways (e.g., by the `usecol()` function). 
-
-See the vignette on "Institutional colors" for additional examples. 
-
 
 
 ### Finding colors with `grepal()`
