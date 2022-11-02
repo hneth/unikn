@@ -272,8 +272,8 @@ provides a range of tools for viewing and manipulating colors:
 
 ### Seeing color palettes with `seecol()`
 
-The `seecol()` function enables quick inspections of a color palette or
-comparisons between multiple color palettes.
+The `seecol()` function enables either inspections of an individual
+color palette or comparisons between multiple color palettes.
 
 #### Viewing a color palette
 
@@ -283,7 +283,6 @@ overview over its colors and details:
 ``` r
 # Inspect an individual color palette:
 seecol(pal = eth_pal,                      # a color palette / list of palettes / keyword
-       hex = TRUE,                         # show HEX codes?
        col_brd = "white", lwd_brd = 5,     # color and width of borders
        main = "Colors of the ETH Zurich")  # plot title 
 ```
@@ -294,8 +293,8 @@ seecol(pal = eth_pal,                      # a color palette / list of palettes 
 
 When `seecol()` is used with a recognized keyword or a list of color
 palettes, the function displays a comparison between them. When only
-some colors of a color palette are needed, the `seecol()` and `usecol()`
-functions provide reasonable subsets of a **unikn** palette:
+some colors of a color palette are requested, the `seecol()` and
+`usecol()` functions provide reasonable subsets of a **unikn** palette:
 
 ``` r
 # Compare a list of (scaled) color palettes: 
@@ -308,12 +307,12 @@ seecol(pal = "grad_all", n = 3,
 
 ### Using color palettes with `usecol()`
 
-Colors and color palettes in R come in various types (e.g., as named
+Colors and color palettes in R come in various types (e.g., as named
 colors, RGB values or Hex codes) and forms (e.g., as data frames or
 vectors). The `usecol()` function provides a generic wrapper for
 changing (e.g., mixing and re-scaling) and using color palettes. This
 allows using colors in **base** R and most other R packages. For
-example, we can easily use colors in combination with
+instance, we can easily use colors in combination with
 
 -   the `barplot()` function of the **grDevices** package:
 
@@ -364,12 +363,12 @@ ggplot(my_data, aes(x = X, y = Y, fill = Group)) +
 
 #### Illustrating color palettes
 
-The `demopal()` function provides a quick illustration of a native or
-modified color palette:
+The `demopal()` function provides a quick illustration of a pre-defined
+or modified color palette:
 
 ``` r
-demopal(usecol(uni_princeton_1, n = 7), 
-        type = "curve", seed = 2)
+demopal(usecol(uni_princeton_1, n = 7),  # use a modified color palette
+        type = "curve", seed = 2)        # reproducible randomness
 ```
 
 <img src="inst/pix/README-demopal-1.png" width="55%" style="display: block; margin: auto;" />
@@ -391,8 +390,9 @@ palette of the well-known [Google](https://www.google.com/) logo in
 
 3.  Use the `newpal()` command to define a new color palette.
 
-We can now use the new palette in visualizations, e.g., inspect it with
-the `seecol()` function.
+We can now use the new palette in visualizations (e.g., inspect it with
+the `seecol()` function, use it in visualizations, or modify it further
+with the `usecol()` function):
 
 ``` r
 # 1. Choose colors:
@@ -413,301 +413,42 @@ seecol(pal_google,
 
 <img src="inst/pix/README-newpal-google-1.png" style="display: block; margin: auto;" />
 
-The new palette `pal_google` can now be used in R graphics and modified
-in various ways (e.g., by the `usecol()` function).
+See the vignette on “Institutional colors” for additional examples of
+creating color palettes.
 
-See the vignette on “Institutional colors” for additional examples.
+### Finding colors
 
-<!-- +++ here now +++ -->
-<!-- - Creating new palettes -->
-<!-- - Finding: by color / by name -->
+When creating visualizations, we often face two search situations:
 
-#### Changing and creating color palettes
+-   Finding colors that look similar to a given color
+-   Finding colors that match particular names
 
-The `usecol()` and `seecol()` functions provide some generic options for
-manipulating and showing color gradients based on given colors or color
-palettes. This serves two main functions:
+The `simcol()` and `grepal()` functions of **unikn** address both
+situations.
 
-1.  Reducing or extending existing color palettes (to arbitrary
-    lengths).
-2.  Mixing and merging colors and color palettes into new color
-    palettes.
+#### Finding similar colors with `simcol()`
 
-Here are some examples of both functions in action:
-
--   Extending or reducing an existing color palette:
+-   Which colors are similar to the “orange” of `uni_princeton_0`?
 
 ``` r
-seecol(pal_unikn, n = 21)  # extend a color palette
+simcol(col_target = uni_princeton_0["orange"], tol = 30)
 ```
 
-<img src="inst/pix/README-col-scale-1-1.png" style="display: block; margin: auto;" />
+<img src="inst/pix/README-simcol-example-1.png" style="display: block; margin: auto;" />
 
-Users of the `%>%` operator (from the **magrittr** package) may prefer
-the following pipe:
+    #>           orange        chocolate       chocolate1       chocolate2 
+    #>        "#E87722"      "chocolate"     "chocolate1"     "chocolate2" 
+    #>       chocolate3   darkgoldenrod3             peru          sienna3 
+    #>     "chocolate3" "darkgoldenrod3"           "peru"        "sienna3"
 
-``` r
-library(magrittr)
+By default, `simcol()` considers all unique named `colors()` of R, but
+its search range can be adjusted by its `col_candiates`, `tol`, and
+`distinct` arguments.
 
-usecol(pal_unikn, n = 21) %>% seecol()
-```
+#### Finding color names with `grepal()`
 
-Note that reducing an **unikn** color palette selects a suitable subset
-of its colors, rather than just truncating the scale.
-
-<!-- 
-
-- Combining colors to create new color palettes (of arbitrary length): 
-
-
-```r
-# Combining colors: ----- 
-seecol(c(Seeblau, "white", Pinky), 11) 
-```
-
-<img src="inst/pix/README-col-scale-2-1.png" width="67%" style="display: block; margin: auto;" />
-
-```r
-# seecol(c(Karpfenblau, Seeblau, "gold"), 10) 
-```
-
--->
-
--   Mixing and merging colors and visualizing color palettes is possible
-    on the fly:
-
-``` r
-seecol(c(rev(pal_petrol), "white", pal_bordeaux), 11, col_bg = "grey90")
-```
-
-<img src="inst/pix/README-col-scale-3-1.png" style="display: block; margin: auto;" />
-
-Related examples include:
-
-``` r
-seecol(c(rev(pal_seeblau), "white", pal_pinky), 11)
-seecol(c(rev(pal_seeblau), "white", pal_seegruen), 11)
-seecol(c(rev(pal_seeblau), "white", pal_peach), 11)
-```
-
-### Using color palettes with `usecol()`
-
-The `usecol()` function provides convenient access and additional
-options for using them in graphs. Here are some examples:
-
-#### 1. Plotting with **base** R
-
-All **unikn** colors, palettes and functions can be used in **base** R
-plots (using the **graphics** and **grDevices** packages).
-
-By default, set the plot’s color argument to `usecol()` with some
-**unikn** color palette:
-
-``` r
-# (a) Using a color palette:
-barplot(1/sqrt(1:11),  col = usecol(pal_unikn))
-```
-
-<img src="inst/pix/README-usepal-demo-barplot-1-1.png" style="display: block; margin: auto;" />
-
-Two additional arguments allow modifying the existing color palette:
-
--   providing a value for `n` reduces or extends the selected color
-    palette;
-
--   adding an opacity value for `alpha` (in the range `[0, 1]`)
-    regulates color transparency.
-
-<!-- 
-Additionally providing a value for `n` either reduces or extends the selected color palette: 
-
-
-```r
-# (b) Using only n colors of a palette:
-barplot(1/sqrt(1:5), col = usecol(pal_unikn, n = 5)) 
-```
-
-<img src="inst/pix/README-usepal-demo-barplot-2-1.png" width="50%" style="display: block; margin: auto;" />
-
-Providing an opacity value for `alpha` (in the range `[0, 1]`) allows adding transparency to a plot:  
-
-
-```r
-# (c) Scatterplots:
-set.seed(-99)
-plot(x = runif(99), y = runif(99), "p", pch = 16, cex = 6, 
-     col = usecol(pal_unikn, alpha = .5),  # transparency
-     main = "99 transparent dots", axes = FALSE, xlab = NA, ylab = NA)
-```
-
-<img src="inst/pix/README-usepal-demo-scatter-1.png" width="40%" style="display: block; margin: auto;" />
-
--->
-
-Visualizing **unikn** color palettes with `image()` (from the
-**graphics** package) works as well:
-
-``` r
-# Random images:
-set.seed(1)
-n <- 20
-m <- matrix(rnorm(n*n), ncol = n, nrow = n)
-
-image(m, col = usecol(pal_seeblau, n = 50), 
-      main = "50 shades of Seeblau", axes = FALSE)
-```
-
-<img src="inst/pix/README-use-pal-demo-image-1.png" style="display: block; margin: auto;" />
-
-#### 2. Plotting with **ggplot2**
-
-Using **unikn** in `ggplot()` commands (using **ggplot2**) or using
-colors from other color packages (e.g., **RColorBrewer**) is easy as
-well. Just wrap the color palette to use in `usecol()` (and scale or
-change transparency as needed):
-
-``` r
-# 0. Create data: ---- 
-
-# Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/
-n <- 50
-names <- paste("G_", seq(1, n), sep = "")
-df <- data.frame()
-
-set.seed(3)
-for(i in seq(1:30)){
-    data = data.frame(matrix(0, n, 3))
-    data[, 1] <- i
-    data[, 2] <- sample(names, nrow(data))
-    data[, 3] <- prop.table(sample( c(rep(0, 100), c(1:n)), nrow(data)))
-    df = rbind(df, data)}
-colnames(df) <- c("X","group","Y")
-df <- df[order(df$X, df$group) , ]
-
-# 1. Choose colors: ---- 
-
-# (a) using RColorBrewer: 
-library(RColorBrewer)
-cur_col <- brewer.pal(11, "Spectral") 
-cur_col <- colorRampPalette(cur_col)(n)
-# cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
-
-# (b) using unikn:
-library(unikn)
-cur_col <- usecol(pal_unikn, n = n)
-# cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
-
-# 2. Plot: ---- 
-library(ggplot2)
-
-ggplot(df, aes(x = X, y = Y, fill = group)) + 
-  geom_area(alpha = 1, color = Grau, size = .01) +
-  theme_bw() + 
-  scale_fill_manual(values = cur_col) +
-  theme_void() +
-  theme(legend.position = "none")
-```
-
-<!-- Image: ggplot2 with pal_unikn palette as link (in HTML): -->
-<p style="text-align:center;">
-<img src = "./inst/pix/README-use_pal_ggplot2-1.png" align = "center" alt = "Using pal_unikn in ggplot" style = "width: 500px; border:10;"/>
-</p>
-
-### Creating color palettes with `newpal()`
-
-The `newpal()` function allows creating new color palettes (typically as
-data frames with dedicated color names).
-
-The color palettes included in the **unikn** package are based on the
-CD manual of the [University of Konstanz](https://www.uni-konstanz.de/),
-Germany. However, the functionality provided by the package makes it
-easy and straightforward to define and use your own color scales. In the
-following, we provide examples to illustrate how this can be achieved
-for other corporations or institutions.
-
-#### The colors of Princeton University
-
-<img src = "./inst/pix/logo_princeton.jpg" align = "right" width = "200px" alt = "Princeton University" style = "border:10;"/>
-
-The color scheme of [Princeton University](https://princeton.edu/) is
-easily recognized by its combination of orange with black and white
-elements. The official guidelines (available
-[here](https://communications.princeton.edu/guides-tools/logo-graphic-identity))
-define “Princeton Orange” as Pantone (PMS) 158 C.
-
--   The PANTONE™ color finder at <https://www.pantone.com/connect/158-C>
-    yields the following color values:
-
-    -   RGB: `232 119 34`  
-    -   HEX/HTML: `#E87722`  
-    -   CMYK: `0 62 95 0`
-
--   However, the guide also specifies and distinguishes between two
-    additional versions of orange and provides the following HEX/HTML
-    values for them:
-
-    -   Orange on white: “\#E77500”  
-    -   Orange on black: “\#F58025”
-
-These definitions suggest defining three separate versions of orange and
-corresponding color palettes:
-
-``` r
-# HEX values for 3 shades of orange: 
-orange_basic <- "#E87722"  # Pantone 158 C
-orange_white <- "#E77500"  # orange on white
-orange_black <- "#F58025"  # orange on black
-
-# Defining color palettes:
-uni_princeton_0 <- c(orange_basic, "black")
-names(uni_princeton_0) <- c("orange", "black")
-
-uni_princeton_1 <- c(orange_white, "white", "black")
-names(uni_princeton_1) <- c("orange_w", "white", "black")
-
-uni_princeton_2 <- c(pal = c(orange_black, "black", "white"))
-names(uni_princeton_2) <- c("orange_b", "black", "white")
-```
-
-Alternatively, we can define both (color values and their names) in one
-step by using the `newpal()` function:
-
-``` r
-uni_princeton_1 <- newpal(col = c("#E77500", "white", "black"),
-                          names = c("orange_w", "white", "black"))
-```
-
-A new color palette can now be evaluated with `seecol()`, scaled by
-`usecol()`, and then used in visualizations (e.g., using **base** R
-`plot()` functions or **ggplot2**). Here, we use the `usecol()` function
-to extend our color palette `uni_princeton_1` to 15 colors and
-illustrate the resulting color palette `my_pal` with the `demopal()`
-function:
-
-``` r
-# View color palette: 
-# seecol(uni_princeton_1)
-
-# Scale color palette:
-my_pal <- usecol(uni_princeton_1, n = 15)
-
-# Use my_pal for plotting: 
-demopal(my_pal, type = "polygon", col_par = NA, main = NA, seed = 10)
-```
-
-<!-- Image: demopal() with Princeton palette: -->
-<p style="text-align:center;">
-<img src = "./inst/pix/README-uni-princeton-demopal-1.png" alt = "demopal(uni_princeton_1)" style = "width: 600px; border:10;"/>
-</p>
-<!-- Image: ggplot2 with Princeton palette as link (in HTML): -->
-<!-- <p style="text-align:center;"> -->
-<!-- <img src = "./inst/pix/README-use_ggplot2_princeton-1.png" alt = "uni_princeton_1" style = "width: 500px; border:10;"/> -->
-<!-- </p> -->
-
-### Finding colors with `grepal()`
-
-The `grepal()` function allows finding colors in a color palettes by
-matching their name to a pattern.
+The `grepal()` function allows finding colors by matching their name to
+a pattern.
 
 Specifically, `grepal(pattern, x)` searches a color palette `x` (i.e., a
 vector of color names or data frame of named colors) for elements that
@@ -715,42 +456,38 @@ match a `pattern` and returns those elements (colors) that match the
 pattern. The `pattern` can be a regular expression.
 
 By default, `grepal()` searches the 657 named colors provided by
-`colors()` in **base** R:
+`colors()` in **base** R. To make the `grepal()` more flexible, its
+`pattern` argument can use regular expressions:
 
 ``` r
 # Find colors matching a pattern: 
-oranges <- grepal("orange", plot = FALSE)
-#> Searching the elements of x
+deep_purple <- grepal(pattern = "deep|purple", plot = FALSE)
 
 # See color palette:
-seecol(oranges, 
+seecol(deep_purple, 
        col_brd = "white", lwd_brd = 2, 
-       main = "Shades of 'orange' in colors()")
+       main = "Finding 'deep' or 'purple' colors")
 ```
 
 <img src="inst/pix/README-grepal-example-1-1.png" style="display: block; margin: auto;" />
 
-Providing a list of color palettes to the `pal` argument of the
-`seecol()` function allows comparing multiple color palettes:
+Providing a list of color palettes to the `pal` argument of `seecol()`
+allows comparing multiple color palettes:
 
 ``` r
-# Find colors:
-pink_olive    <- grepal("(pink)|(olive)", plot = FALSE)
-#> Searching the elements of x
-purple_orange <- grepal("(purple)|(orange)", plot = FALSE)
-#> Searching the elements of x
+# Find colors matching some term(s):
+olives  <- grepal("olive", plot = FALSE)
+oranges <- grepal("orange", plot = FALSE)
 
 # See color palettes:
-seecol(pal = list(pink_olive, purple_orange), 
-       pal_names = c("pink|olive", "purple|orange"), 
-       main = "Comparing pink olives and purple oranges")
+seecol(pal = list(olives, oranges), 
+       pal_names = c("olives", "oranges"), 
+       main = "Comparing olives with oranges")
 ```
 
 <img src="inst/pix/README-grepal-example-2-1.png" style="display: block; margin: auto;" />
 
-To make the `grepal()` more flexible, its `pattern` argument can use
-regular expressions, and its `x` argument works with both vectors and
-data frames (e.g., the **unikn** color palettes).
+<!-- +++ here now +++ -->
 
 ## Text decorations
 
