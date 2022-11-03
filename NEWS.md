@@ -1,5 +1,5 @@
 
-# unikn 0.6.0.9008
+# unikn 0.6.0.9010
 
 This is the development version of the R package **unikn**. 
 
@@ -12,7 +12,7 @@ Changes since last release:
 
 ## Major changes 
 
-- Add contributed `uni_` and `_pal` color palettes. 
+- Add color palettes of additional institutions (evaluate `seecol("add")` for palettes). 
 - Add a `type = 'curve'` option to `demopal()` for evaluating transparent color palettes. 
 
 <!-- Blank line.  --> 
@@ -234,6 +234,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-10-24.] 
+[File `NEWS.md` updated on 2022-11-03.] 
 
 <!-- eof. -->
