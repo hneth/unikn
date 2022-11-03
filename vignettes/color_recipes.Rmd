@@ -1,7 +1,7 @@
 ---
 title: "Color recipes"
 author: "SPDS, uni.kn"
-date: "2022 08 20"
+date: "2022 11 03"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -90,29 +90,37 @@ When using the `ggplot()` function of **ggplot2** (e.g., for creating an area pl
 use the `usecol()` function for defining a color palette (of the desired length and transparency) 
 that is then provided as the `values` of the `scale_color_manual()` or `scale_fill_manual()` functions: 
 
-1. Use the `usecol()` function of **unikn** to define a color palette. 
+1. Wrap the desired color palette in the `usecol()` function of **unikn**. 
 
 2. Provide this palette as the `values` of the **ggplot2** functions `scale_color_manual()` or `scale_fill_manual()`. 
 
 ```{r use-pal-ggplot2, eval = FALSE, fig.width = 6, fig.asp = .618, fig.align = 'center', collapse = TRUE}
-# 0. Data: ---- 
-# Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/ 
+# 0. Create data: ---- 
+
+# Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/
 n <- 50
-names <- paste("G_", seq(1, n), sep = "")
+groups <- 1:n
 df <- data.frame()
 
 set.seed(3)
-for (i in seq(1:30)){
-    data <- data.frame(matrix(0, n, 3))
-    data[, 1] <- i
-    data[, 2] <- sample(names, nrow(data))
-    data[, 3] <- prop.table(sample( c(rep(0, 100), c(1:n)), nrow(data)))
-    df <- rbind(df, data)}
-colnames(df) <- c("X","group","Y")
-df <- df[order(df$X, df$group) , ]
 
+for (i in seq(1:30)){
+  data = data.frame(matrix(0, n, 3))
+  data[, 1] <- i
+  data[, 2] <- sample(groups, nrow(data))
+  data[, 3] <- prop.table(sample(c(rep(0, 100), c(1:n)), nrow(data)))
+  df = rbind(df, data)}
+
+names(df) <- c("X","Group","Y")
+df$Group <- as.factor(df$Group)  
+df <- df[c(2, 1, 3)]
+df <- df[order(df$X, df$Group) , ]
+rownames(df) <- NULL
+
+my_data <- df
 
 # 1. Colors: ---- 
+
 # A. using RColorBrewer: 
 # library(RColorBrewer)
 
@@ -123,32 +131,33 @@ df <- df[order(df$X, df$group) , ]
 # B. using unikn colors:
 library(unikn)
 
-cur_col <- usecol(pal = pal_unikn, n = n)
+# Mix a color gradient: 
+cur_col <- usecol(c(Bordeaux, "white", Petrol), n = n)
 # cur_col <- cur_col[sample(c(1:length(cur_col)), size = length(cur_col))]  # randomize
 
 # 2. Plotting: ---- 
 
 library(ggplot2)
 
-ggplot(df, aes(x = X, y = Y, fill = group)) + 
-  geom_area(alpha = 1, color = Grau, size = .01 ) +
+ggplot(my_data, aes(x = X, y = Y, fill = Group)) + 
+  geom_area() +
   scale_fill_manual(values = cur_col) +
   theme_void() +
   theme(legend.position = "none")
 ```
 
-<!-- Image as link (in HTML): -->
+<!-- Image from README (as HTML link): -->
 
 <p style="text-align:center;">
-<img src = "./../inst/pix/README-use_pal_ggplot2-1.png" alt = "pal_unikn" style = "width: 450px; border:10;"/>
+<img src = "./../inst/pix/README-usecol-ggplot2-1.png" alt = "pal_unikn" style = "width: 450px; border:10;"/>
 </p>
 
 
 ## Viewing and comparing color palettes 
 
-**Task:** View (the colors and details of) a color palette. 
+**Task:** Inspect (the colors and details of) a color palette. 
 
-For easily viewing a new color palette (e.g., provided by the new HCL color palettes `hcl.pals()` of\ R), 
+For easily viewing an individual color palette (e.g., provided by the new HCL color palettes `hcl.pals()` of\ R), 
 use the palette as the `pal`\ argument of the `seecol()` function: 
 
 ```{r seecol-example-1, fig.width = 5, fig.asp = .80, fig.align = 'center'}
@@ -157,7 +166,7 @@ col_pal <- hcl.colors(10, "Vik")  # some color palette
 seecol(col_pal)  # see its colors and details 
 ```
 
-Note that the other arguments of the `seecol()` function ---\ especially `n` and `alpha`\ --- can further modify the palette. 
+Note that the other arguments of the `seecol()` function ---\ especially `n` and `alpha`\ --- can modify the palette (in the same ways as the `usecol()` function). 
 
 
 **Task:** Compare (the colors and range of) multiple color palettes. 
@@ -242,12 +251,11 @@ The general steps for creating an new color palette (with dedicated color names)
 
 2. Define the colors as an\ R vector (of type character). 
 
-3. Define their names as a second R vector (of type character). 
+3. Define optional color names as a second R vector (of type character). 
 
-4. Use the `newpal()` command to define the new color palette. 
+4. Use the `newpal()` command to define the new color palette (as an\ R data frame or vector). 
 
-5. Use the `seepal()` command to inspect the new color palette. 
-
+Once a new palette has been defined, it can be inspected (with `seecol()`) or further modified and used in visualizations (with `usecol()`): 
 
 ```{r newpal-example, fig.width = 5, fig.asp = .9, fig.align = 'center'}
 # 1. Choose colors:
@@ -262,13 +270,13 @@ names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
 # 4. Define color palette:
 pal_google <- newpal(color_google, names_google)
 
-# 5. Inspect color palette:
+# Inspect color palette:
 seecol(pal_google, 
        col_brd = "white", lwd_brd = 8,
        main = "Colors of the Google logo")
 ```
 
-The new palette `pal_google` can now be used in R graphics and modified in various ways (e.g., by the `usecol()` function). 
+The vignette on [Institutional colors](color_inst.html) provides additional examples for defining color palettes. 
 
 
 ## Finding colors by name 
