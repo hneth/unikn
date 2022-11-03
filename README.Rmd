@@ -466,9 +466,7 @@ See the vignette on [Colors and color functions](https://hneth.github.io/unikn/a
 
 ## Text decorations
 
-Beyond color functions, **unikn** provides additional functions for plotting graphical elements (like boxes) and styled text (with decorations like colored backgrounds or underlining). 
-By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the `new_plot` argument specifies a type of plot to be generated. 
-As the use of these functions is explained in detail in `vignette("Text")`, we only provide some examples here: 
+Beyond colors and color functions, **unikn** provides functions for plotting graphical elements (like boxes) and styled text elements (with lines or background decorations). By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the `new_plot` argument specifies a type of plot to be generated. As the use of these functions is explained in detail in the vignette on [Text boxes and decorations](https://hneth.github.io/unikn/articles/text.html), we only provide some examples here.
 
 ### Mark
 
@@ -484,7 +482,7 @@ mark(labels = c("Markieren", "ist ein Bestandteil", "von Studieren."),
 The `uline()` function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"):  
 
 ```{r uline-demo, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 3, fig.height = 3}
-uline(labels = c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch"), 
+uline(labels = c("Linear", "Authentic", "Flexible", "Open", "Practical"), 
       x = .05, y = .9, y_layout = "even", cex = 1.1, font = 2, new_plot = "slide")
 ```
 
@@ -513,13 +511,6 @@ The `heading()` function is a convenient wrapper around `mark`:
 heading(labels = c("pa-", "ra-", "die-", "sisch"))
 ```
 
-Headings violating the official recommendations (e.g., step-wise titles) will generate a message: 
-
-```{r heading-demo-2, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 3, fig.height = 3}
-heading(labels = c("Ewig", "währt am", "längsten..."), 
-        y = 2/3, col_bg = usecol(pal_pinky))
-```
-
 ### URLs
 
 Finally, the `url_unikn()` function allows formatting URLs the uni.kn way: 
@@ -530,55 +521,13 @@ my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from 
 post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
 ```
 
+
 ### Using custom color palettes 
 
-<!-- Uni Freiburg: -->
+All **unikn** color palettes and user-generated color palette (e.g., defined by `newpal()` or `usecol()`) can be used for graphical annotations. 
+For example: 
 
-```{r freiburg-cols, echo = FALSE}
-# Source: http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben
-
-# Basic colors: ----
-
-uni_freiburg_br <- c("#004a99", "#c1002a")
-names(uni_freiburg_br) <- c("uni-blau", "uni-rot")
-
-uni_freiburg_basic <- c("#004a99", "white", "#c1002a")  # add "white" for better gradients
-names(uni_freiburg_basic) <- c("uni-blau", "weiss", "uni-rot")
-
-# Web colors: ----
-
-uni_freiburg_blue <- c("#004a99", "#2a6ebb", "#6f9ad3")
-names(uni_freiburg_blue) <- c("blue-1", "blue-2", "blue-3")
-
-uni_freiburg_grey <- c("#f2f3f1", "#e0e1dd", "#d5d6d2", "#c9cac8", 
-                       "#b2b4b3", "#9a9b9c", "#747678", "#363534")
-names(uni_freiburg_grey) <- c("grey-0", "grey-1", "grey-2", "grey-3", 
-                              "grey-5", "grey-7", "grey-9", "grey-font")
-
-uni_freiburg_info <- c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
-                       "#4d4f53", "#747678", "#b2b4b3", "#d5d6d2", "#e98300", "#efbd47")
-names(uni_freiburg_info) <- c("mid-blau", "hell-blau", "dark-red", "hell-red", 
-                              "mid-green", "hell-green", "anthrazit", "dark-grey", 
-                              "mid-grey", "hell-grey", "orange", "gelb")
-```
-
-<!-- MPG:  -->
-
-```{r mpg-cols, echo = FALSE}
-# Define vectors:
-col_mpg <- c("#007367", "white", "#D0D3D4")     # color definition 
-col_lbl <- c("mpg green", "white", "mpg grey")  # color names
-
-# Create new color palette:
-mpg_pal <- newpal(col = col_mpg, names = col_lbl)
-# seecol(mpg_pal, col_bg = "grey90")
-# seecol(usecol(mpg_pal, n = 7))
-# seecol(usecol(mpg_pal, n = 7)[3:1])
-```
-
-If custom color palettes are available, the text decoration functions can be used for graphical annotations. 
-
-- For instance, using color palettes of other academic institutions (defined in the vignette on "Institutional colors"): 
+- Using the color palettes of academic institutions (see the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/color_inst.html)) with text decoration functions: 
 
 ```{r others-txt-demo, echo = FALSE, eval = TRUE, fig.align = 'center', fig.width = 4.5, fig.height = 3}
 x_pos <- .70
