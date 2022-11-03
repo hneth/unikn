@@ -610,13 +610,13 @@ Please note the following caveats:
     available or practical (e.g., when specifically creating images, or
     adding annotations to graphs).
 
--   Like all templates, our offers are subject to constraints and
-    limitations. As a standard installation of R lacks the “Theinhardt”
-    fonts, we can only mimic the official design specifications (in
-    Arial, sans serif). Nevertheless, the **unikn** package helps
-    preventing common mistakes by novices (e.g., boxes or lines
-    extending beyond text, or step-functions in multi-line titles) and
-    can be customized and improved by expert users.
+-   Our templates — just like all others — are subject to constraints
+    and limitations. As a standard installation of R lacks the
+    “Theinhardt” fonts, we can only mimic the official design
+    specifications (in Arial, sans serif). Nevertheless, the **unikn**
+    package helps preventing common mistakes by novices (e.g., boxes or
+    lines extending beyond text, or step-functions in multi-line titles)
+    and can be customized and improved by expert users.
 
 Overall, the **unikn** functions can be useful for solving color-related
 tasks and plotting graphical elements (e.g., boxes, logos, etc.).
