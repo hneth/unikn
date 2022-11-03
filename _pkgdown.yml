@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2022 10 22
+## spds, uni.kn | 2022 11 02
 ## -----------------------------------------------
 
 ## site info: ----------
@@ -74,6 +74,7 @@ reference:
   - Signal
   - starts_with("pal_")
   - ends_with("_pal")
+  - starts_with("eth_")
   - starts_with("uni_")
 - title: Color functions
   desc: Commands for viewing, using, creating, and finding colors and color palettes. 
