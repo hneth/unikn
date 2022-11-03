@@ -405,7 +405,7 @@ seecol(pal_google,
        main = "Colors of the Google logo")
 ```
 
-See the vignette on "Institutional colors" for additional examples of creating color palettes. 
+See the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/color_inst.html) for additional examples of creating color palettes. 
 
 
 ### Finding colors 
@@ -458,6 +458,8 @@ seecol(pal = list(olives, oranges),
        pal_names = c("olives", "oranges"), 
        main = "Comparing olives with oranges")
 ```
+
+See the vignette on [Colors and color functions](https://hneth.github.io/unikn/articles/colors.html) and [Color recipes](https://hneth.github.io/unikn/articles/color_recipes.html) for additional examples. 
 
 <!-- +++ here now +++ -->
 
@@ -622,6 +624,8 @@ mark(labels = c("Don't", "be", "evil."),
      x = 0, y = .75, y_layout = 0, cex = 2.8,
      col = "white", col_bg = usecol(pal_google[c(2:4)]))
 ```
+
+See the vignette on [Text boxes and decorations](https://hneth.github.io/unikn/articles/text.html) for additional examples. 
 
 
 ### Caveats
