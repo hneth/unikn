@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
 author: "SPDS, uni.kn"
-date: "2021 04 24"
+date: "2022 11 02"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -367,7 +367,7 @@ abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
 
 <!-- Fine tuning: uline x_layout -->
 
-```{r uline-x-layout-all, echo = FALSE, eval = TRUE, fig.width = 5, fig.height = 3.5}
+```{r uline-x-layout-all, echo = FALSE, eval = FALSE, fig.width = 5, fig.height = 3.5}
 # (A) x_layout = "center": ---- 
 s <- c("Please note:", "These text labels",
        "are centered:", ">>> <<<")
@@ -556,17 +556,25 @@ abline(v = x_l, col = "grey", lty = 2)
 
 The `heading()` function makes it easy to create recognizable headings: 
 
-```{r heading-demo, echo = FALSE, fig.width = 4, fig.height = 3}
+```{r heading-demo, echo = FALSE, fig.width = 3, fig.height = 2}
 heading(labels = c("Ich bin", "eine", "Headline."))
 ```
 
-By default, the function creates a new slide (i.e., `new_plot = "slide"`) and positions the text elements of\ `labels` on its left edge (i.e., `x = 0`, `y = .8` and `y_layout = "flush"`). Headings violating the recommendations (see p.\ 25 of the CD\ manual) will generate a message, for instance: 
+By default, the function creates a new slide (i.e., `new_plot = "slide"`) and positions the text elements of\ `labels` on its left edge (i.e., `x = 0`, `y = .8` and `y_layout = "flush"`). 
+When headings violate the official recommendations, a message is provided:
 
-```{r heading-warn, echo = TRUE, message = TRUE, fig.width = 4, fig.height = 3}
+```{r heading-warn-1, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 3, fig.height = 3}
+heading(labels = c("Ewig", "währt am", "längsten..."), 
+        y = 2/3, col_bg = usecol(pal_pinky))
+```
+
+Re-arranging words helps to avoid step-wise titles (see p.\ 25 of the CD\ manual): 
+
+```{r heading-warn-2, echo = TRUE, message = TRUE, fig.width = 3, fig.height = 2}
 # Beware of step-wise arrangements:
 heading(labels = c("Ich", "bin keine", "gute Headline."))
 
-# To avoid warning:
+# Avoiding warning:
 heading(labels = c("Ich bin", "eine alternative", "Headline."))
 ```
 
@@ -574,7 +582,7 @@ When colors are left unspecified, `heading()` selects colors that are appropriat
 for the number of elements in `labels` (i.e., shades of `Seeblau` for `col_bg = "default"`). 
 However, default colors can be overwritten by setting the\ `col` and\ `col_bg` arguments:
 
-```{r heading-col, echo = TRUE, fig.width = 4, fig.height = 3}
+```{r heading-col, echo = TRUE, fig.width = 3.5, fig.height = 2.5}
 heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
         col = "white", col_bg = c(Pinky, Seegruen, Bordeaux, Karpfenblau))
 ```
