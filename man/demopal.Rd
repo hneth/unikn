@@ -13,8 +13,10 @@ demopal(pal = pal_unikn, type = NA, pal_name = NULL, ...)
 \item{pal}{A color palette (to be illustrated).
 Default: \code{pal = pal_unikn}.}
 
-\item{type}{The type of plot to be used (as character or integer index). 
-Permissible types are \code{"bar"}, \code{"mosaic"}, \code{"scatter"} (or 1 to 3).}
+\item{type}{The type of plot to be used (as character string or integer value). 
+Permissible types are 
+\code{"bar"}, \code{"curve"}, \code{"mosaic"}, \code{"polygon"}, or \code{"scatter"} 
+(or an integer value from 1 to 5, respectively).}
 
 \item{pal_name}{A name for the input color palette \code{pal} (shown on bottom-right margin). 
 Default: \code{pal_name = NULL} (deparsing to input name).}
