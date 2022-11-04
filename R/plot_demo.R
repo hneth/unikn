@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2022 10 11
+## spds | uni.kn | 2022 11 04
 ## ---------------------------
 
 ## Demo functions for color palettes.
@@ -745,8 +745,10 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
 #' @param pal A color palette (to be illustrated).
 #' Default: \code{pal = pal_unikn}. 
 #' 
-#' @param type The type of plot to be used (as character or integer index). 
-#' Permissible types are \code{"bar"}, \code{"mosaic"}, \code{"scatter"} (or 1 to 3).
+#' @param type The type of plot to be used (as character string or integer value). 
+#' Permissible types are 
+#' \code{"bar"}, \code{"curve"}, \code{"mosaic"}, \code{"polygon"}, or \code{"scatter"} 
+#' (or an integer value from 1 to 5, respectively).
 #' 
 #' @param pal_name A name for the input color palette \code{pal} (shown on bottom-right margin). 
 #' Default: \code{pal_name = NULL} (deparsing to input name).
