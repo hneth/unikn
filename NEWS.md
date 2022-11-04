@@ -43,6 +43,7 @@ Changes since last release:
 - Fine-tune parameters of plotting HEX values with `seecol()`. 
 - Reorganize files of utility functions. 
 - Add Zenodo doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191) for citations. 
+- Revise and update vignettes.
 
 
 <!-- Development version:  --> 
@@ -234,6 +235,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-11-03.] 
+[File `NEWS.md` updated on 2022-11-04.] 
 
 <!-- eof. -->
