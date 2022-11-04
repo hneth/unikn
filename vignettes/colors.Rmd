@@ -78,27 +78,29 @@ The `usecol()` function also takes arguments for conveniently manipulating color
 
 <!-- B. Secondary functions: Finding colors and defining color palettes -->
 
-Three additional functions provide general functionality for finding colors and defining color palettes:
+Two additional functions allow **finding colors** by similarity or name:
 
 1. `simcol()` allows **finding similar colors** (given a target color, a set of candidate colors, and some tolerance threshold(s));  
 
-2. `grepal()` allows **searching for color names** (i.e., a vector of color names or a palette) for a `pattern` and returns those colors that match the pattern (or regular expression);  
-
-3. `newpal()` allows **defining new color palettes** (as vectors or data frames with dedicated color names).  
+2. `grepal()` allows **finding colors with particular names** (i.e., colors whose names match some `pattern` or regular expression);  
 
 
-<!-- C. Auxiliary functions: Adding transparency and getting color gradients/shades -->
+<!-- C. Auxiliary color functions: -->
 
-Finally, two more functions serve in auxiliary roles: 
+Finally, some **auxiliary functions** support specific color functions:
 
-1. `ac()` is a flexible wrapper for `adjustcolor()` that allows **setting color transparency**; 
+- `ac()` adjusts **color transparency**; 
 
-2. `shades_of()` provides a color gradient or `n`\ **shades of some color**. 
+- `shades_of()` allows creating **linear color gradients**; 
 
+- `newpal()` allows **defining new color palettes** (as vectors or data frames with dedicated color names); and 
 
+- `demopal()` allows **illustrating color palettes** for different types of visualizations. 
+
+ 
 <!-- Transition: -->
 
-The rest of this vignette provides examples of using and some details on these functions. 
+The rest of this vignette provides examples of and some details on using these functions. 
 (See the [Color recipes](color_recipes.html) vignette for more examples of solving color-related tasks.)
 
 
@@ -224,7 +226,7 @@ seecol(pal_seegruen, col_brd = "white", lwd_brd = 5, main = "A color palette (wi
 ```
 
 
-## Using a color palette with `usecol()` (without seeing it)
+## Using a color palette with `usecol()`
 
 The `usecol()` function allows directly using a color palette in a plot (i.e., without first viewing it).
 `usecol()` corresponds to `seecol()` by taking the same main arguments (`pal` and `n`). 
@@ -251,7 +253,7 @@ seecol(seegruen)  # issues a warning, but works
 
 ## Customizing color palettes
 
-Both the `seecol()` and the `usecol()` functions allow flexible on-the-fly customizations of color palettes. 
+Both the `seecol()` and the `usecol()` functions allow a flexible on-the-fly customization of color palettes. 
 
 Specifying a value for the `n` argument of `seecol()` an `usecol()` allows:  
 
@@ -356,16 +358,6 @@ Setting opacity for comparing of multiple color palettes:
 seecol("grad", alpha = 0.67, main = "Seeing color palettes with added transparency")
 ```
 
-<!-- Note on ac(): -->
-
-The `ac()` function provides a flexible wrapper around the `adjustcolor()` function of the **grDevices** package. 
-Its key functionality is that it allows for _vectorized_\ `col` and\ `alpha` arguments:
-
-```{r transparency-ac, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-my_cols <- c("black", "firebrick", "forestgreen", "gold", "steelblue")
-seecol(ac(my_cols, alpha = c(rep(.25, 5), rep(.75, 5))))
-```
-
 
 ### Creating and comparing custom palettes 
 
@@ -382,10 +374,9 @@ seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair))
 
 Note that unknown color palettes are named `pal_`$n$, in increasing order. 
 Palettes known to `seecol()` are labeled by their respective names. 
-
 Labeling only custom palettes works by setting the `pal_names` argument to a character vector of appropriate length: 
 
-```{r set-custom-palette-names, fig.width = 5, fig.height = 3, fig.align = 'center'}
+```{r set-custom-palette-names, eval = FALSE, fig.width = 5, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
        pal_names = c("my_pair", "blue_bord", "blue_yell"),
        main = "Labeling custom color palettes")
@@ -393,19 +384,19 @@ seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair),
 
 If the `pal_names` argument is specified and corresponds to the length of _all_ color palettes, the default names of all color palettes are overwritten by `pal_names`:
 
-```{r set-all-palette-names, fig.width = 5, fig.height = 3, fig.align = 'center'}
+```{r set-all-palette-names, eval = FALSE, fig.width = 5, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), 
        pal_names = c("my_pair", "blue_bord", "blue_yell", "blue_black", "mix_pair"),
        main = "Comparing and labeling custom color palettes")
 ```
 
-As before, we can use the `n`\ argument for obtaining shorter subsets of color palettes: 
+As before, we can use lower values of `n`\ for truncating/obtaining shorter subsets of color palettes: 
 
 ```{r subset-compare, fig.width = 5, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 5)
 ```
 
-or larger values of\ `n` for extending color palettes: 
+or higher values of\ `n` for extending color palettes: 
 
 ```{r superset-compare, fig.width = 5, fig.height = 3, fig.align = 'center'}
 seecol(list(my_pair, pal1, pal2, pal_unikn, pal_unikn_pair), n = 15)
@@ -461,7 +452,22 @@ grepal("blau", pal_unikn_pref, plot = FALSE)  # finding "blau" in pal_unikn_pref
 ```
 
 
-## Creating color gradients with `shades_of()`
+## Auxiliary color functions 
+
+### Adjusting transparency with `ac()` 
+
+The `ac()` function provides a flexible wrapper around the `adjustcolor()` function of the **grDevices** package. 
+Its key functionality is that it allows for _vectorized_\ `col` and\ `alpha` arguments:
+
+```{r transparency-ac, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+my_cols <- c("black", "firebrick", "forestgreen", "gold", "steelblue")
+seecol(ac(my_cols, alpha = c(rep(.25, 5), rep(.75, 5))))
+```
+
+The name `ac` is an abbreviation of "adjust color", but also a mnemonic aid for providing "air conditioning".
+
+
+### Creating color gradients with `shades_of()`
 
 We have seen that the main `usecol()` function allows stretching and squeezing color palettes and thus creating complex color gradients. 
 An even simpler way for creating linear color gradients is provided by the `shades_of()` function:
@@ -485,7 +491,7 @@ seecol(pg_2, main = "A bi-polar color gradient")
 ```
 
 
-## Defining new color palettes with `newpal()`
+### Defining color palettes with `newpal()`
 
 Having created, combined or found all those beautiful colors, we may wish to define a new color palette. 
 Defining a new named color palette allows to consistently access and apply colors (e.g., to a series of visualizations in a report or publication). 
@@ -502,10 +508,31 @@ seecol(flag_de, main = "Defining a flag_de color palette")
 
 By default, `newpal()` returns the new color palette as a (named) vector. Setting `as_df = TRUE` returns a data frame. 
 
+
+### Illustrating color palettes with `demopal()` 
+
+After choosing, creating or modifying a color palette, we usually inspect the result with `seecol()`. 
+Alternatively, we can use the `demopal()` function to use a color palette\ `pal` in a visualization. 
+Currently, the `type` argument supports the following visualizations:
+
+1. "bar": A bar plot
+2. "curve": A plot of normal distribution curves (with transparency) 
+3. "mosaic": A mosaic/table plot
+4. "polygon": An area/polygon plot 
+5. "scatter": A scatter plot of points (with transparency)
+
+All types of `demopal()` invisibly return their (randomly generated) data and accept some graphical arguments (e.g., `col_par` and `alpha`), a scaling `n` and a `seed` value (for reproducible results), as well as `main` and `sub` arguments (for setting plot titles). 
+Some functions additionally accept type-specific arguments (e.g., logical `beside`, `horiz`, and `as_prop` arguments for plot `type = "bar"`).
+
+```{r demopal, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+demopal(pal = uni_freiburg_info, type = 3)
+```
+
 <!-- Conclusion: -->
 
 This concludes our quick tour through the colors and color functions of the **unikn** package. 
 We hope that they enable you to find, design, and use beautiful color palettes ---\ and spice up your visualizations by vivid and flamboyant colors! 
+
 
 
 ## Resources
