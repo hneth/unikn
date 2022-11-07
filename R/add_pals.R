@@ -282,7 +282,7 @@ eth_pal_grey <- newpal(col = col_eth_grey,
 #' Default colors of the Max-Planck-Gesellschaft.
 #'
 #' \code{mpg_pal} provides the default color palette 
-#' of the \href{https://www.mpg.de/}{Max-Planck-Gesellschaft}, Germany. 
+#' of the \href{https://www.mpg.de/en}{Max-Planck-Gesellschaft}, Germany. 
 #' 
 #' The color \code{"white"} was added to enable symmetrical color gradients.
 #' 

@@ -209,7 +209,7 @@ color palettes of the following institutions:
 
 -   [ETH Zurich](https://ethz.ch/): `eth_pal`, `eth_pal_light`,
     `eth_pal_grey`
--   [Max Planck Society](https://www.mpg.de/): `mpg_pal`
+-   [Max Planck Society](https://www.mpg.de/en): `mpg_pal`
 -   [University of Freiburg](https://uni-freiburg.de/):
     `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`,
     `uni_freiburg_info`  

@@ -19,7 +19,7 @@ A named vector of colors (HEX/HTML codes of type character).
 }
 \description{
 \code{mpg_pal} provides the default color palette 
-of the \href{https://www.mpg.de/}{Max-Planck-Gesellschaft}, Germany.
+of the \href{https://www.mpg.de/en}{Max-Planck-Gesellschaft}, Germany.
 }
 \details{
 The color \code{"white"} was added to enable symmetrical color gradients.
