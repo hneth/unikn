@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 10 26
+## spds | uni.kn |  2022 11 07
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -514,7 +514,7 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
 #' @source 
 #' R package \strong{unikn}, 
 #' retrieved from \url{https://CRAN.R-project.org/package=unikn},    
-#' doi \href{https://doi.org/10.5281/zenodo.7096191}{10.5281/zenodo.7096191}. 
+#' doi \doi{10.5281/zenodo.7096191}. 
 #' 
 #' Color definitions are based on 
 #' \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/}  
@@ -561,7 +561,7 @@ uni_konstanz <- newpal(col = pal_unikn,
 #' @source 
 #' R package \strong{unikn}, 
 #' retrieved from \url{https://CRAN.R-project.org/package=unikn},    
-#' doi \href{https://doi.org/10.5281/zenodo.7096191}{10.5281/zenodo.7096191}. 
+#' doi \doi{10.5281/zenodo.7096191}. 
 #' 
 #' Color definitions are based on 
 #' \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/}  
