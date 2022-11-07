@@ -10,7 +10,7 @@ An object of class \code{character} of length 9.
 \source{
 R package \strong{unikn}, 
 retrieved from \url{https://CRAN.R-project.org/package=unikn},    
-doi \href{https://doi.org/10.5281/zenodo.7096191}{10.5281/zenodo.7096191}. 
+doi \doi{10.5281/zenodo.7096191}. 
 
 Color definitions are based on 
 \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/}  
