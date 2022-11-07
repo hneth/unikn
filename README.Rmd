@@ -367,7 +367,7 @@ ggplot(my_data, aes(x = X, y = Y, fill = Group)) +
 
 The `demopal()` function provides a quick illustration of a pre-defined or modified color palette:
 
-```{r demopal, out.width = "55%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
+```{r demopal, fig.width = 6, out.width = "55%", fig.asp = .75, fig.align = 'center', collapse = TRUE}
 demopal(usecol(uni_princeton_1, n = 7),  # use a modified color palette
         type = "curve", seed = 2)        # reproducible randomness
 ```
