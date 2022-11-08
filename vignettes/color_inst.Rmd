@@ -61,7 +61,7 @@ In addition to the specific color palettes of the [University of Konstanz](https
 **unikn** currently provides the general color palettes of the following institutions: 
 
 - [ETH Zurich](https://ethz.ch/): `eth_pal`, `eth_pal_light`, `eth_pal_grey`
-- [Max Planck Society](https://www.mpg.de/): `mpg_pal`
+- [Max Planck Society](https://www.mpg.de/en): `mpg_pal`
 - [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`  
 - [University of Konstanz](https://www.uni-konstanz.de/): `uni_konstanz`, `uni_konstanz_pref`
 - [Princeton University](https://www.princeton.edu/): `uni_princeton_0`, `uni_princeton_1`, `uni_princeton_2` 
@@ -229,12 +229,12 @@ seecol(uni_princeton_1, col_bg = "grey90",
 ```
 
 
-### C. [Max Planck Society](https://www.mpg.de/de), Germany: 
-<a href="https://www.mpg.de/">
+### C. [Max Planck Society](https://www.mpg.de/en), Germany: 
+<a href="https://www.mpg.de/en">
 <img src = "../inst/pix/logo_MPG.png" align = "right" alt = "MPG" width = "150px" style = "border:10;"/>
 </a>
 
-The CD manual (available [here](https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html)) of the [Max Planck Society](https://www.mpg.de/de) specifies the use of 2&nbsp;primary colors: 
+The CD manual (available [here](https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html)) of the [Max Planck Society](https://www.mpg.de/en) specifies the use of two primary colors: 
 
 - Green as Pantone 328: Using the PANTONE&trade; color finder at <https://www.pantone.com/connect/328-C> yields the following color values:
 
