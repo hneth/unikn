@@ -765,6 +765,6 @@ specifications:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2022-11-07.\]
+\[File `README.md` updated on 2022-11-08.\]
 
 <!-- eof. -->

@@ -226,7 +226,7 @@ In addition to the 16\ specific color palettes of the [University of Konstanz](h
 seecol("add")
 ```
 
-These palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations). 
+These palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations).
 
 
 <!-- Collecting contributed color palettes: -->
