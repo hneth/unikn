@@ -1,7 +1,7 @@
 ---
 title: "Institutional colors"
 author: "SPDS, uni.kn"
-date: "2022 11 10"
+date: "2022 11 01"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -109,7 +109,8 @@ They can be easily adapted to any other group, company, or entity, that uses som
 <img src = "../inst/pix/logo_freiburg.png" align = "right" width = "120px" alt = "Uni Freiburg" style = "border:10;"/> 
 </a>
 
-The [Albert-Ludwigs Universität Freiburg](https://uni-freiburg.de/) provides fairly extensive information on its corporate color scheme (available [here](http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben)). Colors can be defined in a variety of ways, but R comes with convenient tools (like the `col2rgb()` and `convertColor()` functions of **grDevices**) to handle most cases. 
+The [Albert-Ludwigs Universität Freiburg](https://uni-freiburg.de/) provides fairly extensive information on its corporate color scheme (available at `portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben` on 2022-10-20). 
+Colors can be defined in a variety of ways, but R comes with convenient tools (like the `col2rgb()` and `convertColor()` functions of **grDevices**) to handle most cases. 
 The most straightforward way of creating a new color palette in R is by using its HEX/HTML code (provided in character format). 
 As the [University of Freiburg](https://uni-freiburg.de/) kindly provides their colors in this format, we can easily define the corresponding color palettes as named vectors: 
 

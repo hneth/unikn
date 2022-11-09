@@ -8,8 +8,9 @@
 An object of class \code{character} of length 3.
 }
 \source{
-Color definitions are based on 
-\url{http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben}.
+Color definitions are based on web style guide at 
+\url{https://uni-freiburg.de/} 
+(at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20).
 }
 \usage{
 uni_freiburg_blue
