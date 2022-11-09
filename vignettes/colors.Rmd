@@ -1,7 +1,7 @@
 ---
 title: "Colors and color functions"
 author: "SPDS, uni.kn"
-date: "2022 11 04"
+date: "2022 11 10"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -26,8 +26,8 @@ knitr::opts_chunk$set(echo = TRUE,
                ## Default figure options:
                # fig.width = 6, 
                # fig.asp = .8 # .618, # golden ratio
-               # out.width = "75%",
-               fig.align = "center"
+               fig.align = "center",
+	             out.width = "60%"
                )
 ```
 
@@ -220,7 +220,7 @@ The `seecol()` function provides some aesthetic parameters for adjusting how col
 
 Examples:
 
-```{r seecol-aesthetic-parameters, fig.width = 5, fig.asp = .8, fig.align = 'center', out.width="400"}
+```{r seecol-aesthetic-parameters, fig.width = 5, out.width = "60%", fig.asp = .8, fig.align = 'center', out.width="400"}
 seecol("grad_all", col_brd = "black", lwd_brd = .5, main = "Color gradients (with black borders)")
 seecol(pal_seegruen, col_brd = "white", lwd_brd = 5, main = "A color palette (with white borders)")
 ```
@@ -232,7 +232,7 @@ The `usecol()` function allows directly using a color palette in a plot (i.e., w
 `usecol()` corresponds to `seecol()` by taking the same main arguments (`pal` and `n`). 
 However, as its purpose is _using_ the colors specified by `pal`, rather than plotting (or _seeing_) them, its `pal`\ argument typically contains only one color palette: 
 
-```{r usecol-default-use, fig.width = 5, fig.asp = .65, fig.align = 'center'}
+```{r usecol-default-use, fig.width = 5, out.width = "60%", fig.asp = .65, fig.align = 'center'}
 # Using a color palette:
 barplot(1/sqrt(1:11), col = usecol(pal_unikn))
 ```
@@ -276,7 +276,7 @@ seecol(pal_unikn, 4)
 
 Importantly, when using pre-defined color palettes of **unikn** but a value of `n` that is smaller than the length of the current color palette, `usecol` and `seecol` select a predefined subset of colors:
 
-```{r use-col-small-n, fig.width = 3, fig.height = 2.5, fig.align = 'center', collapse = TRUE, fig.show='hold'}
+```{r use-col-small-n, fig.width = 3, out.width = c('35%', '35%'), fig.height = 2.5, fig.align = 'center', collapse = TRUE, fig.show = 'hold'}
 barplot(1/sqrt(1:2), col = usecol(pal_seeblau, n = 2))
 barplot(1/sqrt(1:3), col = usecol(pal_seeblau, n = 3))
 ```
@@ -309,13 +309,13 @@ barplot(1/sqrt(1:9), col = usecol(pal_bordeaux, n = 3))
 
 By passing a vector to `pal`, we can concatenate 2 color palettes and connect them with a color (here: `"white"`) as the midpoint of a new color palette:  
 
-```{r combine-pals, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+```{r combine-pals, fig.width = 5, out.width = "60%", fig.asp = .8, fig.align = 'center'}
 seecol(pal = c(rev(pal_petrol), "white", pal_bordeaux))
 ```
 
 We can combine a set of colors and extend this palette by specifying an `n` argument that is larger than the length of the specified palette: 
 
-```{r combine-pals-n, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+```{r combine-pals-n, fig.width = 5, out.width = "60%", fig.asp = .8, fig.align = 'center'}
 seecol(pal = usecol(c(Karpfenblau, Seeblau, "gold"), n = 10))
 ```
 
@@ -421,7 +421,7 @@ simcol("deeppink", plot = FALSE)
 
 By default, `simcol()` searches though all named R\ colors of `colors()` (of the **grDevices** package), but adjusting the `col_candidates` and `tol` arguments allows for more fine-grained searches:
 
-```{r simcol-2, fig.width = 5, fig.asp = .8, fig.align = 'center', fig.show = 'hold'}
+```{r simcol-2, fig.width = 5, out.width = "60%", fig.asp = .8, fig.align = 'center', fig.show = 'hold'}
 simcol("deepskyblue", col_candidates = pal_seeblau, tol = c(50, 50, 100))
 ```
 
@@ -431,7 +431,7 @@ We often search for some particular color hue (e.g., some sort of purple), but a
 Instead, we would like to see all colors that contain the keyword "purple" in its name. 
 The `grepal()` function addresses this need:
 
-```{r grepal-1, fig.width = 6, fig.height = 4, fig.align = 'center', fig.show = 'hold'}
+```{r grepal-1, fig.width = 6, out.width = "60%", fig.height = 4, fig.align = 'center'}
 grepal("purple")  # get & see 10 names of colors() with "purple" in their name
 ```
 
@@ -446,7 +446,7 @@ length(grepal("^gr(a|e)y$", plot = FALSE))  # shades starting and ending with "g
 By default, `grepal()` searches the vector of named colors `x = colors()` (of the **grDevices** package) and plots its results (as a side effect). 
 However, it also allows for searching color palettes provided as data frames (with color names) and for suppressing the visualization (by setting `plot = FALSE`): 
 
-```{r grepal-3, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+```{r grepal-3, fig.width = 5, out.width = "60%", fig.asp = .8, fig.align = 'center'}
 grepal("see", pal_unikn)   # finding "see" in (the names of) pal_unikn (as df)
 grepal("blau", pal_unikn_pref, plot = FALSE)  # finding "blau" in pal_unikn_pref
 ```

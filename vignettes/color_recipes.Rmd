@@ -1,7 +1,7 @@
 ---
 title: "Color recipes"
 author: "SPDS, uni.kn"
-date: "2022 11 03"
+date: "2022 11 10"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -26,8 +26,8 @@ knitr::opts_chunk$set(echo = TRUE,
                ## Default figure options:
                # fig.width = 6, 
                # fig.asp = .8 # .618, # golden ratio
-               # out.width = "75%",
-               fig.align = "center"
+               fig.align = "center",
+	             out.width = "60%"
                )
 ```
 

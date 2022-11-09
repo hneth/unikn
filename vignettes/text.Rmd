@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
 author: "SPDS, uni.kn"
-date: "2022 11 02"
+date: "2022 11 10"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -24,7 +24,6 @@ knitr::opts_chunk$set(echo = TRUE,
                # ## Default figure options:
                # fig.width = 7.2, 
                # fig.asp = .618, # golden ratio
-               # out.width = "75%",
                fig.align = "center"
                )
 ```
@@ -173,7 +172,7 @@ par(mar = c(1, 1, 1, 1))
 ```
 
 
-```{r mark-messy-plot, echo = TRUE, fig.width = 6, fig.height = 4}
+```{r mark-messy-plot, echo = TRUE, fig.width = 6, fig.height = 4, out.width = "60%"}
 # Some pre-existing plot: 
 n <- 20
 set.seed(1)
@@ -197,7 +196,7 @@ par(opar)
 
 If no pre-existing plot is available, setting the `new_plot` argument to either\ `"blank"` or\ `"slide"` will generate a new default plot (by calling the `slide()` function described above):
 
-```{r mark-new-plot, echo = TRUE, fig.width = 4, fig.height = 4}
+```{r mark-new-plot, echo = TRUE, fig.width = 4, fig.height = 4, out.width = "35%"}
 # A sentence to plot: 
 s <- c("Markieren",
        "ist ein Bestandteil",
@@ -261,7 +260,7 @@ abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
 
 <!-- Fine tuning: mark x_layout -->
 
-```{r mark-x-layout-all, echo = FALSE, eval = TRUE, fig.width = 6, fig.height = 3.5}
+```{r mark-x-layout-all, echo = FALSE, eval = TRUE, fig.width = 6, fig.height = 3.5, out.width = "60%"}
 # (A) x_layout = "center": ---- 
 s <- c("Please note:", "These text labels",
        "are centered:", ">>> <<<")
@@ -313,7 +312,7 @@ See `?mark` for details.
 
 The `uline()` function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"): 
 
-```{r uline-demo, echo = FALSE, fig.width = 3, fig.height = 3}
+```{r uline-demo, echo = FALSE, fig.width = 3, fig.height = 3, out.width = "35%"}
 slogan <- c("Geradlinig", "Authentisch", "Beweglich", "Offen", "Paradiesisch")
 uline(labels = slogan,
       x = 0, y = .9, y_layout = "even",
@@ -324,7 +323,7 @@ uline(labels = slogan,
 As with `mark()` above, the `uline()` command distinguishes between creating a new plot (by setting `new_plot` to either `"blank"` or "`slide`") or 
 adding to a pre-existing plot (by using the default `new_plot = "none"`): 
 
-```{r uline-ex1, echo = TRUE, fig.width = 4.5, fig.height = 3}
+```{r uline-ex1, echo = TRUE, fig.width = 4.5, fig.height = 3, out.width = "45%"}
 lbl_uline <- c("This is neat, true, and terribly important")
 uline(labels = lbl_uline, new_plot = "blank", y = .6, cex = 1.1)  # create a new plot
 uline(labels = "(which is why we underline it).", y = .45, cex = 1)  # add to plot
@@ -332,7 +331,7 @@ uline(labels = "(which is why we underline it).", y = .45, cex = 1)  # add to pl
 
 The arguments for text elements (`labels`), text positions (`x`, `y`, `y_layout`), and text properties and decorations (`col`, `col_bg`, `cex`, and `font`) work as they do for `mark()`. For instance, shorter vectors are recycled to match the length of `labels`: 
 
-```{r uline-ex2, echo = TRUE, fig.width = 3, fig.height = 3}
+```{r uline-ex2, echo = TRUE, fig.width = 3, fig.height = 3, out.width = "35%"}
 slogan <- c("Geradlinig", "Farbenfroh", "Beweglich", "Bunt", "Paradiesisch")
 uline(labels = slogan,
       x = c(0, .5), y = .9, y_layout = "even",
@@ -367,7 +366,7 @@ abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
 
 <!-- Fine tuning: uline x_layout -->
 
-```{r uline-x-layout-all, echo = FALSE, eval = FALSE, fig.width = 5, fig.height = 3.5}
+```{r uline-x-layout-all, echo = FALSE, eval = FALSE, fig.width = 5, fig.height = 3.5, out.width = "60%"}
 # (A) x_layout = "center": ---- 
 s <- c("Please note:", "These text labels",
        "are centered:", ">>> <<<")
@@ -417,7 +416,7 @@ abline(v = x_l, col = "grey", lty = 2)
 
 The `post()` function allows adding text to a rectangular\ `xbox` (to provide the functionality of "Merken"): 
 
-```{r post-demo, echo = FALSE, fig.width = 4, fig.height = 2}
+```{r post-demo, echo = FALSE, fig.width = 4, fig.height = 2, out.width = "45%"}
 xbox(col = Seegruen, dim = c(4, 2))
 post(labels = "Please note", x = .1, y = 1.2, cex = 1.2, font = 2, new_plot = FALSE)
 post(labels = c("For best results, always design and view", "boxes with text at the size at which they", "are saved and displayed later."), 
@@ -428,7 +427,7 @@ By default, `post()` assumes a pre-existing `xbox` to which the text elements of
 For square boxes, setting `new_plot` to `"xbox"` creates a new\ `xbox` with its default dimensions of `dim = c(1, 1)`.  
 By adjusting its color and text arguments, `post()` allows creating simple badges or logos: 
 
-```{r post-logo, echo = TRUE, fig.width = 2, fig.height = 2, fig.show = "hold"}
+```{r post-logo, echo = TRUE, fig.width = 2, fig.height = 2, fig.show = "hold", out.width = "25%"}
 # Badge (to view as 250 x 250 pixel):
 post(labels = "ToDo", y = .35, 
      col = "white", col_bg = pal_signal[[1]],
@@ -442,7 +441,7 @@ post(labels = "R", y = .35,
 
 <!-- Creating course logos: -->
 
-```{r post-logo-hide, echo = FALSE, eval = FALSE}
+```{r post-logo-hide, echo = FALSE, eval = FALSE, out.width = "25%"}
 # To be viewed/saved at 250 x 250 pixels:
 
 # ds4psy course logo: 
@@ -458,7 +457,7 @@ post(labels = "i2ds", x = .05, y = .34,
 
 Another potential use of `post()` is for creating images providing contact details: 
 
-```{r post-address, echo = TRUE, fig.width = 3, fig.height = 3}
+```{r post-address, echo = TRUE, fig.width = 3, fig.height = 3, out.width = "35%"}
 address <- c("Dr. B. F. Skinner", " ",
              "Department of Psychology",
              "Office Z101",
@@ -481,7 +480,7 @@ As above, the position and orientation of the text labels can be controlled by u
 
 <!-- Example: post x_layout -->
 
-```{r post-x-layout-center, echo = FALSE, eval = FALSE, fig.width = 3, fig.height = 3}
+```{r post-x-layout-center, echo = FALSE, eval = FALSE, fig.width = 3, fig.height = 3, out.width = "35%"}
 # Labels to plot: 
 s <- c("Please note:",
        "These text labels",
@@ -504,7 +503,7 @@ abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
 
 <!-- Fine tuning: post x_layout -->
 
-```{r post-x-layout-all, echo = FALSE, eval = TRUE, fig.width = 3, fig.height = 3}
+```{r post-x-layout-all, echo = FALSE, eval = TRUE, fig.width = 3, fig.height = 3, out.width = "35%"}
 # (A) x_layout = "center": ---- 
 s <- c("Note:", "Labels",
        "centered:", ">>> <<<")
@@ -522,8 +521,7 @@ abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
 
 
 # (B) x_layout = "right": ----  
-s <- c("Adjust", "labels on",
-       "the right:", ">>>")
+s <- c("Adjust", "on", "the right:", ">>>")
 
 x_r <- 1 - .15
 
@@ -536,8 +534,7 @@ post(labels = s, x = x_r, y = .80,
 abline(v = x_r, col = "grey", lty = 2)
 
 # (C) x_layout = "left": ----  
-s <- c("Adjust", "labels on",
-       "the left:", "<<<")
+s <- c("Adjust", "on", "the left:", "<<<")
 
 x_l <- .15
 
@@ -556,21 +553,21 @@ abline(v = x_l, col = "grey", lty = 2)
 
 The `heading()` function makes it easy to create recognizable headings: 
 
-```{r heading-demo, echo = FALSE, fig.width = 3, fig.height = 2}
+```{r heading-demo, echo = FALSE, fig.width = 3, fig.height = 2, out.width = "40%"}
 heading(labels = c("Ich bin", "eine", "Headline."))
 ```
 
 By default, the function creates a new slide (i.e., `new_plot = "slide"`) and positions the text elements of\ `labels` on its left edge (i.e., `x = 0`, `y = .8` and `y_layout = "flush"`). 
 When headings violate the official recommendations, a message is provided:
 
-```{r heading-warn-1, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 3, fig.height = 3}
+```{r heading-warn-1, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 3, fig.height = 3, out.width = "40%"}
 heading(labels = c("Ewig", "währt am", "längsten..."), 
         y = 2/3, col_bg = usecol(pal_pinky))
 ```
 
 Re-arranging words helps to avoid step-wise titles (see p.\ 25 of the CD\ manual): 
 
-```{r heading-warn-2, echo = TRUE, message = TRUE, fig.width = 3, fig.height = 2}
+```{r heading-warn-2, echo = TRUE, message = TRUE, fig.width = 3, fig.height = 2, out.width = "40%"}
 # Beware of step-wise arrangements:
 heading(labels = c("Ich", "bin keine", "gute Headline."))
 
@@ -582,7 +579,7 @@ When colors are left unspecified, `heading()` selects colors that are appropriat
 for the number of elements in `labels` (i.e., shades of `Seeblau` for `col_bg = "default"`). 
 However, default colors can be overwritten by setting the\ `col` and\ `col_bg` arguments:
 
-```{r heading-col, echo = TRUE, fig.width = 3.5, fig.height = 2.5}
+```{r heading-col, echo = TRUE, fig.width = 3.5, fig.height = 2.5, out.width = "40%"}
 heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
         col = "white", col_bg = c(Pinky, Seegruen, Bordeaux, Karpfenblau))
 ```
@@ -591,7 +588,7 @@ heading(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."),
 
 <!-- Example: heading x_layout -->
 
-```{r heading-x-layout-center, echo = FALSE, eval = FALSE, fig.width = 4, fig.asp=1}
+```{r heading-x-layout-center, echo = FALSE, eval = FALSE, fig.width = 4, fig.asp=1, out.width = "45%"}
 # Labels to plot: 
 s <- c("Please note:",
        "These headings",
@@ -614,7 +611,7 @@ abline(v = x_middle - 32/600, col = "grey", lty = 2)  # corrected for offset
 
 <!-- Fine tuning: heading x_layout -->
 
-```{r heading-x-layout-all, echo = FALSE, eval = FALSE, fig.width = 6, fig.height = 4}
+```{r heading-x-layout-all, echo = FALSE, eval = FALSE, fig.width = 6, fig.height = 4, out.width = "45%"}
 # (A) x_layout = "center": ---- 
 s <- c("Please note:", "These headings",
        "are centered:", ">>> <<<")
@@ -666,7 +663,7 @@ abline(v = x_l, col = "grey", lty = 2)
 
 One of the more obscure rules (on p. 31 of the CD manual) concerns the rendering of URLs, in which typical web patterns (like "http" or "www") are to be omitted and replaced by a typographical dash (which is longer than a hyphen). The `url_unikn` utility function allows formatting URLs the uni.kn way:
 
-```{r url-post, fig.align = 'center', fig.width = 2, fig.height = 2}
+```{r url-post, fig.align = 'center', fig.width = 2, fig.height = 2, out.width = "25%"}
 my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from web browser
 my_url  # formatted URL
 
