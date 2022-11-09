@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2022 11 02
+## spds, uni.kn | 2022 11 09
 ## -----------------------------------------------
 
 ## site info: ----------
@@ -12,12 +12,13 @@ authors:
   Hansjoerg Neth:
     href: https://www.spds.uni-konstanz.de/hans-neth
   Nico Gradwohl:
-    href: https://www.spds.uni-konstanz.de/nico-gradwohl 
+    # href: https://www.spds.uni-konstanz.de/nico-gradwohl 
+    href: https://www.spds.uni-konstanz.de/en/node/1231
   SPDS:
     href: https://www.spds.uni-konstanz.de/
 
 development:
-  mode: devel # devel OR release
+  mode: release # devel OR release
 
 # template:
 #  params:
