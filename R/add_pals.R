@@ -497,7 +497,6 @@ uni_freiburg_blue <- newpal(col = c("#004a99", "#2a6ebb", "#6f9ad3"),
 #' Hansjoerg Neth, 2022-10-20.
 #' 
 #' @source 
-#' Color definitions are based on 
 #' Color definitions are based on web style guide at 
 #' \url{https://uni-freiburg.de/} 
 #' (at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20). 
