@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 11 07
+## spds | uni.kn |  2022 11 10
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -7,7 +7,41 @@
 
 # Notes: 
 # - Many users only want to use, rather than to manipulate color palettes. 
-# - For convencience, uni_pals are provided as named vectors (not data frames).
+# - For convenience, uni_pals are provided as named vectors (not data frames).
+
+
+# uni_data: Overview -----
+
+# Institution names and URLs of add_pals:
+
+# add_pals <- c("eth_pal", "eth_pal_light", "eth_pal_grey", 
+#               "mpg_pal", 
+#               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
+#               "uni_konstanz", "uni_konstanz_pref",
+#               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2")
+
+inst <- c(rep("ETH Zurich", 3),
+          "Max Planck Society",
+          rep("University of Freiburg", 4),
+          rep("University of Konstanz", 2),
+          rep("Princeton University", 3)
+)
+
+inst_alt <- c(rep("Eidgenössische Technische Hochschule, Zürich", 3),
+              "Max-Planck-Gesellschaft",
+              rep("Universität Freiburg", 4),
+              rep("Universität Konstanz", 2), 
+              rep("Princeton University", 3)
+)
+
+url <- c(rep("https://ethz.ch/", 3), 
+         "https://www.mpg.de/en",
+         rep("https://uni-freiburg.de/", 4), 
+         rep("https://www.uni-konstanz.de/", 2), 
+         rep("https://www.princeton.edu/", 3)
+)
+
+uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pals)
 
 
 # ETH Zurich / Eidgenössische Technische Hochschule, Zürich, CH: ------
