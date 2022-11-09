@@ -27,10 +27,10 @@ inst <- c(rep("ETH Zurich", 3),
           rep("Princeton University", 3)
 )
 
-inst_alt <- c(rep("Eidgenössische Technische Hochschule, Zürich", 3),
+inst_alt <- c(rep("Eidgen\u00F6ssische Technische Hochschule, Z\u00FCrich", 3),
               "Max-Planck-Gesellschaft",
-              rep("Universität Freiburg", 4),
-              rep("Universität Konstanz", 2), 
+              rep("Universit\u00E4t Freiburg", 4),
+              rep("Universit\u00E4t Konstanz", 2), 
               rep("Princeton University", 3)
 )
 
