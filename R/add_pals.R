@@ -354,6 +354,49 @@ mpg_pal <- newpal(col = c("#007367", "white", "#D0D3D4"),
 
 # Uni Freiburg: ------
 
+# Source: https://uni-freiburg.de/universitaet/corporate-design/
+# To be updated in 2023-01
+
+frbg_blau <- "#344a9a"
+names(frbg_blau) <- "Blau"
+
+frbg_blue <- newpal(col =  ac(col = frbg_blau, alpha = c(1, .80, .60, .40, .20)),
+                    names = c("Blau", "Blau_80", "Blau_60", "Blau_40", "Blau_20"),
+                    as_df = FALSE)
+
+frbg_gruen <- "#00997d"
+names(frbg_gruen) <- "Gruen"
+
+frbg_green <- newpal(col =  ac(col = frbg_gruen, alpha = c(1, .80, .60, .40, .20)),
+                     names = c("Gruen", "Gruen_80", "Gruen_60", "Gruen_40", "Gruen_20"),
+                     as_df = FALSE)
+
+frbg_braun <- "#8f6b30"
+names(frbg_braun) <- "Braun"
+
+frbg_brown <- newpal(col =  ac(col = frbg_braun, alpha = c(1, .80, .60, .40, .20)),
+                     names = c("Braun", "Braun_80", "Braun_60", "Braun_40", "Braun_20"),
+                     as_df = FALSE)
+
+frbg_gelb <- "#ffe863"
+names(frbg_gelb) <- "Gelb"
+
+frbg_yellow <- newpal(col =  ac(col = frbg_gelb, alpha = c(1, .80, .60, .40, .20)),
+                      names = c("Gelb", "Gelb_80", "Gelb_60", "Gelb_40", "Gelb_20"),
+                      as_df = FALSE)
+
+frbg_rosa <- "#f5c2ed"
+names(frbg_rosa) <- "Rosa"
+
+frbg_pink <- newpal(col =  ac(col = frbg_rosa, alpha = c(1, .80, .60, .40, .20)),
+                    names = c("Rosa", "Rosa_80", "Rosa_60", "Rosa_40", "Rosa_20"),
+                    as_df = FALSE)
+
+uni_freiburg_1 <- newpal(col = c("#000000", frbg_blue, "#FFFFFF"),
+                         names = c("Schwarz", "Blau", "Blau_80", "Blau_60", "Blau_40", "Blau_20", "Weiss"))
+
+
+
 # Source: http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben
 # Last check: 2022-10-20
 
@@ -373,8 +416,9 @@ mpg_pal <- newpal(col = c("#007367", "white", "#D0D3D4"),
 #' Hansjoerg Neth, 2022-10-20.
 #' 
 #' @source 
-#' Color definitions are based on 
-#' \url{http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben}. 
+#' Color definitions are based on web style guide at 
+#' \url{https://uni-freiburg.de/} 
+#' (at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20). 
 #' 
 #' @examples
 #' uni_freiburg_br
@@ -412,8 +456,9 @@ uni_freiburg_br <- newpal(col = c("#004a99", "#c1002a"),
 #' Hansjoerg Neth, 2022-10-20.
 #' 
 #' @source 
-#' Color definitions are based on 
-#' \url{http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben}. 
+#' Color definitions are based on web style guide at 
+#' \url{https://uni-freiburg.de/} 
+#' (at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20). 
 #' 
 #' @examples
 #' uni_freiburg_blue
@@ -453,7 +498,9 @@ uni_freiburg_blue <- newpal(col = c("#004a99", "#2a6ebb", "#6f9ad3"),
 #' 
 #' @source 
 #' Color definitions are based on 
-#' \url{http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben}. 
+#' Color definitions are based on web style guide at 
+#' \url{https://uni-freiburg.de/} 
+#' (at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20). 
 #' 
 #' @examples
 #' uni_freiburg_grey
@@ -494,8 +541,9 @@ uni_freiburg_grey <- newpal(col = c("#f2f3f1", "#e0e1dd", "#d5d6d2", "#c9cac8",
 #' Hansjoerg Neth, 2022-10-20.
 #' 
 #' @source 
-#' Color definitions are based on 
-#' \url{http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben}. 
+#' Color definitions are based on web style guide at 
+#' \url{https://uni-freiburg.de/} 
+#' (at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20). 
 #' 
 #' @examples
 #' uni_freiburg_info
