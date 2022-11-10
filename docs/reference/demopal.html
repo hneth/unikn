@@ -18,7 +18,7 @@ to illustrate a color palette pal."><meta property="og:image" content="https://h
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.0</span>
       </span>
     </div>
 
@@ -92,8 +92,10 @@ Default: <code>pal = pal_unikn</code>.</p></dd>
 
 
 <dt>type</dt>
-<dd><p>The type of plot to be used (as character or integer index). 
-Permissible types are <code>"bar"</code>, <code>"mosaic"</code>, <code>"scatter"</code> (or 1 to 3).</p></dd>
+<dd><p>The type of plot to be used (as character string or integer value). 
+Permissible types are 
+<code>"bar"</code>, <code>"curve"</code>, <code>"mosaic"</code>, <code>"polygon"</code>, or <code>"scatter"</code> 
+(or an integer value from 1 to 5, respectively).</p></dd>
 
 
 <dt>pal_name</dt>
@@ -120,8 +122,13 @@ Common arguments include:</p>
 <li><p><code>n</code> A scaling parameter (for random data generation);</p></li>
 <li><p><code>main</code> plot title (on top);</p></li>
 <li><p><code>sub</code> plot subtitle (on right margin);</p></li>
-<li><p><code>seed</code> A random seed (for reproducible randomness).</p></li>
-</ul><p>Some functions additionally accept type-specific arguments 
+<li><p><code>seed</code> A random seed value (for reproducible randomness).</p></li>
+</ul><p>The fit between a color palette <code>pal</code> and plot <code>type</code> 
+depends on the uses of colors in a plot. 
+For instance, overlaps of transparent color areas can be evaluated 
+with plot <code>type = "curve"</code> or plot <code>type = "scatter"</code> 
+(and <code>0 &lt; alpha &lt; 1</code>).</p>
+<p>Some functions additionally accept type-specific arguments 
 (e.g., <code>beside</code>, <code>horiz</code>, and <code>as_prop</code>, for plot <code>type = "bar"</code>, 
 and <code>cex</code> for plot <code>type = "scatter"</code>).</p>
 <p>The type-specific functions usually generate some random data 
@@ -172,7 +179,7 @@ to enable a plot's reconstruction.</p>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by <a href="https://www.spds.uni-konstanz.de/hans-neth" class="external-link">Hansjoerg Neth</a>, <a href="https://www.spds.uni-konstanz.de/nico-gradwohl" class="external-link">Nico Gradwohl</a>.</p>
+  <p></p><p>Developed by <a href="https://www.spds.uni-konstanz.de/hans-neth" class="external-link">Hansjoerg Neth</a>, <a href="https://www.spds.uni-konstanz.de/en/node/1231" class="external-link">Nico Gradwohl</a>.</p>
 </div>
 
 <div class="pkgdown">

@@ -19,7 +19,7 @@ to some target color col_target."><meta property="og:image" content="https://hne
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.0</span>
       </span>
     </div>
 
@@ -99,19 +99,20 @@ to some target color <code>col_target</code>.</p>
 
 
 <dt>col_candidates</dt>
-<dd><p>Palette of color candidates. 
+<dd><p>A palette of color candidates to be considered. 
 Default: <code>col_candidates = colors()</code>.</p></dd>
 
 
 <dt>tol</dt>
-<dd><p>Numeric tolerance value(s) (must be 
-either 1 or 3 numeric values, in RGB range from 0 to 255).
+<dd><p>Numeric tolerance value(s) 
+(either 1 or 3 numeric values, in the RGB range from 0 to 255).
+Values are considered in the order of the RGB value rank in <code>col_target</code>. 
 Default: <code>tol = c(25, 50, 75)</code>.</p></dd>
 
 
 <dt>distinct</dt>
 <dd><p>Boolean: Return only visually distinct colors? 
-Default: <code>distinct = TRUE</code> (i.e., remove duplicate colors).</p></dd>
+Default: <code>distinct = TRUE</code> (i.e., remove visual duplicates).</p></dd>
 
 
 <dt>plot</dt>
@@ -128,7 +129,7 @@ Default: <code>plot = TRUE</code>.</p></dd>
     <div id="details">
     <h2>Details</h2>
     <p><code>simcol</code> returns a vector of the (named) colors or color values in 
-<code>col_candidates</code> (set to `colors()` of <strong>grDevices</strong> per default) 
+<code>col_candidates</code> (set to <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> of <strong>grDevices</strong> per default) 
 that are similar to the specified target color <code>col_target</code>.</p>
 <p>If <code>plot = TRUE</code>, <code>simcol</code> also visualizes the detected colors  
 (by passing its result to <code><a href="seecol.html">seecol</a></code>, as a side-effect).</p>
@@ -212,7 +213,7 @@ more fine-grained similarity matching.</p>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by <a href="https://www.spds.uni-konstanz.de/hans-neth" class="external-link">Hansjoerg Neth</a>, <a href="https://www.spds.uni-konstanz.de/nico-gradwohl" class="external-link">Nico Gradwohl</a>.</p>
+  <p></p><p>Developed by <a href="https://www.spds.uni-konstanz.de/hans-neth" class="external-link">Hansjoerg Neth</a>, <a href="https://www.spds.uni-konstanz.de/en/node/1231" class="external-link">Nico Gradwohl</a>.</p>
 </div>
 
 <div class="pkgdown">
