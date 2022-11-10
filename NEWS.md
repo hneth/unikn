@@ -1,4 +1,43 @@
 
+
+# unikn 0.7.0.9001
+
+This is the current development version of **unikn** (v0.7.0.9001+). 
+
+<!-- Log of changes: --> 
+
+Changes since last release: 
+
+
+## Major changes 
+
+- None yet. 
+
+<!-- Blank line.  --> 
+
+
+## Minor changes 
+
+- None yet. 
+
+<!-- Blank line.  --> 
+
+
+## Details 
+
+- Fix minor formatting bugs.
+
+
+
+<!-- Development version:  --> 
+
+The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
+
+
+<!-- Previous versions: -->  
+
+---------- 
+
 # unikn 0.7.0
 
 This release of **unikn** (v0.7.0) adds and improves functionality and fixes some bugs. [2022-11-10] 
@@ -41,11 +80,6 @@ Changes since last release:
 - Reorganize files of utility functions. 
 - Add Zenodo doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191) for citations. 
 - Revise and update vignettes.
-
-
-<!-- Development version:  --> 
-
-The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
 
 
 <!-- Previous versions: -->  
