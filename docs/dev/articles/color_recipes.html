@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.0.9010</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.7.0.9001</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@
                         <h4 data-toc-skip class="author">SPDS,
 uni.kn</h4>
             
-            <h4 data-toc-skip class="date">2022 11 03</h4>
+            <h4 data-toc-skip class="date">2022 11 10</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/HEAD/vignettes/color_recipes.Rmd" class="external-link"><code>vignettes/color_recipes.Rmd</code></a></small>
       <div class="hidden name"><code>color_recipes.Rmd</code></div>
@@ -149,7 +149,7 @@ visualizations created by <strong>base</strong> R graphics.</p>
 <span>     pch <span class="op">=</span> <span class="fl">16</span>, cex <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>     col <span class="op">=</span> <span class="va">my_col</span>,</span>
 <span>     main <span class="op">=</span> <span class="st">"99 transparent dots"</span>, axes <span class="op">=</span> <span class="cn">FALSE</span>, xlab <span class="op">=</span> <span class="cn">NA</span>, ylab <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/demo-scatterplot-1.png" width="480" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/demo-scatterplot-1.png" width="60%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="using-colors-in-ggplot2">Using colors in <strong>ggplot2</strong><a class="anchor" aria-label="anchor" href="#using-colors-in-ggplot2"></a>
@@ -235,7 +235,7 @@ the <code>pal</code> argument of the <code><a href="../reference/seecol.html">s
 <code class="sourceCode R"><span><span class="va">col_pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">10</span>, <span class="st">"Vik"</span><span class="op">)</span>  <span class="co"># some color palette</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">col_pal</span><span class="op">)</span>  <span class="co"># see its colors and details </span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/seecol-example-1-1.png" width="480" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/seecol-example-1-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>Note that the other arguments of the <code><a href="../reference/seecol.html">seecol()</a></code> function
 — especially <code>n</code> and <code>alpha</code> — can modify the
 palette (in the same ways as the <code><a href="../reference/usecol.html">usecol()</a></code> function).</p>
@@ -256,7 +256,7 @@ palettes:</p></li>
 <span>       pal_names <span class="op">=</span> <span class="va">s_pal</span>,</span>
 <span>       col_brd <span class="op">=</span> <span class="st">"white"</span>, lwd_brd <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>       main <span class="op">=</span> <span class="va">t_lbl</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/seecol-example-2b-1.png" width="576" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/seecol-example-2b-1.png" width="60%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="finding-similar-colors">Finding similar colors<a class="anchor" aria-label="anchor" href="#finding-similar-colors"></a>
@@ -271,7 +271,7 @@ plotting/seeing) similar colors:</p>
 <span><span class="co">#&gt;  "forestgreen"  "chartreuse4"       "green4"    "olivedrab"   "olivedrab4" </span></span>
 <span><span class="co">#&gt;     palegreen4   springgreen4 </span></span>
 <span><span class="co">#&gt;   "palegreen4" "springgreen4"</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/simcol-example-01-1.png" width="480" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/simcol-example-01-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>The <code><a href="../reference/simcol.html">simcol()</a></code> function compares a require target color
 (<code>col_target</code>) with a set of candidate colors
 (<code>col_candidates</code>, set to <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> by default).
@@ -284,7 +284,7 @@ range of colors:</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/simcol.html">simcol</a></span><span class="op">(</span>col_target <span class="op">=</span> <span class="st">"orange"</span>, col_candidates <span class="op">=</span> <span class="va">pal_unikn_pref</span>, tol <span class="op">=</span> <span class="fl">150</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    orange     Pinky     Peach    Signal  Bordeaux </span></span>
 <span><span class="co">#&gt;  "orange" "#E0607E" "#FEA090" "#EFDC60" "#8E2043"</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/simcol-example-02-1.png" width="480" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/simcol-example-02-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>Specifying a vector of three <code>tol</code> values compares RGB
 dimensions in the order of their rank. This allows for more fine-grained
 similarity searches:</p>
@@ -294,7 +294,7 @@ similarity searches:</p>
 <span><span class="co">#&gt;       "#59C7EB"  "lightskyblue" "lightskyblue2"       "skyblue"      "skyblue1" </span></span>
 <span><span class="co">#&gt;        skyblue2      steelblue1 </span></span>
 <span><span class="co">#&gt;      "skyblue2"    "steelblue1"</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/simcol-example-03-1.png" width="480" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/simcol-example-03-1.png" width="60%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="creating-new-color-palettes">Creating new color palettes<a class="anchor" aria-label="anchor" href="#creating-new-color-palettes"></a>
@@ -332,7 +332,7 @@ palette (as an R data frame or vector).</p></li>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_google</span>, </span>
 <span>       col_brd <span class="op">=</span> <span class="st">"white"</span>, lwd_brd <span class="op">=</span> <span class="fl">8</span>,</span>
 <span>       main <span class="op">=</span> <span class="st">"Colors of the Google logo"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/newpal-example-1.png" width="480" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/newpal-example-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>The vignette on <a href="color_inst.html">Institutional colors</a>
 provides additional examples for defining color palettes.</p>
 </div>
@@ -353,7 +353,7 @@ function for finding colors by their names (or a pattern):</p>
 <span><span class="co"># seecol(pal_1, main = "Hues of 'orange' colors()")</span></span>
 <span><span class="co"># seecol(pal_2, main = "Hues of 'olive' colors()")</span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_3</span>, main <span class="op">=</span> <span class="st">"Hues of 'white' colors()"</span>, col_bg <span class="op">=</span> <span class="st">"grey90"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/grepal-example-1-1.png" width="480" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/grepal-example-1-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>Providing a list of color palettes to the <code>pal</code> argument
 of the <code><a href="../reference/seecol.html">seecol()</a></code> function allows comparing multiple color
 palettes:</p>
@@ -362,7 +362,7 @@ palettes:</p>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span>pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">pal_1</span>, <span class="va">pal_2</span>, <span class="va">pal_3</span><span class="op">)</span>, </span>
 <span>       pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"orange"</span>, <span class="st">"olive"</span>, <span class="st">"white"</span><span class="op">)</span>, </span>
 <span>       col_bg <span class="op">=</span> <span class="st">"grey90"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/grepal-example-2-1.png" width="576" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/grepal-example-2-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>The last example illustrates that (a) the
 <code>pattern</code> argument of <code><a href="../reference/grepal.html">grepal()</a></code> can use regular
 expressions, and that (b) the <code>x</code> argument of
@@ -390,7 +390,7 @@ violet” provided by the <strong>grDevices</strong> vector of named
 <span>            <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">blaus_1</span>, <span class="va">blaus_2</span>, <span class="va">pinks</span>, <span class="va">peach</span>, <span class="va">baux</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>       pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"blues"</span>, <span class="st">"oranges"</span>, <span class="st">"purpviol"</span>, <span class="st">"unikn colors"</span><span class="op">)</span>,</span>
 <span>       main <span class="op">=</span><span class="st">"Comparing custom color palettes"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/grepal-example-3-1.png" width="576" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/grepal-example-3-1.png" width="60%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="getting-shades-of-a-color">Getting shades of a color<a class="anchor" aria-label="anchor" href="#getting-shades-of-a-color"></a>
@@ -405,23 +405,23 @@ ranging from <code>col_1 = "black"</code> to <code>col_n = "white</code>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">greys</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">greys</span>, main <span class="op">=</span> <span class="st">"10 shades of grey"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/shades-of-example-1-1.png" width="480" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/shades-of-example-1-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>By adjusting <code>n</code>, the initial color <code>col_1</code>,
 and/or the final color <code>col_n</code>, we can conveniently create
 simple color ranges:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">4</span>, <span class="va">Seeblau</span>, <span class="st">"black"</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"4 shades of Seeblau"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/shades-of-example-2-1.png" width="480" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/shades-of-example-2-1.png" width="60%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">7</span>, <span class="st">"forestgreen"</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"7 shades of 'forestgreen'"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/shades-of-example-2-2.png" width="480" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/shades-of-example-2-2.png" width="60%" style="display: block; margin: auto;"></p>
 <p>Using <code>alpha</code> in the range <span class="math inline">\([0;
 1]\)</span> allows adjusting the transparency of the obtained
 colors:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">wine_gold</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">4</span>, <span class="va">Bordeaux</span>, col_n <span class="op">=</span> <span class="st">"gold"</span>, alpha <span class="op">=</span> <span class="fl">.65</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">wine_gold</span>, main <span class="op">=</span> <span class="st">"5 transparent shades from Bordeaux to gold"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/shades-of-example-3-1.png" width="480" style="display: block; margin: auto;"></p>
+<p><img src="color_recipes_files/figure-html/shades-of-example-3-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>Note that <code><a href="../reference/shades_of.html">shades_of()</a></code> is merely a convenient wrapper
 function for the <code><a href="../reference/usecol.html">usecol()</a></code> function. Using the
 <code>pal</code> argument of <code><a href="../reference/usecol.html">usecol()</a></code> allows defining more
@@ -528,7 +528,7 @@ the <strong>unikn</strong> colors, color palettes, and functions:</p>
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by <a href="https://www.spds.uni-konstanz.de/hans-neth" class="external-link">Hansjoerg Neth</a>, <a href="https://www.spds.uni-konstanz.de/nico-gradwohl" class="external-link">Nico Gradwohl</a>.</p>
+<p>Developed by <a href="https://www.spds.uni-konstanz.de/hans-neth" class="external-link">Hansjoerg Neth</a>, <a href="https://www.spds.uni-konstanz.de/en/node/1231" class="external-link">Nico Gradwohl</a>.</p>
 </div>
 
 <div class="pkgdown">
