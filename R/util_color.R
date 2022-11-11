@@ -1,5 +1,5 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2022 10 25
+## spds | uni.kn | 2022 11 11
 ## ---------------------------
 
 # Color-related utility functions: 
@@ -130,6 +130,71 @@ is_col <- function(color) {
 
 # BUT note: 
 # is_col(col2rgb("white"))  # => FALSE FALSE FALSE
+
+
+# col_asif_alpha: Color corresponding to a transparent version of a color ------ 
+
+# Task: Which non-transparent color values match the hue of a transparent color?
+# Source: https://stackoverflow.com/questions/12228548/finding-equivalent-color-with-opacity
+
+col_asif_alpha <- function(col, alpha = 1, col_bg = "white"){
+  
+  # Assume: 
+  # 1. col is a color
+  # 2. 0 < alpha < 1
+  # 3. col_bg is a color
+  
+  # Prepare: ----
+  
+  col_rgb <- grDevices::col2rgb(col, alpha = TRUE)
+  
+  col_rgb_alpha <- col_rgb["alpha", ]
+  
+  if (col_rgb_alpha < 255){ # set alpha to col_rgb_alpha/255:
+    alpha <- round(col_rgb_alpha/255, 3)
+  }
+  # print(paste0("alpha = ", alpha))  # 4debugging
+  
+  
+  # Main: ----
+  
+  if (alpha < 1){ # find color corresponding to alpha:
+    
+    col_rgb_rgb <- col_rgb[1:3, ]
+    col_bg_rgb <- grDevices::col2rgb(col_bg, alpha = FALSE)[1:3, ]
+    
+    col_out <- col_rgb_rgb + (col_bg_rgb - col_rgb_rgb) * alpha
+    
+  } else {
+    
+    col_out <- col_rgb[1:3, ]
+    
+  }
+  
+  # print(t(col_out))  # 4debugging
+  
+  
+  # Output: ---- 
+  
+  rgb(t(col_out), maxColorValue = 255)
+  
+} # col_asif_alpha(). 
+
+# Check:
+
+# # 1. baseline:
+# col_asif_alpha("black")
+# col_asif_alpha("white")
+
+# # 2. non-transparent color input and alpha value:
+# col_asif_alpha("black", alpha = .50)
+
+# # 3. transparent color input:
+# cols_t <- ac("black", alpha = seq(1, .1, by = -.10))
+# col_1 <- cols_t[9]
+# col_2 <- col_asif_alpha(col_1, alpha = 1)
+# seecol(c(col_1, col_2))
+
 
 
 
