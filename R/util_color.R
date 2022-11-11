@@ -132,9 +132,10 @@ is_col <- function(color) {
 # is_col(col2rgb("white"))  # => FALSE FALSE FALSE
 
 
-# col_asif_alpha: Color corresponding to a transparent version of a color ------ 
+# col_asif_alpha: Color corresponding to the hue of a transparent color ------ 
 
-# Task: Which non-transparent color values match the hue of a transparent color?
+# Which non-transparent color values match the hue of a transparent color?
+# Task: Get the non-transparent color corresponding to the hue of a transparent color (with 0 < alpha < 1)
 # Source: https://stackoverflow.com/questions/12228548/finding-equivalent-color-with-opacity
 
 col_asif_alpha <- function(col, alpha = 1, col_bg = "white"){
