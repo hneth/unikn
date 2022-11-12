@@ -1,5 +1,5 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2022 11 11
+## spds | uni.kn | 2022 11 12
 ## ---------------------------
 
 # Color-related utility functions: 
@@ -163,8 +163,31 @@ col_asif_alpha <- function(col, alpha = 1, col_bg = "white"){
     
     col_rgb_rgb <- col_rgb[1:3, ]
     col_bg_rgb <- grDevices::col2rgb(col_bg, alpha = FALSE)[1:3, ]
+
+    # (1) Know: RGBA1 (transparent front) over RGB2 (back) 
+    #     Want: RBG3 (effective visual result)
+    r1 <- col_rgb_rgb 
+    a1 <- alpha
+    r2 <- col_bg_rgb
     
-    col_out <- col_rgb_rgb + (col_bg_rgb - col_rgb_rgb) * alpha
+    r3 = r2 + (r1 - r2) * a1
+
+    col_out <- r3
+    
+    # # (2) Know: RGB3 (the final desired color), RGB2 (the background color), and A1 (how much opacity you want), 
+    # #     Want: RGB1
+    # r3 <- col_rgb_rgb 
+    # a1 <- alpha
+    # r2 <- col_bg_rgb
+    # 
+    # r1 = (r3 - r2 + r2 * a1) / a1
+    # 
+    # # Correct extreme values:
+    # r1[r1 < 0]   <- 0
+    # r1[r1 > 255] <- 255
+    #     
+    # col_out <- r1
+    
     
   } else {
     
@@ -188,11 +211,16 @@ col_asif_alpha <- function(col, alpha = 1, col_bg = "white"){
 # col_asif_alpha("white")
 
 # # 2. non-transparent color input and alpha value:
-# col_asif_alpha("black", alpha = .50)
+# af <- .25
+# adjustcolor("black", alpha.f = af)
+# col_asif_alpha("black", alpha = af)
+# seecol(c(adjustcolor("black", alpha.f = af), col_asif_alpha("black", alpha = af)))  # uncorrected
+# # +++ here now +++ 
+# seecol(c(adjustcolor("black", alpha.f = af), col_asif_alpha("black", alpha = af - (.175 * af))))  # corrected
 
 # # 3. transparent color input:
 # cols_t <- ac("black", alpha = seq(1, .1, by = -.10))
-# col_1 <- cols_t[9]
+# col_1 <- cols_t[8]
 # col_2 <- col_asif_alpha(col_1, alpha = 1)
 # seecol(c(col_1, col_2))
 
