@@ -177,7 +177,7 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
     
   }
   
-  # print(paste0("alpha = ", alpha))  # 4debugging
+  # print(paste0("Uncorrected alpha = ", alpha))  # 4debugging
   
   # 2. Correct alpha value:
   correct_alpha <- TRUE  # Boolean: Correct alpha value? 
@@ -216,7 +216,8 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
       
     } 
     
-    print(paste0("Corrected alpha = ", alpha))  # 4debugging
+    # print(paste0("Corrected alpha = ", alpha))  # 4debugging
+    
   }
   
   # Main: ----
@@ -273,6 +274,7 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
 # # 1. baseline:
 # col_asif_alpha("black")
 # col_asif_alpha("white")
+# seecol(c("steelblue", col_asif_alpha("steelblue")))
 
 # # 2. non-transparent color input and explicit alpha value:
 # af <- 0.33
