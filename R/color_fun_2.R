@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 11 04
+## spds | uni.kn | 2022 11 14
 ## --------------------------
 
 ## Define color-related functions 
@@ -953,7 +953,7 @@ ac <- function(col,
   
   return(col_adj)
   
-} # ac(). 
+} # ac().
 
 
 ## Check:

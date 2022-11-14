@@ -1,5 +1,5 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2022 11 13
+## spds | uni.kn | 2022 11 14
 ## ---------------------------
 
 # Color-related utility functions: 
@@ -148,13 +148,13 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
   # Prepare: ----
   
   # Handle alpha value:
-
+  
   # 1. Get alpha from col or alpha argument:
   
   # (ad b) from col:
   col_rgb <- grDevices::col2rgb(col, alpha = TRUE)
   col_rgb_alpha <- col_rgb["alpha", ]
-
+  
   if (is.na(alpha) == FALSE){ # (a) from alpha argument:
     
     print(paste0("User set alpha = ", alpha))  # 4debugging
@@ -186,27 +186,37 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
     
     # Reduce alpha, to get a brighter/lighter result:
     
-    if (alpha > .02 & alpha <= .05){
+    if (alpha > .01 & alpha <= .05){
+      
       alpha <- alpha - .01
-    }
-    
-    if (alpha > .05 & alpha <= .15){
+      
+    } else if (alpha > .05 & alpha <= .10){
+      
+      alpha <- alpha - .02
+      
+    } else if (alpha > .10 & alpha <= .15){
+      
       alpha <- alpha - .03
-    }
-    
-    if (alpha > .15 & alpha <= .35){
+      
+    } else if (alpha > .15 & alpha <= .25){
+      
+      alpha <- alpha - .04
+      
+    } else if (alpha > .25 & alpha <= .35){
+      
       alpha <- alpha - .05
-    }
-    
-    if (alpha > .35 & alpha <= .85){
+      
+    } else if (alpha > .35 & alpha <= .85){
+      
       alpha <- alpha - .07
-    }
-    
-    if (alpha > .85 & alpha <= .95){
+      
+    } else if (alpha > .85 & alpha <= .95){
+      
       alpha <- alpha - .03
-    }
+      
+    } 
     
-    # print(paste0("Corrected alpha = ", alpha))  # 4debugging
+    print(paste0("Corrected alpha = ", alpha))  # 4debugging
   }
   
   # Main: ----
@@ -264,8 +274,8 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
 # col_asif_alpha("black")
 # col_asif_alpha("white")
 
-# 2. non-transparent color input and explicit alpha value:
-# af <- .77
+# # 2. non-transparent color input and explicit alpha value:
+# af <- 0.33
 # seecol(c(adjustcolor("black", alpha.f = af), col_asif_alpha("black", alpha = af)))  # uncorrected
 
 # # +++ here now +++
