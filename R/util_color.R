@@ -1,5 +1,5 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2022 11 14
+## spds | uni.kn | 2022 11 15
 ## ---------------------------
 
 # Color-related utility functions: 
@@ -245,10 +245,6 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
     # 
     # r1 = (r3 - r2 + r2 * a1) / a1
     # 
-    # # Correct extreme values:
-    # r1[r1 < 0]   <- 0
-    # r1[r1 > 255] <- 255
-    #     
     # col_out <- r1
     
   } else {
@@ -277,16 +273,30 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
 # seecol(c("steelblue", col_asif_alpha("steelblue")))
 
 # # 2. non-transparent color input and explicit alpha value:
-# af <- 0.33
-# seecol(c(adjustcolor("black", alpha.f = af), col_asif_alpha("black", alpha = af)))  # uncorrected
-
-# # +++ here now +++
+# col <- "blue4"
+# af <- 0.35
+# seecol(c(adjustcolor(col, alpha.f = af), col_asif_alpha(col, alpha = af)))
 
 # # 3. transparent color input:
 # cols_t <- ac("darkblue", alpha = seq(1, 0, by = -.10))
 # col_1 <- cols_t[9]
 # col_2 <- col_asif_alpha(col_1, alpha = NA)
 # seecol(c(col_1, col_2))
+
+# # +++ here now +++
+
+# Vectorized version of col_asif_alpha(): ----
+
+v_col_asif_alpha <- Vectorize(col_asif_alpha, vectorize.args = c("col", "alpha"))
+
+# # Check: 
+# seecol(v_col_asif_alpha(col = "black", alpha = c(.25, .75), col_bg = "white"))       # works
+# seecol(v_col_asif_alpha(col = "black", alpha = c(.25, .50, .75), col_bg = "white"))  # fails!
+# 
+# # Compare:
+# seecol(usecol(uni_freiburg_info, alpha = .33))  # transparent
+# seecol(v_col_asif_alpha(uni_freiburg_info, alpha = c(.33)))  # non-transparent
+
 
 
 
