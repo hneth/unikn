@@ -1,5 +1,5 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2022 11 15
+## spds | uni.kn | 2022 11 16
 ## ---------------------------
 
 # Color-related utility functions: 
@@ -157,7 +157,7 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
   
   if (is.na(alpha) == FALSE){ # (a) from alpha argument:
     
-    print(paste0("User set alpha = ", alpha))  # 4debugging
+    # print(paste0("User set alpha = ", alpha))  # 4debugging
     
     if (col_rgb_alpha < 255){
       print(paste0("Ignoring col_rgb_alpha = ", col_rgb_alpha))  # 4debugging 
@@ -167,7 +167,7 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
     
     alpha <- round(col_rgb_alpha/255, 3)
     
-    print(paste0("Transparent RGB col alpha = ", alpha))  # 4debugging    
+    # print(paste0("Transparent RGB col alpha = ", alpha))  # 4debugging    
     
   } else { # (c) not yet set: use default 
     
@@ -285,20 +285,33 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
 
 # # +++ here now +++
 
-# Vectorized version of col_asif_alpha(): ----
+
+# v_col_asif_alpha: Vectorized version of col_asif_alpha(): ----
 
 v_col_asif_alpha <- Vectorize(col_asif_alpha, vectorize.args = c("col", "alpha"))
 
 # # Check: 
+# # (a) individual colors:
 # seecol(v_col_asif_alpha(col = "black", alpha = c(.25, .75), col_bg = "white"))       # works
 # seecol(v_col_asif_alpha(col = "black", alpha = c(.25, .50, .75), col_bg = "white"))  # fails!
 # 
+# # (b) Color palettes:
+# alf <- .25
+# c_1 <- usecol(uni_freiburg_info, alpha = alf)  # transparent
+# c_2 <- v_col_asif_alpha(uni_freiburg_info, alpha = c(alf))  # non-transparent
+# 
+# c_1 <- usecol(pal_unikn_pref, alpha = alf, use_names = TRUE)  # transparent
+# c_2 <- v_col_asif_alpha(pal_unikn_pref, alpha = c(alf))  # non-transparent
+# 
+# my_pal <- rep(NA, 2 * length(c_1))
+# 
+# for (i in 1:length(c_1)){ # re-sort pairs:
+#   my_pal[i * 2 - 1] <- c_1[i]
+#   my_pal[i * 2 + 0] <- c_2[i]  
+# }
+# 
 # # Compare:
-# seecol(usecol(uni_freiburg_info, alpha = .33))  # transparent
-# seecol(v_col_asif_alpha(uni_freiburg_info, alpha = c(.33)))  # non-transparent
-
-
-
+# seecol(my_pal)
 
 
 # col_distance: Color distance (in RGB space) ------
