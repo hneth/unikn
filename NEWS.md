@@ -247,7 +247,7 @@ Changes in existing functionality:
 
 ## Details 
 
-- Bug fix: Correct an error in `seecol()` and `usecol()` that prohibited use in other packages (by requiring list of palettes). 
+- Bug fix: Correct an error in `seecol()` and `usecol()` that prevented use in other packages (by requiring list of palettes). 
 - Bug fix: Prevent showing duplicate color names in `seecol()`, due to searching both the current set of color palettes and **base** R `colors()`. Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming. 
 - Bug fix: Allow `isHexCol()` to recognize hexadecimal color values starting with lowercase letters. 
 - Cleanup: Remove packages not needed from list of suggested packages. 
