@@ -1,6 +1,6 @@
 
 
-# unikn 0.7.0.9001
+# unikn 0.7.0.9002
 
 This is the current development version of **unikn** (v0.7.0.9001+). 
 
@@ -18,14 +18,14 @@ Changes since last release:
 
 ## Minor changes 
 
-- None yet. 
+- Add `col_asif_alpha()` and `v_col_asif_alpha()` utility functions. 
 
 <!-- Blank line.  --> 
 
 
 ## Details 
 
-- Fix minor formatting bugs.
+- Fix minor bugs.
 
 
 
@@ -266,6 +266,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-11-10.] 
+[File `NEWS.md` updated on 2022-11-16.] 
 
 <!-- eof. -->
