@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 11 10
+## spds | uni.kn |  2022 11 17
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -808,5 +808,11 @@ uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"),
                           names = c("orange_b", "black", "white"),
                           as_df = FALSE)
 
+## ToDo: -------- 
+
+# - Uni Goettingen: <https://www.uni-goettingen.de/de/589412.html> 
+# - Uni Heidelberg: <https://www.uni-heidelberg.de/de/universitaet/das-profil-der-universitaet-heidelberg/corporate-design>
+# - Uni Tuebingen:
+# - Caltech: <https://identity.caltech.edu/colors>
 
 ## eof. ----------
