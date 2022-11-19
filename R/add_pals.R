@@ -46,6 +46,8 @@ uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pa
 
 # # - Uni Goettingen: ------
 
+# Motto: "In publica commoda" (For the good of all)
+
 # Source: <https://www.uni-goettingen.de/de/589412.html> 
 # 2022-11-19
 
