@@ -49,20 +49,17 @@ uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pa
 # Source: <https://www.uni-goettingen.de/de/589412.html> 
 # 2022-11-19
 
-# Souce: <https://www.uni-goettingen.de/de/589412.html>
-# 2022-11-19
-
-# Die Farben der Universität Göttingen:
+# Die Farben der Universitaet Goettingen:
 # 
-# Die Universität Göttingen verfügt über eine eigene Farbe, das Uni-Blau HKS 41. 
+# Die Universitaet Goettingen verfuegt ueber eine eigene Farbe, das Uni-Blau HKS 41. 
 # Diese Farbe findet sich zum Beispiel auf der Webseite oder in der Vierfarb-Variante des Logos. 
-# Der hellblaue Farbton,der sich ebenfalls im Logo findet, ist eine aufgerasterte Variante und geht auf das Uni-Blau zurück.
+# Der hellblaue Farbton,der sich ebenfalls im Logo findet, ist eine aufgerasterte Variante und geht auf das Uni-Blau zurueck.
 #
-# Bei der Gestaltung von Flyern, Plakaten oder Broschüren wird das Uniblau, also die Farbe HKS 41, 
+# Bei der Gestaltung von Flyern, Plakaten oder Broschueren wird das Uniblau, also die Farbe HKS 41, 
 # nicht durchgehend angewendet, aber auch hier bildet sie ein konsequent wiederkehrendes Erkennungsmerkmal.
 #
-# Neben der Primärfarbe des dunklen Blaus stehen als Sekundärfarben mehrere Blautöne 
-# sowie grau, schwarz, weiß und chamois zur Verfügung.
+# Neben der Primaerfarbe des dunklen Blaus stehen als Sekundaerfarben mehrere Blautoene 
+# sowie Grau, Schwarz, Weiss und Chamois zur Verfuegung.
 
 # - Primary colors: ----
 
@@ -101,16 +98,16 @@ uni_goettingen_2 <- newpal(col = col_goe_secondary,
 # Souce: <https://www.uni-goettingen.de/de/589412.html>
 # 2022-11-19
 
-# Fakultätsfarben:
+# Fakultaetsfarben:
 # 
-# Die für die Universität genutzte Farbpalette wird durch die Farben der dreizehn Fakultäten der Universität, 
+# Die fuer die Universitaet genutzte Farbpalette wird durch die Farben der dreizehn Fakultaeten der Universitaet, 
 # denen jeweils eine eigene Farbe zugeordnet ist, erweitert. 
-# Diese Fakultätsfarben finden auf der Webseite der Fakultäten durchgehend Anwendung und können darüber hinaus 
-# von den Fakultäten auch bei der Gestaltung von Flyern, Plakaten oder Broschüren 
-# als Ergänzung zur Farbwelt der Universität genutzt werden.
+# Diese Fakultaetsfarben finden auf der Webseite der Fakultaeten durchgehend Anwendung und koennen darueber hinaus 
+# von den Fakultaeten auch bei der Gestaltung von Flyern, Plakaten oder Broschueren 
+# als Ergaenzung zur Farbwelt der Universitaet genutzt werden.
 
 # Error in definition:
-# Theologische Fakultät: RGB values (68 37 61) do not correspond to HEX code ("#4a203b")
+# Theologische Fakultaet: RGB values (68 37 61) do not correspond to HEX code ("#4a203b")
 # 
 # col_theo <- rgb(red = 68, green = 37, blue = 61, maxColorValue = 255)
 # seecol(col_theo)     # HEX: "#44253D"
@@ -120,7 +117,7 @@ uni_goettingen_2 <- newpal(col = col_goe_secondary,
 col_goe_fac <- c("#25795d", "#fd8f4a", "#eeb32a", "#256951", "#ac5b53", "#e07f41", "#fda642", 
                  "#c70d2d", "#b52141", "#2b7ab3", "#45195c", "#44253D", "#153268")
 
-nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "Forstwissenschaften und Walkökologie", "Geowissenschaften und Geographie", "Mathematik und Informatik", "Physik", 
+nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "Forstwissenschaften und Walkoekologie", "Geowissenschaften und Geographie", "Mathematik und Informatik", "Physik", 
                  "Jura", "Sozialwissenschaften", "Wirtschaftswissenschaften", "Philosophie", "Theologie", "Medizin")
 
 uni_goettingen_3 <- newpal(col = col_goe_fac, 
