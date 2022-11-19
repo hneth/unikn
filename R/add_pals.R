@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 11 17
+## spds | uni.kn |  2022 11 19
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -42,6 +42,92 @@ url <- c(rep("https://ethz.ch/", 3),
 )
 
 uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pals)
+
+
+# # - Uni Goettingen: ------
+
+# Source: <https://www.uni-goettingen.de/de/589412.html> 
+# 2022-11-19
+
+# Souce: <https://www.uni-goettingen.de/de/589412.html>
+# 2022-11-19
+
+# Die Farben der Universität Göttingen:
+# 
+# Die Universität Göttingen verfügt über eine eigene Farbe, das Uni-Blau HKS 41. 
+# Diese Farbe findet sich zum Beispiel auf der Webseite oder in der Vierfarb-Variante des Logos. 
+# Der hellblaue Farbton,der sich ebenfalls im Logo findet, ist eine aufgerasterte Variante und geht auf das Uni-Blau zurück.
+#
+# Bei der Gestaltung von Flyern, Plakaten oder Broschüren wird das Uniblau, also die Farbe HKS 41, 
+# nicht durchgehend angewendet, aber auch hier bildet sie ein konsequent wiederkehrendes Erkennungsmerkmal.
+#
+# Neben der Primärfarbe des dunklen Blaus stehen als Sekundärfarben mehrere Blautöne 
+# sowie grau, schwarz, weiß und chamois zur Verfügung.
+
+# - Primary colors: ----
+
+col_goe_primary <- c("#153268", "#005f9b", "#0091c8", "#50a5d2")
+nam_goe_primary <- c("Uniblau", "Logoblau", "Logomittelblau", "Logohellblau")
+
+uni_goettingen_1 <- newpal(col = col_goe_primary, 
+                           names = nam_goe_primary,
+                           as_df = FALSE)
+
+# seecol(uni_goettingen_1)
+
+# - Secondary colors: ----
+
+# Error in definition: 
+# Chamois and Altweiss have identical, but non-corresponding RGB and HEX values.
+# Error: RGB defines "Chamois", HEX defines "Altweiss"
+# 
+# goe_chamois <- rgb(red = 234, green = 226, blue = 216, maxColorValue = 255)
+# seecol(goe_chamois)     # HEX: "#EAE2D8"
+# rgb2hex(234, 226, 216)  # HEX: "#EAE2D8"
+
+col_goe_secondary <- c("#000000", "#FFFFFF", "#EAE2D8", "#f2f0e8", 
+                       "#3b3b3a", "#575656", "#878786", "#d9dada")
+nam_goe_secondary <- c("Schwarz", "Weiss", "Chamois", "Altweiss",
+                       "Grau 90", "Grau 80", "Grau 60", "Grau 20")
+
+uni_goettingen_2 <- newpal(col = col_goe_secondary, 
+                           names = nam_goe_secondary,
+                           as_df = FALSE)
+
+# seecol(uni_goettingen_2)
+
+# - Faculties / departments: ----
+
+# Souce: <https://www.uni-goettingen.de/de/589412.html>
+# 2022-11-19
+
+# Fakultätsfarben:
+# 
+# Die für die Universität genutzte Farbpalette wird durch die Farben der dreizehn Fakultäten der Universität, 
+# denen jeweils eine eigene Farbe zugeordnet ist, erweitert. 
+# Diese Fakultätsfarben finden auf der Webseite der Fakultäten durchgehend Anwendung und können darüber hinaus 
+# von den Fakultäten auch bei der Gestaltung von Flyern, Plakaten oder Broschüren 
+# als Ergänzung zur Farbwelt der Universität genutzt werden.
+
+# Error in definition:
+# Theologische Fakultät: RGB values (68 37 61) do not correspond to HEX code ("#4a203b")
+# 
+# col_theo <- rgb(red = 68, green = 37, blue = 61, maxColorValue = 255)
+# seecol(col_theo)     # HEX: "#44253D"
+# rgb2hex(68, 37, 61)  # HEX: "#44253D"
+# Correction: Using HEX code corresponding to RGB values.
+
+col_goe_fac <- c("#25795d", "#fd8f4a", "#eeb32a", "#256951", "#ac5b53", "#e07f41", "#fda642", 
+                 "#c70d2d", "#b52141", "#2b7ab3", "#45195c", "#44253D", "#153268")
+
+nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "Forstwissenschaften und Walkökologie", "Geowissenschaften und Geographie", "Mathematik und Informatik", "Physik", 
+                 "Jura", "Sozialwissenschaften", "Wirtschaftswissenschaften", "Philosophie", "Theologie", "Medizin")
+
+uni_goettingen_3 <- newpal(col = col_goe_fac, 
+                           names = nam_goe_fac,
+                           as_df = FALSE)
+
+# seecol(uni_goettingen_3)
 
 
 # ETH Zurich / Eidgenössische Technische Hochschule, Zürich, CH: ------
@@ -810,7 +896,6 @@ uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"),
 
 ## ToDo: -------- 
 
-# - Uni Goettingen: <https://www.uni-goettingen.de/de/589412.html> 
 # - Uni Heidelberg: <https://www.uni-heidelberg.de/de/universitaet/das-profil-der-universitaet-heidelberg/corporate-design>
 # - Uni Tuebingen:
 # - Caltech: <https://identity.caltech.edu/colors>
