@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 10 26
+## spds | uni.kn | 2022 11 20
 ## --------------------------
 
 ## Define color-related functions 
@@ -147,7 +147,7 @@ usecol <- function(pal = pal_unikn,
     val_all_pals_lst <- NA
     
   }
-
+  
   
   # Is the input one of the pre-defined palettes? ----- 
   
@@ -1207,18 +1207,19 @@ all_colors <- function(distinct = TRUE){
   
   # 1. All colors (of unikn package): ---- 
   unikn_pkg_colors <- usecol(c("black", "white",
-                           # Local uni.kn colors:
-                           pal_grau, pal_bordeaux, pal_petrol, pal_peach, 
-                           pal_seeblau, pal_pinky, pal_seegruen, pal_karpfenblau, 
-                           pal_signal, 
-                           pal_unikn,  # contains 4 "seegrau" variants of "grey"
-                           # Added/contributed color palettes:
-                           eth_pal, eth_pal_light, eth_pal_grey,  
-                           mpg_pal, 
-                           uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
-                           # uni_konstanz, uni_konstanz_pref, # duplicates of pal_ above.
-                           uni_princeton_0, uni_princeton_1, uni_princeton_2
-                           ), 
+                               # Local uni.kn colors:
+                               pal_grau, pal_bordeaux, pal_petrol, pal_peach, 
+                               pal_seeblau, pal_pinky, pal_seegruen, pal_karpfenblau, 
+                               pal_signal, 
+                               pal_unikn,  # contains 4 "seegrau" variants of "grey"
+                               # Added/contributed color palettes:
+                               eth_pal, eth_pal_light, eth_pal_grey,  
+                               mpg_pal, 
+                               uni_goettingen_1, uni_goettingen_2, uni_goettingen_3, 
+                               uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
+                               # uni_konstanz, uni_konstanz_pref, # duplicates of pal_ above.
+                               uni_princeton_0, uni_princeton_1, uni_princeton_2
+  ), 
   use_names = TRUE)
   
   # Sort colors (by name):
@@ -1252,10 +1253,10 @@ all_colors <- function(distinct = TRUE){
   
 } # all_colors().
 
-# ## Check:
+## Check:
 # all_colors()[1:50]
-# length(all_colors(distinct = TRUE))   # 579 [on 2022-10-26]
-# length(all_colors(distinct = FALSE))  # 762 [on 2022-10-26]
+# length(all_colors(distinct = TRUE))   # 601 [on 2022-11-20]
+# length(all_colors(distinct = FALSE))  # 787 [on 2022-11-20]
 # grepal("see", all_colors())     # finds unikn colors (and matching colors())
 # grepal("purple", all_colors())  # finds added and base R colors
 # 
