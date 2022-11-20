@@ -3,7 +3,7 @@
 \docType{data}
 \name{pal_unikn_web}
 \alias{pal_unikn_web}
-\title{uni.kn default color palette.}
+\title{uni.kn default color palette (web version).}
 \format{
 An object of class \code{data.frame} with 1 rows and 10 columns.
 }
@@ -16,6 +16,8 @@ as a data frame containing 10 colors.
 }
 \details{
 This is the primary (web/sRGB) scale. 
+
+Note that \code{\link{pal_unikn}} provides a divergent color palette (of 11 colors).
 
 See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
