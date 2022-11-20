@@ -72,7 +72,7 @@ uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pa
 col_goe_primary <- c("#153268", "#005f9b", "#0091c8", "#50a5d2")
 nam_goe_primary <- c("Uniblau", "Logoblau", "Logomittelblau", "Logohellblau")
 
-#' Primary colors of the University of Goettingen.
+#' Primary colors of the University of Göttingen.
 #'
 #' \code{uni_goettingen_1} provides the primary blue colors 
 #' of the \href{https://www.uni-goettingen.de/}{University of Göttingen}, Germany.  
@@ -129,7 +129,7 @@ col_goe_secondary <- c("#000000", "#FFFFFF", "#EAE2D8", "#f2f0e8",
 nam_goe_secondary <- c("Schwarz", "Weiss", "Chamois", "Altweiss",
                        "Grau 90", "Grau 80", "Grau 60", "Grau 20")
 
-#' Secondary colors of the University of Goettingen.
+#' Secondary colors of the University of Göttingen.
 #'
 #' \code{uni_goettingen_2} provides the secondary colors 
 #' of the \href{https://www.uni-goettingen.de/}{University of Göttingen}, Germany.  
@@ -202,7 +202,7 @@ col_goe_fac <- c("#25795d", "#fd8f4a", "#eeb32a", "#256951", "#ac5b53", "#e07f41
 nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "Forstwissenschaften und Walkoekologie", "Geowissenschaften und Geographie", "Mathematik und Informatik", "Physik", 
                  "Jura", "Sozialwissenschaften", "Wirtschaftswissenschaften", "Philosophie", "Theologie", "Medizin")
 
-#' Departmental colors of the University of Goettingen.
+#' Departmental colors of the University of Göttingen.
 #'
 #' \code{uni_goettingen_3} provides the 13 departmental colors 
 #' (German "Fakultäten") of the \href{https://www.uni-goettingen.de/}{University of Göttingen}, Germany.  
