@@ -17,12 +17,14 @@
 # add_pals <- c("eth_pal", "eth_pal_light", "eth_pal_grey", 
 #               "mpg_pal", 
 #               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
+#               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3", 
 #               "uni_konstanz", "uni_konstanz_pref",
 #               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2")
 
 inst <- c(rep("ETH Zurich", 3),
           "Max Planck Society",
           rep("University of Freiburg", 4),
+          rep("University of Goettingen", 3),          
           rep("University of Konstanz", 2),
           rep("Princeton University", 3)
 )
@@ -30,6 +32,7 @@ inst <- c(rep("ETH Zurich", 3),
 inst_alt <- c(rep("Eidgen\u00F6ssische Technische Hochschule, Z\u00FCrich", 3),
               "Max-Planck-Gesellschaft",
               rep("Universit\u00E4t Freiburg", 4),
+              rep("Universit\u00E4t G\u00F6ttingen", 3),
               rep("Universit\u00E4t Konstanz", 2), 
               rep("Princeton University", 3)
 )
@@ -37,6 +40,7 @@ inst_alt <- c(rep("Eidgen\u00F6ssische Technische Hochschule, Z\u00FCrich", 3),
 url <- c(rep("https://ethz.ch/", 3), 
          "https://www.mpg.de/en",
          rep("https://uni-freiburg.de/", 4), 
+         rep("https://uni-goettingen.de/", 4), 
          rep("https://www.uni-konstanz.de/", 2), 
          rep("https://www.princeton.edu/", 3)
 )
