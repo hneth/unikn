@@ -1,10 +1,10 @@
 ## start_unikn.R | unikn
-## spds | uni.kn |  2022 10 11
+## spds | uni.kn |  2022 11 20
 ## ---------------------------
 
 ## Open package guide: -----------------------
 
-#' Opens the unikn package guides
+#' Open the unikn package guides.
 #'
 #' @importFrom utils vignette
 #' @importFrom utils browseVignettes
