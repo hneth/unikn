@@ -40,7 +40,7 @@ inst_alt <- c(rep("Eidgen\u00F6ssische Technische Hochschule, Z\u00FCrich", 3),
 url <- c(rep("https://ethz.ch/", 3), 
          "https://www.mpg.de/en",
          rep("https://uni-freiburg.de/", 4), 
-         rep("https://uni-goettingen.de/", 4), 
+         rep("https://uni-goettingen.de/", 3), 
          rep("https://www.uni-konstanz.de/", 2), 
          rep("https://www.princeton.edu/", 3)
 )
