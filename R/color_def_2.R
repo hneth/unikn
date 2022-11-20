@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2022 11 07
+## spds | uni.kn  | 2022 11 20
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -10,7 +10,7 @@
 
 #   (a) Documentation: ----  
 
-#' uni.kn default color palette.
+#' uni.kn default color palette (11 colors).
 #'
 #' \code{pal_unikn} combines the 5 shades of blue colors 
 #' from color palette \code{\link{pal_seeblau}} 
@@ -83,7 +83,7 @@ pal_unikn_pref <- data.frame(  # Element:
 
 #   (a) Documentation: ----  
 
-#' uni.kn preferred colors in a color palette.
+#' uni.kn color palette of preferred colors.
 #'
 #' \code{pal_unikn_pref} provides an additional uni.kn color palette  
 #' that collects the preferred color of each palette 
@@ -140,7 +140,7 @@ rownames(pal_unikn_pref) <- "1"  # fix/set rownames() of palette
 
 #   (a) Documentation: ----  
 
-#' uni.kn light colors in a color palette.
+#' uni.kn color palette of light colors.
 #'
 #' \code{pal_unikn_light} provides an additional uni.kn color palette  
 #' that collects 2 light colors of 4 color palettes  
@@ -197,7 +197,7 @@ rownames(pal_unikn_light) <- "1"  # fix/set rownames() of palette
 
 #   (a) Documentation: ----  
 
-#' uni.kn dark colors in a color palette.
+#' uni.kn color palette of dark colors.
 #'
 #' \code{pal_unikn_dark} provides an additional uni.kn color palette  
 #' that collects 2 dark colors of 4 color palettes  
@@ -248,7 +248,7 @@ rownames(pal_unikn_dark) <- "1"  # fix/set rownames() of palette
 
 #   (a) Documentation: ----  
 
-#' uni.kn pairwise colors in a color palette.
+#' uni.kn color palette of pairwise colors.
 #'
 #' \code{pal_unikn_pair} provides an additional uni.kn color palette  
 #' that collects 16 paired colors of 8 color palettes  

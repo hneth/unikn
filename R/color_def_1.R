@@ -29,12 +29,14 @@ pal_unikn_web <- data.frame(                             #  Element:
 
 # Documentation:
 
-#' uni.kn default color palette.
+#' uni.kn default color palette (web version).
 #'
 #' \code{pal_unikn_web} provides the default uni.kn color palette  
 #' as a data frame containing 10 colors.
 #'
 #' This is the primary (web/sRGB) scale. 
+#' 
+#' Note that \code{\link{pal_unikn}} provides a divergent color palette (of 11 colors).
 #'
 #' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
