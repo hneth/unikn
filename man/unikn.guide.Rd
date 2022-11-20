@@ -2,10 +2,10 @@
 % Please edit documentation in R/start_unikn.R
 \name{unikn.guide}
 \alias{unikn.guide}
-\title{Opens the unikn package guides}
+\title{Open the unikn package guides.}
 \usage{
 unikn.guide()
 }
 \description{
-Opens the unikn package guides
+Open the unikn package guides.
 }
