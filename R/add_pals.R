@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 11 19
+## spds | uni.kn |  2022 11 20
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -44,12 +44,12 @@ url <- c(rep("https://ethz.ch/", 3),
 uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pals)
 
 
-# # - Uni Goettingen: ------
+# Uni Goettingen / Göttingen: ------
 
 # Motto: "In publica commoda" (For the good of all)
 
 # Source: <https://www.uni-goettingen.de/de/589412.html> 
-# 2022-11-19
+# 2022-11-20
 
 # Die Farben der Universitaet Goettingen:
 # 
@@ -67,6 +67,42 @@ uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pa
 
 col_goe_primary <- c("#153268", "#005f9b", "#0091c8", "#50a5d2")
 nam_goe_primary <- c("Uniblau", "Logoblau", "Logomittelblau", "Logohellblau")
+
+#' Primary colors of the University of Goettingen.
+#'
+#' \code{uni_goettingen_1} provides the primary blue colors 
+#' of the \href{https://www.uni-goettingen.de/}{University of Göttingen}, Germany.  
+#' 
+#' The primary dark blue color is defined as Uni-Blau HKS 41. 
+#' The palette \code{uni_goettingen_1} adds some derived colors, 
+#' while the palette \code{\link{uni_goettingen_2}} provides secondary colors. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-11-20.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.uni-goettingen.de/de/589412.html}. 
+#' 
+#' @examples
+#' uni_goettingen_1
+#' seecol(uni_goettingen_1)  # view color palette
+#' demopal(uni_goettingen_1, type = 1, main = "Primary colors of the University of Göttingen")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_goettingen_2}} and \code{\link{uni_goettingen_3}} for alternative colors of the University of Goettingen;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 uni_goettingen_1 <- newpal(col = col_goe_primary, 
                            names = nam_goe_primary,
@@ -89,13 +125,53 @@ col_goe_secondary <- c("#000000", "#FFFFFF", "#EAE2D8", "#f2f0e8",
 nam_goe_secondary <- c("Schwarz", "Weiss", "Chamois", "Altweiss",
                        "Grau 90", "Grau 80", "Grau 60", "Grau 20")
 
+#' Secondary colors of the University of Goettingen.
+#'
+#' \code{uni_goettingen_2} provides the secondary colors 
+#' of the \href{https://www.uni-goettingen.de/}{University of Göttingen}, Germany.  
+#' 
+#' These colors are to be combined with the blue primary colors 
+#' provided by palette \code{\link{uni_goettingen_1}}. 
+#' 
+#' \code{uni_goettingen_2} corrects an error in the color definitions 
+#' of \url{https://www.uni-goettingen.de/de/589412.html}, 
+#' where "Chamois" and "Altweiss" had identical, 
+#' but non-corresponding RGB and HEX values.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-11-20.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.uni-goettingen.de/de/589412.html}. 
+#' 
+#' @examples
+#' uni_goettingen_2
+#' seecol(uni_goettingen_2)  # view color palette
+#' demopal(uni_goettingen_2, type = 3, main = "Secondary colors of the University of Göttingen")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_goettingen_1}} and \code{\link{uni_goettingen_3}} for alternative colors of the University of Goettingen;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
 uni_goettingen_2 <- newpal(col = col_goe_secondary, 
                            names = nam_goe_secondary,
                            as_df = FALSE)
 
 # seecol(uni_goettingen_2)
 
-# - Faculties / departments: ----
+# - Departments / faculties: ----
 
 # Souce: <https://www.uni-goettingen.de/de/589412.html>
 # 2022-11-19
@@ -121,6 +197,45 @@ col_goe_fac <- c("#25795d", "#fd8f4a", "#eeb32a", "#256951", "#ac5b53", "#e07f41
 
 nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "Forstwissenschaften und Walkoekologie", "Geowissenschaften und Geographie", "Mathematik und Informatik", "Physik", 
                  "Jura", "Sozialwissenschaften", "Wirtschaftswissenschaften", "Philosophie", "Theologie", "Medizin")
+
+#' Departmental colors of the University of Goettingen.
+#'
+#' \code{uni_goettingen_3} provides the 13 departmental colors 
+#' (German "Fakultäten") of the \href{https://www.uni-goettingen.de/}{University of Göttingen}, Germany.  
+#' 
+#' These colors are used in online and print materials of these departments.
+#' 
+#' \code{uni_goettingen_3} corrects an error in the color definitions 
+#' of \url{https://www.uni-goettingen.de/de/589412.html}, 
+#' where the color definition for "Theologie" used non-corresponding RGB and HEX values. 
+#' We adopted the RGB value \code{68 37 61} and its corresponding HEX value \code{"#44253D"}.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-11-20.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.uni-goettingen.de/de/589412.html}. 
+#' 
+#' @examples
+#' uni_goettingen_3
+#' seecol(uni_goettingen_3)  # view color palette
+#' demopal(uni_goettingen_3, type = 3, main = "Departmental colors of the University of Göttingen")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_goettingen_1}} and \code{\link{uni_goettingen_2}} for alternative colors of the University of Goettingen;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 uni_goettingen_3 <- newpal(col = col_goe_fac, 
                            names = nam_goe_fac,
