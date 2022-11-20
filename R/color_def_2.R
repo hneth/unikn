@@ -10,21 +10,21 @@
 
 #   (a) Documentation: ----  
 
-#' unikn default color palette (11 colors).
+#' uni.kn default color palette.
 #'
 #' \code{pal_unikn} combines the 5 shades of blue colors 
 #' from color palette \code{\link{pal_seeblau}} 
 #' with the 6 non-blue colors of \code{\link{pal_unikn_web}} 
-#' to a palette containing 11 color values. 
+#' to a divergent palette of 11 colors. 
 #' 
 #' Adding seeblau5 (i.e., \code{pal_seeblau[1]}) to 
 #' the default color palette \code{\link{pal_unikn}} 
 #' also puts \code{white} at the central (middle) 
-#' position of a palette with 11 values:
+#' position of a color palette with 11 values:
 #' 
 #' \code{pal_unikn[[6]]} is \code{white} or \code{"#FFFFFF"}.  
 #'
-#' This is useful when creating color gradients. 
+#' A divergent palette is useful for creating color gradients. 
 #'
 #' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'

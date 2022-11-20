@@ -168,7 +168,7 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 
 #   (b) Documentation: ---- 
 
-#' uni.kn seeblau color palette.
+#' uni.kn color palette seeblau.
 #'
 #' \code{pal_seeblau} provides an additional uni.kn color palette 
 #' as a data frame containing 5 colors (shades of 
@@ -296,7 +296,7 @@ names(Seeblau) <- "Seeblau"
 
 #   (b) Documentation: ----  
 
-#' uni.kn peach color palette.
+#' uni.kn color palette peach.
 #'
 #' \code{pal_peach} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -413,7 +413,7 @@ names(Peach) <- "Peach"
 
 #   (b) Documentation: ---- 
 
-#' uni.kn grau color palette.
+#' uni.kn color palette grau.
 #'
 #' \code{pal_grau} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -530,7 +530,7 @@ names(Grau) <- "Grau"
 
 #   (b) Documentation: ----  
 
-#' uni.kn petrol color palette.
+#' uni.kn color palette petrol.
 #'
 #' \code{pal_petrol} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -649,7 +649,7 @@ names(Petrol) <- "Petrol"
 
 #   (b) Documentation: ----  
 
-#' uni.kn seegruen color palette.
+#' uni.kn color palette seegruen.
 #'
 #' \code{pal_seegruen} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -767,7 +767,7 @@ names(Seegruen) <- "Seegruen"
 
 #   (b) Documentation: ----  
 
-#' uni.kn karpfenblau color palette.
+#' uni.kn color palette karpfenblau.
 #'
 #' \code{pal_karpfenblau} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -884,7 +884,7 @@ names(Karpfenblau) <- "Karpfenblau"
 
 #   (b) Documentation: ----  
 
-#' uni.kn pinky color palette.
+#' uni.kn color palette pinky.
 #'
 #' \code{pal_pinky} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -1001,7 +1001,7 @@ Pinky  #  "#E0607E"
 
 #   (b) Documentation: ----  
 
-#' uni.kn bordeaux color palette.
+#' uni.kn color palette bordeaux.
 #'
 #' \code{pal_bordeaux} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -1116,7 +1116,7 @@ names(Bordeaux) <- "Bordeaux"
 
 #   (b) Documentation: ----  
 
-#' uni.kn signal (Ampel) color palette.
+#' uni.kn color palette signal (Ampel).
 #'
 #' \code{pal_signal} provides an additional uni.kn color palette  
 #' as a data frame containing 3 colors (Ampel or traffic signal colors). 
