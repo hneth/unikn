@@ -1013,7 +1013,8 @@ uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"),
                           as_df = FALSE)
 
 
-# Uni Regensburg: ------
+
+# Uni Regensburg / UR: ------
 
 # Source: <https://www.uni-regensburg.de/verwaltung/corporate-design/index.html>
 # Last update: 2022-11-24
