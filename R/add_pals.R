@@ -1062,7 +1062,7 @@ UR_schwarzrot <- grDevices::rgb(95, 0, 47, names = "schwarzrot", maxColorValue =
 
 # Abteilung 1, Referat 3 bis 6: Akademisches Auslandsamt, Senatsbeauftragter für behinderte Studierende, 
 # Studentenkanzlei, Zentrales Prüfungssekretariat, Zentrale Studienberatung:
-UR_schilfgruen <- grDevices::rgb(61, 65, 0, names = "schilfgrün", maxColorValue = 255)
+UR_schilfgruen <- grDevices::rgb(61, 65, 0, names = "schilfgruen", maxColorValue = 255)
 
 # Palettes: ---- 
 
