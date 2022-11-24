@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 11 20
+## spds | uni.kn |  2022 11 24
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -1012,10 +1012,29 @@ uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"),
                           names = c("orange_b", "black", "white"),
                           as_df = FALSE)
 
+
+# Uni Regensburg: ------
+
+# Source: <https://www.uni-regensburg.de/verwaltung/corporate-design/index.html>
+# Last update: 2022-11-24
+
+# +++ here now +++ 
+
+# Farbwerte für "Glutrot", die Farbe der Fakultät für Informatik und Data Science: 
+# RGB 218.60.67
+# Web-Farben #DA3C43
+# CMYK coated/uncoated 0.96.99.0
+# HKS-Wert 13
+
+rb_glutrot <- rgb(218, 60, 67, names = "glutrot", maxColorValue = 255)
+# seecol(rb_glutrot)
+
+
 ## ToDo: -------- 
 
+# - Caltech: <https://identity.caltech.edu/colors>
 # - Uni Heidelberg: <https://www.uni-heidelberg.de/de/universitaet/das-profil-der-universitaet-heidelberg/corporate-design>
 # - Uni Tuebingen:
-# - Caltech: <https://identity.caltech.edu/colors>
+# - Uni Regensburg: <https://www.uni-regensburg.de/verwaltung/corporate-design/index.html>
 
 ## eof. ----------
