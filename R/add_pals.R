@@ -1019,7 +1019,54 @@ uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"),
 # Source: <https://www.uni-regensburg.de/verwaltung/corporate-design/index.html>
 # Last update: 2022-11-24
 
+# # Service-Einrichtungen: ---- 
+# 
+# 29.63.75 : Blaugrau : Leitung, Organe und Verwaltung (LOV) [Ausnahme: Referate I/3, I/4, I/5, I/6]
+# 95.0.47 : Schwarzrot : Chancengleichheit und Familie [Familien-Service, Frauenbeauftragte, Frauenförderung, Gleichstellung]
+# 61.65.0 : Schilfgrün : Service-Einrichtungen der Verwaltung für Studierende [Akademisches Auslandsamt, Studentenkanzlei, Zentrales Prüfungssekretariat, Zentrale Studienberatung, Senatsbeauftragter für Behinderte und chronisch Kranke]
+# 164.102.116 : Dianthusrot : Universitätsbibliothek (UB)
+# 3.35.82 : Saphirblau : Rechenzentrum (RZ)
+# 65.98.36 : Farngrün : Zentrum für Weiterbildung
+# 
+# # Fakultätsübergreifende Einrichtungen: ---- 
+# 
+# 114.75.81 : Rotbraun : Zentrum für Sprache und Kommunikation (ZSK)
+# 86.78.111 : Perlviolett : Europaeum (Ost-West-Zentrum)
+# 59.0.65 : Violettrot : Zentrum für Hochschul- und Wissenschaftsdidaktik (ZHW)
+# 134.104.0 : Grünbraun : Regensburger Universitätszentrum für Lehrerbildung (RUL)
+# 0.129.123 : Wasserblau : Sportzentrum (SZ)
+# 
+# # Fakultäten: ---- 
+# 
+# 205.211.15 : Urangelb : Rechtswissenschaft
+# 174.167.0 : Lärchennadelgrün : Wirtschaftswissenschaften
+# 236.188.0 : Vatikangelb : Katholische Theologie
+# 236.98.0 : Orangerot : Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
+# 191.0.42 : Heucherarot : Humanwissenschaften
+# 156.0.75 : Heidenelkenrot : Sprach-, Literatur- und Kulturwissenschaften
+# 79.184.0 : Blattgrün : Biologie und Vorklinische Medizin
+# 0.155.119 : Türkisgrün : Mathematik
+# 0.137.147 : Eisvogelblau : Physik
+# 0.135.178 : Spektralblau : Chemie und Pharmazie
+# 0.85.106 :  Capriblau : Medizin
+
 # +++ here now +++ 
+
+# Colors: ---- 
+
+# Leitung, Organe und Verwaltung (mit Ausnahmen):
+UR_blaugrau <- grDevices::rgb(29, 63, 75, names = "blaugrau", maxColorValue = 255)
+
+# Familienservice, Frauenbeauftragte, Frauenmentoring, Gleichstellungsstelle:
+UR_schwarzrot <- grDevices::rgb(95, 0, 47, names = "schwarzrot", maxColorValue = 255)
+
+# Abteilung 1, Referat 3 bis 6: Akademisches Auslandsamt, Senatsbeauftragter für behinderte Studierende, 
+# Studentenkanzlei, Zentrales Prüfungssekretariat, Zentrale Studienberatung:
+UR_schilfgruen <- grDevices::rgb(61, 65, 0, names = "schilfgrün", maxColorValue = 255)
+
+# Palettes: ---- 
+
+uni_regensburg_1 <- newpal(col = c(UR_blaugrau, UR_schwarzrot, UR_schilfgruen), as_df = FALSE)
 
 # Farbwerte für "Glutrot", die Farbe der Fakultät für Informatik und Data Science: 
 # RGB 218.60.67
@@ -1027,8 +1074,10 @@ uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"),
 # CMYK coated/uncoated 0.96.99.0
 # HKS-Wert 13
 
-rb_glutrot <- rgb(218, 60, 67, names = "glutrot", maxColorValue = 255)
-# seecol(rb_glutrot)
+UR_glutrot <- grDevices::rgb(218, 60, 67, names = "glutrot", maxColorValue = 255)
+
+
+# seecol(UR_glutrot)
 
 
 ## ToDo: -------- 
