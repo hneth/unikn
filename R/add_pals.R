@@ -561,6 +561,8 @@ mpg_pal <- newpal(col = c("#007367", "white", "#D0D3D4"),
                   as_df = FALSE)
 
 
+
+
 # Uni Freiburg: ------
 
 # Source: https://uni-freiburg.de/universitaet/corporate-design/
@@ -777,6 +779,7 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
                             as_df = FALSE)
 
 
+
 # Uni Konstanz: ------
 
 # Sources: 
@@ -877,6 +880,7 @@ uni_konstanz <- newpal(col = pal_unikn,
 uni_konstanz_pref <- newpal(col = pal_unikn_pref,
                             names = names(pal_unikn_pref),
                             as_df = FALSE)
+
 
 
 # Uni Princeton: ------
@@ -1064,8 +1068,7 @@ uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"),
 
 # +++ here now +++ 
 
-# Colors: ---- 
-
+# Colors: 
 UR_neutralgrau <- rgb(142, 142, 141, names = "neutralgrau",    maxColorValue = 255) # UR-Hausfarbe, Logo
 
 UR_blaugrau <-    rgb( 29,  63,  75, names = "blaugrau",    maxColorValue = 255) # Leitung, Organe und Verwaltung (LOV) 
@@ -1094,9 +1097,7 @@ UR_spektralblau <-       rgb(  0, 135, 178,  names = "spektralblau", maxColorVal
 UR_capriblau <-          rgb(  0,  85, 106,  names = "capriblau",    maxColorValue = 255) # Medizin
 UR_glutrot <-            rgb(218,  60,  67,  names = "glutrot",      maxColorValue = 255) # Informatik und Data Science
 
-# Web colors:
-
-# Flächenfarbe / area colors:
+# Web colors / Flaechenfarbe / area colors:
 UR_urangelb_a <-           "#CDD30F" # Rechtswissenschaft
 UR_laerchennadelgruen_a <- "#AEA700" # Wirtschaftswissenschaften
 UR_vatikangelb_a <-        "#ECBC00" # Katholische Theologie
@@ -1125,9 +1126,9 @@ UR_capriblau_f <-          "#004455" # Medizin
 UR_glutrot_f <-            "#DA3C43" # Informatik und Data Science (TODO: Same as area color?)
 
 
-# Palettes: ---- 
+# Palettes:
 
-# Service und Fakultätsübergreifende Einrichtungen: ---- 
+# - uni_regensburg_1: Service und Fakultätsübergreifende Einrichtungen: ---- 
 
 #' General colors of the University of Regensburg.
 #'
@@ -1186,9 +1187,9 @@ uni_regensburg_1 <- newpal(col = c(UR_neutralgrau,
                                    UR_rotbraun, UR_perlviolett, UR_violettrot, 
                                    UR_gruenbraun, UR_wasserblau), as_df = FALSE)
 
-# Fakultäten / web area colors: ---- 
+# - uni_regensburg_2: Fakultaeten / web area colors: ---- 
 
-#' Faculty colors of the University of Regensburg (for areas).
+#' Faculty colors of the University of Regensburg (areas).
 #'
 #' \code{uni_regensburg_2} provides the faculty (departmental) colors 
 #' for coloring print or web areas 
@@ -1226,7 +1227,8 @@ uni_regensburg_1 <- newpal(col = c(UR_neutralgrau,
 #' @examples
 #' uni_regensburg_2
 #' seecol(uni_regensburg_2)  # view color palette
-#' demopal(uni_regensburg_2, type = 3, main = "Departmental colors of the University of Regensburg")
+#' demopal(uni_regensburg_2, type = 3, 
+#'         main = "Department colors at the University of Regensburg")
 #'
 #' @family contributed color palettes
 #'
@@ -1254,9 +1256,9 @@ uni_regensburg_2_a <- newpal(col = c(UR_urangelb_a, UR_laerchennadelgruen_a, UR_
 
 all.equal(uni_regensburg_2, uni_regensburg_2_a)  # RGB values correspond to web colors for areas.
 
-# Fakultäten / web font colors: ---- 
+# - uni_regensburg_3: Fakultaeten / web font colors: ---- 
 
-#' Faculty colors of the University of Regensburg (for fonts).
+#' Faculty colors of the University of Regensburg (fonts).
 #'
 #' \code{uni_regensburg_3} provides the faculty (departmental) colors 
 #' for web fonts 
@@ -1294,7 +1296,8 @@ all.equal(uni_regensburg_2, uni_regensburg_2_a)  # RGB values correspond to web 
 #' @examples
 #' uni_regensburg_3
 #' seecol(uni_regensburg_3)  # view color palette
-#' demopal(uni_regensburg_3, type = 4, seed = 13, main = "Departmental colors of the University of Regensburg")
+#' demopal(uni_regensburg_3, type = 4, seed = 13, 
+#'         main = "Department colors at the University of Regensburg")
 #'
 #' @family contributed color palettes
 #'
@@ -1305,6 +1308,8 @@ all.equal(uni_regensburg_2, uni_regensburg_2_a)  # RGB values correspond to web 
 #' \code{\link{simcol}} for finding similar colors; 
 #' \code{\link{newpal}} for defining new color palettes; 
 #' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 uni_regensburg_3 <- newpal(col = c(UR_urangelb_f, UR_laerchennadelgruen_f, UR_vatikangelb_f,
                                    UR_orangerot_f, UR_heucherarot_f, UR_heidenelkenrot_f,
