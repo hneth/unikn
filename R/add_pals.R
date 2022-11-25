@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 11 24
+## spds | uni.kn |  2022 11 25
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -1049,36 +1049,54 @@ uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"),
 # 0.137.147 : Eisvogelblau : Physik
 # 0.135.178 : Spektralblau : Chemie und Pharmazie
 # 0.85.106 :  Capriblau : Medizin
-
-# +++ here now +++ 
-
-# Colors: ---- 
-
-# Leitung, Organe und Verwaltung (mit Ausnahmen):
-UR_blaugrau <- grDevices::rgb(29, 63, 75, names = "blaugrau", maxColorValue = 255)
-
-# Familienservice, Frauenbeauftragte, Frauenmentoring, Gleichstellungsstelle:
-UR_schwarzrot <- grDevices::rgb(95, 0, 47, names = "schwarzrot", maxColorValue = 255)
-
-# Abteilung 1, Referat 3 bis 6: Akademisches Auslandsamt, Senatsbeauftragter für behinderte Studierende, 
-# Studentenkanzlei, Zentrales Prüfungssekretariat, Zentrale Studienberatung:
-UR_schilfgruen <- grDevices::rgb(61, 65, 0, names = "schilfgruen", maxColorValue = 255)
-
-# Palettes: ---- 
-
-uni_regensburg_1 <- newpal(col = c(UR_blaugrau, UR_schwarzrot, UR_schilfgruen), as_df = FALSE)
-
-# Farbwerte für "Glutrot", die Farbe der Fakultät für Informatik und Data Science: 
+# 
+# Fakultät für Informatik und Data Science: "Glutrot" 
 # RGB 218.60.67
 # Web-Farben #DA3C43
 # CMYK coated/uncoated 0.96.99.0
 # HKS-Wert 13
 
-UR_glutrot <- grDevices::rgb(218, 60, 67, names = "glutrot", maxColorValue = 255)
+# +++ here now +++ 
 
+# Colors: ---- 
 
-# seecol(UR_glutrot)
+UR_blaugrau <- rgb(29, 63, 75, names = "blaugrau", maxColorValue = 255) # Leitung, Organe und Verwaltung (LOV) 
+UR_schwarzrot <- rgb(95, 0, 47, names = "schwarzrot", maxColorValue = 255) # Chancengleichheit und Familie
+UR_schilfgruen <- rgb(61, 65, 0, names = "schilfgruen", maxColorValue = 255) # Service-Einrichtungen der Verwaltung für Studierende
+UR_dianthusrot <- rgb(164, 102, 116, names = "dianthusrot", maxColorValue = 255) # Universitätsbibliothek (UB)
+UR_saphirblau <- rgb(3, 35, 82, names = "saphirblau", maxColorValue = 255) # Rechenzentrum (RZ)
+UR_farngruen <- rgb(65, 98, 36, names = "farngruen", maxColorValue = 255) # Zentrum für Weiterbildung
 
+UR_rotbraun <- rgb(114, 75, 81, names = "rotbraun", maxColorValue = 255) # Zentrum für Sprache und Kommunikation (ZSK)
+UR_perlviolett <- rgb(86, 78, 111, names = "perlviolett", maxColorValue = 255) # Europaeum (Ost-West-Zentrum)
+UR_violettrot <- rgb(59, 0, 65, names = "violettrot", maxColorValue = 255) # Zentrum für Hochschul- und Wissenschaftsdidaktik (ZHW)
+UR_gruenbraun <- rgb(134, 104, 0, names = "gruenbraun", maxColorValue = 255) # Regensburger Universitätszentrum für Lehrerbildung (RUL)
+UR_wasserblau <- rgb(0, 129, 123, names = "wasserblau", maxColorValue = 255) # Sportzentrum (SZ)
+
+UR_urangelb <- rgb(205, 211, 15, names = "urangelb", maxColorValue = 255) # Rechtswissenschaft
+UR_laerchennadelgruen <- rgb(174, 167, 0, names = "laerchennadelgruen", maxColorValue = 255) # Wirtschaftswissenschaften
+UR_vatikangelb <- rgb(236, 188, 0, names = "vatikangelb", maxColorValue = 255) # Katholische Theologie
+UR_orangerot <- rgb(236, 98, 0, names = "orangerot", maxColorValue = 255) # Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
+UR_heucherarot <- rgb(191, 0, 42, names = "heucherarot", maxColorValue = 255) # Humanwissenschaften
+UR_heidenelkenrot <- rgb(156, 0, 75 , names = "heidenelkenrot", maxColorValue = 255) # Sprach-, Literatur- und Kulturwissenschaften
+UR_blattgruen <- rgb(79, 184, 0, names = "blattgruen", maxColorValue = 255) # Biologie und Vorklinische Medizin
+UR_tuerkisgruen <- rgb(0, 155, 119, names = "tuerkisgruen", maxColorValue = 255) # Mathematik
+UR_eisvogelblau <- rgb(0, 137, 147, names = "eisvogelblau", maxColorValue = 255) # Physik
+UR_spektralblau <- rgb(0, 135, 178, names = "spektralblau", maxColorValue = 255) # Chemie und Pharmazie
+UR_capriblau <- rgb(0, 85, 106, names = "capriblau", maxColorValue = 255) # Medizin
+UR_glutrot <- grDevices::rgb(218, 60, 67, names = "glutrot", maxColorValue = 255) # Informatik und Data Science
+
+# Palettes: ---- 
+
+uni_regensburg_1 <- newpal(col = c(UR_blaugrau, UR_schwarzrot, UR_schilfgruen, 
+                                   UR_dianthusrot, UR_saphirblau, UR_farngruen,
+                                   UR_rotbraun, UR_perlviolett, UR_violettrot, 
+                                   UR_gruenbraun, UR_wasserblau), as_df = FALSE)
+
+uni_regensburg_2 <- newpal(col = c(UR_urangelb, UR_laerchennadelgruen, UR_vatikangelb, 
+                                   UR_orangerot, UR_heucherarot, UR_heidenelkenrot, 
+                                   UR_blattgruen, UR_tuerkisgruen, UR_eisvogelblau, 
+                                   UR_spektralblau, UR_capriblau, UR_glutrot), as_df = FALSE)
 
 ## ToDo: -------- 
 
