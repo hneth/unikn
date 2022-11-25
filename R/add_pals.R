@@ -1167,7 +1167,8 @@ UR_glutrot_f <-            "#DA3C43" # Informatik und Data Science (TODO: Same a
 #' @examples
 #' uni_regensburg_1
 #' seecol(uni_regensburg_1)  # view color palette
-#' demopal(uni_regensburg_1, alpha = .70, type = 2, main = "General colors of the University of Regensburg")
+#' demopal(uni_regensburg_1, alpha = .70, type = 2, 
+#'         main = "General colors of the University of Regensburg")
 #'
 #' @family contributed color palettes
 #'
