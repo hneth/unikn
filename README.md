@@ -2,8 +2,8 @@
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
 <!-- Use status badges: -->
 
-[![CRAN\_status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
-[![Build\_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/)
+[![CRAN_status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
+[![Build_status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/)
 [![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
 
@@ -89,33 +89,39 @@ as well!
 
 The latest release of **unikn** is available from
 [CRAN](https://CRAN.R-project.org/) at
-<a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a>:
+<https://CRAN.R-project.org/package=unikn>:
 
-    install.packages('unikn')  # install from CRAN client
-    library('unikn')           # loads the package
+``` r
+install.packages('unikn')  # install from CRAN client
+library('unikn')           # loads the package
+```
 
 The current development version can be installed from its
 [GitHub](https://github.com) repository at
-<a href="https://github.com/hneth/unikn/" class="uri">https://github.com/hneth/unikn/</a>:
+<https://github.com/hneth/unikn/>:
 
-    # install.packages('devtools')  # install pkg
-    devtools::install_github('hneth/unikn')
+``` r
+# install.packages('devtools')  # install pkg
+devtools::install_github('hneth/unikn')
+```
 
 ## Colors and color palettes
 
 The **unikn** contains two categories of color palettes:
 
--   16 palettes implementing the colors of the [University of
-    Konstanz](https://www.uni-konstanz.de/)’s corporate design
+- 16 palettes implementing the colors of the [University of
+  Konstanz](https://www.uni-konstanz.de/)’s corporate design
 
--   16 additional color palettes from various institutions
+- 16 additional color palettes from various institutions
 
 ### The colors of Konstanz University
 
 Originally, the **unikn** package primarily provided the 16 color
 palettes of the [University of Konstanz](https://www.uni-konstanz.de/):
 
-    seecol("all_unikn")
+``` r
+seecol("all_unikn")
+```
 
 <img src="inst/pix/README-pal-all-1.png" width="600px" style="display: block; margin: auto;" />
 
@@ -131,7 +137,9 @@ The default **unikn** color palette `pal_unikn` combines shades of
 `pal_seeblau` and `pal_grau` with the base R colors “white” and “black”
 into a diverging, symmetrical palette (of 11 colors):
 
-    seecol(pal_unikn)
+``` r
+seecol(pal_unikn)
+```
 
 <img src="inst/pix/README-pal-unikn-1.png" width="550px" style="display: block; margin: auto;" />
 
@@ -160,7 +168,9 @@ Several more specialized color palettes combine the elements of nine
 color hues. The preferred colors are contained in
 palette `pal_unikn_pref`:
 
-    seecol(pal_unikn_pref)
+``` r
+seecol(pal_unikn_pref)
+```
 
 <img src="inst/pix/README-pal-unikn-pref-1.png" width="550px" style="display: block; margin: auto;" />
 
@@ -173,11 +183,13 @@ for details.)
 **unikn** exports these color palettes as data frames that can be
 accessed by number, value, or name:
 
-    # Accessing colors from palettes:
-    pal_unikn              # color palette of 11 colors
-    pal_unikn[3]           # preferred (named) color 3
-    pal_unikn[[3]]         # color value 3: #59C7EB"
-    pal_unikn["seeblau3"]  # color by name
+``` r
+# Accessing colors from palettes:
+pal_unikn              # color palette of 11 colors
+pal_unikn[3]           # preferred (named) color 3
+pal_unikn[[3]]         # color value 3: #59C7EB"
+pal_unikn["seeblau3"]  # color by name
+```
 
 <!-- #### Details {-} -->
 <!-- Overall, the colors of the [University of Konstanz](https://www.uni-konstanz.de/) make up 16\ dedicated palettes, plus nine individual colors of `pal_unikn_pref` (e.g., `Seeblau`, `Seegruen`, etc.) as named colors. For details on each named color hue, evaluate `seecol()` on the following color palettes:  -->
@@ -195,23 +207,24 @@ In addition to the 16 specific color palettes of the [University of
 Konstanz](https://www.uni-konstanz.de/), **unikn** currently provides
 color palettes of the following institutions:
 
--   [ETH Zurich](https://ethz.ch/): `eth_pal`, `eth_pal_light`,
-    `eth_pal_grey`
--   [Max Planck Society](https://www.mpg.de/en): `mpg_pal`
--   [University of Freiburg](https://uni-freiburg.de/):
-    `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`,
-    `uni_freiburg_info`
--   [University of Göttingen](https://uni-goettingen.de/):
-    `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3`
--   [University of Konstanz](https://www.uni-konstanz.de/):
-    `uni_konstanz`, `uni_konstanz_pref`
--   [Princeton University](https://www.princeton.edu/):
-    `uni_princeton_0`, `uni_princeton_1`, `uni_princeton_2`
+- [ETH Zurich](https://ethz.ch/): `eth_pal`, `eth_pal_light`,
+  `eth_pal_grey`
+- [Max Planck Society](https://www.mpg.de/en): `mpg_pal`
+- [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_br`,
+  `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`
+- [University of Göttingen](https://uni-goettingen.de/):
+  `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3`
+- [University of Konstanz](https://www.uni-konstanz.de/):
+  `uni_konstanz`, `uni_konstanz_pref`
+- [Princeton University](https://www.princeton.edu/): `uni_princeton_0`,
+  `uni_princeton_1`, `uni_princeton_2`
+- [University of Regensburg](https://www.uni-regensburg.de/):
+  `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3`
 
-<!-- -->
-
-    # Inspect additional/alternative color palettes:
-    seecol("add")
+``` r
+# Inspect additional/alternative color palettes:
+seecol("add")
+```
 
 <img src="inst/pix/README-seecol-add-pals-1.png" width="550px" style="display: block; margin: auto;" />
 
@@ -250,13 +263,13 @@ We’re looking forward to your inputs and contributions!
 Beyond defining colors and color palettes, the **unikn** package
 provides a range of tools for viewing and manipulating colors:
 
--   Two main functions — `seecol()` and `usecol()` — provide a simple
-    interface for *viewing* and *using* color palettes.
+- Two main functions — `seecol()` and `usecol()` — provide a simple
+  interface for *viewing* and *using* color palettes.
 
--   Additional color functions (i.e., `simcol()`, `grepal()`,
-    `newpal()`, `shades_of()`, or `ac()`) provide auxiliary
-    functionality (for finding similar colors and color names, creating
-    new color palettes and color gradients, or adjusting transparency).
+- Additional color functions (i.e., `simcol()`, `grepal()`, `newpal()`,
+  `shades_of()`, or `ac()`) provide auxiliary functionality (for finding
+  similar colors and color names, creating new color palettes and color
+  gradients, or adjusting transparency).
 
 <!-- Examples: -->
 
@@ -270,10 +283,12 @@ color palette or comparisons between multiple color palettes.
 Using `seecol()` on an individual color palette provides a quick
 overview over its colors and details:
 
-    # Inspect an individual color palette:
-    seecol(pal = eth_pal,                      # a color palette / list of palettes / keyword
-           col_brd = "white", lwd_brd = 5,     # color and width of borders
-           main = "Colors of the ETH Zurich")  # plot title 
+``` r
+# Inspect an individual color palette:
+seecol(pal = eth_pal,                      # a color palette / list of palettes / keyword
+       col_brd = "white", lwd_brd = 5,     # color and width of borders
+       main = "Colors of the ETH Zurich")  # plot title 
+```
 
 <img src="inst/pix/README-seecol-pref-1.png" width="550px" style="display: block; margin: auto;" />
 
@@ -284,10 +299,12 @@ palettes, the function displays a comparison between them. When only
 some colors of a color palette are requested, the `seecol()` and
 `usecol()` functions provide reasonable subsets of a **unikn** palette:
 
-    # Compare a list of (scaled) color palettes: 
-    seecol(pal = "grad_all", n = 3, 
-           col_brd = "black", lwd_brd = .5,
-           main = "Color gradient palettes (scaled to n = 3)")
+``` r
+# Compare a list of (scaled) color palettes: 
+seecol(pal = "grad_all", n = 3, 
+       col_brd = "black", lwd_brd = .5,
+       main = "Color gradient palettes (scaled to n = 3)")
+```
 
 <img src="inst/pix/README-pal-n-1.png" width="450px" style="display: block; margin: auto;" />
 
@@ -300,50 +317,50 @@ changing (e.g., mixing and re-scaling) and using color palettes. This
 allows using colors in **base** R and most other R packages. For
 instance, we can easily use colors in combination with
 
--   the `barplot()` function of the **grDevices** package:
+- the `barplot()` function of the **grDevices** package:
 
-<!-- -->
+``` r
+# Mix some colors into a new palette:
+my_pal <- usecol(c(Seeblau, "white", Pinky), n = 9)
 
-    # Mix some colors into a new palette:
-    my_pal <- usecol(c(Seeblau, "white", Pinky), n = 9)
-
-    # Use color palette:
-    barplot(1/sqrt(1:9),  col = my_pal)
+# Use color palette:
+barplot(1/sqrt(1:9),  col = my_pal)
+```
 
 <img src="inst/pix/README-usecol-1-1.png" width="500px" style="display: block; margin: auto;" />
 
--   the `image()` function of the **graphics** package:
+- the `image()` function of the **graphics** package:
 
-<!-- -->
+``` r
+# Data:
+x <- y <- seq(-4 * pi, 4 * pi, len = 15)
+r <- sqrt(outer(x^2, y^2, "+"))
 
-    # Data:
-    x <- y <- seq(-4 * pi, 4 * pi, len = 15)
-    r <- sqrt(outer(x^2, y^2, "+"))
+# Mix a palette with a named color:
+my_col <- usecol(c(Seegruen, "white"), n = 7)
 
-    # Mix a palette with a named color:
-    my_col <- usecol(c(Seegruen, "white"), n = 7)
-
-    # Image:
-    image(z = cos(r^2) * exp(-r/10), 
-          col = my_col, axes = FALSE)
+# Image:
+image(z = cos(r^2) * exp(-r/10), 
+      col = my_col, axes = FALSE)
+```
 
 <img src="inst/pix/README-usecol-2-1.png" width="250px" style="display: block; margin: auto;" />
 
--   the `ggplot()` function of the **ggplot2** package:
+- the `ggplot()` function of the **ggplot2** package:
 
-<!-- -->
+``` r
+# Mix a color gradient: 
+my_col <- usecol(c(Bordeaux, "white", Petrol), n = 50)
 
-    # Mix a color gradient: 
-    my_col <- usecol(c(Bordeaux, "white", Petrol), n = 50)
+# Plot (with ggplot2):
+library(ggplot2)
 
-    # Plot (with ggplot2):
-    library(ggplot2)
-
-    ggplot(my_data, aes(x = X, y = Y, fill = Group)) + 
-      geom_area() +
-      scale_fill_manual(values = my_col) +
-      theme_void() +
-      theme(legend.position = "none")
+ggplot(my_data, aes(x = X, y = Y, fill = Group)) + 
+  geom_area() +
+  scale_fill_manual(values = my_col) +
+  theme_void() +
+  theme(legend.position = "none")
+```
 
 <img src="inst/pix/README-usecol-ggplot2-1.png" width="550px" style="display: block; margin: auto;" />
 
@@ -352,8 +369,10 @@ instance, we can easily use colors in combination with
 The `demopal()` function provides a quick illustration of a pre-defined
 or modified color palette:
 
-    demopal(usecol(uni_princeton_1, n = 7),  # use a modified color palette
-            type = "curve", seed = 2)        # reproducible randomness
+``` r
+demopal(usecol(uni_princeton_1, n = 7),  # use a modified color palette
+        type = "curve", seed = 2)        # reproducible randomness
+```
 
 <img src="inst/pix/README-demopal-1.png" width="500px" style="display: block; margin: auto;" />
 
@@ -367,8 +386,7 @@ palette of the well-known [Google](https://www.google.com/) logo in
 3 steps:
 
 1.  Choose some colors (from named R colors, or by RGB/HEX/HCL values,
-    e.g., from sites like
-    <a href="https://www.schemecolor.com" class="uri">https://www.schemecolor.com</a>).
+    e.g., from sites like <https://www.schemecolor.com>).
 
 2.  Define the colors (and optional color names) as R vectors (of type
     character).
@@ -379,20 +397,22 @@ We can now use the new palette in visualizations (e.g., inspect it with
 the `seecol()` function, use it in visualizations, or modify it further
 with the `usecol()` function):
 
-    # 1. Choose colors:
-    # Google logo colors (from <https://www.schemecolor.com/google-logo-colors.php>)
+``` r
+# 1. Choose colors:
+# Google logo colors (from <https://www.schemecolor.com/google-logo-colors.php>)
 
-    # 2. Define colors and color names (as vectors):
-    color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
-    names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
+# 2. Define colors and color names (as vectors):
+color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
+names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
 
-    # 3. Define color palette:
-    pal_google <- newpal(color_google, names_google)
+# 3. Define color palette:
+pal_google <- newpal(color_google, names_google)
 
-    # Inspect color palette:
-    seecol(pal_google, 
-           col_brd = "white", lwd_brd = 8,
-           main = "Colors of the Google logo")
+# Inspect color palette:
+seecol(pal_google, 
+       col_brd = "white", lwd_brd = 8,
+       main = "Colors of the Google logo")
+```
 
 <img src="inst/pix/README-newpal-google-1.png" width="550px" style="display: block; margin: auto;" />
 
@@ -404,19 +424,19 @@ additional examples of creating color palettes.
 
 When creating visualizations, we often face two search situations:
 
--   Finding colors that look similar to a given color
--   Finding colors that match particular names
+- Finding colors that look similar to a given color
+- Finding colors that match particular names
 
 The `simcol()` and `grepal()` functions of **unikn** address both
 situations.
 
 #### Finding similar colors with `simcol()`
 
--   Which colors are similar to the “orange” of `uni_princeton_0`?
+- Which colors are similar to the “orange” of `uni_princeton_0`?
 
-<!-- -->
-
-    simcol(col_target = uni_princeton_0["orange"], tol = 30)
+``` r
+simcol(col_target = uni_princeton_0["orange"], tol = 30)
+```
 
 <img src="inst/pix/README-simcol-example-1.png" width="500px" style="display: block; margin: auto;" />
 
@@ -443,27 +463,31 @@ By default, `grepal()` searches the 657 named colors provided by
 `colors()` in **base** R. To make the `grepal()` more flexible, its
 `pattern` argument can use regular expressions:
 
-    # Find colors matching a pattern: 
-    deep_purple <- grepal(pattern = "deep|purple", plot = FALSE)
+``` r
+# Find colors matching a pattern: 
+deep_purple <- grepal(pattern = "deep|purple", plot = FALSE)
 
-    # See color palette:
-    seecol(deep_purple, 
-           col_brd = "white", lwd_brd = 2, 
-           main = "Finding 'deep' or 'purple' colors")
+# See color palette:
+seecol(deep_purple, 
+       col_brd = "white", lwd_brd = 2, 
+       main = "Finding 'deep' or 'purple' colors")
+```
 
 <img src="inst/pix/README-grepal-example-1-1.png" width="550px" style="display: block; margin: auto;" />
 
 Providing a list of color palettes to the `pal` argument of `seecol()`
 allows comparing multiple color palettes:
 
-    # Find colors matching some term(s):
-    olives  <- grepal("olive", plot = FALSE)
-    oranges <- grepal("orange", plot = FALSE)
+``` r
+# Find colors matching some term(s):
+olives  <- grepal("olive", plot = FALSE)
+oranges <- grepal("orange", plot = FALSE)
 
-    # See color palettes:
-    seecol(pal = list(olives, oranges), 
-           pal_names = c("olives", "oranges"), 
-           main = "Comparing olives with oranges")
+# See color palettes:
+seecol(pal = list(olives, oranges), 
+       pal_names = c("olives", "oranges"), 
+       main = "Comparing olives with oranges")
+```
 
 <img src="inst/pix/README-grepal-example-2-1.png" width="600px" style="display: block; margin: auto;" />
 
@@ -492,8 +516,10 @@ provide some examples here.
 The `mark()` function allows emphasizing text by plotting it with
 colored background (to provide the functionality of “Markieren”):
 
-    mark(labels = c("Markieren", "ist ein Bestandteil", "von Studieren."), 
-         x = 0, y = .8, y_layout = .03, cex = 1.5, new_plot = "slide")
+``` r
+mark(labels = c("Markieren", "ist ein Bestandteil", "von Studieren."), 
+     x = 0, y = .8, y_layout = .03, cex = 1.5, new_plot = "slide")
+```
 
 <img src="inst/pix/README-mark-new-plot-1.png" width="250px" style="display: block; margin: auto;" />
 
@@ -502,8 +528,10 @@ colored background (to provide the functionality of “Markieren”):
 The `uline()` function allows emphasizing text by plotting it with
 colored underlining (to provide the functionality of “Unterstreichen”):
 
-    uline(labels = c("Linear", "Authentic", "Flexible", "Open", "Practical"), 
-          x = .05, y = .9, y_layout = "even", cex = 1.1, font = 2, new_plot = "slide")
+``` r
+uline(labels = c("Linear", "Authentic", "Flexible", "Open", "Practical"), 
+      x = .05, y = .9, y_layout = "even", cex = 1.1, font = 2, new_plot = "slide")
+```
 
 <img src="inst/pix/README-uline-demo-1.png" width="250px" style="display: block; margin: auto;" />
 
@@ -512,16 +540,20 @@ colored underlining (to provide the functionality of “Unterstreichen”):
 The `post()` function allows adding text to a rectangular `xbox` (to
 provide the functionality of “Merken”):
 
-    xbox(col = usecol(pal_seeblau[[5]]), dim = c(2, 2))
-    post(labels = c("Für eine", "Kultur der", "Kreativität"), x = .1, y = .8, cex = 1.4, font = 2)
+``` r
+xbox(col = usecol(pal_seeblau[[5]]), dim = c(2, 2))
+post(labels = c("Für eine", "Kultur der", "Kreativität"), x = .1, y = .8, cex = 1.4, font = 2)
+```
 
 <img src="inst/pix/README-post-demo-1-1.png" width="200px" style="display: block; margin: auto;" />
 
 The color and font parameters can be adjusted to obtain different looks:
 
-    post(labels = c("creative.", "together"), new_plot = "xbox", 
-         y_layout = .02, cex = 2, font = c(1, 3),  
-         col_bg = pal_seegruen[[1]], col = c(Petrol, Pinky))
+``` r
+post(labels = c("creative.", "together"), new_plot = "xbox", 
+     y_layout = .02, cex = 2, font = c(1, 3),  
+     col_bg = pal_seegruen[[1]], col = c(Petrol, Pinky))
+```
 
 <img src="inst/pix/README-post-demo-2-1.png" width="200px" style="display: block; margin: auto;" />
 
@@ -529,7 +561,9 @@ The color and font parameters can be adjusted to obtain different looks:
 
 The `heading()` function is a convenient wrapper around `mark`:
 
-    heading(labels = c("pa-", "ra-", "die-", "sisch"))
+``` r
+heading(labels = c("pa-", "ra-", "die-", "sisch"))
+```
 
 <img src="inst/pix/README-heading-demo-1-1.png" width="200px" style="display: block; margin: auto;" />
 
@@ -538,9 +572,11 @@ The `heading()` function is a convenient wrapper around `mark`:
 Finally, the `url_unikn()` function allows formatting URLs the uni.kn
 way:
 
-    my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from web browser
+``` r
+my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from web browser
 
-    post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
+post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
+```
 
 <img src="inst/pix/README-url-post-1.png" width="200px" style="display: block; margin: auto;" />
 
@@ -550,14 +586,14 @@ All **unikn** color palettes and user-generated color palette (e.g.,
 defined by `newpal()` or `usecol()`) can be used for graphical
 annotations. For example:
 
--   Using the color palettes of academic institutions (see the vignette
-    on [Institutional
-    colors](https://hneth.github.io/unikn/articles/color_inst.html))
-    with text decoration functions:
+- Using the color palettes of academic institutions (see the vignette on
+  [Institutional
+  colors](https://hneth.github.io/unikn/articles/color_inst.html)) with
+  text decoration functions:
 
 <img src="inst/pix/README-others-txt-demo-1.png" width="500px" style="display: block; margin: auto;" />
 
--   Using the color palette `pal_google` (defined above):
+- Using the color palette `pal_google` (defined above):
 
 <img src="inst/pix/README-others-google-1.png" width="350px" style="display: block; margin: auto;" />
 
@@ -569,21 +605,21 @@ additional examples.
 
 Please note the following caveats:
 
--   Plotting text (i.e., graphically rendering characters) is rarely a
-    good idea. It typically doesn’t scale (when changing the size of
-    images) and cannot be recognized automatically (e.g., copied,
-    indexed, or scraped). Hence, the corresponding **unikn** functions
-    should only be used in contexts in which no better solutions are
-    available or practical (e.g., when specifically creating images, or
-    adding annotations to graphs).
+- Plotting text (i.e., graphically rendering characters) is rarely a
+  good idea. It typically doesn’t scale (when changing the size of
+  images) and cannot be recognized automatically (e.g., copied, indexed,
+  or scraped). Hence, the corresponding **unikn** functions should only
+  be used in contexts in which no better solutions are available or
+  practical (e.g., when specifically creating images, or adding
+  annotations to graphs).
 
--   Our templates — just like all others — are subject to constraints
-    and limitations. As a standard installation of R lacks the
-    “Theinhardt” fonts, we can only mimic the official design
-    specifications (in Arial, sans serif). Nevertheless, the **unikn**
-    package helps preventing common mistakes by novices (e.g., boxes or
-    lines extending beyond text, or step-functions in multi-line titles)
-    and can be customized and improved by expert users.
+- Our templates — just like all others — are subject to constraints and
+  limitations. As a standard installation of R lacks the “Theinhardt”
+  fonts, we can only mimic the official design specifications (in Arial,
+  sans serif). Nevertheless, the **unikn** package helps preventing
+  common mistakes by novices (e.g., boxes or lines extending beyond
+  text, or step-functions in multi-line titles) and can be customized
+  and improved by expert users.
 
 Overall, the **unikn** functions can be useful for solving color-related
 tasks and plotting graphical elements (e.g., boxes, logos, etc.).
@@ -596,8 +632,8 @@ design for your presentations and visualizations.
 
 The **unikn** package is work in progress. We are currently working on:
 
--   Adding institutional color palettes
--   Additional templates and themes (for plots and text decoration)
+- Adding institutional color palettes
+- Additional templates and themes (for plots and text decoration)
 
 Please comment on [GitHub](https://github.com/hneth/unikn) or [contact
 us](https://www.spds.uni-konstanz.de/) if you need additional features
@@ -608,18 +644,18 @@ or want to help creating them.
 The following versions of **unikn** and corresponding resources are
 currently available:
 
-| Type:                     | Version:                                                    | URL:                                                                                                        |
-|:--------------------------|:------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------|
-| A. **unikn** (R package): | [Release version](https://CRAN.R-project.org/package=unikn) | <a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a> |
-|                           | [Development version](https://github.com/hneth/unikn/)      | <a href="https://github.com/hneth/unikn/" class="uri">https://github.com/hneth/unikn/</a>                   |
-| B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)           | <a href="https://hneth.github.io/unikn/" class="uri">https://hneth.github.io/unikn/</a>                     |
-|                           | [Development version](https://hneth.github.io/unikn/dev/)   | <a href="https://hneth.github.io/unikn/dev/" class="uri">https://hneth.github.io/unikn/dev/</a>             |
+| Type:                     | Version:                                                    | URL:                                       |
+|:--------------------------|:------------------------------------------------------------|:-------------------------------------------|
+| A. **unikn** (R package): | [Release version](https://CRAN.R-project.org/package=unikn) | <https://CRAN.R-project.org/package=unikn> |
+|                           | [Development version](https://github.com/hneth/unikn/)      | <https://github.com/hneth/unikn/>          |
+| B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)           | <https://hneth.github.io/unikn/>           |
+|                           | [Development version](https://hneth.github.io/unikn/dev/)   | <https://hneth.github.io/unikn/dev/>       |
 
 ## Contact
 
 Please note and report any **unikn**-related issues at
-<a href="https://github.com/hneth/unikn/issues" class="uri">https://github.com/hneth/unikn/issues</a>.
-We are looking forward to your feedback, comments, or questions.
+<https://github.com/hneth/unikn/issues>. We are looking forward to your
+feedback, comments, or questions.
 
 ## Copyrights
 
@@ -648,12 +684,12 @@ design has been developed in a flexible way that allows for individual
 elements to be modified as needed, we allow for some liberties, mostly
 by relaxing some restrictions. Examples include:
 
--   enabling finer color gradients and arbitrary combinations of color
-    palettes (by applying the `seecol()` and `usecol()` functions to
-    color palettes);  
--   providing a designated `Signal` color (from `pal_signal`);  
--   using the spelling “color” (rather than “colour”) throughout the
-    **unikn** package.
+- enabling finer color gradients and arbitrary combinations of color
+  palettes (by applying the `seecol()` and `usecol()` functions to color
+  palettes);  
+- providing a designated `Signal` color (from `pal_signal`);  
+- using the spelling “color” (rather than “colour”) throughout the
+  **unikn** package.
 
 ### License
 
@@ -686,14 +722,13 @@ or publications:
 
 <!-- Citation / reference (in APA format): -->
 
--   Neth, H., & Gradwohl, N., (2022). unikn: Graphical elements of the
-    University of Konstanz’s corporate design.  
-    Social Psychology and Decision Sciences, University of Konstanz,
-    Germany.  
-    Computer software (R package version 0.7.0, November 10, 2022).  
-    Retrieved from
-    <a href="https://CRAN.R-project.org/package=unikn" class="uri">https://CRAN.R-project.org/package=unikn</a>.  
-    doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)
+- Neth, H., & Gradwohl, N., (2022). unikn: Graphical elements of the
+  University of Konstanz’s corporate design.  
+  Social Psychology and Decision Sciences, University of Konstanz,
+  Germany.  
+  Computer software (R package version 0.7.0, November 10, 2022).  
+  Retrieved from <https://CRAN.R-project.org/package=unikn>.  
+  doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)
 
 <!-- BibTeX:  -->
 
@@ -714,25 +749,25 @@ A BibTeX entry for LaTeX users is:
 
 The copyrights to all designs remain with their original creators:
 
--   Universität Konstanz, © 2015, Version 1.6, 21. September 2015, [‒
-    uni-konstanz.de](https://www.uni-konstanz.de/)
--   Strichpunkt GmbH, [‒
-    strichpunkt-design.de](https://www.strichpunkt-design.de/)
+- Universität Konstanz, © 2015, Version 1.6, 21. September 2015, [‒
+  uni-konstanz.de](https://www.uni-konstanz.de/)
+- Strichpunkt GmbH, [‒
+  strichpunkt-design.de](https://www.strichpunkt-design.de/)
 
 Color and text box definitions are based on the following [corporate
 design at
 uni.kn](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
 specifications:
 
--   [The University of Konstanz’s corporate
-    design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/)
--   [Colours for complex
-    graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
+- [The University of Konstanz’s corporate
+  design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/)
+- [Colours for complex
+  graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 ------------------------------------------------------------------------
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2022-11-20.\]
+\[File `README.md` updated on 2022-11-25.\]
 
 <!-- eof. -->
