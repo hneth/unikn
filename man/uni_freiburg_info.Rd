@@ -51,7 +51,10 @@ Other contributed color palettes:
 \code{\link{uni_konstanz}},
 \code{\link{uni_princeton_0}},
 \code{\link{uni_princeton_1}},
-\code{\link{uni_princeton_2}}
+\code{\link{uni_princeton_2}},
+\code{\link{uni_regensburg_1}},
+\code{\link{uni_regensburg_2}},
+\code{\link{uni_regensburg_3}}
 }
 \author{
 Hansjoerg Neth, 2022-10-20.
