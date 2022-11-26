@@ -97,7 +97,7 @@ The **unikn** contains two categories of color palettes:
 
 - 16\ palettes implementing the colors of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design
 
-- 16\ additional color palettes from various institutions
+- 19\ additional color palettes from various institutions
 
 
 ### The colors of Konstanz University
@@ -389,7 +389,7 @@ For instance, let's define a color palette of the well-known [Google](https://ww
 We can now use the new palette in visualizations (e.g., inspect it with the `seecol()` function, use it in visualizations, 
 or modify it further with the `usecol()` function):
 
-```{r newpal-google, fig.width = 5, out.width = "550px", fig.asp = .9, fig.align = 'center'}
+```{r newpal-google, fig.width = 5, out.width = "450px", fig.asp = .9, fig.align = 'center'}
 # 1. Choose colors:
 # Google logo colors (from <https://www.schemecolor.com/google-logo-colors.php>)
 
@@ -403,7 +403,7 @@ pal_google <- newpal(color_google, names_google)
 # Inspect color palette:
 seecol(pal_google, 
        col_brd = "white", lwd_brd = 8,
-       main = "Colors of the Google logo")
+       main = "Colors of Google")
 ```
 
 See the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/color_inst.html) for additional examples of creating color palettes. 
@@ -683,18 +683,13 @@ x <- citation(package = 'unikn')
 toBibtex(x)
 ```
 
-
 <!-- Copyrights of designs: -->
 
-The copyrights to all designs remain with their original creators:   
+The copyrights to all [uni.kn](https://www.uni-konstanz.de/) designs remain with their original creators: 
 
-- Universität Konstanz, © 2015, Version 1.6, 21. September 2015, [`r url_unikn("https://www.uni-konstanz.de/")`](https://www.uni-konstanz.de/) 
+- [The University of Konstanz’s corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (Version 1.6, September 2015) 
+- [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) 
 - Strichpunkt GmbH, [`r url_unikn("https://www.strichpunkt-design.de/")`](https://www.strichpunkt-design.de/) 
-
-Color and text box definitions are based on the following [corporate design at uni.kn](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) specifications:  
-
-- [The University of Konstanz’s corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) 
-- [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 
 ------ 
 
