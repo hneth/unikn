@@ -3,7 +3,7 @@
 \docType{data}
 \name{uni_regensburg_2}
 \alias{uni_regensburg_2}
-\title{Faculty colors of the University of Regensburg (areas).}
+\title{Departmental colors of the University of Regensburg (areas).}
 \format{
 An object of class \code{character} of length 12.
 }
@@ -18,7 +18,7 @@ uni_regensburg_2
 A named vector of colors (HEX/HTML codes of type character).
 }
 \description{
-\code{uni_regensburg_2} provides the faculty (departmental) colors 
+\code{uni_regensburg_2} provides the departmental (faculty) colors 
 for coloring print or web areas 
 at the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany.
 }

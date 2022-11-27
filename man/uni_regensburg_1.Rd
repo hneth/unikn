@@ -18,7 +18,7 @@ uni_regensburg_1
 A named vector of colors (HEX/HTML codes of type character).
 }
 \description{
-\code{uni_regensburg_1} provides the general (service-oriented) colors 
+\code{uni_regensburg_1} provides the general (administrative and service-oriented) colors 
 of the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany.
 }
 \details{
