@@ -62,6 +62,7 @@ uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pa
 # Caltech's official color system is made up of four palettes: 
 # a primary color, a neutral palette, a deep palette, and a bright palette.
 
+
 # Primary Color
 #
 # Caltech's primary color is Pantone MS 1585c Orange for coated and matte print jobs. 
@@ -74,6 +75,7 @@ uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pa
 # HEX #FF6C0C
 
 col_caltech_p <- "#FF6C0C"
+
 
 # Neutral Colors
 #
@@ -107,6 +109,7 @@ col_caltech_n3 <- "#AAA99F"
 # HEX #849895
 
 col_caltech_n4 <- "#849895"  # Note: RGB values differ!
+# col_caltech_n4 <- rgb(133, 152, 148, maxColorValue = 255)  # Note: HEX values differ!
 
 # PMS 7494c
 # c:41 m:21 y:53 k:0
@@ -121,6 +124,7 @@ col_caltech_n5 <- "#9DAE88"
 # HEX #C7B784
 
 col_caltech_n6 <- "#C7B784"  # Note: RGB values differ WIDELY!
+# col_caltech_n6 <- rgb(159, 146, 94, maxColorValue = 255)  # Note: HEX values differ WIDELY!
 
 # PMS 7403c
 # c:5 m:15 y:57 k:0
@@ -128,11 +132,9 @@ col_caltech_n6 <- "#C7B784"  # Note: RGB values differ WIDELY!
 # HEX #F1D384
 
 col_caltech_n7 <- "#F1D384"  # Note: RGB values differ!
+# col_caltech_n7 <- rgb(242, 211, 131, maxColorValue = 255)  # Note: HEX values differ!
 
-
-# Palettes: 
-
-# - Primary and neutral colors: ----
+# - caltech_pal_1: Primary and neutral colors: ----
 
 caltech_pal_1 <- newpal(col = c(col_caltech_p,  col_caltech_n1, col_caltech_n2, col_caltech_n3,
                                 col_caltech_n4, col_caltech_n5, col_caltech_n6, col_caltech_n7),
@@ -158,6 +160,7 @@ col_caltech_d1 <- "#003B4C"
 # HEX #005851
 
 col_caltech_d2 <- "#005851"  # Note: RGB values differ!
+# col_caltech_d2 <- rgb(0, 88, 80, maxColorValue = 255)  # Note: HEX values differ!
 
 # PMS 668c
 # c:69 m78 y:28 k:11
@@ -172,9 +175,9 @@ col_caltech_d3 <- "#644B78"
 # HEX #7A303F
 
 col_caltech_d4 <- "#7A303F"  # Note: RGB values differ!
+# col_caltech_d4 <- rgb(123, 48, 62, maxColorValue = 255)  # Note: HEX values differ!
 
-
-# - Primary and deep colors: ----
+# - caltech_pal_2: Primary and deep colors: ----
 
 caltech_pal_2 <- newpal(col = c(col_caltech_p,  
                                 col_caltech_d1, col_caltech_d2, 
@@ -182,6 +185,72 @@ caltech_pal_2 <- newpal(col = c(col_caltech_p,
                         names = c("PMS 1585c", 
                                   "PMS 548c", "PMS 3292c", 
                                   "PMS 668c", "PMS 195c"), 
+                        as_df = FALSE)
+
+# Bright Colors
+#
+# Caltech's bright color palette provides an opportunity to adjust the temper of a piece from subtle to bold. 
+# These colors should be used as accents to the primary, neutral, and deep colors, 
+# and carefully selected based on what is appropriate to the tone of the piece.
+
+# PMS 186c (JPL official color)
+# c:0 m:100 y:81 k:4
+# r:227 g:25 b:55
+# HEX #e41937
+
+col_caltech_b1 <- "#E41937"
+# col_caltech_b1 <- rgb(227, 25, 55, maxColorValue = 255)  # Note: HEX values differ!
+
+# PMS 299c
+# c:80 m:18 y:0 k:0
+# r:0 g:161 b:223
+# HEX #00A1DF
+
+col_caltech_b2 <- "#00A1DF"
+
+# PMS 7473c
+# c:80 m:19 y:52 k:2
+# r:30 g:152 b:138
+# HEX #1E988A
+
+col_caltech_b3 <- "#1E988A"
+
+# PMS 7489c
+# c:61 m:14 y:92 k:1
+# r:115 g:169 b:80
+# HEX #73A950
+
+col_caltech_b4 <- "#73A950"
+
+# PMS 7408c
+# c:2 m:26 y:100 k:0
+# r:249 g:190 b:0
+# HEX #F9BE00
+
+col_caltech_b5 <- "#F9BE00"
+
+# PMS 605c
+# c:15 m:13 y:100 k:0
+# r:226 g:204 b:0
+# HEX #E2CC00
+
+col_caltech_b6 <- "#E2CC00"
+
+# PMS 1915c
+# c:0 m:85 y:24 k:0
+# r:246 g:77 b:128
+# HEX #F54D80
+
+col_caltech_b7 <- "#F54D80"  # Note: RGB values differ!
+# col_caltech_b7 <- rgb(246, 77, 128, maxColorValue = 255)  # Note: HEX values differ!
+
+
+# - caltech_pal_3: Primary and bright colors: ----
+
+caltech_pal_3 <- newpal(col = c(col_caltech_p,  col_caltech_b1, col_caltech_b2, col_caltech_b3, 
+                                col_caltech_b4, col_caltech_b5, col_caltech_b6, col_caltech_b7),
+                        names = c("PMS 1585c",  "PMS 186c (JPL color)", "PMS 299c", "PMS 7473c", 
+                                  "PMS 7489c", "PMS 7408c", "PMS 605c", "PMS 1915c"), 
                         as_df = FALSE)
 
 
@@ -205,7 +274,7 @@ caltech_pal_2 <- newpal(col = c(col_caltech_p,
 # Neben der Primaerfarbe des dunklen Blaus stehen als Sekundaerfarben mehrere Blautoene 
 # sowie Grau, Schwarz, Weiss und Chamois zur Verfuegung.
 
-# - Primary colors: ----
+# - uni_goettingen_1: Primary colors: ----
 
 col_goe_primary <- c("#153268", "#005f9b", "#0091c8", "#50a5d2")
 nam_goe_primary <- c("Uniblau", "Logoblau", "Logomittelblau", "Logohellblau")
@@ -252,7 +321,7 @@ uni_goettingen_1 <- newpal(col = col_goe_primary,
 
 # seecol(uni_goettingen_1)
 
-# - Secondary colors: ----
+# - uni_goettingen_2: Secondary colors: ----
 
 # Error in definition: 
 # Chamois and Altweiss have identical, but non-corresponding RGB and HEX values.
@@ -313,12 +382,12 @@ uni_goettingen_2 <- newpal(col = col_goe_secondary,
 
 # seecol(uni_goettingen_2)
 
-# - Departments / faculties: ----
+# - uni_goettingen_3: Departments / faculties: ----
 
 # Souce: <https://www.uni-goettingen.de/de/589412.html>
 # 2022-11-19
 
-# Fakultaetsfarben:
+# Fakultaetsfarben
 # 
 # Die fuer die Universitaet genutzte Farbpalette wird durch die Farben der dreizehn Fakultaeten der Universitaet, 
 # denen jeweils eine eigene Farbe zugeordnet ist, erweitert. 
@@ -1261,11 +1330,11 @@ UR_glutrot_f <-            "#DA3C43" # Informatik und Data Science (TODO: Same a
 
 # Palettes:
 
-# - uni_regensburg_1: Service und Fakultätsübergreifende Einrichtungen: ---- 
+# - uni_regensburg_1: General / Service und fakultätsübergreifende Einrichtungen: ---- 
 
 #' General colors of the University of Regensburg.
 #'
-#' \code{uni_regensburg_1} provides the general (service-oriented) colors 
+#' \code{uni_regensburg_1} provides the general (administrative and service-oriented) colors 
 #' of the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany. 
 #' 
 #' Named colors of \code{uni_regensburg_1} correspond to the following services:
@@ -1321,11 +1390,11 @@ uni_regensburg_1 <- newpal(col = c(UR_neutralgrau,
                                    UR_rotbraun, UR_perlviolett, UR_violettrot, 
                                    UR_gruenbraun, UR_wasserblau), as_df = FALSE)
 
-# - uni_regensburg_2: Fakultaeten / web area colors: ---- 
+# - uni_regensburg_2: Departmental / faculty / web area colors: ---- 
 
-#' Faculty colors of the University of Regensburg (areas).
+#' Departmental colors of the University of Regensburg (areas).
 #'
-#' \code{uni_regensburg_2} provides the faculty (departmental) colors 
+#' \code{uni_regensburg_2} provides the departmental (faculty) colors 
 #' for coloring print or web areas 
 #' at the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany. 
 #' 
@@ -1390,11 +1459,11 @@ uni_regensburg_2_a <- newpal(col = c(UR_urangelb_a, UR_laerchennadelgruen_a, UR_
 
 all.equal(uni_regensburg_2, uni_regensburg_2_a)  # RGB values correspond to web colors for areas.
 
-# - uni_regensburg_3: Fakultaeten / web font colors: ---- 
+# - uni_regensburg_3: Departmental / faculty / web font colors: ---- 
 
-#' Faculty colors of the University of Regensburg (fonts).
+#' Departmental colors of the University of Regensburg (fonts).
 #'
-#' \code{uni_regensburg_3} provides the faculty (departmental) colors 
+#' \code{uni_regensburg_3} provides the departmental (faculty) colors 
 #' for web fonts 
 #' at the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany. 
 #' 
