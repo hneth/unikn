@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 11 25
+## spds | uni.kn |  2022 11 27
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -51,6 +51,139 @@ url <- c(rep("https://ethz.ch/", 3),
 )
 
 uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pals)
+
+
+
+# Caltech: ------ 
+
+# Source: <https://identity.caltech.edu/colors>
+# 2022-11-27
+
+# Caltech's official color system is made up of four palettes: 
+# a primary color, a neutral palette, a deep palette, and a bright palette.
+
+# Primary Color
+#
+# Caltech's primary color is Pantone MS 1585c Orange for coated and matte print jobs. 
+# Use PMS 151 for uncoated print jobs. It is recommended that you reserve this color 
+# for smaller highlights rather than large swatches.
+
+# PMS 1585c
+# c:0 m:68 y:98 k:0
+# r:255 g:108 b:12
+# HEX #FF6C0C
+
+col_caltech_p <- "#FF6C0C"
+
+# Neutral Colors
+#
+# Caltech's neutral color palette complements the Caltech orange and 
+# should be used for projects with a more traditional, serious tone.
+
+# PMS Cool Gray 9
+# c:0 m:0 y:0 k:65
+# r:118 g:119 b:123
+# HEX #76777B
+
+col_caltech_n1 <- "#76777B"
+
+# PMS Cool Grey 3c
+# c:0 m:0 y:0 k:24
+# r:202 g:200 b:200
+# HEX #C8C8C8
+
+col_caltech_n2 <- "#C8C8C8"  # Note: RGB values differ!
+
+# PMS 414
+# c:35 m:28 y:35 k:0
+# r:170 g:169 b:159
+# HEX #AAA99F
+
+col_caltech_n3 <- "#AAA99F"
+
+# PMS 5497c
+# c:51 m:32 y:39 k:2
+# r:133 g:152 b:148
+# HEX #849895
+
+col_caltech_n4 <- "#849895"  # Note: RGB values differ!
+
+# PMS 7494c
+# c:41 m:21 y:53 k:0
+# r:157 g:174 b:136
+# HEX #9DAE88
+
+col_caltech_n5 <- "#9DAE88"
+
+# PMS 451c
+# c:38 m:35 y:73 k:6
+# r:159 g:146 b:94
+# HEX #C7B784
+
+col_caltech_n6 <- "#C7B784"  # Note: RGB values differ WIDELY!
+
+# PMS 7403c
+# c:5 m:15 y:57 k:0
+# r:242 g:211 b:131
+# HEX #F1D384
+
+col_caltech_n7 <- "#F1D384"  # Note: RGB values differ!
+
+
+# Palettes: 
+
+# - Primary and neutral colors: ----
+
+caltech_pal_1 <- newpal(col = c(col_caltech_p,  col_caltech_n1, col_caltech_n2, col_caltech_n3,
+                                col_caltech_n4, col_caltech_n5, col_caltech_n6, col_caltech_n7),
+                        names = c("PMS 1585c", "PMS cool gray 9", "PMS cool grey 3c", "PMS 414",
+                                  "PMS 5497c", "PMS 7494c", "PMS 451c", "PMS 7403c"), 
+                        as_df = FALSE)
+
+# Deep Colors 
+# 
+# Caltech's deep color palette adds contrast to the Caltech orange as well as the neutral palette, 
+# and may be used to provide more depth and texture to communications materials.
+
+# PMS 548c
+# c:100 m:64 y:51 k:43
+# r:0 g:59 b:76
+# HEX #003B4C
+
+col_caltech_d1 <- "#003B4C"
+
+# PMS 3292c
+# c:100 m:41 y:67 k:33
+# r:0 g:88 b:80
+# HEX #005851
+
+col_caltech_d2 <- "#005851"  # Note: RGB values differ!
+
+# PMS 668c
+# c:69 m78 y:28 k:11
+# r100 g:75 b:120
+# HEX #644B78
+
+col_caltech_d3 <- "#644B78"
+
+# PMS 195c
+# c:36 m:87 y:61 k:33
+# r:123 g:48 b:62
+# HEX #7A303F
+
+col_caltech_d4 <- "#7A303F"  # Note: RGB values differ!
+
+
+# - Primary and deep colors: ----
+
+caltech_pal_2 <- newpal(col = c(col_caltech_p,  
+                                col_caltech_d1, col_caltech_d2, 
+                                col_caltech_d3, col_caltech_d4),
+                        names = c("PMS 1585c", 
+                                  "PMS 548c", "PMS 3292c", 
+                                  "PMS 668c", "PMS 195c"), 
+                        as_df = FALSE)
+
 
 
 # Uni Goettingen / Göttingen: ------
