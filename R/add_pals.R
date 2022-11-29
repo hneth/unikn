@@ -184,7 +184,7 @@ col_caltech_n7 <- "#F1D384"  # Note: RGB values differ!
 
 caltech_pal_1 <- newpal(col = c(col_caltech_p,  col_caltech_n1, col_caltech_n2, col_caltech_n3,
                                 col_caltech_n4, col_caltech_n5, col_caltech_n6, col_caltech_n7),
-                        names = c("PMS 1585c", "PMS cool gray 9", "PMS cool grey 3c", "PMS 414",
+                        names = c("PMS 1585c (Caltech primary orange)", "PMS cool gray 9", "PMS cool grey 3c", "PMS 414",
                                   "PMS 5497c", "PMS 7494c", "PMS 451c", "PMS 7403c"), 
                         as_df = FALSE)
 
@@ -270,7 +270,7 @@ col_caltech_d4 <- "#7A303F"  # Note: RGB values differ!
 caltech_pal_2 <- newpal(col = c(col_caltech_p,  
                                 col_caltech_d1, col_caltech_d2, 
                                 col_caltech_d3, col_caltech_d4),
-                        names = c("PMS 1585c", 
+                        names = c("PMS 1585c (Caltech primary orange)", 
                                   "PMS 548c", "PMS 3292c", 
                                   "PMS 668c", "PMS 195c"), 
                         as_df = FALSE)
@@ -281,7 +281,7 @@ caltech_pal_2 <- newpal(col = c(col_caltech_p,
 # These colors should be used as accents to the primary, neutral, and deep colors, 
 # and carefully selected based on what is appropriate to the tone of the piece.
 
-# PMS 186c (JPL official color)
+# PMS 186c (red JPL official color)
 # c:0 m:100 y:81 k:4
 # r:227 g:25 b:55
 # HEX #e41937
@@ -381,7 +381,7 @@ col_caltech_b7 <- "#F54D80"  # Note: RGB values differ!
 
 caltech_pal_3 <- newpal(col = c(col_caltech_p,  col_caltech_b1, col_caltech_b2, col_caltech_b3, 
                                 col_caltech_b4, col_caltech_b5, col_caltech_b6, col_caltech_b7),
-                        names = c("PMS 1585c",  "PMS 186c (JPL color)", "PMS 299c", "PMS 7473c", 
+                        names = c("PMS 1585c (Caltech primary orange)", "PMS 186c (red JPL color)", "PMS 299c", "PMS 7473c", 
                                   "PMS 7489c", "PMS 7408c", "PMS 605c", "PMS 1915c"), 
                         as_df = FALSE)
 
@@ -860,7 +860,7 @@ eth_pal_grey <- newpal(col = col_eth_grey,
 #' Default colors of the Max-Planck-Gesellschaft 
 #'
 #' \code{mpg_pal} provides the default color palette 
-#' of the \href{https://www.mpg.de/en}{Max-Planck-Gesellschaft}, Germany. 
+#' of the \href{https://www.mpg.de/en}{Max Planck Society}, Germany. 
 #' 
 #' The color \code{"white"} was added to enable symmetrical color gradients.
 #' 
@@ -892,7 +892,7 @@ eth_pal_grey <- newpal(col = col_eth_grey,
 #' @export
 
 mpg_pal <- newpal(col = c("#007367", "white", "#D0D3D4"), 
-                  names = c("mpg green", "white", "mpg grey"),
+                  names = c("MPG green", "white", "MPG grey"),
                   as_df = FALSE)
 
 
@@ -1264,7 +1264,7 @@ orange_black <- "#F58025"  # orange on black background
 #' @export
 
 uni_princeton_0 <- newpal(col = c(orange_basic, "black"),
-                          names = c("orange", "black"),
+                          names = c("Princeton basic orange", "black"),
                           as_df = FALSE)
 
 
@@ -1307,7 +1307,7 @@ uni_princeton_0 <- newpal(col = c(orange_basic, "black"),
 #' @export
 
 uni_princeton_1 <- newpal(col = c(orange_white, "white", "black"),
-                          names = c("orange_w", "white", "black"),
+                          names = c("Princeton orange (on white)", "white", "black"),
                           as_df = FALSE)
 
 
@@ -1353,7 +1353,7 @@ uni_princeton_1 <- newpal(col = c(orange_white, "white", "black"),
 #' @export
 
 uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"), 
-                          names = c("orange_b", "black", "white"),
+                          names = c("Princeton orange (on black)", "black", "white"),
                           as_df = FALSE)
 
 
