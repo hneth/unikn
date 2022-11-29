@@ -3,7 +3,7 @@
 \docType{data}
 \name{pal_signal}
 \alias{pal_signal}
-\title{uni.kn color palette signal (Ampel).}
+\title{uni.kn color palette signal (Ampel colors)}
 \format{
 An object of class \code{data.frame} with 1 rows and 3 columns.
 }

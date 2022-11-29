@@ -2,7 +2,7 @@
 % Please edit documentation in R/util.R
 \name{url_unikn}
 \alias{url_unikn}
-\title{\code{url_unikn} formats an URL the uni.kn way.}
+\title{\code{url_unikn} formats an URL the uni.kn way}
 \usage{
 url_unikn(url = "https://www.uni-konstanz.de/")
 }

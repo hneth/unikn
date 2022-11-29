@@ -3,7 +3,7 @@
 \docType{data}
 \name{uni_goettingen_3}
 \alias{uni_goettingen_3}
-\title{Departmental colors of the University of Göttingen.}
+\title{Departmental colors of the University of Göttingen}
 \format{
 An object of class \code{character} of length 13.
 }
