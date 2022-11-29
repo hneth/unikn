@@ -1,6 +1,6 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2022 11 10
-## -----------------------------------------------
+## spds, uni.kn | 2022 11 29
+## -------------------------
 
 ## site info: ----------
 
@@ -61,8 +61,8 @@ navbar:
 ## reference: ----------
 
 reference:
-- title: Colors
-  desc: Basic colors and color palettes. 
+- title: Colors and color palettes 
+  desc: The colors and color palettes exported by **unikn**. 
   contents:
   - Bordeaux
   - Karpfenblau
@@ -77,8 +77,8 @@ reference:
   - ends_with("_pal")
   - starts_with("eth_")
   - starts_with("uni_")
-- title: Color functions
-  desc: Commands for viewing, using, creating, and finding colors and color palettes. 
+- title: Color manipulation functions
+  desc: Commands for viewing, creating, changing, finding and using colors and color palettes. 
   contents:
   - seecol
   - usecol
@@ -88,15 +88,15 @@ reference:
   - demopal
   - shades_of 
   - ac 
-- title: Graphics
-  desc: Objects and themes for plotting. 
+- title: Plotting functions 
+  desc: Functions for plotting objects and themes. 
   contents:
   - slide
   - xbox
   - theme_grau
   - theme_unikn
-- title: Text
-  desc: Text decorations. 
+- title: Text decoration functions 
+  desc: Functions for decorating plotted text. 
   contents:
   - heading
   - mark
@@ -104,7 +104,7 @@ reference:
   - uline
   - url_unikn
 - title: Miscellaneous
-  desc: Other functions. 
+  desc: Other utility functions. 
   contents:
   - unikn.guide
 
