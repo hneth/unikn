@@ -21,6 +21,11 @@ A named vector of colors (HEX/HTML codes of type character).
 \code{uni_princeton_0} provides the two basic colors 
 of \href{https://www.princeton.edu/}{Princeton University}, NJ, USA.
 }
+\details{
+Note that 
+\href{https://en.wikipedia.org/wiki/Shades_of_orange#Princeton_orange}{Wikipedia: Shades of orange} 
+defines \code{uni_princeton_2[1]} as "Princeton orange".
+}
 \examples{
 uni_princeton_0
 seecol(uni_princeton_0)  # view color palette
@@ -60,7 +65,7 @@ Other contributed color palettes:
 \code{\link{uni_regensburg_3}}
 }
 \author{
-Hansjoerg Neth, 2022-10-20.
+Hansjoerg Neth, 2022-11-28.
 }
 \concept{contributed color palettes}
 \keyword{datasets}

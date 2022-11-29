@@ -23,6 +23,10 @@ of \href{https://www.princeton.edu/}{Princeton University}, NJ, USA,
 for use on white backgrounds.
 }
 \details{
+Note that 
+\href{https://en.wikipedia.org/wiki/Shades_of_orange#Princeton_orange}{Wikipedia: Shades of orange} 
+defines \code{uni_princeton_2[1]} as "Princeton orange". 
+
 The color \code{"white"} was added to enable symmetrical color gradients.
 }
 \examples{
@@ -64,7 +68,7 @@ Other contributed color palettes:
 \code{\link{uni_regensburg_3}}
 }
 \author{
-Hansjoerg Neth, 2022-10-20.
+Hansjoerg Neth, 2022-11-28.
 }
 \concept{contributed color palettes}
 \keyword{datasets}
