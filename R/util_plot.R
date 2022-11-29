@@ -1,5 +1,5 @@
 ## util_plot.R | unikn
-## spds | uni.kn |  2020 10 11
+## spds | uni.kn |  2022 11 29
 ## ---------------------------
 
 # Plot-related utility functions (mostly for internal use, not exported).

@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 11 25
+## spds | uni.kn | 2022 11 29
 ## --------------------------
 
 ## Define color-related functions 
@@ -15,7 +15,7 @@
 
 # - Documentation: ------ 
 
-#' Use a color or color palette.
+#' Use a color or color palette 
 #'
 #' \code{usecol} allows using a color or color palette \code{pal} (e.g., for plotting).
 #' 
@@ -447,7 +447,7 @@ usecol <- function(pal = pal_unikn,
 
 # - Documentation: ------ 
 
-#' Plot color palettes (to see their colors).
+#' Plot color palettes (to see their colors) 
 #'
 #' \code{seecol} provides an interface to plotting (or "seeing") 
 #' the colors of a palette or comparing multiple color palettes. 
@@ -1183,7 +1183,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
 
 # 3. all_colors: Combine all unikn color palettes with default R colors(): ------
 
-#' A function providing all unikn colors and base R colors.
+#' Provide all unikn colors and base R colors 
 #' 
 #' \code{all_colors} combines the \strong{unikn} color gradients with the 
 #' 657 named colors provided by \code{\link{colors}} of \strong{grDevices}. 

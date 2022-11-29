@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 11 14
+## spds | uni.kn | 2022 11 29
 ## --------------------------
 
 ## Define color-related functions 
@@ -15,7 +15,7 @@
 
 # - Documentation: ------ 
 
-#' Define a new color palette.
+#' Define a new color palette 
 #'
 #' \code{newpal} allows defining new color palettes 
 #' (as data frames or vectors). 
@@ -311,7 +311,7 @@ newpal <- function(col,            # a vector of colors
 
 # - Documentation: ------ 
 
-#' Get a vector of colors whose names match a regular expression. 
+#' Get a vector of colors whose names match a regular expression 
 #'
 #' \code{grepal} returns a vector of colors whose names match a regular expression (regex). 
 #' 
@@ -509,7 +509,7 @@ grepal <- function(pattern,
 
 # - Documentation: ------ 
 
-#' Find similar colors.
+#' Find similar colors 
 #'
 #' \code{simcol} finds and shows colors 
 #' from a palette of color candidates \code{col_candidates} that are similar 
@@ -743,7 +743,7 @@ simcol <- function(col_target,
 
 # - Documentation: ------ 
 
-#' Get n shades of a color. 
+#' Get n shades of a color 
 #'
 #' \code{shades_of} returns a vector of \code{n} colors that are 
 #' shades of a color gradient ranging 
@@ -830,7 +830,7 @@ shades_of <- function(n = 5,
 
 # - Documentation: ------ 
 
-#' Adjust the transparency of a color or color palette.
+#' Adjust color transparency
 #'
 #' \code{ac} adjusts the transparency of a color or color palette \code{col} 
 #' to an opacity level \code{alpha} (in \code{[0, 1]}).

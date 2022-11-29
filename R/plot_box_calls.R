@@ -1,5 +1,5 @@
 ## plot_box_calls.R | unikn
-## spds | uni.kn |  2022 08 30
+## spds | uni.kn |  2022 11 29
 ## ---------------------------
 
 ## Specialized functions to plot rectangular boxes (e.g., frames, slides, etc.)
@@ -10,7 +10,7 @@
 
 # - Documentation: ---- 
 
-#' Plot a box (with x). 
+#' Plot a box (with x) 
 #' 
 #' \code{xbox} plots a box with a cross (x) in its top-right corner. 
 #' 
@@ -100,7 +100,7 @@ xbox <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB"
 
 # - Documentation: ---- 
 
-#' Plot a slide (or frame). 
+#' Plot a slide (or frame) 
 #' 
 #' \code{slide} plots an empty slide (or frame) 
 #' as a colored rectangle.   

@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## spds | uni.kn |  2021 04 24
+## spds | uni.kn |  2022 11 29
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -18,7 +18,7 @@
 
 # - Documentation: ---- 
 
-#' Plot marked (or highlighted) text elements. 
+#' Plot marked (or highlighted) text elements 
 #' 
 #' \code{mark} plots 1 or more text strings (provided as a character vector \code{labels}) 
 #' to an (existing or new) plot and places a colored box behind
@@ -236,7 +236,7 @@ mark <- function(labels,             # labels of text element(s) to plot
 
 # - Documentation: ---- 
 
-#' Plot underlined text elements. 
+#' Plot underlined text elements 
 #' 
 #' \code{uline} plots 1 or more text strings (provided as a character vector \code{labels}) 
 #' to an (existing or new) plot and places a colored line underneath   
@@ -388,7 +388,7 @@ uline <- function(labels,             # labels of text element(s) to plot
 
 # - Documentation: ---- 
 
-#' Post text (in an xbox). 
+#' Post text (in an xbox) 
 #' 
 #' \code{post} plots 1 or more text strings (provided as a character vector \code{labels}) 
 #' to an (existing or new) \code{\link{xbox}}.
@@ -604,7 +604,7 @@ post <- function(labels,             # labels of text element(s) to plot
 
 # - Documentation: ---- 
 
-#' Plot a heading (as marked text elements). 
+#' Plot a heading (as marked text elements) 
 #' 
 #' \code{heading} plots 1 or more text strings (provided as a character vector \code{labels}) 
 #' as a heading to an (existing or new) plot and places a colored box behind

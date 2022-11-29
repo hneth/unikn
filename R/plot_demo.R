@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2022 11 04
+## spds | uni.kn | 2022 11 29
 ## ---------------------------
 
 ## Demo functions for color palettes.
@@ -706,7 +706,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
 
 # demopal: A general function to call specific functions: ------ 
 
-#' Demonstrate a color palette.
+#' Demonstrate a color palette (in a plot) 
 #'
 #' \code{demopal} provides an example plot of some \code{type} 
 #' to illustrate a color palette \code{pal}. 
