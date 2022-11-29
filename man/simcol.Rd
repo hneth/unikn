@@ -2,7 +2,7 @@
 % Please edit documentation in R/color_fun_2.R
 \name{simcol}
 \alias{simcol}
-\title{Find similar colors.}
+\title{Find similar colors}
 \usage{
 simcol(
   col_target,

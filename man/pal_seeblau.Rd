@@ -3,7 +3,7 @@
 \docType{data}
 \name{pal_seeblau}
 \alias{pal_seeblau}
-\title{uni.kn color palette seeblau.}
+\title{uni.kn color palette seeblau}
 \format{
 An object of class \code{data.frame} with 1 rows and 5 columns.
 }

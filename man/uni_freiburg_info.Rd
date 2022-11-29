@@ -3,7 +3,7 @@
 \docType{data}
 \name{uni_freiburg_info}
 \alias{uni_freiburg_info}
-\title{Info colors of the University of Freiburg.}
+\title{Info colors of the University of Freiburg}
 \format{
 An object of class \code{character} of length 12.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/color_fun_1.R
 \name{all_colors}
 \alias{all_colors}
-\title{A function providing all unikn colors and base R colors.}
+\title{Provide all unikn colors and base R colors}
 \usage{
 all_colors(distinct = TRUE)
 }

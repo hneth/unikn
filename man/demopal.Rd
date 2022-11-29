@@ -5,7 +5,7 @@
 \alias{democol}
 \alias{demofun}
 \alias{demoplot}
-\title{Demonstrate a color palette.}
+\title{Demonstrate a color palette (in a plot)}
 \usage{
 demopal(pal = pal_unikn, type = NA, pal_name = NULL, ...)
 }

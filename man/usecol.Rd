@@ -2,7 +2,7 @@
 % Please edit documentation in R/color_fun_1.R
 \name{usecol}
 \alias{usecol}
-\title{Use a color or color palette.}
+\title{Use a color or color palette}
 \usage{
 usecol(
   pal = pal_unikn,

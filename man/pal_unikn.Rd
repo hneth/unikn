@@ -3,7 +3,7 @@
 \docType{data}
 \name{pal_unikn}
 \alias{pal_unikn}
-\title{uni.kn default color palette (11 colors).}
+\title{uni.kn default color palette (11 colors)}
 \format{
 An object of class \code{data.frame} with 1 rows and 11 columns.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/color_fun_2.R
 \name{ac}
 \alias{ac}
-\title{Adjust the transparency of a color or color palette.}
+\title{Adjust color transparency}
 \usage{
 ac(col, alpha = 0.5, use_names = TRUE)
 }

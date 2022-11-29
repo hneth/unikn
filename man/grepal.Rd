@@ -2,7 +2,7 @@
 % Please edit documentation in R/color_fun_2.R
 \name{grepal}
 \alias{grepal}
-\title{Get a vector of colors whose names match a regular expression.}
+\title{Get a vector of colors whose names match a regular expression}
 \usage{
 grepal(pattern, x = colors(), ignore_case = TRUE, plot = TRUE)
 }

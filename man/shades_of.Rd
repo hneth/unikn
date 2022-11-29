@@ -2,7 +2,7 @@
 % Please edit documentation in R/color_fun_2.R
 \name{shades_of}
 \alias{shades_of}
-\title{Get n shades of a color.}
+\title{Get n shades of a color}
 \usage{
 shades_of(n = 5, col_1 = "black", col_n = "white", alpha = NA)
 }

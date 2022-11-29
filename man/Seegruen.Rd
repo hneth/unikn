@@ -3,7 +3,7 @@
 \docType{data}
 \name{Seegruen}
 \alias{Seegruen}
-\title{uni.kn color Seegruen.}
+\title{uni.kn color Seegruen}
 \format{
 An object of class \code{character} of length 1.
 }

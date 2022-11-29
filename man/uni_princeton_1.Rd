@@ -3,7 +3,7 @@
 \docType{data}
 \name{uni_princeton_1}
 \alias{uni_princeton_1}
-\title{Colors of Princeton University (on white backgrounds).}
+\title{Colors of Princeton University (on white backgrounds)}
 \format{
 An object of class \code{character} of length 3.
 }

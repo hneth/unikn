@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_text_calls.R
 \name{heading}
 \alias{heading}
-\title{Plot a heading (as marked text elements).}
+\title{Plot a heading (as marked text elements)}
 \usage{
 heading(
   labels,

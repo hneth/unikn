@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_themes.R
 \name{theme_grau}
 \alias{theme_grau}
-\title{Alternative theme for ggplot2.}
+\title{Alternative theme (for ggplot2)}
 \usage{
 theme_grau(
   col_title = grey(0, 1),

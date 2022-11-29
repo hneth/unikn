@@ -3,7 +3,7 @@
 \docType{data}
 \name{pal_petrol}
 \alias{pal_petrol}
-\title{uni.kn color palette petrol.}
+\title{uni.kn color palette petrol}
 \format{
 An object of class \code{data.frame} with 1 rows and 5 columns.
 }

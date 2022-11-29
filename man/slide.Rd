@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_box_calls.R
 \name{slide}
 \alias{slide}
-\title{Plot a slide (or frame).}
+\title{Plot a slide (or frame)}
 \usage{
 slide(col = NA, dim = c(4/3, 1), border = grey(0.33, 1), lwd = 1.5)
 }

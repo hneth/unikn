@@ -3,7 +3,7 @@
 \docType{data}
 \name{Signal}
 \alias{Signal}
-\title{uni.kn color Signal or alert.}
+\title{uni.kn color Signal or alert}
 \format{
 An object of class \code{character} of length 1.
 }

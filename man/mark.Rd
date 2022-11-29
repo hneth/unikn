@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_text_calls.R
 \name{mark}
 \alias{mark}
-\title{Plot marked (or highlighted) text elements.}
+\title{Plot marked (or highlighted) text elements}
 \usage{
 mark(
   labels,

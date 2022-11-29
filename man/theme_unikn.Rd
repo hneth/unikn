@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_themes.R
 \name{theme_unikn}
 \alias{theme_unikn}
-\title{Basic unikn theme for ggplot2.}
+\title{Basic unikn theme (for ggplot2)}
 \usage{
 theme_unikn(
   col_title = pal_seeblau[[4]],

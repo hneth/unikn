@@ -3,7 +3,7 @@
 \docType{data}
 \name{pal_unikn_light}
 \alias{pal_unikn_light}
-\title{uni.kn color palette of light colors.}
+\title{uni.kn color palette of light colors (10 colors)}
 \format{
 An object of class \code{data.frame} with 1 rows and 10 columns.
 }
@@ -12,15 +12,15 @@ pal_unikn_light
 }
 \description{
 \code{pal_unikn_light} provides an additional uni.kn color palette  
-that collects 2 light colors of 4 color palettes  
-as a data frame containing 8 colors (in 4 pairs).
+that collects 2 light colors of 5 color palettes  
+as a data frame containing 10 colors (in 5 pairs).
 }
 \details{
 See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 }
 \examples{
 pal_unikn_light
-dim(pal_unikn_light)  # 1 8 
+dim(pal_unikn_light)  # 1 10 
 
 # Access by position:
 pal_unikn_light[1]    # color "seeblau3" (as df)

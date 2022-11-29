@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_text_calls.R
 \name{uline}
 \alias{uline}
-\title{Plot underlined text elements.}
+\title{Plot underlined text elements}
 \usage{
 uline(
   labels,

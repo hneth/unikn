@@ -4,7 +4,7 @@
 \alias{newpal}
 \alias{defpal}
 \alias{defcol}
-\title{Define a new color palette.}
+\title{Define a new color palette}
 \usage{
 newpal(col, names = NULL, as_df = FALSE)
 }

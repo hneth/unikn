@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_text_calls.R
 \name{post}
 \alias{post}
-\title{Post text (in an xbox).}
+\title{Post text (in an xbox)}
 \usage{
 post(
   labels,

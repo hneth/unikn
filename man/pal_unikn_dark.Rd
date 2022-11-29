@@ -3,7 +3,7 @@
 \docType{data}
 \name{pal_unikn_dark}
 \alias{pal_unikn_dark}
-\title{uni.kn color palette of dark colors.}
+\title{uni.kn color palette of dark colors (10 colors)}
 \format{
 An object of class \code{data.frame} with 1 rows and 10 columns.
 }
@@ -12,8 +12,8 @@ pal_unikn_dark
 }
 \description{
 \code{pal_unikn_dark} provides an additional uni.kn color palette  
-that collects 2 dark colors of 4 color palettes  
-as a data frame containing 8 colors (in 4 pairs).
+that collects 2 dark colors of 5 color palettes  
+as a data frame containing 10 colors (in 5 pairs).
 }
 \details{
 See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.

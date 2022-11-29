@@ -3,7 +3,7 @@
 \docType{data}
 \name{Peach}
 \alias{Peach}
-\title{uni.kn color Peach.}
+\title{uni.kn color Peach}
 \format{
 An object of class \code{character} of length 1.
 }

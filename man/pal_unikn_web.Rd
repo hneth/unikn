@@ -3,7 +3,7 @@
 \docType{data}
 \name{pal_unikn_web}
 \alias{pal_unikn_web}
-\title{uni.kn default color palette (web version).}
+\title{uni.kn default color palette (web version)}
 \format{
 An object of class \code{data.frame} with 1 rows and 10 columns.
 }

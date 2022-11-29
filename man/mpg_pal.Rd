@@ -3,7 +3,7 @@
 \docType{data}
 \name{mpg_pal}
 \alias{mpg_pal}
-\title{Default colors of the Max-Planck-Gesellschaft.}
+\title{Default colors of the Max-Planck-Gesellschaft}
 \format{
 An object of class \code{character} of length 3.
 }

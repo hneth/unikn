@@ -3,7 +3,7 @@
 \docType{data}
 \name{pal_unikn_pair}
 \alias{pal_unikn_pair}
-\title{uni.kn color palette of pairwise colors.}
+\title{uni.kn color palette of pairwise colors (16 colors)}
 \format{
 An object of class \code{data.frame} with 1 rows and 16 columns.
 }

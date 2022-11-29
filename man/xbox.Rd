@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_box_calls.R
 \name{xbox}
 \alias{xbox}
-\title{Plot a box (with x).}
+\title{Plot a box (with x)}
 \usage{
 xbox(col = Seeblau, dim = c(1, 1), use_x = TRUE)
 }

@@ -3,7 +3,7 @@
 \name{seecol}
 \alias{seecol}
 \alias{seepal}
-\title{Plot color palettes (to see their colors).}
+\title{Plot color palettes (to see their colors)}
 \usage{
 seecol(
   pal = "unikn_all",
