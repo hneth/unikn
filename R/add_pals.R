@@ -1235,6 +1235,10 @@ orange_black <- "#F58025"  # orange on black background
 #' \code{uni_princeton_0} provides the two basic colors 
 #' of \href{https://www.princeton.edu/}{Princeton University}, NJ, USA. 
 #' 
+#' Note that 
+#' \href{https://en.wikipedia.org/wiki/Shades_of_orange#Princeton_orange}{Wikipedia: Shades of orange} 
+#' defines \code{uni_princeton_2[1]} as "Princeton orange". 
+#' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
@@ -1264,7 +1268,7 @@ orange_black <- "#F58025"  # orange on black background
 #' @export
 
 uni_princeton_0 <- newpal(col = c(orange_basic, "black"),
-                          names = c("Princeton basic orange", "black"),
+                          names = c("Princeton orange", "black"),
                           as_df = FALSE)
 
 
@@ -1275,6 +1279,10 @@ uni_princeton_0 <- newpal(col = c(orange_basic, "black"),
 #' \code{uni_princeton_1} provides the two basic colors 
 #' of \href{https://www.princeton.edu/}{Princeton University}, NJ, USA, 
 #' for use on white backgrounds. 
+#' 
+#' Note that 
+#' \href{https://en.wikipedia.org/wiki/Shades_of_orange#Princeton_orange}{Wikipedia: Shades of orange} 
+#' defines \code{uni_princeton_2[1]} as "Princeton orange". 
 #' 
 #' The color \code{"white"} was added to enable symmetrical color gradients.
 #' 
