@@ -1221,11 +1221,11 @@ uni_konstanz_pref <- newpal(col = pal_unikn_pref,
 # Uni Princeton: ------
 
 # Source: https://communications.princeton.edu/guides-tools/logo-graphic-identity
-# Last check: 2022-10-20
+# Last check: 2022-11-28
 
 # 3 shades of orange: 
 orange_basic <- "#E87722"  # Pantone 158 C
-orange_white <- "#E77500"  # orange on white background
+orange_white <- "#E77500"  # orange on white background (see <https://en.wikipedia.org/wiki/Shades_of_orange#Princeton_orange>)
 orange_black <- "#F58025"  # orange on black background
 
 # - uni_princeton_0: ----
@@ -1239,7 +1239,7 @@ orange_black <- "#F58025"  # orange on black background
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-20.
+#' Hansjoerg Neth, 2022-11-28.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1282,7 +1282,7 @@ uni_princeton_0 <- newpal(col = c(orange_basic, "black"),
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-20.
+#' Hansjoerg Neth, 2022-11-28.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1319,13 +1319,17 @@ uni_princeton_1 <- newpal(col = c(orange_white, "white", "black"),
 #' of \href{https://www.princeton.edu/}{Princeton University}, NJ, USA, 
 #' for use on black backgrounds. 
 #' 
+#' Note that 
+#' \href{https://en.wikipedia.org/wiki/Shades_of_orange#Princeton_orange}{Wikipedia: Shades of orange} 
+#' defines \code{uni_princeton_2[1]} as "Princeton orange". 
+#' 
 #' The color \code{"black"} was added to enable symmetrical color gradients.
 #' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-20.
+#' Hansjoerg Neth, 2022-11-28.
 #' 
 #' @source 
 #' Color definitions are based on 
