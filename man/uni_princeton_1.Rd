@@ -41,6 +41,9 @@ demopal(uni_princeton_1, type = 4, main = "Colors of Princeton University")
 \code{\link{grepal}} for finding named colors.
 
 Other contributed color palettes: 
+\code{\link{caltech_pal_1}},
+\code{\link{caltech_pal_2}},
+\code{\link{caltech_pal_3}},
 \code{\link{eth_pal_grey}},
 \code{\link{eth_pal_light}},
 \code{\link{eth_pal}},
