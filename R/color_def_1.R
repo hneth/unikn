@@ -1118,7 +1118,7 @@ names(Bordeaux) <- "Bordeaux"
 
 #   (b) Documentation: ----  
 
-#' uni.kn color palette signal (Ampel).
+#' uni.kn color palette signal (Ampel colors) 
 #'
 #' \code{pal_signal} provides an additional uni.kn color palette  
 #' as a data frame containing 3 colors (Ampel or traffic signal colors). 

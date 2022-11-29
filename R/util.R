@@ -1,5 +1,5 @@
 ## util.R | unikn
-## spds | uni.kn |  2020 09 21
+## spds | uni.kn |  2022 11 29
 ## ---------------------------
 
 # General utility functions (mostly for internal use, not exported).
@@ -58,7 +58,7 @@ set_seed <- function(seed = NULL){
 
 # url_unikn: Format an URL the unikn way ------ 
 
-#' \code{url_unikn} formats an URL the uni.kn way.
+#' \code{url_unikn} formats an URL the uni.kn way 
 #' 
 #' \code{url_unikn} removes various patterns (e.g., 
 #' \code{"http", "https", "://", "www."}) from the 

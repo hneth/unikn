@@ -409,7 +409,8 @@ col_goe_fac <- c("#25795d", "#fd8f4a", "#eeb32a", "#256951", "#ac5b53", "#e07f41
 nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "Forstwissenschaften und Walkoekologie", "Geowissenschaften und Geographie", "Mathematik und Informatik", "Physik", 
                  "Jura", "Sozialwissenschaften", "Wirtschaftswissenschaften", "Philosophie", "Theologie", "Medizin")
 
-#' Departmental colors of the University of Göttingen.
+
+#' Departmental colors of the University of Göttingen 
 #'
 #' \code{uni_goettingen_3} provides the 13 departmental colors 
 #' (German "Fakultäten") of the \href{https://www.uni-goettingen.de/}{University of Göttingen}, Germany.  
