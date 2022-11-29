@@ -103,7 +103,10 @@ for use on black backgrounds.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
-    <p>The color <code>"black"</code> was added to enable symmetrical color gradients.</p>
+    <p>Note that 
+<a href="https://en.wikipedia.org/wiki/Shades_of_orange#Princeton_orange" class="external-link">Wikipedia: Shades of orange</a> 
+defines <code>uni_princeton_2[1]</code> as "Princeton orange".</p>
+<p>The color <code>"black"</code> was added to enable symmetrical color gradients.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -115,6 +118,9 @@ for use on black backgrounds.</p>
 <code><a href="newpal.html">newpal</a></code> for defining new color palettes; 
 <code><a href="grepal.html">grepal</a></code> for finding named colors.</p>
 <p>Other contributed color palettes: 
+<code><a href="caltech_pal_1.html">caltech_pal_1</a></code>,
+<code><a href="caltech_pal_2.html">caltech_pal_2</a></code>,
+<code><a href="caltech_pal_3.html">caltech_pal_3</a></code>,
 <code><a href="eth_pal_grey.html">eth_pal_grey</a></code>,
 <code><a href="eth_pal_light.html">eth_pal_light</a></code>,
 <code><a href="eth_pal.html">eth_pal</a></code>,
@@ -136,14 +142,16 @@ for use on black backgrounds.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
-    <p>Hansjoerg Neth, 2022-10-20.</p>
+    <p>Hansjoerg Neth, 2022-11-28.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">uni_princeton_2</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  orange_b     black     white </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "#F58025"   "black"   "white" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Princeton orange (on black)                       black </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   "#F58025"                     "black" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       white </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     "white" </span>
 <span class="r-in"><span><span class="va">opar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>no.readonly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>bg <span class="op">=</span> <span class="st">"black"</span>, col.main <span class="op">=</span> <span class="st">"white"</span>, col <span class="op">=</span> <span class="st">"grey"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">uni_princeton_2</span>, col_brd <span class="op">=</span> <span class="st">"grey"</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>  <span class="co"># view color palette</span></span></span>
