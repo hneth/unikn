@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 11 27
+## spds | uni.kn |  2022 11 29
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -279,7 +279,7 @@ caltech_pal_3 <- newpal(col = c(col_caltech_p,  col_caltech_b1, col_caltech_b2, 
 col_goe_primary <- c("#153268", "#005f9b", "#0091c8", "#50a5d2")
 nam_goe_primary <- c("Uniblau", "Logoblau", "Logomittelblau", "Logohellblau")
 
-#' Primary colors of the University of Göttingen.
+#' Primary colors of the University of Göttingen
 #'
 #' \code{uni_goettingen_1} provides the primary blue colors 
 #' of the \href{https://www.uni-goettingen.de/}{University of Göttingen}, Germany.  
@@ -336,7 +336,7 @@ col_goe_secondary <- c("#000000", "#FFFFFF", "#EAE2D8", "#f2f0e8",
 nam_goe_secondary <- c("Schwarz", "Weiss", "Chamois", "Altweiss",
                        "Grau 90", "Grau 80", "Grau 60", "Grau 20")
 
-#' Secondary colors of the University of Göttingen.
+#' Secondary colors of the University of Göttingen
 #'
 #' \code{uni_goettingen_2} provides the secondary colors 
 #' of the \href{https://www.uni-goettingen.de/}{University of Göttingen}, Germany.  
@@ -498,7 +498,7 @@ col_ETH <- c("#215CAF", "#007894", "#627313", "#8E6713", "#B7352D", "#A7117A", "
 nam_ETH <- c("ETH Blue", "ETH Petrol", "ETH Green", "ETH Bronze", "ETH Red", "ETH Purple", "ETH Grey")
 
 
-#' Default colors of the ETH Zurich.
+#' Default colors of the ETH Zurich 
 #'
 #' \code{eth_pal} provides the default color palette 
 #' of the \href{https://ethz.ch/}{ETH Zürich}, Switzerland. 
@@ -575,7 +575,7 @@ col_ETH_light <- c("#E9EFF7", "#E7F4F7", "#EFF1E7", "#F4F0E7", "#F8EBEA", "#F8E8
 nam_ETH_light <- c("ETH Blue 10%", "ETH Petrol 10%", "ETH Green 10%", "ETH Bronze 10%", "ETH Red 10%", "ETH Purple 10%", "ETH Grey 10%")
 
 
-#' Lighter shades of the ETH Zurich colors.
+#' Lighter shades of the ETH Zurich colors 
 #'
 #' \code{eth_pal_light} provides the lighter shades of the color palette 
 #' of the \href{https://ethz.ch/}{ETH Zürich}, Switzerland. 
@@ -673,7 +673,7 @@ nam_eth_grey <- c("ETH Black", "ETH Black Light",
                   "ETH Grey 10%", "ETH Grey 5%")
 
 
-#' Black and grey colors of the ETH Zurich.
+#' Black and grey colors of the ETH Zurich 
 #'
 #' \code{eth_pal_grey} provides the shades of black and grey 
 #' used by the \href{https://ethz.ch/}{ETH Zürich}, Switzerland. 
@@ -724,7 +724,7 @@ eth_pal_grey <- newpal(col = col_eth_grey,
 
 # - mpg_pal: ---- 
 
-#' Default colors of the Max-Planck-Gesellschaft.
+#' Default colors of the Max-Planck-Gesellschaft 
 #'
 #' \code{mpg_pal} provides the default color palette 
 #' of the \href{https://www.mpg.de/en}{Max-Planck-Gesellschaft}, Germany. 
@@ -815,7 +815,7 @@ uni_freiburg_1 <- newpal(col = c("#000000", frbg_blue, "#FFFFFF"),
 
 # - uni_freiburg_br: ----
 
-#' Default colors of the University of Freiburg.
+#' Default colors of the University of Freiburg 
 #'
 #' \code{uni_freiburg_br} provides the two default colors 
 #' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
@@ -857,7 +857,7 @@ uni_freiburg_br <- newpal(col = c("#004a99", "#c1002a"),
 
 # - uni_freiburg_blue: ---- 
 
-#' Blue colors of the University of Freiburg.
+#' Blue colors of the University of Freiburg 
 #'
 #' \code{uni_freiburg_blue} provides the blue colors 
 #' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
@@ -898,7 +898,7 @@ uni_freiburg_blue <- newpal(col = c("#004a99", "#2a6ebb", "#6f9ad3"),
 
 # - uni_freiburg_grey: ---- 
 
-#' Grey colors of the University of Freiburg.
+#' Grey colors of the University of Freiburg 
 #'
 #' \code{uni_freiburg_grey} provides the grey colors 
 #' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
@@ -941,7 +941,7 @@ uni_freiburg_grey <- newpal(col = c("#f2f3f1", "#e0e1dd", "#d5d6d2", "#c9cac8",
 
 # - uni_freiburg_info: ---- 
 
-#' Info colors of the University of Freiburg.
+#' Info colors of the University of Freiburg 
 #'
 #' \code{uni_freiburg_info} provides the info colors 
 #' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
@@ -992,7 +992,7 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
 
 # - uni_konstanz: ---- 
 
-#' Default colors of the University of Konstanz.
+#' Default colors of the University of Konstanz 
 #'
 #' \code{uni_konstanz} provides the default color palette 
 #' of the \href{https://www.uni-konstanz.de/}{University of Konstanz}, Germany. 
@@ -1039,7 +1039,7 @@ uni_konstanz <- newpal(col = pal_unikn,
 
 # - uni_konstanz_pref: ---- 
 
-#' Preferred colors of the University of Konstanz.
+#' Preferred colors of the University of Konstanz 
 #'
 #' \code{uni_konstanz_pref} provides the color palette of preferred colors  
 #' of the \href{https://www.uni-konstanz.de/}{University of Konstanz}, Germany.
@@ -1097,7 +1097,7 @@ orange_black <- "#F58025"  # orange on black background
 
 # - uni_princeton_0: ----
 
-#' Basic colors of Princeton University.
+#' Basic colors of Princeton University 
 #'
 #' \code{uni_princeton_0} provides the two basic colors 
 #' of \href{https://www.princeton.edu/}{Princeton University}, NJ, USA. 
@@ -1137,7 +1137,7 @@ uni_princeton_0 <- newpal(col = c(orange_basic, "black"),
 
 # - uni_princeton_1: ----
 
-#' Colors of Princeton University (on white backgrounds).
+#' Colors of Princeton University (on white backgrounds) 
 #'
 #' \code{uni_princeton_1} provides the two basic colors 
 #' of \href{https://www.princeton.edu/}{Princeton University}, NJ, USA, 
@@ -1180,7 +1180,7 @@ uni_princeton_1 <- newpal(col = c(orange_white, "white", "black"),
 
 # - uni_princeton_2: ----
 
-#' Colors of Princeton University (on black backgrounds).
+#' Colors of Princeton University (on black backgrounds) 
 #'
 #' \code{uni_princeton_2} provides the two basic colors 
 #' of \href{https://www.princeton.edu/}{Princeton University}, NJ, USA, 
@@ -1332,7 +1332,7 @@ UR_glutrot_f <-            "#DA3C43" # Informatik und Data Science (TODO: Same a
 
 # - uni_regensburg_1: General / Service und fakultätsübergreifende Einrichtungen: ---- 
 
-#' General colors of the University of Regensburg.
+#' General colors of the University of Regensburg 
 #'
 #' \code{uni_regensburg_1} provides the general (administrative and service-oriented) colors 
 #' of the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany. 
@@ -1392,7 +1392,7 @@ uni_regensburg_1 <- newpal(col = c(UR_neutralgrau,
 
 # - uni_regensburg_2: Departmental / faculty / web area colors: ---- 
 
-#' Departmental colors of the University of Regensburg (areas).
+#' Departmental colors of the University of Regensburg (for areas) 
 #'
 #' \code{uni_regensburg_2} provides the departmental (faculty) colors 
 #' for coloring print or web areas 
@@ -1461,7 +1461,7 @@ all.equal(uni_regensburg_2, uni_regensburg_2_a)  # RGB values correspond to web 
 
 # - uni_regensburg_3: Departmental / faculty / web font colors: ---- 
 
-#' Departmental colors of the University of Regensburg (fonts).
+#' Departmental colors of the University of Regensburg (for fonts) 
 #'
 #' \code{uni_regensburg_3} provides the departmental (faculty) colors 
 #' for web fonts 
