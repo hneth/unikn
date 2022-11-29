@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## spds | uni.kn |  2022 11 25
+## spds | uni.kn |  2022 11 29
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -29,7 +29,7 @@ pal_unikn_web <- data.frame(                             #  Element:
 
 # Documentation:
 
-#' uni.kn default color palette (web version).
+#' uni.kn default color palette (web version) 
 #'
 #' \code{pal_unikn_web} provides the default uni.kn color palette  
 #' as a data frame containing 10 colors.
@@ -100,7 +100,7 @@ pal_unikn_ppt <- data.frame(                             #  Element:
 
 # Documentation:
 
-#' uni.kn secondary color palette (ppt version).
+#' uni.kn secondary color palette (ppt version) 
 #'
 #' \code{pal_unikn_ppt} provides an alternative uni.kn color palette  
 #' as a data frame containing 10 colors. 
@@ -170,7 +170,7 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 
 #   (b) Documentation: ---- 
 
-#' uni.kn color palette seeblau.
+#' uni.kn color palette seeblau 
 #'
 #' \code{pal_seeblau} provides an additional uni.kn color palette 
 #' as a data frame containing 5 colors (shades of 
@@ -223,7 +223,7 @@ pal_seeblau <- data.frame(                               #  Element:
 
 #   (d) Named color seeblau (as df): ---- 
 
-##|  uni.kn color seeblau (as df).
+##|  uni.kn color seeblau (as df) 
 ##|  
 ##|  \code{seeblau} provides the preferred color of \code{\link{pal_seeblau}}
 ##|  (as an atomic data frame) and is defined as
@@ -251,7 +251,7 @@ pal_seeblau <- data.frame(                               #  Element:
 
 #   (e) Preferred color Seeblau (as HEX character value): ---- 
 
-#' uni.kn color Seeblau. 
+#' uni.kn color Seeblau 
 #' 
 #' \code{Seeblau} provides the preferred color of \code{\link{pal_seeblau}} 
 #' (as an atomic HEX character value) and is defined as 
@@ -298,7 +298,7 @@ names(Seeblau) <- "Seeblau"
 
 #   (b) Documentation: ----  
 
-#' uni.kn color palette peach.
+#' uni.kn color palette peach 
 #'
 #' \code{pal_peach} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -341,7 +341,7 @@ pal_peach <- data.frame(                               #  Element:
 
 #   (d) Named color peach (as df): ---- 
 
-##| uni.kn color peach (as df).
+##| uni.kn color peach (as df) 
 ##| 
 ##| \code{peach} provides the preferred color of \code{\link{pal_peach}}
 ##| (as an atomic data frame) and is defined as
@@ -369,7 +369,7 @@ pal_peach <- data.frame(                               #  Element:
 
 #   (e) Preferred color Peach (as HEX character value): ---- 
 
-#' uni.kn color Peach. 
+#' uni.kn color Peach 
 #' 
 #' \code{Peach} provides the preferred color of \code{\link{pal_peach}} 
 #' (as an atomic HEX character value) and is defined as 
@@ -415,7 +415,7 @@ names(Peach) <- "Peach"
 
 #   (b) Documentation: ---- 
 
-#' uni.kn color palette grau.
+#' uni.kn color palette grau 
 #'
 #' \code{pal_grau} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -457,7 +457,7 @@ pal_grau <- data.frame(                               #  Element:
 
 #   (d) Named color grau (as df): ---- 
 
-##| uni.kn color grau (as df).
+##| uni.kn color grau (as df) 
 ##| 
 ##| \code{grau} provides the preferred color of \code{\link{pal_grau}}
 ##| (as an atomic data frame) and is defined as
@@ -485,7 +485,7 @@ pal_grau <- data.frame(                               #  Element:
 
 #   (e) Preferred color Grau (as HEX character value): ---- 
 
-#' uni.kn color Grau.  
+#' uni.kn color Grau 
 #' 
 #' \code{Grau} provides the preferred color of \code{\link{pal_grau}} 
 #' (as an atomic HEX character value) and is defined as 
@@ -532,7 +532,7 @@ names(Grau) <- "Grau"
 
 #   (b) Documentation: ----  
 
-#' uni.kn color palette petrol.
+#' uni.kn color palette petrol 
 #'
 #' \code{pal_petrol} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -577,7 +577,7 @@ pal_petrol <- data.frame(                               #  Element:
 
 #   (d) Named color petrol (as df): ---- 
 
-##| uni.kn color petrol (as df). 
+##| uni.kn color petrol (as df) 
 ##| 
 ##| \code{petrol} provides the preferred color of \code{\link{pal_petrol}} 
 ##| (as an atomic data frame) and is defined as 
@@ -605,7 +605,7 @@ pal_petrol <- data.frame(                               #  Element:
 
 #   (e) Preferred color Petrol (as HEX character value): ---- 
 
-#' uni.kn color Petrol. 
+#' uni.kn color Petrol 
 #' 
 #' \code{Petrol} provides the preferred color of \code{\link{pal_petrol}} 
 #' (as an atomic HEX character value) and is defined as 
@@ -651,7 +651,7 @@ names(Petrol) <- "Petrol"
 
 #   (b) Documentation: ----  
 
-#' uni.kn color palette seegruen.
+#' uni.kn color palette seegruen 
 #'
 #' \code{pal_seegruen} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -694,7 +694,7 @@ pal_seegruen <- data.frame(                               #  Element:
 
 #   (d) Named color seegruen (as df): ---- 
 
-##| uni.kn color seegruen (as df).
+##| uni.kn color seegruen (as df) 
 ##| 
 ##| \code{seegruen} provides the preferred color of \code{\link{pal_seegruen}} 
 ##| (as an atomic data frame) and is defined as 
@@ -722,7 +722,7 @@ pal_seegruen <- data.frame(                               #  Element:
 
 #   (e) Preferred color Seegruen (as HEX character value): ---- 
 
-#' uni.kn color Seegruen. 
+#' uni.kn color Seegruen 
 #' 
 #' \code{Seegruen} provides the preferred color of \code{\link{pal_seegruen}} 
 #' (as an atomic HEX character value) and is defined as 
@@ -769,7 +769,7 @@ names(Seegruen) <- "Seegruen"
 
 #   (b) Documentation: ----  
 
-#' uni.kn color palette karpfenblau.
+#' uni.kn color palette karpfenblau 
 #'
 #' \code{pal_karpfenblau} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -812,7 +812,7 @@ pal_karpfenblau <- data.frame(                               #  Element:
 
 #   (d) Named color karpfenblau (as df): ---- 
 
-##| uni.kn color karpfenblau (as df).  
+##| uni.kn color karpfenblau (as df) 
 ##| 
 ##| \code{karpfenblau} provides the preferred color of \code{\link{pal_karpfenblau}} 
 ##| (as an atomic data) frame and is defined as 
@@ -840,7 +840,7 @@ pal_karpfenblau <- data.frame(                               #  Element:
 
 #   (e) Preferred color Karpfenblau (as HEX character value): ---- 
 
-#' uni.kn color Karpfenblau.  
+#' uni.kn color Karpfenblau 
 #' 
 #' \code{Karpfenblau} provides the preferred color of \code{\link{pal_karpfenblau}} 
 #' (as an atomic HEX character value) and is defined as 
@@ -886,7 +886,7 @@ names(Karpfenblau) <- "Karpfenblau"
 
 #   (b) Documentation: ----  
 
-#' uni.kn color palette pinky.
+#' uni.kn color palette pinky 
 #'
 #' \code{pal_pinky} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -929,7 +929,7 @@ pal_pinky <- data.frame(                               #  Element:
 
 #   (d) Named color pinky (as df): ---- 
 
-##| uni.kn color pinky (as df).   
+##| uni.kn color pinky (as df) 
 ##| 
 ##| \code{pinky} provides the preferred color of \code{\link{pal_pinky}} 
 ##| (as an atomic data frame) and is defined as 
@@ -957,7 +957,7 @@ pal_pinky <- data.frame(                               #  Element:
 
 #   (e) Preferred color Pinky (as HEX character value): ---- 
 
-#' uni.kn color Pinky.   
+#' uni.kn color Pinky 
 #' 
 #' \code{Pinky} provides the preferred color of \code{\link{pal_pinky}} 
 #' (as an atomic HEX character value) and is defined as 
@@ -1003,7 +1003,7 @@ Pinky  #  "#E0607E"
 
 #   (b) Documentation: ----  
 
-#' uni.kn color palette bordeaux.
+#' uni.kn color palette bordeaux 
 #'
 #' \code{pal_bordeaux} provides an additional uni.kn color palette  
 #' as a data frame containing 5 colors (shades of 
@@ -1046,7 +1046,7 @@ pal_bordeaux <- data.frame(                               #  Element:
 
 #   (d) Named color bordeaux (as df): ---- 
 
-##| uni.kn color bordeaux (as df).    
+##| uni.kn color bordeaux (as df) 
 ##| 
 ##| \code{bordeaux} provides the preferred color of \code{\link{pal_bordeaux}} 
 ##| (as an atomic data frame) and is defined as 
@@ -1074,7 +1074,7 @@ pal_bordeaux <- data.frame(                               #  Element:
 
 #   (e) Preferred color Bordeaux (as HEX character value): ---- 
 
-#' uni.kn color Bordeaux.    
+#' uni.kn color Bordeaux 
 #' 
 #' \code{Bordeaux} provides the preferred color of \code{\link{pal_bordeaux}} 
 #' (as an atomic HEX character value) and is defined as 
@@ -1167,7 +1167,7 @@ pal_signal <- data.frame(                               #  Element:
 # Note: As the Ampel palette specification does NOT identify a preferred color,  
 #       using "signal" as a dedicated color is NOT part of the official definition. 
 
-##| uni.kn color alert signal (as df).    
+##| uni.kn color alert signal (as df)  
 ##| 
 ##| \code{signal} provides the alert color of \code{\link{pal_signal}} 
 ##| (as an atomic data frame) and is defined as 
@@ -1205,7 +1205,7 @@ pal_signal <- data.frame(                               #  Element:
 # Note: As the Ampel palette specification does NOT identify a preferred color,  
 #       using "signal" as a dedicated color is NOT part of the official definition. 
 
-#' uni.kn color Signal or alert.    
+#' uni.kn color Signal or alert 
 #' 
 #' \code{Signal} provides the alert color of \code{\link{pal_signal}} 
 #' (as an atomic HEX character value) and is defined as 

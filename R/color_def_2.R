@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2022 11 20
+## spds | uni.kn  | 2022 11 29
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -10,7 +10,7 @@
 
 #   (a) Documentation: ----  
 
-#' uni.kn default color palette (11 colors).
+#' uni.kn default color palette (11 colors) 
 #'
 #' \code{pal_unikn} combines the 5 shades of blue colors 
 #' from color palette \code{\link{pal_seeblau}} 
@@ -83,7 +83,7 @@ pal_unikn_pref <- data.frame(  # Element:
 
 #   (a) Documentation: ----  
 
-#' uni.kn color palette of preferred colors.
+#' uni.kn color palette of preferred colors (9 colors)
 #'
 #' \code{pal_unikn_pref} provides an additional uni.kn color palette  
 #' that collects the preferred color of each palette 
@@ -140,17 +140,17 @@ rownames(pal_unikn_pref) <- "1"  # fix/set rownames() of palette
 
 #   (a) Documentation: ----  
 
-#' uni.kn color palette of light colors.
+#' uni.kn color palette of light colors (10 colors)
 #'
 #' \code{pal_unikn_light} provides an additional uni.kn color palette  
-#' that collects 2 light colors of 4 color palettes  
-#' as a data frame containing 8 colors (in 4 pairs). 
+#' that collects 2 light colors of 5 color palettes  
+#' as a data frame containing 10 colors (in 5 pairs). 
 #' 
 #' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
 #' @examples
 #' pal_unikn_light
-#' dim(pal_unikn_light)  # 1 8 
+#' dim(pal_unikn_light)  # 1 10 
 #' 
 #' # Access by position:
 #' pal_unikn_light[1]    # color "seeblau3" (as df)
@@ -197,11 +197,11 @@ rownames(pal_unikn_light) <- "1"  # fix/set rownames() of palette
 
 #   (a) Documentation: ----  
 
-#' uni.kn color palette of dark colors.
+#' uni.kn color palette of dark colors (10 colors)
 #'
 #' \code{pal_unikn_dark} provides an additional uni.kn color palette  
-#' that collects 2 dark colors of 4 color palettes  
-#' as a data frame containing 8 colors (in 4 pairs). 
+#' that collects 2 dark colors of 5 color palettes  
+#' as a data frame containing 10 colors (in 5 pairs). 
 #' 
 #' See \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/} for details.
 #'
@@ -248,7 +248,7 @@ rownames(pal_unikn_dark) <- "1"  # fix/set rownames() of palette
 
 #   (a) Documentation: ----  
 
-#' uni.kn color palette of pairwise colors.
+#' uni.kn color palette of pairwise colors (16 colors)
 #'
 #' \code{pal_unikn_pair} provides an additional uni.kn color palette  
 #' that collects 16 paired colors of 8 color palettes  
