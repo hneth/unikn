@@ -5,8 +5,8 @@
 # Add color palettes of various institutions 
 # (and export contributed color palettes).
 
-# Notes: 
-# - Many users only want to use, rather than to manipulate color palettes. 
+# Note:
+# - Many users only want to use, rather than create or manipulate color palettes. 
 # - For convenience, uni_pals are provided as named vectors (not data frames).
 
 
@@ -14,7 +14,8 @@
 
 # Institution names and URLs of add_pals:
 
-# add_pals <- c("eth_pal", "eth_pal_light", "eth_pal_grey",
+# add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3", 
+#               "eth_pal", "eth_pal_light", "eth_pal_grey",
 #               "mpg_pal",
 #               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
 #               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
@@ -23,7 +24,8 @@
 #               "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3"
 # )
 
-inst <- c(rep("ETH Zurich", 3),
+inst <- c(rep("Caltech", 3), 
+          rep("ETH Zurich", 3),
           "Max Planck Society",
           rep("University of Freiburg", 4),
           rep("University of Goettingen", 3),          
@@ -32,7 +34,9 @@ inst <- c(rep("ETH Zurich", 3),
           rep("University of Regensburg", 3)
 )
 
-inst_alt <- c(rep("Eidgen\u00F6ssische Technische Hochschule, Z\u00FCrich", 3),
+
+inst_alt <- c(rep("California Institute of Technology", 3), 
+              rep("Eidgen\u00F6ssische Technische Hochschule, Z\u00FCrich", 3),
               "Max-Planck-Gesellschaft",
               rep("Universit\u00E4t Freiburg", 4),
               rep("Universit\u00E4t G\u00F6ttingen", 3),
@@ -41,7 +45,8 @@ inst_alt <- c(rep("Eidgen\u00F6ssische Technische Hochschule, Z\u00FCrich", 3),
               rep("Universit\u00E4t Regensburg", 3)
 )
 
-url <- c(rep("https://ethz.ch/", 3), 
+url <- c(rep("https://www.caltech.edu/", 3), 
+         rep("https://ethz.ch/", 3), 
          "https://www.mpg.de/en",
          rep("https://uni-freiburg.de/", 4), 
          rep("https://uni-goettingen.de/", 3), 
@@ -57,7 +62,7 @@ uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pa
 # Caltech: ------ 
 
 # Source: <https://identity.caltech.edu/colors>
-# 2022-11-27
+# 2022-11-28
 
 # Caltech's official color system is made up of four palettes: 
 # a primary color, a neutral palette, a deep palette, and a bright palette.
@@ -136,6 +141,47 @@ col_caltech_n7 <- "#F1D384"  # Note: RGB values differ!
 
 # - caltech_pal_1: Primary and neutral colors: ----
 
+#' Primary and neutral colors of Caltech
+#'
+#' \code{caltech_pal_1} provides the primary and 7 neutral colors 
+#' of the \href{https://www.caltech.edu/}{California Institute of Technology}, CA, USA. 
+#' 
+#' Caltech's primary orange color is defined as Pantone MS 1585c 
+#' (for coated and matte print jobs, PMS 151 for uncoated print jobs). 
+#' Use this color for small highlights, rather than large areas. 
+#' 
+#' Caltech's 7 neutral colors complement the primary Caltech orange 
+#' and allow to convey a serious, sober, and traditional impression.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-10-28.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://identity.caltech.edu/colors}. 
+#' 
+#' @examples
+#' caltech_pal_1
+#' seecol(caltech_pal_1)  # view color palette
+#' demopal(caltech_pal_1, type = 4, seed = 1,  
+#'         main = "Primary and neutral colors of Caltech")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{caltech_pal_2}} for Caltech's primary and deep colors; 
+#' \code{\link{caltech_pal_3}} for Caltech's bright colors; 
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
 caltech_pal_1 <- newpal(col = c(col_caltech_p,  col_caltech_n1, col_caltech_n2, col_caltech_n3,
                                 col_caltech_n4, col_caltech_n5, col_caltech_n6, col_caltech_n7),
                         names = c("PMS 1585c", "PMS cool gray 9", "PMS cool grey 3c", "PMS 414",
@@ -178,6 +224,48 @@ col_caltech_d4 <- "#7A303F"  # Note: RGB values differ!
 # col_caltech_d4 <- rgb(123, 48, 62, maxColorValue = 255)  # Note: HEX values differ!
 
 # - caltech_pal_2: Primary and deep colors: ----
+
+#' Primary and deep colors of Caltech
+#'
+#' \code{caltech_pal_2} provides the primary and 4 deep colors 
+#' of the \href{https://www.caltech.edu/}{California Institute of Technology}, CA, USA. 
+#' 
+#' Caltech's primary orange color is defined as Pantone MS 1585c 
+#' (for coated and matte print jobs, PMS 151 for uncoated print jobs). 
+#' Use this color for small highlights, rather than large areas. 
+#' 
+#' Caltech's 4 deep colors add contrast to the primary Caltech orange 
+#' as well as the neutral colors (of \code{\link{caltech_pal_1}}), 
+#' and are used to provide depth and texture to communications materials. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-10-28.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://identity.caltech.edu/colors}. 
+#' 
+#' @examples
+#' caltech_pal_2
+#' seecol(caltech_pal_2)  # view color palette
+#' demopal(caltech_pal_2, type = 3, seed = 1,  
+#'         main = "Primary and deep colors of Caltech")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{caltech_pal_1}} for Caltech's primary and neutral colors; 
+#' \code{\link{caltech_pal_3}} for Caltech's bright colors; 
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 caltech_pal_2 <- newpal(col = c(col_caltech_p,  
                                 col_caltech_d1, col_caltech_d2, 
@@ -246,6 +334,50 @@ col_caltech_b7 <- "#F54D80"  # Note: RGB values differ!
 
 
 # - caltech_pal_3: Primary and bright colors: ----
+
+#' Primary and bright colors of Caltech
+#'
+#' \code{caltech_pal_3} provides the primary and 7 bright colors 
+#' of the \href{https://www.caltech.edu/}{California Institute of Technology}, CA, USA. 
+#' 
+#' Caltech's primary orange color is defined as Pantone MS 1585c 
+#' (for coated and matte print jobs, PMS 151 for uncoated print jobs). 
+#' Use this color for small highlights, rather than large areas. 
+#' 
+#' Caltech's 7 bright colors provide an opportunity to adjust the temper 
+#' of communication materials from subtle to bold. 
+#' These colors should be used as carefully selected accents 
+#' to the primary, neutral, and deep colors 
+#' (of \code{\link{caltech_pal_1}} and \code{\link{caltech_pal_2}}). 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-10-28.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://identity.caltech.edu/colors}. 
+#' 
+#' @examples
+#' caltech_pal_3
+#' seecol(caltech_pal_3)  # view color palette
+#' demopal(caltech_pal_3, type = 3, seed = 1,  
+#'         main = "Primary and bright colors of Caltech")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{caltech_pal_1}} for Caltech's primary and neutral colors; 
+#' \code{\link{caltech_pal_2}} for Caltech's primary and deep colors; 
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 caltech_pal_3 <- newpal(col = c(col_caltech_p,  col_caltech_b1, col_caltech_b2, col_caltech_b3, 
                                 col_caltech_b4, col_caltech_b5, col_caltech_b6, col_caltech_b7),
@@ -1268,8 +1400,6 @@ uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"),
 # Web-Farben #DA3C43
 # CMYK coated/uncoated 0.96.99.0
 # HKS-Wert 13
-
-# +++ here now +++ 
 
 # Colors: 
 UR_neutralgrau <- rgb(142, 142, 141, names = "neutralgrau",    maxColorValue = 255) # UR-Hausfarbe, Logo
