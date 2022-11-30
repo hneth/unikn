@@ -1,7 +1,7 @@
 ---
 title: "Color recipes"
 author: "SPDS, uni.kn"
-date: "2022 11 10"
+date: "2022 11 30"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -182,7 +182,7 @@ set.seed(4 * pi)  # reproducible randomenss
 
 - Generate random HCL\ palettes (and save them as a list):
 
-```{r seecol-example-2a, echo = FALSE, fig.width = 6, fig.asp = 1.0, fig.align = 'center'}
+```{r seecol-example-2a, fig.width = 6, fig.asp = 1.0, fig.align = 'center'}
 # Parameters:
 n_col <-  8   # colors in each palette
 n_pal <- 20   # length(hcl.pals())
@@ -349,21 +349,35 @@ seecol(greys, main = "10 shades of grey")
 By adjusting\ `n`, the initial color\ `col_1`, and/or the final color\ `col_n`, 
 we can conveniently create simple color ranges: 
 
-```{r shades-of-example-2, fig.width = 5, fig.asp = .90, fig.align = 'center'}
+```{r shades-of-example-2, eval = FALSE, fig.width = 5, fig.asp = .90, fig.align = 'center'}
 seecol(shades_of(4, Seeblau, "black"), main = "4 shades of Seeblau")
-seecol(shades_of(7, "forestgreen"), main = "7 shades of 'forestgreen'")
+seecol(shades_of(5, "forestgreen"), main = "5 shades of 'forestgreen'")
 ```
 
-Using `alpha` in the range $[0; 1]$ allows adjusting the transparency of the obtained colors: 
+Using `alpha` in the range $[0; 1]$ allows adjusting the transparency of the color gradient: 
 
 ```{r shades-of-example-3, fig.width = 5, fig.asp = .90, fig.align = 'center'}
-wine_gold <- shades_of(4, Bordeaux, col_n = "gold", alpha = .65)
+wine_gold <- shades_of(4, Bordeaux, col_n = "gold", alpha = .75)
 seecol(wine_gold, main = "5 transparent shades from Bordeaux to gold")
 ```
 
-Note that `shades_of()` is merely a convenient wrapper function for the `usecol()` function. 
+
+## Creating color gradients
+
+**Task:** Creating color gradients. 
+
+The `shades_of()` function is merely a convenient wrapper function for the `usecol()` function. 
 Using the `pal` argument of `usecol()` allows defining more complex color gradients 
 (e.g., by specifying more than two colors). 
+For instance, to create a bi-polar (divergent) color palette, we could mix two main colors with "white" and then remove the middle color:
+
+```{r gradient-example-1, fig.width = 5, fig.asp = .90, fig.align = 'center'}
+# Create bi-polar color gradient (and remove 'white' middle color):
+divergent_gradient <- usecol(pal = c("firebrick", "white", "steelblue"), n = 7)[-4]
+
+seecol(divergent_gradient, main = "A bi-polar color palette")
+```
+
 
 
 ## Resources
