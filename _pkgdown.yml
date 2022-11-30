@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2022 11 29
+## spds, uni.kn | 2022 11 30
 ## -------------------------
 
 ## site info: ----------
@@ -76,6 +76,7 @@ reference:
   - starts_with("pal_")
   - starts_with("caltech_")  
   - starts_with("eth_")
+  - starts_with("hu_")  
   - starts_with("mpg_")
   - starts_with("uni_")
 - title: Color manipulation functions
