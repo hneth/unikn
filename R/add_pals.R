@@ -14,8 +14,9 @@
 
 # Institution names and URLs of add_pals:
 
-# add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3", 
+# add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
 #               "eth_pal", "eth_pal_light", "eth_pal_grey",
+#               "HU_pal_1", "HU_pal_2", 
 #               "mpg_pal",
 #               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
 #               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
@@ -26,6 +27,7 @@
 
 inst <- c(rep("Caltech", 3), 
           rep("ETH Zurich", 3),
+          rep("Humboldt University Berlin", 2),
           "Max Planck Society",
           rep("University of Freiburg", 4),
           rep("University of Goettingen", 3),          
@@ -37,6 +39,7 @@ inst <- c(rep("Caltech", 3),
 
 inst_alt <- c(rep("California Institute of Technology", 3), 
               rep("Eidgen\u00F6ssische Technische Hochschule, Z\u00FCrich", 3),
+              rep("Humboldt Universit\u00E4t zu Berlin", 2),
               "Max-Planck-Gesellschaft",
               rep("Universit\u00E4t Freiburg", 4),
               rep("Universit\u00E4t G\u00F6ttingen", 3),
@@ -47,6 +50,7 @@ inst_alt <- c(rep("California Institute of Technology", 3),
 
 url <- c(rep("https://www.caltech.edu/", 3), 
          rep("https://ethz.ch/", 3), 
+         rep("https://www.hu-berlin.de/en", 2), 
          "https://www.mpg.de/en",
          rep("https://uni-freiburg.de/", 4), 
          rep("https://uni-goettingen.de/", 3), 
@@ -850,6 +854,166 @@ eth_pal_grey <- newpal(col = col_eth_grey,
 
 
 
+
+# HU Berlin / Humboldt Universitaet Berlin: ------
+
+# Source: <https://www.hu-berlin.de/de/service/design/basiselemente/farbe>
+# Last check: 2022-11-30
+
+# Hausfarben der Humboldt-Universität
+#
+# Die primären Hausfarben der Humboldt-Universität zu Berlin sind Pantone 294, Schwarz und Weiß.
+
+# Pantone 294 nur im Druck mit Sonderfarben zur Anwendung kommen kann, wird sie für andere Vervielfältigungstechniken 
+# in die Euroskala-Werte CMYK 100/60/0/20 umgewandelt. 
+# Für reine Bildschirm-Anwendungen, die nicht auf Papier ausgegeben werden, gelten die Werte RGB 0/55/108.
+# In der eingeschränkten Farbauswahl für das Internet kann dieser Wert in RGB 0/51/102 umgewandelt werden.
+# Für lackierte farbige Flächen oder Tafeln empfiehlt sich der Farbton RAL 270 3040.
+
+HU_0 <- rgb(0, 55, 108, names = "HU blau", maxColorValue = 255)  # RGB of Pantone 294
+# "in der eingeschränkten Farbauswahl für das Internet":
+HU_0_web <- rgb(0, 51, 102, names = "HU blau web", maxColorValue = 255)  
+
+# seecol(rev(shades_of(21, HU_0))[-1], main = "20 shades of HU blau")
+
+
+# - HU_pal_1: Primary colors ---- 
+
+#' Primary colors of the Humboldt University Berlin 
+#'
+#' \code{HU_pal_1} provides the three primary colors 
+#' of the \href{https://www.hu-berlin.de/en}{Humboldt University Berlin}, Germany. 
+#' 
+#' The color \code{"HU blue"} is defined as Pantone 294 and only approximated by RGB 0/55/108.
+#' Other approximations include CMYK 100/60/0/20, RGB 0/51/102 (reduced web scale), and RAL 270 3040.
+#' 
+#' See the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-11-30.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.hu-berlin.de/de/service/design/basiselemente/farbe}. 
+#' 
+#' @examples
+#' HU_pal_1
+#' seecol(HU_pal_1, n = 5, main = "5 shades of HU Berlin")
+#' demopal(HU_pal_1, type = 1, main = "HU Berlin colors")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{HU_pal_2}} for secondary colors of the HU Berlin;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+HU_pal_1 <- newpal(col = c(HU_0, "white", "black"),
+                   names = c("HU blau", "weiss", "schwarz"), 
+                   as_df = FALSE)
+
+# seecol(HU_pal_1, n = 3)
+
+
+# Farbklima
+# 
+# Um Publikationen der Humboldt-Universität abwechslungsreich und unterscheidbar gestalten zu können, 
+# werden der Hausfarbe korrespondiernde Farben zugeordnet.
+# Die Farben des Farbklimas enthalten einen ähnlichen Schwarzanteil 
+# und erzeugen mit der Hausfarbe einen harmonischen Farbklang.
+# Die Farbangaben für den RGB-Modus beziehen sich auf das ganze am Bildschirm mögliche Farbspektrum.
+
+# Rot
+# CMYK 0/90/80/40
+# RGB 138/15/20
+# RGB (eingeschränkte Farbauswahl) 153/0/0
+
+HU_1 <- rgb(138,  15,  20, names = "rot", maxColorValue = 255)
+
+# Grün
+# CMYK 90/10/80/40
+# RGB 0/87/44
+# RGB (eingeschränkte Farbauswahl) 0/102/51
+
+HU_2 <- rgb(  0,  87,  44, names = "gruen", maxColorValue = 255)
+
+# Sand
+# CMYK 0/5/50/20
+# RGB 210/192/103
+# RGB (eingeschränkte Farbauswahl) 204/204/102
+
+HU_3 <- rgb(210, 192, 103, names = "sand", maxColorValue = 255)
+
+# Graugrün
+# CMYK 0/0/10/20
+# RGB 209/209/194
+# RGB (eingeschränkte Farbauswahl) 204/204/204 (identisch mit Blaugrau)
+
+HU_4 <- rgb(209, 209, 194, names = "graugruen", maxColorValue = 255)
+
+# Blaugrau
+# CMYK 10/0/0/20
+# RGB 189/202/211
+# RGB (eingeschränkte Farbauswahl) 204/204/204 (identisch mit Graugrün)
+
+HU_5 <- rgb(189, 202, 211, names = "blaugrau", maxColorValue = 255)
+
+
+# - HU_pal_2: Secondary colors ---- 
+
+#' Secondary colors of the Humboldt University Berlin 
+#'
+#' \code{HU_pal_2} provides the primary (blue) color with five corresponding colors 
+#' of the \href{https://www.hu-berlin.de/en}{Humboldt University Berlin}, Germany. 
+#' 
+#' The primary color \code{"HU blue"} is defined as Pantone 294 and only approximated by RGB 0/55/108.
+#' Other approximations include CMYK 100/60/0/20, RGB 0/51/102 (reduced web scale), and RAL 270 3040.
+#' 
+#' See the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-11-30.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.hu-berlin.de/de/service/design/basiselemente/farbe}. 
+#' 
+#' @examples
+#' HU_pal_2
+#' seecol(HU_pal_2, main = "The colors of HU Berlin")
+#' demopal(HU_pal_2, type = 3, main = "Colors of HU Berlin")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{HU_pal_1}} for primary colors of the HU Berlin;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+HU_pal_2 <- newpal(col = c(HU_0, HU_1, HU_2, HU_3, HU_4, HU_5),
+                   names = paste0("HU ", c("blau", "rot", "gruen", "sand", "graugruen", "blaugrau")), 
+                   as_df = FALSE)
+
+# seecol(HU_pal_2)
+
+
+
 # Max Planck Society / Max-Planck-Gesellschaft (MPG): ------
 
 # Source: https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html
@@ -876,7 +1040,7 @@ eth_pal_grey <- newpal(col = col_eth_grey,
 #' 
 #' @examples
 #' mpg_pal
-#' seecol(mpg_pal)  # view color palette
+#' seecol(mpg_pal, n = 5, main = "5 shades of MPG")
 #' demopal(mpg_pal, type = 1, main = "Using MPG colors")
 #'
 #' @family contributed color palettes
