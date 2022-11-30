@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 11 29
+## spds | uni.kn |  2022 11 30
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -538,9 +538,9 @@ uni_goettingen_2 <- newpal(col = col_goe_secondary,
 col_goe_fac <- c("#25795d", "#fd8f4a", "#eeb32a", "#256951", "#ac5b53", "#e07f41", "#fda642", 
                  "#c70d2d", "#b52141", "#2b7ab3", "#45195c", "#44253D", "#153268")
 
-nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "Forstwissenschaften und Walkoekologie", "Geowissenschaften und Geographie", "Mathematik und Informatik", "Physik", 
+nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "Forstwissenschaften und Waldoekologie", "Geowissenschaften und Geographie", "Mathematik und Informatik", "Physik", 
                  "Jura", "Sozialwissenschaften", "Wirtschaftswissenschaften", "Philosophie", "Theologie", "Medizin")
-
+nam_goe_fac <- paste0("UG ", nam_goe_fac)
 
 #' Departmental colors of the University of Göttingen 
 #'
@@ -1423,24 +1423,24 @@ UR_dianthusrot <- rgb(164, 102, 116, names = "dianthusrot", maxColorValue = 255)
 UR_saphirblau <-  rgb(  3,  35,  82, names = "saphirblau",  maxColorValue = 255) # Rechenzentrum (RZ)
 UR_farngruen <-   rgb( 65,  98,  36, names = "farngruen",   maxColorValue = 255) # Zentrum für Weiterbildung
 
-UR_rotbraun <-    rgb(114,  75,  81, names = "rotbraun", maxColorValue = 255)    # Zentrum für Sprache und Kommunikation (ZSK)
+UR_rotbraun <-    rgb(114,  75,  81, names = "rotbraun",    maxColorValue = 255) # Zentrum für Sprache und Kommunikation (ZSK)
 UR_perlviolett <- rgb( 86,  78, 111, names = "perlviolett", maxColorValue = 255) # Europaeum (Ost-West-Zentrum)
-UR_violettrot <-  rgb( 59,   0,  65, names = "violettrot", maxColorValue = 255)  # Zentrum für Hochschul- und Wissenschaftsdidaktik (ZHW)
-UR_gruenbraun <-  rgb(134, 104,   0, names = "gruenbraun", maxColorValue = 255)  # Regensburger Universitätszentrum für Lehrerbildung (RUL)
-UR_wasserblau <-  rgb(  0, 129, 123, names = "wasserblau", maxColorValue = 255)  # Sportzentrum (SZ)
+UR_violettrot <-  rgb( 59,   0,  65, names = "violettrot",  maxColorValue = 255) # Zentrum für Hochschul- und Wissenschaftsdidaktik (ZHW)
+UR_gruenbraun <-  rgb(134, 104,   0, names = "gruenbraun",  maxColorValue = 255) # Regensburger Universitätszentrum für Lehrerbildung (RUL)
+UR_wasserblau <-  rgb(  0, 129, 123, names = "wasserblau",  maxColorValue = 255) # Sportzentrum (SZ)
 
-UR_urangelb <-           rgb(205, 211,  15, names = "urangelb", maxColorValue = 255) # Rechtswissenschaft
+UR_urangelb <-           rgb(205, 211,  15, names = "urangelb",    maxColorValue = 255) # Rechtswissenschaft
 UR_laerchennadelgruen <- rgb(174, 167,   0, names = "laerchennadelgruen", maxColorValue = 255) # Wirtschaftswissenschaften
-UR_vatikangelb <-        rgb(236, 188,   0,  names = "vatikangelb", maxColorValue = 255) # Katholische Theologie
-UR_orangerot <-          rgb(236,  98,   0,  names = "orangerot",   maxColorValue = 255) # Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
-UR_heucherarot <-        rgb(191,   0,  42,  names = "heucherarot", maxColorValue = 255) # Humanwissenschaften
-UR_heidenelkenrot <-     rgb(156,   0,  75,  names = "heidenelkenrot", maxColorValue = 255) # Sprach-, Literatur- und Kulturwissenschaften
-UR_blattgruen <-         rgb( 79, 184,   0,  names = "blattgruen",   maxColorValue = 255) # Biologie und Vorklinische Medizin
-UR_tuerkisgruen <-       rgb(  0, 155, 119,  names = "tuerkisgruen", maxColorValue = 255) # Mathematik
-UR_eisvogelblau <-       rgb(  0, 137, 147,  names = "eisvogelblau", maxColorValue = 255) # Physik
-UR_spektralblau <-       rgb(  0, 135, 178,  names = "spektralblau", maxColorValue = 255) # Chemie und Pharmazie
-UR_capriblau <-          rgb(  0,  85, 106,  names = "capriblau",    maxColorValue = 255) # Medizin
-UR_glutrot <-            rgb(218,  60,  67,  names = "glutrot",      maxColorValue = 255) # Informatik und Data Science
+UR_vatikangelb <-        rgb(236, 188,   0, names = "vatikangelb", maxColorValue = 255) # Katholische Theologie
+UR_orangerot <-          rgb(236,  98,   0, names = "orangerot",   maxColorValue = 255) # Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
+UR_heucherarot <-        rgb(191,   0,  42, names = "heucherarot", maxColorValue = 255) # Humanwissenschaften
+UR_heidenelkenrot <-     rgb(156,   0,  75, names = "heidenelkenrot", maxColorValue = 255) # Sprach-, Literatur- und Kulturwissenschaften
+UR_blattgruen <-         rgb( 79, 184,   0, names = "blattgruen",   maxColorValue = 255) # Biologie und Vorklinische Medizin
+UR_tuerkisgruen <-       rgb(  0, 155, 119, names = "tuerkisgruen", maxColorValue = 255) # Mathematik
+UR_eisvogelblau <-       rgb(  0, 137, 147, names = "eisvogelblau", maxColorValue = 255) # Physik
+UR_spektralblau <-       rgb(  0, 135, 178, names = "spektralblau", maxColorValue = 255) # Chemie und Pharmazie
+UR_capriblau <-          rgb(  0,  85, 106, names = "capriblau",    maxColorValue = 255) # Medizin
+UR_glutrot <-            rgb(218,  60,  67, names = "glutrot",      maxColorValue = 255) # Informatik und Data Science
 
 # Web colors / Flaechenfarbe / area colors:
 UR_urangelb_a <-           "#CDD30F" # Rechtswissenschaft
@@ -1480,7 +1480,7 @@ UR_glutrot_f <-            "#DA3C43" # Informatik und Data Science (TODO: Same a
 #' \code{uni_regensburg_1} provides the general (administrative and service-oriented) colors 
 #' of the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany. 
 #' 
-#' Named colors of \code{uni_regensburg_1} correspond to the following services:
+#' Named colors of \code{uni_regensburg_1} correspond to the following UR services:
 #' 
 #' \enumerate{
 #' \item neutralgrau: UR-Hausfarbe, Logo 
@@ -1497,7 +1497,7 @@ UR_glutrot_f <-            "#DA3C43" # Informatik und Data Science (TODO: Same a
 #' \item wasserblau: Sportzentrum (SZ)
 #' }
 #' 
-#' When coloring large areas, named colors can be used in shades of 70%.
+#' When coloring large areas, named colors may be used in shades of 70%.
 #' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).
@@ -1541,7 +1541,7 @@ uni_regensburg_1 <- newpal(col = c(UR_neutralgrau,
 #' for coloring print or web areas 
 #' at the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany. 
 #' 
-#' Named colors of \code{uni_regensburg_2} correspond to the following faculties:
+#' Named colors of \code{uni_regensburg_2} correspond to the following UR faculties:
 #' 
 #' \enumerate{
 #' \item urangelb: Rechtswissenschaft
@@ -1564,7 +1564,7 @@ uni_regensburg_1 <- newpal(col = c(UR_neutralgrau,
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-25.
+#' Hansjoerg Neth, 2022-11-30.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1591,7 +1591,8 @@ uni_regensburg_1 <- newpal(col = c(UR_neutralgrau,
 uni_regensburg_2 <- newpal(col = c(UR_urangelb, UR_laerchennadelgruen, UR_vatikangelb, 
                                    UR_orangerot, UR_heucherarot, UR_heidenelkenrot, 
                                    UR_blattgruen, UR_tuerkisgruen, UR_eisvogelblau, 
-                                   UR_spektralblau, UR_capriblau, UR_glutrot), as_df = FALSE)
+                                   UR_spektralblau, UR_capriblau, UR_glutrot), 
+                           as_df = FALSE)
 
 uni_regensburg_2_a <- newpal(col = c(UR_urangelb_a, UR_laerchennadelgruen_a, UR_vatikangelb_a,
                                      UR_orangerot_a, UR_heucherarot_a, UR_heidenelkenrot_a,
@@ -1602,6 +1603,7 @@ uni_regensburg_2_a <- newpal(col = c(UR_urangelb_a, UR_laerchennadelgruen_a, UR_
 
 all.equal(uni_regensburg_2, uni_regensburg_2_a)  # RGB values correspond to web colors for areas.
 
+
 # - uni_regensburg_3: Departmental / faculty / web font colors: ---- 
 
 #' Departmental colors of the University of Regensburg (for fonts) 
@@ -1610,7 +1612,7 @@ all.equal(uni_regensburg_2, uni_regensburg_2_a)  # RGB values correspond to web 
 #' for web fonts 
 #' at the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany. 
 #' 
-#' Named colors of \code{uni_regensburg_3} correspond to the following faculties:
+#' Named colors of \code{uni_regensburg_3} correspond to the following UR faculties:
 #' 
 #' \enumerate{
 #' \item urangelb: Rechtswissenschaft
@@ -1633,7 +1635,7 @@ all.equal(uni_regensburg_2, uni_regensburg_2_a)  # RGB values correspond to web 
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-25.
+#' Hansjoerg Neth, 2022-11-30.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1667,7 +1669,6 @@ uni_regensburg_3 <- newpal(col = c(UR_urangelb_f, UR_laerchennadelgruen_f, UR_va
 
 ## ToDo: -------- 
 
-# - Caltech: <https://identity.caltech.edu/colors>
 # - Uni Heidelberg: <https://www.uni-heidelberg.de/de/universitaet/das-profil-der-universitaet-heidelberg/corporate-design>
 # - Uni Tuebingen:
 
