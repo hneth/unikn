@@ -1262,7 +1262,7 @@ all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
 
 add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
               "eth_pal", "eth_pal_light", "eth_pal_grey",
-              "HU_pal_1", "HU_pal_2", 
+              "hu_pal_1", "hu_pal_2", 
               "mpg_pal",
               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",

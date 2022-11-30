@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 11 29
+## spds | uni.kn | 2022 11 30
 ## --------------------------
 
 ## Define color-related functions 
@@ -1215,7 +1215,7 @@ all_colors <- function(distinct = TRUE){
                                # Added/contributed color palettes:
                                caltech_pal_1, caltech_pal_2, caltech_pal_3, 
                                eth_pal, eth_pal_light, eth_pal_grey, 
-                               HU_pal_1, HU_pal_2, 
+                               hu_pal_1, hu_pal_2, 
                                mpg_pal, 
                                uni_goettingen_1, uni_goettingen_2, uni_goettingen_3, 
                                uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,

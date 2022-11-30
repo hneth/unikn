@@ -16,7 +16,7 @@
 
 # add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
 #               "eth_pal", "eth_pal_light", "eth_pal_grey",
-#               "HU_pal_1", "HU_pal_2", 
+#               "hu_pal_1", "hu_pal_2", 
 #               "mpg_pal",
 #               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
 #               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
@@ -877,11 +877,11 @@ HU_0_web <- rgb(0, 51, 102, names = "HU blau web", maxColorValue = 255)
 # seecol(rev(shades_of(21, HU_0))[-1], main = "20 shades of HU blau")
 
 
-# - HU_pal_1: Primary colors ---- 
+# - hu_pal_1: Primary colors ---- 
 
 #' Primary colors of the Humboldt University Berlin 
 #'
-#' \code{HU_pal_1} provides the three primary colors 
+#' \code{hu_pal_1} provides the three primary colors 
 #' of the \href{https://www.hu-berlin.de/en}{Humboldt University Berlin}, Germany. 
 #' 
 #' The color \code{"HU blue"} is defined as Pantone 294 and only approximated by RGB 0/55/108.
@@ -900,14 +900,14 @@ HU_0_web <- rgb(0, 51, 102, names = "HU blau web", maxColorValue = 255)
 #' \url{https://www.hu-berlin.de/de/service/design/basiselemente/farbe}. 
 #' 
 #' @examples
-#' HU_pal_1
-#' seecol(HU_pal_1, n = 5, main = "5 shades of HU Berlin")
-#' demopal(HU_pal_1, type = 1, main = "HU Berlin colors")
+#' hu_pal_1
+#' seecol(hu_pal_1, n = 5, main = "5 shades of HU Berlin")
+#' demopal(hu_pal_1, type = 1, main = "HU Berlin colors")
 #'
 #' @family contributed color palettes
 #'
 #' @seealso 
-#' \code{\link{HU_pal_2}} for secondary colors of the HU Berlin;  
+#' \code{\link{hu_pal_2}} for secondary colors of the HU Berlin;  
 #' \code{\link{seecol}} for viewing and comparing color palettes; 
 #' \code{\link{usecol}} for using color palettes; 
 #' \code{\link{simcol}} for finding similar colors; 
@@ -916,11 +916,11 @@ HU_0_web <- rgb(0, 51, 102, names = "HU blau web", maxColorValue = 255)
 #' 
 #' @export
 
-HU_pal_1 <- newpal(col = c(HU_0, "white", "black"),
+hu_pal_1 <- newpal(col = c(HU_0, "white", "black"),
                    names = c("HU blau", "weiss", "schwarz"), 
                    as_df = FALSE)
 
-# seecol(HU_pal_1, n = 3)
+# seecol(hu_pal_1, n = 3)
 
 
 # Farbklima
@@ -967,11 +967,11 @@ HU_4 <- rgb(209, 209, 194, names = "graugruen", maxColorValue = 255)
 HU_5 <- rgb(189, 202, 211, names = "blaugrau", maxColorValue = 255)
 
 
-# - HU_pal_2: Secondary colors ---- 
+# - hu_pal_2: Secondary colors ---- 
 
 #' Secondary colors of the Humboldt University Berlin 
 #'
-#' \code{HU_pal_2} provides the primary (blue) color with five corresponding colors 
+#' \code{hu_pal_2} provides the primary (blue) color with five corresponding colors 
 #' of the \href{https://www.hu-berlin.de/en}{Humboldt University Berlin}, Germany. 
 #' 
 #' The primary color \code{"HU blue"} is defined as Pantone 294 and only approximated by RGB 0/55/108.
@@ -990,14 +990,14 @@ HU_5 <- rgb(189, 202, 211, names = "blaugrau", maxColorValue = 255)
 #' \url{https://www.hu-berlin.de/de/service/design/basiselemente/farbe}. 
 #' 
 #' @examples
-#' HU_pal_2
-#' seecol(HU_pal_2, main = "The colors of HU Berlin")
-#' demopal(HU_pal_2, type = 3, main = "Colors of HU Berlin")
+#' hu_pal_2
+#' seecol(hu_pal_2, main = "The colors of HU Berlin")
+#' demopal(hu_pal_2, type = 3, main = "Colors of HU Berlin")
 #'
 #' @family contributed color palettes
 #'
 #' @seealso 
-#' \code{\link{HU_pal_1}} for primary colors of the HU Berlin;  
+#' \code{\link{hu_pal_1}} for primary colors of the HU Berlin;  
 #' \code{\link{seecol}} for viewing and comparing color palettes; 
 #' \code{\link{usecol}} for using color palettes; 
 #' \code{\link{simcol}} for finding similar colors; 
@@ -1006,11 +1006,11 @@ HU_5 <- rgb(189, 202, 211, names = "blaugrau", maxColorValue = 255)
 #' 
 #' @export
 
-HU_pal_2 <- newpal(col = c(HU_0, HU_1, HU_2, HU_3, HU_4, HU_5),
+hu_pal_2 <- newpal(col = c(HU_0, HU_1, HU_2, HU_3, HU_4, HU_5),
                    names = paste0("HU ", c("blau", "rot", "gruen", "sand", "graugruen", "blaugrau")), 
                    as_df = FALSE)
 
-# seecol(HU_pal_2)
+# seecol(hu_pal_2)
 
 
 
