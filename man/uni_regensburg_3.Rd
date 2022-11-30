@@ -23,7 +23,7 @@ for web fonts
 at the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany.
 }
 \details{
-Named colors of \code{uni_regensburg_3} correspond to the following faculties:
+Named colors of \code{uni_regensburg_3} correspond to the following UR faculties:
 
 \enumerate{
 \item urangelb: Rechtswissenschaft
@@ -81,7 +81,7 @@ Other contributed color palettes:
 \code{\link{uni_regensburg_2}}
 }
 \author{
-Hansjoerg Neth, 2022-11-25.
+Hansjoerg Neth, 2022-11-30.
 }
 \concept{contributed color palettes}
 \keyword{datasets}

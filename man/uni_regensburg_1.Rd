@@ -22,7 +22,7 @@ A named vector of colors (HEX/HTML codes of type character).
 of the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany.
 }
 \details{
-Named colors of \code{uni_regensburg_1} correspond to the following services:
+Named colors of \code{uni_regensburg_1} correspond to the following UR services:
 
 \enumerate{
 \item neutralgrau: UR-Hausfarbe, Logo 
@@ -39,7 +39,7 @@ Named colors of \code{uni_regensburg_1} correspond to the following services:
 \item wasserblau: Sportzentrum (SZ)
 }
 
-When coloring large areas, named colors can be used in shades of 70%.
+When coloring large areas, named colors may be used in shades of 70%.
 }
 \examples{
 uni_regensburg_1
