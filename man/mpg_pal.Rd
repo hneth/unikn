@@ -26,7 +26,7 @@ The color \code{"white"} was added to enable symmetrical color gradients.
 }
 \examples{
 mpg_pal
-seecol(mpg_pal)  # view color palette
+seecol(mpg_pal, n = 5, main = "5 shades of MPG")
 demopal(mpg_pal, type = 1, main = "Using MPG colors")
 
 }
@@ -45,6 +45,8 @@ Other contributed color palettes:
 \code{\link{eth_pal_grey}},
 \code{\link{eth_pal_light}},
 \code{\link{eth_pal}},
+\code{\link{hu_pal_1}},
+\code{\link{hu_pal_2}},
 \code{\link{uni_freiburg_blue}},
 \code{\link{uni_freiburg_br}},
 \code{\link{uni_freiburg_grey}},

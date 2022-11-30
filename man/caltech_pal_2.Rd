@@ -52,6 +52,8 @@ Other contributed color palettes:
 \code{\link{eth_pal_grey}},
 \code{\link{eth_pal_light}},
 \code{\link{eth_pal}},
+\code{\link{hu_pal_1}},
+\code{\link{hu_pal_2}},
 \code{\link{mpg_pal}},
 \code{\link{uni_freiburg_blue}},
 \code{\link{uni_freiburg_br}},
