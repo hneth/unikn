@@ -1214,7 +1214,8 @@ all_colors <- function(distinct = TRUE){
                                pal_unikn,  # contains 4 "seegrau" variants of "grey"
                                # Added/contributed color palettes:
                                caltech_pal_1, caltech_pal_2, caltech_pal_3, 
-                               eth_pal, eth_pal_light, eth_pal_grey,  
+                               eth_pal, eth_pal_light, eth_pal_grey, 
+                               HU_pal_1, HU_pal_2, 
                                mpg_pal, 
                                uni_goettingen_1, uni_goettingen_2, uni_goettingen_3, 
                                uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
