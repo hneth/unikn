@@ -1,6 +1,6 @@
 
 
-# unikn 0.7.0.9005
+# unikn 0.7.0.9006
 
 This is the current development version of **unikn** (v0.7.0.9001+). 
 
@@ -13,9 +13,10 @@ Changes since last release:
 
 - Add color palettes of the following academic institutions:  
 
-    - [Caltech](https://www.caltech.edu/)
-    - [University of Göttingen](https://uni-goettingen.de/)
-    - [University of Regensburg](https://www.uni-regensburg.de/)
+    - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3` 
+    - [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2`  
+    - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
+    - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3`
 
 <!-- Blank line.  --> 
 
@@ -270,6 +271,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-11-28.] 
+[File `NEWS.md` updated on 2022-11-30.] 
 
 <!-- eof. -->
