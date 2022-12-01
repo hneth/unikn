@@ -1879,6 +1879,43 @@ rpi_2 <- "#54585a"
 # R255 G255 B255
 # #fffff
 
+#' Primary colors of RPI 
+#'
+#' \code{rpi_pal_1} provides the primary colors of the 
+#' \href{https://www.rpi.edu/}{Rensselaer Polytechnic Institute} (RPI), Troy, NY.
+#' 
+#' These colors represent the core colors and should provide the foundation for the palette used. 
+#' Their usage should dominate the use of the secondary colors of \code{\link{rpi_pal_2}} 
+#' and their tint variants of \code{\link{rpi_pal_3}}.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-12-01.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://scer.rpi.edu/brand-in-action/colors}. 
+#' 
+#' @examples
+#' rpi_pal_1
+#' seecol(rpi_pal_1, main = "The primary colors of RPI")  # view color palette
+#' demopal(rpi_pal_1, type = 3, main = "Primary colors of RPI")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{rpi_pal_2}} for secondary colors of RPI; 
+#' \code{\link{rpi_pal_3}} for tint colors of RPI; 
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
 rpi_pal_1 <- newpal(col = c(rpi_0, rpi_1, rpi_2, "black", "white"), 
                     names = c("RPI primary red", "RPI light gray", "RPI dark gray", "black", "white"), 
                     as_df = FALSE)
@@ -1896,6 +1933,45 @@ rpi_pal_1 <- newpal(col = c(rpi_0, rpi_1, rpi_2, "black", "white"),
 # Dark Red, C0 M98 Y91 K30, R171 G35 B40, #ab2328, PMS: 7621
 # Dark Blue, C100 M85 Y5 K36, R0 G32 B91, #00205b, PMS: 281
 # Light Blue, C47 M4 Y16 K16, R127 G169 B174, #7fa9ae, PMS: 5493
+
+#' Secondary colors of RPI 
+#'
+#' \code{rpi_pal_2} provides the secondary use colors of the 
+#' \href{https://www.rpi.edu/}{Rensselaer Polytechnic Institute} (RPI), Troy, NY.
+#' 
+#' The colors of \code{rpi_pal_2} should be used in combination with  
+#' the primary colors of \code{\link{rpi_pal_1}} to add color accents 
+#' to digital and print materials. 
+#' 
+#' \code{\link{rpi_pal_3}} provides tint variants of these colors. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-12-01.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://scer.rpi.edu/brand-in-action/colors}. 
+#' 
+#' @examples
+#' rpi_pal_2
+#' seecol(rpi_pal_2, main = "The secondary colors of RPI")  # view color palette
+#' demopal(rpi_pal_2, type = 5, main = "Secondary colors of RPI")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{rpi_pal_1}} for primary colors of RPI; 
+#' \code{\link{rpi_pal_3}} for tint colors of RPI; 
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 rpi_pal_2 <- newpal(col = c("#ab2328", "#00205b", "#7fa9ae"), 
                     names = c("RPI dark red", "RPI dark blue", "RPI light blue"), 
@@ -1922,6 +1998,44 @@ rpi_pal_2 <- newpal(col = c("#ab2328", "#00205b", "#7fa9ae"),
 # Tint: 75%, HEX: #94c0c6
 # Tint: 50%, HEX: #b3d3d5
 # Tint: 25%, HEX: #d4e6e8
+
+#' Tint colors of RPI 
+#'
+#' \code{rpi_pal_3} provides the tint colors of the 
+#' \href{https://www.rpi.edu/}{Rensselaer Polytechnic Institute} (RPI), Troy, NY.
+#' 
+#' As variants of the secondary use colors of \code{\link{rpi_pal_2}}, 
+#' the tint colors of \code{rpi_pal_3} should be used in combination with  
+#' the primary colors of \code{\link{rpi_pal_1}} to add color accents 
+#' to digital and print materials. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' Hansjoerg Neth, 2022-12-01.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://scer.rpi.edu/brand-in-action/colors}. 
+#' 
+#' @examples
+#' rpi_pal_3
+#' seecol(rpi_pal_3, main = "Tint colors of RPI")  # view color palette
+#' demopal(rpi_pal_3, type = 4, seed = 2, main = "Tint colors of RPI")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{rpi_pal_1}} for primary colors of RPI; 
+#' \code{\link{rpi_pal_2}} for secondary colors of RPI; 
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 rpi_pal_3 <- newpal(col = c("#ab2328", "#c35442", "#d58570", "#eabcad",
                             "#00205b", "#2b517f", "#667ba2", "#a5b0cb",
