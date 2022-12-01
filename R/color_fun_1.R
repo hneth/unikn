@@ -1259,8 +1259,8 @@ all_colors <- function(distinct = TRUE){
 
 ## Check:
 # all_colors()[1:50]
-# length(all_colors(distinct = TRUE))   # 651 [on 2022-11-30]
-# length(all_colors(distinct = FALSE))  # 853 [on 2022-11-30]
+# length(all_colors(distinct = TRUE))   # 666 [on 2022-12-01]
+# length(all_colors(distinct = FALSE))  # 873 [on 2022-12-01]
 # grepal("see", all_colors())     # finds unikn colors (and matching colors())
 # grepal("gruen", all_colors())   # finds unikn and added colors
 # grepal("purple", all_colors())  # finds added and base R colors
@@ -1269,7 +1269,7 @@ all_colors <- function(distinct = TRUE){
 # grepal("black", all_colors(), ignore_case = TRUE)   # 2 variants of "black"
 # grepal("signal", all_colors())  # 3 signal colors
 # grepal("alice", all_colors())   # 1 base R color
-# grepal("red", all_colors())     # finds Caltech's JPL color
+# grepal("red", all_colors())  # finds Caltech's JPL and RPI's primary colors
 # grepal("orange", all_colors())  # finds Caltech and Princeton orange colors
 # 
 # simcol(Petrol, all_colors())

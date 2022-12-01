@@ -68,12 +68,15 @@ In addition to the specific color palettes of the [University of Konstanz](https
 - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
 - [University of Konstanz](https://www.uni-konstanz.de/): `uni_konstanz`, `uni_konstanz_pref` 
 - [Princeton University](https://www.princeton.edu/): `uni_princeton_0`, `uni_princeton_1`, `uni_princeton_2` 
-- [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3`
+- [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3` 
+- [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3`
 
-These 24 palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
+These 27\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
 We can use and modify these palettes with the **unikn** [color functions](colors.html):
 
-```{r show-add-pals, fig.width = 7.2, out.width = "80%", fig.asp = 1.4}
+<!-- Note: Duplicate image in README.Rmd -->
+
+```{r show-add-pals, fig.width = 7.2, out.width = "550px", fig.asp = 1.4}
 seecol("add", main = "Color palettes from various institutions")
 ```
 

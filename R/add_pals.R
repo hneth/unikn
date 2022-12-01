@@ -191,7 +191,7 @@ col_caltech_n7 <- "#F1D384"  # Note: RGB values differ!
 
 caltech_pal_1 <- newpal(col = c(col_caltech_p,  col_caltech_n1, col_caltech_n2, col_caltech_n3,
                                 col_caltech_n4, col_caltech_n5, col_caltech_n6, col_caltech_n7),
-                        names = c("PMS 1585c (Caltech primary orange)", "PMS cool gray 9", "PMS cool grey 3c", "PMS 414",
+                        names = c("Caltech orange (PMS 1585c)", "PMS cool gray 9", "PMS cool grey 3c", "PMS 414",
                                   "PMS 5497c", "PMS 7494c", "PMS 451c", "PMS 7403c"), 
                         as_df = FALSE)
 
@@ -277,7 +277,7 @@ col_caltech_d4 <- "#7A303F"  # Note: RGB values differ!
 caltech_pal_2 <- newpal(col = c(col_caltech_p,  
                                 col_caltech_d1, col_caltech_d2, 
                                 col_caltech_d3, col_caltech_d4),
-                        names = c("PMS 1585c (Caltech primary orange)", 
+                        names = c("Caltech orange (PMS 1585c)", 
                                   "PMS 548c", "PMS 3292c", 
                                   "PMS 668c", "PMS 195c"), 
                         as_df = FALSE)
@@ -293,7 +293,7 @@ caltech_pal_2 <- newpal(col = c(col_caltech_p,
 # r:227 g:25 b:55
 # HEX #e41937
 
-col_caltech_b1 <- "#E41937"
+col_caltech_b1 <- "#E41937"  # Note: RGB values differ!
 # col_caltech_b1 <- rgb(227, 25, 55, maxColorValue = 255)  # Note: HEX values differ!
 
 # PMS 299c
@@ -388,7 +388,7 @@ col_caltech_b7 <- "#F54D80"  # Note: RGB values differ!
 
 caltech_pal_3 <- newpal(col = c(col_caltech_p,  col_caltech_b1, col_caltech_b2, col_caltech_b3, 
                                 col_caltech_b4, col_caltech_b5, col_caltech_b6, col_caltech_b7),
-                        names = c("PMS 1585c (Caltech primary orange)", "PMS 186c (red JPL color)", "PMS 299c", "PMS 7473c", 
+                        names = c("Caltech orange (PMS 1585c)", "JPL red (PMS 186c)", "PMS 299c", "PMS 7473c", 
                                   "PMS 7489c", "PMS 7408c", "PMS 605c", "PMS 1915c"), 
                         as_df = FALSE)
 
