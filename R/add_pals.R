@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 11 30
+## spds | uni.kn |  2022 12 01
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -16,13 +16,14 @@
 
 # add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
 #               "eth_pal", "eth_pal_light", "eth_pal_grey",
-#               "hu_pal_1", "hu_pal_2", 
+#               "hu_pal_1", "hu_pal_2",
 #               "mpg_pal",
 #               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
 #               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
 #               "uni_konstanz", "uni_konstanz_pref",
 #               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
-#               "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3"
+#               "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
+#               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
 # )
 
 inst <- c(rep("Caltech", 3), 
@@ -33,9 +34,9 @@ inst <- c(rep("Caltech", 3),
           rep("University of Goettingen", 3),          
           rep("University of Konstanz", 2),
           rep("Princeton University", 3),
-          rep("University of Regensburg", 3)
+          rep("University of Regensburg", 3),
+          rep("RPI", 3)
 )
-
 
 inst_alt <- c(rep("California Institute of Technology", 3), 
               rep("Eidgen\u00F6ssische Technische Hochschule, Z\u00FCrich", 3),
@@ -45,7 +46,8 @@ inst_alt <- c(rep("California Institute of Technology", 3),
               rep("Universit\u00E4t G\u00F6ttingen", 3),
               rep("Universit\u00E4t Konstanz", 2), 
               rep("Princeton University", 3), 
-              rep("Universit\u00E4t Regensburg", 3)
+              rep("Universit\u00E4t Regensburg", 3),
+              rep("Rensselaer Polytechnic Institute", 3)
 )
 
 url <- c(rep("https://www.caltech.edu/", 3), 
@@ -56,7 +58,8 @@ url <- c(rep("https://www.caltech.edu/", 3),
          rep("https://uni-goettingen.de/", 3), 
          rep("https://www.uni-konstanz.de/", 2), 
          rep("https://www.princeton.edu/", 3),
-         rep("https://www.uni-regensburg.de/", 3)
+         rep("https://www.uni-regensburg.de/", 3),
+         rep("https://www.rpi.edu/", 3)
 )
 
 uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pals)

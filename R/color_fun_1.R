@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 11 30
+## spds | uni.kn | 2022 12 01
 ## --------------------------
 
 ## Define color-related functions 
@@ -1221,7 +1221,8 @@ all_colors <- function(distinct = TRUE){
                                uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
                                # uni_konstanz, uni_konstanz_pref, # duplicates of pal_ above.
                                uni_princeton_0, uni_princeton_1, uni_princeton_2,
-                               uni_regensburg_1, uni_regensburg_2, uni_regensburg_3
+                               uni_regensburg_1, uni_regensburg_2, uni_regensburg_3,
+                               rpi_pal_1, rpi_pal_2, rpi_pal_3
   ), 
   use_names = TRUE)
   
