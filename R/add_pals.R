@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 01
+## spds | uni.kn |  2022 12 02
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -49,6 +49,10 @@ inst_alt <- c(rep("California Institute of Technology", 3),
               rep("Universit\u00E4t Regensburg", 3),
               rep("Rensselaer Polytechnic Institute", 3)
 )
+
+# LMU
+# Ludwig-Maximilians-Universität München 
+# https://www.lmu.de/de/index.html
 
 url <- c(rep("https://www.caltech.edu/", 3), 
          rep("https://ethz.ch/", 3), 
@@ -1015,6 +1019,86 @@ hu_pal_2 <- newpal(col = c(HU_0, HU_1, HU_2, HU_3, HU_4, HU_5),
 
 # seecol(hu_pal_2)
 
+
+
+
+# LMU / Ludwig-Maximilians-Universität München / LM Munich: ------ 
+
+# Source: https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/kommunikation-und-presse/lmu-brand-guide/designgrundsaetze/farben/index.html
+# 2022-12-02
+
+# Primärfarben
+# 
+# Die drei Primärfarben der LMU München, LMU-Grün, Schwarz und Weiß (als wichtigste Oberflächenfarbe) 
+# sorgen für ein wiedererkennbares Erscheinungsbild. Der Einsatz der Primärfarben ist Ihnen frei überlassen. 
+# Ausschließlich diese Farben werden für die Darstellung des LMU-Logos verwendet.
+
+# Farbe	  LMU Grün	  Schwarz	    Weiß
+# HEX	    #00883A	    #232323	    #FFF
+# RGB	    0.136.58	  35.35.35	  255.255.255
+# CMYK	  100/0/95/15	0/0/0/100	  0/0/0/0
+# Pantone	348 C/U	  -	        -
+# HKS	    HKS 57
+
+# lmu_pal_1: Primary colors ---- 
+
+lmu_pal_1 <- newpal(col = c("#00883A", "#232323", "#FFFFFF"),
+                    names = c("LMU gruen", "LMU schwarz", "weiss"),
+                    as_df = FALSE)
+
+# seecol(lmu_pal_1, main = "Primary colors of LMU")
+
+
+# lmu_pal_2: Secondary colors ---- 
+
+# Sekundärfarben
+#
+# Vier Grautöne bilden die Sekundärfarbpalette und können zur Unterstützung der Primärfarben in der Gestaltungverwendet werden. 
+# Sie finden häufige Anwendung in Layoutelementen, Grafiken und Untergrundflächen.
+
+# Farbe	  Dunkelgrau	Mittelgrau	Hellgrau	  Lichtgrau
+# HEX	    #626468	    #C0C1C3	    #E6E6E7	    #F5F5F5
+# RGB	    98.100.104	192.193.195	230.230.231	245.245.245
+# CMYK	  0/0/0/85	  0/0/0/50	  0/0/0/25	  0/0/0/6
+
+lmu_pal_2 <- newpal(col = c("#626468", "#C0C1C3", "#E6E6E7", "#F5F5F5"),
+                    names = c("dunkelgrau", "mittelgrau", "hellgrau", "lichtgrau"),
+                    as_df = FALSE)
+
+# seecol(lmu_pal_2, main = "Secondary colors of LMU")
+
+# Combinations:
+
+# lmu_pal_bipolor <- c(lmu_pal_1[-2], rev(lmu_pal_2), lmu_pal_1[2])
+# seecol(lmu_pal_bipolor, main = "Bipolar colors of LMU")
+# 
+# lmu_pal_linear <- c(lmu_pal_1[-3], lmu_pal_2, lmu_pal_1[3])
+# seecol(lmu_pal_linear, main = "Linear colors of LMU")
+
+
+# Akzentfarben
+# 
+# Zusätzlich zu den Primär- und Sekundärfarben können Sie auch Akzentfarben verwenden – bitte jedoch möglichst sparsam. 
+# Hierzu können Sie die Abstufungen 80 %, 60 %, 40 %, 20 % aus LMU-Grün, aber auch andere Farben nutzen. 
+# Bitte verwenden Sie unsere Farbempfehlungen, die harmonisierend an das LMU-Grün angepasst wurden.
+
+# Besonderheiten von lmu.de
+#
+# Auf lmu.de werden aus Gründen der Barrierefreiheit und Usability als Akzentfarben ausschließlich die Abstufungen 
+# des LMU-Grüns sowie die Farben Rot für Störmeldungen und Blau für Social Media (jeweils in 100%) verwendet.
+
+# Farbe	Blau	    Cyan	      Violett	    Rot	      Orange
+# HEX	  #0F1987	  #009FE3	    #8C4091	    #D71919	  #F18700
+# RGB	  15.25.135	100.59.227	140.64.145	215.25.25	241.135.0
+# CMYK	100/75/0/20	100/0/0/0	55/85/0/0	5/100/100/0	0/55/100/0
+
+# lmu_pal_3: Accent colors ---- 
+
+lmu_pal_3 <- newpal(col = c("#0F1987", "#009FE3", "#8C4091", "#D71919", "#F18700"),
+                    names = c("blau", "cyan", "violett", "rot", "orange"),
+                    as_df = FALSE)
+
+# seecol(lmu_pal_3, main = "Accent colors of LMU")
 
 
 # Max Planck Society / Max-Planck-Gesellschaft (MPG): ------
