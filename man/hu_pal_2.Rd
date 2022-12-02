@@ -49,6 +49,9 @@ Other contributed color palettes:
 \code{\link{eth_pal_light}},
 \code{\link{eth_pal}},
 \code{\link{hu_pal_1}},
+\code{\link{lmu_pal_1}},
+\code{\link{lmu_pal_2}},
+\code{\link{lmu_pal_3}},
 \code{\link{mpg_pal}},
 \code{\link{rpi_pal_1}},
 \code{\link{rpi_pal_2}},
@@ -70,7 +73,7 @@ Other contributed color palettes:
 \code{\link{uni_regensburg_3}}
 }
 \author{
-Hansjoerg Neth, 2022-11-30.
+\strong{unikn}, 2022-11-30.
 }
 \concept{contributed color palettes}
 \keyword{datasets}
