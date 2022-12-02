@@ -168,7 +168,7 @@ col_caltech_n7 <- "#F1D384"  # Note: RGB values differ!
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-28.
+#' \strong{unikn}, 2022-10-28.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -253,7 +253,7 @@ col_caltech_d4 <- "#7A303F"  # Note: RGB values differ!
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-28.
+#' \strong{unikn}, 2022-10-28.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -365,7 +365,7 @@ col_caltech_b7 <- "#F54D80"  # Note: RGB values differ!
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-28.
+#' \strong{unikn}, 2022-10-28.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -435,7 +435,7 @@ nam_goe_primary <- c("Uniblau", "Logoblau", "Logomittelblau", "Logohellblau")
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-20.
+#' \strong{unikn}, 2022-11-20.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -496,7 +496,7 @@ nam_goe_secondary <- c("Schwarz", "Weiss", "Chamois", "Altweiss",
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-20.
+#' \strong{unikn}, 2022-11-20.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -569,7 +569,7 @@ nam_goe_fac <- paste0("UG ", nam_goe_fac)
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-20.
+#' \strong{unikn}, 2022-11-20.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -653,7 +653,7 @@ nam_ETH <- c("ETH Blue", "ETH Petrol", "ETH Green", "ETH Bronze", "ETH Red", "ET
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-25.
+#' \strong{unikn}, 2022-10-25.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -728,7 +728,7 @@ nam_ETH_light <- c("ETH Blue 10%", "ETH Petrol 10%", "ETH Green 10%", "ETH Bronz
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-25.
+#' \strong{unikn}, 2022-10-25.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -832,7 +832,7 @@ nam_eth_grey <- c("ETH Black", "ETH Black Light",
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-25.
+#' \strong{unikn}, 2022-10-25.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -900,7 +900,7 @@ HU_0_web <- rgb(0, 51, 102, names = "HU blau web", maxColorValue = 255)
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-30.
+#' \strong{unikn}, 2022-11-30.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -990,7 +990,7 @@ HU_5 <- rgb(189, 202, 211, names = "blaugrau", maxColorValue = 255)
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-30.
+#' \strong{unikn}, 2022-11-30.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1119,7 +1119,7 @@ lmu_pal_3 <- newpal(col = c("#0F1987", "#009FE3", "#8C4091", "#D71919", "#F18700
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-20.
+#' \strong{unikn}, 2022-10-20.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1210,7 +1210,7 @@ uni_freiburg_1 <- newpal(col = c("#000000", frbg_blue, "#FFFFFF"),
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-20.
+#' \strong{unikn}, 2022-10-20.
 #' 
 #' @source 
 #' Color definitions are based on web style guide at 
@@ -1250,7 +1250,7 @@ uni_freiburg_br <- newpal(col = c("#004a99", "#c1002a"),
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-20.
+#' \strong{unikn}, 2022-10-20.
 #' 
 #' @source 
 #' Color definitions are based on web style guide at 
@@ -1291,7 +1291,7 @@ uni_freiburg_blue <- newpal(col = c("#004a99", "#2a6ebb", "#6f9ad3"),
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-20.
+#' \strong{unikn}, 2022-10-20.
 #' 
 #' @source 
 #' Color definitions are based on web style guide at 
@@ -1334,7 +1334,7 @@ uni_freiburg_grey <- newpal(col = c("#f2f3f1", "#e0e1dd", "#d5d6d2", "#c9cac8",
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-20.
+#' \strong{unikn}, 2022-10-20.
 #' 
 #' @source 
 #' Color definitions are based on web style guide at 
@@ -1388,7 +1388,7 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-20.
+#' \strong{unikn}, 2022-10-20.
 #' 
 #' @source 
 #' R package \strong{unikn}, 
@@ -1435,7 +1435,7 @@ uni_konstanz <- newpal(col = pal_unikn,
 #' A named vector of colors (HEX/HTML codes of type character). 
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-10-20.
+#' \strong{unikn}, 2022-10-20.
 #' 
 #' @source 
 #' R package \strong{unikn}, 
@@ -1494,7 +1494,7 @@ orange_black <- "#F58025"  # orange on black background
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-28.
+#' \strong{unikn}, 2022-11-28.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1541,7 +1541,7 @@ uni_princeton_0 <- newpal(col = c(orange_basic, "black"),
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-28.
+#' \strong{unikn}, 2022-11-28.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1588,7 +1588,7 @@ uni_princeton_1 <- newpal(col = c(orange_white, "white", "black"),
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-28.
+#' \strong{unikn}, 2022-11-28.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1754,7 +1754,7 @@ UR_glutrot_f <-            "#DA3C43" # Informatik und Data Science (TODO: Same a
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-25.
+#' \strong{unikn}, 2022-11-25.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1815,7 +1815,7 @@ uni_regensburg_1 <- newpal(col = c(UR_neutralgrau,
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-30.
+#' \strong{unikn}, 2022-11-30.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1886,7 +1886,7 @@ all.equal(uni_regensburg_2, uni_regensburg_2_a)  # RGB values correspond to web 
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-11-30.
+#' \strong{unikn}, 2022-11-30.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1979,7 +1979,7 @@ rpi_2 <- "#54585a"
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-12-01.
+#' \strong{unikn}, 2022-12-01.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -2036,7 +2036,7 @@ rpi_pal_1 <- newpal(col = c(rpi_0, rpi_1, rpi_2, "black", "white"),
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-12-01.
+#' \strong{unikn}, 2022-12-01.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -2100,7 +2100,7 @@ rpi_pal_2 <- newpal(col = c("#ab2328", "#00205b", "#7fa9ae"),
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' Hansjoerg Neth, 2022-12-01.
+#' \strong{unikn}, 2022-12-01.
 #' 
 #' @source 
 #' Color definitions are based on 
