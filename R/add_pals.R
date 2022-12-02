@@ -14,17 +14,17 @@
 
 # Institution names and URLs of add_pals:
 
-# add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
-#               "eth_pal", "eth_pal_light", "eth_pal_grey",
-#               "hu_pal_1", "hu_pal_2",
-#               "mpg_pal",
-#               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
-#               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
-#               "uni_konstanz", "uni_konstanz_pref",
-#               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
-#               "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
-#               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
-# )
+add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
+              "eth_pal", "eth_pal_light", "eth_pal_grey",
+              "hu_pal_1", "hu_pal_2",
+              "mpg_pal",
+              "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
+              "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
+              "uni_konstanz", "uni_konstanz_pref",
+              "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
+              "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
+              "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
+)
 
 inst <- c(rep("Caltech", 3), 
           rep("ETH Zurich", 3),
@@ -52,7 +52,7 @@ inst_alt <- c(rep("California Institute of Technology", 3),
 
 # LMU
 # Ludwig-Maximilians-Universität München 
-# https://www.lmu.de/de/index.html
+# https://www.lmu.de/en/index.html
 
 url <- c(rep("https://www.caltech.edu/", 3), 
          rep("https://ethz.ch/", 3), 
@@ -150,7 +150,7 @@ col_caltech_n6 <- "#C7B784"  # Note: RGB values differ WIDELY!
 col_caltech_n7 <- "#F1D384"  # Note: RGB values differ!
 # col_caltech_n7 <- rgb(242, 211, 131, maxColorValue = 255)  # Note: HEX values differ!
 
-# - caltech_pal_1: Primary and neutral colors: ----
+# - caltech_pal_1: Primary and neutral colors ----
 
 #' Primary and neutral colors of Caltech
 #'
@@ -234,7 +234,7 @@ col_caltech_d3 <- "#644B78"
 col_caltech_d4 <- "#7A303F"  # Note: RGB values differ!
 # col_caltech_d4 <- rgb(123, 48, 62, maxColorValue = 255)  # Note: HEX values differ!
 
-# - caltech_pal_2: Primary and deep colors: ----
+# - caltech_pal_2: Primary and deep colors ----
 
 #' Primary and deep colors of Caltech
 #'
@@ -344,7 +344,7 @@ col_caltech_b7 <- "#F54D80"  # Note: RGB values differ!
 # col_caltech_b7 <- rgb(246, 77, 128, maxColorValue = 255)  # Note: HEX values differ!
 
 
-# - caltech_pal_3: Primary and bright colors: ----
+# - caltech_pal_3: Primary and bright colors ----
 
 #' Primary and bright colors of Caltech
 #'
@@ -417,7 +417,7 @@ caltech_pal_3 <- newpal(col = c(col_caltech_p,  col_caltech_b1, col_caltech_b2, 
 # Neben der Primaerfarbe des dunklen Blaus stehen als Sekundaerfarben mehrere Blautoene 
 # sowie Grau, Schwarz, Weiss und Chamois zur Verfuegung.
 
-# - uni_goettingen_1: Primary colors: ----
+# - uni_goettingen_1: Primary colors ----
 
 col_goe_primary <- c("#153268", "#005f9b", "#0091c8", "#50a5d2")
 nam_goe_primary <- c("Uniblau", "Logoblau", "Logomittelblau", "Logohellblau")
@@ -464,7 +464,7 @@ uni_goettingen_1 <- newpal(col = col_goe_primary,
 
 # seecol(uni_goettingen_1)
 
-# - uni_goettingen_2: Secondary colors: ----
+# - uni_goettingen_2: Secondary colors ----
 
 # Error in definition: 
 # Chamois and Altweiss have identical, but non-corresponding RGB and HEX values.
@@ -525,7 +525,7 @@ uni_goettingen_2 <- newpal(col = col_goe_secondary,
 
 # seecol(uni_goettingen_2)
 
-# - uni_goettingen_3: Departments / faculties: ----
+# - uni_goettingen_3: Departments / faculties ----
 
 # Souce: <https://www.uni-goettingen.de/de/589412.html>
 # 2022-11-19
@@ -1040,7 +1040,50 @@ hu_pal_2 <- newpal(col = c(HU_0, HU_1, HU_2, HU_3, HU_4, HU_5),
 # Pantone	348 C/U	  -	        -
 # HKS	    HKS 57
 
-# lmu_pal_1: Primary colors ---- 
+# - lmu_pal_1: Primary colors ---- 
+
+#' Primary colors of the LMU Munich 
+#'
+#' \code{lmu_pal_1} provides the three primary colors 
+#' of the \href{https://www.lmu.de/en/index.html}{Ludwig-Maximilians-Universität München}, Germany. 
+#' 
+#' The color \code{"LMU gruen"} is defined as Pantone	348 C/U, RGB 0.136.58, or HEX	\code{#00883A}.
+#' Other approximations include CMYK 100/0/95/15 or HKS 57. 
+#' 
+#' # Combining primary and secondary LMU colors:
+#' lmu_pal_bipolor <- c(lmu_pal_1[-2], rev(lmu_pal_2), lmu_pal_1[2])
+#' demopal(lmu_pal_bipolor, type = "mosaic", main = "Bipolar colors of LMU")
+#' 
+#' lmu_pal_linear <- c(lmu_pal_1[-3], lmu_pal_2, lmu_pal_1[3])
+#' demopal(lmu_pal_linear, type = "polygon", seed = 2, main = "Linear colors of LMU")
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-02.
+#' 
+#' @source 
+#' Color definitions are based on the 
+#' \href{https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/kommunikation-und-presse/lmu-brand-guide/designgrundsaetze/farben/index.html}{LMU brand guide}. 
+#' 
+#' @examples
+#' lmu_pal_1
+#' seecol(lmu_pal_1, main = "The primary colors of LMU Munich")
+#' demopal(lmu_pal_1, type = 3, main = "Primary colors of LMU Munich")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{lmu_pal_2}} for secondary colors of the LMU Munich; 
+#' \code{\link{lmu_pal_3}} for accent colors of the LMU Munich;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 lmu_pal_1 <- newpal(col = c("#00883A", "#232323", "#FFFFFF"),
                     names = c("LMU gruen", "LMU schwarz", "weiss"),
@@ -1049,7 +1092,7 @@ lmu_pal_1 <- newpal(col = c("#00883A", "#232323", "#FFFFFF"),
 # seecol(lmu_pal_1, main = "Primary colors of LMU")
 
 
-# lmu_pal_2: Secondary colors ---- 
+# - lmu_pal_2: Secondary colors ---- 
 
 # Sekundärfarben
 #
@@ -1061,6 +1104,48 @@ lmu_pal_1 <- newpal(col = c("#00883A", "#232323", "#FFFFFF"),
 # RGB	    98.100.104	192.193.195	230.230.231	245.245.245
 # CMYK	  0/0/0/85	  0/0/0/50	  0/0/0/25	  0/0/0/6
 
+#' Secondary colors of the LMU Munich 
+#'
+#' \code{lmu_pal_2} provides four secondary colors 
+#' of the \href{https://www.lmu.de/en/index.html}{Ludwig-Maximilians-Universität München}, Germany. 
+#' 
+#' The secondary colors of \code{lmu_pal_2} are used to support the primary colors of \code{\link{lmu_pal_1}}. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-02.
+#' 
+#' @source 
+#' Color definitions are based on the 
+#' \href{https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/kommunikation-und-presse/lmu-brand-guide/designgrundsaetze/farben/index.html}{LMU brand guide}. 
+#' 
+#' @examples
+#' lmu_pal_2
+#' seecol(lmu_pal_2, main = "The secondary/grey colors of LMU Munich")
+#' demopal(lmu_pal_2, type = 5, main = "Secondary/grey colors of LMU Munich")
+#'
+#' # Combining primary and secondary LMU colors:
+#' lmu_pal_bipolor <- c(lmu_pal_1[-2], rev(lmu_pal_2), lmu_pal_1[2])
+#' demopal(lmu_pal_bipolor, type = "mosaic", main = "Bipolar colors of LMU")
+#' 
+#' lmu_pal_linear <- c(lmu_pal_1[-3], lmu_pal_2, lmu_pal_1[3])
+#' demopal(lmu_pal_linear, type = "polygon", seed = 2, main = "Linear colors of LMU")
+#' 
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{lmu_pal_1}} for primary colors of the LMU Munich; 
+#' \code{\link{lmu_pal_3}} for accent colors of the LMU Munich;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
 lmu_pal_2 <- newpal(col = c("#626468", "#C0C1C3", "#E6E6E7", "#F5F5F5"),
                     names = c("dunkelgrau", "mittelgrau", "hellgrau", "lichtgrau"),
                     as_df = FALSE)
@@ -1068,12 +1153,12 @@ lmu_pal_2 <- newpal(col = c("#626468", "#C0C1C3", "#E6E6E7", "#F5F5F5"),
 # seecol(lmu_pal_2, main = "Secondary colors of LMU")
 
 # Combinations:
-
+# 
 # lmu_pal_bipolor <- c(lmu_pal_1[-2], rev(lmu_pal_2), lmu_pal_1[2])
-# seecol(lmu_pal_bipolor, main = "Bipolar colors of LMU")
+# demopal(lmu_pal_bipolor, type = "mosaic", main = "Bipolar colors of LMU")
 # 
 # lmu_pal_linear <- c(lmu_pal_1[-3], lmu_pal_2, lmu_pal_1[3])
-# seecol(lmu_pal_linear, main = "Linear colors of LMU")
+# demopal(lmu_pal_linear, type = "polygon", seed = 2, main = "Linear colors of LMU")
 
 
 # Akzentfarben
@@ -1092,7 +1177,44 @@ lmu_pal_2 <- newpal(col = c("#626468", "#C0C1C3", "#E6E6E7", "#F5F5F5"),
 # RGB	  15.25.135	100.59.227	140.64.145	215.25.25	241.135.0
 # CMYK	100/75/0/20	100/0/0/0	55/85/0/0	5/100/100/0	0/55/100/0
 
-# lmu_pal_3: Accent colors ---- 
+# - lmu_pal_3: Accent colors ---- 
+
+#' Accent colors of the LMU Munich 
+#'
+#' \code{lmu_pal_3} provides five accent colors 
+#' of the \href{https://www.lmu.de/en/index.html}{Ludwig-Maximilians-Universität München}, Germany. 
+#' 
+#' The accent colors of \code{lmu_pal_3} are used sparsely in combination with 
+#' the primary colors of \code{\link{lmu_pal_1}} and 
+#' the secondary colors of \code{\link{lmu_pal_2}}. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-02.
+#' 
+#' @source 
+#' Color definitions are based on the 
+#' \href{https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/kommunikation-und-presse/lmu-brand-guide/designgrundsaetze/farben/index.html}{LMU brand guide}. 
+#' 
+#' @examples
+#' lmu_pal_3
+#' seecol(lmu_pal_3, main = "The accent colors of LMU Munich")
+#' demopal(lmu_pal_3, type = 3, main = "Accent colors of LMU Munich")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{lmu_pal_1}} for primary colors of the LMU Munich; 
+#' \code{\link{lmu_pal_2}} for secondary colors of the LMU Munich;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 lmu_pal_3 <- newpal(col = c("#0F1987", "#009FE3", "#8C4091", "#D71919", "#F18700"),
                     names = c("blau", "cyan", "violett", "rot", "orange"),
