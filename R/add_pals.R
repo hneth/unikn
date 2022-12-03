@@ -923,7 +923,7 @@ fu_col_2 <- newpal(col = c("#FF9900", "#CC0000", "#0066CC"),
                    names = c("FU accent orange", "FU accent rot", "FU accent blau"),
                    as_df = FALSE)
 
-seecol(fu_col_2, main = "Secondary/accent colors of FU Berlin")
+# seecol(fu_col_2, main = "Secondary/accent colors of FU Berlin")
 
 
 # Grautöne
