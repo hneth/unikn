@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 02
+## spds | uni.kn |  2022 12 03
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -860,6 +860,157 @@ eth_pal_grey <- newpal(col = col_eth_grey,
                        as_df = FALSE)
 
 
+
+
+
+# FU Berlin / Freie Universitaet Berlin: ------
+
+# Source: <https://www.fu-berlin.de/sites/corporate-design/grundlagen/farben/index.html>
+# 2022-12-03
+
+# Hausfarben
+#
+# Die im Corporate Design verwendeten Farben bestimmen maßgeblich das Erscheinungsbild der Freien Universität Berlin. 
+# Um einen modernen, klaren und seriösen Eindruck zu erwecken und die Wiedererkennbarkeit zu gewährleisten, ist die Palette der verwendbaren Farben begrenzt. 
+# Jedoch sollen in jeder Publikation beide Hausfarben verwendet werden, denn sie wirken nur durch ihr Zusammenspiel.
+
+# Farbwirkung und Symbolik
+#
+# Das dunkle Blau steht für Beständigkeit, Seriosität, Tradition und Respekt. Es weckt Vertrauen, wirkt kompetent und zuverlässig. 
+# Das helle Grün bildet einen frischen Kontrast zur ruhigen und seriösen Wirkung der dunkelblauen Farbe. 
+# Es steht für Erneuerung, Bewegung und Modernität.
+
+# Die beiden Hauptfarben des Corporate Design stehen damit für die Werte, die die Freie Universität Berlin seit ihrer Gründung im Jahre 1948 bis heute prägen: 
+# Tradition, Qualität und Erfahrung in Wissenschaft, Forschung und Lehre auf der einen, 
+# Dynamik, ständige Erneuerung und Modernität auf der anderen Seite. 
+
+# Hausfarben (Hauptfarben)
+# 
+# PRINT 	                WEB
+# CMYK 	        Pantone 	Hexadezimal 	RGB
+# 100-72-0-18,5 	280C 	  #003366 	    0-51-102
+# 18,5-0-91-0 	  381C 	  #99CC00 	    153-204-0
+
+fu_blue  <- "#003366"
+fu_green <- "#99CC00"
+
+fu_col_1 <- newpal(col = c(fu_blue, fu_green),
+                   names = c("FU blau", "FU gruen"),
+                   as_df = FALSE)
+
+# seecol(fu_col_1, main = "Primary colors of FU Berlin")
+
+# - fu_pal_0: Primary colors ----
+
+fu_pal_0 <- fu_col_1
+
+
+# Sekundärfarben
+#
+# Als Sekundärfarben stehen für Auszeichnungen Rot und Orange zur Verfügung. 
+# Diese können das Farbklima ergänzen, dürfen aber nicht dominieren. 
+# Insbesondere farbige Schriftzüge sollten sparsam und lediglich zum Setzen von Akzenten verwendet werden.
+
+# Sekundärfarben (Auszeichnungsfarben)
+# 
+# PRINT 	              WEB
+# CMYK 	      Pantone 	Hexadezimal 	RGB
+# 0-34-91-0 	137C 	    #FF9900 	    255-153-0
+# 0-94-100-0 	1795C 	  #CC0000 	    204-0-0
+# - 	        - 	      #0066cc     	0-102-204
+
+fu_col_2 <- newpal(col = c("#FF9900", "#CC0000", "#0066CC"),
+                   names = c("FU accent orange", "FU accent rot", "FU accent blau"),
+                   as_df = FALSE)
+
+seecol(fu_col_2, main = "Secondary/accent colors of FU Berlin")
+
+
+# Grautöne
+# 
+# PRINT 	        WEB
+# CMYK 	Pantone 	Hexadezimal 	RGB
+# -* 	  - 	      #333333 	    51-51-51
+# -* 	  - 	      #666666 	    102-102-102
+# -* 	  - 	      #999999 	    153-153-153
+# -* 	  - 	      #CCCCCC 	    204-204-204
+# -* 	  - 	      #DDDDDD 	    221-221-221
+# -* 	  - 	      #EEEEEE 	    238-238-238
+# -* 	  - 	      #F1F1F1 	    241-241-241
+
+# Note positions in:
+# seecol(usecol(c("black", "white"), n = 20))
+
+fu_greys <- newpal(col = c("#333333", "#666666", "#999999", "#CCCCCC",
+                           "#DDDDDD", "#EEEEEE", "#F1F1F1"),
+                   names = c("FU grau 1", "FU grau 2", "FU grau 3", "FU grau 4",
+                             "FU grau 5", "FU grau 6", "FU grau 7"),
+                   as_df = FALSE)
+
+# seecol(fu_greys, main = "Shades of grey colors of FU Berlin")
+
+
+# - fu_pal_2: Secondary and grey colors ----
+
+fu_pal_2 <- c(fu_col_2, fu_greys)
+
+
+# Abstufungen der Hauptfarbe Blau
+# 
+# PRINT 	        WEB
+# CMYK 	Pantone 	Hexadezimal 	RGB
+# 90% 	- 	      #164574 	    22-69-116
+# 80% 	- 	      #2C5682 	    44-86-130
+# 70% 	- 	      #426890 	    66-104-144
+# 60% 	- 	      #587A9E 	    99-122-158    # Note: HEX and RGB values differ! Error: RGB should be R = 88. 
+# 50% 	- 	      #6D8BAC 	    109-139-172
+# 40% 	- 	      #839DBA 	    131-157-186
+# 30% 	- 	      #99AFC8 	    153-175-200
+# 20% 	- 	      #AFC0D6 	    175-192-214
+# 10% 	- 	      #C5D2E4 	    197-210-228
+
+# Note differences to:
+# seecol(usecol(c(fu_blue, "white"), n = 11))
+
+fu_blues <- newpal(col = c(fu_blue, "#164574", "#2C5682", "#426890", "#587A9E",
+                           "#6D8BAC", "#839DBA", "#99AFC8", "#AFC0D6", "#C5D2E4"),
+                   names = c("FU blau", "FU blau 90%", "FU blau 80%", "FU blau 70%", "FU blau 60%", 
+                             "FU blau 50%", "FU blau 40%", "FU blau 30%", "FU blau 20%", "FU blau 10%"),
+                   as_df = FALSE)
+
+# seecol(fu_blues, main = "Shades of blue colors of FU Berlin")
+
+# - fu_pal_3: Blue color gradient ----
+
+fu_pal_3 <- fu_blues
+
+
+# Abmischungen der Hauptfarben Blau und Grün
+# 
+# PRINT 	          WEB
+# CMYK 	Pantone 	  Hexadezimal 	RGB
+# 100-60-40-35 	- 	#0F425B 	    15-66-91
+# 80-40-50-40 	- 	#1E5151 	    30-81-81
+# 80-40-70-30 	- 	#2D6047 	    45-96-71
+# 70-30-80-15 	- 	#3D703D 	    61-112-61
+# 70-25-100-10 	- 	#4C7F33 	    76-127-51
+# 70-20-100-10 	- 	#5B8E28 	    91-142-40
+# 60-15-100-0 	- 	#6B9E1E 	    107-158-30
+# 50-5-100-0 	  - 	#7AAD14 	    122-173-20
+# 40-0-90-0 	  - 	#89BC0A 	    137-188-10
+
+# Note correspondence to:
+# seecol(usecol(c(fu_blue, fu_green), n = 11)[c(2:10)])
+
+fu_blue_green <- newpal(col = usecol(c(fu_blue, fu_green), n = 11),
+                        names = c("FU blau", paste0("FU bg ", 1:9), "FU gruen"),
+                        as_df = FALSE)
+
+# seecol(fu_blue_green, main = "Gradient from blue to green colors of FU Berlin")
+
+# - fu_pal_1: Primary color gradient ----
+
+fu_pal_1 <- fu_blue_green
 
 
 # HU Berlin / Humboldt Universitaet Berlin: ------
