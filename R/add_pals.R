@@ -16,8 +16,9 @@
 
 # add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
 #               "eth_pal", "eth_pal_light", "eth_pal_grey",
+#               "fu_pal_0", "fu_pal_1", "fu_pal_2", "fu_pal_3", 
 #               "hu_pal_1", "hu_pal_2",
-#               "lmu_pal_1", "lmu_pal_2", "lmu_pal_3", 
+#               "lmu_pal_1", "lmu_pal_2", "lmu_pal_3",
 #               "mpg_pal",
 #               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
 #               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
@@ -29,6 +30,7 @@
 
 inst <- c(rep("Caltech", 3), 
           rep("ETH Zurich", 3),
+          rep("Free University Berlin", 4),
           rep("Humboldt University Berlin", 2),
           rep("LMU Munich", 3),
           "Max Planck Society",
@@ -42,6 +44,7 @@ inst <- c(rep("Caltech", 3),
 
 inst_alt <- c(rep("California Institute of Technology", 3), 
               rep("Eidgen\u00F6ssische Technische Hochschule, Z\u00FCrich", 3),
+              rep("Freie Universit\u00E4t Berlin", 4),
               rep("Humboldt Universit\u00E4t zu Berlin", 2),
               rep("Ludwig-Maximilians-Universit\u00E4t M\u00FCnchen", 3),
               "Max-Planck-Gesellschaft",
@@ -55,7 +58,8 @@ inst_alt <- c(rep("California Institute of Technology", 3),
 
 url <- c(rep("https://www.caltech.edu/", 3), 
          rep("https://ethz.ch/", 3), 
-         rep("https://www.hu-berlin.de/en", 2), 
+         rep("https://www.fu-berlin.de/en/index.html", 4), 
+         rep("https://www.hu-berlin.de/en", 2),
          rep("https://www.lmu.de/en/index.html", 3), 
          "https://www.mpg.de/en",
          rep("https://uni-freiburg.de/", 4), 
@@ -895,12 +899,56 @@ fu_blue  <- "#003366"
 fu_green <- "#99CC00"
 
 fu_col_1 <- newpal(col = c(fu_blue, fu_green),
-                   names = c("FU blau", "FU gruen"),
+                   names = c("FU blue", "FU green"),
                    as_df = FALSE)
 
 # seecol(fu_col_1, main = "Primary colors of FU Berlin")
 
 # - fu_pal_0: Primary colors ----
+
+#' Primary colors of the Free University Berlin 
+#'
+#' \code{fu_pal_0} provides the two primary colors 
+#' of the \href{https://www.fu-berlin.de/en/index.html}{Free University Berlin}, Germany. 
+#' 
+#' The dark \code{"FU blue"} implies consistency, seriosity and respect. 
+#' It is defined as Pantone 280C 
+#' and approximated by CMYK 100/72/0/18.5, RGB 0/51/102, and HEX #003366.
+#' 
+#' The bright \code{"FU green"} implies renewal and mobility. 
+#' It is is defined as Pantone 381C 
+#' and approximated by CMYK 18.5/0/91/0, RGB 153/204/0, and HEX #99CC00. 
+#' 
+#' See \code{\link{fu_pal_1}} for a corresponding color gradient.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-03.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.fu-berlin.de/sites/corporate-design/grundlagen/farben/index.html}. 
+#' 
+#' @examples
+#' fu_pal_0
+#' seecol(fu_pal_0, main = "Primary colors of the FU Berlin")
+#' demopal(fu_pal_0, type = 1, main = "Primary colors of the FU Berlin")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{fu_pal_1}} for a corresponding color gradient of the FU Berlin;
+#' \code{\link{fu_pal_2}} for secondary colors of the FU Berlin; 
+#' \code{\link{fu_pal_3}} for a blue color gradient of the FU Berlin;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 fu_pal_0 <- fu_col_1
 
@@ -920,10 +968,10 @@ fu_pal_0 <- fu_col_1
 # - 	        - 	      #0066cc     	0-102-204
 
 fu_col_2 <- newpal(col = c("#FF9900", "#CC0000", "#0066CC"),
-                   names = c("FU accent orange", "FU accent rot", "FU accent blau"),
+                   names = c("FU accent orange", "FU accent red", "FU accent blue"),
                    as_df = FALSE)
 
-# seecol(fu_col_2, main = "Secondary/accent colors of FU Berlin")
+# seecol(fu_col_2, main = "Secondary/accent colors of the FU Berlin")
 
 
 # Grautöne
@@ -943,14 +991,51 @@ fu_col_2 <- newpal(col = c("#FF9900", "#CC0000", "#0066CC"),
 
 fu_greys <- newpal(col = c("#333333", "#666666", "#999999", "#CCCCCC",
                            "#DDDDDD", "#EEEEEE", "#F1F1F1"),
-                   names = c("FU grau 1", "FU grau 2", "FU grau 3", "FU grau 4",
-                             "FU grau 5", "FU grau 6", "FU grau 7"),
+                   names = c("FU grey 1", "FU grey 2", "FU grey 3", "FU grey 4",
+                             "FU grey 5", "FU grey 6", "FU grey 7"),
                    as_df = FALSE)
 
 # seecol(fu_greys, main = "Shades of grey colors of FU Berlin")
 
 
 # - fu_pal_2: Secondary and grey colors ----
+
+#' Secondary and grey colors of the Free University Berlin 
+#'
+#' \code{fu_pal_0} provides three accent colors and seven grey colors  
+#' of the \href{https://www.fu-berlin.de/en/index.html}{Free University Berlin}, Germany. 
+#' 
+#' The three accent colors support the two primary colors of \code{\link{fu_pal_0}} 
+#' but should not dominate the overall impression. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-03.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.fu-berlin.de/sites/corporate-design/grundlagen/farben/index.html}. 
+#' 
+#' @examples
+#' fu_pal_2
+#' seecol(fu_pal_2, main = "Secondary colors of the FU Berlin")
+#' demopal(fu_pal_2, type = 5, main = "Accent and grey colors of the FU Berlin")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{fu_pal_0}} for primary colors of the FU Berlin; 
+#' \code{\link{fu_pal_1}} for a corresponding color gradient of the FU Berlin;
+#' \code{\link{fu_pal_3}} for a blue color gradient of the FU Berlin;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 fu_pal_2 <- c(fu_col_2, fu_greys)
 
@@ -974,13 +1059,52 @@ fu_pal_2 <- c(fu_col_2, fu_greys)
 
 fu_blues <- newpal(col = c(fu_blue, "#164574", "#2C5682", "#426890", "#587A9E",
                            "#6D8BAC", "#839DBA", "#99AFC8", "#AFC0D6", "#C5D2E4"),
-                   names = c("FU blau", "FU blau 90%", "FU blau 80%", "FU blau 70%", "FU blau 60%", 
-                             "FU blau 50%", "FU blau 40%", "FU blau 30%", "FU blau 20%", "FU blau 10%"),
+                   names = c("FU blue", "FU blue 90%", "FU blue 80%", "FU blue 70%", "FU blue 60%", 
+                             "FU blue 50%", "FU blue 40%", "FU blue 30%", "FU blue 20%", "FU blue 10%"),
                    as_df = FALSE)
 
 # seecol(fu_blues, main = "Shades of blue colors of FU Berlin")
 
+
 # - fu_pal_3: Blue color gradient ----
+
+#' Blue color gradient of the Free University Berlin 
+#'
+#' \code{fu_pal_3} provides a gradient of the blue primary color  
+#' of the \href{https://www.fu-berlin.de/en/index.html}{Free University Berlin}, Germany. 
+#' 
+#' See \code{\link{fu_pal_0}} for the two primary colors and 
+#' the \code{\link{ac}} and \code{\link{usecol}} functions for creating 
+#' alternative color gradients.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-03.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.fu-berlin.de/sites/corporate-design/grundlagen/farben/index.html}. 
+#' 
+#' @examples
+#' fu_pal_3
+#' seecol(fu_pal_3, main = "Blue color gradient of the FU Berlin")
+#' demopal(fu_pal_3, type = 3, main = "Blue color gradient of the FU Berlin")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{fu_pal_0}} for primary colors of the FU Berlin;
+#' \code{\link{fu_pal_1}} for primary color gradient of the FU Berlin; 
+#' \code{\link{fu_pal_2}} for secondary colors of the FU Berlin; 
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 fu_pal_3 <- fu_blues
 
@@ -1003,12 +1127,51 @@ fu_pal_3 <- fu_blues
 # seecol(usecol(c(fu_blue, fu_green), n = 11)[c(2:10)])
 
 fu_blue_green <- newpal(col = usecol(c(fu_blue, fu_green), n = 11),
-                        names = c("FU blau", paste0("FU bg ", 1:9), "FU gruen"),
+                        names = c("FU blue", paste0("FU bg ", 1:9), "FU green"),
                         as_df = FALSE)
 
 # seecol(fu_blue_green, main = "Gradient from blue to green colors of FU Berlin")
 
+
 # - fu_pal_1: Primary color gradient ----
+
+#' Primary color gradient of the Free University Berlin 
+#'
+#' \code{fu_pal_1} provides a gradient of the two primary colors 
+#' of the \href{https://www.fu-berlin.de/en/index.html}{Free University Berlin}, Germany. 
+#' 
+#' See \code{\link{fu_pal_0}} for the two primary colors and 
+#' the \code{\link{ac}} and \code{\link{usecol}} functions for creating 
+#' alternative color gradients.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-03.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.fu-berlin.de/sites/corporate-design/grundlagen/farben/index.html}. 
+#' 
+#' @examples
+#' fu_pal_1
+#' seecol(fu_pal_1, main = "Primary color gradient of the FU Berlin")
+#' demopal(fu_pal_1, type = 4, seed = 2, main = "Primary color gradient of the FU Berlin")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{fu_pal_0}} for primary colors of the FU Berlin;
+#' \code{\link{fu_pal_2}} for secondary colors of the FU Berlin; 
+#' \code{\link{fu_pal_3}} for a blue color gradient of the FU Berlin;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 fu_pal_1 <- fu_blue_green
 
