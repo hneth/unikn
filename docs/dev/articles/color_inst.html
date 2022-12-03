@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.7.0.9006</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.7.0.9007</span>
       </span>
     </div>
 
@@ -103,10 +103,9 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Institutional colors</h1>
-                        <h4 data-toc-skip class="author">SPDS,
-uni.kn</h4>
+                        <h4 data-toc-skip class="author">SPDS, uni.kn</h4>
             
-            <h4 data-toc-skip class="date">2022 11 20</h4>
+            <h4 data-toc-skip class="date">2022 12 02</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/HEAD/vignettes/color_inst.Rmd" class="external-link"><code>vignettes/color_inst.Rmd</code></a></small>
       <div class="hidden name"><code>color_inst.Rmd</code></div>
@@ -116,24 +115,10 @@ uni.kn</h4>
     
     
 <!-- unikn pkg logo and link: -->
-<p><a href="https://github.com/hneth/unikn/" class="external-link">
-<img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="140px" style="width: 140px; float: right; border:0;"></a></p>
-<p>The color palettes included in the <strong>unikn</strong> package are
-based on the CD manual of the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>. However,
-the functionality provided by the package makes it easy and
-straightforward to define and use <strong>your own colors</strong>.</p>
-<p>This vignette first shows which color palettes from other
-institutions are currently provided by the <strong>unikn</strong>
-package. As these will never be complete, it then explains how the
-color-related tools of <strong>unikn</strong> can be used for
-<strong>creating new color palettes</strong>. <!-- Main color info: -->
-(For a general introduction to the package’s colors, color palettes, and
-color functions, see the vignettes on <a href="colors.html">Colors and
-color functions</a> and <a href="color_recipes.Rmd">Color recipes</a>.
-The vignette on <a href="text.html">text</a> provides information on
-creating text boxes and decorations.)</p>
-<p>We install or load the <strong>unikn</strong> package to get
-started:</p>
+<p><a href="https://github.com/hneth/unikn/" class="external-link"> <img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="140px" style="width: 140px; float: right; border:0;"></a></p>
+<p>The color palettes included in the <strong>unikn</strong> package are based on the CD manual of the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>. However, the functionality provided by the package makes it easy and straightforward to define and use <strong>your own colors</strong>.</p>
+<p>This vignette first shows which color palettes from other institutions are currently provided by the <strong>unikn</strong> package. As these will never be complete, it then explains how the color-related tools of <strong>unikn</strong> can be used for <strong>creating new color palettes</strong>. <!-- Main color info: --> (For a general introduction to the package’s colors, color palettes, and color functions, see the vignettes on <a href="colors.html">Colors and color functions</a> and <a href="color_recipes.Rmd">Color recipes</a>. The vignette on <a href="text.html">text</a> provides information on creating text boxes and decorations.)</p>
+<p>We install or load the <strong>unikn</strong> package to get started:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages('unikn')  # install unikn from CRAN client</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://CRAN.R-project.org/package=unikn" class="external-link">'unikn'</a></span><span class="op">)</span>             <span class="co"># load the package</span></span></code></pre></div>
@@ -143,59 +128,47 @@ started:</p>
 <div class="section level3">
 <h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h3>
-<p>In addition to the specific color palettes of the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>,
-<strong>unikn</strong> currently provides the general color palettes of
-the following institutions:</p>
+<p>In addition to the specific color palettes of the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>, <strong>unikn</strong> currently provides the general color palettes of the following institutions:</p>
 <ul>
 <li>
-<a href="https://www.caltech.edu/" class="external-link">Caltech</a>:
-<code>caltech_pal_1</code>, <code>caltech_pal_2</code>,
-<code>caltech_pal_3</code>
+<a href="https://www.caltech.edu/" class="external-link">Caltech</a>: <code>caltech_pal_1</code>, <code>caltech_pal_2</code>, <code>caltech_pal_3</code>
 </li>
 <li>
-<a href="https://ethz.ch/" class="external-link">ETH Zurich</a>: <code>eth_pal</code>,
-<code>eth_pal_light</code>, <code>eth_pal_grey</code>
+<a href="https://ethz.ch/" class="external-link">ETH Zurich</a>: <code>eth_pal</code>, <code>eth_pal_light</code>, <code>eth_pal_grey</code>
 </li>
 <li>
-<a href="https://www.hu-berlin.de/en" class="external-link">Humboldt University
-Berlin</a>: <code>hu_pal_1</code>, <code>hu_pal_2</code><br>
+<a href="https://www.fu-berlin.de/en/index.html" class="external-link">Free University Berlin</a>: <code>fu_pal_0</code>, <code>fu_pal_1</code>, <code>fu_pal_2</code>, <code>fu_pal_3</code>
 </li>
 <li>
-<a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a>:
-<code>mpg_pal</code>
+<a href="https://www.hu-berlin.de/en" class="external-link">Humboldt University Berlin</a>: <code>hu_pal_1</code>, <code>hu_pal_2</code>
 </li>
 <li>
-<a href="https://uni-freiburg.de/" class="external-link">University of Freiburg</a>:
-<code>uni_freiburg_br</code>, <code>uni_freiburg_blue</code>,
-<code>uni_freiburg_grey</code>, <code>uni_freiburg_info</code>
+<a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a>: <code>mpg_pal</code>
 </li>
 <li>
-<a href="https://uni-goettingen.de/" class="external-link">University of Göttingen</a>:
-<code>uni_goettingen_1</code>, <code>uni_goettingen_2</code>,
-<code>uni_goettingen_3</code>
+<a href="https://uni-freiburg.de/" class="external-link">University of Freiburg</a>: <code>uni_freiburg_br</code>, <code>uni_freiburg_blue</code>, <code>uni_freiburg_grey</code>, <code>uni_freiburg_info</code>
 </li>
 <li>
-<a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>:
-<code>uni_konstanz</code>, <code>uni_konstanz_pref</code>
+<a href="https://uni-goettingen.de/" class="external-link">University of Göttingen</a>: <code>uni_goettingen_1</code>, <code>uni_goettingen_2</code>, <code>uni_goettingen_3</code>
 </li>
 <li>
-<a href="https://www.princeton.edu/" class="external-link">Princeton University</a>:
-<code>uni_princeton_0</code>, <code>uni_princeton_1</code>,
-<code>uni_princeton_2</code>
+<a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>: <code>uni_konstanz</code>, <code>uni_konstanz_pref</code>
 </li>
 <li>
-<a href="https://www.uni-regensburg.de/" class="external-link">University of
-Regensburg</a>: <code>uni_regensburg_1</code>,
-<code>uni_regensburg_2</code>, <code>uni_regensburg_3</code>
+<a href="https://www.princeton.edu/" class="external-link">Princeton University</a>: <code>uni_princeton_0</code>, <code>uni_princeton_1</code>, <code>uni_princeton_2</code>
+</li>
+<li>
+<a href="https://www.uni-regensburg.de/" class="external-link">University of Regensburg</a>: <code>uni_regensburg_1</code>, <code>uni_regensburg_2</code>, <code>uni_regensburg_3</code>
+</li>
+<li>
+<a href="https://www.rpi.edu/" class="external-link">Rensselaer Polytechnic Institute</a>: <code>rpi_pal_1</code>, <code>rpi_pal_2</code>, <code>rpi_pal_3</code>
 </li>
 </ul>
-<p>These 24 palettes are exported (as named vectors) and documented (to
-credit their contributors and sources). We can use and modify these
-palettes with the <strong>unikn</strong> <a href="colors.html">color
-functions</a>:</p>
+<p>These 34 palettes are exported (as named vectors) and documented (to credit their contributors and sources). We can use and modify these palettes with the <strong>unikn</strong> <a href="colors.html">color functions</a>:</p>
+<!-- Note: Duplicate image in README.Rmd -->
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="st">"add"</span>, main <span class="op">=</span> <span class="st">"Color palettes from various institutions"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_inst_files/figure-html/show-add-pals-1.png" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="color_inst_files/figure-html/show-add-pals-1.png" width="550px" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="call-for-contributions">Call for contributions<a class="anchor" aria-label="anchor" href="#call-for-contributions"></a>
@@ -203,21 +176,16 @@ functions</a>:</p>
 <!-- Collecting contributed color palettes: -->
 <blockquote>
 <p><strong>Collecting color palettes</strong></p>
-<p>Are you using <strong>unikn</strong> to create <strong>your own color
-palettes</strong>?<br>
+<p>Are you using <strong>unikn</strong> to create <strong>your own color palettes</strong>?<br>
 If so, please <strong>let us know</strong> (e.g., by posting on this <a href="https://github.com/hneth/unikn/issues/11" class="external-link">GitHub issue</a>)!</p>
-<p>We collect color palettes from other institutions to make them
-available in future versions of <strong>unikn</strong>.</p>
-<p>To enable us to verify and provide appropriate credit to your
-contributions, please provide us with the following information:</p>
+<p>We collect color palettes from other institutions to make them available in future versions of <strong>unikn</strong>.</p>
+<p>To enable us to verify and provide appropriate credit to your contributions, please provide us with the following information:</p>
 <ol style="list-style-type: decimal">
-<li>your code (e.g., the <code><a href="../reference/newpal.html">newpal()</a></code> command creating your
-color palette),<br>
+<li>your code (e.g., the <code><a href="../reference/newpal.html">newpal()</a></code> command creating your color palette),<br>
 </li>
 <li>your source (e.g., some URL with color definitions),<br>
 </li>
-<li>your name and some contact information (e.g., an Email
-address).</li>
+<li>your name and some contact information (e.g., an Email address).</li>
 </ol>
 <p>We’re looking forward to your inputs and contributions!</p>
 </blockquote>
@@ -226,28 +194,12 @@ address).</li>
 <div class="section level2">
 <h2 id="defining-colors-and-color-palettes">Defining colors and color palettes<a class="anchor" aria-label="anchor" href="#defining-colors-and-color-palettes"></a>
 </h2>
-<p>The following examples show how to define color palettes (with
-dedicated color names) for three institutions. They can be easily
-adapted to any other group, company, or entity, that uses some
-pre-defined set of colors.</p>
+<p>The following examples show how to define color palettes (with dedicated color names) for three institutions. They can be easily adapted to any other group, company, or entity, that uses some pre-defined set of colors.</p>
 <div class="section level3">
-<h3 id="a--university-of-freiburg-germany">A. <a href="https://uni-freiburg.de/" class="external-link">University of Freiburg</a>,
-Germany:<a class="anchor" aria-label="anchor" href="#a--university-of-freiburg-germany"></a>
+<h3 id="a--university-of-freiburg-germany">A. <a href="https://uni-freiburg.de/" class="external-link">University of Freiburg</a>, Germany:<a class="anchor" aria-label="anchor" href="#a--university-of-freiburg-germany"></a>
 </h3>
-<p><a href="https://uni-freiburg.de/" class="external-link">
-<img src="../inst/pix/logo_freiburg.png" align="right" width="120px" alt="Uni Freiburg" style="border:10;"></a></p>
-<p>The <a href="https://uni-freiburg.de/" class="external-link">Albert-Ludwigs Universität
-Freiburg</a> provides fairly extensive information on its corporate
-color scheme (available at
-<code>portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben</code> on
-2022-10-20). Colors can be defined in a variety of ways, but R comes
-with convenient tools (like the <code><a href="https://rdrr.io/r/grDevices/col2rgb.html" class="external-link">col2rgb()</a></code> and
-<code><a href="https://rdrr.io/r/grDevices/convertColor.html" class="external-link">convertColor()</a></code> functions of <strong>grDevices</strong>) to
-handle most cases. The most straightforward way of creating a new color
-palette in R is by using its HEX/HTML code (provided in character
-format). As the <a href="https://uni-freiburg.de/" class="external-link">University of
-Freiburg</a> kindly provides their colors in this format, we can easily
-define the corresponding color palettes as named vectors:</p>
+<p><a href="https://uni-freiburg.de/" class="external-link"> <img src="../inst/pix/logo_freiburg.png" align="right" width="120px" alt="Uni Freiburg" style="border:10;"></a></p>
+<p>The <a href="https://uni-freiburg.de/" class="external-link">Albert-Ludwigs Universität Freiburg</a> provides fairly extensive information on its corporate color scheme (available at <code>portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben</code> on 2022-10-20). Colors can be defined in a variety of ways, but R comes with convenient tools (like the <code><a href="https://rdrr.io/r/grDevices/col2rgb.html" class="external-link">col2rgb()</a></code> and <code><a href="https://rdrr.io/r/grDevices/convertColor.html" class="external-link">convertColor()</a></code> functions of <strong>grDevices</strong>) to handle most cases. The most straightforward way of creating a new color palette in R is by using its HEX/HTML code (provided in character format). As the <a href="https://uni-freiburg.de/" class="external-link">University of Freiburg</a> kindly provides their colors in this format, we can easily define the corresponding color palettes as named vectors:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Source: http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben</span></span>
 <span></span>
@@ -275,20 +227,15 @@ define the corresponding color palettes as named vectors:</p>
 <span>                       <span class="st">"#4d4f53"</span>, <span class="st">"#747678"</span>, <span class="st">"#b2b4b3"</span>, <span class="st">"#d5d6d2"</span>, <span class="st">"#e98300"</span>, <span class="st">"#efbd47"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">uni_freiburg_info</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mid-blau"</span>, <span class="st">"hell-blau"</span>, <span class="st">"dark-red"</span>, <span class="st">"hell-red"</span>, <span class="st">"mid-green"</span>, <span class="st">"hell-green"</span>, </span>
 <span>                              <span class="st">"anthrazit"</span>, <span class="st">"dark-grey"</span>, <span class="st">"mid-grey"</span>, <span class="st">"hell-grey"</span>, <span class="st">"orange"</span>, <span class="st">"gelb"</span><span class="op">)</span></span></code></pre></div>
-<p>Alternatively, we can define both colors and names in one step by
-using the <code><a href="../reference/newpal.html">newpal()</a></code> function:</p>
+<p>Alternatively, we can define both colors and names in one step by using the <code><a href="../reference/newpal.html">newpal()</a></code> function:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">uni_freiburg_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newpal.html">newpal</a></span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#2a6ebb"</span>, <span class="st">"#a7c1e3"</span>, <span class="st">"#7b2927"</span>, <span class="st">"#de3831"</span>, <span class="st">"#739600"</span>, <span class="st">"#92d400"</span>, </span>
 <span>                                    <span class="st">"#4d4f53"</span>, <span class="st">"#747678"</span>, <span class="st">"#b2b4b3"</span>, <span class="st">"#d5d6d2"</span>, <span class="st">"#e98300"</span>, <span class="st">"#efbd47"</span><span class="op">)</span>,</span>
 <span>                            names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mid-blau"</span>, <span class="st">"hell-blau"</span>, <span class="st">"dark-red"</span>, <span class="st">"hell-red"</span>, <span class="st">"mid-green"</span>, <span class="st">"hell-green"</span>, </span>
 <span>                                      <span class="st">"anthrazit"</span>, <span class="st">"dark-grey"</span>, <span class="st">"mid-grey"</span>, <span class="st">"hell-grey"</span>, <span class="st">"orange"</span>, <span class="st">"gelb"</span><span class="op">)</span></span>
 <span>                            <span class="op">)</span></span></code></pre></div>
-<p>Using <code><a href="../reference/newpal.html">newpal()</a></code> makes it easy to combine colors and their
-names and return the resulting color palette in either data frame or
-vector format.</p>
-<p>Once a new color palette has been defined (in your current
-R environment), use all color-related functions to view, modify, and use
-the palette:</p>
+<p>Using <code><a href="../reference/newpal.html">newpal()</a></code> makes it easy to combine colors and their names and return the resulting color palette in either data frame or vector format.</p>
+<p>Once a new color palette has been defined (in your current R environment), use all color-related functions to view, modify, and use the palette:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># View color palette:</span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">uni_freiburg_info</span>, main <span class="op">=</span> <span class="st">"Colors of the University of Freiburg"</span><span class="op">)</span></span></code></pre></div>
@@ -304,19 +251,13 @@ the palette:</p>
 <p><img src="color_inst_files/figure-html/freiburg-seecol-2.png" width="60%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
-<h3 id="b--princeton-university-usa">B. <a href="https://princeton.edu/" class="external-link">Princeton University</a>,
-USA:<a class="anchor" aria-label="anchor" href="#b--princeton-university-usa"></a>
+<h3 id="b--princeton-university-usa">B. <a href="https://princeton.edu/" class="external-link">Princeton University</a>, USA:<a class="anchor" aria-label="anchor" href="#b--princeton-university-usa"></a>
 </h3>
-<p><a href="https://princeton.edu/" class="external-link">
-<img src="../inst/pix/logo_princeton.jpg" align="right" width="180px" alt="Princeton University" style="border:10;"></a></p>
-<p>The color scheme of <a href="https://princeton.edu/" class="external-link">Princeton
-University</a> is easily recognized by its combination of orange with
-black and white elements. The official guidelines (available <a href="https://communications.princeton.edu/guides-tools/logo-graphic-identity" class="external-link">here</a>)
-define “Princeton Orange” as Pantone (PMS) 158 C.</p>
+<p><a href="https://princeton.edu/" class="external-link"> <img src="../inst/pix/logo_princeton.jpg" align="right" width="180px" alt="Princeton University" style="border:10;"></a></p>
+<p>The color scheme of <a href="https://princeton.edu/" class="external-link">Princeton University</a> is easily recognized by its combination of orange with black and white elements. The official guidelines (available <a href="https://communications.princeton.edu/guides-tools/logo-graphic-identity" class="external-link">here</a>) define “Princeton Orange” as Pantone (PMS) 158 C.</p>
 <ul>
 <li>
-<p>The PANTONE™ color finder at <a href="https://www.pantone.com/connect/158-C" class="external-link uri">https://www.pantone.com/connect/158-C</a> yields the
-following color values:</p>
+<p>The PANTONE™ color finder at <a href="https://www.pantone.com/connect/158-C" class="external-link uri">https://www.pantone.com/connect/158-C</a> yields the following color values:</p>
 <ul>
 <li>RGB: <code>232 119 34</code><br>
 </li>
@@ -327,9 +268,7 @@ following color values:</p>
 </ul>
 </li>
 <li>
-<p>However, the guide also specifies and distinguishes between two
-additional versions of orange (depending on background color) and
-provides the following HEX/HTML values for them:</p>
+<p>However, the guide also specifies and distinguishes between two additional versions of orange (depending on background color) and provides the following HEX/HTML values for them:</p>
 <ul>
 <li>Orange on white: “#E77500”<br>
 </li>
@@ -337,8 +276,7 @@ provides the following HEX/HTML values for them:</p>
 </ul>
 </li>
 </ul>
-<p>These definitions suggest defining three separate versions of orange
-and corresponding color palettes:</p>
+<p>These definitions suggest defining three separate versions of orange and corresponding color palettes:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 3 shades of orange: </span></span>
 <span><span class="va">orange_basic</span> <span class="op">&lt;-</span> <span class="st">"#E87722"</span>  <span class="co"># Pantone 158 C</span></span>
@@ -365,26 +303,20 @@ and corresponding color palettes:</p>
 <span><span class="co"># 2nd color palette (on black backgrounds):</span></span>
 <span><span class="va">uni_princeton_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newpal.html">newpal</a></span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">orange_black</span>, <span class="st">"black"</span>, <span class="st">"white"</span><span class="op">)</span>, </span>
 <span>                          names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"orange_b"</span>, <span class="st">"black"</span>, <span class="st">"white"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>and then inspect a new color palette (with a custom background color
-and title):</p>
+<p>and then inspect a new color palette (with a custom background color and title):</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">uni_princeton_1</span>, col_bg <span class="op">=</span> <span class="st">"grey90"</span>, </span>
 <span>       main <span class="op">=</span> <span class="st">"Colors of Princeton University"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="color_inst_files/figure-html/princeton-3-1.png" width="60%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
-<h3 id="c--max-planck-society-germany">C. <a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a>,
-Germany:<a class="anchor" aria-label="anchor" href="#c--max-planck-society-germany"></a>
+<h3 id="c--max-planck-society-germany">C. <a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a>, Germany:<a class="anchor" aria-label="anchor" href="#c--max-planck-society-germany"></a>
 </h3>
-<p><a href="https://www.mpg.de/en" class="external-link">
-<img src="../inst/pix/logo_MPG.png" align="right" alt="MPG" width="150px" style="border:10;"></a></p>
-<p>The CD manual (available <a href="https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html" class="external-link">here</a>)
-of the <a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a> specifies
-the use of two primary colors:</p>
+<p><a href="https://www.mpg.de/en" class="external-link"> <img src="../inst/pix/logo_MPG.png" align="right" alt="MPG" width="150px" style="border:10;"></a></p>
+<p>The CD manual (available <a href="https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html" class="external-link">here</a>) of the <a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a> specifies the use of two primary colors:</p>
 <ul>
 <li>
-<p>Green as Pantone 328: Using the PANTONE™ color finder at <a href="https://www.pantone.com/connect/328-C" class="external-link uri">https://www.pantone.com/connect/328-C</a> yields the
-following color values:</p>
+<p>Green as Pantone 328: Using the PANTONE™ color finder at <a href="https://www.pantone.com/connect/328-C" class="external-link uri">https://www.pantone.com/connect/328-C</a> yields the following color values:</p>
 <ul>
 <li>RGB: <code>0 115 103</code><br>
 </li>
@@ -395,8 +327,7 @@ following color values:</p>
 </ul>
 </li>
 <li>
-<p>Grey as Pantone 427: Using the PANTONE™ color finder at <a href="https://www.pantone.com/connect/427-C" class="external-link uri">https://www.pantone.com/connect/427-C</a> yields the
-following color values:</p>
+<p>Grey as Pantone 427: Using the PANTONE™ color finder at <a href="https://www.pantone.com/connect/427-C" class="external-link uri">https://www.pantone.com/connect/427-C</a> yields the following color values:</p>
 <ul>
 <li>RGB: <code>208 211 212</code><br>
 </li>
@@ -407,11 +338,7 @@ following color values:</p>
 </ul>
 </li>
 </ul>
-<p>Again, the easiest way of defining a corresponding color palette is
-by defining the elementary colors and then combine them into a named
-color palette by using the <code><a href="../reference/newpal.html">newpal()</a></code> function. To enable
-color gradients, we insert the color <code>"white"</code> between the
-two dedicated colors:</p>
+<p>Again, the easiest way of defining a corresponding color palette is by defining the elementary colors and then combine them into a named color palette by using the <code><a href="../reference/newpal.html">newpal()</a></code> function. To enable color gradients, we insert the color <code>"white"</code> between the two dedicated colors:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Main colors (using HEX values):</span></span>
 <span><span class="va">mpg_green</span> <span class="op">&lt;-</span> <span class="st">"#007367"</span></span>
@@ -421,9 +348,7 @@ two dedicated colors:</p>
 <span><span class="va">mpg_pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newpal.html">newpal</a></span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">mpg_green</span>, <span class="st">"white"</span>, <span class="va">mpg_grey</span><span class="op">)</span>, </span>
 <span>                  names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mpg green"</span>, <span class="st">"white"</span>, <span class="st">"mpg grey"</span><span class="op">)</span></span>
 <span>                  <span class="op">)</span></span></code></pre></div>
-<p>As before, can now use the <code><a href="../reference/seecol.html">seecol()</a></code> and
-<code><a href="../reference/usecol.html">usecol()</a></code> functions to view, modify, and use the new
-<code>mpg_pal</code> color palette:</p>
+<p>As before, can now use the <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> functions to view, modify, and use the new <code>mpg_pal</code> color palette:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">mpg_pal</span>,</span>
 <span>       col_brd <span class="op">=</span> <span class="st">"black"</span>, lwd_brd <span class="op">=</span> <span class="fl">1</span>, </span>
@@ -434,10 +359,7 @@ two dedicated colors:</p>
 <div class="section level2">
 <h2 id="comparing-custom-color-palettes">Comparing custom color palettes<a class="anchor" aria-label="anchor" href="#comparing-custom-color-palettes"></a>
 </h2>
-<p>Once a new palette has been defined (and is available in your current
-R environment), the <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code>
-functions allow comparing, scaling, and using them in the same fashion
-as the native <strong>unikn</strong> color palettes:</p>
+<p>Once a new palette has been defined (and is available in your current R environment), the <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> functions allow comparing, scaling, and using them in the same fashion as the native <strong>unikn</strong> color palettes:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Compare and extend custom color palettes:</span></span>
 <span><span class="co"># seecol(list(uni_freiburg_info, uni_freiburg_bwr, mpg_pal, uni_princeton_1))</span></span>
@@ -451,8 +373,7 @@ as the native <strong>unikn</strong> color palettes:</p>
 <div class="section level2">
 <h2 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
 </h2>
-<p>The following versions of <strong>unikn</strong> and corresponding
-resources are currently available:</p>
+<p>The following versions of <strong>unikn</strong> and corresponding resources are currently available:</p>
 <table class="table">
 <colgroup>
 <col width="32%">
@@ -472,14 +393,12 @@ resources are currently available:</p>
 </tr>
 <tr class="even">
 <td align="left"> </td>
-<td align="left"><a href="https://github.com/hneth/unikn/" class="external-link">Development
-version</a></td>
+<td align="left"><a href="https://github.com/hneth/unikn/" class="external-link">Development version</a></td>
 <td align="left"><a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a></td>
 </tr>
 <tr class="odd">
 <td align="left">B. Online documentation:</td>
-<td align="left"><a href="https://hneth.github.io/unikn/">Release
-version</a></td>
+<td align="left"><a href="https://hneth.github.io/unikn/">Release version</a></td>
 <td align="left"><a href="https://hneth.github.io/unikn/" class="uri">https://hneth.github.io/unikn/</a></td>
 </tr>
 <tr class="even">
@@ -494,17 +413,10 @@ version</a></td>
 <h2 id="vignettes">Vignettes<a class="anchor" aria-label="anchor" href="#vignettes"></a>
 </h2>
 <!-- unikn pkg logo and link: -->
-<p><a href="https://github.com/hneth/unikn/" class="external-link">
-<img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="140px" style="width: 140px; float: right; border:0;"></a></p>
-<p>The following vignettes provide instructions and examples for using
-the <strong>unikn</strong> colors, color palettes, and functions:</p>
+<p><a href="https://github.com/hneth/unikn/" class="external-link"> <img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="140px" style="width: 140px; float: right; border:0;"></a></p>
+<p>The following vignettes provide instructions and examples for using the <strong>unikn</strong> colors, color palettes, and functions:</p>
 <!-- Table of vignettes: -->
 <table class="table">
-<colgroup>
-<col width="15%">
-<col width="38%">
-<col width="46%">
-</colgroup>
 <thead><tr class="header">
 <th align="right">Nr.</th>
 <th align="left">Vignette</th>
