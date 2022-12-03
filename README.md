@@ -107,7 +107,7 @@ The **unikn** contains two categories of color palettes:
 
 -   16 palettes implementing the colors of the [University of
     Konstanz](https://www.uni-konstanz.de/)’s corporate design
--   27 additional color palettes from various institutions
+-   34 additional color palettes from various institutions
 
 ### The colors of Konstanz University
 
@@ -198,8 +198,10 @@ color palettes of the following institutions:
     `caltech_pal_2`, `caltech_pal_3`
 -   [ETH Zurich](https://ethz.ch/): `eth_pal`, `eth_pal_light`,
     `eth_pal_grey`
+-   [Free University Berlin](https://www.fu-berlin.de/en/index.html):
+    `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3`
 -   [Humboldt University Berlin](https://www.hu-berlin.de/en):
-    `hu_pal_1`, `hu_pal_2`  
+    `hu_pal_1`, `hu_pal_2`
 -   [Max Planck Society](https://www.mpg.de/en): `mpg_pal`
 -   [University of Freiburg](https://uni-freiburg.de/):
     `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`,
@@ -222,7 +224,7 @@ color palettes of the following institutions:
 
 <img src="inst/pix/README-seecol-add-pals-1.png" width="550px" style="display: block; margin: auto;" />
 
-These palettes are exported (as named vectors), documented (to credit
+These 34 palettes are exported (as named vectors), documented (to credit
 their contributors and sources), and can easily be used and modified by
 the R community (e.g., in visualizations).
 
@@ -736,6 +738,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2022-12-01.\]
+\[File `README.md` updated on 2022-12-03.\]
 
 <!-- eof. -->

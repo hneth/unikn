@@ -62,7 +62,8 @@ In addition to the specific color palettes of the [University of Konstanz](https
 
 - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3` 
 - [ETH Zurich](https://ethz.ch/): `eth_pal`, `eth_pal_light`, `eth_pal_grey` 
-- [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2`  
+- [Free University Berlin](https://www.fu-berlin.de/en/index.html): `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3` 
+- [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2` 
 - [Max Planck Society](https://www.mpg.de/en): `mpg_pal` 
 - [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info` 
 - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
@@ -71,7 +72,7 @@ In addition to the specific color palettes of the [University of Konstanz](https
 - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3` 
 - [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3`
 
-These 27\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
+These 34\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
 We can use and modify these palettes with the **unikn** [color functions](colors.html):
 
 <!-- Note: Duplicate image in README.Rmd -->

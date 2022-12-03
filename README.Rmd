@@ -96,7 +96,7 @@ devtools::install_github('hneth/unikn')
 The **unikn** contains two categories of color palettes: 
 
 - 16\ palettes implementing the colors of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design 
-- 27\ additional color palettes from various institutions
+- 34\ additional color palettes from various institutions
 
 
 ### The colors of Konstanz University
@@ -215,7 +215,8 @@ In addition to the 16\ specific color palettes of the [University of Konstanz](h
 
 - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3` 
 - [ETH Zurich](https://ethz.ch/): `eth_pal`, `eth_pal_light`, `eth_pal_grey` 
-- [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2`  
+- [Free University Berlin](https://www.fu-berlin.de/en/index.html): `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3` 
+- [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2` 
 - [Max Planck Society](https://www.mpg.de/en): `mpg_pal` 
 - [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info` 
 - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
@@ -226,12 +227,12 @@ In addition to the 16\ specific color palettes of the [University of Konstanz](h
 
 <!-- Note: Duplicate image in vignette color_inst.Rmd -->
 
-```{r seecol-add-pals, fig.width = 7.2, out.width = "550px", fig.align = 'center', fig.asp = 1.4}
+```{r seecol-add-pals, fig.width = 7.2, out.width = "550px", fig.align = 'center', fig.asp = 1.5}
 # Inspect additional/alternative color palettes:
 seecol("add")
 ```
 
-These palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations).
+These 34\ palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations).
 
 
 <!-- Collecting contributed color palettes: -->
