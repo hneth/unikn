@@ -967,11 +967,11 @@ fu_pal_0 <- fu_col_1
 # 0-94-100-0 	1795C 	  #CC0000 	    204-0-0
 # - 	        - 	      #0066cc     	0-102-204
 
-fu_col_2 <- newpal(col = c("#FF9900", "#CC0000", "#0066CC"),
-                   names = c("FU accent orange", "FU accent red", "FU accent blue"),
-                   as_df = FALSE)
+fu_accent <- newpal(col = c("#FF9900", "#CC0000", "#0066CC"),
+                    names = c("FU accent orange", "FU accent red", "FU accent blue"),
+                    as_df = FALSE)
 
-# seecol(fu_col_2, main = "Secondary/accent colors of the FU Berlin")
+# seecol(fu_accent, main = "Secondary/accent colors of the FU Berlin")
 
 
 # Grautöne
@@ -1002,7 +1002,7 @@ fu_greys <- newpal(col = c("#333333", "#666666", "#999999", "#CCCCCC",
 
 #' Secondary and grey colors of the Free University Berlin 
 #'
-#' \code{fu_pal_0} provides three accent colors and seven grey colors  
+#' \code{fu_pal_2} provides the three accent colors and seven grey colors  
 #' of the \href{https://www.fu-berlin.de/en/index.html}{Free University Berlin}, Germany. 
 #' 
 #' The three accent colors support the two primary colors of \code{\link{fu_pal_0}} 
@@ -1037,7 +1037,7 @@ fu_greys <- newpal(col = c("#333333", "#666666", "#999999", "#CCCCCC",
 #' 
 #' @export
 
-fu_pal_2 <- c(fu_col_2, fu_greys)
+fu_pal_2 <- c(fu_accent, fu_greys)
 
 
 # Abstufungen der Hauptfarbe Blau
