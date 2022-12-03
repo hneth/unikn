@@ -38,10 +38,12 @@ library(unikn)  # load package
 </a> 
 -->
 
+
 ### Enabling corporate design elements in\ R {-}
 
-The **unikn** package provides useful color functions ---\ by defining dedicated colors and color palettes, and commands for finding, changing, viewing, and using them\ --- and styled text elements (e.g., for marking, underlining, or plotting colored titles) in\ [R](https://www.r-project.org/). 
+The **unikn** R package provides useful color functions ---\ by defining dedicated colors and color palettes, and commands for finding, changing, viewing, and using them\ --- and styled text elements (e.g., for marking, underlining, or plotting colored titles) in\ [R](https://www.r-project.org/). 
 The package's pre-defined range of colors and text decoration functions is based on the corporate design of the [University of Konstanz](https://www.uni-konstanz.de/) (see [link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) for details), but can easily be adapted and extended to other purposes or institutions. 
+
 
 ## Overview  
 
@@ -211,7 +213,7 @@ seecol(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
 ### Additional color palettes
 
 In addition to the 16\ specific color palettes of the [University of Konstanz](https://www.uni-konstanz.de/), 
-**unikn** currently provides color palettes of the following institutions: 
+**unikn** currently provides color palettes of the following institutions:
 
 - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3` 
 - [ETH Zurich](https://ethz.ch/): `eth_pal`, `eth_pal_light`, `eth_pal_grey` 
@@ -696,6 +698,7 @@ The copyrights to all [uni.kn](https://www.uni-konstanz.de/) designs remain with
 - [The University of Konstanz’s corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (Version 1.6, September 2015) 
 - [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) 
 - Strichpunkt GmbH, [`r url_unikn("https://www.strichpunkt-design.de/")`](https://www.strichpunkt-design.de/) 
+
 
 ------ 
 
