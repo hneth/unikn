@@ -18,7 +18,7 @@ fu_pal_2
 A named vector of colors (HEX/HTML codes of type character).
 }
 \description{
-\code{fu_pal_0} provides three accent colors and seven grey colors  
+\code{fu_pal_2} provides the three accent colors and seven grey colors  
 of the \href{https://www.fu-berlin.de/en/index.html}{Free University Berlin}, Germany.
 }
 \details{
