@@ -1274,7 +1274,10 @@ add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
 )
 
-# all palettes / largest set (of unikn package):
+# length(add_pals)  # 34 [2022-12-03]
+
+
+# All palettes / largest set (of unikn package):
 
 all_pals <- c(all_palkn, add_pals)
 

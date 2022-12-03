@@ -1126,9 +1126,7 @@ fu_pal_3 <- fu_blues
 # Note correspondence to:
 # seecol(usecol(c(fu_blue, fu_green), n = 11)[c(2:10)])
 
-fu_blue_green <- newpal(col = usecol(c(fu_blue, fu_green), n = 11),
-                        names = c("FU blue", paste0("FU bg ", 1:9), "FU green"),
-                        as_df = FALSE)
+fu_blue_green <- usecol(c(fu_blue, fu_green), n = 11)
 
 # seecol(fu_blue_green, main = "Gradient from blue to green colors of FU Berlin")
 
@@ -1173,7 +1171,9 @@ fu_blue_green <- newpal(col = usecol(c(fu_blue, fu_green), n = 11),
 #' 
 #' @export
 
-fu_pal_1 <- fu_blue_green
+fu_pal_1 <- newpal(col = fu_blue_green,
+                   names = c("FU blue", paste0("FU bg ", 1:9), "FU green"),
+                   as_df = FALSE)
 
 
 # HU Berlin / Humboldt Universitaet Berlin: ------
