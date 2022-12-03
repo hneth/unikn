@@ -25,7 +25,7 @@
 
 ### Enabling corporate design elements in R
 
-The **unikn** R package provides useful color functions — by defining
+The **unikn** package provides useful color functions — by defining
 dedicated colors and color palettes, and commands for finding, changing,
 viewing, and using them — and styled text elements (e.g., for marking,
 underlining, or plotting colored titles)
