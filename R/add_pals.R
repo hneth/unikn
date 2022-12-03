@@ -1126,7 +1126,7 @@ fu_pal_3 <- fu_blues
 # Note correspondence to:
 # seecol(usecol(c(fu_blue, fu_green), n = 11)[c(2:10)])
 
-fu_blue_green <- usecol(c(fu_blue, fu_green), n = 11)
+fu_blue_green <- usecol(c(fu_blue, fu_green), n = 11, use_col_ramp = TRUE)
 
 # seecol(fu_blue_green, main = "Gradient from blue to green colors of FU Berlin")
 
