@@ -1139,7 +1139,7 @@ fu_blue_green <- usecol(c(fu_blue, fu_green), n = 11, use_col_ramp = TRUE)
 #' of the \href{https://www.fu-berlin.de/en/index.html}{Free University Berlin}, Germany. 
 #' 
 #' See \code{\link{fu_pal_0}} for the two primary colors and 
-#' the \code{\link{ac}} and \code{\link{usecol}} functions for creating 
+#' the \code{\link{ac}} or \code{\link{usecol}} functions for creating 
 #' alternative color gradients.
 #' 
 #' @return 
