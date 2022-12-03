@@ -77,7 +77,7 @@ We can use and modify these palettes with the **unikn** [color functions](colors
 
 <!-- Note: Duplicate image in README.Rmd -->
 
-```{r show-add-pals, fig.width = 7.2, out.width = "550px", fig.asp = 1.4}
+```{r show-add-pals, fig.width = 7.2, out.width = "550px", fig.asp = 1.5}
 seecol("add", main = "Color palettes from various institutions")
 ```
 
