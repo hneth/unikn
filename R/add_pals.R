@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 03
+## spds | uni.kn |  2022 12 04
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -1805,6 +1805,74 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
                                       "anthrazit", "dark-grey", "mid-grey", "hell-grey", "orange", "gelb"),
                             as_df = FALSE)
 
+
+
+
+
+# Uni Koeln: ------
+
+# Source: PDF booklet
+# Last check: 2022-12-04
+
+# Hausfarben:
+
+# # Blaugrau: 
+# R 227 / G 232 / B 235 : heller Fond (50%)  Note Error: "font"? 
+# R 200 / G 209 / B 219 : Blaugrau hell 
+# R 165 / G 182 / B 199 : Blaugrau mittel
+# R 122 / G 147 / B 171 : Blaugrau 
+# R  74 / G 101 / B 125 : Blaugrau dunkel
+# R  50 / G  71 / B  91 : Blauschwarz
+
+koeln_bg_1 <- rgb(227, 232, 235, maxColorValue = 255)
+koeln_bg_2 <- rgb(200, 209, 219, maxColorValue = 255)
+koeln_bg_3 <- rgb(165, 182, 199, maxColorValue = 255)
+koeln_bg_4 <- rgb(122, 147, 171, maxColorValue = 255)
+koeln_bg_5 <- rgb( 74, 101, 125, maxColorValue = 255)
+koeln_bg_6 <- rgb( 50,  71,  91, maxColorValue = 255)
+
+# # Signalfarbe Rot:
+# R 175 / G 17 / B 29
+
+koeln_si_1 <- rgb(175, 17, 29, maxColorValue = 255)
+
+# - uni_koeln_1: Shades of blaugrau und red signal color ----
+
+uni_koeln_1 <- newpal(col = c(koeln_bg_1, koeln_bg_2, koeln_bg_3, koeln_bg_4, koeln_bg_5, koeln_bg_6, koeln_si_1),
+                      names = c("heller font", "blaugrau hell", "blaugrau mittel", "blaugrau", "blaugrau dunkel", "blauschwarz", "signal rot"),
+                      as_df = FALSE)
+
+# seecol(uni_koeln_1, main = "Shades of Uni Cologne")
+
+# Codierfarben
+# 
+# Jede Fakultät sowie die Universitätsverwaltung verfügen über einen eigenen definierten Farbton. 
+# Diese eignen sich hervorragend für die Gestaltung von Informationsschriften und verbinden Individualität mit Tradition.
+
+# # RGB (ECI-RGB.ICC): 
+# R 131 / G 175 / B  35 : Grün :  Wirtschafts-/Sozialwissenschaftliche Fakultät
+# R 125 / G  50 / B  29 : Bordeaux : Rechtswissenschaftliche Fakultät 
+# R 175 / G  17 / B  29 : Rot : Medizinische Fakultät
+# R  89 / G  15 / B 104 : Violett : Philosophische Fakultät
+# R   0 / G 130 / B 198 : Blau : Mathematisch-Naturwissenschaftliche Fakultät
+# R 219 / G 166 / B  25 : Orange: Humanwissenschaftlicheschaftliche Fakultät 
+# R 145 / G 196 / B 234 : Hellblau: Verwaltung 
+
+koeln_fa_1 <- rgb(131, 175,  35, maxColorValue = 255)
+koeln_fa_2 <- rgb(125,  50,  29, maxColorValue = 255)
+koeln_fa_3 <- rgb(175,  17,  29, maxColorValue = 255)
+koeln_fa_4 <- rgb( 89,  15, 104, maxColorValue = 255)
+koeln_fa_5 <- rgb(  0, 130, 198, maxColorValue = 255)
+koeln_fa_6 <- rgb(219, 166,  25, maxColorValue = 255)
+koeln_fa_7 <- rgb(145, 196, 234, maxColorValue = 255)
+
+# - uni_koeln_2: Codierfarben / Departmental colors ----
+
+uni_koeln_2 <- newpal(col = c(koeln_fa_1, koeln_fa_2, koeln_fa_3, koeln_fa_4, koeln_fa_5, koeln_fa_6, koeln_fa_7),
+                      names = c("gruen", "bordeaux", "rot", "violett", "blau", "orange", "hellblau"),
+                      as_df = FALSE)
+
+# seecol(uni_koeln_2, main = "Departmental colors of Uni Cologne")
 
 
 # Uni Konstanz: ------
