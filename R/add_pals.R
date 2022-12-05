@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 04
+## spds | uni.kn |  2022 12 05
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -16,17 +16,23 @@
 
 # add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
 #               "eth_pal", "eth_pal_light", "eth_pal_grey",
-#               "fu_pal_0", "fu_pal_1", "fu_pal_2", "fu_pal_3", 
+#               "fu_pal_0", "fu_pal_1", "fu_pal_2", "fu_pal_3",
 #               "hu_pal_1", "hu_pal_2",
 #               "lmu_pal_1", "lmu_pal_2", "lmu_pal_3",
 #               "mpg_pal",
 #               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
 #               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
+#               "uni_koeln_1", "uni_koeln_2", 
 #               "uni_konstanz", "uni_konstanz_pref",
 #               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
 #               "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
 #               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
 # )
+
+#' Primary colors of the University of Koeln (Cologne) 
+#'
+#' \code{uni_koeln_1} provides the primary colors 
+#' of the \href{https://www.uni-koeln.de/}{Universit\u00E4t zu K\u00F6ln}, Germany. 
 
 inst <- c(rep("Caltech", 3), 
           rep("ETH Zurich", 3),
@@ -35,14 +41,15 @@ inst <- c(rep("Caltech", 3),
           rep("LMU Munich", 3),
           "Max Planck Society",
           rep("University of Freiburg", 4),
-          rep("University of Goettingen", 3),          
+          rep("University of Goettingen", 3),
+          rep("University of Koeln", 2),
           rep("University of Konstanz", 2),
           rep("Princeton University", 3),
           rep("University of Regensburg", 3),
           rep("RPI", 3)
 )
 
-inst_alt <- c(rep("California Institute of Technology", 3), 
+inst_alt <- c(rep("California Institute of Technology", 3),
               rep("Eidgen\u00F6ssische Technische Hochschule, Z\u00FCrich", 3),
               rep("Freie Universit\u00E4t Berlin", 4),
               rep("Humboldt Universit\u00E4t zu Berlin", 2),
@@ -50,21 +57,23 @@ inst_alt <- c(rep("California Institute of Technology", 3),
               "Max-Planck-Gesellschaft",
               rep("Universit\u00E4t Freiburg", 4),
               rep("Universit\u00E4t G\u00F6ttingen", 3),
-              rep("Universit\u00E4t Konstanz", 2), 
-              rep("Princeton University", 3), 
+              rep("Universit\u00E4t zu K\u00F6ln", 2),
+              rep("Universit\u00E4t Konstanz", 2),
+              rep("Princeton University", 3),
               rep("Universit\u00E4t Regensburg", 3),
               rep("Rensselaer Polytechnic Institute", 3)
 )
 
 url <- c(rep("https://www.caltech.edu/", 3), 
-         rep("https://ethz.ch/", 3), 
-         rep("https://www.fu-berlin.de/en/index.html", 4), 
+         rep("https://ethz.ch/", 3),
+         rep("https://www.fu-berlin.de/en/index.html", 4),
          rep("https://www.hu-berlin.de/en", 2),
-         rep("https://www.lmu.de/en/index.html", 3), 
+         rep("https://www.lmu.de/en/index.html", 3),
          "https://www.mpg.de/en",
-         rep("https://uni-freiburg.de/", 4), 
-         rep("https://uni-goettingen.de/", 3), 
-         rep("https://www.uni-konstanz.de/", 2), 
+         rep("https://uni-freiburg.de/", 4),
+         rep("https://uni-goettingen.de/", 3),
+         rep("https://www.uni-koeln.de/", 2),
+         rep("https://www.uni-konstanz.de/", 2),
          rep("https://www.princeton.edu/", 3),
          rep("https://www.uni-regensburg.de/", 3),
          rep("https://www.rpi.edu/", 3)
@@ -1811,7 +1820,9 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
 
 # Uni Koeln: ------
 
-# Source: PDF booklet
+# Source: PDF handbook at 
+# <https://kommunikation-marketing.uni-koeln.de/marketing/corporate_design/index_ger.html>
+# <https://www.designtagebuch.de/cd-manuals/uni-koeln-corporate-design-handbuch.pdf>
 # Last check: 2022-12-04
 
 # Hausfarben:
@@ -1836,13 +1847,54 @@ koeln_bg_6 <- rgb( 50,  71,  91, maxColorValue = 255)
 
 koeln_si_1 <- rgb(175, 17, 29, maxColorValue = 255)
 
+
 # - uni_koeln_1: Shades of blaugrau und red signal color ----
+
+#' Primary colors of the University of Koeln (Cologne) 
+#'
+#' \code{uni_koeln_1} provides the primary colors 
+#' of the \href{https://www.uni-koeln.de/}{Universit\u00E4t zu K\u00F6ln}, Germany. 
+#' 
+#' The first 6 colors are variants of the main color \code{blaugrau} 
+#' (defined as R122.G147.B171, see \code{uni_koeln_1[4]}). 
+#' 
+#' The 7th color is the accent color \code{signal rot} 
+#' (defined as Pantone Red 032 C or R175.G17.B29, see \code{uni_koeln_1[7]}). 
+#' The accent color may also be used in lighter shades of 80%, 60%, or 40%.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-05.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://kommunikation-marketing.uni-koeln.de/marketing/corporate_design/index_ger.html}. 
+#' 
+#' @examples
+#' uni_koeln_1
+#' seecol(uni_koeln_1, main = "Primary colors of Uni Koeln")  # view palette
+#' demopal(uni_koeln_1, type = 4, 
+#'         main = "Primary colors at the University of Cologne")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_koeln_2}} for departmental colors of the University of Koeln;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 uni_koeln_1 <- newpal(col = c(koeln_bg_1, koeln_bg_2, koeln_bg_3, koeln_bg_4, koeln_bg_5, koeln_bg_6, koeln_si_1),
                       names = c("heller font", "blaugrau hell", "blaugrau mittel", "blaugrau", "blaugrau dunkel", "blauschwarz", "signal rot"),
                       as_df = FALSE)
 
-# seecol(uni_koeln_1, main = "Shades of Uni Cologne")
+# seecol(uni_koeln_1, main = "Primary colors of Uni Cologne")
 
 # Codierfarben
 # 
@@ -1866,7 +1918,53 @@ koeln_fa_5 <- rgb(  0, 130, 198, maxColorValue = 255)
 koeln_fa_6 <- rgb(219, 166,  25, maxColorValue = 255)
 koeln_fa_7 <- rgb(145, 196, 234, maxColorValue = 255)
 
+
 # - uni_koeln_2: Codierfarben / Departmental colors ----
+
+#' Departmental colors of the University of Koeln (Cologne) 
+#'
+#' \code{uni_koeln_2} provides the departmental (faculty) colors 
+#' of the \href{https://www.uni-koeln.de/}{Universit\u00E4t zu K\u00F6ln}, Germany. 
+#' 
+#' Named colors of \code{uni_koeln_2} correspond to the following departments:
+#' 
+#' \enumerate{
+#' \item gruen: Wirtschafts-/Sozialwissenschaftliche Fakult\u00E4t
+#' \item bordeaux: Rechtswissenschaftliche Fakult\u00E4t 
+#' \item rot: Medizinische Fakult\u00E4t
+#' \item violett: Philosophische Fakult\u00E4t
+#' \item blau: Mathematisch-Naturwissenschaftliche Fakult\u00E4t
+#' \item orange: Humanwissenschaftlicheschaftliche Fakult\u00E4t 
+#' \item hellblau: Verwaltung 
+#' }
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-05.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://kommunikation-marketing.uni-koeln.de/marketing/corporate_design/index_ger.html}. 
+#' 
+#' @examples
+#' uni_koeln_2
+#' seecol(uni_koeln_2, main = "Departmental colors of Uni Koeln")  # view palette
+#' demopal(uni_koeln_2, type = 3, 
+#'         main = "Department colors at the University of Cologne")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_koeln_1}} for primary colors of the University of Koeln;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 uni_koeln_2 <- newpal(col = c(koeln_fa_1, koeln_fa_2, koeln_fa_3, koeln_fa_4, koeln_fa_5, koeln_fa_6, koeln_fa_7),
                       names = c("gruen", "bordeaux", "rot", "violett", "blau", "orange", "hellblau"),
