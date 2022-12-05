@@ -71,6 +71,8 @@ Other contributed color palettes:
 \code{\link{uni_goettingen_1}},
 \code{\link{uni_goettingen_2}},
 \code{\link{uni_goettingen_3}},
+\code{\link{uni_koeln_1}},
+\code{\link{uni_koeln_2}},
 \code{\link{uni_konstanz}},
 \code{\link{uni_princeton_0}},
 \code{\link{uni_princeton_1}},

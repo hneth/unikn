@@ -23,7 +23,7 @@ of the \href{https://www.fu-berlin.de/en/index.html}{Free University Berlin}, Ge
 }
 \details{
 See \code{\link{fu_pal_0}} for the two primary colors and 
-the \code{\link{ac}} and \code{\link{usecol}} functions for creating 
+the \code{\link{ac}} or \code{\link{usecol}} functions for creating 
 alternative color gradients.
 }
 \examples{
@@ -68,6 +68,8 @@ Other contributed color palettes:
 \code{\link{uni_goettingen_1}},
 \code{\link{uni_goettingen_2}},
 \code{\link{uni_goettingen_3}},
+\code{\link{uni_koeln_1}},
+\code{\link{uni_koeln_2}},
 \code{\link{uni_konstanz_pref}},
 \code{\link{uni_konstanz}},
 \code{\link{uni_princeton_0}},
