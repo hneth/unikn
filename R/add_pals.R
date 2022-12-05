@@ -29,11 +29,6 @@
 #               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
 # )
 
-#' Primary colors of the University of Koeln (Cologne) 
-#'
-#' \code{uni_koeln_1} provides the primary colors 
-#' of the \href{https://www.uni-koeln.de/}{Universitaet zu K\u00F6ln}, Germany. 
-
 inst <- c(rep("Caltech", 3), 
           rep("ETH Zurich", 3),
           rep("Free University Berlin", 4),
