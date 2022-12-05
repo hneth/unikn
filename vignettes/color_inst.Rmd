@@ -1,7 +1,7 @@
 ---
 title: "Institutional colors"
 author: "SPDS, uni.kn"
-date: "2022 12 02"
+date: "2022 12 05"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -67,12 +67,13 @@ In addition to the specific color palettes of the [University of Konstanz](https
 - [Max Planck Society](https://www.mpg.de/en): `mpg_pal` 
 - [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info` 
 - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
+- [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2` 
 - [University of Konstanz](https://www.uni-konstanz.de/): `uni_konstanz`, `uni_konstanz_pref` 
 - [Princeton University](https://www.princeton.edu/): `uni_princeton_0`, `uni_princeton_1`, `uni_princeton_2` 
 - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3` 
 - [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3`
 
-These 34\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
+These 36\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
 We can use and modify these palettes with the **unikn** [color functions](colors.html):
 
 <!-- Note: Duplicate image in README.Rmd -->
