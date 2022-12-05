@@ -107,7 +107,7 @@ The **unikn** contains two categories of color palettes:
 
 -   16 palettes implementing the colors of the [University of
     Konstanz](https://www.uni-konstanz.de/)’s corporate design
--   34 additional color palettes from various institutions
+-   36 additional color palettes from various institutions
 
 ### The colors of Konstanz University
 
@@ -208,6 +208,8 @@ color palettes of the following institutions:
     `uni_freiburg_info`
 -   [University of Göttingen](https://uni-goettingen.de/):
     `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3`
+-   [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`,
+    `uni_koeln_2`
 -   [University of Konstanz](https://www.uni-konstanz.de/):
     `uni_konstanz`, `uni_konstanz_pref`
 -   [Princeton University](https://www.princeton.edu/):
@@ -224,7 +226,7 @@ color palettes of the following institutions:
 
 <img src="inst/pix/README-seecol-add-pals-1.png" width="550px" style="display: block; margin: auto;" />
 
-These 34 palettes are exported (as named vectors), documented (to credit
+These 36 palettes are exported (as named vectors), documented (to credit
 their contributors and sources), and can easily be used and modified by
 the R community (e.g., in visualizations).
 
@@ -738,6 +740,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2022-12-03.\]
+\[File `README.md` updated on 2022-12-05.\]
 
 <!-- eof. -->
