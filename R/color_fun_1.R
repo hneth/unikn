@@ -167,8 +167,6 @@ usecol <- function(pal = pal_unikn,
       if (any(pal_ix)) { rev_pal <- TRUE }  # if palette is reversed, update pal_rev to TRUE.
     }
     
-    # +++ here now +++:
-    
     # Problem: The palettes pal_unikn and uni_konstanz contain the SAME colors. 
     #          => pal_ix contains 2 TRUE positions.   
     if (sum(pal_ix) > 1){ # HACK: If there are multiple TRUE in pal_ix: 
@@ -1206,6 +1204,9 @@ all_colors <- function(distinct = TRUE){
   out <- NA  # initialize
   
   # 1. All colors (of unikn package): ---- 
+  
+  # +++ here now +++:
+  
   unikn_pkg_colors <- usecol(c("black", "white",
                                # Local uni.kn colors:
                                pal_grau, pal_bordeaux, pal_petrol, pal_peach, 
@@ -1221,6 +1222,7 @@ all_colors <- function(distinct = TRUE){
                                mpg_pal, 
                                uni_goettingen_1, uni_goettingen_2, uni_goettingen_3, 
                                uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
+                               uni_koeln_1, uni_koeln_2, 
                                # uni_konstanz, uni_konstanz_pref, # duplicates of pal_ above.
                                uni_princeton_0, uni_princeton_1, uni_princeton_2,
                                uni_regensburg_1, uni_regensburg_2, uni_regensburg_3,
@@ -1261,8 +1263,8 @@ all_colors <- function(distinct = TRUE){
 
 ## Check:
 # all_colors()[1:50]
-# length(all_colors(distinct = TRUE))   # 699 [on 2022-12-03]
-# length(all_colors(distinct = FALSE))  # 918 [on 2022-12-03]
+# length(all_colors(distinct = TRUE))   # 708 [on 2022-12-05]
+# length(all_colors(distinct = FALSE))  # 932 [on 2022-12-05]
 # grepal("see", all_colors())     # finds unikn colors (and matching colors())
 # grepal("gruen", all_colors())   # finds unikn and added colors
 # grepal("purple", all_colors())  # finds added and base R colors
