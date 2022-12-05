@@ -32,7 +32,7 @@
 #' Primary colors of the University of Koeln (Cologne) 
 #'
 #' \code{uni_koeln_1} provides the primary colors 
-#' of the \href{https://www.uni-koeln.de/}{Universit\u00E4t zu K\u00F6ln}, Germany. 
+#' of the \href{https://www.uni-koeln.de/}{Universitaet zu K\u00F6ln}, Germany. 
 
 inst <- c(rep("Caltech", 3), 
           rep("ETH Zurich", 3),
@@ -1853,7 +1853,7 @@ koeln_si_1 <- rgb(175, 17, 29, maxColorValue = 255)
 #' Primary colors of the University of Koeln (Cologne) 
 #'
 #' \code{uni_koeln_1} provides the primary colors 
-#' of the \href{https://www.uni-koeln.de/}{Universit\u00E4t zu K\u00F6ln}, Germany. 
+#' of the \href{https://www.uni-koeln.de/}{Universitaet zu Koeln}, Germany. 
 #' 
 #' The first 6 colors are variants of the main color \code{blaugrau} 
 #' (defined as R122.G147.B171, see \code{uni_koeln_1[4]}). 
@@ -1924,17 +1924,17 @@ koeln_fa_7 <- rgb(145, 196, 234, maxColorValue = 255)
 #' Departmental colors of the University of Koeln (Cologne) 
 #'
 #' \code{uni_koeln_2} provides the departmental (faculty) colors 
-#' of the \href{https://www.uni-koeln.de/}{Universit\u00E4t zu K\u00F6ln}, Germany. 
+#' of the \href{https://www.uni-koeln.de/}{Universitaet zu Koeln}, Germany. 
 #' 
 #' Named colors of \code{uni_koeln_2} correspond to the following departments:
 #' 
 #' \enumerate{
-#' \item gruen: Wirtschafts-/Sozialwissenschaftliche Fakult\u00E4t
-#' \item bordeaux: Rechtswissenschaftliche Fakult\u00E4t 
-#' \item rot: Medizinische Fakult\u00E4t
-#' \item violett: Philosophische Fakult\u00E4t
-#' \item blau: Mathematisch-Naturwissenschaftliche Fakult\u00E4t
-#' \item orange: Humanwissenschaftlicheschaftliche Fakult\u00E4t 
+#' \item gruen: Wirtschafts-/Sozialwissenschaftliche Fakultaet
+#' \item bordeaux: Rechtswissenschaftliche Fakultaet 
+#' \item rot: Medizinische Fakultaet
+#' \item violett: Philosophische Fakultaet
+#' \item blau: Mathematisch-Naturwissenschaftliche Fakultaet
+#' \item orange: Humanwissenschaftlicheschaftliche Fakultaet 
 #' \item hellblau: Verwaltung 
 #' }
 #' 

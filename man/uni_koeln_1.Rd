@@ -19,7 +19,7 @@ A named vector of colors (HEX/HTML codes of type character).
 }
 \description{
 \code{uni_koeln_1} provides the primary colors 
-of the \href{https://www.uni-koeln.de/}{Universit\u00E4t zu K\u00F6ln}, Germany.
+of the \href{https://www.uni-koeln.de/}{Universitaet zu Koeln}, Germany.
 }
 \details{
 The first 6 colors are variants of the main color \code{blaugrau} 

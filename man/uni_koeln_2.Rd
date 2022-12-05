@@ -19,18 +19,18 @@ A named vector of colors (HEX/HTML codes of type character).
 }
 \description{
 \code{uni_koeln_2} provides the departmental (faculty) colors 
-of the \href{https://www.uni-koeln.de/}{Universit\u00E4t zu K\u00F6ln}, Germany.
+of the \href{https://www.uni-koeln.de/}{Universitaet zu Koeln}, Germany.
 }
 \details{
 Named colors of \code{uni_koeln_2} correspond to the following departments:
 
 \enumerate{
-\item gruen: Wirtschafts-/Sozialwissenschaftliche Fakult\u00E4t
-\item bordeaux: Rechtswissenschaftliche Fakult\u00E4t 
-\item rot: Medizinische Fakult\u00E4t
-\item violett: Philosophische Fakult\u00E4t
-\item blau: Mathematisch-Naturwissenschaftliche Fakult\u00E4t
-\item orange: Humanwissenschaftlicheschaftliche Fakult\u00E4t 
+\item gruen: Wirtschafts-/Sozialwissenschaftliche Fakultaet
+\item bordeaux: Rechtswissenschaftliche Fakultaet 
+\item rot: Medizinische Fakultaet
+\item violett: Philosophische Fakultaet
+\item blau: Mathematisch-Naturwissenschaftliche Fakultaet
+\item orange: Humanwissenschaftlicheschaftliche Fakultaet 
 \item hellblau: Verwaltung 
 }
 }

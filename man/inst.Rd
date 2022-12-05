@@ -12,6 +12,6 @@ inst
 }
 \description{
 \code{uni_koeln_1} provides the primary colors 
-of the \href{https://www.uni-koeln.de/}{Universit\u00E4t zu K\u00F6ln}, Germany.
+of the \href{https://www.uni-koeln.de/}{Universitaet zu K\u00F6ln}, Germany.
 }
 \keyword{datasets}
