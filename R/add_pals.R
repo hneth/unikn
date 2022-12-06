@@ -1817,7 +1817,7 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
 
 # Uni Hamburg: ------
 
-# Source: PDF Manual at 
+# Source: PDF of Corporate Manual („Master Styleguide“) at   
 # <https://www.kus.uni-hamburg.de/themen/oeffentlichkeitsarbeit/corporate-design/corporate-manual.html>
 # Last check: 2022-12-06
 
