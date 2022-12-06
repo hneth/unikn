@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 05
+## spds | uni.kn |  2022 12 06
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -1813,6 +1813,81 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
 
 
 
+
+
+# Uni Hamburg: ------
+
+# Source: PDF Manual at 
+# <https://www.kus.uni-hamburg.de/themen/oeffentlichkeitsarbeit/corporate-design/corporate-manual.html>
+# Last check: 2022-12-06
+
+# GESTALTUNGSKONZEPT (p. 18 of PDF manual)
+# 
+# Die Hauptfarben des Corporate Designs der Universität Hamburg sind 
+# Rot (CMYK 0/100/100/0) und Blau (CMYK 87/49/0/0) – barrierefreier Blauton. 
+# Diese leiten sich zum einen vom Rot des Uni-Logos ab, zum anderen soll das Blau 
+# die Nähe der Stadt Hamburg und damit die Nähe zum Wasser symbolisieren. 
+# Das Blau transportiert ebenso Raum und Perspektive. 
+# Schwarz wird für den Fließtext verwendet. 
+# Als Alternative kann das Steingrau verwendet werden. 
+# Für Tabellen/Diagramme und Organigramme dürfen auch Abstufungen von 
+# Rot, Blau und Steingrau verwendet werden (siehe Seite 25). 
+# 
+# Wichtig:
+# - Blau und Rot sollen subtil eingesetzt werden, nicht zu bunt: 
+#   eher Designelemente wie Linien einfärben, keine ganzen Textpassagen.
+# - Gewichtung der beiden Farben muss gleich sein
+# 
+# Rot       CMYK 0/100/100/0  RGB: 226/0/26   #e2001a  HKS: 14  Pantone: 485C
+# Blau      CMYK 87/49/0/0    RGB: 2/113/187  #0271bb
+# Schwarz   CMYK 0/0/0/100    RGB: 0/0/0      #000000
+# Steingrau CMYK 45/11/11/73  RGB: 59/81/91   #3b515b           Pantone: 432U
+
+# - uni_hamburg_1: Primary colors ----
+
+uni_hamburg_1 <- newpal(col = c("#E2001A", "#0271BB",  "#000000", "#3B515B"),
+                        names = c("rot", "blau",  "schwarz", "steingrau"),
+                        as_df = FALSE)
+
+# seecol(uni_hamburg_1, main = "Primary colors of Uni Hamburg")
+
+# # See gradients:
+# seecol(usecol(c(uni_hamburg_1[1], uni_hamburg_1[2]), n = 7))
+# seecol(usecol(c(uni_hamburg_1[1], "white", uni_hamburg_1[2]), n = 7))
+
+
+# Schaubilder (p. 25 of PDF manual)
+#
+# Rot CMYK 0/100/100/0 RGB: 226/0/26
+# Rot (mit 50% Deckkraft) CMYK 0/61/35/0 RGB: 240/130/136
+# 
+# Blau CMYK 87/49/0/0 RGB: 2/113/187 
+# Blau (mit 50% Deckkraft) CMYK 53/15/7/0 RGB: 128/184/219
+# 
+# Steingrau CMYK 45/11/11/73 RGB: 59/81/91 
+# Steingrau (mit 40% Deckkraft) CMYK 34/21/22/3 RGB: 178/186/189
+# 
+# Achten Sie unbedingt auch auf einen ausreichenden Kontrast, wenn Sie z.B. 
+# Text auf einer Farbfläche platzieren, um die Barrierefreiheit zu gewährleisten. 
+# Weitere Infos dazu: https://www.leserlich.info
+
+rot_50pc       <- rgb(240, 130, 136, maxColorValue = 255)
+blau_50pc      <- rgb(128, 184, 219, maxColorValue = 255)
+steingrau_40pc <- rgb(178, 186, 189, maxColorValue = 255)
+
+
+# - uni_hamburg_2: Pair-wise colors ----
+
+# For visualizations:
+
+uni_hamburg_2 <- newpal(col = c("#E2001A", rot_50pc, "#0271BB", blau_50pc, "#3B515B", steingrau_40pc),
+                        names = c("rot", "rot 50%", "blau", "blau 50%", "steingrau", "steingrau 40%"),
+                        as_df = FALSE)
+
+# seecol(uni_hamburg_2, main = "Pair-wise colors of Uni Hamburg")
+
+
+
 # Uni Koeln: ------
 
 # Source: PDF handbook at 
@@ -2782,8 +2857,10 @@ rpi_pal_3 <- newpal(col = c("#ab2328", "#c35442", "#d58570", "#eabcad",
 # RGB: 103/210/223
 # HEX: 67D2DF
 
-willamette_pal <- newpal(col = c("#BA0C2F", "#C6AA76",  "#003B5C", "#9C0221", "#F19C49", "#67D2DF"),
-                         names = c("Cardinal", "Gold",  "Midnight breakfast", "Waller brick", "Zena field", "Salem sky"),
+willamette_pal <- newpal(col = c("#BA0C2F", "#C6AA76", 
+                                 "#003B5C", "#9C0221", "#F19C49", "#67D2DF"),
+                         names = c("Cardinal", "Gold", 
+                                   "Midnight breakfast", "Waller brick", "Zena field", "Salem sky"),
                          as_df = FALSE)
 
 # seecol(willamette_pal, main = "Primary and secondary colors of Willamette University")
