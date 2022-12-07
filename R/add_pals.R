@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 06
+## spds | uni.kn |  2022 12 07
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -1845,6 +1845,55 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
 
 # - uni_hamburg_1: Primary colors ----
 
+#' Primary colors of the University of Hamburg
+#'
+#' \code{uni_hamburg_1} provides the four primary colors 
+#' of the \href{https://www.uni-hamburg.de/}{University of Hamburg}, Germany. 
+#' 
+#' The two main colors are \code{"rot"} (also defined as Pantone 485C or CMYK 0/100/100/0) 
+#' and \code{"blau"} (also defined as CMYK 87/49/0/0). 
+#' These colors should be weighted equally and in a subtle fashion 
+#' (i.e., as color accents, not large areas or entire texts).
+#' 
+#' The auxiliary colors \code{"black"} and 
+#' \code{"steingrau"} (also defined as Pantone 432U or CMYK 45/11/11/73) 
+#' are used for text.
+#' 
+#' Colors shades may be used in diagrams or visualizations. 
+#' See examples and the \code{\link{ac}} and \code{\link{usecol}} functions 
+#' for creating color gradients.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-06.
+#' 
+#' @source 
+#' Color definitions are based on the 
+#' \href{https://www.kus.uni-hamburg.de/themen/oeffentlichkeitsarbeit/corporate-design/corporate-manual.html}{CD manual}. 
+#' 
+#' @examples
+#' uni_hamburg_1
+#' seecol(uni_hamburg_1, main = "Primary colors of the University of Hamburg")
+#' demopal(uni_hamburg_1, type = 3, main = "Primary colors of the Uni Hamburg")
+#' 
+#' # Color gradients:
+#' seecol(usecol(c(uni_hamburg_1[1], uni_hamburg_1[2]), n = 6), main = "HHU rot to blau")
+#' seecol(usecol(c(uni_hamburg_1[1], "white", uni_hamburg_1[2]), n = 7), main = "Divergent HHU")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_hamburg_2}} for visualization colors of the University of Hamburg;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
 uni_hamburg_1 <- newpal(col = c("#E2001A", "#0271BB",  "#000000", "#3B515B"),
                         names = c("rot", "blau",  "schwarz", "steingrau"),
                         as_df = FALSE)
@@ -1876,9 +1925,42 @@ blau_50pc      <- rgb(128, 184, 219, maxColorValue = 255)
 steingrau_40pc <- rgb(178, 186, 189, maxColorValue = 255)
 
 
-# - uni_hamburg_2: Pair-wise colors ----
+# - uni_hamburg_2: Pair-wise colors / for visualizations ----
 
-# For visualizations:
+#' Secondary colors of the University of Hamburg
+#'
+#' \code{uni_hamburg_2} provides three primary colors 
+#' of the \href{https://www.uni-hamburg.de/}{University of Hamburg}, Germany, 
+#' in combination with two pair-wise variants of them. 
+#' 
+#' \code{uni_hamburg_2} is to be used in visualizations. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-06.
+#' 
+#' @source 
+#' Color definitions are based on the 
+#' \href{https://www.kus.uni-hamburg.de/themen/oeffentlichkeitsarbeit/corporate-design/corporate-manual.html}{CD manual}. 
+#' 
+#' @examples
+#' uni_hamburg_2
+#' seecol(uni_hamburg_2, main = "Visualization colors of the University of Hamburg")
+#' demopal(uni_hamburg_2, type = 1, main = "Secondary colors of the Uni Hamburg")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_hamburg_1}} for primary colors of the University of Hamburg;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 uni_hamburg_2 <- newpal(col = c("#E2001A", rot_50pc, "#0271BB", blau_50pc, "#3B515B", steingrau_40pc),
                         names = c("rot", "rot 50%", "blau", "blau 50%", "steingrau", "steingrau 40%"),
