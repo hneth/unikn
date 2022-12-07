@@ -1264,8 +1264,8 @@ all_colors <- function(distinct = TRUE){
 
 ## Check:
 # all_colors()[1:50]
-# length(all_colors(distinct = TRUE))   # 708 [on 2022-12-05]
-# length(all_colors(distinct = FALSE))  # 932 [on 2022-12-05]
+# length(all_colors(distinct = TRUE))   # 712 [on 2022-12-07]
+# length(all_colors(distinct = FALSE))  # 942 [on 2022-12-07]
 # grepal("see", all_colors())     # finds unikn colors (and matching colors())
 # grepal("gruen", all_colors())   # finds unikn and added colors
 # grepal("purple", all_colors())  # finds added and base R colors
