@@ -17,6 +17,7 @@ Changes since last release:
     - [Free University Berlin](https://www.fu-berlin.de/en/index.html): `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3` 
     - [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2` 
     - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
+    - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2` 
     - [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2` 
     - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3`
     - [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3` 
@@ -275,6 +276,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-12-05.] 
+[File `NEWS.md` updated on 2022-12-07.] 
 
 <!-- eof. -->
