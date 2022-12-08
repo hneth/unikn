@@ -106,7 +106,20 @@ seecol("add", main = "Color palettes from various institutions")
 > We're looking forward to your inputs and contributions!  
 
 
-## Defining colors and color palettes 
+## Defining colors
+
+The representation of color is a wide-ranging topic that has fascinated scholars and practicioners for centuries. 
+Essentially, there are many alternative ways to analyze or synthesize colors, and the most appropriate representational system depends on the specific context of a particular use case. 
+In R, the **grDevices** package (included in any default installation) provides colors and color-related functions. 
+
+- `r length(colors())` named colors
+
+
++++ here now +++
+
+
+
+## Defining color palettes 
 
 The following examples show how to define color palettes (with dedicated color names) for three institutions. 
 They can be easily adapted to any other group, company, or entity, that uses some pre-defined set of colors. 
