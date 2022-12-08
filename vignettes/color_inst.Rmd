@@ -114,8 +114,19 @@ In R, the **grDevices** package (included in any default installation) provides 
 
 - `r length(colors())` named colors
 
-
 +++ here now +++
+
+```{r color-def, echo = FALSE, fig.width = 5, fig.asp = .80, fig.align = 'center'}
+# Range of possible colors:
+2^8    # 8-binary digits per dimension: 256 values
+256^3  # => over 16 million different colors
+
+# Resolution of HEX and RGB:
+seecol(c("black", "#010101", "#020202", "grey1", "#040404", "grey2", "#060606", "#070707", "grey3"), 
+       col_brd = "white", lwd_brd = .5, main = "A. Black end of 'grey' range")
+seecol(c("white", "#FEFEFE", "#FDFDFD", "grey99", "#FBFBFB", "grey98", "#F9F9F9", "#F8F8F8", "grey97"), 
+       col_brd = "black", lwd_brd = .5, main = "B. White end of 'grey' range")
+```
 
 
 
@@ -124,7 +135,7 @@ In R, the **grDevices** package (included in any default installation) provides 
 The following examples show how to define color palettes (with dedicated color names) for three institutions. 
 They can be easily adapted to any other group, company, or entity, that uses some pre-defined set of colors. 
 
-```{r Cardiff, echo = FALSE, eval = FALSE, fig.align = 'center', fig.width = 5, fig.height = 3}
+```{r pal-cardiff, echo = FALSE, eval = FALSE, fig.align = 'center', fig.width = 5, fig.height = 3}
 # Cardiff University, UK: 
 # ToDo. 
 ```
