@@ -109,10 +109,66 @@ seecol("add", main = "Color palettes from various institutions")
 ## Defining colors
 
 The representation of color is a wide-ranging topic that has fascinated scholars and practicioners for centuries. 
-Essentially, there are many alternative ways to analyze or synthesize colors, and the most appropriate representational system depends on the specific context of a particular use case. 
-In R, the **grDevices** package (included in any default installation) provides colors and color-related functions. 
+Essentially, there are many alternative ways to analyze or synthesize colors, and the most appropriate representational system depends on the specific context of a particular use case (see [Wikipedia: Color model](https://en.wikipedia.org/wiki/Color_model) for an introduction). 
 
-- `r length(colors())` named colors
+In R, the **grDevices** package (included in any default installation) provides colors and color-related functions. 
+Although R supports multiple color models, the three most common ways of expressing colors in R are:
+
+1. by name: 
+R includes `r length(colors())` named colors, whose names are provided (as a character vector) by evaluating the `colors()` function of **grDevices**. 
+
+2. by RGB values: 
+Triple of numeric values on 3 dimensions (red, green, blue). 
+Range of values is either from\ 0 to\ 1 or from\ 0 to\ 255. 
+
+3. by HEX codes: 
+character strings "#000000" to "#FFFFFF" correspond to RGB values (in the 0 to 255 range).
+
+Note: 
+Both 2. and 3. also allow for a fourth dimension "alpha" that denotes color opacity / transparency. 
+
+
+Examples:
+
+```{r rgb-col-def, eval = FALSE}
+# A: Maximize contrast (on all 3 dimensions):
+c_000 <- rgb(red = 0, green = 0, blue = 0, alpha = NULL, names = "Color 000", maxColorValue = 1)
+c_111 <- rgb(red = 1, green = 1, blue = 1, alpha = NULL, names = "Color 111", maxColorValue = 1)
+
+# View colors:
+unikn::seecol(c(c_000, c_111), 
+              col_brd = "grey33", lwd_brd = .50,
+              main = "Extreme RGB values")
+
+# Note intermediate cases:
+seecol(usecol(c(c_0, c_1), n = 256), 
+              # col_brd = "grey33", lwd_brd = .50,
+              main = "All 256 shades of grey")
+
+
+# B: Extreme RGB values (on 1 dimension):
+c_100 <- rgb(red = 1, green = 0, blue = 0, alpha = NULL, names = "Color 100", maxColorValue = 1)
+c_010 <- rgb(red = 0, green = 1, blue = 0, alpha = NULL, names = "Color 010", maxColorValue = 1)
+c_001 <- rgb(red = 0, green = 0, blue = 1, alpha = NULL, names = "Color 001", maxColorValue = 1)
+
+# View extremes: 
+seecol(c(c_100, c_010, c_001), 
+       # col_brd = "grey33", lwd_brd = .50,
+       main = "Extremes on 1 dimension")
+
+# A and B:
+seecol(c(c_000, c_100, c_010, c_001, c_111), 
+       col_brd = "grey33", lwd_brd = .50,
+       main = "5 corners of the RGB color cube")
+```
+
+We see:
+
+- Standard range from 0 to 255 (8-bit)
+- Same values on all dimensions: 256 shades of grey
+- An additive model: Complete absence of colors is "black", maximum presence of all colors is "white".
+- 3 complements of corners are CMY (subtractive color model)
+
 
 +++ here now +++
 
