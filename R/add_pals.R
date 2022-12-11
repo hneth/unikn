@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 10
+## spds | uni.kn |  2022 12 11
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -1557,7 +1557,26 @@ lmu_pal_3 <- newpal(col = c("#0F1987", "#009FE3", "#8C4091", "#D71919", "#F18700
 # Max Planck Society / Max-Planck-Gesellschaft (MPG): ------
 
 # Source: https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html
-# Last check: 2022-10-20
+# Last check: 2022-12-11
+
+# MPG green:
+# Pantone 328
+# cmyk 100 - 0 - 57 - 30
+# rgb 17 - 102 - 86
+
+# MPG grey:
+# Pantone 427
+# cmyk 0 - 0 - 6 - 15
+# rgb 221 - 222 - 214
+
+mpg_green <- rgb( 17, 102,  86, maxColorValue = 255)
+mpg_grey  <- rgb(221, 222, 214, maxColorValue = 255)
+
+# 100% and 50% variants:
+mpg_green_2 <- usecol(c(mpg_green, "white"), n = 3)[1:2] 
+mpg_grey_2  <- usecol(c(mpg_grey,  "white"), n = 3)[1:2]
+
+# seecol(c(mpg_green_2, "white", rev(mpg_grey_2)))
 
 # - mpg_pal: ---- 
 
@@ -1566,13 +1585,21 @@ lmu_pal_3 <- newpal(col = c("#0F1987", "#009FE3", "#8C4091", "#D71919", "#F18700
 #' \code{mpg_pal} provides the default color palette 
 #' of the \href{https://www.mpg.de/en}{Max Planck Society}, Germany. 
 #' 
-#' The color \code{"white"} was added to enable symmetrical color gradients.
+#' The two primary colors are at the extreme positions of \code{mpg_pal}: 
+#' \enumerate{
+#' \item MPG green (at \code{mpg_pal[1]}): Defined as \code{Pantone 328}, \code{CMYK 100/0/57/30}, or \code{RGB 17/102/86}.
+#' \item MPG grey: (at \code{mpg_pal[5]}): Defined as \code{Pantone 427}, \code{CMYK 0/0/6/15}, or \code{RGB 221/222/214}.
+#' }
+#' 
+#' At \code{mpg_pal[3]}, the color \code{"white"} was added to enable symmetrical color gradients. 
+#' See examples and the \code{\link{ac}} and \code{\link{usecol}} functions 
+#' for creating color gradients. 
 #' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' \strong{unikn}, 2022-10-20.
+#' \strong{unikn}, 2022-12-11.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -1580,13 +1607,16 @@ lmu_pal_3 <- newpal(col = c("#0F1987", "#009FE3", "#8C4091", "#D71919", "#F18700
 #' 
 #' @examples
 #' mpg_pal
-#' seecol(mpg_pal, n = 5, main = "5 shades of MPG")
-#' demopal(mpg_pal, type = 1, main = "Using MPG colors")
-#'
+#' seecol(mpg_pal, main = "Colors of the Max Planck Society")
+#' demopal(mpg_pal, type = 1, main = "Using the MPG colors")
+#' 
+#' # Extended version:
+#' mpg_pal_11 <- usecol(c(mpg_pal, "black"), n = 11)
+#' demopal(mpg_pal_11, type = 4, seed = 1, main = "An extended MPG palette")
+#' 
 #' @family contributed color palettes
 #'
 #' @seealso 
-#' \code{\link{uni_konstanz_pref}} for preferred colors of the University of Konstanz;  
 #' \code{\link{seecol}} for viewing and comparing color palettes; 
 #' \code{\link{usecol}} for using color palettes; 
 #' \code{\link{simcol}} for finding similar colors; 
@@ -1595,14 +1625,9 @@ lmu_pal_3 <- newpal(col = c("#0F1987", "#009FE3", "#8C4091", "#D71919", "#F18700
 #' 
 #' @export
 
-mpg_pal <- newpal(col = c("#007367", "white", "#D0D3D4"), 
-                  names = c("MPG green", "white", "MPG grey"),
+mpg_pal <- newpal(col = c(mpg_green_2, "white", rev(mpg_grey_2)), 
+                  names = c("MPG green", "MPG green 50%", "white", "MPG grey 50%", "MPG grey"),
                   as_df = FALSE)
-
-
-
-
-
 
 # Uni Bonn: ------
 
