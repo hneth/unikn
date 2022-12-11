@@ -1629,6 +1629,7 @@ mpg_pal <- newpal(col = c(mpg_green_2, "white", rev(mpg_grey_2)),
                   names = c("MPG green", "MPG green 50%", "white", "MPG grey 50%", "MPG grey"),
                   as_df = FALSE)
 
+
 # Uni Bonn: ------
 
 # Source: <https://www.uni-bonn.de/de/universitaet/presse-kommunikation/corporate-design>
