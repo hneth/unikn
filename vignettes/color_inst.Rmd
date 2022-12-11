@@ -107,13 +107,25 @@ seecol("add", main = "Color palettes from various institutions")
 > We're looking forward to your inputs and contributions!  
 
 
-## Defining colors
+## Creating new color palettes
 
-The representation of color is a wide-ranging topic that has fascinated scholars and practicioners for centuries. 
-Essentially, there are many alternative ways to analyze or synthesize colors, and the most appropriate representational system depends on the specific context of a particular use case (see [Wikipedia: Color model](https://en.wikipedia.org/wiki/Color_model) for an introduction). 
+A color palette is an ordered collection of color objects. 
+Thus, when aiming to create a new color palette, we need to 
+
+1. define its elementary color objects, and then 
+
+2. combine them into an R data structure (usually a data frame or named vector). 
+
+In the following, we illustrate both steps in an example. 
+
+
+### 1. Defining colors
+
+The representation of color is a wide-ranging topic that has fascinated both scholars and practicioners for centuries. 
+Essentially, there are many alternative ways to analyze or synthesize colors, and the most appropriate representational way depends on the specific context of a particular use case (see [Wikipedia: Color model](https://en.wikipedia.org/wiki/Color_model) for an introduction). 
 
 In R, the **grDevices** package (included in any default installation) provides colors and color-related functions. 
-Although R supports multiple color models, the three most common ways of expressing colors in R are:
+Although R supports many color models (including HCL, HSV, Lab, Luv, and RGB variants), the three most common ways of expressing colors in\ R are: 
 
 1. by name: 
 R includes `r length(colors())` named colors, whose names are provided (as a character vector) by evaluating the `colors()` function of **grDevices**. 
@@ -122,14 +134,39 @@ R includes `r length(colors())` named colors, whose names are provided (as a cha
 Triple of numeric values on 3 dimensions (red, green, blue). 
 Range of values is either from\ 0 to\ 1 or from\ 0 to\ 255. 
 
-3. by HEX codes: 
-character strings "#000000" to "#FFFFFF" correspond to RGB values (in the 0 to 255 range).
+3. by HEX values: 
+Hexadecimal character strings (ranging from\ "#000000" to\ "#FFFFFF") correspond to decimal RGB values (in the 0 to 255 range).
 
-Note: 
-Both 2. and 3. also allow for a fourth dimension "alpha" that denotes color opacity / transparency. 
+<!-- Note:  -->
+
+When viewing an existing color palette with the `seecol()` function of **unikn**, the name, HEX and RGB values of the individual colors are being shown:^[Both RGB and HEX values also allow for a fourth dimension (usually named `alpha`) that denotes color transparency (or opacity). 
+For instance, the color palette `mpg_pal` provides the colors of the [Max Planck Society](https://www.mpg.de/en) as: 
+
+```{r def-col-mpg-example, fig.width = 5, fig.asp = .80, fig.align = 'center'}
+seecol(pal = mpg_pal, col_brd = "black", lwd_brd = .5)
+```
+
+As the middle color of `mpg_pal` is one of the `r length(colors())` named colors of `colors()`, R will recognize it as a color when we type its name (as a character object `"white"`) in a context that expects color inputs. 
+However, the two other colors of `mpg_pal` have specifically been defined by the [Max Planck Society](https://www.mpg.de/en) and thus are _not_ pre-defined colors of R (i.e., not contained in `colors()`). 
+To use such colors in R, we first need to define them as color objects. 
+Most institutions will provide definitions of their corporate colors or instructions how they can be defined in some standard color system. 
+Unfortunately, some definitions (such as those using the subtractive CMYK model) are mostly geared towards printing (as opposed to computer screens) and other standards (such as numeric PANTONE&trade; PMS codes) are proprietary. 
+But as most institutions have an interest in representing their colors in a variety of ways, they typically include translations or approximations for alternative color models in their definitions. 
+
++++ here now +++ 
 
 
-Examples:
+
+
+```{r eval = FALSE}
+# Note: Names of use-defined colors are not found in environment, but: 
+all_colors()[names(all_colors()) == "MPG green"]
+```
+
+
+### Examples
+
+Representing colors (RGB and HEX values):
 
 ```{r rgb-col-def, eval = FALSE}
 # A: Maximize contrast (on all 3 dimensions):
@@ -171,7 +208,38 @@ We see:
 - 3 complements of corners are CMY (subtractive color model)
 
 
-+++ here now +++
+Explaining HEX values:
+
+The decimal notation system uses different symbols for 10 distinct numeric values from\ $0$ to\ $9$ and a place-value notation to express numeric values beyond\ $9$ as polynomials. For instance, the three digit notation\ $123$ is actually an abbreviation for the numeric value $1 \cdot 10^2 + 2 \cdot 10^1 + 3 \cdot 10^0$. 
+
+A hexadecimal notation system extends this convention by using different symbols for 16 distinct numeric values from\ $0$ to\ $15$. 
+The decimal values\ $10$ to\ $15$ are represented by the letters\ $A$ to\ $F$.
+
+<!-- Table: -->
+
+symbol:  | 1 | 2 | 3 | 4 | 5 |  
+decimal: | 0 | 1 | 2 | 3 | 4 | 
+HEX:     | 0 | 1 | 2 | 3 | 4 | 
+
+
+
+```{r}
+library(ds4psy)
+
+# Decimal to hexadecimal (base 16):
+dec2base( 9, base = 16)
+dec2base(10, base = 16)
+dec2base(15, base = 16)
+dec2base(16, base = 16)
+dec2base(20, base = 16)
+
+# Base 16 to decimal:
+base2dec("10", base = 16)  # 16 x  1
+base2dec("F0", base = 16)  # 16 * 15
+base2dec("F9", base = 16)  # 16 * 15 +  9
+base2dec("FF", base = 16)  # 16 * 15 + 15
+```
+
 
 ```{r color-def, echo = FALSE, fig.width = 5, fig.asp = .80, fig.align = 'center'}
 # Range of possible colors:
@@ -381,7 +449,7 @@ mpg_pal <- newpal(col = c(mpg_green, "white", mpg_grey),
 
 As before, can now use the `seecol()` and `usecol()` functions to view, modify, and use the new `mpg_pal` color palette: 
 
-```{r mpg-seecol, fig.width = 5, fig.asp = .80, fig.align = 'center', collapse = TRUE}
+```{r mpg-seecol, fig.width = 5, fig.asp = .80, fig.align = 'center'}
 seecol(mpg_pal,
        col_brd = "black", lwd_brd = 1, 
        main = "Colors of the Max Planck Society")
