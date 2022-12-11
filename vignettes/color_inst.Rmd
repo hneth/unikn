@@ -114,10 +114,10 @@ Thus, when creating a new color palette, we need to
 
 1. define its elementary colors as R objects, and then 
 
-2. combine them into an R data structure (usually a data frame or named vector). 
+2. combine them into a color palette (usually an R data frame or named vector). 
 
 In the following, we illustrate both steps. 
-As an example, we 
+As an example, we will re-create the color palette of the German [Max Planck Society](https://www.mpg.de/en) (that **unikn** exports as `mpg_pal`) from the color definitions in its Corporate Design manual (available [here](https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html)). 
 
 
 ### 1. Defining colors
@@ -143,18 +143,106 @@ Hexadecimal character strings (ranging from\ "#000000" to\ "#FFFFFF") correspond
 When viewing an existing color palette with the `seecol()` function of **unikn**, the name, HEX and RGB values of the individual colors are being shown:^[Both RGB and HEX values also allow for a fourth dimension (usually named `alpha`) that denotes color transparency (or opacity). 
 For instance, the color palette `mpg_pal` provides the colors of the [Max Planck Society](https://www.mpg.de/en) as: 
 
-```{r def-col-mpg-example, fig.width = 5, fig.asp = .95, fig.align = 'center'}
+```{r def-col-mpg-example, fig.width = 5, fig.asp = 1, fig.align = 'center'}
 seecol(pal = mpg_pal, col_brd = "black", lwd_brd = .5)
 ```
 
 As the middle color of `mpg_pal` is one of the `r length(colors())` named colors of `colors()`, R will recognize it as a color when we type its name (as a character object `"white"`) in a context that expects color inputs. 
 However, the two other colors of `mpg_pal` have specifically been defined by the [Max Planck Society](https://www.mpg.de/en) and thus are _not_ pre-defined colors of R (i.e., not contained in `colors()`). 
 To use such colors in R, we first need to define them as color objects. 
+
+So how can we define new colors in R? 
 Most institutions will provide definitions of their corporate colors or instructions how they can be defined in some standard color system. 
-Unfortunately, some definitions (such as those using the subtractive CMYK model) are mostly aimed at printing (as opposed to computer screens) and other standards (such as numeric PANTONE&trade; PMS codes) are proprietary. 
-But as most institutions have an interest in representing their colors in a variety of ways, they typically include translations or approximations for alternative color models in their definitions. 
+Unfortunately, some definitions (such as those using the subtractive CMYK model) are aimed at printing (as opposed to computer screens) and other standards (such as numeric PANTONE&trade; PMS codes) are proprietary. 
+But as most institutions have an interest in widely disseminating their colors, they typically include translations or approximations for alternative color models in their definitions. 
+
+<a href="https://www.mpg.de/en">
+<img src = "../inst/pix/logo_MPG.png" align = "right" alt = "MPG" width = "150px" style = "border:10;"/>
+</a>
+
+The [Max Planck Society](https://www.mpg.de/en) defines two main colors in its CD\ manual (available [here](https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html)): 
+
+- A dark shade of green is defined as Pantone\ 328, and approximated by CMYK\ 100/0/57/30 or RGB\ 17/102/86. 
+
+- A light shade of grey is Pantone\ 427, and approximated by CMYK\ 0/0/6/15 or RGB\ 221/222/214. 
+
+We will first use the RGB values to define both colors (as these are provided in the definition), but then show that we could have used their HEX values (if they had been provided) to define the same color objects.
+
+#### Defining colors from their RGB values {-}
+
+As our two colors of interest are given in RGB values, we can use the `rgb()` function of the **grDevices** package to define corresponding objects:
+
+```{r def-col-rgb}
+mpg_green <- grDevices::rgb( 17, 102,  86, maxColorValue = 255)
+mpg_grey  <- grDevices::rgb(221, 222, 214, maxColorValue = 255)
+```
+
+The first three arguments specify values on the `red`, `green`, and `blue` dimension, respectively. 
+Importantly, the values must be in the range\ $[0, max]$, where $max$ is provided by `maxColorValue = 255`. 
+Whereas the [sRGB standard](https://en.wikipedia.org/wiki/SRGB) expresses all values in a normalized range of\ $[0, 1]$, most color definitions use the traditional 8-bit representation that distinguish between $2^8 = 256$\ levels in the range of\ $[0, 255]$. 
+The `rgb()` function additionally allows for adding\ `names` and a transparency level\ `alpha`, but as we can modify these aspects later, we do not need to use them at this point. 
+
+What do we obtain when we evaluate our new color objects? 
+Well, let's see:
+
+```{r def-col-rgb-eval}
+mpg_green
+mpg_grey
+```
+
+When evaluating an object created by `rgb()`, R returns a character string that expresses the same three values (for the `red`, `green`, and `blue` dimension, respectively) in hexadecimal (HEX) notation, where the ten digits\ 0 to\ 9 are extended by six letters\ A to\ F to turn our typical decimal notation into a place-value notation with a base of\ 16. 
+Thus, the HEX value of `"#116656"` is merely a more compact way of expressing
+
+- `red`: $1 \cdot 16 + 1 = 17$
+- `green`: $6 \cdot 16 + 6 = 102$
+- `blue`: $5 \cdot 16 + 6 = 86$
+
+#### Defining colors from their HEX values {-}
+
+The equivalence of the RGB and HEX notations can be illustrated by defining the same colors a second time, but this time specifying their HEX values (returned above):
+
+```{r def-col-hex}
+mpg_green_2 <- "#116656"
+mpg_grey_2  <- "#DDDED6"
+```
+
+If both definitions really yield identical R objects, the following checks must evaluate to `TRUE`:
+
+```{r def-col-rgb-hex-eual}
+all.equal(mpg_green, mpg_green_2)
+all.equal(mpg_grey,  mpg_grey_2)
+```
+
+Thus, we can define colors from both their RGB or HEX values ---\ and the two notations are really just two alternative ways of representing the same colors. 
+
+
+### 2. Combining colors into a palette 
+
+Having defined two new colors, we can easily combine them into a new color palette. 
+A color palette must be stored in some sequential data structure. 
+The two simplest data structures in\ R that are suited for this purpose are (named) vectors or data frames. 
+Thus, the following two expressions both define valid color palettes: 
+
+```{r}
+c(mpg_green, mpg_grey)
+data.frame(mpg_green, mpg_grey)
+```
 
 +++ here now +++ 
+
+
+
+
+
+
+Getting 50% shades:
+
+```{r def-col-rgb-50pc}
+mpg_green_50 <- grDevices::rgb( 17, 102,  86, alpha = 256/2, maxColorValue = 255)
+mpg_grey_50  <- grDevices::rgb(221, 222, 214, alpha = 256/2, maxColorValue = 255)
+```
+
+ 
 
 
 
