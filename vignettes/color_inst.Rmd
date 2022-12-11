@@ -110,13 +110,14 @@ seecol("add", main = "Color palettes from various institutions")
 ## Creating new color palettes
 
 A color palette is an ordered collection of color objects. 
-Thus, when aiming to create a new color palette, we need to 
+Thus, when creating a new color palette, we need to 
 
-1. define its elementary color objects, and then 
+1. define its elementary colors as R objects, and then 
 
 2. combine them into an R data structure (usually a data frame or named vector). 
 
-In the following, we illustrate both steps in an example. 
+In the following, we illustrate both steps. 
+As an example, we 
 
 
 ### 1. Defining colors
@@ -150,7 +151,7 @@ As the middle color of `mpg_pal` is one of the `r length(colors())` named colors
 However, the two other colors of `mpg_pal` have specifically been defined by the [Max Planck Society](https://www.mpg.de/en) and thus are _not_ pre-defined colors of R (i.e., not contained in `colors()`). 
 To use such colors in R, we first need to define them as color objects. 
 Most institutions will provide definitions of their corporate colors or instructions how they can be defined in some standard color system. 
-Unfortunately, some definitions (such as those using the subtractive CMYK model) are mostly geared towards printing (as opposed to computer screens) and other standards (such as numeric PANTONE&trade; PMS codes) are proprietary. 
+Unfortunately, some definitions (such as those using the subtractive CMYK model) are mostly aimed at printing (as opposed to computer screens) and other standards (such as numeric PANTONE&trade; PMS codes) are proprietary. 
 But as most institutions have an interest in representing their colors in a variety of ways, they typically include translations or approximations for alternative color models in their definitions. 
 
 +++ here now +++ 
@@ -223,7 +224,7 @@ HEX:     | 0 | 1 | 2 | 3 | 4 |
 
 
 
-```{r}
+```{r dec-hex-base-conversions, eval = FALSE}
 library(ds4psy)
 
 # Decimal to hexadecimal (base 16):
