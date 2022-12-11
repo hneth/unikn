@@ -29,14 +29,17 @@ Changes since last release:
 
 ## Minor changes 
 
-- Add `col_asif_alpha()` and `v_col_asif_alpha()` utility functions. 
+- Updated color palettes:
+
+    - [Max Planck Society](https://www.mpg.de/en): `mpg_pal` (extended to 5 colors, based on RGB values)
 
 <!-- Blank line.  --> 
 
 
 ## Details 
 
-- Fix minor bugs.
+- Add utility functions `col_asif_alpha()` and `v_col_asif_alpha()`. 
+- Fix some bugs.
 
 
 
@@ -277,6 +280,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-12-10.] 
+[File `NEWS.md` updated on 2022-12-11.] 
 
 <!-- eof. -->
