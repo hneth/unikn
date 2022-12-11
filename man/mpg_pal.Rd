@@ -5,7 +5,7 @@
 \alias{mpg_pal}
 \title{Default colors of the Max-Planck-Gesellschaft}
 \format{
-An object of class \code{character} of length 3.
+An object of class \code{character} of length 5.
 }
 \source{
 Color definitions are based on 
@@ -22,16 +22,27 @@ A named vector of colors (HEX/HTML codes of type character).
 of the \href{https://www.mpg.de/en}{Max Planck Society}, Germany.
 }
 \details{
-The color \code{"white"} was added to enable symmetrical color gradients.
+The two primary colors are at the extreme positions of \code{mpg_pal}: 
+\enumerate{
+\item MPG green (at \code{mpg_pal[1]}): Defined as \code{Pantone 328}, \code{CMYK 100/0/57/30}, or \code{RGB 17/102/86}.
+\item MPG grey: (at \code{mpg_pal[5]}): Defined as \code{Pantone 427}, \code{CMYK 0/0/6/15}, or \code{RGB 221/222/214}.
+}
+
+At \code{mpg_pal[3]}, the color \code{"white"} was added to enable symmetrical color gradients. 
+See examples and the \code{\link{ac}} and \code{\link{usecol}} functions 
+for creating color gradients.
 }
 \examples{
 mpg_pal
-seecol(mpg_pal, n = 5, main = "5 shades of MPG")
-demopal(mpg_pal, type = 1, main = "Using MPG colors")
+seecol(mpg_pal, main = "Colors of the Max Planck Society")
+demopal(mpg_pal, type = 1, main = "Using the MPG colors")
+
+# Extended version:
+mpg_pal_11 <- usecol(c(mpg_pal, "black"), n = 11)
+demopal(mpg_pal_11, type = 4, seed = 1, main = "An extended MPG palette")
 
 }
 \seealso{
-\code{\link{uni_konstanz_pref}} for preferred colors of the University of Konstanz;  
 \code{\link{seecol}} for viewing and comparing color palettes; 
 \code{\link{usecol}} for using color palettes; 
 \code{\link{simcol}} for finding similar colors; 
@@ -80,7 +91,7 @@ Other contributed color palettes:
 \code{\link{uni_regensburg_3}}
 }
 \author{
-\strong{unikn}, 2022-10-20.
+\strong{unikn}, 2022-12-11.
 }
 \concept{contributed color palettes}
 \keyword{datasets}
