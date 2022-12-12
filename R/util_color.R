@@ -1,5 +1,5 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2022 11 16
+## spds | uni.kn | 2022 12 12
 ## ---------------------------
 
 # Color-related utility functions: 
@@ -137,6 +137,8 @@ is_col <- function(color) {
 # Which non-transparent color values match the hue of a transparent color?
 # Task: Get the non-transparent color corresponding to the hue of a transparent color (with 0 < alpha < 1)
 # Source: https://stackoverflow.com/questions/12228548/finding-equivalent-color-with-opacity
+
+# Solution 1: Convert into RGB and correct manually: 
 
 col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
   
@@ -283,7 +285,39 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
 # col_2 <- col_asif_alpha(col_1, alpha = NA)
 # seecol(c(col_1, col_2))
 
+
+# col_asif_alpha_mix: Color corresponding to the hue of a transparent color ------ 
+
+# Solution 2: Mix a gradient with col_bg = "white" and then select by alpha value: 
+
+col_asif_alpha_mix <- function(col, alpha = 1, col_bg = "white"){
+  
+  n_bins <- 101  # granularity of gradient
+  alpha_bin <- n_bins - round(alpha * (n_bins - 1), 0)
+  # print(alpha_bin)  # 4debugging 
+  
+  # Create gradient and select bin:
+  usecol(c(col, col_bg), n = n_bins)[alpha_bin]
+  
+} # col_asif_alpha_mix(). 
+
+# # Check:
+# # 1. baseline:
+# col_asif_alpha_mix("black")
+# col_asif_alpha_mix("white")
+# seecol(c("steelblue", col_asif_alpha_mix("steelblue")))
+# 
+# # 2. non-transparent color input and explicit alpha value:
+# col <- "blue4"
+# af <- 0.50
+# seecol(c(adjustcolor(col, alpha.f = af), col_asif_alpha_mix(col, alpha = af)))
+# # Problem: Simulated alpha color appears darker than actual transparent color.
+# 
 # # +++ here now +++
+# 
+# # + More:
+# col_asif_alpha_mix("black", alpha = 0, col_bg = "#AABBCCFF")  # should yield col_bg (non-transparent)
+
 
 
 # v_col_asif_alpha: Vectorized version of col_asif_alpha(): ----
