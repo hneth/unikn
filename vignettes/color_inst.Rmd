@@ -166,7 +166,8 @@ The [Max Planck Society](https://www.mpg.de/en) defines two main colors in its C
 
 - A light shade of grey is Pantone\ 427, and approximated by CMYK\ 0/0/6/15 or RGB\ 221/222/214. 
 
-We will first use the RGB values to define both colors (as these are provided in the definition), but then show that we could have used their HEX values (if they had been provided) to define the same color objects.
+In the following, we will first use the RGB values to define both colors (as these are provided in the definition).
+However, we then show that we alternatively could have used the colors' HEX\ values (had they been provided) to define the same color objects.
 
 #### Defining colors from their RGB values {-}
 
@@ -179,23 +180,26 @@ mpg_grey  <- grDevices::rgb(221, 222, 214, maxColorValue = 255)
 
 The first three arguments specify values on the `red`, `green`, and `blue` dimension, respectively. 
 Importantly, the values must be in the range\ $[0, max]$, where $max$ is provided by `maxColorValue = 255`. 
-Whereas the [sRGB standard](https://en.wikipedia.org/wiki/SRGB) expresses all values in a normalized range of\ $[0, 1]$, most color definitions use the traditional 8-bit representation that distinguish between $2^8 = 256$\ levels in the range of\ $[0, 255]$. 
+Whereas the [sRGB standard](https://en.wikipedia.org/wiki/SRGB) expresses all values in a normalized range of\ $[0, 1]$, most color definitions use the traditional 8-bit representation that distinguish between $2^8 = 256$\ levels in the range\ $[0, 255]$. 
 The `rgb()` function additionally allows for adding\ `names` and a transparency level\ `alpha`, but as we can modify these aspects later, we do not need to use them at this point. 
 
 What do we obtain when we evaluate our new color objects? 
-Well, let's see:
+Let's see: 
 
 ```{r def-col-rgb-eval}
 mpg_green
 mpg_grey
 ```
 
-When evaluating an object created by `rgb()`, R returns a character string that expresses the same three values (for the `red`, `green`, and `blue` dimension, respectively) in hexadecimal (HEX) notation, where the ten digits\ 0 to\ 9 are extended by six letters\ A to\ F to turn our typical decimal notation into a place-value notation with a base of\ 16. 
-Thus, the HEX value of `"#116656"` is merely a more compact way of expressing
+When evaluating an object created by `rgb()`, R returns a character sequence of the form\ `"#rrggbb"`. 
+In this string, the sequence\ `rrggbb` expresses the three RGB values (for the `red`, `green`, and `blue` dimension, respectively) in hexadecimal (HEX) notation (in the range $[0, 255]$). 
+In HEX notation, the ten numeral symbols (i.e., the digits from\ 0 to\ 9) or the decimal system are extended by the first six letters of the alphabet (i.e., A to\ F) to turn our usual base-10 notation into an analogous place-value notation with a base of\ 16. 
+Thus, the HEX value of `"#116656"` is merely a more compact way of expressing 
 
 - `red`: $1 \cdot 16 + 1 = 17$
 - `green`: $6 \cdot 16 + 6 = 102$
 - `blue`: $5 \cdot 16 + 6 = 86$
+
 
 #### Defining colors from their HEX values {-}
 
@@ -223,29 +227,42 @@ A color palette must be stored in some sequential data structure.
 The two simplest data structures in\ R that are suited for this purpose are (named) vectors or data frames. 
 Thus, the following two expressions both define valid color palettes: 
 
-```{r}
+```{r cols-to-pals}
 c(mpg_green, mpg_grey)
 data.frame(mpg_green, mpg_grey)
 ```
 
 +++ here now +++ 
 
+**ToDo**:
+
+- Using `newpal()` simplifies creating named palettes (as data frames or named vectors)
+- Mixing colors and creating color gradients with `usecol()`. 
 
 
-
-
+#### Notes {-}
 
 Getting 50% shades:
 
 ```{r def-col-rgb-50pc}
-mpg_green_50 <- grDevices::rgb( 17, 102,  86, alpha = 256/2, maxColorValue = 255)
-mpg_grey_50  <- grDevices::rgb(221, 222, 214, alpha = 256/2, maxColorValue = 255)
+mpg_green_50 <- grDevices::rgb( 17, 102,  86, alpha = 256 * .50, names = "MPG green (alpha = 50%)", maxColorValue = 255)
 ```
 
- 
+Approximation: Create gradients of non-transparent colors by mixing with `"white"`
+
+```{r def-mix-with-white}
+# Create gradient of 3 colors (from mpg_green to "white") and select middle one:
+mpg_green_50_mix <- usecol(c(mpg_green, "white"), n = 3)[2]
+```
+
+Comparing both results reveals differences:
+
+```{r def-compare, fig.width = 5, fig.asp = .90, fig.align = 'center'}
+seecol(c(mpg_green_50, mpg_green_50_mix))
+```
 
 
-
+Note on finding custom color names:
 
 ```{r eval = FALSE}
 # Note: Names of use-defined colors are not found in environment, but: 
