@@ -1,7 +1,7 @@
 ---
 title: "Institutional colors"
 author: "SPDS, uni.kn"
-date: "2022 12 05"
+date: "2022 12 18"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -128,19 +128,26 @@ Essentially, there are many alternative ways to analyze or synthesize colors, an
 In R, the **grDevices** package (included in any default installation) provides colors and color-related functions. 
 Although R supports many color models (including HCL, HSV, Lab, Luv, and RGB variants), the three most common ways of expressing colors in\ R are: 
 
-1. by name: 
+1. by R color name: 
 R includes `r length(colors())` named colors, whose names are provided (as a character vector) by evaluating the `colors()` function of **grDevices**. 
 
-2. by RGB values: 
-Triple of numeric values on 3 dimensions (red, green, blue). 
-Range of values is either from\ 0 to\ 1 or from\ 0 to\ 255. 
+2. by RGB\ values: 
+Every color (or hue) is expressed by a triple of numeric values on three dimensions that denote the additive primary colors (red, green, blue). 
+The range of values is either expressed on a scale from\ 0 to\ 1, or ---\ more typically\ --- on a scale from\ 0 to\ 255 (i.e., on an 8\ bit scale allowing for $2^8 = 256$ different values). 
 
-3. by HEX values: 
-Hexadecimal character strings (ranging from\ "#000000" to\ "#FFFFFF") correspond to decimal RGB values (in the 0 to 255 range).
+3. by HEX\ values: 
+Every color (or hue) is expressed by a character string (with the prefix\ `#`), followed by a triple of hexadecimal values (each ranging from\ `00` to\ `FF`) that correspond to the triple of decimal RGB values (in the 0 to 255 range).
 
-<!-- Note:  -->
+<!-- Note: 3 ways to express the same color -->
 
-When viewing an existing color palette with the `seecol()` function of **unikn**, the name, HEX and RGB values of the individual colors are being shown:^[Both RGB and HEX values also allow for a fourth dimension (usually named `alpha`) that denotes color transparency (or opacity). 
+Importantly, the _same_ color (or hue) can be denoted by its name, its RGB\ values, and its HEX\ values. 
+Thus, the three different systems (i.e., color name, RGB values, or HEX values) can be _alternative_ representations of the same object. However, just as the properties of an alphabet or numeral notation system constraints the words or numbers that can be expressed by it, the universe of possible colors is limited by their representation. 
+For instance, whereas the RGB and HEX systems usually distinguish between more than 16\ million (i.e., $(2^8)^3 = 256^3 = 16.777.216$) possible colors, only a limited number of them are named. Similarly, when multiple names refer to the same triple of RGB or HEX values, they denote the same color.^[Strictly speaking, different shades of a given color can be further distinguished by different _opacity_ or _transparency_ levels (typically denoted by an\ `alpha` value). However, the visual appearance of a transparent color can be mimicked by mixing the color with the background color (usually "white"). Hence, transparent shades of a color are usually not counted as different colors.]
+
+<!-- Viewing colors (with seecol()):  -->
+
+An example helps clarifying these abstract terms. 
+When viewing an existing color or color palette with the `seecol()` function of **unikn**, the name, HEX and RGB values of the individual colors are being shown. 
 For instance, the color palette `mpg_pal` provides the colors of the [Max Planck Society](https://www.mpg.de/en) as: 
 
 ```{r def-col-mpg-example, fig.width = 5, fig.asp = 1, fig.align = 'center'}
@@ -149,7 +156,9 @@ seecol(pal = mpg_pal, col_brd = "black", lwd_brd = .5)
 
 As the middle color of `mpg_pal` is one of the `r length(colors())` named colors of `colors()`, R will recognize it as a color when we type its name (as a character object `"white"`) in a context that expects color inputs. 
 However, the two other colors of `mpg_pal` have specifically been defined by the [Max Planck Society](https://www.mpg.de/en) and thus are _not_ pre-defined colors of R (i.e., not contained in `colors()`). 
-To use such colors in R, we first need to define them as color objects. 
+To use such colors in\ R, we first need to define them as color objects. 
+
+<!-- Defining colors in R: -->
 
 So how can we define new colors in R? 
 Most institutions will provide definitions of their corporate colors or instructions how they can be defined in some standard color system. 
@@ -272,10 +281,13 @@ all_colors()[names(all_colors()) == "MPG green"]
 
 ### Examples
 
-Representing colors (RGB and HEX values):
+Representing basic colors (by RGB and HEX values):
 
-```{r rgb-col-def, eval = FALSE}
-# A: Maximize contrast (on all 3 dimensions):
+A. Maximize contrast: black vs. white: 
+
+```{r rgb-col-def-A, eval = FALSE}
+# A: Black vs. white: Maximize contrast (on all 3 dimensions): ------ 
+
 c_000 <- rgb(red = 0, green = 0, blue = 0, alpha = NULL, names = "Color 000", maxColorValue = 1)
 c_111 <- rgb(red = 1, green = 1, blue = 1, alpha = NULL, names = "Color 111", maxColorValue = 1)
 
@@ -284,13 +296,17 @@ unikn::seecol(c(c_000, c_111),
               col_brd = "grey33", lwd_brd = .50,
               main = "Extreme RGB values")
 
-# Note intermediate cases:
-seecol(usecol(c(c_0, c_1), n = 256), 
-              # col_brd = "grey33", lwd_brd = .50,
-              main = "All 256 shades of grey")
+# Note intermediate cases: Shades of grey
+seecol(usecol(c(c_000, c_111), n = 5), 
+              col_brd = "grey33", lwd_brd = .50,
+              main = "Shades of grey")
+```
 
+B. Extreme RGB values (on 1 dimension): 
 
-# B: Extreme RGB values (on 1 dimension):
+```{r rgb-col-def-B, eval = FALSE}
+# B: Extreme RGB values (on 1 dimension): ---- 
+
 c_100 <- rgb(red = 1, green = 0, blue = 0, alpha = NULL, names = "Color 100", maxColorValue = 1)
 c_010 <- rgb(red = 0, green = 1, blue = 0, alpha = NULL, names = "Color 010", maxColorValue = 1)
 c_001 <- rgb(red = 0, green = 0, blue = 1, alpha = NULL, names = "Color 001", maxColorValue = 1)
@@ -299,7 +315,11 @@ c_001 <- rgb(red = 0, green = 0, blue = 1, alpha = NULL, names = "Color 001", ma
 seecol(c(c_100, c_010, c_001), 
        # col_brd = "grey33", lwd_brd = .50,
        main = "Extremes on 1 dimension")
+```
 
+Combining A. and B.:
+
+```{r rgb-col-def-C, eval = FALSE}
 # A and B:
 seecol(c(c_000, c_100, c_010, c_001, c_111), 
        col_brd = "grey33", lwd_brd = .50,
@@ -316,7 +336,7 @@ We see:
 
 #### Explaining HEX values {-}
 
-The decimal notation system uses different symbols (aka. digits or numerals) to represent 10 distinct numeric values from\ $0$ to\ $9$ and a place-value notation to express numeric values beyond\ $9$ as abbreviated polynomials. For instance, the three digit decimal notation\ $123$ is actually an abbreviation for the numeric value of $1 \cdot 10^2 + 2 \cdot 10^1 + 3 \cdot 10^0$. 
+The decimal notation system uses different symbols (aka. digits or numerals) to represent 10\ distinct numeric values from\ $0$ to\ $9$ and a place-value notation to express numeric values beyond\ $9$ as abbreviated polynomials. For instance, the three digit decimal notation\ $123$ is actually an abbreviation for the numeric value of $1 \cdot 10^2 + 2 \cdot 10^1 + 3 \cdot 10^0$. 
 
 A hexadecimal notation system (HEX) uses the same 10 initial symbols, but extends their range by using different symbols for 16 distinct numeric values from\ $0$ to\ $15$. The decimal values\ $10$ to\ $15$ are represented by the letters\ $A$ to\ $F$. 
 Numeric values of 16 and beyond are expressed by using the same polynomial convention. 
@@ -351,6 +371,7 @@ base2dec("FF", base = 16)  # 16 * 15 + 15
 base2dec("123", base = 16) # (1 * 16^2) + (2 * 16^1) + (3 * 16^0) 
 ```
 
+Subtle shades of "black" or "white" (in HEX and RGB values):
 
 ```{r color-def, echo = FALSE, fig.width = 5, fig.asp = .80, fig.align = 'center'}
 # Range of possible colors:
