@@ -1,7 +1,7 @@
 ---
 title: "Institutional colors"
 author: "SPDS, uni.kn"
-date: "2022 12 18"
+date: "2022 12 20"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -110,19 +110,25 @@ seecol("add", main = "Color palettes from various institutions")
 ## Creating new color palettes
 
 A color palette is an ordered collection of color objects. 
-Thus, when creating a new color palette, we need to 
+Creating new color palettes in R is simple and only requires two steps: 
 
-1. define its elementary colors as R objects, and then 
+1. Define the palette's elementary colors as R objects. 
 
-2. combine them into a color palette (usually an R data frame or named vector). 
+2. Combine colors into a color palette. 
 
 In the following, we illustrate both steps. 
+As we will see, Step\ 1 can either be omitted (when the to-be-combined colors exist as R objects) or can be included in Step\ 2.
+
 As an example, we will re-create the color palette of the German [Max Planck Society](https://www.mpg.de/en) (that **unikn** exports as `mpg_pal`) from the color definitions in its Corporate Design manual (available [here](https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html)). 
 
 
 ### 1. Defining colors
 
-The representation of color is a wide-ranging topic that has fascinated both scholars and practicioners for centuries. 
+Before we can a create new color palette in\ R, its elementary colors need to exist as R\ objects. 
+(If all colors to-be-combined into a new palette exist as R\ objects, we can skip this step and directly proceed to **2.\ Combining colors into a palette**.)
+Defining new colors in\ R requires a basic understanding of their underlying representation. 
+
+How colors are represented and perceived is a wide-ranging topic that has fascinated scholars and practitioners for centuries. 
 Essentially, there are many alternative ways to analyze or synthesize colors, and the most appropriate representational way depends on the specific context of a particular use case (see [Wikipedia: Color model](https://en.wikipedia.org/wiki/Color_model) for an introduction). 
 
 In R, the **grDevices** package (included in any default installation) provides colors and color-related functions. 
@@ -136,13 +142,15 @@ Every color (or hue) is expressed by a triple of numeric values on three dimensi
 The range of values is either expressed on a scale from\ 0 to\ 1, or ---\ more typically\ --- on a scale from\ 0 to\ 255 (i.e., on an 8\ bit scale allowing for $2^8 = 256$ different values). 
 
 3. by HEX\ values: 
-Every color (or hue) is expressed by a character string (with the prefix\ `#`), followed by a triple of hexadecimal values (each ranging from\ `00` to\ `FF`) that correspond to the triple of decimal RGB values (in the 0 to 255 range).
+Every color (or hue) is expressed by a character string (with the prefix\ `#`), followed by a triple of hexadecimal values (each ranging from\ `00` to\ `FF`) that correspond to the triple of decimal RGB\ values (in the range from\ 0 to\ 255).
 
 <!-- Note: 3 ways to express the same color -->
 
 Importantly, the _same_ color (or hue) can be denoted by its name, its RGB\ values, and its HEX\ values. 
 Thus, the three different systems (i.e., color name, RGB values, or HEX values) can be _alternative_ representations of the same object. However, just as the properties of an alphabet or numeral notation system constraints the words or numbers that can be expressed by it, the universe of possible colors is limited by their representation. 
 For instance, whereas the RGB and HEX systems usually distinguish between more than 16\ million (i.e., $(2^8)^3 = 256^3 = 16.777.216$) possible colors, only a limited number of them are named. Similarly, when multiple names refer to the same triple of RGB or HEX values, they denote the same color.^[Strictly speaking, different shades of a given color can be further distinguished by different _opacity_ or _transparency_ levels (typically denoted by an\ `alpha` value). However, the visual appearance of a transparent color can be mimicked by mixing the color with the background color (usually "white"). Hence, transparent shades of a color are usually not counted as different colors.]
+
+<!-- Example: Inspecting and re-defining MPG_pal -->
 
 <!-- Viewing colors (with seecol()):  -->
 
@@ -151,7 +159,7 @@ When viewing an existing color or color palette with the `seecol()` function of 
 For instance, the color palette `mpg_pal` provides the colors of the [Max Planck Society](https://www.mpg.de/en) as: 
 
 ```{r def-col-mpg-example, fig.width = 5, fig.asp = 1, fig.align = 'center'}
-seecol(pal = mpg_pal, col_brd = "black", lwd_brd = .5)
+seecol(pal = unikn::mpg_pal, col_brd = "black", lwd_brd = .5)
 ```
 
 As the middle color of `mpg_pal` is one of the `r length(colors())` named colors of `colors()`, R will recognize it as a color when we type its name (as a character object `"white"`) in a context that expects color inputs. 
@@ -202,12 +210,14 @@ mpg_grey
 
 When evaluating an object created by `rgb()`, R returns a character sequence of the form\ `"#rrggbb"`. 
 In this string, the sequence\ `rrggbb` expresses the three RGB values (for the `red`, `green`, and `blue` dimension, respectively) in hexadecimal (HEX) notation (in the range $[0, 255]$). 
-In HEX notation, the ten numeral symbols (i.e., the digits from\ 0 to\ 9) or the decimal system are extended by the first six letters of the alphabet (i.e., A to\ F) to turn our usual base-10 notation into an analogous place-value notation with a base of\ 16. 
-Thus, the HEX value of `"#116656"` is merely a more compact way of expressing 
+In HEX\ notation, the ten numeral symbols (i.e., the digits from\ 0 to\ 9) or the decimal system are extended by the first six letters of the alphabet (i.e., A to\ F) to turn our familiar base-10 notation into an analogous place-value notation with a base of\ 16. 
+Thus, the HEX\ values of `"#116656"` is merely a more compact way of expressing 
 
 - `red`: $1 \cdot 16 + 1 = 17$
 - `green`: $6 \cdot 16 + 6 = 102$
 - `blue`: $5 \cdot 16 + 6 = 86$
+
+Thus, the HEX values\ `"#116656"` provide an alternative way of expressing the RGB values\ 17/102/86 ---\ and both refer to the color "MPG green" (shown as `mpg_pal[1]` above). 
 
 
 #### Defining colors from their HEX values {-}
@@ -232,8 +242,8 @@ Thus, we can define colors from both their RGB or HEX values ---\ and the two no
 ### 2. Combining colors into a palette 
 
 Having defined two new colors, we can easily combine them into a new color palette. 
-A color palette must be stored in some sequential data structure. 
-The two simplest data structures in\ R that are suited for this purpose are (named) vectors or data frames. 
+A _color palette_ is simply a sequence of colors that are stored in some sequential data structure. 
+The two simplest data structures in\ R that are suited for this purpose are vectors or data frames. 
 Thus, the following two expressions both define valid color palettes: 
 
 ```{r cols-to-pals}
@@ -241,366 +251,67 @@ c(mpg_green, mpg_grey)
 data.frame(mpg_green, mpg_grey)
 ```
 
-+++ here now +++ 
+As it often is easier to remember and access colors by their names, it usually makes sense to name the elements of a color palette (e.g., by using the `name()` function). 
 
-**ToDo**:
+<!-- Using newpal(): -->
 
-- Using `newpal()` simplifies creating named palettes (as data frames or named vectors)
-- Mixing colors and creating color gradients with `usecol()`. 
+The `newpal()` function of **unikn** provides a convenient wrapper for defining color palettes. 
+Its main argument `col` uses a vector of color objects that make up the new palette, whereas `names` and `as_df` allow specifying color names and switching between returning the new palette as a vector or data base.    
+Importantly, the color objects of `col` can be provided as RGB\ values, as R\ color names, or as HEX\ values:
 
-
-#### Notes {-}
-
-Getting 50% shades:
-
-```{r def-col-rgb-50pc}
-mpg_green_50 <- grDevices::rgb( 17, 102,  86, alpha = 256 * .50, names = "MPG green (alpha = 50%)", maxColorValue = 255)
+```{r newpal-mpg-3, fig.width = 5, fig.asp = 1, fig.align = 'center'}
+mpg_pal_3 <- newpal(col = c(rgb( 17, 102,  86, maxColorValue = 255), "white", "#DDDED6"),
+                    names = c("MPG green", "white", "MPG grey"),
+                    as_df = FALSE)
 ```
 
-Approximation: Create gradients of non-transparent colors by mixing with `"white"`
+The new color palette `mpg_pal_3` contains the three basic colors of `mpg_pal` (shown above):
 
-```{r def-mix-with-white}
-# Create gradient of 3 colors (from mpg_green to "white") and select middle one:
-mpg_green_50_mix <- usecol(c(mpg_green, "white"), n = 3)[2]
+```{r seecol-mpg-3, fig.width = 5, fig.asp = 1, fig.align = 'center'}
+seecol(mpg_pal_3, 
+       main = "My new color palette", col_brd = "black", lwd_brd = .5)
 ```
 
-Comparing both results reveals differences:
+The 5-color palette provided as `mpg_pal` includes two intermediate colors (at positions `mpg_pal[2]` and `mpg_pal[4]`) that are extrapolated by mixing the two main MPG colors with "white" in a balanced (50:50) fashion. 
+The `usecol()` function of **unikn** automatically performs these extrapolations when extending a 3-element color palette (e.g., `mpg_pal_3`) to `n = 5` colors:
 
-```{r def-compare, fig.width = 5, fig.asp = .90, fig.align = 'center'}
-seecol(c(mpg_green_50, mpg_green_50_mix))
+```{r newpal-mpg-5}
+my_mpg_pal <- usecol(mpg_pal_3, n = 5)
 ```
 
+The resulting color palette `my_mpg_pal` recreates the colors of the **unikn** color palette `mpg_pal` (shown above):
 
-Note on finding custom color names:
-
-```{r eval = FALSE}
-# Note: Names of use-defined colors are not found in environment, but: 
-all_colors()[names(all_colors()) == "MPG green"]
+```{r seecol-mpg-5, fig.width = 5, fig.asp = 1, fig.align = 'center'}
+seecol(my_mpg_pal, main = "My new MPG color palette", 
+       col_brd = "black", lwd_brd = .5)
 ```
 
+Technically, the two color palettes differ in some names and the way in which its middle color ("white") was specified (by its R color name or HEX\ values). 
+However, when using `col2rgb()` for converting both palettes into their RGB\ values, we see that they contain the same colors:
 
-### Examples
-
-Representing basic colors (by RGB and HEX values):
-
-A. Maximize contrast: black vs. white: 
-
-```{r rgb-col-def-A, eval = FALSE}
-# A: Black vs. white: Maximize contrast (on all 3 dimensions): ------ 
-
-c_000 <- rgb(red = 0, green = 0, blue = 0, alpha = NULL, names = "Color 000", maxColorValue = 1)
-c_111 <- rgb(red = 1, green = 1, blue = 1, alpha = NULL, names = "Color 111", maxColorValue = 1)
-
-# View colors:
-unikn::seecol(c(c_000, c_111), 
-              col_brd = "grey33", lwd_brd = .50,
-              main = "Extreme RGB values")
-
-# Note intermediate cases: Shades of grey
-seecol(usecol(c(c_000, c_111), n = 5), 
-              col_brd = "grey33", lwd_brd = .50,
-              main = "Shades of grey")
+```{r verify-equality}
+all.equal(col2rgb(mpg_pal), col2rgb(my_mpg_pal), check.attributes = FALSE)
 ```
 
-B. Extreme RGB values (on 1 dimension): 
+This concludes our illustration of defining a new colors and color palettes. 
 
-```{r rgb-col-def-B, eval = FALSE}
-# B: Extreme RGB values (on 1 dimension): ---- 
 
-c_100 <- rgb(red = 1, green = 0, blue = 0, alpha = NULL, names = "Color 100", maxColorValue = 1)
-c_010 <- rgb(red = 0, green = 1, blue = 0, alpha = NULL, names = "Color 010", maxColorValue = 1)
-c_001 <- rgb(red = 0, green = 0, blue = 1, alpha = NULL, names = "Color 001", maxColorValue = 1)
-
-# View extremes: 
-seecol(c(c_100, c_010, c_001), 
-       # col_brd = "grey33", lwd_brd = .50,
-       main = "Extremes on 1 dimension")
-```
-
-Combining A. and B.:
-
-```{r rgb-col-def-C, eval = FALSE}
-# A and B:
-seecol(c(c_000, c_100, c_010, c_001, c_111), 
-       col_brd = "grey33", lwd_brd = .50,
-       main = "5 corners of the RGB color cube")
-```
-
-We see:
-
-- Standard range from 0 to 255 (8-bit)
-- Same values on all dimensions: 256 shades of grey
-- An additive model: Complete absence of colors is "black", maximum presence of all colors is "white".
-- 3 complements of corners are CMY (subtractive color model)
-
-
-#### Explaining HEX values {-}
-
-The decimal notation system uses different symbols (aka. digits or numerals) to represent 10\ distinct numeric values from\ $0$ to\ $9$ and a place-value notation to express numeric values beyond\ $9$ as abbreviated polynomials. For instance, the three digit decimal notation\ $123$ is actually an abbreviation for the numeric value of $1 \cdot 10^2 + 2 \cdot 10^1 + 3 \cdot 10^0$. 
-
-A hexadecimal notation system (HEX) uses the same 10 initial symbols, but extends their range by using different symbols for 16 distinct numeric values from\ $0$ to\ $15$. The decimal values\ $10$ to\ $15$ are represented by the letters\ $A$ to\ $F$. 
-Numeric values of 16 and beyond are expressed by using the same polynomial convention. 
-Thus, the two digit sequence\ $10$ (in HEX notation) now represents a numeric value of\ 16 (in decimal notation), and the numeric value of the digit sequence\ $123$ (in HEX notation) represents a value of $1 \cdot 16^2 + 2 \cdot 16^1 + 3 \cdot 16^0 = 291$ (in decimal notation). 
-
-The following Table lists the first 20\ symbols (or symbol combinations, for numeric values ranging from zero to nineteen) in both the decimal and HEX notation: 
-
-<!-- Table: -->
-
-Symbol Nr.:       |  1  |  2  |  3  |  4  |  5  |   6  | 7  |  8  |  9  | 10  | 11  | 12  | 13  | 14  | 15  | 16  | 17  | 18  | 19  | 20  | 
-:---------------  | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: | 
-Value in decimal notation: |  0 |  1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9 |  10 |  11  | 12  | 13  | 14  | 15  | 16  |  17 |  18 |  19 | 
-Value in HEX notation:     |  0 |  1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9 |   A |   B  |  C  |  D  |  E  |  F  | 10  |  11 |  12 |  13 | 
-
-
-
-```{r dec-hex-base-conversions, eval = FALSE}
-library(ds4psy)
-
-# Decimal to hexadecimal (base 16):
-dec2base( 9, base = 16)
-dec2base(10, base = 16)
-dec2base(15, base = 16)
-dec2base(16, base = 16)
-dec2base(20, base = 16)
-
-# Base 16 to decimal:
-base2dec("10", base = 16)  # 16 x  1
-base2dec("F0", base = 16)  # 16 * 15
-base2dec("F9", base = 16)  # 16 * 15 +  9
-base2dec("FF", base = 16)  # 16 * 15 + 15
-base2dec("123", base = 16) # (1 * 16^2) + (2 * 16^1) + (3 * 16^0) 
-```
-
-Subtle shades of "black" or "white" (in HEX and RGB values):
-
-```{r color-def, echo = FALSE, fig.width = 5, fig.asp = .80, fig.align = 'center'}
-# Range of possible colors:
-2^8    # 8-binary digits per dimension: 256 values
-256^3  # => over 16 million different colors
-
-# Resolution of HEX and RGB:
-seecol(c("black", "#010101", "#020202", "grey1", "#040404", "grey2", "#060606", "#070707", "grey3"), 
-       col_brd = "white", lwd_brd = .5, main = "A. Black end of 'grey' range")
-seecol(c("white", "#FEFEFE", "#FDFDFD", "grey99", "#FBFBFB", "grey98", "#F9F9F9", "#F8F8F8", "grey97"), 
-       col_brd = "black", lwd_brd = .5, main = "B. White end of 'grey' range")
-```
-
-
-
-## Defining color palettes 
-
-The following examples show how to define color palettes (with dedicated color names) for three institutions. 
-They can be easily adapted to any other group, company, or entity, that uses some pre-defined set of colors. 
-
-```{r pal-cardiff, echo = FALSE, eval = FALSE, fig.align = 'center', fig.width = 5, fig.height = 3}
-# Cardiff University, UK: 
-# ToDo. 
-```
-
-### A. [University of Freiburg](https://uni-freiburg.de/), Germany: 
-<a href="https://uni-freiburg.de/">
-<img src = "../inst/pix/logo_freiburg.png" align = "right" width = "120px" alt = "Uni Freiburg" style = "border:10;"/> 
-</a>
-
-The [Albert-Ludwigs Universität Freiburg](https://uni-freiburg.de/) provides fairly extensive information on its corporate color scheme (available at `portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben` on 2022-10-20). 
-Colors can be defined in a variety of ways, but R comes with convenient tools (like the `col2rgb()` and `convertColor()` functions of **grDevices**) to handle most cases. 
-The most straightforward way of creating a new color palette in R is by using its HEX/HTML code (provided in character format). 
-As the [University of Freiburg](https://uni-freiburg.de/) kindly provides their colors in this format, we can easily define the corresponding color palettes as named vectors: 
-
-```{r freiburg-cols, fig.width = 5, fig.asp = .80, fig.align = 'center', fig.show = "hold", collapse = TRUE}
-# Source: http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben
-
-# Basic colors: ---- 
-
-uni_freiburg_br <- c("#004a99", "#c1002a")
-names(uni_freiburg_br) <- c("uni-blau", "uni-rot")
-
-uni_freiburg_bwr <- c("#004a99", "white", "#c1002a")  # add "white" for better gradients
-names(uni_freiburg_bwr) <- c("uni-blau", "weiss", "uni-rot")
-
-# Web colors: ----
-
-uni_freiburg_blue <- c("#004a99", "#2a6ebb", "#6f9ad3")
-names(uni_freiburg_blue) <- c("blue-1", "blue-2", "blue-3")
-
-uni_freiburg_grey <- c("#f2f3f1", "#e0e1dd", "#d5d6d2", "#c9cac8", 
-                       "#b2b4b3", "#9a9b9c", "#747678", "#363534")
-names(uni_freiburg_grey) <- c("grey-0", "grey-1", "grey-2", "grey-3", 
-                              "grey-5", "grey-7", "grey-9", "grey-font")
-
-# Visualizations / illustrations: ----
-
-uni_freiburg_info <- c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
-                       "#4d4f53", "#747678", "#b2b4b3", "#d5d6d2", "#e98300", "#efbd47")
-names(uni_freiburg_info) <- c("mid-blau", "hell-blau", "dark-red", "hell-red", "mid-green", "hell-green", 
-                              "anthrazit", "dark-grey", "mid-grey", "hell-grey", "orange", "gelb")
-```
-
-Alternatively, we can define both colors and names in one step by using the `newpal()` function:
-
-```{r freiburg-newpal}
-uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", "#739600", "#92d400", 
-                                    "#4d4f53", "#747678", "#b2b4b3", "#d5d6d2", "#e98300", "#efbd47"),
-                            names = c("mid-blau", "hell-blau", "dark-red", "hell-red", "mid-green", "hell-green", 
-                                      "anthrazit", "dark-grey", "mid-grey", "hell-grey", "orange", "gelb")
-                            )
-```
-
-Using `newpal()` makes it easy to combine colors and their names and return the resulting color palette in either data frame or vector format.
-
-Once a new color palette has been defined (in your current R\ environment), use all color-related functions to view, modify, and use the palette: 
-
-```{r freiburg-seecol, fig.width = 5, fig.asp = .80, fig.align = 'center', collapse = TRUE}
-# View color palette:
-seecol(uni_freiburg_info, main = "Colors of the University of Freiburg")
-# seecol(uni_freiburg_bwr, n = 7)  # extend color palette
-# seecol(c(uni_freiburg_blue, "white", uni_freiburg_grey))  # mix color palette
-
-# use in a demo plot:
-demopal(uni_freiburg_info,
-        type = 4, col_par = NA, seed = 79098, 
-        main = "Colors of the University of Freiburg")
-```
-
-
-### B. [Princeton University](https://princeton.edu/), USA: 
-<a href="https://princeton.edu/">
-<img src = "../inst/pix/logo_princeton.jpg" align = "right" width = "180px" alt = "Princeton University" style = "border:10;"/>
-</a>
-
-The color scheme of [Princeton University](https://princeton.edu/) is easily recognized by its combination of orange with black and white elements. 
-The official guidelines (available [here](https://communications.princeton.edu/guides-tools/logo-graphic-identity)) define "Princeton Orange" as Pantone (PMS) 158\ C. 
-
-- The PANTONE&trade; color finder at <https://www.pantone.com/connect/158-C> yields the following color values:
-
-    - RGB: `232 119 34`  
-    - HEX/HTML: `#E87722`  
-    - CMYK: `0 62 95 0`  
-
-- However, the guide also specifies and distinguishes between two additional versions of orange (depending on background color) and provides the following HEX/HTML values for them:  
-
-    - Orange on white: "#E77500"  
-    - Orange on black: "#F58025"  
-
-These definitions suggest defining three separate versions of orange and corresponding color palettes: 
-
-```{r princeton-1, fig.width = 5, fig.asp = .80, fig.align = 'center', fig.show = "hold", collapse = TRUE}
-# 3 shades of orange: 
-orange_basic <- "#E87722"  # Pantone 158 C
-orange_white <- "#E77500"  # orange on white background
-orange_black <- "#F58025"  # orange on black background
-
-# Defining color palettes:
-uni_princeton <- c(orange_basic, "black")
-names(uni_princeton) <- c("orange", "black")
-
-# Define color palette and names (in 2 steps):
-uni_princeton_1 <- c(orange_white, "white", "black")
-names(uni_princeton_1) <- c("orange_w", "white", "black")
-```
-
-Again, we can define a palette of named colors in one step:
-
-```{r princeton-2, fig.width = 5, fig.asp = .80, fig.align = 'center', fig.show = "hold", collapse = TRUE}
-# Basic colors:
-uni_princeton_0 <- newpal(col = c(orange_basic, "black"),
-                          names = c("orange", "black"))
-
-# 1st color palette (on white backgrounds):
-uni_princeton_1 <- newpal(col = c(orange_white, "white", "black"),
-                          names = c("orange_w", "white", "black"))
-                          
-# 2nd color palette (on black backgrounds):
-uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"), 
-                          names = c("orange_b", "black", "white"))
-```
-
-and then inspect a new color palette (with a custom background color and title):
-
-```{r princeton-3, fig.width = 5, fig.asp = .80, fig.align = 'center', fig.show = "hold", collapse = TRUE}
-seecol(uni_princeton_1, col_bg = "grey90", 
-       main = "Colors of Princeton University")
-```
-
-
-### C. [Max Planck Society](https://www.mpg.de/en), Germany: 
-<a href="https://www.mpg.de/en">
-<img src = "../inst/pix/logo_MPG.png" align = "right" alt = "MPG" width = "150px" style = "border:10;"/>
-</a>
-
-The CD manual (available [here](https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html)) of the [Max Planck Society](https://www.mpg.de/en) specifies the use of two primary colors: 
-
-- Green as Pantone 328: Using the PANTONE&trade; color finder at <https://www.pantone.com/connect/328-C> yields the following color values:
-
-    - RGB: `0 115 103`    
-    - HEX/HTML: `#007367`   
-    - CMYK: `100 10 61 38`  
-
-- Grey as Pantone 427: Using the PANTONE&trade; color finder at <https://www.pantone.com/connect/427-C> yields the following color values: 
-
-    - RGB: `208 211 212`  
-    - HEX/HTML: `#D0D3D4`   
-    - CMYK: `7 3 5 8`   
-
-```{r mpg-rgb-cols, echo = FALSE, eval = FALSE, fig.width = 6, fig.asp = .618, fig.align = 'center', collapse = TRUE}
-# Using RGB values: 
-mpg_pal <- data.frame(# named colors: 
-  "mpg_green" = rgb( 17, 102,  86, maxColorValue = 255),
-  "mpg_gray"  = rgb(221, 222, 214, maxColorValue = 255),
-  "mpg_grey"  = rgb(208, 211, 212, maxColorValue = 255)
-  )
-seecol(pal = list(mpg_pal))  # Ooops...
-```
-
-```{r mpg-hex-cols, echo = FALSE, eval = FALSE}
-# Using HEX values:
-mpg_green <- "#007367"
-mpg_grey  <- "#D0D3D4"
-
-# col2rgb(mpg_green)
-# col2rgb(mpg_grey)
-
-mpg_pal <- usecol(pal = c(mpg_green, "white", mpg_grey))
-# seecol(mpg_pal)
-```
-
-Again, the easiest way of defining a corresponding color palette is by defining the elementary colors and then 
-combine them into a named color palette by using the `newpal()` function. 
-To enable color gradients, we insert the color\ `"white"` between the two\ dedicated colors: 
-
-```{r mpg-newpal}
-# Main colors (using HEX values):
-mpg_green <- "#007367"
-mpg_grey  <- "#D0D3D4"
-
-# Create new color palette (as a vector):
-mpg_pal <- newpal(col = c(mpg_green, "white", mpg_grey), 
-                  names = c("mpg green", "white", "mpg grey")
-                  )
-```
-
-As before, can now use the `seecol()` and `usecol()` functions to view, modify, and use the new `mpg_pal` color palette: 
-
-```{r mpg-seecol, fig.width = 5, fig.asp = .80, fig.align = 'center'}
-seecol(mpg_pal,
-       col_brd = "black", lwd_brd = 1, 
-       main = "Colors of the Max Planck Society")
-```
-
-
-## Comparing custom color palettes 
+## Comparing color palettes 
 
 Once a new palette has been defined (and is available in your current R environment), the `seecol()` and `usecol()` functions allow comparing, scaling, and using them in the same fashion as the native **unikn** color palettes: 
 
-```{r compare-custom-pals, eval = TRUE, fig.width = 5, fig.asp = .50, fig.align = 'center', collapse = TRUE}
-# Compare and extend custom color palettes:
-# seecol(list(uni_freiburg_info, uni_freiburg_bwr, mpg_pal, uni_princeton_1))
+```{r compare-custom-pals, eval = TRUE, fig.width = 5, fig.asp = .55, fig.align = 'center', collapse = TRUE}
+# Re-define an existing color palette:
+lmu_pal_rev <- newpal(col = lmu_pal_1[c(1, 3, 2)])
 
 # Scaled version: 
-seecol(list(uni_freiburg_bwr, uni_princeton_1, mpg_pal, pal_unikn), n = 9,
-       pal_names = c("Uni Freiburg", "Princeton Uni", "Max Planck", "Uni Konstanz"),
+seecol(list(lmu_pal_rev, uni_princeton_1, mpg_pal, pal_unikn), n = 7,
+       pal_names = c("LMU Munich", "Princeton Uni", "Max Planck", "Uni Konstanz"),
        main = "Comparing scaled color palettes")
 ```
+
+See the vignette on [Color recipes](color_recipes.html) for additional examples of using **unikn** functions for solving color-related tasks. 
+
 
 
 ## Resources
