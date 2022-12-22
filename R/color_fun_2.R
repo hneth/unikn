@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 11 29
+## spds | uni.kn | 2022 12 22
 ## --------------------------
 
 ## Define color-related functions 
@@ -136,9 +136,9 @@ newpal <- function(col,            # a vector of colors
   # Prepare: ----- 
   
   # Robustify inputs:
-  if ( any(is.na(col)) ) stop("'col' must be a vector of (named or hex) colors without NA values.")
+  if ( any(is.na(col)) ) stop("'col' must be a vector of (named or HEX) colors without NA values.")
   
-  if ( any(!is_col(col)) ) stop("'col' must be a vector containing ONLY (named or hex) colors.")
+  if ( any(!is_col(col)) ) stop("'col' must be a vector containing ONLY (named or HEX) colors.")
   
   if ( any(!is.na(names)) && ((length(col) != length(names))) ) {
     
@@ -181,7 +181,7 @@ newpal <- function(col,            # a vector of colors
     
   } else { # 3. get default color names:
     
-    names(outpal) <- get_col_names(col)  # (a) use helper functions (for default and custom color names)
+    names(outpal) <- get_col_names(col)  # (a) use helper function (for default and custom color names)
     
     # names(outpal) <- as.character(1:length(col))  # (b) use numeric digits as names
     

@@ -1,5 +1,5 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2022 12 12
+## spds | uni.kn | 2022 12 22
 ## ---------------------------
 
 # Color-related utility functions: 
@@ -111,14 +111,19 @@ is_hex_col <- function(color) {
 # is_hex_col("black")
 # is_hex_col(col2hex("black"))
 # is_hex_col(rgb2hex(0, 0, 0))
+# 
+# # with color transparency:
+# my_col <- rgb(1, 1, 1, alpha = 1/2, names = "50% black")
+# is_hex_col(my_col)
 
 
+# is_col: Verify color status (of an individual color) ------ 
 
-# is_col: Checking for any color (in an individual character string) ------ 
+# Assumes that input color is an individual character string. 
 
 is_col <- function(color) {
   
-  return(is_hex_col(color) | color %in% colors())
+  return( is_hex_col(color) | color %in% colors() )
   
 } # is_col(). 
 
