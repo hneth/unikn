@@ -1,6 +1,5 @@
 
-
-# unikn 0.7.0.9010 
+# unikn 0.7.0.9012
 
 This is the current development version of **unikn** (v0.7.0.9001+). 
 
@@ -38,6 +37,7 @@ Changes since last release:
 
 ## Details 
 
+- Replace use of **crayon** package by use of **cli** package.  
 - Add utility functions `col_asif_alpha()` and `v_col_asif_alpha()`. 
 - Revise vignettes. 
 - Fix some bugs.
@@ -281,6 +281,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-12-20.] 
+[File `NEWS.md` updated on 2022-12-25.] 
 
 <!-- eof. -->
