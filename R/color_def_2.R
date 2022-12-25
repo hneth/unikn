@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2022 11 29
+## spds | uni.kn  | 2022 12 25
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -313,46 +313,83 @@ rownames(pal_unikn_pair) <- "1"  # fix/set rownames() of palette
 # seecol(pal_unikn_pair)
 
 
+# (D) Message colors (using crayon/cli): -------- 
 
 
-# (D) Crayon colors: -------- 
+# # Define crayon styles: ------ 
+# 
+# # lighter:
+# in_grau     <- crayon::make_style(pal_grau[[4]], grey = TRUE, colors = 256)
+# in_peach    <- crayon::make_style(pal_peach[[5]],    colors = 256)
+# in_pinky    <- crayon::make_style(pal_pinky[[5]],    colors = 256)
+# in_seeblau  <- crayon::make_style(pal_seeblau[[5]],  colors = 256)
+# in_seegruen <- crayon::make_style(pal_seegruen[[5]], colors = 256)
+# 
+# # darker:
+# in_bordeaux    <- crayon::make_style(pal_bordeaux[[4]],    colors = 256)
+# in_petrol      <- crayon::make_style(pal_petrol[[4]],      colors = 256)
+# in_karpfenblau <- crayon::make_style(pal_karpfenblau[[4]], colors = 256)
+# 
+# # Notes:
+# # - See details of ?crayon::make_style() for using the grey and colors arguments.  
+# # - In contexts outside the unikn pkg, the RStudio terminal only shows the 256 ANSI colors.
+# 
+# 
+# # demo_crayons: ------
+# 
+# demo_crayons <- function(){
+#   
+#   cat(crayon::black(# "Crayon colors:",
+#                     in_bordeaux("bordeaux"), 
+#                     in_grau("grau"),
+#                     in_karpfenblau("karpfenblau"), 
+#                     in_peach("peach"), 
+#                     in_petrol("petrol"), 
+#                     in_pinky("pinky"), 
+#                     in_seeblau("seeblau"), 
+#                     in_seegruen("seegruen"), 
+#                     sep = " | ")
+#   )
+#   
+# } # demo_crayons().
 
-# Define crayon styles: ------ 
+
+# Define cli ANSI styles: ------
 
 # lighter:
-in_grau     <- crayon::make_style(pal_grau[[4]], grey = TRUE, colors = 256)
-in_peach    <- crayon::make_style(pal_peach[[5]],    colors = 256)
-in_pinky    <- crayon::make_style(pal_pinky[[5]],    colors = 256)
-in_seeblau  <- crayon::make_style(pal_seeblau[[5]],  colors = 256)
-in_seegruen <- crayon::make_style(pal_seegruen[[5]], colors = 256)
+in_grau     <- cli::make_ansi_style(pal_grau[[4]], grey = TRUE, colors = 256)
+in_peach    <- cli::make_ansi_style(pal_peach[[5]],    colors = 256)
+in_pinky    <- cli::make_ansi_style(pal_pinky[[5]],    colors = 256)
+in_seeblau  <- cli::make_ansi_style(pal_seeblau[[5]],  colors = 256)
+in_seegruen <- cli::make_ansi_style(pal_seegruen[[5]], colors = 256)
 
 # darker:
-in_bordeaux    <- crayon::make_style(pal_bordeaux[[4]],    colors = 256)
-in_petrol      <- crayon::make_style(pal_petrol[[4]],      colors = 256)
-in_karpfenblau <- crayon::make_style(pal_karpfenblau[[4]], colors = 256)
+in_bordeaux    <- cli::make_ansi_style(pal_bordeaux[[4]],    colors = 256)
+in_petrol      <- cli::make_ansi_style(pal_petrol[[4]],      colors = 256)
+in_karpfenblau <- cli::make_ansi_style(pal_karpfenblau[[4]], colors = 256)
 
 # Notes:
-# - See details of ?crayon::make_style() for using the grey and colors arguments.  
+# - See details of ?cli::make_ansi_style() for using the grey and colors arguments.  
 # - In contexts outside the unikn pkg, the RStudio terminal only shows the 256 ANSI colors.
 
 
-# demo_crayons: ------
+# demo_ansi_styles: ------
 
-demo_crayons <- function(){
+demo_ansi_styles <- function(){
   
-  cat(crayon::black(# "Crayon colors:",
-                    in_bordeaux("bordeaux"), 
-                    in_grau("grau"),
-                    in_karpfenblau("karpfenblau"), 
-                    in_peach("peach"), 
-                    in_petrol("petrol"), 
-                    in_pinky("pinky"), 
-                    in_seeblau("seeblau"), 
-                    in_seegruen("seegruen"), 
-                    sep = " | ")
+  cat(# "cli ANSI style colors:",
+    in_bordeaux("bordeaux"), 
+    in_grau("grau"),
+    in_karpfenblau("karpfenblau"), 
+    in_peach("peach"), 
+    in_petrol("petrol"), 
+    in_pinky("pinky"), 
+    in_seeblau("seeblau"), 
+    in_seegruen("seegruen"), 
+    sep = " | "
   )
   
-} # demo_crayons().
+} # demo_ansi_styles().
 
 
 
