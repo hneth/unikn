@@ -42,6 +42,7 @@ unikn.guide <- function() {
   dice <- sample(1:12, 1)
   
   switch(dice,
+         
          # 01-08:
          packageStartupMessage(in_grau(sapply("seecol()", FUN = pens[1]), " shows colors or color palettes.", sep = "")),
          packageStartupMessage(in_grau(sapply("usecol()", FUN = pens[1]), " allows using and changing color palettes.", sep = "")),
@@ -63,16 +64,19 @@ unikn.guide <- function() {
          
          # 10:
          {
-           packageStartupMessage(cat(#"unikn colors:",  
-             in_bordeaux("bordeaux"), 
-             in_grau("grau"),
-             in_karpfenblau("karpfenblau"), 
-             in_peach("peach"), 
-             in_petrol("petrol"), 
-             in_pinky("pinky"), 
-             in_seeblau("seeblau"), 
-             in_seegruen("seegruen"), 
-             sep = " | "))
+           packageStartupMessage(  
+             cli::col_black(# "unikn colors: ", 
+               paste(in_bordeaux("bordeaux"), 
+                     in_grau("grau"),
+                     in_karpfenblau("karpfenblau"), 
+                     in_peach("peach"), 
+                     in_petrol("petrol"), 
+                     in_pinky("pinky"), 
+                     in_seeblau("seeblau"), 
+                     in_seegruen("seegruen"), 
+                     sep = " | ")
+             )
+           )
          },
          
          # 11: Stroop task:
