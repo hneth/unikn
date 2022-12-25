@@ -1,5 +1,5 @@
 ## start_unikn.R | unikn
-## spds | uni.kn |  2022 11 29
+## spds | uni.kn |  2022 12 25
 ## ---------------------------
 
 ## Open package guide: -----------------------
@@ -63,7 +63,7 @@ unikn.guide <- function() {
          
          # 10:
          {
-           packageStartupMessage(crayon::black(# "unikn colors:", 
+           packageStartupMessage(cat(#"unikn colors:",  
              in_bordeaux("bordeaux"), 
              in_grau("grau"),
              in_karpfenblau("karpfenblau"), 
@@ -77,8 +77,8 @@ unikn.guide <- function() {
          
          # 11: Stroop task:
          {
-           packageStartupMessage(crayon::black("Try naming the colors of these words:", sep ="")) 
-           packageStartupMessage(in_grau(
+           packageStartupMessage(cli::col_black("Try naming the colors of these words:", sep = "")) 
+           packageStartupMessage(cat(
              sapply("black", FUN = pens[1]), 
              sapply("red", FUN = pens[2]), 
              sapply("green", FUN = pens[3]), 
