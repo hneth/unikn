@@ -1,8 +1,8 @@
 Package: unikn
 Type: Package
 Title: Graphical Elements of the University of Konstanz's Corporate Design 
-Version: 0.7.0.9010
-Date: 2022-12-22
+Version: 0.7.0.9011
+Date: 2022-12-25
 Authors@R: c(person("Hansjoerg", "Neth", role = c("aut", "cre"), email = "h.neth@uni.kn", comment = c(ORCID = "0000-0001-5427-3141")), 
              person("Nico", "Gradwohl", role = "aut", comment = c(ORCID = "0000-0002-8703-905X")))
 Maintainer: Hansjoerg Neth <h.neth@uni.kn>
@@ -11,7 +11,7 @@ Depends:
     R (>= 3.4.0)
 Imports:
     utils,
-    crayon,
+    cli,
     ggplot2 
 Suggests:
     knitr, 
