@@ -1795,46 +1795,86 @@ uni_bonn_2 <- newpal(col = c(ub_blau_4, ub_gelb_4, ub_grau_4),
 # Uni Freiburg: ------
 
 # Source: https://uni-freiburg.de/universitaet/corporate-design/
-# To be updated in 2023-01
+# To be updated in 2023-01  +++ here now +++ 
 
-frbg_blau <- "#344a9a"
+frbg_blau <- "#344a9a"  # RGB 52/74/154; HEX #344a9a; Pantone 7687C; CMYK 90/75/0/0.
 names(frbg_blau) <- "Blau"
 
-frbg_blue <- newpal(col =  ac(col = frbg_blau, alpha = c(1, .80, .60, .40, .20)),
+frbg_blau_gradient <- usecol(c(frbg_blau, "white"), n = 6)[1:5]  # mix with "white"
+# frbg_blau_transparent <- ac(col = frbg_blau, alpha = c(1, .80, .60, .40, .20))
+
+frbg_blue <- newpal(col =  frbg_blau_gradient,
                     names = c("Blau", "Blau_80", "Blau_60", "Blau_40", "Blau_20"),
                     as_df = FALSE)
 
 frbg_gruen <- "#00997d"
 names(frbg_gruen) <- "Gruen"
 
-frbg_green <- newpal(col =  ac(col = frbg_gruen, alpha = c(1, .80, .60, .40, .20)),
+frbg_gruen_gradient <- usecol(c(frbg_gruen, "white"), n = 6)[1:5]  # mix with "white"
+
+frbg_green <- newpal(col =  frbg_gruen_gradient, 
                      names = c("Gruen", "Gruen_80", "Gruen_60", "Gruen_40", "Gruen_20"),
                      as_df = FALSE)
 
 frbg_braun <- "#8f6b30"
 names(frbg_braun) <- "Braun"
 
-frbg_brown <- newpal(col =  ac(col = frbg_braun, alpha = c(1, .80, .60, .40, .20)),
+frbg_braun_gradient <- usecol(c(frbg_braun, "white"), n = 6)[1:5]  # mix with "white"
+
+frbg_brown <- newpal(col =  frbg_braun_gradient, 
                      names = c("Braun", "Braun_80", "Braun_60", "Braun_40", "Braun_20"),
                      as_df = FALSE)
 
 frbg_gelb <- "#ffe863"
 names(frbg_gelb) <- "Gelb"
 
-frbg_yellow <- newpal(col =  ac(col = frbg_gelb, alpha = c(1, .80, .60, .40, .20)),
+frbg_gelb_gradient <- usecol(c(frbg_gelb, "white"), n = 6)[1:5]  # mix with "white"
+
+frbg_yellow <- newpal(col =  frbg_gelb_gradient, 
                       names = c("Gelb", "Gelb_80", "Gelb_60", "Gelb_40", "Gelb_20"),
                       as_df = FALSE)
 
 frbg_rosa <- "#f5c2ed"
 names(frbg_rosa) <- "Rosa"
 
-frbg_pink <- newpal(col =  ac(col = frbg_rosa, alpha = c(1, .80, .60, .40, .20)),
+frbg_rosa_gradient <- usecol(c(frbg_rosa, "white"), n = 6)[1:5]  # mix with "white"
+
+frbg_pink <- newpal(col =  frbg_rosa_gradient, 
                     names = c("Rosa", "Rosa_80", "Rosa_60", "Rosa_40", "Rosa_20"),
                     as_df = FALSE)
 
-uni_freiburg_1 <- newpal(col = c("#000000", frbg_blue, "#FFFFFF"),
-                         names = c("Schwarz", "Blau", "Blau_80", "Blau_60", "Blau_40", "Blau_20", "Weiss"))
 
+# - uni_freiburg_0: ----
+
+# Primary colors only:
+
+uni_freiburg_0 <- newpal(col = c("#000000", frbg_blau, "#FFFFFF"),
+                         names = c("Schwarz", "Blau", "Weiss"), 
+                         as_df = FALSE)
+
+
+# - uni_freiburg_1: ----
+
+# Primary colors (with blue gradient):
+
+uni_freiburg_1 <- newpal(col = c("#000000", frbg_blue, "#FFFFFF"),
+                         names = c("Schwarz", "Blau", "Blau_80", "Blau_60", "Blau_40", "Blau_20", "Weiss"), 
+                         as_df = FALSE)
+
+
+# - uni_freiburg_2: ----
+
+# Primary blue + secondary colors:
+
+uni_freiburg_2 <- newpal(col = c(frbg_blau, frbg_gruen, frbg_braun, frbg_gelb, frbg_rosa),
+                         names = c("Blau", "Gruen", "Braun", "Gelb", "Rosa"), 
+                         as_df = FALSE)
+
+
+# Note: To create gradients, mix with "white":
+frbg_blau_gradient <- usecol(c(frbg_blau, "white"), n = 6)[1:5]  # mix with "white"
+# to get transparent colors:
+frbg_blau_transparent <- ac(col = frbg_blau, alpha = c(1, .80, .60, .40, .20))
 
 
 # Source: http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben
