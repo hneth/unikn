@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 22
+## spds | uni.kn |  2022 12 27
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -1795,87 +1795,227 @@ uni_bonn_2 <- newpal(col = c(ub_blau_4, ub_gelb_4, ub_grau_4),
 # Uni Freiburg: ------
 
 # Source: https://uni-freiburg.de/universitaet/corporate-design/
-# To be updated in 2023-01  +++ here now +++ 
+# Last check: 2022-12-27  +++ here now +++ 
 
-frbg_blau <- "#344a9a"  # RGB 52/74/154; HEX #344a9a; Pantone 7687C; CMYK 90/75/0/0.
+# 1 primary color: 
+
+frbg_blau <- "#344A9A"  # RGB 52/74/154; HEX #344a9a; Pantone 7687C; CMYK 90/75/0/0.
 names(frbg_blau) <- "Blau"
 
 frbg_blau_gradient <- usecol(c(frbg_blau, "white"), n = 6)[1:5]  # mix with "white"
 # frbg_blau_transparent <- ac(col = frbg_blau, alpha = c(1, .80, .60, .40, .20))
 
-frbg_blue <- newpal(col =  frbg_blau_gradient,
-                    names = c("Blau", "Blau_80", "Blau_60", "Blau_40", "Blau_20"),
-                    as_df = FALSE)
+frbg_blues <- newpal(col =  frbg_blau_gradient,
+                     names = c("Blau", "Blau_80", "Blau_60", "Blau_40", "Blau_20"),
+                     as_df = FALSE)
 
-frbg_gruen <- "#00997d"
+# 4 secondary colors: 
+
+frbg_gruen <- "#00997D"  # "#00997d"
 names(frbg_gruen) <- "Gruen"
 
-frbg_gruen_gradient <- usecol(c(frbg_gruen, "white"), n = 6)[1:5]  # mix with "white"
+# frbg_gruen_gradient <- usecol(c(frbg_gruen, "white"), n = 6)[1:5]  # mix with "white"
+# 
+# frbg_green <- newpal(col =  frbg_gruen_gradient, 
+#                      names = c("Gruen", "Gruen_80", "Gruen_60", "Gruen_40", "Gruen_20"),
+#                      as_df = FALSE)
 
-frbg_green <- newpal(col =  frbg_gruen_gradient, 
-                     names = c("Gruen", "Gruen_80", "Gruen_60", "Gruen_40", "Gruen_20"),
-                     as_df = FALSE)
-
-frbg_braun <- "#8f6b30"
+frbg_braun <- "#8F6B30" # "#8f6b30"
 names(frbg_braun) <- "Braun"
 
-frbg_braun_gradient <- usecol(c(frbg_braun, "white"), n = 6)[1:5]  # mix with "white"
+# frbg_braun_gradient <- usecol(c(frbg_braun, "white"), n = 6)[1:5]  # mix with "white"
+# 
+# frbg_brown <- newpal(col =  frbg_braun_gradient, 
+#                      names = c("Braun", "Braun_80", "Braun_60", "Braun_40", "Braun_20"),
+#                      as_df = FALSE)
 
-frbg_brown <- newpal(col =  frbg_braun_gradient, 
-                     names = c("Braun", "Braun_80", "Braun_60", "Braun_40", "Braun_20"),
-                     as_df = FALSE)
-
-frbg_gelb <- "#ffe863"
+frbg_gelb <- "#FFE863"  # "#ffe863" 
 names(frbg_gelb) <- "Gelb"
 
-frbg_gelb_gradient <- usecol(c(frbg_gelb, "white"), n = 6)[1:5]  # mix with "white"
+# frbg_gelb_gradient <- usecol(c(frbg_gelb, "white"), n = 6)[1:5]  # mix with "white"
+# 
+# frbg_yellow <- newpal(col =  frbg_gelb_gradient, 
+#                       names = c("Gelb", "Gelb_80", "Gelb_60", "Gelb_40", "Gelb_20"),
+#                       as_df = FALSE)
 
-frbg_yellow <- newpal(col =  frbg_gelb_gradient, 
-                      names = c("Gelb", "Gelb_80", "Gelb_60", "Gelb_40", "Gelb_20"),
-                      as_df = FALSE)
-
-frbg_rosa <- "#f5c2ed"
+frbg_rosa <- "#F5C2ED" # "#f5c2ed"
 names(frbg_rosa) <- "Rosa"
 
-frbg_rosa_gradient <- usecol(c(frbg_rosa, "white"), n = 6)[1:5]  # mix with "white"
+# frbg_rosa_gradient <- usecol(c(frbg_rosa, "white"), n = 6)[1:5]  # mix with "white"
+# 
+# frbg_pink <- newpal(col =  frbg_rosa_gradient, 
+#                     names = c("Rosa", "Rosa_80", "Rosa_60", "Rosa_40", "Rosa_20"),
+#                     as_df = FALSE)
 
-frbg_pink <- newpal(col =  frbg_rosa_gradient, 
-                    names = c("Rosa", "Rosa_80", "Rosa_60", "Rosa_40", "Rosa_20"),
-                    as_df = FALSE)
+# # Note: To create gradients, mix with "white":
+# col_gradient <- usecol(c(uni_freiburg_2[1], "white"), n = 6)[1:5]  # mix with "white"
+# # seecol(col_gradient, main = "Five shades")
+# # to get transparent colors:
+# col_transparent <- ac(col = uni_freiburg_2[1], alpha = c(1, .80, .60, .40, .20))
+# # seecol(col_transparent, main = "Five transparent shades")
 
 
 # - uni_freiburg_0: ----
 
-# Primary colors only:
+# Basic colors only: black + Primary blue + white
+
+#' Basic colors of the University of Freiburg 
+#'
+#' \code{uni_freiburg_0} provides the three basic colors 
+#' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
+#' 
+#' The primary color \code{Blau} (here: \code{uni_freiburg_0[2]}) is alternatively defined as 
+#' \code{Pantone 7687C}, \code{RGB 52/74/154}, \code{HEX #344a9a}, or \code{CMYK 90/75/0/0}.
+#' 
+#' See \code{\link{uni_freiburg_1}} for a primary palette with a \code{Blau} color gradient
+#' and the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2023-01-01.
+#' 
+#' @source 
+#' Color definitions are based on the new web style guide at 
+#' \url{https://uni-freiburg.de/} 
+#' (at \code{https://uni-freiburg.de/universitaet/corporate-design/} on 2023-01-01). 
+#' 
+#' @examples
+#' uni_freiburg_0
+#' seecol(uni_freiburg_0, main = "Basic colors of the University of Freiburg")
+#' demopal(uni_freiburg_0, type = 5, main = "Basic colors of Freiburg University")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_freiburg_1}} for a primary palette of the University of Freiburg;
+#' \code{\link{uni_freiburg_2}} for the secondary colors of the University of Freiburg;
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
 
 uni_freiburg_0 <- newpal(col = c("#000000", frbg_blau, "#FFFFFF"),
                          names = c("Schwarz", "Blau", "Weiss"), 
                          as_df = FALSE)
 
 
-# - uni_freiburg_1: ----
+# - uni_freiburg_1: ---- 
 
 # Primary colors (with blue gradient):
 
-uni_freiburg_1 <- newpal(col = c("#000000", frbg_blue, "#FFFFFF"),
+#' Primary colors of the University of Freiburg 
+#'
+#' \code{uni_freiburg_1} provides a primary color palette 
+#' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
+#' 
+#' The primary color \code{Blau} (here: \code{uni_freiburg_1[2]}) is alternatively defined as 
+#' \code{Pantone 7687C}, \code{RGB 52/74/154}, \code{HEX #344a9a}, or \code{CMYK 90/75/0/0}.
+#' 
+#' The gradient of \code{Blau} was created by mixing 
+#' the primary color \code{uni_freiburg_0[2]} with \code{"white"}, 
+#' as in \code{usecol(c(uni_freiburg_0[2], "white"), n = 6)[1:5]}. 
+#' 
+#' See \code{\link{uni_freiburg_0}} for the basic colors without the \code{Blau} color gradient
+#' and the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2023-01-01.
+#' 
+#' @source 
+#' Color definitions are based on the new web style guide at 
+#' \url{https://uni-freiburg.de/} 
+#' (at \code{https://uni-freiburg.de/universitaet/corporate-design/} on 2023-01-01). 
+#' 
+#' @examples
+#' uni_freiburg_1
+#' seecol(uni_freiburg_1, main = "Primary color gradient of the University of Freiburg")
+#' demopal(uni_freiburg_1, type = 1, main = "Primary color gradient of Freiburg University")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_freiburg_0}} for the basic colors of the University of Freiburg;
+#' \code{\link{uni_freiburg_2}} for the secondary colors of the University of Freiburg;
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+uni_freiburg_1 <- newpal(col = c("#000000", frbg_blues, "#FFFFFF"),
                          names = c("Schwarz", "Blau", "Blau_80", "Blau_60", "Blau_40", "Blau_20", "Weiss"), 
                          as_df = FALSE)
 
 
 # - uni_freiburg_2: ----
 
-# Primary blue + secondary colors:
+# 4 secondary colors:
 
-uni_freiburg_2 <- newpal(col = c(frbg_blau, frbg_gruen, frbg_braun, frbg_gelb, frbg_rosa),
-                         names = c("Blau", "Gruen", "Braun", "Gelb", "Rosa"), 
+#' Secondary colors of the University of Freiburg 
+#'
+#' \code{uni_freiburg_2} provides the four secondary colors  
+#' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
+#' 
+#' The primary color \code{Blau} (here: \code{uni_freiburg_1[2]}) is alternatively defined as 
+#' \code{Pantone 7687C}, \code{RGB 52/74/154}, \code{HEX #344a9a}, or \code{CMYK 90/75/0/0}.
+#' 
+#' The gradient of \code{Blau} was created by mixing 
+#' the primary color \code{uni_freiburg_0[2]} with \code{"white"}, 
+#' as in \code{usecol(c(uni_freiburg_0[2], "white"), n = 6)[1:5]}. 
+#' 
+#' See \code{\link{uni_freiburg_0}} for the basic colors without the \code{Blau} color gradient
+#' and the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2023-01-01.
+#' 
+#' @source 
+#' Color definitions are based on the new web style guide at 
+#' \url{https://uni-freiburg.de/} 
+#' (at \code{https://uni-freiburg.de/universitaet/corporate-design/} on 2023-01-01). 
+#' 
+#' @examples
+#' uni_freiburg_2
+#' seecol(uni_freiburg_2, main = "Secondary colors of the University of Freiburg")
+#' demopal(uni_freiburg_2, type = 2, main = "Secondary colors of Freiburg University")
+#'
+#' # Color gradients:
+#' col_gradient <- usecol(c(uni_freiburg_2[1], "white"), n = 6)[1:5]  # mix with "white"
+#' col_transparent <- ac(col = uni_freiburg_2[1], alpha = c(1, .80, .60, .40, .20))
+#' 
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_freiburg_0}} for the basic colors of the University of Freiburg;
+#' \code{\link{uni_freiburg_1}} for a primary palette of the University of Freiburg; 
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+uni_freiburg_2 <- newpal(col = c(frbg_gruen, frbg_braun, frbg_gelb, frbg_rosa),
+                         names = c("Gruen", "Braun", "Gelb", "Rosa"), 
                          as_df = FALSE)
 
 
-# Note: To create gradients, mix with "white":
-frbg_blau_gradient <- usecol(c(frbg_blau, "white"), n = 6)[1:5]  # mix with "white"
-# to get transparent colors:
-frbg_blau_transparent <- ac(col = frbg_blau, alpha = c(1, .80, .60, .40, .20))
 
+# Uni Freiburg (up to 2022-12-31): ------ 
 
 # Source: http://portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben
 # Last check: 2022-10-20
@@ -1896,7 +2036,7 @@ frbg_blau_transparent <- ac(col = frbg_blau, alpha = c(1, .80, .60, .40, .20))
 #' \strong{unikn}, 2022-10-20.
 #' 
 #' @source 
-#' Color definitions are based on web style guide at 
+#' Color definitions are based on the web style guide at 
 #' \url{https://uni-freiburg.de/} 
 #' (at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20). 
 #' 
@@ -1936,7 +2076,7 @@ uni_freiburg_br <- newpal(col = c("#004a99", "#c1002a"),
 #' \strong{unikn}, 2022-10-20.
 #' 
 #' @source 
-#' Color definitions are based on web style guide at 
+#' Color definitions are based on the web style guide at 
 #' \url{https://uni-freiburg.de/} 
 #' (at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20). 
 #' 
@@ -1977,7 +2117,7 @@ uni_freiburg_blue <- newpal(col = c("#004a99", "#2a6ebb", "#6f9ad3"),
 #' \strong{unikn}, 2022-10-20.
 #' 
 #' @source 
-#' Color definitions are based on web style guide at 
+#' Color definitions are based on the web style guide at 
 #' \url{https://uni-freiburg.de/} 
 #' (at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20). 
 #' 
@@ -2020,7 +2160,7 @@ uni_freiburg_grey <- newpal(col = c("#f2f3f1", "#e0e1dd", "#d5d6d2", "#c9cac8",
 #' \strong{unikn}, 2022-10-20.
 #' 
 #' @source 
-#' Color definitions are based on web style guide at 
+#' Color definitions are based on the web style guide at 
 #' \url{https://uni-freiburg.de/} 
 #' (at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20). 
 #' 
