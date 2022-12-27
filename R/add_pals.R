@@ -21,6 +21,7 @@
 #               "lmu_pal_1", "lmu_pal_2", "lmu_pal_3",
 #               "mpg_pal",
 #               "uni_bonn_1", "uni_bonn_2",
+#               "uni_freiburg_0", "uni_freiburg_1", "uni_freiburg_2", 
 #               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
 #               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
 #               "uni_hamburg_1", "uni_hamburg_2",
@@ -38,7 +39,7 @@ inst <- c(rep("Caltech", 3),
           rep("LMU Munich", 3),
           "Max Planck Society",
           rep("University of Bonn", 2), 
-          rep("University of Freiburg", 4),
+          rep("University of Freiburg", 7),
           rep("University of Goettingen", 3),
           rep("University of Hamburg", 2),
           rep("University of Koeln", 2),
@@ -55,7 +56,7 @@ inst_alt <- c(rep("California Institute of Technology", 3),
               rep("Ludwig-Maximilians-Universit\u00E4t M\u00FCnchen", 3),
               "Max-Planck-Gesellschaft",
               rep("Universit\u00E4t Bonn", 2),
-              rep("Universit\u00E4t Freiburg", 4),
+              rep("Universit\u00E4t Freiburg", 7),
               rep("Universit\u00E4t G\u00F6ttingen", 3),
               rep("Universit\u00E4t Hamburg", 2),
               rep("Universit\u00E4t zu K\u00F6ln", 2),
@@ -72,7 +73,7 @@ url <- c(rep("https://www.caltech.edu/", 3),
          rep("https://www.lmu.de/en/index.html", 3),
          "https://www.mpg.de/en",
          rep("https://www.uni-bonn.de/en", 2),
-         rep("https://uni-freiburg.de/", 4),
+         rep("https://uni-freiburg.de/", 7),
          rep("https://uni-goettingen.de/", 3),
          rep("https://www.uni-hamburg.de/", 2),
          rep("https://www.uni-koeln.de/", 2),
@@ -1906,7 +1907,7 @@ uni_freiburg_0 <- newpal(col = c("#000000", frbg_blau, "#FFFFFF"),
 
 # - uni_freiburg_1: ---- 
 
-# Primary colors (with blue gradient):
+# Primary colors (with primary blue color gradient):
 
 #' Primary colors of the University of Freiburg 
 #'
@@ -1920,7 +1921,7 @@ uni_freiburg_0 <- newpal(col = c("#000000", frbg_blau, "#FFFFFF"),
 #' the primary color \code{uni_freiburg_0[2]} with \code{"white"}, 
 #' as in \code{usecol(c(uni_freiburg_0[2], "white"), n = 6)[1:5]}. 
 #' 
-#' See \code{\link{uni_freiburg_0}} for the basic colors without the \code{Blau} color gradient
+#' See \code{\link{uni_freiburg_0}} for the basic colors (without the \code{Blau} color gradient) 
 #' and the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients. 
 #' 
 #' @return 
@@ -2022,12 +2023,16 @@ uni_freiburg_2 <- newpal(col = c(frbg_gruen, frbg_braun, frbg_gelb, frbg_rosa),
 
 # - uni_freiburg_br: ----
 
-#' Default colors of the University of Freiburg 
+#' Default colors of the University of Freiburg (2022)
 #'
 #' \code{uni_freiburg_br} provides the two default colors 
 #' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
 #' 
-#' The \code{_br} represents "blue/red" or "Breisgau". 
+#' The \code{_br} denotes "blue/red" or "Breisgau". 
+#' 
+#' \strong{Please note}: 
+#' See \code{\link{uni_freiburg_0}} and \code{\link{uni_freiburg_1}} 
+#' for the corresponding colors of the new corporate design (as of 2023). 
 #' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).
@@ -2064,10 +2069,14 @@ uni_freiburg_br <- newpal(col = c("#004a99", "#c1002a"),
 
 # - uni_freiburg_blue: ---- 
 
-#' Blue colors of the University of Freiburg 
+#' Blue colors of the University of Freiburg (2022)
 #'
 #' \code{uni_freiburg_blue} provides the blue colors 
 #' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
+#' 
+#' \strong{Please note}: 
+#' See \code{\link{uni_freiburg_1}} 
+#' for the corresponding colors of the new corporate design (as of 2023). 
 #' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).
@@ -2105,10 +2114,14 @@ uni_freiburg_blue <- newpal(col = c("#004a99", "#2a6ebb", "#6f9ad3"),
 
 # - uni_freiburg_grey: ---- 
 
-#' Grey colors of the University of Freiburg 
+#' Grey colors of the University of Freiburg (2022)
 #'
 #' \code{uni_freiburg_grey} provides the grey colors 
 #' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
+#' 
+#' \strong{Please note}: 
+#' See \code{\link{uni_freiburg_0}} and \code{\link{uni_freiburg_1}}  
+#' for the corresponding colors of the new corporate design (as of 2023). 
 #' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).
@@ -2148,10 +2161,14 @@ uni_freiburg_grey <- newpal(col = c("#f2f3f1", "#e0e1dd", "#d5d6d2", "#c9cac8",
 
 # - uni_freiburg_info: ---- 
 
-#' Info colors of the University of Freiburg 
+#' Info colors of the University of Freiburg (2022)
 #'
 #' \code{uni_freiburg_info} provides the info colors 
 #' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
+#' 
+#' \strong{Please note}: 
+#' See \code{\link{uni_freiburg_1}} and \code{\link{uni_freiburg_2}}  
+#' for the corresponding colors of the new corporate design (as of 2023). 
 #' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).
