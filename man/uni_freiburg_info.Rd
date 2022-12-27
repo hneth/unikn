@@ -3,12 +3,12 @@
 \docType{data}
 \name{uni_freiburg_info}
 \alias{uni_freiburg_info}
-\title{Info colors of the University of Freiburg}
+\title{Info colors of the University of Freiburg (2022)}
 \format{
 An object of class \code{character} of length 12.
 }
 \source{
-Color definitions are based on web style guide at 
+Color definitions are based on the web style guide at 
 \url{https://uni-freiburg.de/} 
 (at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20).
 }
@@ -21,6 +21,11 @@ A named vector of colors (HEX/HTML codes of type character).
 \description{
 \code{uni_freiburg_info} provides the info colors 
 of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany.
+}
+\details{
+\strong{Please note}: 
+See \code{\link{uni_freiburg_1}} and \code{\link{uni_freiburg_2}}  
+for the corresponding colors of the new corporate design (as of 2023).
 }
 \examples{
 uni_freiburg_info
@@ -58,6 +63,9 @@ Other contributed color palettes:
 \code{\link{rpi_pal_3}},
 \code{\link{uni_bonn_1}},
 \code{\link{uni_bonn_2}},
+\code{\link{uni_freiburg_0}},
+\code{\link{uni_freiburg_1}},
+\code{\link{uni_freiburg_2}},
 \code{\link{uni_freiburg_blue}},
 \code{\link{uni_freiburg_br}},
 \code{\link{uni_freiburg_grey}},

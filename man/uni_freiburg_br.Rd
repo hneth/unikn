@@ -3,12 +3,12 @@
 \docType{data}
 \name{uni_freiburg_br}
 \alias{uni_freiburg_br}
-\title{Default colors of the University of Freiburg}
+\title{Default colors of the University of Freiburg (2022)}
 \format{
 An object of class \code{character} of length 2.
 }
 \source{
-Color definitions are based on web style guide at 
+Color definitions are based on the web style guide at 
 \url{https://uni-freiburg.de/} 
 (at \code{portal.uni-freiburg.de/cmsforum/wsg/webstyleguide/farben} on 2022-10-20).
 }
@@ -23,7 +23,11 @@ A named vector of colors (HEX/HTML codes of type character).
 of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany.
 }
 \details{
-The \code{_br} represents "blue/red" or "Breisgau".
+The \code{_br} denotes "blue/red" or "Breisgau". 
+
+\strong{Please note}: 
+See \code{\link{uni_freiburg_0}} and \code{\link{uni_freiburg_1}} 
+for the corresponding colors of the new corporate design (as of 2023).
 }
 \examples{
 uni_freiburg_br
@@ -61,6 +65,9 @@ Other contributed color palettes:
 \code{\link{rpi_pal_3}},
 \code{\link{uni_bonn_1}},
 \code{\link{uni_bonn_2}},
+\code{\link{uni_freiburg_0}},
+\code{\link{uni_freiburg_1}},
+\code{\link{uni_freiburg_2}},
 \code{\link{uni_freiburg_blue}},
 \code{\link{uni_freiburg_grey}},
 \code{\link{uni_freiburg_info}},
