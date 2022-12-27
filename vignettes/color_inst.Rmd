@@ -66,7 +66,8 @@ In addition to the specific color palettes of the [University of Konstanz](https
 - [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2` 
 - [Max Planck Society](https://www.mpg.de/en): `mpg_pal` 
 - [University of Bonn](https://www.uni-bonn.de/en): `uni_bonn_1`, `uni_bonn_2` 
-- [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info` 
+- [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_0`, `uni_freiburg_1`, `uni_freiburg_2`,   
+  (from\ 2022: `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`)   
 - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
 - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2` 
 - [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2` 
@@ -77,12 +78,12 @@ In addition to the specific color palettes of the [University of Konstanz](https
 
 <!-- Note: Number of palettes & exported as named vectors: -->
 
-These 40\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
+These 43\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
 We can use and modify these palettes with the **unikn** [color functions](colors.html):
 
 <!-- Note: Duplicate image in README.Rmd -->
 
-```{r show-add-pals, fig.width = 7.2, out.width = "550px", fig.asp = 1.5}
+```{r show-add-pals, fig.width = 7.2, out.width = "550px", fig.asp = 1.7}
 seecol("add", main = "Color palettes from various institutions")
 ```
 
