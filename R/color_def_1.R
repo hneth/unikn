@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## spds | uni.kn |  2022 12 27
+## spds | uni.kn |  2022 12 28
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -1267,18 +1267,19 @@ add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
               "lmu_pal_1", "lmu_pal_2", "lmu_pal_3",
               "mpg_pal",
               "uni_bonn_1", "uni_bonn_2",
-              "uni_freiburg_0", "uni_freiburg_1", "uni_freiburg_2", 
+              "uni_freiburg_0", "uni_freiburg_1", "uni_freiburg_2",
               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
               "uni_hamburg_1", "uni_hamburg_2",
               "uni_koeln_1", "uni_koeln_2",
               "uni_konstanz", "uni_konstanz_pref",
+              "uni_mannheim_1", "uni_mannheim_2",
               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
               "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
 )
 
-# length(add_pals)  # 43 [2022-12-27]
+# length(add_pals)  # 45 [2022-12-28]
 
 
 # All palettes / largest set (of unikn package):

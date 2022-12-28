@@ -14,24 +14,24 @@
 
 # Institution names and URLs of add_pals:
 
-add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
-              "eth_pal", "eth_pal_light", "eth_pal_grey",
-              "fu_pal_0", "fu_pal_1", "fu_pal_2", "fu_pal_3",
-              "hu_pal_1", "hu_pal_2",
-              "lmu_pal_1", "lmu_pal_2", "lmu_pal_3",
-              "mpg_pal",
-              "uni_bonn_1", "uni_bonn_2",
-              "uni_freiburg_0", "uni_freiburg_1", "uni_freiburg_2",
-              "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
-              "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
-              "uni_hamburg_1", "uni_hamburg_2",
-              "uni_koeln_1", "uni_koeln_2",
-              "uni_konstanz", "uni_konstanz_pref",
-              "uni_mannheim_1", "uni_mannheim_2",
-              "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
-              "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
-              "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
-)
+# add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
+#               "eth_pal", "eth_pal_light", "eth_pal_grey",
+#               "fu_pal_0", "fu_pal_1", "fu_pal_2", "fu_pal_3",
+#               "hu_pal_1", "hu_pal_2",
+#               "lmu_pal_1", "lmu_pal_2", "lmu_pal_3",
+#               "mpg_pal",
+#               "uni_bonn_1", "uni_bonn_2",
+#               "uni_freiburg_0", "uni_freiburg_1", "uni_freiburg_2",
+#               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
+#               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
+#               "uni_hamburg_1", "uni_hamburg_2",
+#               "uni_koeln_1", "uni_koeln_2",
+#               "uni_konstanz", "uni_konstanz_pref",
+#               "uni_mannheim_1", "uni_mannheim_2",
+#               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
+#               "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
+#               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
+# )
 
 inst <- c(rep("Caltech", 3), 
           rep("ETH Zurich", 3),
@@ -88,6 +88,7 @@ url <- c(rep("https://www.caltech.edu/", 3),
 )
 
 uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pals)
+# uni_data
 
 
 
@@ -2627,9 +2628,6 @@ uni_konstanz_pref <- newpal(col = pal_unikn_pref,
 
 
 
-
-
-
 # Uni Mannheim: ------ 
 
 # Source: https://www.uni-mannheim.de/cd/marke/farben/
@@ -2677,9 +2675,7 @@ UM_petrol <- rgb(65, 137, 134, maxColorValue = 255)
 
 # - uni_mannheim_1: ----
 
-# Main color "blau" + 6 lighter shades:
-
-#' Main color gradient of the University of Mannheim
+#' Main color gradient of the University of Mannheim 
 #'
 #' \code{uni_mannheim_1} provides a color gradient of 
 #' the primary \code{blau} color and six lighter shades 
@@ -2727,8 +2723,6 @@ uni_mannheim_1 <- newpal(col = UM_blau_gr,
 
 
 # - uni_mannheim_2: ----
-
-# Primary color + main accent color "silver" + 5 departmental accent colors: 
 
 #' Primary and departmental accent colors of the University of Mannheim
 #'
