@@ -25,13 +25,13 @@ of the \href{https://www.uni-koeln.de/}{Universitaet zu Koeln}, Germany.
 Named colors of \code{uni_koeln_2} correspond to the following departments:
 
 \enumerate{
-\item gruen: Wirtschafts-/Sozialwissenschaftliche Fakultaet
-\item bordeaux: Rechtswissenschaftliche Fakultaet 
-\item rot: Medizinische Fakultaet
-\item violett: Philosophische Fakultaet
-\item blau: Mathematisch-Naturwissenschaftliche Fakultaet
-\item orange: Humanwissenschaftlicheschaftliche Fakultaet 
-\item hellblau: Verwaltung 
+\item \code{gruen}: Wirtschafts-/Sozialwissenschaftliche Fakultaet
+\item \code{bordeaux}: Rechtswissenschaftliche Fakultaet 
+\item \code{rot}: Medizinische Fakultaet
+\item \code{violett}: Philosophische Fakultaet
+\item \code{blau}: Mathematisch-Naturwissenschaftliche Fakultaet
+\item \code{orange}: Humanwissenschaftlicheschaftliche Fakultaet 
+\item \code{hellblau}: Verwaltung 
 }
 }
 \examples{

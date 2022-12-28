@@ -27,21 +27,21 @@ of the the \href{https://www.uni-mannheim.de/}{University of Mannheim}, Germany.
 
 \enumerate{
 
-\item The primary color \code{blau} is alternatively defined as 
+\item \code{blau}: The primary color is alternatively defined as 
       \code{RGB 0/48/86}, \code{HEX #003056}, \code{Pantone 654}, \code{CMYK 100/60/10/60}, or \code{RAL 5011}. 
 
-\item The main accent color \code{silber} is alternatively defined as 
+\item \code{silber}: The main accent color is alternatively defined as 
       \code{RGB 179/182/185}, \code{HEX #B3B6B9}, \code{Pantone 887}, \code{CMYK 35/25/25/0}, or \code{RAL 9006}. 
 
-\item The accent color \code{graublau} denotes 'Rechtswissenschaft und Volkswirtschaftslehre'. 
+\item \code{graublau}: Accent color for 'Rechtswissenschaft und Volkswirtschaftslehre'
 
-\item The accent color \code{gruen} denotes 'Betriebswirtschaftslehre'. 
+\item \code{gruen}: Accent color for 'Betriebswirtschaftslehre' 
 
-\item The accent color \code{orange} denotes 'Sozialwissenschaften'. 
+\item \code{orange}: Accent color for 'Sozialwissenschaften'
 
-\item The accent color \code{rot} denotes 'Philosophie'.  
+\item \code{rot}: Accent color for 'Philosophie'  
 
-\item The accent color \code{petrol} denotes 'Wirtschaftsinformatik und Wirtschaftsmathematik'.  
+\item \code{petrol}: Accent color for 'Wirtschaftsinformatik und Wirtschaftsmathematik'
 
 }
 }

@@ -2481,13 +2481,13 @@ koeln_fa_7 <- rgb(145, 196, 234, maxColorValue = 255)
 #' Named colors of \code{uni_koeln_2} correspond to the following departments:
 #' 
 #' \enumerate{
-#' \item gruen: Wirtschafts-/Sozialwissenschaftliche Fakultaet
-#' \item bordeaux: Rechtswissenschaftliche Fakultaet 
-#' \item rot: Medizinische Fakultaet
-#' \item violett: Philosophische Fakultaet
-#' \item blau: Mathematisch-Naturwissenschaftliche Fakultaet
-#' \item orange: Humanwissenschaftlicheschaftliche Fakultaet 
-#' \item hellblau: Verwaltung 
+#' \item \code{gruen}: Wirtschafts-/Sozialwissenschaftliche Fakultaet
+#' \item \code{bordeaux}: Rechtswissenschaftliche Fakultaet 
+#' \item \code{rot}: Medizinische Fakultaet
+#' \item \code{violett}: Philosophische Fakultaet
+#' \item \code{blau}: Mathematisch-Naturwissenschaftliche Fakultaet
+#' \item \code{orange}: Humanwissenschaftlicheschaftliche Fakultaet 
+#' \item \code{hellblau}: Verwaltung 
 #' }
 #' 
 #' @return 
@@ -2734,21 +2734,21 @@ uni_mannheim_1 <- newpal(col = UM_blau_gr,
 #' 
 #' \enumerate{
 #' 
-#' \item The primary color \code{blau} is alternatively defined as 
+#' \item \code{blau}: The primary color is alternatively defined as 
 #'       \code{RGB 0/48/86}, \code{HEX #003056}, \code{Pantone 654}, \code{CMYK 100/60/10/60}, or \code{RAL 5011}. 
 #' 
-#' \item The main accent color \code{silber} is alternatively defined as 
+#' \item \code{silber}: The main accent color is alternatively defined as 
 #'       \code{RGB 179/182/185}, \code{HEX #B3B6B9}, \code{Pantone 887}, \code{CMYK 35/25/25/0}, or \code{RAL 9006}. 
 #' 
-#' \item The accent color \code{graublau} denotes 'Rechtswissenschaft und Volkswirtschaftslehre'. 
+#' \item \code{graublau}: Accent color for 'Rechtswissenschaft und Volkswirtschaftslehre'
 #' 
-#' \item The accent color \code{gruen} denotes 'Betriebswirtschaftslehre'. 
+#' \item \code{gruen}: Accent color for 'Betriebswirtschaftslehre' 
 #' 
-#' \item The accent color \code{orange} denotes 'Sozialwissenschaften'. 
+#' \item \code{orange}: Accent color for 'Sozialwissenschaften'
 #' 
-#' \item The accent color \code{rot} denotes 'Philosophie'.  
+#' \item \code{rot}: Accent color for 'Philosophie'  
 #' 
-#' \item The accent color \code{petrol} denotes 'Wirtschaftsinformatik und Wirtschaftsmathematik'.  
+#' \item \code{petrol}: Accent color for 'Wirtschaftsinformatik und Wirtschaftsmathematik'
 #' 
 #' }
 #' 
