@@ -14,23 +14,24 @@
 
 # Institution names and URLs of add_pals:
 
-# add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
-#               "eth_pal", "eth_pal_light", "eth_pal_grey",
-#               "fu_pal_0", "fu_pal_1", "fu_pal_2", "fu_pal_3",
-#               "hu_pal_1", "hu_pal_2",
-#               "lmu_pal_1", "lmu_pal_2", "lmu_pal_3",
-#               "mpg_pal",
-#               "uni_bonn_1", "uni_bonn_2",
-#               "uni_freiburg_0", "uni_freiburg_1", "uni_freiburg_2", 
-#               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
-#               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
-#               "uni_hamburg_1", "uni_hamburg_2",
-#               "uni_koeln_1", "uni_koeln_2",
-#               "uni_konstanz", "uni_konstanz_pref",
-#               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
-#               "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
-#               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
-# )
+add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
+              "eth_pal", "eth_pal_light", "eth_pal_grey",
+              "fu_pal_0", "fu_pal_1", "fu_pal_2", "fu_pal_3",
+              "hu_pal_1", "hu_pal_2",
+              "lmu_pal_1", "lmu_pal_2", "lmu_pal_3",
+              "mpg_pal",
+              "uni_bonn_1", "uni_bonn_2",
+              "uni_freiburg_0", "uni_freiburg_1", "uni_freiburg_2",
+              "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
+              "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
+              "uni_hamburg_1", "uni_hamburg_2",
+              "uni_koeln_1", "uni_koeln_2",
+              "uni_konstanz", "uni_konstanz_pref",
+              "uni_mannheim_1", "uni_mannheim_2",
+              "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
+              "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
+              "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
+)
 
 inst <- c(rep("Caltech", 3), 
           rep("ETH Zurich", 3),
@@ -44,6 +45,7 @@ inst <- c(rep("Caltech", 3),
           rep("University of Hamburg", 2),
           rep("University of Koeln", 2),
           rep("University of Konstanz", 2),
+          rep("University of Mannheim", 2),          
           rep("Princeton University", 3),
           rep("University of Regensburg", 3),
           rep("RPI", 3)
@@ -61,6 +63,7 @@ inst_alt <- c(rep("California Institute of Technology", 3),
               rep("Universit\u00E4t Hamburg", 2),
               rep("Universit\u00E4t zu K\u00F6ln", 2),
               rep("Universit\u00E4t Konstanz", 2),
+              rep("Universit\u00E4t Mannheim", 2),
               rep("Princeton University", 3),
               rep("Universit\u00E4t Regensburg", 3),
               rep("Rensselaer Polytechnic Institute", 3)
@@ -78,6 +81,7 @@ url <- c(rep("https://www.caltech.edu/", 3),
          rep("https://www.uni-hamburg.de/", 2),
          rep("https://www.uni-koeln.de/", 2),
          rep("https://www.uni-konstanz.de/", 2),
+         rep("https://www.uni-mannheim.de/", 2),
          rep("https://www.princeton.edu/", 3),
          rep("https://www.uni-regensburg.de/", 3),
          rep("https://www.rpi.edu/", 3)
@@ -2623,6 +2627,173 @@ uni_konstanz_pref <- newpal(col = pal_unikn_pref,
 
 
 
+
+
+
+# Uni Mannheim: ------ 
+
+# Source: https://www.uni-mannheim.de/cd/marke/farben/
+# 2022-12-28
+
+# Grundfarbe "blau":
+# RGB 0/48/86 / Pantone 654 / CMYK 100/60/10/60 / RAL 5011
+
+UM_blau <- rgb(0, 48, 86, maxColorValue = 255)
+
+# Gradient: 100% + 6 shades of 85 70 55 40 25 10:
+UM_blau_10 <- usecol(c(UM_blau, "white"), n = 11)[10]
+UM_blau_gr <- usecol(c(UM_blau, UM_blau_10), 7)
+
+# Akzentfarbe "silber":
+# RGB 179/182/185 / Pantone 887 / CMYK 35/25/25/0 / RAL 9006
+UM_silber <- rgb(179, 182, 185, maxColorValue = 255)
+
+# Fakultät für Rechtswissenschaft und Volkswirtschaftslehre: Akzentfarbe Graublau 
+UM_graublau <- rgb(131, 153, 176, maxColorValue = 255)
+
+# Fakultät für Betriebswirtschaftslehre: Akzentfarbe Grün
+UM_gruen <- rgb(148, 177, 102, maxColorValue = 255)
+
+# Fakultät für Sozialwissenschaften: Akzentfarbe Orange
+UM_orange <- rgb(223, 126, 80, maxColorValue = 255)
+
+# Philosophische Fakultät: Akzentfarbe Rot
+UM_rot <- rgb(195, 46, 55, maxColorValue = 255)
+
+# Fakultät für Wirtschaftsinformatik und Wirtschaftsmathematik: Akzentfarbe Petrol
+UM_petrol <- rgb(65, 137, 134, maxColorValue = 255)
+
+
+# - uni_mannheim_0: 
+#
+# # Main color + accent color: 
+# 
+# uni_mannheim_0 <- newpal(col = c(UM_blau, UM_silber), 
+#                          names = c("blau", "silber"),
+#                          as_df = FALSE)
+# 
+# # seecol(uni_mannheim_0, main = "Main colors of Uni Mannheim")
+
+
+# - uni_mannheim_1: ----
+
+# Main color "blau" + 6 lighter shades:
+
+#' Main color gradient of the University of Mannheim
+#'
+#' \code{uni_mannheim_1} provides a color gradient of 
+#' the primary \code{blau} color and six lighter shades 
+#' of the \href{https://www.uni-mannheim.de/}{University of Mannheim}, Germany. 
+#' 
+#' The primary color \code{blau} is alternatively defined as 
+#' \code{RGB 0/48/86}, \code{HEX #003056}, \code{Pantone 654}, \code{CMYK 100/60/10/60}, or \code{RAL 5011}. 
+#' 
+#' The six lighter shades were created by mixing the primary \code{blau} with \code{"white"}.  
+#' See the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients. 
+#'  
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-28.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.uni-mannheim.de/cd/marke/farben/}. 
+#' 
+#' @examples
+#' uni_mannheim_1
+#' seecol(uni_mannheim_1, main = "Main color gradient of the University of Mannheim")
+#' demopal(uni_mannheim_1, type = 1, 
+#'         main = "Main color gradient of Mannheim University")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_mannheim_2}} provides the primary and accent colors of the University of Mannheim;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+uni_mannheim_1 <- newpal(col = UM_blau_gr,
+                         names = c("blau", "blau_85", "blau_70", "blau_55", "blau_40", "blau_25", "blau_10"),
+                         as_df = FALSE)
+
+# seecol(uni_mannheim_1, main = "Main 'blau' color gradient of Uni Mannheim")
+
+
+# - uni_mannheim_2: ----
+
+# Primary color + main accent color "silver" + 5 departmental accent colors: 
+
+#' Primary and departmental accent colors of the University of Mannheim
+#'
+#' \code{uni_mannheim_2} provides the primary \code{blau} color, 
+#' the main \code{silber} accent color, and the five departmental accent colors 
+#' of the the \href{https://www.uni-mannheim.de/}{University of Mannheim}, Germany. 
+#' 
+#' \code{uni_mannheim_2} contains the following colors:
+#' 
+#' \enumerate{
+#' 
+#' \item The primary color \code{blau} is alternatively defined as 
+#'       \code{RGB 0/48/86}, \code{HEX #003056}, \code{Pantone 654}, \code{CMYK 100/60/10/60}, or \code{RAL 5011}. 
+#' 
+#' \item The main accent color \code{silber} is alternatively defined as 
+#'       \code{RGB 179/182/185}, \code{HEX #B3B6B9}, \code{Pantone 887}, \code{CMYK 35/25/25/0}, or \code{RAL 9006}. 
+#' 
+#' \item The accent color \code{graublau} denotes 'Rechtswissenschaft und Volkswirtschaftslehre'. 
+#' 
+#' \item The accent color \code{gruen} denotes 'Betriebswirtschaftslehre'. 
+#' 
+#' \item The accent color \code{orange} denotes 'Sozialwissenschaften'. 
+#' 
+#' \item The accent color \code{rot} denotes 'Philosophie'.  
+#' 
+#' \item The accent color \code{petrol} denotes 'Wirtschaftsinformatik und Wirtschaftsmathematik'.  
+#' 
+#' }
+#' 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-28.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.uni-mannheim.de/cd/marke/farben/}. 
+#' 
+#' @examples
+#' uni_mannheim_2
+#' seecol(uni_mannheim_2, main = "Main and accent colors of the University of Mannheim")
+#' demopal(uni_mannheim_2, type = 4, seed = 7, 
+#'         main = "Main and department accent colors of Mannheim University")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_mannheim_1}} provides a primary color gradient for the University of Mannheim;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+uni_mannheim_2 <- newpal(col = c(UM_blau, UM_silber, UM_graublau, UM_gruen, UM_orange, UM_rot, UM_petrol),
+                         names = c("blau", "silber", "graublau", "gruen", "orange", "rot", "petrol"),
+                         as_df = FALSE)
+
+# seecol(uni_mannheim_2, main = "Main + accent colors of Uni Mannheim")
+
+
 # Uni Princeton: ------
 
 # Source: https://communications.princeton.edu/guides-tools/logo-graphic-identity
@@ -2949,18 +3120,18 @@ uni_regensburg_1 <- newpal(col = c(UR_neutralgrau,
 #' Named colors of \code{uni_regensburg_2} correspond to the following UR faculties:
 #' 
 #' \enumerate{
-#' \item urangelb: Rechtswissenschaft
-#' \item laerchennadelgruen: Wirtschaftswissenschaften
-#' \item vatikangelb: Katholische Theologie
-#' \item orangerot: Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
-#' \item heucherarot: Humanwissenschaften
-#' \item heidenelkenrot: Sprach-, Literatur- und Kulturwissenschaften
-#' \item blattgruen: Biologie und Vorklinische Medizin
-#' \item tuerkisgruen: Mathematik
-#' \item eisvogelblau: Physik
-#' \item spektralblau: Chemie und Pharmazie
-#' \item capriblau: Medizin
-#' \item glutrot: Informatik und Data Science
+#' \item \code{urangelb}: Rechtswissenschaft
+#' \item \code{laerchennadelgruen}: Wirtschaftswissenschaften
+#' \item \code{vatikangelb}: Katholische Theologie
+#' \item \code{orangerot}: Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
+#' \item \code{heucherarot}: Humanwissenschaften
+#' \item \code{heidenelkenrot}: Sprach-, Literatur- und Kulturwissenschaften
+#' \item \code{blattgruen}: Biologie und Vorklinische Medizin
+#' \item \code{tuerkisgruen}: Mathematik
+#' \item \code{eisvogelblau}: Physik
+#' \item \code{spektralblau}: Chemie und Pharmazie
+#' \item \code{capriblau}: Medizin
+#' \item \code{glutrot}: Informatik und Data Science
 #' }
 #' 
 #' When coloring large areas, named colors can be used in shades of 70%.
@@ -3346,7 +3517,6 @@ willamette_pal <- newpal(col = c("#BA0C2F", "#C6AA76",
 ## ToDo: -------- 
 
 # Public:
-# - Uni Mannheim: <https://www.uni-mannheim.de/cd/marke/farben/>
 # - Uni Ulm: <https://www.uni-ulm.de/misc/corporate-design/#c875952>
 # - RPTU: <https://www.startklar2023.de/brand-portal-rptu>
 
