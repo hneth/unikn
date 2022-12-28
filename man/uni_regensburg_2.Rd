@@ -26,18 +26,18 @@ at the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany.
 Named colors of \code{uni_regensburg_2} correspond to the following UR faculties:
 
 \enumerate{
-\item urangelb: Rechtswissenschaft
-\item laerchennadelgruen: Wirtschaftswissenschaften
-\item vatikangelb: Katholische Theologie
-\item orangerot: Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
-\item heucherarot: Humanwissenschaften
-\item heidenelkenrot: Sprach-, Literatur- und Kulturwissenschaften
-\item blattgruen: Biologie und Vorklinische Medizin
-\item tuerkisgruen: Mathematik
-\item eisvogelblau: Physik
-\item spektralblau: Chemie und Pharmazie
-\item capriblau: Medizin
-\item glutrot: Informatik und Data Science
+\item \code{urangelb}: Rechtswissenschaft
+\item \code{laerchennadelgruen}: Wirtschaftswissenschaften
+\item \code{vatikangelb}: Katholische Theologie
+\item \code{orangerot}: Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
+\item \code{heucherarot}: Humanwissenschaften
+\item \code{heidenelkenrot}: Sprach-, Literatur- und Kulturwissenschaften
+\item \code{blattgruen}: Biologie und Vorklinische Medizin
+\item \code{tuerkisgruen}: Mathematik
+\item \code{eisvogelblau}: Physik
+\item \code{spektralblau}: Chemie und Pharmazie
+\item \code{capriblau}: Medizin
+\item \code{glutrot}: Informatik und Data Science
 }
 
 When coloring large areas, named colors can be used in shades of 70%.
@@ -95,6 +95,8 @@ Other contributed color palettes:
 \code{\link{uni_koeln_2}},
 \code{\link{uni_konstanz_pref}},
 \code{\link{uni_konstanz}},
+\code{\link{uni_mannheim_1}},
+\code{\link{uni_mannheim_2}},
 \code{\link{uni_princeton_0}},
 \code{\link{uni_princeton_1}},
 \code{\link{uni_princeton_2}},
