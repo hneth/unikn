@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 27
+## spds | uni.kn |  2022 12 28
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -3345,7 +3345,14 @@ willamette_pal <- newpal(col = c("#BA0C2F", "#C6AA76",
 
 ## ToDo: -------- 
 
+# Public:
+# - Uni Mannheim: <https://www.uni-mannheim.de/cd/marke/farben/>
+# - Uni Ulm: <https://www.uni-ulm.de/misc/corporate-design/#c875952>
+# - RPTU: <https://www.startklar2023.de/brand-portal-rptu>
+
+# Intranet:
 # - Uni Heidelberg: <https://www.uni-heidelberg.de/de/universitaet/das-profil-der-universitaet-heidelberg/corporate-design>
-# - Uni Tuebingen:
+# - Uni Tuebingen: <https://uni-tuebingen.de/einrichtungen/verwaltung/stabsstellen/hochschulkommunikation/service-fuer-beschaeftigte/corporate-design/basiselemente/farben/>
+
 
 ## eof. ----------
