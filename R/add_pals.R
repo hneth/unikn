@@ -2588,7 +2588,7 @@ uni_konstanz_1 <- newpal(col = pal_unikn,
 
 #' Preferred colors of the University of Konstanz 
 #'
-#' \code{uni_konstanz_2} provides the color palette of preferred colors  
+#' \code{uni_konstanz_2} provides the palette of preferred colors  
 #' of the \href{https://www.uni-konstanz.de/}{University of Konstanz}, Germany.
 #' 
 #' The \strong{unikn} package provides many additional color palettes for 
@@ -2617,7 +2617,7 @@ uni_konstanz_1 <- newpal(col = pal_unikn,
 #' @family contributed color palettes
 #'
 #' @seealso 
-#' \code{\link{uni_konstanz}} for the default colors of the University of Konstanz;  
+#' \code{\link{uni_konstanz_1}} for the default colors of the University of Konstanz;  
 #' \code{\link{seecol}} for viewing and comparing color palettes; 
 #' \code{\link{usecol}} for using color palettes; 
 #' \code{\link{simcol}} for finding similar colors; 
