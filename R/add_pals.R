@@ -2644,7 +2644,8 @@ UM_blau <- rgb(0, 48, 86, maxColorValue = 255)
 
 # Gradient: 100% + 6 shades of 85 70 55 40 25 10:
 UM_blau_10 <- usecol(c(UM_blau, "white"), n = 11)[10]
-UM_blau_gr <- usecol(c(UM_blau, UM_blau_10), 7)
+UM_blau_g7 <- usecol(c(UM_blau, UM_blau_10), n = 7)
+# seecol(UM_blau_g7)
 
 # Akzentfarbe "silber":
 # RGB 179/182/185 / Pantone 887 / CMYK 35/25/25/0 / RAL 9006
@@ -2719,7 +2720,7 @@ UM_petrol <- rgb(65, 137, 134, maxColorValue = 255)
 #' 
 #' @export
 
-uni_mannheim_1 <- newpal(col = UM_blau_gr,
+uni_mannheim_1 <- newpal(col = UM_blau_g7,
                          names = c("blau", "blau_85", "blau_70", "blau_55", "blau_40", "blau_25", "blau_10"),
                          as_df = FALSE)
 
