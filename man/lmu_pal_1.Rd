@@ -34,7 +34,7 @@ demopal(lmu_pal_linear, type = "polygon", seed = 2, main = "Linear colors of LMU
 }
 \examples{
 lmu_pal_1
-seecol(lmu_pal_1, main = "The primary colors of LMU Munich")
+seecol(lmu_pal_1, main = "The primary colors of LMU München")
 demopal(lmu_pal_1, type = 3, main = "Primary colors of LMU Munich")
 
 }

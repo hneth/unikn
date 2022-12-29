@@ -23,10 +23,10 @@ the primary \code{blau} color and six lighter shades
 of the \href{https://www.uni-mannheim.de/}{University of Mannheim}, Germany.
 }
 \details{
-The primary color \code{blau} is alternatively defined as 
+The primary color \code{UM blau} is alternatively defined as 
 \code{RGB 0/48/86}, \code{HEX #003056}, \code{Pantone 654}, \code{CMYK 100/60/10/60}, or \code{RAL 5011}. 
 
-The six lighter shades were created by mixing the primary \code{blau} with \code{"white"}.  
+The six lighter shades were created by mixing the primary \code{UM blau} with \code{"white"}.  
 See the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients.
 }
 \examples{

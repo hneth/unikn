@@ -22,8 +22,8 @@ A named vector of colors (HEX/HTML codes of type character).
 of the \href{https://www.hu-berlin.de/en}{Humboldt University Berlin}, Germany.
 }
 \details{
-The color \code{"HU blue"} is defined as Pantone 294 and only approximated by RGB 0/55/108.
-Other approximations include CMYK 100/60/0/20, RGB 0/51/102 (reduced web scale), and RAL 270 3040.
+The color \code{"HU blau"} is defined as \code{Pantone 294} and approximated by \code{RGB 0/55/108}.
+Other approximations include \code{CMYK 100/60/0/20}, \code{RGB 0/51/102} (reduced web scale), and \code{RAL 270 3040}.
 
 See the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients.
 }

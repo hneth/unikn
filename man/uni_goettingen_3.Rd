@@ -31,7 +31,7 @@ We adopted the RGB value \code{68 37 61} and its corresponding HEX value \code{"
 }
 \examples{
 uni_goettingen_3
-seecol(uni_goettingen_3)  # view color palette
+seecol(uni_goettingen_3, main = "Department colors at the University of Goettingen")  
 demopal(uni_goettingen_3, type = 3, main = "Departmental colors of the University of Göttingen")
 
 }

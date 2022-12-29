@@ -26,8 +26,8 @@ The secondary colors of \code{lmu_pal_2} are used to support the primary colors 
 }
 \examples{
 lmu_pal_2
-seecol(lmu_pal_2, main = "The secondary/grey colors of LMU Munich")
-demopal(lmu_pal_2, type = 5, main = "Secondary/grey colors of LMU Munich")
+seecol(lmu_pal_2, main = "The secondary/grey colors of the LMU München")
+demopal(lmu_pal_2, type = 5, main = "Secondary/gray colors of LMU Munich")
 
 # Combining primary and secondary LMU colors:
 lmu_pal_bipolor <- c(lmu_pal_1[-2], rev(lmu_pal_2), lmu_pal_1[2])
