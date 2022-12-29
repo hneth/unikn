@@ -33,6 +33,9 @@ Changes since last release:
     - [Max Planck Society](https://www.mpg.de/en): `mpg_pal` (based on RGB values and extended to 5 colors) 
     - [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_0`, `uni_freiburg_1`, `uni_freiburg_2`,   
     (added to palettes from\ 2022: `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`)  
+    - [University of Konstanz](https://www.uni-konstanz.de/): Renamed `uni_konstanz` and `uni_konstanz_pref` 
+    to `uni_konstanz_1` and `uni_konstanz_2`, respectively 
+  
   
 <!-- Blank line.  --> 
 
@@ -283,6 +286,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-12-27.] 
+[File `NEWS.md` updated on 2022-12-29.] 
 
 <!-- eof. -->
