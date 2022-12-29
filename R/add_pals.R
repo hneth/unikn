@@ -2726,7 +2726,7 @@ UM_petrol <- rgb(65, 137, 134, maxColorValue = 255)
 #' @export
 
 uni_mannheim_1 <- newpal(col = UM_blau_v7,
-                         names = c("blau", "blau_85", "blau_70", "blau_55", "blau_40", "blau_25", "blau_10"), 
+                         names = c("blau", "blau 85%", "blau 70%", "blau 55%", "blau 40%", "blau 25%", "blau 10%"), 
                          as_df = FALSE)
 
 # seecol(uni_mannheim_1, main = "Main 'blau' color gradient of Uni Mannheim")
