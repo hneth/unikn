@@ -23,7 +23,7 @@ uni_konstanz_2
 A named vector of colors (HEX/HTML codes of type character).
 }
 \description{
-\code{uni_konstanz_2} provides the color palette of preferred colors  
+\code{uni_konstanz_2} provides the palette of preferred colors  
 of the \href{https://www.uni-konstanz.de/}{University of Konstanz}, Germany.
 }
 \details{
@@ -37,7 +37,7 @@ demopal(uni_konstanz_2, type = 3, main = "Preferred colors of the Uni Konstanz")
 
 }
 \seealso{
-\code{\link{uni_konstanz}} for the default colors of the University of Konstanz;  
+\code{\link{uni_konstanz_1}} for the default colors of the University of Konstanz;  
 \code{\link{seecol}} for viewing and comparing color palettes; 
 \code{\link{usecol}} for using color palettes; 
 \code{\link{simcol}} for finding similar colors; 
