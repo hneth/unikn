@@ -110,7 +110,7 @@ Other contributed color palettes:
 \code{\link{uni_ulm_2}}
 }
 \author{
-\strong{unikn}, 2022-12-28.
+\strong{unikn}, 2022-12-30.
 }
 \concept{contributed color palettes}
 \keyword{datasets}
