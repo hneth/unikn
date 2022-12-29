@@ -19,7 +19,9 @@ Changes since last release:
     - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
     - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2` 
     - [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2` 
-    - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3`
+    - [University of Mannheim](https://www.uni-mannheim.de/): `uni_mannheim_1`, `uni_mannheim_2` 
+    - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3` 
+    - [University of Ulm](https://www.uni-ulm.de/): `uni_ulm_1`, `uni_ulm_2` 
     - [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3` 
 
 

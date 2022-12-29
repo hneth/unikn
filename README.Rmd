@@ -98,7 +98,7 @@ devtools::install_github('hneth/unikn')
 The **unikn** contains two categories of color palettes: 
 
 - 16\ palettes implementing the colors of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design 
-- 43\ additional color palettes from various institutions
+- 47\ additional color palettes from various institutions
 
 
 ### The colors of Konstanz University
@@ -227,18 +227,20 @@ In addition to the 16\ specific color palettes of the [University of Konstanz](h
 - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2` 
 - [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2` 
 - [University of Konstanz](https://www.uni-konstanz.de/): `uni_konstanz`, `uni_konstanz_pref` 
+- [University of Mannheim](https://www.uni-mannheim.de/): `uni_mannheim_1`, `uni_mannheim_2` 
 - [Princeton University](https://www.princeton.edu/): `uni_princeton_0`, `uni_princeton_1`, `uni_princeton_2` 
 - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3` 
+- [University of Ulm](https://www.uni-ulm.de/): `uni_ulm_1`, `uni_ulm_2` 
 - [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3`
 
 <!-- Note: Duplicate image in vignette color_inst.Rmd -->
 
-```{r seecol-add-pals, fig.width = 7.2, out.width = "550px", fig.align = 'center', fig.asp = 1.7}
+```{r seecol-add-pals, fig.width = 7.2, out.width = "550px", fig.align = 'center', fig.asp = 1.8}
 # Inspect additional/alternative color palettes:
 seecol("add")
 ```
 
-These 43\ palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations).
+These 47\ palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations).
 
 
 <!-- Collecting contributed color palettes: -->
