@@ -1261,7 +1261,7 @@ all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
 # additional/contributed palettes:
 
 add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
-              "eth_pal", "eth_pal_light", "eth_pal_grey",
+              "eth_pal_1", "eth_pal_2", "eth_pal_3",
               "fu_pal_0", "fu_pal_1", "fu_pal_2", "fu_pal_3",
               "hu_pal_1", "hu_pal_2",
               "lmu_pal_1", "lmu_pal_2", "lmu_pal_3",

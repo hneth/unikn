@@ -202,9 +202,7 @@ usecol <- function(pal = pal_unikn,
       set6 <- pal_name %in% c("pal_unikn_dark", "pal_unikn_light", "pal_unikn_pref")  # categorical scales
       set7 <- pal_name %in% c("pal_signal")  # categorical scale
       
-      set8 <- pal_name %in% add_pals  # (8a) all added/contributed palettes
-      # (8b) categorical/non-gradient scales of added/contributed palettes:
-      # set8 <- pal_name %in% c("eth_pal", "eth_pal_light", "uni_freiburg_info", "uni_konstanz_pref")  
+      set8 <- pal_name %in% add_pals  # (8) all added/contributed palettes
       
       # Determine pal_set (as a number):
       pal_set <- which(c(set1, set2, set3, set4, set5, set6, set7, set8))
@@ -1217,7 +1215,7 @@ all_colors <- function(distinct = TRUE){
                                pal_unikn,  # contains 4 "seegrau" variants of "grey"
                                # Added/contributed color palettes:
                                caltech_pal_1, caltech_pal_2, caltech_pal_3, 
-                               eth_pal, eth_pal_light, eth_pal_grey, 
+                               eth_pal_1, eth_pal_2, eth_pal_3, 
                                fu_pal_0, fu_pal_1, fu_pal_2, fu_pal_3, 
                                hu_pal_1, hu_pal_2, 
                                lmu_pal_1, lmu_pal_2, lmu_pal_3, 
