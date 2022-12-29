@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 29
+## spds | uni.kn |  2022 12 30
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -446,7 +446,7 @@ caltech_pal_3 <- newpal(col = c(col_caltech_p,  col_caltech_b1, col_caltech_b2, 
 # - uni_goettingen_1: Primary colors ----
 
 col_goe_primary <- c("#153268", "#005f9b", "#0091c8", "#50a5d2")
-nam_goe_primary <- c("Uniblau", "Logoblau", "Logomittelblau", "Logohellblau")
+nam_goe_primary <- c("uniblau", "logoblau", "logomittelblau", "logohellblau")
 
 #' Primary colors of the University of Göttingen
 #'
@@ -502,8 +502,8 @@ uni_goettingen_1 <- newpal(col = col_goe_primary,
 
 col_goe_secondary <- c("#000000", "#FFFFFF", "#EAE2D8", "#f2f0e8", 
                        "#3b3b3a", "#575656", "#878786", "#d9dada")
-nam_goe_secondary <- c("Schwarz", "Weiss", "Chamois", "Altweiss",
-                       "Grau 90", "Grau 80", "Grau 60", "Grau 20")
+nam_goe_secondary <- c("schwarz", "weiss", "chamois", "altweiss",
+                       "grau 90%", "grau 80%", "grau 60%", "grau 20%")
 
 #' Secondary colors of the University of Göttingen
 #'
@@ -577,7 +577,7 @@ col_goe_fac <- c("#25795d", "#fd8f4a", "#eeb32a", "#256951", "#ac5b53", "#e07f41
 
 nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "Forstwissenschaften und Waldoekologie", "Geowissenschaften und Geographie", "Mathematik und Informatik", "Physik", 
                  "Jura", "Sozialwissenschaften", "Wirtschaftswissenschaften", "Philosophie", "Theologie", "Medizin")
-nam_goe_fac <- paste0("UG ", nam_goe_fac)
+# nam_goe_fac <- paste0("UG ", nam_goe_fac)  # add prefix
 
 #' Departmental colors of the University of Göttingen 
 #'
@@ -603,7 +603,7 @@ nam_goe_fac <- paste0("UG ", nam_goe_fac)
 #' 
 #' @examples
 #' uni_goettingen_3
-#' seecol(uni_goettingen_3)  # view color palette
+#' seecol(uni_goettingen_3, main = "Department colors at the University of Goettingen")  
 #' demopal(uni_goettingen_3, type = 3, main = "Departmental colors of the University of Göttingen")
 #'
 #' @family contributed color palettes
@@ -1236,8 +1236,8 @@ HU_0_web <- rgb(0, 51, 102, names = "HU blau web", maxColorValue = 255)
 #' \code{hu_pal_1} provides the three primary colors 
 #' of the \href{https://www.hu-berlin.de/en}{Humboldt University Berlin}, Germany. 
 #' 
-#' The color \code{"HU blue"} is defined as Pantone 294 and only approximated by RGB 0/55/108.
-#' Other approximations include CMYK 100/60/0/20, RGB 0/51/102 (reduced web scale), and RAL 270 3040.
+#' The color \code{"HU blau"} is defined as \code{Pantone 294} and approximated by \code{RGB 0/55/108}.
+#' Other approximations include \code{CMYK 100/60/0/20}, \code{RGB 0/51/102} (reduced web scale), and \code{RAL 270 3040}.
 #' 
 #' See the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients.
 #' 
@@ -1414,7 +1414,7 @@ hu_pal_2 <- newpal(col = c(HU_0, HU_1, HU_2, HU_3, HU_4, HU_5),
 #' 
 #' @examples
 #' lmu_pal_1
-#' seecol(lmu_pal_1, main = "The primary colors of LMU Munich")
+#' seecol(lmu_pal_1, main = "The primary colors of LMU München")
 #' demopal(lmu_pal_1, type = 3, main = "Primary colors of LMU Munich")
 #'
 #' @family contributed color palettes
@@ -1468,8 +1468,8 @@ lmu_pal_1 <- newpal(col = c("#00883A", "#232323", "#FFFFFF"),
 #' 
 #' @examples
 #' lmu_pal_2
-#' seecol(lmu_pal_2, main = "The secondary/grey colors of LMU Munich")
-#' demopal(lmu_pal_2, type = 5, main = "Secondary/grey colors of LMU Munich")
+#' seecol(lmu_pal_2, main = "The secondary/grey colors of the LMU München")
+#' demopal(lmu_pal_2, type = 5, main = "Secondary/gray colors of LMU Munich")
 #'
 #' # Combining primary and secondary LMU colors:
 #' lmu_pal_bipolor <- c(lmu_pal_1[-2], rev(lmu_pal_2), lmu_pal_1[2])
@@ -1545,7 +1545,7 @@ lmu_pal_2 <- newpal(col = c("#626468", "#C0C1C3", "#E6E6E7", "#F5F5F5"),
 #' 
 #' @examples
 #' lmu_pal_3
-#' seecol(lmu_pal_3, main = "The accent colors of LMU Munich")
+#' seecol(lmu_pal_3, main = "Accent colors of the LMU München")
 #' demopal(lmu_pal_3, type = 3, main = "Accent colors of LMU Munich")
 #'
 #' @family contributed color palettes
@@ -1814,7 +1814,7 @@ uni_bonn_2 <- newpal(col = c(ub_blau_4, ub_gelb_4, ub_grau_4),
 # 1 primary color: 
 
 frbg_blau <- "#344A9A"  # RGB 52/74/154; HEX #344a9a; Pantone 7687C; CMYK 90/75/0/0.
-names(frbg_blau) <- "Blau"
+names(frbg_blau) <- "blau"
 
 frbg_blau_gradient <- usecol(c(frbg_blau, "white"), n = 6)[1:5]  # mix with "white"
 # frbg_blau_transparent <- ac(col = frbg_blau, alpha = c(1, .80, .60, .40, .20))
@@ -1826,7 +1826,7 @@ frbg_blues <- newpal(col =  frbg_blau_gradient,
 # 4 secondary colors: 
 
 frbg_gruen <- "#00997D"  # "#00997d"
-names(frbg_gruen) <- "Gruen"
+names(frbg_gruen) <- "gruen"
 
 # frbg_gruen_gradient <- usecol(c(frbg_gruen, "white"), n = 6)[1:5]  # mix with "white"
 # 
@@ -1835,7 +1835,7 @@ names(frbg_gruen) <- "Gruen"
 #                      as_df = FALSE)
 
 frbg_braun <- "#8F6B30" # "#8f6b30"
-names(frbg_braun) <- "Braun"
+names(frbg_braun) <- "braun"
 
 # frbg_braun_gradient <- usecol(c(frbg_braun, "white"), n = 6)[1:5]  # mix with "white"
 # 
@@ -1844,7 +1844,7 @@ names(frbg_braun) <- "Braun"
 #                      as_df = FALSE)
 
 frbg_gelb <- "#FFE863"  # "#ffe863" 
-names(frbg_gelb) <- "Gelb"
+names(frbg_gelb) <- "gelb"
 
 # frbg_gelb_gradient <- usecol(c(frbg_gelb, "white"), n = 6)[1:5]  # mix with "white"
 # 
@@ -1853,7 +1853,7 @@ names(frbg_gelb) <- "Gelb"
 #                       as_df = FALSE)
 
 frbg_rosa <- "#F5C2ED" # "#f5c2ed"
-names(frbg_rosa) <- "Rosa"
+names(frbg_rosa) <- "rosa"
 
 # frbg_rosa_gradient <- usecol(c(frbg_rosa, "white"), n = 6)[1:5]  # mix with "white"
 # 
@@ -1914,7 +1914,7 @@ names(frbg_rosa) <- "Rosa"
 #' @export
 
 uni_freiburg_0 <- newpal(col = c("#000000", frbg_blau, "#FFFFFF"),
-                         names = c("Schwarz", "Blau", "Weiss"), 
+                         names = c("schwarz", "blau", "weiss"), 
                          as_df = FALSE)
 
 
@@ -1967,7 +1967,7 @@ uni_freiburg_0 <- newpal(col = c("#000000", frbg_blau, "#FFFFFF"),
 #' @export
 
 uni_freiburg_1 <- newpal(col = c("#000000", frbg_blues, "#FFFFFF"),
-                         names = c("Schwarz", "Blau", "Blau_80", "Blau_60", "Blau_40", "Blau_20", "Weiss"), 
+                         names = c("schwarz", "blau", "blau 80%", "blau 60%", "blau 40%", "blau 20%", "weiss"), 
                          as_df = FALSE)
 
 
@@ -2024,7 +2024,7 @@ uni_freiburg_1 <- newpal(col = c("#000000", frbg_blues, "#FFFFFF"),
 #' @export
 
 uni_freiburg_2 <- newpal(col = c(frbg_gruen, frbg_braun, frbg_gelb, frbg_rosa),
-                         names = c("Gruen", "Braun", "Gelb", "Rosa"), 
+                         names = c("gruen", "braun", "gelb", "rosa"), 
                          as_df = FALSE)
 
 
@@ -2695,10 +2695,10 @@ UM_petrol <- rgb(65, 137, 134, maxColorValue = 255)
 #' the primary \code{blau} color and six lighter shades 
 #' of the \href{https://www.uni-mannheim.de/}{University of Mannheim}, Germany. 
 #' 
-#' The primary color \code{blau} is alternatively defined as 
+#' The primary color \code{UM blau} is alternatively defined as 
 #' \code{RGB 0/48/86}, \code{HEX #003056}, \code{Pantone 654}, \code{CMYK 100/60/10/60}, or \code{RAL 5011}. 
 #' 
-#' The six lighter shades were created by mixing the primary \code{blau} with \code{"white"}.  
+#' The six lighter shades were created by mixing the primary \code{UM blau} with \code{"white"}.  
 #' See the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients. 
 #'  
 #' @return 
@@ -2730,7 +2730,7 @@ UM_petrol <- rgb(65, 137, 134, maxColorValue = 255)
 #' @export
 
 uni_mannheim_1 <- newpal(col = UM_blau_v7,
-                         names = c("blau", "blau 85%", "blau 70%", "blau 55%", "blau 40%", "blau 25%", "blau 10%"), 
+                         names = c("UM blau", "blau 85%", "blau 70%", "blau 55%", "blau 40%", "blau 25%", "blau 10%"), 
                          as_df = FALSE)
 
 # seecol(uni_mannheim_1, main = "Main 'blau' color gradient of Uni Mannheim")
@@ -2740,7 +2740,7 @@ uni_mannheim_1 <- newpal(col = UM_blau_v7,
 
 #' Primary and departmental accent colors of the University of Mannheim
 #'
-#' \code{uni_mannheim_2} provides the primary color \code{blau}, 
+#' \code{uni_mannheim_2} provides the primary color \code{UM blau}, 
 #' the main accent color \code{silber}, and 
 #' five departmental accent colors (\code{graublau}, \code{gruen}, \code{orange}, \code{rot}, and \code{petrol})
 #' of the the \href{https://www.uni-mannheim.de/}{University of Mannheim}, Germany. 
@@ -2749,7 +2749,7 @@ uni_mannheim_1 <- newpal(col = UM_blau_v7,
 #' 
 #' \enumerate{
 #' 
-#' \item \code{blau}: The primary color is alternatively defined as 
+#' \item \code{UM blau}: The primary color is alternatively defined as 
 #'       \code{RGB 0/48/86}, \code{HEX #003056}, \code{Pantone 654}, \code{CMYK 100/60/10/60}, or \code{RAL 5011}. 
 #' 
 #' \item \code{silber}: The main accent color is alternatively defined as 
@@ -2797,7 +2797,7 @@ uni_mannheim_1 <- newpal(col = UM_blau_v7,
 #' @export
 
 uni_mannheim_2 <- newpal(col = c(UM_blau, UM_silber, UM_graublau, UM_gruen, UM_orange, UM_rot, UM_petrol),
-                         names = c("blau", "silber", "graublau", "gruen", "orange", "rot", "petrol"),
+                         names = c("UM blau", "silber", "graublau", "gruen", "orange", "rot", "petrol"),
                          as_df = FALSE)
 
 # seecol(uni_mannheim_2, main = "Main + accent colors of Uni Mannheim")
@@ -3014,18 +3014,18 @@ UR_violettrot <-  rgb( 59,   0,  65, names = "violettrot",  maxColorValue = 255)
 UR_gruenbraun <-  rgb(134, 104,   0, names = "gruenbraun",  maxColorValue = 255) # Regensburger Universitätszentrum für Lehrerbildung (RUL)
 UR_wasserblau <-  rgb(  0, 129, 123, names = "wasserblau",  maxColorValue = 255) # Sportzentrum (SZ)
 
-UR_urangelb <-           rgb(205, 211,  15, names = "urangelb",    maxColorValue = 255) # Rechtswissenschaft
+UR_urangelb <-           rgb(205, 211,  15, names = "urangelb",           maxColorValue = 255) # Rechtswissenschaft
 UR_laerchennadelgruen <- rgb(174, 167,   0, names = "laerchennadelgruen", maxColorValue = 255) # Wirtschaftswissenschaften
-UR_vatikangelb <-        rgb(236, 188,   0, names = "vatikangelb", maxColorValue = 255) # Katholische Theologie
-UR_orangerot <-          rgb(236,  98,   0, names = "orangerot",   maxColorValue = 255) # Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
-UR_heucherarot <-        rgb(191,   0,  42, names = "heucherarot", maxColorValue = 255) # Humanwissenschaften
-UR_heidenelkenrot <-     rgb(156,   0,  75, names = "heidenelkenrot", maxColorValue = 255) # Sprach-, Literatur- und Kulturwissenschaften
-UR_blattgruen <-         rgb( 79, 184,   0, names = "blattgruen",   maxColorValue = 255) # Biologie und Vorklinische Medizin
-UR_tuerkisgruen <-       rgb(  0, 155, 119, names = "tuerkisgruen", maxColorValue = 255) # Mathematik
-UR_eisvogelblau <-       rgb(  0, 137, 147, names = "eisvogelblau", maxColorValue = 255) # Physik
-UR_spektralblau <-       rgb(  0, 135, 178, names = "spektralblau", maxColorValue = 255) # Chemie und Pharmazie
-UR_capriblau <-          rgb(  0,  85, 106, names = "capriblau",    maxColorValue = 255) # Medizin
-UR_glutrot <-            rgb(218,  60,  67, names = "glutrot",      maxColorValue = 255) # Informatik und Data Science
+UR_vatikangelb <-        rgb(236, 188,   0, names = "vatikangelb",        maxColorValue = 255) # Katholische Theologie
+UR_orangerot <-          rgb(236,  98,   0, names = "orangerot",          maxColorValue = 255) # Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
+UR_heucherarot <-        rgb(191,   0,  42, names = "heucherarot",        maxColorValue = 255) # Humanwissenschaften
+UR_heidenelkenrot <-     rgb(156,   0,  75, names = "heidenelkenrot",     maxColorValue = 255) # Sprach-, Literatur- und Kulturwissenschaften
+UR_blattgruen <-         rgb( 79, 184,   0, names = "blattgruen",         maxColorValue = 255) # Biologie und Vorklinische Medizin
+UR_tuerkisgruen <-       rgb(  0, 155, 119, names = "tuerkisgruen",       maxColorValue = 255) # Mathematik
+UR_eisvogelblau <-       rgb(  0, 137, 147, names = "eisvogelblau",       maxColorValue = 255) # Physik
+UR_spektralblau <-       rgb(  0, 135, 178, names = "spektralblau",       maxColorValue = 255) # Chemie und Pharmazie
+UR_capriblau <-          rgb(  0,  85, 106, names = "capriblau",          maxColorValue = 255) # Medizin
+UR_glutrot <-            rgb(218,  60,  67, names = "glutrot",            maxColorValue = 255) # Informatik und Data Science
 
 # Web colors / Flaechenfarbe / area colors:
 UR_urangelb_a <-           "#CDD30F" # Rechtswissenschaft
@@ -3257,7 +3257,7 @@ uni_regensburg_3 <- newpal(col = c(UR_urangelb_f, UR_laerchennadelgruen_f, UR_va
 # Motto: "Sciendo, Docendo, Curando"
 
 # Source: <https://www.uni-ulm.de/misc/corporate-design/#c875952>
-# Last check: 2022-12-29
+# Last check: 2022-12-30
 
 # Das Basis-Farbklima der Universität Ulm beruht auf den Farben Schwarz, Dunkelgrau, Hellblau und Weiß.
 # Dieses wird jeweils um die Fakultätsfarben und ihre Abstufungen erweitert.
@@ -3308,7 +3308,7 @@ UU_orange <- rgb(223, 109, 7, maxColorValue = 255)
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' \strong{unikn}, 2022-12-29.
+#' \strong{unikn}, 2022-12-30.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -3364,7 +3364,7 @@ uni_ulm_1 <- newpal(col = c("black", UU_dunkelgrau, UU_hellblau, "white", UU_akz
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' \strong{unikn}, 2022-12-29.
+#' \strong{unikn}, 2022-12-30.
 #' 
 #' @source 
 #' Color definitions are based on 
