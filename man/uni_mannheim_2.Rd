@@ -18,8 +18,9 @@ uni_mannheim_2
 A named vector of colors (HEX/HTML codes of type character).
 }
 \description{
-\code{uni_mannheim_2} provides the primary \code{blau} color, 
-the main \code{silber} accent color, and the five departmental accent colors 
+\code{uni_mannheim_2} provides the primary color \code{blau}, 
+the main accent color \code{silber}, and 
+five departmental accent colors (\code{graublau}, \code{gruen}, \code{orange}, \code{rot}, and \code{petrol})
 of the the \href{https://www.uni-mannheim.de/}{University of Mannheim}, Germany.
 }
 \details{

@@ -25,18 +25,18 @@ of the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany.
 Named colors of \code{uni_regensburg_1} correspond to the following UR services:
 
 \enumerate{
-\item neutralgrau: UR-Hausfarbe, Logo 
-\item blaugrau: Leitung, Organe und Verwaltung (LOV, Ausnahme: Referate I/3, I/4, I/5, I/6)
-\item schwarzrot: Chancengleichheit und Familie (Familien-Service, Frauenbeauftragte, Frauenfoerderung, Gleichstellung)
-\item schilfgruen: Service-Einrichtungen der Verwaltung für Studierende (Akademisches Auslandsamt, Studentenkanzlei, Zentrales Pruefungssekretariat, Zentrale Studienberatung, Senatsbeauftragter für Behinderte und chronisch Kranke) 
-\item dianthusrot: Universitaetsbibliothek (UB)
-\item saphirblau: Rechenzentrum (RZ)
-\item farngruen: Zentrum fuer Weiterbildung
-\item rotbraun: Zentrum fuer Sprache und Kommunikation (ZSK)
-\item perlviolett: Europaeum (Ost-West-Zentrum)
-\item violettrot: Zentrum fuer Hochschul- und Wissenschaftsdidaktik (ZHW)
-\item gruenbraun: Regensburger Universitätszentrum fuer Lehrerbildung (RUL)
-\item wasserblau: Sportzentrum (SZ)
+\item \code{neutralgrau}: Main color (UR-Hausfarbe, Logo)  
+\item \code{blaugrau}: Leitung, Organe und Verwaltung (LOV, Ausnahme: Referate I/3, I/4, I/5, I/6)
+\item \code{schwarzrot}: Chancengleichheit und Familie (Familien-Service, Frauenbeauftragte, Frauenfoerderung, Gleichstellung)
+\item \code{schilfgruen}: Service-Einrichtungen der Verwaltung für Studierende (Akademisches Auslandsamt, Studentenkanzlei, Zentrales Pruefungssekretariat, Zentrale Studienberatung, Senatsbeauftragter für Behinderte und chronisch Kranke) 
+\item \code{dianthusrot}: Universitaetsbibliothek (UB)
+\item \code{saphirblau}: Rechenzentrum (RZ)
+\item \code{farngruen}: Zentrum fuer Weiterbildung
+\item \code{rotbraun}: Zentrum fuer Sprache und Kommunikation (ZSK)
+\item \code{perlviolett}: Europaeum (Ost-West-Zentrum)
+\item \code{violettrot}: Zentrum fuer Hochschul- und Wissenschaftsdidaktik (ZHW)
+\item \code{gruenbraun}: Regensburger Universitätszentrum fuer Lehrerbildung (RUL)
+\item \code{wasserblau}: Sportzentrum (SZ)
 }
 
 When coloring large areas, named colors may be used in shades of 70%.

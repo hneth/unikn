@@ -22,7 +22,7 @@ A named vector of colors (HEX/HTML codes of type character).
 of the \href{https://www.uni-koeln.de/}{Universitaet zu Koeln}, Germany.
 }
 \details{
-Named colors of \code{uni_koeln_2} correspond to the following departments:
+The named colors of \code{uni_koeln_2} correspond to the following departments:
 
 \enumerate{
 \item \code{gruen}: Wirtschafts-/Sozialwissenschaftliche Fakultaet

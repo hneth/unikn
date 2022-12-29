@@ -1359,7 +1359,7 @@ hu_pal_2 <- newpal(col = c(HU_0, HU_1, HU_2, HU_3, HU_4, HU_5),
 
 
 
-# LMU / Ludwig-Maximilians-Universität München / LM Munich: ------ 
+# LMU / Ludwig-Maximilians-Universität München / LMU Munich: ------ 
 
 # Source: https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/kommunikation-und-presse/lmu-brand-guide/designgrundsaetze/farben/index.html
 # 2022-12-02
@@ -1593,8 +1593,8 @@ mpg_grey_2  <- usecol(c(mpg_grey,  "white"), n = 3)[1:2]
 #' 
 #' The two primary colors are at the extreme positions of \code{mpg_pal}: 
 #' \enumerate{
-#' \item MPG green (at \code{mpg_pal[1]}): Defined as \code{Pantone 328}, \code{CMYK 100/0/57/30}, or \code{RGB 17/102/86}.
-#' \item MPG grey: (at \code{mpg_pal[5]}): Defined as \code{Pantone 427}, \code{CMYK 0/0/6/15}, or \code{RGB 221/222/214}.
+#' \item \code{MPG green} (at \code{mpg_pal[1]}): Defined as \code{Pantone 328}, \code{CMYK 100/0/57/30}, or \code{RGB 17/102/86}.
+#' \item \code{MPG grey} (at \code{mpg_pal[5]}): Defined as \code{Pantone 427}, \code{CMYK 0/0/6/15}, or \code{RGB 221/222/214}.
 #' }
 #' 
 #' At \code{mpg_pal[3]}, the color \code{"white"} was added to enable symmetrical color gradients. 
@@ -2478,7 +2478,7 @@ koeln_fa_7 <- rgb(145, 196, 234, maxColorValue = 255)
 #' \code{uni_koeln_2} provides the departmental (faculty) colors 
 #' of the \href{https://www.uni-koeln.de/}{Universitaet zu Koeln}, Germany. 
 #' 
-#' Named colors of \code{uni_koeln_2} correspond to the following departments:
+#' The named colors of \code{uni_koeln_2} correspond to the following departments:
 #' 
 #' \enumerate{
 #' \item \code{gruen}: Wirtschafts-/Sozialwissenschaftliche Fakultaet
@@ -2726,8 +2726,9 @@ uni_mannheim_1 <- newpal(col = UM_blau_gr,
 
 #' Primary and departmental accent colors of the University of Mannheim
 #'
-#' \code{uni_mannheim_2} provides the primary \code{blau} color, 
-#' the main \code{silber} accent color, and the five departmental accent colors 
+#' \code{uni_mannheim_2} provides the primary color \code{blau}, 
+#' the main accent color \code{silber}, and 
+#' five departmental accent colors (\code{graublau}, \code{gruen}, \code{orange}, \code{rot}, and \code{petrol})
 #' of the the \href{https://www.uni-mannheim.de/}{University of Mannheim}, Germany. 
 #' 
 #' \code{uni_mannheim_2} contains the following colors:
@@ -3053,18 +3054,18 @@ UR_glutrot_f <-            "#DA3C43" # Informatik und Data Science (TODO: Same a
 #' Named colors of \code{uni_regensburg_1} correspond to the following UR services:
 #' 
 #' \enumerate{
-#' \item neutralgrau: UR-Hausfarbe, Logo 
-#' \item blaugrau: Leitung, Organe und Verwaltung (LOV, Ausnahme: Referate I/3, I/4, I/5, I/6)
-#' \item schwarzrot: Chancengleichheit und Familie (Familien-Service, Frauenbeauftragte, Frauenfoerderung, Gleichstellung)
-#' \item schilfgruen: Service-Einrichtungen der Verwaltung für Studierende (Akademisches Auslandsamt, Studentenkanzlei, Zentrales Pruefungssekretariat, Zentrale Studienberatung, Senatsbeauftragter für Behinderte und chronisch Kranke) 
-#' \item dianthusrot: Universitaetsbibliothek (UB)
-#' \item saphirblau: Rechenzentrum (RZ)
-#' \item farngruen: Zentrum fuer Weiterbildung
-#' \item rotbraun: Zentrum fuer Sprache und Kommunikation (ZSK)
-#' \item perlviolett: Europaeum (Ost-West-Zentrum)
-#' \item violettrot: Zentrum fuer Hochschul- und Wissenschaftsdidaktik (ZHW)
-#' \item gruenbraun: Regensburger Universitätszentrum fuer Lehrerbildung (RUL)
-#' \item wasserblau: Sportzentrum (SZ)
+#' \item \code{neutralgrau}: Main color (UR-Hausfarbe, Logo)  
+#' \item \code{blaugrau}: Leitung, Organe und Verwaltung (LOV, Ausnahme: Referate I/3, I/4, I/5, I/6)
+#' \item \code{schwarzrot}: Chancengleichheit und Familie (Familien-Service, Frauenbeauftragte, Frauenfoerderung, Gleichstellung)
+#' \item \code{schilfgruen}: Service-Einrichtungen der Verwaltung für Studierende (Akademisches Auslandsamt, Studentenkanzlei, Zentrales Pruefungssekretariat, Zentrale Studienberatung, Senatsbeauftragter für Behinderte und chronisch Kranke) 
+#' \item \code{dianthusrot}: Universitaetsbibliothek (UB)
+#' \item \code{saphirblau}: Rechenzentrum (RZ)
+#' \item \code{farngruen}: Zentrum fuer Weiterbildung
+#' \item \code{rotbraun}: Zentrum fuer Sprache und Kommunikation (ZSK)
+#' \item \code{perlviolett}: Europaeum (Ost-West-Zentrum)
+#' \item \code{violettrot}: Zentrum fuer Hochschul- und Wissenschaftsdidaktik (ZHW)
+#' \item \code{gruenbraun}: Regensburger Universitätszentrum fuer Lehrerbildung (RUL)
+#' \item \code{wasserblau}: Sportzentrum (SZ)
 #' }
 #' 
 #' When coloring large areas, named colors may be used in shades of 70%.
@@ -3185,18 +3186,18 @@ all.equal(uni_regensburg_2, uni_regensburg_2_a)  # RGB values correspond to web 
 #' Named colors of \code{uni_regensburg_3} correspond to the following UR faculties:
 #' 
 #' \enumerate{
-#' \item urangelb: Rechtswissenschaft
-#' \item laerchennadelgruen: Wirtschaftswissenschaften
-#' \item vatikangelb: Katholische Theologie
-#' \item orangerot: Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
-#' \item heucherarot: Humanwissenschaften
-#' \item heidenelkenrot: Sprach-, Literatur- und Kulturwissenschaften
-#' \item blattgruen: Biologie und Vorklinische Medizin
-#' \item tuerkisgruen: Mathematik
-#' \item eisvogelblau: Physik
-#' \item spektralblau: Chemie und Pharmazie
-#' \item capriblau: Medizin
-#' \item glutrot: Informatik und Data Science
+#' \item \code{urangelb}: Rechtswissenschaft
+#' \item \code{laerchennadelgruen}: Wirtschaftswissenschaften
+#' \item \code{vatikangelb}: Katholische Theologie
+#' \item \code{orangerot}: Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
+#' \item \code{heucherarot}: Humanwissenschaften
+#' \item \code{heidenelkenrot}: Sprach-, Literatur- und Kulturwissenschaften
+#' \item \code{blattgruen}: Biologie und Vorklinische Medizin
+#' \item \code{tuerkisgruen}: Mathematik
+#' \item \code{eisvogelblau}: Physik
+#' \item \code{spektralblau}: Chemie und Pharmazie
+#' \item \code{capriblau}: Medizin
+#' \item \code{glutrot}: Informatik und Data Science
 #' }
 #' 
 #' Note that the font color glutrot is currently identical to the area color of \code{\link{uni_regensburg_2}}.
@@ -3235,7 +3236,6 @@ uni_regensburg_3 <- newpal(col = c(UR_urangelb_f, UR_laerchennadelgruen_f, UR_va
                                    UR_spektralblau_f, UR_capriblau_f, UR_glutrot_f), 
                            names = names(uni_regensburg_2), 
                            as_df = FALSE)
-
 
 
 # Uni Ulm: ------

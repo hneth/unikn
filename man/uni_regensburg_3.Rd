@@ -26,18 +26,18 @@ at the \href{https://www.uni-regensburg.de/}{University of Regensburg}, Germany.
 Named colors of \code{uni_regensburg_3} correspond to the following UR faculties:
 
 \enumerate{
-\item urangelb: Rechtswissenschaft
-\item laerchennadelgruen: Wirtschaftswissenschaften
-\item vatikangelb: Katholische Theologie
-\item orangerot: Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
-\item heucherarot: Humanwissenschaften
-\item heidenelkenrot: Sprach-, Literatur- und Kulturwissenschaften
-\item blattgruen: Biologie und Vorklinische Medizin
-\item tuerkisgruen: Mathematik
-\item eisvogelblau: Physik
-\item spektralblau: Chemie und Pharmazie
-\item capriblau: Medizin
-\item glutrot: Informatik und Data Science
+\item \code{urangelb}: Rechtswissenschaft
+\item \code{laerchennadelgruen}: Wirtschaftswissenschaften
+\item \code{vatikangelb}: Katholische Theologie
+\item \code{orangerot}: Philosophie, Kunst-, Geschichts- und Gesellschaftswissenschaften
+\item \code{heucherarot}: Humanwissenschaften
+\item \code{heidenelkenrot}: Sprach-, Literatur- und Kulturwissenschaften
+\item \code{blattgruen}: Biologie und Vorklinische Medizin
+\item \code{tuerkisgruen}: Mathematik
+\item \code{eisvogelblau}: Physik
+\item \code{spektralblau}: Chemie und Pharmazie
+\item \code{capriblau}: Medizin
+\item \code{glutrot}: Informatik und Data Science
 }
 
 Note that the font color glutrot is currently identical to the area color of \code{\link{uni_regensburg_2}}.

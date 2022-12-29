@@ -24,8 +24,8 @@ of the \href{https://www.mpg.de/en}{Max Planck Society}, Germany.
 \details{
 The two primary colors are at the extreme positions of \code{mpg_pal}: 
 \enumerate{
-\item MPG green (at \code{mpg_pal[1]}): Defined as \code{Pantone 328}, \code{CMYK 100/0/57/30}, or \code{RGB 17/102/86}.
-\item MPG grey: (at \code{mpg_pal[5]}): Defined as \code{Pantone 427}, \code{CMYK 0/0/6/15}, or \code{RGB 221/222/214}.
+\item \code{MPG green} (at \code{mpg_pal[1]}): Defined as \code{Pantone 328}, \code{CMYK 100/0/57/30}, or \code{RGB 17/102/86}.
+\item \code{MPG grey} (at \code{mpg_pal[5]}): Defined as \code{Pantone 427}, \code{CMYK 0/0/6/15}, or \code{RGB 221/222/214}.
 }
 
 At \code{mpg_pal[3]}, the color \code{"white"} was added to enable symmetrical color gradients. 
