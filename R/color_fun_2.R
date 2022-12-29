@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 12 22
+## spds | uni.kn | 2022 12 29
 ## --------------------------
 
 ## Define color-related functions 
@@ -205,8 +205,12 @@ newpal <- function(col,            # a vector of colors
     
   } else {
     
-    outpal <- unlist(outpal)  # as vector
+    outpal <- unlist(outpal)  # as vector 
     
+    if (!is.vector(outpal)) {
+      outpal <- as.vector(outpal)  # remove attributes other than names!
+    }
+
   }
   
   
