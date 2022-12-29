@@ -32,6 +32,8 @@ Changes since last release:
 
 - Updated color palettes:
 
+    - [ETH Zurich](https://ethz.ch/): Renamed `eth_pal`, `eth_pal_light`, `eth_pal_grey` 
+    to `eth_pal_1`, `eth_pal_2`, `eth_pal_3`, respectively 
     - [Max Planck Society](https://www.mpg.de/en): `mpg_pal` (based on RGB values and extended to 5 colors) 
     - [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_0`, `uni_freiburg_1`, `uni_freiburg_2`,   
     (added to palettes from\ 2022: `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`)  

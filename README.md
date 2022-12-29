@@ -196,8 +196,8 @@ color palettes of the following institutions:
 
 -   [Caltech](https://www.caltech.edu/): `caltech_pal_1`,
     `caltech_pal_2`, `caltech_pal_3`
--   [ETH Zurich](https://ethz.ch/): `eth_pal`, `eth_pal_light`,
-    `eth_pal_grey`
+-   [ETH Zurich](https://ethz.ch/): `eth_pal_1`, `eth_pal_2`,
+    `eth_pal_3`
 -   [Free University Berlin](https://www.fu-berlin.de/en/index.html):
     `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3`
 -   [Humboldt University Berlin](https://www.hu-berlin.de/en):
@@ -208,7 +208,7 @@ color palettes of the following institutions:
 -   [University of Freiburg](https://uni-freiburg.de/):
     `uni_freiburg_0`, `uni_freiburg_1`, `uni_freiburg_2`,  
     (from 2022: `uni_freiburg_br`, `uni_freiburg_blue`,
-    `uni_freiburg_grey`, `uni_freiburg_info`)  
+    `uni_freiburg_grey`, `uni_freiburg_info`)
 -   [University of Göttingen](https://uni-goettingen.de/):
     `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3`
 -   [University of Hamburg](https://www.uni-hamburg.de/):
@@ -216,7 +216,7 @@ color palettes of the following institutions:
 -   [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`,
     `uni_koeln_2`
 -   [University of Konstanz](https://www.uni-konstanz.de/):
-    `uni_konstanz`, `uni_konstanz_pref`
+    `uni_konstanz_1`, `uni_konstanz_2`
 -   [University of Mannheim](https://www.uni-mannheim.de/):
     `uni_mannheim_1`, `uni_mannheim_2`
 -   [Princeton University](https://www.princeton.edu/):
@@ -292,7 +292,7 @@ Using `seecol()` on an individual color palette provides a quick
 overview over its colors and details:
 
     # Inspect an individual color palette:
-    seecol(pal = eth_pal,                      # a color palette / list of palettes / keyword
+    seecol(pal = eth_pal_1,                    # a color palette / list of palettes / keyword
            col_brd = "white", lwd_brd = 5,     # color and width of borders
            main = "Colors of the ETH Zurich")  # plot title 
 
