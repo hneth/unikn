@@ -2635,17 +2635,22 @@ uni_konstanz_2 <- newpal(col = pal_unikn_pref,
 # Uni Mannheim: ------ 
 
 # Source: https://www.uni-mannheim.de/cd/marke/farben/
-# 2022-12-28
+# 2022-12-30
 
 # Grundfarbe "blau":
 # RGB 0/48/86 / Pantone 654 / CMYK 100/60/10/60 / RAL 5011
 
 UM_blau <- rgb(0, 48, 86, maxColorValue = 255)
 
-# Gradient: 100% + 6 shades of 85 70 55 40 25 10:
+# Create gradient: 100% + 6 shades of 85 70 55 40 25 10%:
 UM_blau_10 <- usecol(c(UM_blau, "white"), n = 11)[10]
-UM_blau_g7 <- usecol(c(UM_blau, UM_blau_10), n = 7)
-# seecol(UM_blau_g7)
+UM_blau_g7 <- usecol(c(UM_blau, UM_blau_10), n = 7)  # has attribute $comment "custom"
+UM_blau_v7 <- as.vector(UM_blau_g7) 
+
+# # Compare:
+# str(UM_blau_g7)  # has attribute $comment "custom"
+# str(UM_blau_v7)  # vector removed $comment "custom"
+
 
 # Akzentfarbe "silber":
 # RGB 179/182/185 / Pantone 887 / CMYK 35/25/25/0 / RAL 9006
@@ -2696,7 +2701,7 @@ UM_petrol <- rgb(65, 137, 134, maxColorValue = 255)
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' \strong{unikn}, 2022-12-28.
+#' \strong{unikn}, 2022-12-30.
 #' 
 #' @source 
 #' Color definitions are based on 
@@ -2720,8 +2725,8 @@ UM_petrol <- rgb(65, 137, 134, maxColorValue = 255)
 #' 
 #' @export
 
-uni_mannheim_1 <- newpal(col = UM_blau_g7,
-                         names = c("blau", "blau_85", "blau_70", "blau_55", "blau_40", "blau_25", "blau_10"),
+uni_mannheim_1 <- newpal(col = UM_blau_v7,
+                         names = c("blau", "blau_85", "blau_70", "blau_55", "blau_40", "blau_25", "blau_10"), 
                          as_df = FALSE)
 
 # seecol(uni_mannheim_1, main = "Main 'blau' color gradient of Uni Mannheim")
@@ -2763,7 +2768,7 @@ uni_mannheim_1 <- newpal(col = UM_blau_g7,
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' \strong{unikn}, 2022-12-28.
+#' \strong{unikn}, 2022-12-30.
 #' 
 #' @source 
 #' Color definitions are based on 
