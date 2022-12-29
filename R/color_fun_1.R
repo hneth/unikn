@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2022 12 27
+## spds | uni.kn | 2022 12 29
 ## --------------------------
 
 ## Define color-related functions 
@@ -1230,6 +1230,7 @@ all_colors <- function(distinct = TRUE){
                                uni_mannheim_1, uni_mannheim_2, 
                                uni_princeton_0, uni_princeton_1, uni_princeton_2,
                                uni_regensburg_1, uni_regensburg_2, uni_regensburg_3,
+                               uni_ulm_1, uni_ulm_2, 
                                rpi_pal_1, rpi_pal_2, rpi_pal_3
   ), 
   use_names = TRUE)
@@ -1261,14 +1262,15 @@ all_colors <- function(distinct = TRUE){
   }
   
   # Output: ---- 
+  
   return(out)
   
 } # all_colors().
 
 ## Check:
 # all_colors()[1:50]
-# length(all_colors(distinct = TRUE))   # 744 [on 2022-12-28]
-# length(all_colors(distinct = FALSE))  # 987 [on 2022-12-28]
+# length(all_colors(distinct = TRUE))   # 745 [on 2022-12-29]
+# length(all_colors(distinct = FALSE))  # 996 [on 2022-12-29]
 # grepal("see", all_colors())     # finds unikn colors (and matching colors())
 # grepal("gruen", all_colors())   # finds unikn and added colors
 # grepal("purple", all_colors())  # finds added and base R colors
