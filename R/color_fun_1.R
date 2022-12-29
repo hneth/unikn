@@ -1226,7 +1226,7 @@ all_colors <- function(distinct = TRUE){
                                uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
                                uni_hamburg_1, uni_hamburg_2, 
                                uni_koeln_1, uni_koeln_2, 
-                               # uni_konstanz, uni_konstanz_pref, # duplicates of pal_ above.
+                               # uni_konstanz_1, uni_konstanz_2,  # duplicates of pal_ (above).
                                uni_mannheim_1, uni_mannheim_2, 
                                uni_princeton_0, uni_princeton_1, uni_princeton_2,
                                uni_regensburg_1, uni_regensburg_2, uni_regensburg_3,

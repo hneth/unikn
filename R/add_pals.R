@@ -26,7 +26,7 @@
 #               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
 #               "uni_hamburg_1", "uni_hamburg_2",
 #               "uni_koeln_1", "uni_koeln_2",
-#               "uni_konstanz", "uni_konstanz_pref",
+#               "uni_konstanz_1", "uni_konstanz_2",
 #               "uni_mannheim_1", "uni_mannheim_2",
 #               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
 #               "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
@@ -2537,11 +2537,11 @@ uni_koeln_2 <- newpal(col = c(koeln_fa_1, koeln_fa_2, koeln_fa_3, koeln_fa_4, ko
 # Last check: 2022-10-20
 
 
-# - uni_konstanz: ---- 
+# - uni_konstanz_1: ---- 
 
 #' Default colors of the University of Konstanz 
 #'
-#' \code{uni_konstanz} provides the default color palette 
+#' \code{uni_konstanz_1} provides the default color palette 
 #' of the \href{https://www.uni-konstanz.de/}{University of Konstanz}, Germany. 
 #' 
 #' The \strong{unikn} package provides many additional color palettes for 
@@ -2551,7 +2551,7 @@ uni_koeln_2 <- newpal(col = c(koeln_fa_1, koeln_fa_2, koeln_fa_3, koeln_fa_4, ko
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' \strong{unikn}, 2022-10-20.
+#' \strong{unikn}, 2022-12-30.
 #' 
 #' @source 
 #' R package \strong{unikn}, 
@@ -2563,14 +2563,14 @@ uni_koeln_2 <- newpal(col = c(koeln_fa_1, koeln_fa_2, koeln_fa_3, koeln_fa_4, ko
 #' \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/}
 #'
 #' @examples
-#' uni_konstanz
-#' seecol(uni_konstanz)  # view color palette
-#' demopal(uni_konstanz, type = 4, main = "Using Uni Konstanz colors", seed = 1)
+#' uni_konstanz_1
+#' seecol(uni_konstanz_1, main = "Default colors of the University of Konstanz")
+#' demopal(uni_konstanz_1, type = 4, main = "Using Uni Konstanz colors", seed = 1)
 #'
 #' @family contributed color palettes
 #'
 #' @seealso 
-#' \code{\link{uni_konstanz_pref}} for the preferred colors of the University of Konstanz;  
+#' \code{\link{uni_konstanz_2}} for the preferred colors of the University of Konstanz;  
 #' \code{\link{seecol}} for viewing and comparing color palettes; 
 #' \code{\link{usecol}} for using color palettes; 
 #' \code{\link{simcol}} for finding similar colors; 
@@ -2579,16 +2579,16 @@ uni_koeln_2 <- newpal(col = c(koeln_fa_1, koeln_fa_2, koeln_fa_3, koeln_fa_4, ko
 #' 
 #' @export
 
-uni_konstanz <- newpal(col = pal_unikn,
-                       names = names(pal_unikn),
-                       as_df = FALSE)
+uni_konstanz_1 <- newpal(col = pal_unikn,
+                         names = names(pal_unikn),
+                         as_df = FALSE)
 
 
-# - uni_konstanz_pref: ---- 
+# - uni_konstanz_2: ---- 
 
 #' Preferred colors of the University of Konstanz 
 #'
-#' \code{uni_konstanz_pref} provides the color palette of preferred colors  
+#' \code{uni_konstanz_2} provides the color palette of preferred colors  
 #' of the \href{https://www.uni-konstanz.de/}{University of Konstanz}, Germany.
 #' 
 #' The \strong{unikn} package provides many additional color palettes for 
@@ -2610,9 +2610,9 @@ uni_konstanz <- newpal(col = pal_unikn,
 #' \url{https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/}
 #'
 #' @examples
-#' uni_konstanz_pref
-#' seecol(uni_konstanz_pref)  # view color palette
-#' demopal(uni_konstanz_pref, type = 3, main = "Preferred colors of the Uni Konstanz")
+#' uni_konstanz_2
+#' seecol(uni_konstanz_2, main = "Preferred colors of the University of Konstanz")  
+#' demopal(uni_konstanz_2, type = 3, main = "Preferred colors of the Uni Konstanz")
 #'
 #' @family contributed color palettes
 #'
@@ -2626,9 +2626,9 @@ uni_konstanz <- newpal(col = pal_unikn,
 #' 
 #' @export
 
-uni_konstanz_pref <- newpal(col = pal_unikn_pref,
-                            names = names(pal_unikn_pref),
-                            as_df = FALSE)
+uni_konstanz_2 <- newpal(col = pal_unikn_pref,
+                         names = names(pal_unikn_pref),
+                         as_df = FALSE)
 
 
 
