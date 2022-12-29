@@ -829,6 +829,8 @@ seecol <- function(pal = "unikn_all",  # which palette?
   
   if (length(pal_tmp) > 1) {
     
+    # print(length(pal_tmp))  # 4debugging
+    
     # Set margins:
     if ((is.null(sub) == FALSE) && (is.na(sub) == FALSE) && (sub != "") ){
       par(mar = c(5.2, 6, 3, 1))  # enable subtitle at bottom (line 5)

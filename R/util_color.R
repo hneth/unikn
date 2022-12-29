@@ -659,7 +659,8 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   
   # Process the 'pal' argument: ----- 
   
-  # Getting palettes by keyword: ----- 
+  # Getting palettes by keyword: ----  
+  
   keys <- c(#
     # (a) all palettes (of the unikn package):
     "all",                            # 1. all palettes (of the unikn package)
@@ -674,7 +675,7 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   )
   
   # Throw an error, if no valid keyword is specified:
-  if ( !pal %in% keys ) {
+  if ( !(pal %in% keys) ) {
     stop('Invalid keyword specified. Allowed keywords are 
          c("all", "unikn_all", "all_unikn", "pref_all", "all_pref", "grad_all", "all_grad", "add")')
   } else {
@@ -711,6 +712,7 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   
   # Get list of palettes specified by keyword:
   lst_pal <- sapply(pal_names, get)
+  # print(lst_pal)  # 4debugging
   
   # Check if lst_pal elements are actually color palettes:
   is_pal <- lapply(X = lst_pal,
@@ -737,6 +739,7 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   
   # Remove non-colors:
   col_pals <- lst_pal[unlist(is_pal)]
+  # print(col_pals) # 4debugging
   
   # Check if palette is non-empty:
   if (length(col_pals) == 0) {
