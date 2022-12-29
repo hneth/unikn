@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 28
+## spds | uni.kn |  2022 12 29
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -3237,6 +3237,57 @@ uni_regensburg_3 <- newpal(col = c(UR_urangelb_f, UR_laerchennadelgruen_f, UR_va
                            as_df = FALSE)
 
 
+
+# Uni Ulm: ------
+
+# Source: <https://www.uni-ulm.de/misc/corporate-design/#c875952>
+# Last check: 2022-12-29
+
+# Das Basis-Farbklima der Universität Ulm beruht auf den Farben Schwarz, Dunkelgrau, Hellblau und Weiß.
+# Dieses wird jeweils um die Fakultätsfarben und ihre Abstufungen erweitert.
+# Die Akzentfarbe kann als untergeordnete Schmuckfarbe eingesetzt werden.
+
+# Hausfarben erster Ordnung: 
+# 1. schwarz: "black"
+# 2. dunkelgrau: 
+UU_dunkelgrau <- rgb(87, 87, 86, maxColorValue = 255)
+# 3. hellblau:
+UU_hellblau <- rgb(125, 154, 170, maxColorValue = 255)
+# 4. weiss: "white"
+#
+# +: UU Akzent:
+UU_akzent <- rgb(169, 162, 141, maxColorValue = 255)
+
+# Fakultätsfarben:
+# 1. Medizin:
+UU_blau <- rgb(38, 84, 124, maxColorValue = 255)
+# 2. Ingenieurwissenschaften, Informatik und Psychologie:
+UU_rot <- rgb(163, 38, 56, maxColorValue = 255)
+# 3. Mathematik und Wirtschaftswissenschaften:
+UU_gruen <- rgb(86, 170, 28, maxColorValue = 255)  # Note: ERROR in HEX definition (same as for "rot"). 
+# 4. Naturwissenschaften:
+UU_orange <- rgb(223, 109, 7, maxColorValue = 255)
+
+
+# - uni_ulm_1: ---- 
+
+uni_ulm_1 <- newpal(col = c("black", UU_dunkelgrau, UU_hellblau, "white", UU_akzent),
+                    names = c("schwarz", "dunkelgrau", "hellblau", "weiss", "accent"),
+                    as_df = FALSE)
+
+# seecol(uni_ulm_1, main = "Main colors of the University of Ulm")
+
+
+# - uni_ulm_2: ---- 
+
+uni_ulm_2 <- newpal(col = c(UU_blau, UU_rot, UU_gruen, UU_orange),
+                    names = c("blau", "rot", "gruen", "orange"),
+                    as_df = FALSE)
+
+# seecol(uni_ulm_2, main = "Departmental colors of the University of Ulm")
+
+
+
 # RPI: Rensselaer Polytechnic Institute: ------ 
 
 # Source: <https://scer.rpi.edu/brand-in-action/colors>
@@ -3511,7 +3562,6 @@ willamette_pal <- newpal(col = c("#BA0C2F", "#C6AA76",
 ## ToDo: -------- 
 
 # Public:
-# - Uni Ulm: <https://www.uni-ulm.de/misc/corporate-design/#c875952>
 # - RPTU: <https://www.startklar2023.de/brand-portal-rptu>
 
 # Intranet:
