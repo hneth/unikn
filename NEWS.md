@@ -1,5 +1,5 @@
 
-# unikn 0.7.0.9013
+# unikn 0.7.0.9014
 
 This is the current development version of **unikn** (v0.7.0.9001+). 
 
@@ -23,6 +23,7 @@ Changes since last release:
     - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3` 
     - [University of Ulm](https://www.uni-ulm.de/): `uni_ulm_1`, `uni_ulm_2` 
     - [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3` 
+    - [RPTU Kaiserslautern-Landau](https://rptu.de/): `rptu_pal` 
 
 
 <!-- Blank line.  --> 
@@ -290,6 +291,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-12-29.] 
+[File `NEWS.md` updated on 2022-12-30.] 
 
 <!-- eof. -->
