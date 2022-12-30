@@ -61,6 +61,7 @@ Other contributed color palettes:
 \code{\link{mpg_pal}},
 \code{\link{rpi_pal_1}},
 \code{\link{rpi_pal_2}},
+\code{\link{rptu_pal}},
 \code{\link{uni_bonn_1}},
 \code{\link{uni_bonn_2}},
 \code{\link{uni_freiburg_0}},
