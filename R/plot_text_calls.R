@@ -14,7 +14,7 @@
 # [B]: Simpler functions that call plot_text() (with fewer options and sensible defaults): -------- 
 
 
-# (1) mark: Highlight text on a plot: ------ 
+# 1. mark(): Highlight text on a plot ------ 
 
 # - Documentation: ---- 
 
@@ -232,7 +232,7 @@ mark <- function(labels,             # labels of text element(s) to plot
 #      cex = 1.5)
 
 
-# (2) uline: Underline text on a plot: ------ 
+# 2. uline(): Underline text on a plot ------ 
 
 # - Documentation: ---- 
 
@@ -384,7 +384,7 @@ uline <- function(labels,             # labels of text element(s) to plot
 #      new_plot = "blank")
 
 
-# (3) post: Plot a post-it note with text: ------ 
+# 3. post(): Plot a post-it note with text ------ 
 
 # - Documentation: ---- 
 
@@ -600,7 +600,7 @@ post <- function(labels,             # labels of text element(s) to plot
 # post(labels = my_url, y = .1, font = 4, new_plot = "xbox")
 
 
-# (4) heading: Arrange headings (according to title specifications): ------ 
+# 4. heading(): Arrange headings (according to title specifications) ------ 
 
 # - Documentation: ---- 
 

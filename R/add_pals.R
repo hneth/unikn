@@ -447,6 +447,7 @@ caltech_pal_3 <- newpal(col = c(col_caltech_p,  col_caltech_b1, col_caltech_b2, 
 # Neben der Primaerfarbe des dunklen Blaus stehen als Sekundaerfarben mehrere Blautoene 
 # sowie Grau, Schwarz, Weiss und Chamois zur Verfuegung.
 
+
 # - uni_goettingen_1: Primary colors ----
 
 col_goe_primary <- c("#153268", "#005f9b", "#0091c8", "#50a5d2")
@@ -504,7 +505,7 @@ uni_goettingen_1 <- newpal(col = col_goe_primary,
 # seecol(goe_chamois)     # HEX: "#EAE2D8"
 # rgb2hex(234, 226, 216)  # HEX: "#EAE2D8"
 
-col_goe_secondary <- c("#000000", "#FFFFFF", "#EAE2D8", "#f2f0e8", 
+col_goe_secondary <- c("black",   "white",   "#eae2d8", "#f2f0e8", 
                        "#3b3b3a", "#575656", "#878786", "#d9dada")
 nam_goe_secondary <- c("schwarz", "weiss", "chamois", "altweiss",
                        "grau 90%", "grau 80%", "grau 60%", "grau 20%")
@@ -555,10 +556,11 @@ uni_goettingen_2 <- newpal(col = col_goe_secondary,
 
 # seecol(uni_goettingen_2)
 
+
 # - uni_goettingen_3: Departments / faculties ----
 
 # Souce: <https://www.uni-goettingen.de/de/589412.html>
-# 2022-11-19
+# 2022-11-20
 
 # Fakultaetsfarben
 # 
@@ -577,11 +579,12 @@ uni_goettingen_2 <- newpal(col = col_goe_secondary,
 # Correction: Using HEX code corresponding to RGB values.
 
 col_goe_fac <- c("#25795d", "#fd8f4a", "#eeb32a", "#256951", "#ac5b53", "#e07f41", "#fda642", 
-                 "#c70d2d", "#b52141", "#2b7ab3", "#45195c", "#44253D", "#153268")
+                 "#c70d2d", "#b52141", "#2b7ab3", "#45195c", "#44253d", "#153268")
 
 nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "Forstwissenschaften und Waldoekologie", "Geowissenschaften und Geographie", "Mathematik und Informatik", "Physik", 
                  "Jura", "Sozialwissenschaften", "Wirtschaftswissenschaften", "Philosophie", "Theologie", "Medizin")
 # nam_goe_fac <- paste0("UG ", nam_goe_fac)  # add prefix
+
 
 #' Departmental colors of the University of Göttingen 
 #'
@@ -593,7 +596,7 @@ nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "F
 #' \code{uni_goettingen_3} corrects an error in the color definitions 
 #' of \url{https://www.uni-goettingen.de/de/589412.html}, 
 #' where the color definition for "Theologie" used non-corresponding RGB and HEX values. 
-#' We adopted the RGB value \code{68 37 61} and its corresponding HEX value \code{"#44253D"}.
+#' We adopted \code{RGB 68/37/61} and the corresponding \code{HEX #44253d} values.
 #' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).
@@ -803,7 +806,7 @@ eth_pal_2 <- newpal(col = col_ETH_light,
 #   RGB 0, 0, 0,
 #   "#00000"
 
-eth_black <- usecol("#000000")  # = "black"
+eth_black <- "black"  # = usecol("#000000")
 
 # - Black light: black backgrounds such as meta-navigation and buttons
 #   RGB 34, 34, 34
@@ -815,7 +818,7 @@ eth_black_light <- usecol("#222222")
 #   RGBA 0, 0, 0, 0.6
 #   "#00000" x 60%
 
-eth_black_60 <- usecol("#000000", alpha = .60)
+eth_black_60 <- usecol("black", alpha = .60)
 
 # - Black, 48% opacity, contrast 3:1: icon colour
 #   RGBA 34, 34, 34, 0.48
@@ -1917,7 +1920,7 @@ names(frbg_rosa) <- "rosa"
 #' 
 #' @export
 
-uni_freiburg_0 <- newpal(col = c("#000000", frbg_blau, "#FFFFFF"),
+uni_freiburg_0 <- newpal(col = c("black", frbg_blau, "white"),
                          names = c("schwarz", "blau", "weiss"), 
                          as_df = FALSE)
 
@@ -1970,7 +1973,7 @@ uni_freiburg_0 <- newpal(col = c("#000000", frbg_blau, "#FFFFFF"),
 #' 
 #' @export
 
-uni_freiburg_1 <- newpal(col = c("#000000", frbg_blues, "#FFFFFF"),
+uni_freiburg_1 <- newpal(col = c("black", frbg_blues, "white"),
                          names = c("schwarz", "blau", "blau 80%", "blau 60%", "blau 40%", "blau 20%", "weiss"), 
                          as_df = FALSE)
 
@@ -2306,7 +2309,7 @@ uni_freiburg_info <- newpal(col = c("#2a6ebb", "#a7c1e3", "#7b2927", "#de3831", 
 #' 
 #' @export
 
-uni_hamburg_1 <- newpal(col = c("#E2001A", "#0271BB",  "#000000", "#3B515B"),
+uni_hamburg_1 <- newpal(col = c("#e2001a", "#0271bb",  "black", "#3b515b"),
                         names = c("rot", "blau",  "schwarz", "steingrau"),
                         as_df = FALSE)
 

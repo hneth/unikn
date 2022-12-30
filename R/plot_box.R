@@ -6,7 +6,7 @@
 
 ## (A): General functions to plot rectangular boxes, frames, (etc.): -------- 
 
-## plot_box: Enhanced (expert/experimental) function that plots ONLY a colored box with an "x" (but NO text): -----
+# plot_box(): Enhanced (expert/experimental) function that plots ONLY a colored box with an "x" (but NO text) -----
 
 ## Note: plot_box is an experimental function, intended only for expert users.
 

@@ -2,7 +2,7 @@
 ## spds | uni.kn |  2022 08 23
 ## ---------------------------
 
-## plot_unikn: Function to plot unikn logo: ------ 
+## plot_unikn(): Function to plot unikn logo ------ 
 
 plot_kn <- function(back = TRUE, 
                     city = TRUE, 

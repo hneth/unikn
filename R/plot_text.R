@@ -6,7 +6,7 @@
 
 ## (A): General function to plot formatted text with options (e.g., size, font, mark/line decorations): -------- 
 
-## (1) plot_text: Add formatted text labels (with decorations like highlighting or underlining) to a plot: -------- 
+# plot_text(): Add formatted text labels (with decorations like highlighting or underlining) to a plot -------- 
 
 # Note that plot_text is an experimental function, intended for expert users.
 # plot_text is an enhanced (expert/experimental) version of box_text 

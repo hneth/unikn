@@ -1244,9 +1244,11 @@ names(Signal) <- "Signal"
 # Signal  # "#EFDC60"
 
 
-## Lookup vectors of palette names: ----------
 
-## Definition: -------
+# Lookup vectors of palette names: ------ 
+
+# - Definition: ----
+
 # all_pal_names1 <- ls()[grepl("pal_", ls())]  # utils::apropos("pal_")
 # all_pal_names1 <- all_pal_names1[!all_pal_names1 %in% c("pal_signal", "pal_unikn_ppt")]  
 # remove ppt and signal to avoid crashing on inconsistency in usecol (defined but not with color selection).
@@ -1258,7 +1260,7 @@ all_palkn_grad  <- c("pal_seeblau", "pal_peach", "pal_grau", "pal_petrol", "pal_
 all_palkn_pref  <- c("pal_unikn_pref", all_palkn_grad)
 all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
 
-# additional/contributed palettes:
+# - Additional/contributed palettes: ----
 
 add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
               "eth_pal_1", "eth_pal_2", "eth_pal_3",
@@ -1284,12 +1286,12 @@ add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
 # length(add_pals)  # 48 [2022-12-30]
 
 
-# All palettes / largest set (of unikn package):
+# - All palettes / largest set (of unikn package): ----
 
 all_pals <- c(all_palkn, add_pals)
 
 
-## Sources: Links to unikn color definitions ------ 
+# Sources: Links to unikn color definitions ------ 
 
 # Defining CD elements according to specifications publicly provided at https://www.uni-konstanz.de. 
 # Sources for color definitions: 
@@ -1297,7 +1299,7 @@ all_pals <- c(all_palkn, add_pals)
 # https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/ 
 
 
-## Note: Compare colors ----- 
+# Note: Compare colors ----- 
 
 # - Seeblau seems like a muted variant of "deepskyblue"
 # - Pinky seems like a muted variant of "deeppink"

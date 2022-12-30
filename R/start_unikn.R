@@ -1,8 +1,11 @@
 ## start_unikn.R | unikn
-## spds | uni.kn |  2022 12 25
+## spds | uni.kn |  2022 12 30
 ## ---------------------------
 
-## Open package guide: -----------------------
+## Starting unikn: ------
+
+
+# - unikn.guide: Open package guide ----
 
 #' Open the unikn package guides 
 #'
@@ -19,7 +22,7 @@ unikn.guide <- function() {
 } # unikn.guide().
 
 
-## Initialize package: ------
+# - .onAttach: Initialize package ----
 
 .onAttach <- function(libname, pkgname) {
   

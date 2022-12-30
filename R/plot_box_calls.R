@@ -6,7 +6,7 @@
 
 ## (B): Basic functions that call plot_box (with fewer options, but sensible defaults): -------- 
 
-## xbox: Plot a colored box with "x" (as a simple version of plot_box): ------ 
+# 1. xbox(): Plot a colored box with "x" (as a simple version of plot_box): ------ 
 
 # - Documentation: ---- 
 
@@ -96,7 +96,7 @@ xbox <- function(col = Seeblau,  # default box bg/fill color: Seeblau ("#59C7EB"
 # xbox(dim = c(1, 2))  # 1:2 dimension (higher than wide)
 
 
-## slide: Plot a colored slide/frame without "x" (i.e., a simpler version of plot_box): ------ 
+# 2. slide(): Plot a colored slide/frame without "x" (i.e., a simpler version of plot_box): ------ 
 
 # - Documentation: ---- 
 
@@ -174,7 +174,8 @@ slide <- function(col = NA,         # default box bg/fill color: none/white/tran
 # slide(col = Seeblau, lwd = 0)  
 # slide(dim = c(18:9))  # larger and 2:1 wider than high
 
-## Test: Testbed for code above: ------ 
+
+# Test: Testbed for code above: ------ 
 
 # # Aspect ratio of current plot:
 # plot_xy <- par("pin")                # use par("pin") OR dev.size("in")
@@ -182,15 +183,18 @@ slide <- function(col = NA,         # default box bg/fill color: none/white/tran
 # scale_x <- 1/plot_ratio              # multiplicative correction factor (for x-widths)
 # scale_x
 
-## Text sources: ------ 
+
+# Text sources: ------ 
 
 # Defining CD elements according to specifications publicly provided at https://www.uni-konstanz.de. 
 # Sources for text specifications: 
 # https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/ 
 
+
 ## Done: ------
 
 # - Clean up code.  [2019-06-04]
+
 
 ## ToDo: ------
 

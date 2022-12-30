@@ -6,9 +6,10 @@
 
 # (A) Common components: See file plot_util.R --------
 
+
 # (B) Individual functions: --------
 
-# plot_bar: A bar plot ------ 
+# 1. plot_bar(): A bar plot ------ 
 
 # Note: ... is passed to barplot().
 
@@ -156,7 +157,7 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
 
 
 
-# plot_ncurve: Plot overlapping normal curves ------
+# 2. plot_ncurve(): Plot overlapping normal curves ------
 
 # Note: ... passed to polygon().
 
@@ -310,7 +311,7 @@ plot_ncurve <- function(pal, col_par = NULL, alpha = 2/3,
 # plot_ncurve(pal_unikn_pref, col_par = NA, alpha = 1/3)
 
 
-# plot_polygon: A polygon/mountain range plot ------ 
+# 3. plot_polygon(): A polygon/mountain range plot ------ 
 
 # Note: ... passed to polygon().
 
@@ -466,7 +467,7 @@ plot_polygon <- function(pal, col_par = NULL, alpha = 1,
 # head(x)
 
 
-# plot_table: An area/mosaic plot ------ 
+# 4. plot_table(): An area/mosaic plot ------ 
 
 # Note: ... passed to plot().
 
@@ -582,7 +583,7 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 
 
 
-# plot_scatter: A plot of points ------ 
+# 5. plot_scatter(): A plot of points ------ 
 
 # Note: ... passed to plot().
 
@@ -702,9 +703,10 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
 
 
 
+
 # (C) Wrapper function: --------
 
-# demopal: A general function to call specific functions: ------ 
+# 6. demopal(): A general function to call specific functions ------ 
 
 #' Demonstrate a color palette (in a plot) 
 #'

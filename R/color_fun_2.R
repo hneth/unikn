@@ -11,7 +11,7 @@
 ## (2) Auxiliary functions: ---------- 
 
 
-# newpal(): Define a new color palette: ---------- 
+# 1. newpal(): Define a new color palette ---------- 
 
 # - Documentation: ------ 
 
@@ -311,7 +311,7 @@ newpal <- function(col,            # a vector of colors
 #        main = "Comparing custom color palettes")
 
 
-# grepal(): Find colors matching a pattern (in palette names): -------
+# 2. grepal(): Find colors matching a pattern (in palette names) -------
 
 # - Documentation: ------ 
 
@@ -507,7 +507,7 @@ grepal <- function(pattern,
 # seecol(grepal("blau", pal_unikn_pref, plot = FALSE), main = "All colors matching 'blau'")
 
 
-# simcol(): Find/see similar colors: ------
+# 3. simcol(): Find/see similar colors ------
 
 # Goal: Find (named) colors similar to a given color, within some tolerance value(s).
 
@@ -743,7 +743,7 @@ simcol <- function(col_target,
 
 
 
-# shades_of(): Get n lighter or darker versions of a given color: ------ 
+# 4. shades_of(): Get n lighter or darker versions of a given color ------ 
 
 # - Documentation: ------ 
 
@@ -827,7 +827,7 @@ shades_of <- function(n = 5,
 # seecol(shades_of(4, col_1 = Bordeaux, alpha = .5))
 
 
-# ac(): A flexible wrapper of adjustcolor(): ------ 
+# 5. ac(): A flexible wrapper of adjustcolor() ------ 
 
 # Goal: Wrap essentials of grDevices::adjustcolor 
 #       as a more convenient utility function:

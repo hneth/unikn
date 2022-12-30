@@ -1,15 +1,15 @@
 ## util_plot.R | unikn
-## spds | uni.kn |  2022 11 29
+## spds | uni.kn |  2022 12 30
 ## ---------------------------
 
 # Plot-related utility functions (mostly for internal use, not exported).
 
 
-## Utility functions for plotting: -------- 
+# Utility functions for plotting: -------- 
 
 
 
-# plot_axes: Check whether axes are desired: ------
+# - plot_axes: Check whether axes are desired: ------
 
 # Goal: In demopal() plots: Hide axes when col_par has been set to NA:
 # Return: Boolean/logical value.
@@ -29,7 +29,7 @@ plot_axes <- function(col_par){
 } # plot_axes().
 
 
-# plot_col: Plot a vector of colors (as circles or rectangles) -------
+# - plot_col: Plot a vector of colors (as circles or rectangles) -------
 
 plot_col <- function(x,         # a *vector* of colors to be plotted. 
                      ypos = 1,  # position on y axis. 
@@ -101,7 +101,7 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
 
 
 
-# plot_exists: Check whether a plot exists ------ 
+# - plot_exists: Check whether a plot exists ------ 
 
 plot_exists <- function(){
   
@@ -111,7 +111,7 @@ plot_exists <- function(){
 
 
 
-# plot_grid: Plot a grid of points (to position objects) ------ 
+# - plot_grid: Plot a grid of points (to position objects) ------ 
 
 plot_grid <- function(col = grey(0, .50)){
   
@@ -199,7 +199,7 @@ plot_grid <- function(col = grey(0, .50)){
 
 
 
-# plot_mar: Set plotting margins ------
+# - plot_mar: Set plotting margins ------
 
 plot_mar <- function(mar_all = 0, oma_all = 0){
   
@@ -243,7 +243,7 @@ plot_mar <- function(mar_all = 0, oma_all = 0){
 
 
 
-# plot_shape: Plot a shape in some color ------
+# - plot_shape: Plot a shape in some color ------
 
 plot_shape <- function(pos_x, pos_y,  # midpoint of shape  
                        col_fill,      # fill color  
@@ -299,7 +299,7 @@ plot_shape <- function(pos_x, pos_y,  # midpoint of shape
 
 
 
-# layout_y: Compute y-coordinates given y range, heights of objects, and layout_type options ------
+# - layout_y: Compute y-coordinates given y range, heights of objects, and layout_type options ------
 
 layout_y <- function(y_top, y_bot, height_seq, layout_type) {
   

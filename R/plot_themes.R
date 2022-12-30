@@ -8,6 +8,7 @@
 
 ## ToDo.
 
+
 ## (B) ggplot2 themes: ------- 
 
 ## Check if ggplot2 is available: 
@@ -28,7 +29,8 @@
 # } # if ("ggplot2" %in% (.packages())) end.
 
 
-## theme_unikn: Default theme for ggplot2: ------ 
+
+# theme_unikn: Default theme for ggplot2: ------ 
 
 # - Documentation: ---- 
 
@@ -133,7 +135,8 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 } # theme_unikn().
 
 
-## theme_grau: Alternative theme for ggplot2: ------ 
+
+# theme_grau: Alternative theme for ggplot2: ------ 
 
 # - Documentation: ---- 
 
@@ -242,6 +245,7 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       complete = TRUE)
   
 } # theme_grau().
+
 
 
 ## ToDo: ------

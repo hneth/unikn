@@ -1,14 +1,14 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2022 12 22
+## spds | uni.kn | 2022 12 30
 ## ---------------------------
 
 # Color-related utility functions: 
 # Converting and evaluating colors and accessing and plotting color palettes. 
 
 
-## 1. Color conversion and evaluation functions: -------
+# (A) Color conversion and evaluation functions: -------
 
-# col2rgb: (in grDevices) ------ 
+# - col2rgb(): (in grDevices) ------ 
 
 ## Check: 
 # col2rgb("black", alpha = FALSE)  # Note: alpha is Boolean argument.
@@ -21,7 +21,7 @@
 
 
 
-# get_alpha: Get color transparency / alpha values ------
+# - get_alpha(): Get color transparency / alpha values ------
 
 get_alpha <- function(pal){
   
@@ -36,7 +36,7 @@ get_alpha <- function(pal){
 
 
 
-# rgb2hex: Color conversion function ------ 
+# - rgb2hex(): Color conversion function ------ 
 
 rgb2hex <- function(R, G, B) {
   
@@ -50,7 +50,7 @@ rgb2hex <- function(R, G, B) {
 
 
 
-# col2hex: Color conversion function ------ 
+# - col2hex(): Color conversion function ------ 
 
 col2hex <- function(col, alpha = NA, use_alpha = FALSE) {
   
@@ -99,7 +99,7 @@ col2hex <- function(col, alpha = NA, use_alpha = FALSE) {
 
 
 
-# is_hex_col: Checking for HEX-colors ------ 
+# - is_hex_col(): Checking for HEX-colors ------ 
 
 is_hex_col <- function(color) {
   
@@ -117,7 +117,7 @@ is_hex_col <- function(color) {
 # is_hex_col(my_col)
 
 
-# is_col: Verify color status (of an individual color) ------ 
+# - is_col(): Verify color status (of an individual color) ------ 
 
 # Assumes that input color is an individual character string. 
 
@@ -137,7 +137,7 @@ is_col <- function(color) {
 # is_col(col2rgb("white"))  # => FALSE FALSE FALSE
 
 
-# col_asif_alpha: Color corresponding to the hue of a transparent color ------ 
+# - col_asif_alpha(): Color corresponding to the hue of a transparent color ------ 
 
 # Which non-transparent color values match the hue of a transparent color?
 # Task: Get the non-transparent color corresponding to the hue of a transparent color (with 0 < alpha < 1)
@@ -291,7 +291,7 @@ col_asif_alpha <- function(col, alpha = NA, col_bg = "white"){
 # seecol(c(col_1, col_2))
 
 
-# col_asif_alpha_mix: Color corresponding to the hue of a transparent color ------ 
+# - col_asif_alpha_mix(): Color corresponding to the hue of a transparent color ------ 
 
 # Solution 2: Mix a gradient with col_bg = "white" and then select by alpha value: 
 
@@ -325,7 +325,7 @@ col_asif_alpha_mix <- function(col, alpha = 1, col_bg = "white"){
 
 
 
-# v_col_asif_alpha: Vectorized version of col_asif_alpha(): ----
+# - v_col_asif_alpha(): Vectorized version of col_asif_alpha(): ----
 
 v_col_asif_alpha <- Vectorize(col_asif_alpha, vectorize.args = c("col", "alpha"))
 
@@ -353,7 +353,7 @@ v_col_asif_alpha <- Vectorize(col_asif_alpha, vectorize.args = c("col", "alpha")
 # seecol(my_pal)
 
 
-# col_distance: Color distance (in RGB space) ------
+# - col_distance(): Color distance (in RGB space) ------
 
 col_distance <- function(col_1, col_2){
   
@@ -394,7 +394,7 @@ col_distance <- function(col_1, col_2){
 
 
 
-# col_distinct: A unique() function for color values (using HEX codes) ------
+# - col_distinct(): A unique() function for color values (using HEX codes) ------
 
 # Goal: Remove visual duplicate colors (using HEX values to judge the identiy of colors, 
 #       rather than color names). 
@@ -509,9 +509,9 @@ col_distinct <- function(pal, use_hex = TRUE, use_alpha = FALSE, use_names = FAL
 
 
 
-## 2. Color and color palette retrieval functions: ------
+# (B) Color and color palette retrieval functions: ------
 
-# parse_pal: Parse color palette input ------ 
+# - parse_pal(): Parse color palette input ------ 
 
 parse_pal <- function(pal) {
   
@@ -653,7 +653,7 @@ parse_pal <- function(pal) {
 
 
 
-# get_pal_key: Get a color palette or list of palettes by keyword -------
+# - get_pal_key(): Get a color palette or list of palettes by keyword -------
 
 get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   
@@ -714,7 +714,7 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   lst_pal <- sapply(pal_names, get)
   # print(lst_pal)  # 4debugging
   
-  # Check if lst_pal elements are actually color palettes:
+  # Check which lst_pal elements are actually color palettes:
   is_pal <- lapply(X = lst_pal,
                    FUN = function(x) {
                      
@@ -722,6 +722,9 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
                      if ( !is.vector(x) & !is.list(x) ) { # palettes are vectors or lists:
                        
                        is_color_ix <- FALSE
+                       
+                       # ToDo: usecol() returns an object for which attr(cols, which = "comment") == "custom"
+                       #       => is.vector() is FALSE for such objects!
                        
                      } else { # check all elements:
                        
@@ -733,7 +736,7 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
                      return(all(is_color_ix))  # TRUE iff ALL elements are colors
                      
                    }
-  )
+  ) # ToDo: Define FUN as a separate function is_col_pal().
   
   # print(is_pal)  # 4debugging
   
@@ -773,7 +776,7 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
 } # get_pal_key(). 
 
 
-# get_col_names: Get custom and default color names ------
+# - get_col_names(): Get custom and default color names ------
 
 get_col_names <- function(col, custom_pals = all_pals){
   
@@ -811,6 +814,8 @@ get_col_names <- function(col, custom_pals = all_pals){
 
 
 ## ToDo: ------
+
+# - In `get_pal_key()`: Define FUN in `lapply()`` as a separate function `is_col_pal()`.
 
 # - Consider exporting utility functions `get_alpha()`, `col_distance()` and `col_distinct()`.
 

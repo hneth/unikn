@@ -11,7 +11,7 @@
 ## (1) Main functions: ---------- 
 
 
-# 1. usecol(): Use a color palette (as is): ---------  
+# usecol(): Use a color palette (as is) ---------  
 
 # - Documentation: ------ 
 
@@ -439,7 +439,7 @@ usecol <- function(pal = pal_unikn,
 # seecol(usecol(c(Seeblau, "deepskyblue", Pinky, "deeppink"), use_names = TRUE))
 
 
-# 2. seecol(): Plot/see the colors of a palette or multiple palettes: ---------- 
+# seecol(): Plot/see the colors of a palette or multiple palettes ---------- 
 
 # - Documentation: ------ 
 
@@ -1179,7 +1179,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
 # par(op)
 
 
-# 3. all_colors: Combine all unikn color palettes with default R colors(): ------
+# all_colors(): Combine all unikn color palettes with default R colors() ------
 
 #' Provide all unikn colors and base R colors 
 #' 
@@ -1289,6 +1289,12 @@ all_colors <- function(distinct = TRUE){
 
 
 ## ToDo: ------
+
+# - seecol(): Compare 
+# seecol(eth_pal_3) # showing only 6-digit HEX values, with 
+# seecol(eth_pal_3[3:7]) # showing full HEX values (8 digits) for transparent colors
+
+# - usecol(): $comment attribute "custom" prevents output from being a vector
 
 # - Consider creating more vivid versions of some
 #   `pal_unikn_pref` colors (e.g., "deepskyblue", "deeppink", etc.)

@@ -1,5 +1,5 @@
 ## color_def_2.R | unikn
-## spds | uni.kn  | 2022 12 25
+## spds | uni.kn  | 2022 12 30
 ## ---------------------------
 
 ## Define colors and color palettes (2 of 2).
@@ -8,7 +8,7 @@
 
 #  (1) pal_unikn: Combination of pal_seeblau [5] and pal_unikn_web (11): ------ 
 
-#   (a) Documentation: ----  
+#    (a) Documentation: ----  
 
 #' uni.kn default color palette (11 colors) 
 #'
@@ -57,7 +57,7 @@
 #'
 #' @export
 
-#   (b) Definition: ----  
+#    (b) Definition: ----  
 
 pal_unikn <- cbind(rev(pal_seeblau), pal_unikn_web[5:10])
 
@@ -67,7 +67,7 @@ pal_unikn <- cbind(rev(pal_seeblau), pal_unikn_web[5:10])
 #  (2) pal_unikn_pref: Scale of all 9 (or 8 + 1) preferred colors: ------
 
 
-#   (+) Original definition: ---- 
+#    (+) Original definition: ---- 
 
 pal_unikn_pref <- data.frame(  # Element: 
   "Seeblau"     = Seeblau,     # pal_seeblau[[3]],      #  1. seeblau
@@ -81,7 +81,7 @@ pal_unikn_pref <- data.frame(  # Element:
   "Signal"      = Signal,      # pal_signal[[2]],       # (9.) (alert) signal
   stringsAsFactors = FALSE)
 
-#   (a) Documentation: ----  
+#    (a) Documentation: ----  
 
 #' uni.kn color palette of preferred colors (9 colors)
 #'
@@ -123,7 +123,7 @@ pal_unikn_pref <- data.frame(  # Element:
 #'
 #' @export
 
-#   (b) Definition: ----  
+#    (b) Definition: ----  
 #   Re-arrange original order (for higher contrasts):
 
 pal_unikn_pref <- pal_unikn_pref[c(1, 7, 5, 2, 6, 9, 8, 3, 4)]
@@ -138,7 +138,7 @@ rownames(pal_unikn_pref) <- "1"  # fix/set rownames() of palette
 
 #  (3) pal_unikn_light: Scale of 8 light colors (in 4 pairs) from other palettes: ------ 
 
-#   (a) Documentation: ----  
+#    (a) Documentation: ----  
 
 #' uni.kn color palette of light colors (10 colors)
 #'
@@ -175,7 +175,7 @@ rownames(pal_unikn_pref) <- "1"  # fix/set rownames() of palette
 #'
 #' @export
 
-#   (b) Definition: ----  
+#    (b) Definition: ----  
 
 pal_unikn_light <- data.frame(
   pal_seeblau[c(3, 1)],
@@ -195,7 +195,7 @@ rownames(pal_unikn_light) <- "1"  # fix/set rownames() of palette
 
 #  (4) pal_unikn_dark: Scale of 8 dark colors (in 4 pairs) from other palettes: ------ 
 
-#   (a) Documentation: ----  
+#    (a) Documentation: ----  
 
 #' uni.kn color palette of dark colors (10 colors)
 #'
@@ -227,7 +227,7 @@ rownames(pal_unikn_light) <- "1"  # fix/set rownames() of palette
 #'
 #' @export
 
-#   (b) Definition: ----  
+#    (b) Definition: ----  
 
 pal_unikn_dark <- data.frame(
   pal_karpfenblau[c(5, 3)],
@@ -246,7 +246,7 @@ rownames(pal_unikn_dark) <- "1"  # fix/set rownames() of palette
 
 #  (5) pal_unikn_pair: Scale of 16 paired colors (in 8 pairs) from other palettes: ------ 
 
-#   (a) Documentation: ----  
+#    (a) Documentation: ----  
 
 #' uni.kn color palette of pairwise colors (16 colors)
 #'
@@ -278,7 +278,7 @@ rownames(pal_unikn_dark) <- "1"  # fix/set rownames() of palette
 #'
 #' @export
 
-#   (b) Definition: ----  
+#    (b) Definition: ----  
 
 # darker/brighter pairs:
 
@@ -316,7 +316,7 @@ rownames(pal_unikn_pair) <- "1"  # fix/set rownames() of palette
 # (D) Message colors (using crayon/cli): -------- 
 
 
-# # Define crayon styles: ------ 
+# - crayon styles: ------ 
 # 
 # # lighter:
 # in_grau     <- crayon::make_style(pal_grau[[4]], grey = TRUE, colors = 256)
@@ -335,7 +335,7 @@ rownames(pal_unikn_pair) <- "1"  # fix/set rownames() of palette
 # # - In contexts outside the unikn pkg, the RStudio terminal only shows the 256 ANSI colors.
 # 
 # 
-# # demo_crayons: ------
+# - demo_crayons: ------
 # 
 # demo_crayons <- function(){
 #   
@@ -354,7 +354,7 @@ rownames(pal_unikn_pair) <- "1"  # fix/set rownames() of palette
 # } # demo_crayons().
 
 
-# Define cli ANSI styles: ------
+# - cli ANSI styles: ------
 
 # lighter:
 in_grau     <- cli::make_ansi_style(pal_grau[[4]], grey = TRUE, colors = 256)
@@ -373,7 +373,7 @@ in_karpfenblau <- cli::make_ansi_style(pal_karpfenblau[[4]], colors = 256)
 # - In contexts outside the unikn pkg, the RStudio terminal only shows the 256 ANSI colors.
 
 
-# demo_ansi_styles: ------
+# - demo_ansi_styles: ------
 
 demo_ansi_styles <- function(){
   
@@ -393,7 +393,7 @@ demo_ansi_styles <- function(){
 
 
 
-## Sources: Links to unikn color definitions ------ 
+# Sources: Links to unikn color definitions ------ 
 
 # Defining CD elements according to specifications publicly provided at https://www.uni-konstanz.de. 
 # Sources for color definitions: 

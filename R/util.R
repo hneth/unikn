@@ -1,14 +1,14 @@
 ## util.R | unikn
-## spds | uni.kn |  2022 11 29
+## spds | uni.kn |  2022 12 30
 ## ---------------------------
 
 # General utility functions (mostly for internal use, not exported).
 
 
-## Generic utility functions: --------  
+# Generic utility functions: --------  
 
 
-# add_quotes: Add single quotes around string elements ------
+# - add_quotes: Add single quotes around string elements ------
 
 add_quotes <- function(x) {
   
@@ -18,7 +18,7 @@ add_quotes <- function(x) {
 
 
 
-# monotonic: Check if a vector is monotonically increasing ------ 
+# - monotonic: Check if a vector is monotonically increasing ------ 
 
 monotonic <-function(v) {
   
@@ -40,7 +40,7 @@ monotonic <-function(v) {
 
 
 
-# set_seed: Set seed or randomize ------ 
+# - set_seed: Set seed or randomize ------ 
 
 set_seed <- function(seed = NULL){
   
@@ -56,7 +56,7 @@ set_seed <- function(seed = NULL){
 
 
 
-# url_unikn: Format an URL the unikn way ------ 
+# - url_unikn: Format an URL the unikn way ------ 
 
 #' \code{url_unikn} formats an URL the uni.kn way 
 #' 
@@ -120,7 +120,7 @@ url_unikn <- function(url = "https://www.uni-konstanz.de/"){
 
 
 
-# kill_all: Clean/empty current environment ------
+# - kill_all: Clean/empty current environment ------
 
 kill_all <- function(){
   
