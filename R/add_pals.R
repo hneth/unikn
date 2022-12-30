@@ -30,8 +30,9 @@
 #               "uni_mannheim_1", "uni_mannheim_2",
 #               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
 #               "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
-#               "uni_ulm_1", "uni_ulm_2", 
-#               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3"
+#               "uni_ulm_1", "uni_ulm_2",
+#               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3",
+#               "rptu_pal"
 # )
 
 inst <- c(rep("Caltech", 3), 
@@ -50,7 +51,8 @@ inst <- c(rep("Caltech", 3),
           rep("Princeton University", 3),
           rep("University of Regensburg", 3),
           rep("University of Ulm", 2),          
-          rep("RPI", 3)
+          rep("RPI", 3), 
+          "RPTU"
 )
 
 inst_alt <- c(rep("California Institute of Technology", 3),
@@ -69,7 +71,8 @@ inst_alt <- c(rep("California Institute of Technology", 3),
               rep("Princeton University", 3),
               rep("Universit\u00E4t Regensburg", 3),
               rep("Universit\u00E4t Ulm", 2),
-              rep("Rensselaer Polytechnic Institute", 3)
+              rep("Rensselaer Polytechnic Institute", 3), 
+              "Rheinland-Pf\u00E4lzische Technische Universit\u00E4t Kaiserslautern-Landau"
 )
 
 url <- c(rep("https://www.caltech.edu/", 3), 
@@ -88,7 +91,8 @@ url <- c(rep("https://www.caltech.edu/", 3),
          rep("https://www.princeton.edu/", 3),
          rep("https://www.uni-regensburg.de/", 3),
          rep("https://www.uni-ulm.de/", 2),
-         rep("https://www.rpi.edu/", 3)
+         rep("https://www.rpi.edu/", 3),
+         "https://rptu.de/"
 )
 
 uni_data <- data.frame(inst = inst, inst_alt = inst_alt, url = url, pal = add_pals)
@@ -2958,7 +2962,7 @@ uni_princeton_2 <- newpal(col = c(orange_black, "black", "white"),
 # Uni Regensburg / UR: ------
 
 # Source: <https://www.uni-regensburg.de/verwaltung/corporate-design/index.html>
-# Last update: 2022-11-25
+# 2022-11-25
 
 # 142.142.141 : Neutralgrau : UR-Hausfarbe / Logo 
 
@@ -3257,7 +3261,7 @@ uni_regensburg_3 <- newpal(col = c(UR_urangelb_f, UR_laerchennadelgruen_f, UR_va
 # Motto: "Sciendo, Docendo, Curando"
 
 # Source: <https://www.uni-ulm.de/misc/corporate-design/#c875952>
-# Last check: 2022-12-30
+# 2022-12-30
 
 # Das Basis-Farbklima der Universität Ulm beruht auf den Farben Schwarz, Dunkelgrau, Hellblau und Weiß.
 # Dieses wird jeweils um die Fakultätsfarben und ihre Abstufungen erweitert.
@@ -3616,6 +3620,216 @@ rpi_pal_3 <- newpal(col = c("#ab2328", "#c35442", "#d58570", "#eabcad",
 # seecol(rpi_pal_3, main = "Tint Colors of RPI")
 
 
+
+
+# - RPTU: ------
+
+# Rheinland-Pfälzischen Technischen Universität Kaiserslautern-Landau
+# <https://rptu.de/>
+
+# Source: <https://www.startklar2023.de/brand-portal-rptu>
+# 2022-12-30
+
+# PDF Manual (v1): p. 34:
+
+# Die RPTU hat 10 Farben definiert, die neben Schwarz und Weiß treten können. 
+# Die Farben sollen zur Gestaltung eingesetzt werden. 
+# Sie dienen der Gliederung, der Lenkung von Aufmerksamkeit, der Emotionalisierung der Darstellung 
+# und zu[r] Unterscheidung des Dargestellten.
+# Jeweils 2 Farben bilden ein harmonisches Farb-Paar. Sie dürfen miteinander kombiniert werden. 
+# Wird in einer Darstellung neben Schwarz und Weiß nur 1 Farb-Paar verwendet, 
+# dürfen die Farben des Farb-Paares zusätzlich in 10%-Schritten abgestuft werden.
+# Die Verwendung von Farben außerhalb der definierten Farbpalette ist nicht zulässig.
+
+
+# PDF Manual (v1): p. 36f:
+
+# RPTU BLAUGRAU:
+# CMYK 70 44 30 15 
+# Pantone 5415 C 
+# Pantone 5415 U
+# RAL 7031
+# RGB 80 114 137 
+# HEX #507289
+
+rptu_blaugrau <- "#507289"
+
+# RPTU GRÜNGRAU:
+# CMYK 55 10 30 0 
+# Pantone 550 C 
+# Pantone 550 U 
+# RAL 6027 
+# RGB 119 182 186 
+# HEX #77b6ba
+
+rptu_gruengrau <- "#77b6ba"
+
+# RPTU DUNKELBLAU:
+# CMYK 100 85 40 30 
+# Pantone 294 C 
+# Pantone 294 U
+# RAL 5026
+# RGB 4 44 88 
+# HEX #042c58
+
+rptu_dunkelblau <- "#042c58"
+
+# RPTU HELLBLAU:
+# CMYK 58 11 0 0 
+# Pantone 292 C 
+# Pantone 292 U
+# RAL 5012
+# RGB 106 178 231 
+# HEX #6ab2e7
+
+rptu_hellblau <- "#6ab2e7"
+
+# RPTU DUNKELGRÜN:
+# CMYK 85 30 50 25 
+# Pantone 7719 C 
+# Pantone 7719 U
+# RAL 6036
+# RGB 0 107 107 
+# HEX #006b6b
+
+rptu_dunkelgruen <- "#006b6b"
+
+# RPTU HELLGRÜN:
+# CMYK 56 0 58 0 
+# Pantone 7479 C 
+# Pantone 7479 U 
+# RAL 6038
+# RGB 38 208 124 
+# HEX #26d07c
+
+rptu_hellgruen <- "#26d07c"
+
+# RPTU VIOLETT:
+# CMYK 85 90 20 8 
+# Pantone 7672 C 
+# Pantone 2755 U 
+# RAL 4007
+# RGB 76 53 117 
+# HEX #4c3575
+
+rptu_violett <- "#4c3575"
+
+# RPTU PINK:
+# CMYK 10 90 0 0 
+# Pantone 240 C 
+# Pantone 2395 U 
+# RAL 4010
+# RGB 209 56 150 
+# HEX #d13896
+
+rptu_pink <- "#d13896"
+
+# RPTU ROT:
+# CMYK 0 95 55 0 
+# Pantone 1925 C 
+# Pantone 1925 U 
+# RAL 3027 
+# RGB 227 27 76 
+# HEX #e31b4c
+
+rptu_rot <- "#e31b4c"
+
+# RPTU ORANGE:
+# CMYK 0 45 70 0 
+# Pantone 150 C 
+# Pantone 149 U
+# RAL 2003 
+# RGB 255 162 82 
+# HEX #ffa252
+
+rptu_orange <- "#ffa252"
+
+# RPTU SCHWARZ: 
+# CMYK 00 0 100 
+# Pantone Black 6C 
+# Pantone Black 6U 
+# RAL 9005 
+# RGB 00 0 
+# HEX #000000
+
+rptu_schwarz <- "black"
+
+# RPTU WEISS: 
+# CMYK 0 0 0 0 
+# Pantone 000 C 
+# Pantone 000 U
+# RAL 9003
+# RGB 255 255 255 
+# HEX #ffffff
+
+rptu_weiss <- "white"
+
+# - rptu_pal: ----
+
+# 10 colors in 5 pairs (+ black/white pair):
+
+#' Color palette of RPTU 
+#'
+#' \code{rptu_pal} provides the 12 colors (arranged in 6 pairs) 
+#' of the \href{https://rptu.de/}{RPTU}, Germany. 
+#' 
+#' The acronym "RPTU" denotes "Rheinland-Pfälzische Technische Universität Kaiserslautern-Landau". 
+#' 
+#' The two colors of a pair may be combined with each other. 
+#' When using only one color pair, shades of 10% may be used in color gradients. 
+#' See examples and the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients. 
+#'  
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2022-12-30.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.startklar2023.de/brand-portal-rptu}. 
+#' 
+#' @examples
+#' rptu_pal
+#' seecol(rptu_pal, main = "The colors of RPTU")
+#' demopal(rptu_pal, type = 1, 
+#'         main = "Using the colors of RPTU")
+#' 
+#' # Gradients:
+#' rptu_10 <- usecol(c(rptu_pal[9], "white"), n = 11)[1:10]
+#' seecol(rptu_10, main = "10 shades of a RPTU color")
+#' 
+#' rptu_21 <- usecol(c(rptu_pal[1], "white", rptu_pal[2]), n = 21)
+#' seecol(rptu_21, main = "A gradient between a RPTU color pair")
+#' 
+#' @family contributed color palettes
+#' 
+#' @seealso 
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+rptu_pal <- newpal(col = c(rptu_blaugrau, rptu_gruengrau, rptu_dunkelblau, rptu_hellblau, rptu_dunkelgruen, rptu_hellgruen,
+                           rptu_violett, rptu_pink, rptu_rot, rptu_orange, rptu_schwarz, rptu_weiss),
+                   names = c("blaugrau", "gruengrau", "dunkelblau", "hellblau", "dunkelgruen", "hellgruen", 
+                             "violett", "pink", "rot", "orange", "schwarz", "weiss"),
+                   as_df = FALSE)
+
+# seecol(rptu_pal, main = "The colors of RPTU")
+# 
+# # Gradients:
+# rptu_10 <- usecol(c(rptu_pal[9], "white"), n = 11)[1:10]
+# seecol(rptu_10, main = "10 shades of a RPTU color")
+# 
+# rptu_21 <- usecol(c(rptu_pal[1], "white", rptu_pal[2]), n = 21)
+# seecol(rptu_21, main = "A gradient between a RPTU color pair")
+
+
+
 # Willamette University: -----
 
 # Source: <https://willamette.edu/offices/comm/brand-guidelines/brand-colors/index.html>
@@ -3673,7 +3887,7 @@ willamette_pal <- newpal(col = c("#BA0C2F", "#C6AA76",
 ## ToDo: -------- 
 
 # Public:
-# - RPTU: <https://www.startklar2023.de/brand-portal-rptu>
+# - etc.
 
 # Intranet:
 # - Uni Heidelberg: <https://www.uni-heidelberg.de/de/universitaet/das-profil-der-universitaet-heidelberg/corporate-design>
