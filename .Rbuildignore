@@ -14,3 +14,4 @@
 ^CRAN-RELEASE$
 ^\.travis\.yml$
 ^CRAN-SUBMISSION$
+^\.github$
