@@ -3,7 +3,7 @@
 \docType{data}
 \name{rptu_pal}
 \alias{rptu_pal}
-\title{Color palette of RPTU}
+\title{Color palette of the RPTU Kaiserslautern-Landau}
 \format{
 An object of class \code{character} of length 12.
 }
@@ -19,10 +19,11 @@ A named vector of colors (HEX/HTML codes of type character).
 }
 \description{
 \code{rptu_pal} provides the 12 colors (arranged in 6 pairs) 
-of the \href{https://rptu.de/}{RPTU}, Germany.
+of the \href{https://rptu.de/}{RPTU} Kaiserslautern-Landau, Germany.
 }
 \details{
-The acronym "RPTU" denotes "Rheinland-Pfälzische Technische Universität Kaiserslautern-Landau". 
+The acronym "RPTU" denotes "Rheinland-Pfälzische Technische Universität", 
+which is co-located in Kaiserslautern and Landau, Germany (since 2023). 
 
 The two colors of a pair may be combined with each other. 
 When using only one color pair, shades of 10% may be used in color gradients. 

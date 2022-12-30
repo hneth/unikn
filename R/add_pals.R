@@ -52,7 +52,7 @@ inst <- c(rep("Caltech", 3),
           rep("University of Regensburg", 3),
           rep("University of Ulm", 2),          
           rep("RPI", 3), 
-          "RPTU"
+          "RPTU Kaiserslautern-Landau"
 )
 
 inst_alt <- c(rep("California Institute of Technology", 3),
@@ -3766,14 +3766,15 @@ rptu_weiss <- "white"
 
 # - rptu_pal: ----
 
-# 10 colors in 5 pairs (+ black/white pair):
+# 10 colors in 5 pairs (+ 2 colors of 1 black/white pair):
 
-#' Color palette of RPTU 
+#' Color palette of the RPTU Kaiserslautern-Landau
 #'
 #' \code{rptu_pal} provides the 12 colors (arranged in 6 pairs) 
-#' of the \href{https://rptu.de/}{RPTU}, Germany. 
+#' of the \href{https://rptu.de/}{RPTU} Kaiserslautern-Landau, Germany. 
 #' 
-#' The acronym "RPTU" denotes "Rheinland-Pfälzische Technische Universität Kaiserslautern-Landau". 
+#' The acronym "RPTU" denotes "Rheinland-Pfälzische Technische Universität", 
+#' which is co-located in Kaiserslautern and Landau, Germany (since 2023). 
 #' 
 #' The two colors of a pair may be combined with each other. 
 #' When using only one color pair, shades of 10% may be used in color gradients. 
