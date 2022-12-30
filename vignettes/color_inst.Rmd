@@ -1,7 +1,7 @@
 ---
 title: "Institutional colors"
 author: "SPDS, uni.kn"
-date: "2022 12 28"
+date: "2022 12 30"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -77,10 +77,11 @@ In addition to the specific color palettes of the [University of Konstanz](https
 - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3` 
 - [University of Ulm](https://www.uni-ulm.de/): `uni_ulm_1`, `uni_ulm_2` 
 - [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3` 
+- [RPTU Kaiserslautern-Landau](https://rptu.de/): `rptu_pal` 
 
 <!-- Note: Number of palettes & exported as named vectors: -->
 
-These 47\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
+These 48\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
 We can use and modify these palettes with the **unikn** [color functions](colors.html):
 
 <!-- Note: Duplicate image in README.Rmd -->
