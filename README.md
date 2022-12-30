@@ -202,6 +202,8 @@ color palettes of the following institutions:
     `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3`
 -   [Humboldt University Berlin](https://www.hu-berlin.de/en):
     `hu_pal_1`, `hu_pal_2`
+-   [LMU Munich](https://www.lmu.de/en/index.html): `lmu_pal_1`,
+    `lmu_pal_2`, `lmu_pal_3`
 -   [Max Planck Society](https://www.mpg.de/en): `mpg_pal`
 -   [University of Bonn](https://www.uni-bonn.de/en): `uni_bonn_1`,
     `uni_bonn_2`
