@@ -2421,7 +2421,6 @@ jena_dunkelblau <- rgb(0, 47, 93, maxColorValue = 255)
 
 jena_gold <- rgb(174, 154, 99, maxColorValue = 255)
 
-# seecol(c(jena_dunkelblau, jena_gold), main = "Hausfarben Uni Jena")
 
 # Fakultätsfarben
 
@@ -2489,7 +2488,24 @@ jena_faculties <- c(jena_theologie, jena_rechtswiss, jena_wirtschaftswiss, jena_
                     jena_sozialverhaltenwiss, jena_matheinformatik, jena_physikastronomie, 
                     jena_chemiegeowiss, jena_biowiss, jena_medizin)
 
-# seecol(jena_faculties, main = "Farben der 10 Fakultäten der Uni Jena")
+# - uni_jena_1: ----
+
+uni_jena_1 <- newpal(col = c(jena_dunkelblau, jena_gold),
+                     names = c("dunkelblau", "gold"),
+                     as_df = FALSE)
+
+# seecol(uni_jena_1, main = "Main colors of the University of Jena")
+
+
+# - uni_jena_2: ----
+
+uni_jena_2 <- newpal(col = jena_faculties,
+                     names = c("Theologie", "Rechtswissenschaft", "Wirtschaftswissenschaft", "Philosophie",
+                               "Sozial- und Verhaltenswissenschaften", "Mathematik und Informatik", "Physik und Astronomie",
+                               "Chemie und Geowissenschaft", "Biowissenschaften", "Medizin"),
+                     as_df = FALSE)
+
+# seecol(uni_jena_2, main = "Departmental / faculty colors of Jena University")
 
 
 
@@ -2528,6 +2544,7 @@ jena_faculties <- c(jena_theologie, jena_rechtswiss, jena_wirtschaftswiss, jena_
 kiel_main <- "#9b0a7d"  # = rgb(155, 10, 125, maxColorValue = 255)
 # seecol(kiel_main)
 
+# +++ here now +++
 
 # Fakultätsfarben
 #
@@ -4097,6 +4114,7 @@ willamette_pal <- newpal(col = c("#BA0C2F", "#C6AA76",
 # Intranet:
 # - Uni Erfurt: <https://www.uni-erfurt.de/interner-service?return_url=/interner-service/service/kommunikation>
 # - TU Dresden: <https://tu-dresden.de/tu-dresden/kontakte-services/cd>
+# - Uni Duesseldorf (HHU): <https://www.hhu.de/intranet/hinweis>
 # - Uni Heidelberg: <https://www.uni-heidelberg.de/de/universitaet/das-profil-der-universitaet-heidelberg/corporate-design>
 # - Uni Leipzig: <https://www.uni-leipzig.de/universitaet/service/medien-und-kommunikation/corporate-design>
 # - Uni Tuebingen: <https://uni-tuebingen.de/einrichtungen/verwaltung/stabsstellen/hochschulkommunikation/service-fuer-beschaeftigte/corporate-design/basiselemente/farben/>
