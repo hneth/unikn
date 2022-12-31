@@ -2411,12 +2411,17 @@ uni_hamburg_2 <- newpal(col = c("#E2001A", rot_50pc, "#0271BB", blau_50pc, "#3B5
 # CMYK: 100, 70, 10, 50
 # RGB: 0, 47, 93
 # HKS: 41 K
-# 
+
+jena_dunkelblau <- rgb(0, 47, 93, maxColorValue = 255)
+
 # Auszeichnungsfarbe Gold	
 # CMYK: 20, 25, 60, 25
 # RGB: 174, 154, 99
 # HKS: 98 K
 
+jena_gold <- rgb(174, 154, 99, maxColorValue = 255)
+
+# seecol(c(jena_dunkelblau, jena_gold), main = "Hausfarben Uni Jena")
 
 # Fakultätsfarben
 
@@ -2465,10 +2470,10 @@ uni_hamburg_2 <- newpal(col = c("#E2001A", rot_50pc, "#0271BB", blau_50pc, "#3B5
 
 
 
-# Uni Kiel: ------
+# Uni Kiel / CAU: ------
 
 # https://www.uni-kiel.de/en/
-# Christian-Albrechts-Universität Kiel (Kiel University)
+# Christian-Albrechts-Universität Kiel (CAU, Kiel University)
 # Motto: Pax optima rerum (peace is the highest good) 
 
 # Source: <https://www.presse.uni-kiel.de/de/erscheinungsbild/farben>
