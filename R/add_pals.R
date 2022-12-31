@@ -2428,45 +2428,68 @@ jena_gold <- rgb(174, 154, 99, maxColorValue = 255)
 # Theologische Fakultät
 # CMYK: 80, 85, 0, 0
 # RGB: 87, 61, 144
-# 
+
+jena_theologie <- rgb(87, 61, 144, maxColorValue = 255)
+
 # Rechtswissenschaftliche Fakultät
 # CMYK: 15, 100, 25, 15
 # RGB: 185, 8, 95
-# 
-# Wirtschaftswissenschaftliche Fakultät
+
+jena_rechtswiss <- rgb(185, 8, 95, maxColorValue = 255)
+
+# Wirtschaftswissenschaftliche Fakultät:
 # CMYK: 5, 40, 100, 10
 # RGB: 220, 152, 0
-# 
-# Philosophische Fakultät
+
+jena_wirtschaftswiss <- rgb(220, 152, 0, maxColorValue = 255)
+
+# Philosophische Fakultät:
 # CMYK: 50, 100, 0, 10
 # RGB: 138, 24, 120
-# 
-# Fakultät für Sozial- und Verhaltenswissenschaften
+
+jena_philosophie <- rgb(138, 24, 120, maxColorValue = 255)
+
+# Fakultät für Sozial- und Verhaltenswissenschaften:
 # CMYK: 70, 20, 0, 20
 # RGB: 55, 141, 188
-# 
-# Fakultät für Mathematik und Informatik
+
+jena_sozialverhaltenwiss <- rgb(55, 141, 188, maxColorValue = 255)
+
+# Fakultät für Mathematik und Informatik:
 # CMYK: 100, 25, 40, 10
 # RGB: 0, 122, 139
-# 
-# Physikalisch-Astronomische Fakultät
+
+jena_matheinformatik <- rgb(0, 122, 139, maxColorValue = 255)
+
+# Physikalisch-Astronomische Fakultät:
 # CMYK: 10, 70, 100, 0
 # RGB: 220, 101, 19
-# 
-# Chemisch-Geowissenschaftliche Fakultät
+
+jena_physikastronomie <- rgb(220, 101, 19, maxColorValue = 255)
+
+# Chemisch-Geowissenschaftliche Fakultät:
 # CMYK: 70, 10, 100, 5
 # RGB: 86, 158, 49
-# 
-# Fakultät für Biowissenschaften
+
+jena_chemiegeowiss <- rgb(86, 158, 49, maxColorValue = 255)
+
+# Fakultät für Biowissenschaften:
 # CMYK: 90, 30, 100, 10
 # RGB: 0, 119, 54
-# 
-# Medizinische Fakultät 	
+
+jena_biowiss <- rgb(0, 119, 54, maxColorValue = 255)
+
+# Medizinische Fakultät:
 # CMYK: 0, 95, 80, 15
 # RGB: 203, 34, 41
 
+jena_medizin <- rgb(203, 34, 41, maxColorValue = 255)
 
+jena_faculties <- c(jena_theologie, jena_rechtswiss, jena_wirtschaftswiss, jena_philosophie, 
+                    jena_sozialverhaltenwiss, jena_matheinformatik, jena_physikastronomie, 
+                    jena_chemiegeowiss, jena_biowiss, jena_medizin)
 
+# seecol(jena_faculties, main = "Farben der 10 Fakultäten der Uni Jena")
 
 
 
@@ -2498,8 +2521,8 @@ jena_gold <- rgb(174, 154, 99, maxColorValue = 255)
 # Hieraus ergibt sich eine Reihe von tiefen Violetttönen.
 
 
-# Hausfarbe der Universität zu Kiel
-#
+# Hausfarbe der Universität zu Kiel: 
+# (in Text: "ein leuchtendes Violett")
 # HKS 33, cmyk 45-100-0-0, RGB 155-10-125, Hex #9b0a7d
 
 kiel_main <- "#9b0a7d"  # = rgb(155, 10, 125, maxColorValue = 255)
@@ -2516,28 +2539,50 @@ kiel_main <- "#9b0a7d"  # = rgb(155, 10, 125, maxColorValue = 255)
 
 # Theologische Fakultät: 
 # HKS 37K, cmyk 80-100-0-0, RGB 86-35-129, Hex #562381
-# 
+
+kiel_theologie <- "#562381"
+
 # Farbe Rechtswissenschaftliche Fakultät: 
 # HKS 12K, cmyk 0-90-100-0, RGB 228-49-23, Hex #e43117
-# 
+
+kiel_rechtswiss <- "#e43117"
+
 # Farbe Medizinische Fakultät: 
 # Print: Pantone 382 coated, cmyk 25-0-100-0
 # Web: Pantone 382 uncoated, RGB 153-194-33, Hex #99c221
-# 
+
+kiel_medizin <- "#99c221"
+
 # Farbe Philosophische Fakultät: 
 # Pantone 292, cmyk 60-20-0-0, RGB 106-172-218, Hex #6aacda
-# 
+
+kiel_philosophie <- "#6aacda"
+
 # Farbe Agrar-und Ernährungswissenschaftliche Fakultät: 
 # HKS 63K, cmyk 80-30-100-0, RGB 57-132-46, Hex #39842e
-# 
+
+kiel_agrarernaehrungswiss <- "#39842e"
+
 # Farbe Mathematisch-Naturwissenschaftliche Fakultät:
 # HKS 6K, cmyk 0-50-100-0, RGB 242-148-0, Hex #f29400
-# 
+
+kiel_mathenaturwiss <- "#f29400"
+
 # Farbe Wirtschafts- und Sozialwissenschaftliche Fakultät: 
 # Pantone 315, cmyk 100-0-25-45, RGB 0-103-124, Hex #00677c
-# 
+
+kiel_wirtchaftsozialwiss <- "#00677c"
+
 # Farbe Technische Fakultät: 
 # Pantone 280, cmyk 100-80-0-15, RGB 0-61-134, Hex #003d86
+
+kiel_technik <- "#003d86"
+
+kiel_faculties <- c(kiel_theologie, kiel_rechtswiss, kiel_medizin, kiel_philosophie, 
+                    kiel_agrarernaehrungswiss, kiel_mathenaturwiss, kiel_wirtchaftsozialwiss, kiel_technik)
+
+# seecol(kiel_faculties, main = "8 Fakultäten der Uni Kiel")
+
 
 
 # Uni Koeln: ------
