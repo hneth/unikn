@@ -1,5 +1,5 @@
 ## start_unikn.R | unikn
-## spds | uni.kn |  2022 12 30
+## spds | uni.kn |  2022 12 31
 ## ---------------------------
 
 ## Starting unikn: ------
@@ -48,7 +48,7 @@ unikn.guide <- function() {
          
          # 01-08:
          packageStartupMessage(in_grau(sapply("seecol()", FUN = pens[1]), " shows colors or color palettes.", sep = "")),
-         packageStartupMessage(in_grau(sapply("usecol()", FUN = pens[1]), " allows using and changing color palettes.", sep = "")),
+         packageStartupMessage(in_grau(sapply("usecol()", FUN = pens[1]), " allows changing and using color palettes.", sep = "")),
          packageStartupMessage(in_grau(sapply("simcol()", FUN = pens[1]), " searches for similar colors.", sep = "")), 
          packageStartupMessage(in_grau(sapply("grepal()", FUN = pens[1]), " searches for color names.", sep = "")),
          packageStartupMessage(in_grau(sapply("demopal()", FUN = pens[1]), " demonstrates a color palette.", sep = "")),
