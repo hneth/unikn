@@ -1,5 +1,5 @@
 
-# unikn 0.7.0.9014
+# unikn 0.7.0.9015
 
 This is the current development version of **unikn** (v0.7.0.9001+). 
 
@@ -292,6 +292,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-12-30.] 
+[File `NEWS.md` updated on 2022-12-31.] 
 
 <!-- eof. -->
