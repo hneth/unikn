@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 30
+## spds | uni.kn |  2022 12 31
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -2385,6 +2385,156 @@ uni_hamburg_2 <- newpal(col = c("#E2001A", rot_50pc, "#0271BB", blau_50pc, "#3B5
 
 
 
+
+
+# Uni Jena: ------
+
+# Friedrich-Schiller-Universität Jena
+# Motto: "Light, life, liberty – connecting visions"
+
+# Source: <https://www.uni-jena.de/corporate-design>
+# 2022-12-31
+
+# Farbsystem
+#
+# Die Hausfarbe der Universität Jena ist Dunkelblau, 
+# als Auszeichnungsfarbe wird Gold verwendet.
+
+# Die Auszeichnung der Fakultäten erfolgt durch das etablierte Farbschema. 
+# Es spiegelt sich unter anderem im Baustein »Regenbogenband« des Corporate Designs wider. 
+# Das Regenbogenband wird dann dekorativ eingesetzt, wenn alle Einrichtungen angesprochen werden 
+# oder selbst »sprechen«.
+
+# Hausfarben
+
+# Hausfarbe Dunkelblau 	
+# CMYK: 100, 70, 10, 50
+# RGB: 0, 47, 93
+# HKS: 41 K
+# 
+# Auszeichnungsfarbe Gold	
+# CMYK: 20, 25, 60, 25
+# RGB: 174, 154, 99
+# HKS: 98 K
+
+
+# Fakultätsfarben
+
+# Theologische Fakultät
+# CMYK: 80, 85, 0, 0
+# RGB: 87, 61, 144
+# 
+# Rechtswissenschaftliche Fakultät
+# CMYK: 15, 100, 25, 15
+# RGB: 185, 8, 95
+# 
+# Wirtschaftswissenschaftliche Fakultät
+# CMYK: 5, 40, 100, 10
+# RGB: 220, 152, 0
+# 
+# Philosophische Fakultät
+# CMYK: 50, 100, 0, 10
+# RGB: 138, 24, 120
+# 
+# Fakultät für Sozial- und Verhaltenswissenschaften
+# CMYK: 70, 20, 0, 20
+# RGB: 55, 141, 188
+# 
+# Fakultät für Mathematik und Informatik
+# CMYK: 100, 25, 40, 10
+# RGB: 0, 122, 139
+# 
+# Physikalisch-Astronomische Fakultät
+# CMYK: 10, 70, 100, 0
+# RGB: 220, 101, 19
+# 
+# Chemisch-Geowissenschaftliche Fakultät
+# CMYK: 70, 10, 100, 5
+# RGB: 86, 158, 49
+# 
+# Fakultät für Biowissenschaften
+# CMYK: 90, 30, 100, 10
+# RGB: 0, 119, 54
+# 
+# Medizinische Fakultät 	
+# CMYK: 0, 95, 80, 15
+# RGB: 203, 34, 41
+
+
+
+
+
+
+# Uni Kiel: ------
+
+# https://www.uni-kiel.de/en/
+# Christian-Albrechts-Universität Kiel (Kiel University)
+# Motto: Pax optima rerum (peace is the highest good) 
+
+# Source: <https://www.presse.uni-kiel.de/de/erscheinungsbild/farben>
+# 2022-12-31
+
+# Farben
+# 
+# Die Farben geben der Christian-Albrechts-Universität ein freundliches und lebendiges Gesicht. 
+# Sie haben die Funktion, einzelnen Bereichen der Universität ein eigenes Bild zu geben und 
+# helfen damit bei der Orientierung. Bei der Festlegung der Farben wurden die Vorgaben 
+# aus der Universitätsverfassung berücksichtigt.
+
+# Hausfarbe
+
+# Die Hausfarbe der Universität ist ein leuchtendes Violett. 
+# Diese Farbe steht in Beziehung zur Theologischen Fakultät 
+# als einer der Gründungsfakultäten der Universität. 
+# Das Präsidium und die Zentralbereiche der Universität mit 
+# ihren fakultätsübergreifenden Institutionen 
+# (z.B. Dezernate, Bibliothek, Sportzentrum etc.) 
+# verwenden diese Farbe gemischt mit verschiedenen Grautönen. 
+# Hieraus ergibt sich eine Reihe von tiefen Violetttönen.
+
+
+# Hausfarbe der Universität zu Kiel
+#
+# HKS 33, cmyk 45-100-0-0, RGB 155-10-125, Hex #9b0a7d
+
+kiel_main <- "#9b0a7d"  # = rgb(155, 10, 125, maxColorValue = 255)
+# seecol(kiel_main)
+
+
+# Fakultätsfarben
+#
+# Jede der acht Fakultäten hat eine eigene Fakultätsfarbe, 
+# die bei Bedarf mit Grautönen abgedunkelt werden kann. 
+# Hier erhalten Sie die Farbwerte der reinen Farben als Name der Referenzdruckfarbe, 
+# als CMYK-Wert (für 4-Farb-Druck), in RGB (für Bildschirmdarstellungen) 
+# und als Hexadezimalwert (z.B. für Internetseiten)
+
+# Theologische Fakultät: 
+# HKS 37K, cmyk 80-100-0-0, RGB 86-35-129, Hex #562381
+# 
+# Farbe Rechtswissenschaftliche Fakultät: 
+# HKS 12K, cmyk 0-90-100-0, RGB 228-49-23, Hex #e43117
+# 
+# Farbe Medizinische Fakultät: 
+# Print: Pantone 382 coated, cmyk 25-0-100-0
+# Web: Pantone 382 uncoated, RGB 153-194-33, Hex #99c221
+# 
+# Farbe Philosophische Fakultät: 
+# Pantone 292, cmyk 60-20-0-0, RGB 106-172-218, Hex #6aacda
+# 
+# Farbe Agrar-und Ernährungswissenschaftliche Fakultät: 
+# HKS 63K, cmyk 80-30-100-0, RGB 57-132-46, Hex #39842e
+# 
+# Farbe Mathematisch-Naturwissenschaftliche Fakultät:
+# HKS 6K, cmyk 0-50-100-0, RGB 242-148-0, Hex #f29400
+# 
+# Farbe Wirtschafts- und Sozialwissenschaftliche Fakultät: 
+# Pantone 315, cmyk 100-0-25-45, RGB 0-103-124, Hex #00677c
+# 
+# Farbe Technische Fakultät: 
+# Pantone 280, cmyk 100-80-0-15, RGB 0-61-134, Hex #003d86
+
+
 # Uni Koeln: ------
 
 # Source: PDF handbook at 
@@ -3891,10 +4041,14 @@ willamette_pal <- newpal(col = c("#BA0C2F", "#C6AA76",
 ## ToDo: -------- 
 
 # Public:
-# - etc.
+# - Uni Jena: <https://www.uni-jena.de/corporate-design>
+# - Uni Kiel: <https://www.presse.uni-kiel.de/de/erscheinungsbild/farben>
 
 # Intranet:
+# - Uni Erfurt: <https://www.uni-erfurt.de/interner-service?return_url=/interner-service/service/kommunikation>
+# - TU Dresden: <https://tu-dresden.de/tu-dresden/kontakte-services/cd>
 # - Uni Heidelberg: <https://www.uni-heidelberg.de/de/universitaet/das-profil-der-universitaet-heidelberg/corporate-design>
+# - Uni Leipzig: <https://www.uni-leipzig.de/universitaet/service/medien-und-kommunikation/corporate-design>
 # - Uni Tuebingen: <https://uni-tuebingen.de/einrichtungen/verwaltung/stabsstellen/hochschulkommunikation/service-fuer-beschaeftigte/corporate-design/basiselemente/farben/>
 
 
