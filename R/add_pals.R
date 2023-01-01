@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 12 31
+## spds | uni.kn |  2022 01 01
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -3848,7 +3848,7 @@ rpi_pal_3 <- newpal(col = c("#ab2328", "#c35442", "#d58570", "#eabcad",
 # <https://rptu.de/>
 
 # Source: <https://www.startklar2023.de/brand-portal-rptu>
-# 2022-12-30
+# 2023-01-01
 
 # PDF Manual (v1): p. 34:
 
@@ -4004,7 +4004,7 @@ rptu_weiss <- "white"
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' \strong{unikn}, 2022-12-30.
+#' \strong{unikn}, 2023-01-01.
 #' 
 #' @source 
 #' Color definitions are based on 
