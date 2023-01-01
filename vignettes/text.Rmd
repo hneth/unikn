@@ -1,7 +1,7 @@
 ---
 title: "Text boxes and decorations"
 author: "SPDS, uni.kn"
-date: "2022 11 10"
+date: "2023 01 01"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -13,19 +13,21 @@ vignette: >
 
 ```{r setup, include = FALSE}
 options(max.print = "75")
+
 knitr::opts_chunk$set(echo = TRUE,
-	             cache = FALSE,
-               prompt = FALSE,
-               tidy = FALSE,
-               collapse = TRUE, 
-               comment = "#>",
-               message = FALSE,
-               warning = FALSE,
-               # ## Default figure options:
-               # fig.width = 7.2, 
-               # fig.asp = .618, # golden ratio
-               fig.align = "center"
-               )
+                      cache = FALSE,
+                      collapse = TRUE, 
+                      comment = "#>",
+                      prompt = FALSE,
+                      tidy = FALSE,
+                      message = FALSE,
+                      warning = FALSE,
+                      # Default figure options:
+                      fig.align = "center" 
+                      # fig.width = 6, 
+                      # fig.asp = .8 # .618, # golden ratio
+                      # out.width = "60%"
+                      )
 ```
 
 <!-- unikn pkg logo and link: -->
