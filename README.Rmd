@@ -20,13 +20,15 @@ output: github_document
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-```{r preamble, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "inst/pix/README-",
-  out.width = "600px"
-)
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE,
+                      comment = "#>",
+                      message = FALSE,
+                      warning = FALSE, 
+                      # Default figure options:
+                      fig.align = "center", 
+                      fig.path = "inst/pix/README-",
+                      out.width = "600")
 
 library(unikn)  # load package
 ```
