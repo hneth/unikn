@@ -27,7 +27,7 @@ These colors are used in online and print materials of these departments.
 \code{uni_goettingen_3} corrects an error in the color definitions 
 of \url{https://www.uni-goettingen.de/de/589412.html}, 
 where the color definition for "Theologie" used non-corresponding RGB and HEX values. 
-We adopted the RGB value \code{68 37 61} and its corresponding HEX value \code{"#44253D"}.
+We adopted \code{RGB 68/37/61} and the corresponding \code{HEX #44253d} values.
 }
 \examples{
 uni_goettingen_3
