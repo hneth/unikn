@@ -68,7 +68,7 @@ unikn.guide <- function() {
          # 10:
          {
            packageStartupMessage(  
-             cli::col_black(# "unikn colors: ", 
+             cli::col_silver(# "unikn colors: ", 
                paste(in_bordeaux("bordeaux"), 
                      in_grau("grau"),
                      in_karpfenblau("karpfenblau"), 
@@ -84,13 +84,13 @@ unikn.guide <- function() {
          
          # 11: Stroop task:
          {
-           packageStartupMessage(cli::col_black("Try naming the colors of these words:", sep = "")) 
+           packageStartupMessage(cli::col_silver("Try naming the colors of these words:", sep = "")) 
            packageStartupMessage(
              paste(
                sapply("black", FUN = pens[1]), 
-               sapply("red", FUN = pens[2]), 
+               sapply("red",   FUN = pens[2]), 
                sapply("green", FUN = pens[3]), 
-               sapply("blue", FUN = pens[4]), 
+               sapply("blue",  FUN = pens[4]), 
                in_peach("snow"), 
                in_seeblau("yellow"), sep = "  ")
            ) 
