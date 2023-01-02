@@ -27,13 +27,13 @@ provided by palette \code{\link{uni_goettingen_1}}.
 
 \code{uni_goettingen_2} corrects an error in the color definitions 
 of \url{https://www.uni-goettingen.de/de/589412.html}, 
-where "Chamois" and "Altweiss" had identical, 
+where \code{"Chamois"} and \code{"Altweiss"} had identical, 
 but non-corresponding RGB and HEX values.
 }
 \examples{
 uni_goettingen_2
-seecol(uni_goettingen_2)  # view color palette
-demopal(uni_goettingen_2, type = 3, main = "Secondary colors of the University of Göttingen")
+seecol(uni_goettingen_2, main = "Secondary colors of the University of Göttingen")
+demopal(uni_goettingen_2, type = 3, main = "Secondary colors of Uni Goettingen")
 
 }
 \seealso{
@@ -78,6 +78,8 @@ Other contributed color palettes:
 \code{\link{uni_goettingen_3}},
 \code{\link{uni_hamburg_1}},
 \code{\link{uni_hamburg_2}},
+\code{\link{uni_kiel_1}},
+\code{\link{uni_kiel_2}},
 \code{\link{uni_koeln_1}},
 \code{\link{uni_koeln_2}},
 \code{\link{uni_konstanz_1}},

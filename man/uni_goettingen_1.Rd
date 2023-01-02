@@ -22,14 +22,14 @@ A named vector of colors (HEX/HTML codes of type character).
 of the \href{https://www.uni-goettingen.de/}{University of Göttingen}, Germany.
 }
 \details{
-The primary dark blue color is defined as Uni-Blau HKS 41. 
+The primary dark blue color \code{uniblau} is defined as \code{Uni-Blau HKS 41}. 
 The palette \code{uni_goettingen_1} adds some derived colors, 
 while the palette \code{\link{uni_goettingen_2}} provides secondary colors.
 }
 \examples{
 uni_goettingen_1
-seecol(uni_goettingen_1)  # view color palette
-demopal(uni_goettingen_1, type = 1, main = "Primary colors of the University of Göttingen")
+seecol(uni_goettingen_1, main = "The primary colors of Uni Göttingen")
+demopal(uni_goettingen_1, type = 1, main = "Primary colors of the University of Goettingen")
 
 }
 \seealso{
@@ -74,6 +74,8 @@ Other contributed color palettes:
 \code{\link{uni_goettingen_3}},
 \code{\link{uni_hamburg_1}},
 \code{\link{uni_hamburg_2}},
+\code{\link{uni_kiel_1}},
+\code{\link{uni_kiel_2}},
 \code{\link{uni_koeln_1}},
 \code{\link{uni_koeln_2}},
 \code{\link{uni_konstanz_1}},

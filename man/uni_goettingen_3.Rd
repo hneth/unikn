@@ -26,13 +26,13 @@ These colors are used in online and print materials of these departments.
 
 \code{uni_goettingen_3} corrects an error in the color definitions 
 of \url{https://www.uni-goettingen.de/de/589412.html}, 
-where the color definition for "Theologie" used non-corresponding RGB and HEX values. 
+where the color definition for "Theologie" provided non-corresponding RGB and HEX values. 
 We adopted \code{RGB 68/37/61} and the corresponding \code{HEX #44253d} values.
 }
 \examples{
 uni_goettingen_3
-seecol(uni_goettingen_3, main = "Department colors at the University of Goettingen")  
-demopal(uni_goettingen_3, type = 3, main = "Departmental colors of the University of Göttingen")
+seecol(uni_goettingen_3, main = "Department colors at the University of Göttingen")  
+demopal(uni_goettingen_3, type = 3, main = "Department colors of the University of Goettingen")
 
 }
 \seealso{
@@ -77,6 +77,8 @@ Other contributed color palettes:
 \code{\link{uni_goettingen_2}},
 \code{\link{uni_hamburg_1}},
 \code{\link{uni_hamburg_2}},
+\code{\link{uni_kiel_1}},
+\code{\link{uni_kiel_2}},
 \code{\link{uni_koeln_1}},
 \code{\link{uni_koeln_2}},
 \code{\link{uni_konstanz_1}},
