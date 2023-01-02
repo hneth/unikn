@@ -2445,6 +2445,62 @@ jena_dunkelblau <- rgb(0, 47, 93, maxColorValue = 255)
 jena_gold <- rgb(174, 154, 99, maxColorValue = 255)
 
 
+# - uni_jena_1: ----
+
+#' Primary colors of the University of Jena 
+#'
+#' \code{uni_jena_1} provides the main \code{dunkelblau} color 
+#' and the auxiliary \code{gold} color 
+#' of the \href{https://www.uni-jena.de/}{University of Jena}, Germany. 
+#' 
+#' The main color \code{dunkelblau} is alternatively defined as 
+#' \code{RGB 0/47/93}, \code{CMYK 100/70/10/50}, or \code{HKS 41 K}. 
+#' 
+#' The auxiliary color \code{gold} is alternatively defined as 
+#' \code{RGB 174/154/99}, \code{CMYK 20/25/60/25}, or \code{HKS 98 K}. 
+#' 
+#' See the \code{\link{ac}} and \code{\link{usecol}} functions 
+#' for creating color gradients. 
+#' 
+#' The full name of the \href{https://www.uni-jena.de/}{University of Jena} 
+#' is Friedrich-Schiller-Universität Jena. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2023-01-02.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.uni-jena.de/corporate-design}. 
+#' 
+#' @examples
+#' uni_jena_1
+#' seecol(uni_jena_1, main = "Primary colors of the University of Jena")
+#' demopal(uni_jena_1, type = 2, seed = 5, main = "Primary colors of Jena University")
+#' 
+#' # Gradient: Mixing the main colors with "white":
+#' jena_mix <- usecol(c(uni_jena_1[1], "white", uni_jena_1[2]), n = 7)
+#' seecol(jena_mix, main = "A gradient of the University of Jena")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_jena_2}} for departmental colors of the University of Jena;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+uni_jena_1 <- newpal(col = c(jena_dunkelblau, jena_gold),
+                     names = c("dunkelblau", "gold"),
+                     as_df = FALSE)
+
+
 # Fakultätsfarben
 
 # Theologische Fakultät
@@ -2511,26 +2567,52 @@ jena_faculties <- c(jena_theologie, jena_rechtswiss, jena_wirtschaftswiss, jena_
                     jena_sozialverhaltenwiss, jena_matheinformatik, jena_physikastronomie, 
                     jena_chemiegeowiss, jena_biowiss, jena_medizin)
 
-# - uni_jena_1: ----
-
-uni_jena_1 <- newpal(col = c(jena_dunkelblau, jena_gold),
-                     names = c("dunkelblau", "gold"),
-                     as_df = FALSE)
-
-# seecol(uni_jena_1, main = "Main colors of the University of Jena")
+jena_faculty_names <- c("Theologie", "Rechtswissenschaft", "Wirtschaftswissenschaften", "Philosophie", 
+                        "Sozial- und Verhaltenswissenschaften", "Mathematik und Informatik", "Physik und Astronomie", 
+                        "Chemie und Geowissenschaften", "Biowissenschaften", "Medizin")
 
 
 # - uni_jena_2: ----
 
+#' Departmental colors of the University of Jena 
+#'
+#' \code{uni_jena_2} provides the 10 departmental colors 
+#' of the (10 faculties at the)
+#' \href{https://www.uni-jena.de/}{University of Jena}, Germany. 
+#' 
+#' The full name of the \href{https://www.uni-jena.de/}{University of Jena} 
+#' is Friedrich-Schiller-Universität Jena. 
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2023-01-02.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.uni-jena.de/corporate-design}. 
+#' 
+#' @examples
+#' uni_jena_2
+#' seecol(uni_jena_2, main = "Departmental colors of the University of Jena")
+#' demopal(uni_jena_2, type = 5, main = "Faculty colors of Jena University")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_jena_1}} for primary colors of the University of Jena;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
 uni_jena_2 <- newpal(col = jena_faculties,
-                     names = c("Theologie", "Rechtswissenschaft", "Wirtschaftswissenschaft", "Philosophie",
-                               "Sozial- und Verhaltenswissenschaften", "Mathematik und Informatik", 
-                               "Physik und Astronomie", "Chemie und Geowissenschaft", "Biowissenschaften", 
-                               "Medizin"),
+                     names = jena_faculty_names, 
                      as_df = FALSE)
-
-# seecol(uni_jena_2, main = "Departmental / faculty colors of Jena University")
-
 
 
 # Uni Kiel / CAU: ------
@@ -2571,13 +2653,13 @@ kiel_main <- "#9b0a7d"  # = rgb(155, 10, 125, maxColorValue = 255)
 
 # - uni_kiel_1: ----
 
-#' Primary colors of Kiel University
+#' Primary color of Kiel University
 #'
 #' \code{uni_kiel_1} provides the primary \code{violett} color
 #' of \href{https://www.uni-kiel.de/en/}{Kiel University}, Germany. 
 #' 
 #' The main color is the luminant \code{violett} of \code{uni_kiel_1[2]}, 
-#' which is historically based on the founding faculty of theology. 
+#' which alludes to the historic founding faculty of theology. 
 #' It is alternatively defined as \code{RGB 155/10/125}, \code{Hex #9b0a7d}, 
 #' \code{HKS 33}, or \code{CMYK 45/100/0/0}. 
 #' 
