@@ -18,7 +18,8 @@ Changes since last release:
     - [LMU Munich](https://www.lmu.de/en/index.html): `lmu_pal_1`, `lmu_pal_2`, `lmu_pal_3` 
     - [University of Bonn](https://www.uni-bonn.de/en): `uni_bonn_1`, `uni_bonn_2` 
     - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
-    - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2` 
+    - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2`  
+    - [University of Jena](https://www.uni-jena.de/): `uni_jena_1`, `uni_jena_2` 
     - [Kiel University](https://www.uni-kiel.de/en/): `uni_kiel_1`, `uni_kiel_2` 
     - [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2` 
     - [University of Mannheim](https://www.uni-mannheim.de/): `uni_mannheim_1`, `uni_mannheim_2` 
