@@ -2588,7 +2588,7 @@ kiel_main <- "#9b0a7d"  # = rgb(155, 10, 125, maxColorValue = 255)
 #' for creating color gradients. 
 #' 
 #' The full name of \href{https://www.uni-kiel.de/en/}{Kiel University} 
-#' is Christian-Albrechts-Universit\u00E4t (CAU) zu Kiel. 
+#' is Christian-Albrechts-Universität (CAU) zu Kiel. 
 #' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).
@@ -2681,7 +2681,7 @@ kiel_faculties <- c(kiel_theologie, kiel_rechtswiss, kiel_medizin, kiel_philosop
                     kiel_agrarernaehrungswiss, kiel_mathenaturwiss, kiel_wirtchaftsozialwiss, kiel_technik)
 
 kiel_faculty_names <- c("Theologie", "Rechtswissenschaft", "Medizin", "Philosophie", 
-                        "Agrar-und Ernährungswissenschaft", "Mathematik und Naturwissenschaften", 
+                        "Agrar-und Ernaehrungswissenschaft", "Mathematik und Naturwissenschaften", 
                         "Wirtschafts- und Sozialwissenschaften", "Technik")
 
 
@@ -2695,7 +2695,7 @@ kiel_faculty_names <- c("Theologie", "Rechtswissenschaft", "Medizin", "Philosoph
 #' for creating color gradients. 
 #' 
 #' The full name of \href{https://www.uni-kiel.de/en/}{Kiel University} 
-#' is Christian-Albrechts-Universit\u00E4t (CAU) zu Kiel.  
+#' is Christian-Albrechts-Universität (CAU) zu Kiel.  
 #' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).

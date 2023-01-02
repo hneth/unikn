@@ -34,7 +34,7 @@ See examples and the \code{\link{ac}} and \code{\link{usecol}} functions
 for creating color gradients. 
 
 The full name of \href{https://www.uni-kiel.de/en/}{Kiel University} 
-is Christian-Albrechts-Universit\u00E4t (CAU) zu Kiel.
+is Christian-Albrechts-Universität (CAU) zu Kiel.
 }
 \examples{
 uni_kiel_1
