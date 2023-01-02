@@ -31,7 +31,7 @@ and the \code{\link{ac}} and \code{\link{usecol}} functions for creating color g
 }
 \examples{
 uni_freiburg_0
-seecol(uni_freiburg_0, main = "Basic colors of the University of Freiburg")
+seecol(uni_freiburg_0, main = "Basic colors of the University of Freiburg") # view color palette
 demopal(uni_freiburg_0, type = 5, main = "Basic colors of Freiburg University")
 
 }

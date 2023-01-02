@@ -44,9 +44,9 @@ Note that the font color glutrot is currently identical to the area color of \co
 }
 \examples{
 uni_regensburg_3
-seecol(uni_regensburg_3)  # view color palette
+seecol(uni_regensburg_3, main = "Department colors at the University of Regensburg")
 demopal(uni_regensburg_3, type = 4, seed = 13, 
-        main = "Department colors at the University of Regensburg")
+        main = "Using the departmental colors at Regensburg University")
 
 }
 \seealso{

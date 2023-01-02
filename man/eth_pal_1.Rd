@@ -28,8 +28,8 @@ The Swiss abbreviation "ETH" stands for "Eidgenössische Technische Hochschule".
 }
 \examples{
 eth_pal_1
-seecol(eth_pal_1)  # view color palette
-demopal(eth_pal_1, type = 3, main = "Default colors of the ETH Zürich")
+seecol(eth_pal_1, main = "Default colors of the ETH Zürich")  # view color palette
+demopal(eth_pal_1, type = 3, main = "Using the default colors of ETH Zurich")
 
 }
 \seealso{

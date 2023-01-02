@@ -28,7 +28,7 @@ alternative color gradients.
 }
 \examples{
 fu_pal_1
-seecol(fu_pal_1, main = "Primary color gradient of the FU Berlin")
+seecol(fu_pal_1, main = "Primary color gradient of the FU Berlin")  # view color palette
 demopal(fu_pal_1, type = 4, seed = 2, main = "Primary color gradient of the FU Berlin")
 
 }

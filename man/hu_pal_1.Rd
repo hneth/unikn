@@ -29,8 +29,8 @@ See the \code{\link{ac}} and \code{\link{usecol}} functions for creating color g
 }
 \examples{
 hu_pal_1
-seecol(hu_pal_1, n = 5, main = "5 shades of HU Berlin")
-demopal(hu_pal_1, type = 1, main = "HU Berlin colors")
+seecol(hu_pal_1, n = 5, main = "5 shades of HU Berlin")  # view color palette
+demopal(hu_pal_1, type = 1, main = "Colors of Humboldt University Berlin")
 
 }
 \seealso{

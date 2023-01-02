@@ -30,7 +30,7 @@ varying opacity / transparency levels.
 }
 \examples{
 eth_pal_3
-seecol(eth_pal_3, main = "Black and grey colors of the ETH Zurich")
+seecol(eth_pal_3, main = "Black and grey colors of the ETH Zurich")  # view color palette
 demopal(eth_pal_3, type = 2, main = "Black and gray colors of ETH Zürich")
 
 }

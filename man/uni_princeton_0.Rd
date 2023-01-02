@@ -28,7 +28,7 @@ defines \code{uni_princeton_2[1]} as "Princeton orange".
 }
 \examples{
 uni_princeton_0
-seecol(uni_princeton_0)  # view color palette
+seecol(uni_princeton_0, main = "Basic colors of Princeton University")
 demopal(uni_princeton_0, type = 1, main = "Colors of Princeton University")
 
 }

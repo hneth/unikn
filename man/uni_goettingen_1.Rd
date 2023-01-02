@@ -28,7 +28,7 @@ while the palette \code{\link{uni_goettingen_2}} provides secondary colors.
 }
 \examples{
 uni_goettingen_1
-seecol(uni_goettingen_1, main = "The primary colors of Uni Göttingen")
+seecol(uni_goettingen_1, main = "The primary colors of Uni Göttingen")  # view color palette
 demopal(uni_goettingen_1, type = 1, main = "Primary colors of the University of Goettingen")
 
 }

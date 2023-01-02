@@ -28,7 +28,7 @@ the secondary colors of \code{\link{lmu_pal_2}}.
 }
 \examples{
 lmu_pal_3
-seecol(lmu_pal_3, main = "Accent colors of the LMU München")
+seecol(lmu_pal_3, main = "Accent colors of the LMU München")  # view color palette 
 demopal(lmu_pal_3, type = 3, main = "Accent colors of LMU Munich")
 
 }

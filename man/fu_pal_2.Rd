@@ -27,7 +27,7 @@ but should not dominate the overall impression.
 }
 \examples{
 fu_pal_2
-seecol(fu_pal_2, main = "Secondary colors of the FU Berlin")
+seecol(fu_pal_2, main = "Secondary colors of the FU Berlin")  # view color palette
 demopal(fu_pal_2, type = 5, main = "Accent and grey colors of the FU Berlin")
 
 }

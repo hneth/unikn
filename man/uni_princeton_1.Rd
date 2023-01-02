@@ -31,8 +31,9 @@ The color \code{"white"} was added to enable symmetrical color gradients.
 }
 \examples{
 uni_princeton_1
-seecol(uni_princeton_1)  # view color palette
-demopal(uni_princeton_1, type = 4, main = "Colors of Princeton University")
+seecol(uni_princeton_1, col_brd = "grey", lwd_brd = 1.5, 
+       main = "Colors of Princeton (on white backgrounds)")
+demopal(uni_princeton_1, type = 4, seed = 1, main = "Princeton University colors")
 
 }
 \seealso{

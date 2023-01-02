@@ -29,7 +29,7 @@ for creating color gradients.
 }
 \examples{
 uni_bonn_2
-seecol(uni_bonn_2, main = "Gradient colors of the University of Bonn")
+seecol(uni_bonn_2, main = "Gradient colors of the University of Bonn")  # view color palette 
 demopal(uni_bonn_2, type = 3, main = "Color shades of the University of Bonn")
 
 }

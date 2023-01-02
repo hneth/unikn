@@ -31,9 +31,8 @@ See examples and the \code{\link{ac}} and \code{\link{usecol}} functions for cre
 }
 \examples{
 rptu_pal
-seecol(rptu_pal, main = "The colors of RPTU")
-demopal(rptu_pal, type = 1, 
-        main = "Using the colors of RPTU")
+seecol(rptu_pal, main = "The colors of RPTU")  # view color palette
+demopal(rptu_pal, type = 1, main = "Using the colors of RPTU")
 
 # Gradients:
 rptu_10 <- usecol(c(rptu_pal[9], "white"), n = 11)[1:10]

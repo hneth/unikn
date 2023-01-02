@@ -33,7 +33,8 @@ The color \code{"black"} was added to enable symmetrical color gradients.
 uni_princeton_2
 opar <- par(no.readonly = TRUE)
 par(bg = "black", col.main = "white", col = "grey")
-seecol(uni_princeton_2, col_brd = "grey", lwd = 2)  # view color palette
+seecol(uni_princeton_2, col_brd = "grey", lwd = 1.5, 
+       main = "Colors of Princeton (on black backgrounds)")
 demopal(uni_princeton_2, type = 3, main = "Colors of Princeton University")
 par(opar)
 

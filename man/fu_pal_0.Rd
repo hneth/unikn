@@ -34,7 +34,7 @@ See \code{\link{fu_pal_1}} for a corresponding color gradient.
 }
 \examples{
 fu_pal_0
-seecol(fu_pal_0, main = "Primary colors of the FU Berlin")
+seecol(fu_pal_0, main = "Primary colors of the FU Berlin")  # view color palette
 demopal(fu_pal_0, type = 1, main = "Primary colors of the FU Berlin")
 
 }

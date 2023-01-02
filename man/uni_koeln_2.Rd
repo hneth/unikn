@@ -36,7 +36,7 @@ The named colors of \code{uni_koeln_2} correspond to the following departments:
 }
 \examples{
 uni_koeln_2
-seecol(uni_koeln_2, main = "Departmental colors of Uni Koeln")  # view palette
+seecol(uni_koeln_2, main = "Departmental colors of Uni Koeln")
 demopal(uni_koeln_2, type = 3, 
         main = "Department colors at the University of Cologne")
 

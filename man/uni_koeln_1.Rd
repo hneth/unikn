@@ -31,7 +31,7 @@ The accent color may also be used in lighter shades of 80%, 60%, or 40%.
 }
 \examples{
 uni_koeln_1
-seecol(uni_koeln_1, main = "Primary colors of Uni Koeln")  # view palette
+seecol(uni_koeln_1, main = "Primary colors of Uni Koeln")
 demopal(uni_koeln_1, type = 4, 
         main = "Primary colors at the University of Cologne")
 

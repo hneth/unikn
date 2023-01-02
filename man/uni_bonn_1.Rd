@@ -41,7 +41,7 @@ for creating color gradients.
 }
 \examples{
 uni_bonn_1
-seecol(uni_bonn_1, main = "Primary colors of the University of Bonn")
+seecol(uni_bonn_1, main = "Primary colors of the University of Bonn")  # view color palette 
 
 # Color gradient:
 uni_bonn_blau_gelb <- usecol(c(uni_bonn_1[1], "white", uni_bonn_1[2]), n = 9)

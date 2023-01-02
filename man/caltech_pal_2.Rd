@@ -22,19 +22,19 @@ A named vector of colors (HEX/HTML codes of type character).
 of the \href{https://www.caltech.edu/}{California Institute of Technology}, CA, USA.
 }
 \details{
-Caltech's primary orange color is defined as Pantone MS 1585c 
-(for coated and matte print jobs, PMS 151 for uncoated print jobs). 
+Caltech's primary orange color is defined as \code{Pantone MS 1585c}  
+(for coated and matte print jobs, \code{PMS 151} for uncoated print jobs). 
 Use this color for small highlights, rather than large areas. 
 
-Caltech's 4 deep colors add contrast to the primary Caltech orange 
+Caltech's 4 deep colors add contrast to the primary \code{Caltech orange}  
 as well as the neutral colors (of \code{\link{caltech_pal_1}}), 
 and are used to provide depth and texture to communications materials.
 }
 \examples{
 caltech_pal_2
-seecol(caltech_pal_2)  # view color palette
-demopal(caltech_pal_2, type = 3, seed = 1,  
-        main = "Primary and deep colors of Caltech")
+seecol(caltech_pal_2, main = "Primary and deep colors of Caltech")
+demopal(caltech_pal_2, type = 2, seed = 2,  
+        main = "Using the primary and deep colors of Caltech")
 
 }
 \seealso{

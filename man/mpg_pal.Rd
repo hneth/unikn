@@ -34,7 +34,7 @@ for creating color gradients.
 }
 \examples{
 mpg_pal
-seecol(mpg_pal, main = "Colors of the Max Planck Society")
+seecol(mpg_pal, main = "Colors of the Max Planck Society")  # view color palette 
 demopal(mpg_pal, type = 1, main = "Using the MPG colors")
 
 # Extended version:

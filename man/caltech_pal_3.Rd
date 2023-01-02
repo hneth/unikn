@@ -22,8 +22,8 @@ A named vector of colors (HEX/HTML codes of type character).
 of the \href{https://www.caltech.edu/}{California Institute of Technology}, CA, USA.
 }
 \details{
-Caltech's primary orange color is defined as Pantone MS 1585c 
-(for coated and matte print jobs, PMS 151 for uncoated print jobs). 
+Caltech's primary orange color is defined as \code{Pantone MS 1585c}  
+(for coated and matte print jobs, \code{PMS 151} for uncoated print jobs). 
 Use this color for small highlights, rather than large areas. 
 
 Caltech's 7 bright colors provide an opportunity to adjust the temper 
@@ -34,9 +34,9 @@ to the primary, neutral, and deep colors
 }
 \examples{
 caltech_pal_3
-seecol(caltech_pal_3)  # view color palette
+seecol(caltech_pal_3, main = "Primary and bright colors of Caltech")
 demopal(caltech_pal_3, type = 3, seed = 1,  
-        main = "Primary and bright colors of Caltech")
+        main = "Using the primary and bright colors of Caltech")
 
 }
 \seealso{

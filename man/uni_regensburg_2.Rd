@@ -44,9 +44,8 @@ When coloring large areas, named colors can be used in shades of 70%.
 }
 \examples{
 uni_regensburg_2
-seecol(uni_regensburg_2)  # view color palette
-demopal(uni_regensburg_2, type = 3, 
-        main = "Department colors at the University of Regensburg")
+seecol(uni_regensburg_2, main = "Departmental colors at the University of Regensburg")
+demopal(uni_regensburg_2, type = 3, main = "Department colors of Regensburg University")
 
 }
 \seealso{

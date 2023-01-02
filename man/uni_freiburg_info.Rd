@@ -29,8 +29,8 @@ for the corresponding colors of the new corporate design (as of 2023).
 }
 \examples{
 uni_freiburg_info
-seecol(uni_freiburg_info)  # view color palette
-demopal(uni_freiburg_info, type = 3, main = "Info colors of the University of Freiburg")
+seecol(uni_freiburg_info, main = "Info colors of the University of Freiburg (2022)")
+demopal(uni_freiburg_info, type = 3, main = "Info colors of Freiburg University (2022)")
 
 }
 \seealso{
