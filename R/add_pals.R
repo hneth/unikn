@@ -25,6 +25,7 @@
 #               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
 #               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
 #               "uni_hamburg_1", "uni_hamburg_2",
+#               "uni_kiel_1", "uni_kiel_2",
 #               "uni_koeln_1", "uni_koeln_2",
 #               "uni_konstanz_1", "uni_konstanz_2",
 #               "uni_mannheim_1", "uni_mannheim_2",
@@ -34,6 +35,25 @@
 #               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3",
 #               "rptu_pal"
 # )
+
+#' of \href{https://www.uni-kiel.de/en/}{Kiel University}, Germany. 
+#' 
+#' These colors may be mixed with darker shades of \code{"grey"} (or \code{"black"}). 
+#' See examples and the \code{\link{ac}} and \code{\link{usecol}} functions 
+#' for creating color gradients. 
+#' 
+#' The full name of \href{https://www.uni-kiel.de/en/}{Kiel University} 
+#' is Christian-Albrechts-Universität (CAU) zu Kiel.  
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2023-01-02.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.presse.uni-kiel.de/de/erscheinungsbild/farben}. 
 
 inst <- c(rep("Caltech", 3), 
           rep("ETH Zurich", 3),
@@ -45,6 +65,7 @@ inst <- c(rep("Caltech", 3),
           rep("University of Freiburg", 7),
           rep("University of Goettingen", 3),
           rep("University of Hamburg", 2),
+          rep("Kiel University", 2),
           rep("University of Koeln", 2),
           rep("University of Konstanz", 2),
           rep("University of Mannheim", 2),          
@@ -65,6 +86,7 @@ inst_alt <- c(rep("California Institute of Technology", 3),
               rep("Universit\u00E4t Freiburg", 7),
               rep("Universit\u00E4t G\u00F6ttingen", 3),
               rep("Universit\u00E4t Hamburg", 2),
+              rep("Christian-Albrechts-Universit\u00E4t (CAU) zu Kiel", 2), 
               rep("Universit\u00E4t zu K\u00F6ln", 2),
               rep("Universit\u00E4t Konstanz", 2),
               rep("Universit\u00E4t Mannheim", 2),
@@ -86,6 +108,7 @@ url <- c(rep("https://www.caltech.edu/", 3),
          rep("https://uni-goettingen.de/", 3),
          rep("https://www.uni-hamburg.de/", 2),
          rep("https://www.uni-koeln.de/", 2),
+         rep("https://www.uni-kiel.de/en/", 2),
          rep("https://www.uni-konstanz.de/", 2),
          rep("https://www.uni-mannheim.de/", 2),
          rep("https://www.princeton.edu/", 3),
@@ -2546,7 +2569,7 @@ kiel_main <- "#9b0a7d"  # = rgb(155, 10, 125, maxColorValue = 255)
 # seecol(kiel_main)
 
 
-# uni_kiel_1: ----
+# - uni_kiel_1: ----
 
 #' Primary colors of Kiel University
 #'
@@ -2603,7 +2626,7 @@ uni_kiel_1 <- newpal(col = c("black", kiel_main, "white"),
                      names = c("schwarz", "violett", "weiss"),
                      as_df = FALSE)
 
-# uni_kiel_2: ----
+# - uni_kiel_2: ----
 
 # Fakultätsfarben
 #
