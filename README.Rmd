@@ -102,7 +102,7 @@ devtools::install_github('hneth/unikn')
 The **unikn** contains two categories of color palettes: 
 
 - 16\ palettes implementing the colors of the [University of Konstanz](https://www.uni-konstanz.de/)'s corporate design 
-- 48\ additional color palettes from various institutions
+- 50\ additional color palettes from various institutions
 
 
 ### The colors of Konstanz University
@@ -229,6 +229,7 @@ In addition to the 16\ specific color palettes of the [University of Konstanz](h
   (from\ 2022: `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`) 
 - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
 - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2` 
+- [Kiel University](https://www.uni-kiel.de/en/): `uni_kiel_1`, `uni_kiel_2` 
 - [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2` 
 - [University of Konstanz](https://www.uni-konstanz.de/): `uni_konstanz_1`, `uni_konstanz_2` 
 - [University of Mannheim](https://www.uni-mannheim.de/): `uni_mannheim_1`, `uni_mannheim_2` 
@@ -245,7 +246,7 @@ In addition to the 16\ specific color palettes of the [University of Konstanz](h
 seecol("add")
 ```
 
-These 48\ palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations).
+These 50\ palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations).
 
 
 <!-- Collecting contributed color palettes: -->
