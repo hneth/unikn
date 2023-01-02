@@ -1912,7 +1912,8 @@ names(frbg_rosa) <- "rosa"
 #' 
 #' @examples
 #' uni_freiburg_0
-#' seecol(uni_freiburg_0, main = "Basic colors of the University of Freiburg") # view color palette
+#' seecol(uni_freiburg_0, col_brd = "grey", lwd_brd = 1.5, 
+#'        main = "Basic colors of the University of Freiburg")  # view color palette
 #' demopal(uni_freiburg_0, type = 5, main = "Basic colors of Freiburg University")
 #'
 #' @family contributed color palettes
