@@ -1273,6 +1273,7 @@ add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
               "uni_hamburg_1", "uni_hamburg_2",
+              "uni_jena_1", "uni_jena_2", 
               "uni_kiel_1", "uni_kiel_2",
               "uni_koeln_1", "uni_koeln_2",
               "uni_konstanz_1", "uni_konstanz_2",
@@ -1284,7 +1285,7 @@ add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
               "rptu_pal"
 )
 
-# length(add_pals)  # 50 [2023-01-02]
+# length(add_pals)  # 52 [2023-01-02]
 
 
 # - All palettes / largest set (of unikn package): ----

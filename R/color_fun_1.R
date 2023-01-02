@@ -1225,6 +1225,7 @@ all_colors <- function(distinct = TRUE){
                                uni_freiburg_0, uni_freiburg_1, uni_freiburg_2, 
                                uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
                                uni_hamburg_1, uni_hamburg_2, 
+                               uni_jena_1, uni_jena_2, 
                                uni_kiel_1, uni_kiel_2, 
                                uni_koeln_1, uni_koeln_2, 
                                # uni_konstanz_1, uni_konstanz_2,  # duplicates of pal_ (above).
@@ -1271,8 +1272,8 @@ all_colors <- function(distinct = TRUE){
 
 ## Check:
 # all_colors()[1:50]
-# length(all_colors(distinct = TRUE))   #  751 [on 2023-01-02]
-# length(all_colors(distinct = FALSE))  # 1019 [on 2023-01-02]
+# length(all_colors(distinct = TRUE))   #  755 [on 2023-01-02]
+# length(all_colors(distinct = FALSE))  # 1031 [on 2023-01-02]
 # grepal("see", all_colors())     # finds unikn colors (and matching colors())
 # grepal("gruen", all_colors())   # finds unikn and added colors
 # grepal("purple", all_colors())  # finds added and base R colors
