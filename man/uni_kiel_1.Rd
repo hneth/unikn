@@ -3,7 +3,7 @@
 \docType{data}
 \name{uni_kiel_1}
 \alias{uni_kiel_1}
-\title{Primary colors of Kiel University}
+\title{Primary color of Kiel University}
 \format{
 An object of class \code{character} of length 3.
 }
@@ -23,7 +23,7 @@ of \href{https://www.uni-kiel.de/en/}{Kiel University}, Germany.
 }
 \details{
 The main color is the luminant \code{violett} of \code{uni_kiel_1[2]}, 
-which is historically based on the founding faculty of theology. 
+which alludes to the historic founding faculty of theology. 
 It is alternatively defined as \code{RGB 155/10/125}, \code{Hex #9b0a7d}, 
 \code{HKS 33}, or \code{CMYK 45/100/0/0}. 
 
@@ -90,6 +90,8 @@ Other contributed color palettes:
 \code{\link{uni_goettingen_3}},
 \code{\link{uni_hamburg_1}},
 \code{\link{uni_hamburg_2}},
+\code{\link{uni_jena_1}},
+\code{\link{uni_jena_2}},
 \code{\link{uni_kiel_2}},
 \code{\link{uni_koeln_1}},
 \code{\link{uni_koeln_2}},

@@ -91,6 +91,8 @@ Other contributed color palettes:
 \code{\link{uni_goettingen_3}},
 \code{\link{uni_hamburg_1}},
 \code{\link{uni_hamburg_2}},
+\code{\link{uni_jena_1}},
+\code{\link{uni_jena_2}},
 \code{\link{uni_kiel_1}},
 \code{\link{uni_kiel_2}},
 \code{\link{uni_koeln_1}},
