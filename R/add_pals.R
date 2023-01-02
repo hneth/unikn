@@ -195,11 +195,11 @@ col_caltech_n7 <- "#F1D384"  # Note: RGB values differ!
 #' \code{caltech_pal_1} provides the primary and 7 neutral colors 
 #' of the \href{https://www.caltech.edu/}{California Institute of Technology}, CA, USA. 
 #' 
-#' Caltech's primary orange color is defined as Pantone MS 1585c 
-#' (for coated and matte print jobs, PMS 151 for uncoated print jobs). 
+#' Caltech's primary orange color is defined as \code{Pantone MS 1585c}  
+#' (for coated and matte print jobs, \code{PMS 151} for uncoated print jobs). 
 #' Use this color for small highlights, rather than large areas. 
 #' 
-#' Caltech's 7 neutral colors complement the primary Caltech orange 
+#' Caltech's 7 neutral colors complement the primary \code{Caltech orange}  
 #' and allow to convey a serious, sober, and traditional impression.
 #' 
 #' @return 
@@ -214,9 +214,9 @@ col_caltech_n7 <- "#F1D384"  # Note: RGB values differ!
 #' 
 #' @examples
 #' caltech_pal_1
-#' seecol(caltech_pal_1)  # view color palette
+#' seecol(caltech_pal_1, main = "Primary and neutral colors of Caltech")
 #' demopal(caltech_pal_1, type = 4, seed = 1,  
-#'         main = "Primary and neutral colors of Caltech")
+#'         main = "Using the primary and neutral colors of Caltech")
 #'
 #' @family contributed color palettes
 #'
@@ -279,11 +279,11 @@ col_caltech_d4 <- "#7A303F"  # Note: RGB values differ!
 #' \code{caltech_pal_2} provides the primary and 4 deep colors 
 #' of the \href{https://www.caltech.edu/}{California Institute of Technology}, CA, USA. 
 #' 
-#' Caltech's primary orange color is defined as Pantone MS 1585c 
-#' (for coated and matte print jobs, PMS 151 for uncoated print jobs). 
+#' Caltech's primary orange color is defined as \code{Pantone MS 1585c}  
+#' (for coated and matte print jobs, \code{PMS 151} for uncoated print jobs). 
 #' Use this color for small highlights, rather than large areas. 
 #' 
-#' Caltech's 4 deep colors add contrast to the primary Caltech orange 
+#' Caltech's 4 deep colors add contrast to the primary \code{Caltech orange}  
 #' as well as the neutral colors (of \code{\link{caltech_pal_1}}), 
 #' and are used to provide depth and texture to communications materials. 
 #' 
@@ -299,9 +299,9 @@ col_caltech_d4 <- "#7A303F"  # Note: RGB values differ!
 #' 
 #' @examples
 #' caltech_pal_2
-#' seecol(caltech_pal_2)  # view color palette
-#' demopal(caltech_pal_2, type = 3, seed = 1,  
-#'         main = "Primary and deep colors of Caltech")
+#' seecol(caltech_pal_2, main = "Primary and deep colors of Caltech")
+#' demopal(caltech_pal_2, type = 2, seed = 2,  
+#'         main = "Using the primary and deep colors of Caltech")
 #'
 #' @family contributed color palettes
 #'
@@ -389,8 +389,8 @@ col_caltech_b7 <- "#F54D80"  # Note: RGB values differ!
 #' \code{caltech_pal_3} provides the primary and 7 bright colors 
 #' of the \href{https://www.caltech.edu/}{California Institute of Technology}, CA, USA. 
 #' 
-#' Caltech's primary orange color is defined as Pantone MS 1585c 
-#' (for coated and matte print jobs, PMS 151 for uncoated print jobs). 
+#' Caltech's primary orange color is defined as \code{Pantone MS 1585c}  
+#' (for coated and matte print jobs, \code{PMS 151} for uncoated print jobs). 
 #' Use this color for small highlights, rather than large areas. 
 #' 
 #' Caltech's 7 bright colors provide an opportunity to adjust the temper 
@@ -411,9 +411,9 @@ col_caltech_b7 <- "#F54D80"  # Note: RGB values differ!
 #' 
 #' @examples
 #' caltech_pal_3
-#' seecol(caltech_pal_3)  # view color palette
+#' seecol(caltech_pal_3, main = "Primary and bright colors of Caltech")
 #' demopal(caltech_pal_3, type = 3, seed = 1,  
-#'         main = "Primary and bright colors of Caltech")
+#'         main = "Using the primary and bright colors of Caltech")
 #'
 #' @family contributed color palettes
 #'
@@ -482,7 +482,7 @@ nam_goe_primary <- c("uniblau", "logoblau", "logomittelblau", "logohellblau")
 #' 
 #' @examples
 #' uni_goettingen_1
-#' seecol(uni_goettingen_1, main = "The primary colors of Uni Göttingen")
+#' seecol(uni_goettingen_1, main = "The primary colors of Uni Göttingen")  # view color palette
 #' demopal(uni_goettingen_1, type = 1, main = "Primary colors of the University of Goettingen")
 #'
 #' @family contributed color palettes
@@ -704,8 +704,8 @@ nam_ETH <- c("ETH Blue", "ETH Petrol", "ETH Green", "ETH Bronze", "ETH Red", "ET
 #' 
 #' @examples
 #' eth_pal_1
-#' seecol(eth_pal_1)  # view color palette
-#' demopal(eth_pal_1, type = 3, main = "Default colors of the ETH Zürich")
+#' seecol(eth_pal_1, main = "Default colors of the ETH Zürich")  # view color palette
+#' demopal(eth_pal_1, type = 3, main = "Using the default colors of ETH Zurich")
 #'
 #' @family contributed color palettes
 #'
@@ -783,7 +783,7 @@ nam_ETH_light <- paste0("ETH ", c("blue 10%", "petrol 10%", "green 10%", "bronze
 #' 
 #' @examples
 #' eth_pal_2
-#' seecol(eth_pal_2, main = "Light shades of the ETH Zurich")
+#' seecol(eth_pal_2, main = "Light shades of the ETH Zurich")  # view color palette
 #' demopal(eth_pal_2, type = 4, main = "Light shades of ETH Zürich colors")
 #'
 #' @family contributed color palettes
@@ -887,7 +887,7 @@ nam_eth_grey <- c("black", paste0("ETH ", c("black light",
 #' 
 #' @examples
 #' eth_pal_3
-#' seecol(eth_pal_3, main = "Black and grey colors of the ETH Zurich")
+#' seecol(eth_pal_3, main = "Black and grey colors of the ETH Zurich")  # view color palette
 #' demopal(eth_pal_3, type = 2, main = "Black and gray colors of ETH Zürich")
 #'
 #' @family contributed color palettes
@@ -908,7 +908,7 @@ eth_pal_3 <- newpal(col = col_eth_grey,
 
 
 
-# FU Berlin / Freie Universitaet Berlin: ------
+# FU Berlin / Free University Berlin: ------
 
 # Source: <https://www.fu-berlin.de/sites/corporate-design/grundlagen/farben/index.html>
 # 2022-12-03
@@ -974,7 +974,7 @@ fu_col_1 <- newpal(col = c(fu_blue, fu_green),
 #' 
 #' @examples
 #' fu_pal_0
-#' seecol(fu_pal_0, main = "Primary colors of the FU Berlin")
+#' seecol(fu_pal_0, main = "Primary colors of the FU Berlin")  # view color palette
 #' demopal(fu_pal_0, type = 1, main = "Primary colors of the FU Berlin")
 #'
 #' @family contributed color palettes
@@ -1061,7 +1061,7 @@ fu_greys <- newpal(col = c("#333333", "#666666", "#999999", "#CCCCCC",
 #' 
 #' @examples
 #' fu_pal_2
-#' seecol(fu_pal_2, main = "Secondary colors of the FU Berlin")
+#' seecol(fu_pal_2, main = "Secondary colors of the FU Berlin")  # view color palette
 #' demopal(fu_pal_2, type = 5, main = "Accent and grey colors of the FU Berlin")
 #'
 #' @family contributed color palettes
@@ -1130,7 +1130,7 @@ fu_blues <- newpal(col = c(fu_blue, "#164574", "#2C5682", "#426890", "#587A9E",
 #' 
 #' @examples
 #' fu_pal_3
-#' seecol(fu_pal_3, main = "Blue color gradient of the FU Berlin")
+#' seecol(fu_pal_3, main = "Blue color gradient of the FU Berlin")  # view color palette
 #' demopal(fu_pal_3, type = 3, main = "Blue color gradient of the FU Berlin")
 #'
 #' @family contributed color palettes
@@ -1194,7 +1194,7 @@ fu_pal_3 <- fu_blues
 #' 
 #' @examples
 #' fu_pal_1
-#' seecol(fu_pal_1, main = "Primary color gradient of the FU Berlin")
+#' seecol(fu_pal_1, main = "Primary color gradient of the FU Berlin")  # view color palette
 #' demopal(fu_pal_1, type = 4, seed = 2, main = "Primary color gradient of the FU Berlin")
 #'
 #' @family contributed color palettes
@@ -1222,7 +1222,7 @@ fu_pal_1 <- newpal(col = c("#003366",  # = fu_blue
 # seecol(fu_pal_1, main = "Blue/green color gradient of the FU Berlin")
 
 
-# HU Berlin / Humboldt Universitaet Berlin: ------
+# HU Berlin / Humboldt University Berlin: ------
 
 # Source: <https://www.hu-berlin.de/de/service/design/basiselemente/farbe>
 # Last check: 2022-11-30
@@ -1268,8 +1268,8 @@ HU_0_web <- rgb(0, 51, 102, names = "HU blau web", maxColorValue = 255)
 #' 
 #' @examples
 #' hu_pal_1
-#' seecol(hu_pal_1, n = 5, main = "5 shades of HU Berlin")
-#' demopal(hu_pal_1, type = 1, main = "HU Berlin colors")
+#' seecol(hu_pal_1, n = 5, main = "5 shades of HU Berlin")  # view color palette
+#' demopal(hu_pal_1, type = 1, main = "Colors of Humboldt University Berlin")
 #'
 #' @family contributed color palettes
 #'
@@ -1358,8 +1358,8 @@ HU_5 <- rgb(189, 202, 211, names = "blaugrau", maxColorValue = 255)
 #' 
 #' @examples
 #' hu_pal_2
-#' seecol(hu_pal_2, main = "The colors of HU Berlin")
-#' demopal(hu_pal_2, type = 3, main = "Colors of HU Berlin")
+#' seecol(hu_pal_2, main = "The colors of HU Berlin")  # view color palette
+#' demopal(hu_pal_2, type = 3, main = "Colors of Humboldt University Berlin")
 #'
 #' @family contributed color palettes
 #'
@@ -1429,7 +1429,7 @@ hu_pal_2 <- newpal(col = c(HU_0, HU_1, HU_2, HU_3, HU_4, HU_5),
 #' 
 #' @examples
 #' lmu_pal_1
-#' seecol(lmu_pal_1, main = "The primary colors of LMU München")
+#' seecol(lmu_pal_1, main = "The primary colors of LMU München")  # view color palette 
 #' demopal(lmu_pal_1, type = 3, main = "Primary colors of LMU Munich")
 #'
 #' @family contributed color palettes
@@ -1560,7 +1560,7 @@ lmu_pal_2 <- newpal(col = c("#626468", "#C0C1C3", "#E6E6E7", "#F5F5F5"),
 #' 
 #' @examples
 #' lmu_pal_3
-#' seecol(lmu_pal_3, main = "Accent colors of the LMU München")
+#' seecol(lmu_pal_3, main = "Accent colors of the LMU München")  # view color palette 
 #' demopal(lmu_pal_3, type = 3, main = "Accent colors of LMU Munich")
 #'
 #' @family contributed color palettes
@@ -1636,7 +1636,7 @@ mpg_grey_2  <- usecol(c(mpg_grey,  "white"), n = 3)[1:2]
 #' 
 #' @examples
 #' mpg_pal
-#' seecol(mpg_pal, main = "Colors of the Max Planck Society")
+#' seecol(mpg_pal, main = "Colors of the Max Planck Society")  # view color palette 
 #' demopal(mpg_pal, type = 1, main = "Using the MPG colors")
 #' 
 #' # Extended version:
@@ -1747,7 +1747,7 @@ ub_grau_4 <- usecol(c(ub_grau, "white"), n = 5)[1:4]
 #' 
 #' @examples
 #' uni_bonn_1
-#' seecol(uni_bonn_1, main = "Primary colors of the University of Bonn")
+#' seecol(uni_bonn_1, main = "Primary colors of the University of Bonn")  # view color palette 
 #' 
 #' # Color gradient:
 #' uni_bonn_blau_gelb <- usecol(c(uni_bonn_1[1], "white", uni_bonn_1[2]), n = 9)
@@ -1797,7 +1797,7 @@ uni_bonn_1 <- newpal(col = c(ub_blau, ub_gelb, ub_grau),
 #' 
 #' @examples
 #' uni_bonn_2
-#' seecol(uni_bonn_2, main = "Gradient colors of the University of Bonn")
+#' seecol(uni_bonn_2, main = "Gradient colors of the University of Bonn")  # view color palette 
 #' demopal(uni_bonn_2, type = 3, main = "Color shades of the University of Bonn")
 #'
 #' @family contributed color palettes
@@ -1912,7 +1912,7 @@ names(frbg_rosa) <- "rosa"
 #' 
 #' @examples
 #' uni_freiburg_0
-#' seecol(uni_freiburg_0, main = "Basic colors of the University of Freiburg")
+#' seecol(uni_freiburg_0, main = "Basic colors of the University of Freiburg") # view color palette
 #' demopal(uni_freiburg_0, type = 5, main = "Basic colors of Freiburg University")
 #'
 #' @family contributed color palettes
@@ -2075,8 +2075,8 @@ uni_freiburg_2 <- newpal(col = c(frbg_gruen, frbg_braun, frbg_gelb, frbg_rosa),
 #' 
 #' @examples
 #' uni_freiburg_br
-#' seecol(uni_freiburg_br)  # view color palette
-#' demopal(uni_freiburg_br, type = 2, main = "Colors of the University of Freiburg")
+#' seecol(uni_freiburg_br, main = "Colors of the University of Freiburg (2022)")
+#' demopal(uni_freiburg_br, type = 2, main = "Colors of the Freiburg University (2022)")
 #'
 #' @family contributed color palettes
 #'
@@ -2119,8 +2119,8 @@ uni_freiburg_br <- newpal(col = c("#004a99", "#c1002a"),
 #' 
 #' @examples
 #' uni_freiburg_blue
-#' seecol(uni_freiburg_blue)  # view color palette
-#' demopal(uni_freiburg_blue, type = 3, main = "Blue colors of the University of Freiburg")
+#' seecol(uni_freiburg_blue, main = "Blue colors of the University of Freiburg (2022)")
+#' demopal(uni_freiburg_blue, type = 3, main = "Blue colors of Freiburg University (2022)")
 #'
 #' @family contributed color palettes
 #'
@@ -2164,8 +2164,8 @@ uni_freiburg_blue <- newpal(col = c("#004a99", "#2a6ebb", "#6f9ad3"),
 #' 
 #' @examples
 #' uni_freiburg_grey
-#' seecol(uni_freiburg_grey)  # view color palette
-#' demopal(uni_freiburg_grey, type = 1, main = "Grey colors of the University of Freiburg")
+#' seecol(uni_freiburg_grey, main = "Grey colors of the University of Freiburg (2022)")
+#' demopal(uni_freiburg_grey, type = 1, main = "Grey colors of Freiburg University (2022)")
 #'
 #' @family contributed color palettes
 #'
@@ -2211,8 +2211,8 @@ uni_freiburg_grey <- newpal(col = c("#f2f3f1", "#e0e1dd", "#d5d6d2", "#c9cac8",
 #' 
 #' @examples
 #' uni_freiburg_info
-#' seecol(uni_freiburg_info)  # view color palette
-#' demopal(uni_freiburg_info, type = 3, main = "Info colors of the University of Freiburg")
+#' seecol(uni_freiburg_info, main = "Info colors of the University of Freiburg (2022)")
+#' demopal(uni_freiburg_info, type = 3, main = "Info colors of Freiburg University (2022)")
 #'
 #' @family contributed color palettes
 #'
@@ -2858,7 +2858,7 @@ koeln_si_1 <- rgb(175, 17, 29, maxColorValue = 255)
 #' 
 #' @examples
 #' uni_koeln_1
-#' seecol(uni_koeln_1, main = "Primary colors of Uni Koeln")  # view palette
+#' seecol(uni_koeln_1, main = "Primary colors of Uni Koeln")
 #' demopal(uni_koeln_1, type = 4, 
 #'         main = "Primary colors at the University of Cologne")
 #'
@@ -2934,7 +2934,7 @@ koeln_fa_7 <- rgb(145, 196, 234, maxColorValue = 255)
 #' 
 #' @examples
 #' uni_koeln_2
-#' seecol(uni_koeln_2, main = "Departmental colors of Uni Koeln")  # view palette
+#' seecol(uni_koeln_2, main = "Departmental colors of Uni Koeln")
 #' demopal(uni_koeln_2, type = 3, 
 #'         main = "Department colors at the University of Cologne")
 #'
@@ -3260,7 +3260,7 @@ orange_black <- "#F58025"  # orange on black background
 #' 
 #' @examples
 #' uni_princeton_0
-#' seecol(uni_princeton_0)  # view color palette
+#' seecol(uni_princeton_0, main = "Basic colors of Princeton University")
 #' demopal(uni_princeton_0, type = 1, main = "Colors of Princeton University")
 #'
 #' @family contributed color palettes
@@ -3307,8 +3307,9 @@ uni_princeton_0 <- newpal(col = c(orange_basic, "black"),
 #' 
 #' @examples
 #' uni_princeton_1
-#' seecol(uni_princeton_1)  # view color palette
-#' demopal(uni_princeton_1, type = 4, main = "Colors of Princeton University")
+#' seecol(uni_princeton_1, col_brd = "grey", lwd_brd = 1.5, 
+#'        main = "Colors of Princeton (on white backgrounds)")
+#' demopal(uni_princeton_1, type = 4, seed = 1, main = "Princeton University colors")
 #'
 #' @family contributed color palettes
 #'
@@ -3356,7 +3357,8 @@ uni_princeton_1 <- newpal(col = c(orange_white, "white", "black"),
 #' uni_princeton_2
 #' opar <- par(no.readonly = TRUE)
 #' par(bg = "black", col.main = "white", col = "grey")
-#' seecol(uni_princeton_2, col_brd = "grey", lwd = 2)  # view color palette
+#' seecol(uni_princeton_2, col_brd = "grey", lwd = 1.5, 
+#'        main = "Colors of Princeton (on black backgrounds)")
 #' demopal(uni_princeton_2, type = 3, main = "Colors of Princeton University")
 #' par(opar)
 #'
@@ -3520,9 +3522,9 @@ UR_glutrot_f <-            "#DA3C43" # Informatik und Data Science (TODO: Same a
 #' 
 #' @examples
 #' uni_regensburg_1
-#' seecol(uni_regensburg_1)  # view color palette
+#' seecol(uni_regensburg_1, main = "General colors of the University of Regensburg")
 #' demopal(uni_regensburg_1, alpha = .70, type = 2, 
-#'         main = "General colors of the University of Regensburg")
+#'         main = "General colors of Regensburg University")
 #'
 #' @family contributed color palettes
 #'
@@ -3581,9 +3583,8 @@ uni_regensburg_1 <- newpal(col = c(UR_neutralgrau,
 #' 
 #' @examples
 #' uni_regensburg_2
-#' seecol(uni_regensburg_2)  # view color palette
-#' demopal(uni_regensburg_2, type = 3, 
-#'         main = "Department colors at the University of Regensburg")
+#' seecol(uni_regensburg_2, main = "Departmental colors at the University of Regensburg")
+#' demopal(uni_regensburg_2, type = 3, main = "Department colors of Regensburg University")
 #'
 #' @family contributed color palettes
 #'
@@ -3652,9 +3653,9 @@ all.equal(uni_regensburg_2, uni_regensburg_2_a)  # RGB values correspond to web 
 #' 
 #' @examples
 #' uni_regensburg_3
-#' seecol(uni_regensburg_3)  # view color palette
+#' seecol(uni_regensburg_3, main = "Department colors at the University of Regensburg")
 #' demopal(uni_regensburg_3, type = 4, seed = 13, 
-#'         main = "Department colors at the University of Regensburg")
+#'         main = "Using the departmental colors at Regensburg University")
 #'
 #' @family contributed color palettes
 #'
@@ -4212,9 +4213,8 @@ rptu_weiss <- "white"
 #' 
 #' @examples
 #' rptu_pal
-#' seecol(rptu_pal, main = "The colors of RPTU")
-#' demopal(rptu_pal, type = 1, 
-#'         main = "Using the colors of RPTU")
+#' seecol(rptu_pal, main = "The colors of RPTU")  # view color palette
+#' demopal(rptu_pal, type = 1, main = "Using the colors of RPTU")
 #' 
 #' # Gradients:
 #' rptu_10 <- usecol(c(rptu_pal[9], "white"), n = 11)[1:10]
