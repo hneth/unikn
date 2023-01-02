@@ -1,5 +1,5 @@
 
-# unikn 0.7.0.9015
+# unikn 0.7.0.9016
 
 This is the current development version of **unikn** (v0.7.0.9001+). 
 
@@ -19,6 +19,7 @@ Changes since last release:
     - [University of Bonn](https://www.uni-bonn.de/en): `uni_bonn_1`, `uni_bonn_2` 
     - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
     - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2` 
+    - [Kiel University](https://www.uni-kiel.de/en/): `uni_kiel_1`, `uni_kiel_2` 
     - [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2` 
     - [University of Mannheim](https://www.uni-mannheim.de/): `uni_mannheim_1`, `uni_mannheim_2` 
     - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3` 
@@ -292,6 +293,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2022-12-31.] 
+[File `NEWS.md` updated on 2023-01-02.] 
 
 <!-- eof. -->

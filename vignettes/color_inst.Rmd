@@ -72,6 +72,7 @@ In addition to the specific color palettes of the [University of Konstanz](https
   (from\ 2022: `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`) 
 - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
 - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2` 
+- [Kiel University](https://www.uni-kiel.de/en/): `uni_kiel_1`, `uni_kiel_2` 
 - [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2` 
 - [University of Konstanz](https://www.uni-konstanz.de/): `uni_konstanz_1`, `uni_konstanz_2` 
 - [University of Mannheim](https://www.uni-mannheim.de/): `uni_mannheim_1`, `uni_mannheim_2` 
@@ -83,7 +84,7 @@ In addition to the specific color palettes of the [University of Konstanz](https
 
 <!-- Note: Number of palettes & exported as named vectors: -->
 
-These 48\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
+These 50\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
 We can use and modify these palettes with the **unikn** [color functions](colors.html):
 
 <!-- Note: Duplicate image in README.Rmd -->
