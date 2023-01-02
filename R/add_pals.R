@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 01 01
+## spds | uni.kn |  2022 01 02
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -458,7 +458,7 @@ nam_goe_primary <- c("uniblau", "logoblau", "logomittelblau", "logohellblau")
 #' \code{uni_goettingen_1} provides the primary blue colors 
 #' of the \href{https://www.uni-goettingen.de/}{University of Göttingen}, Germany.  
 #' 
-#' The primary dark blue color is defined as Uni-Blau HKS 41. 
+#' The primary dark blue color \code{uniblau} is defined as \code{Uni-Blau HKS 41}. 
 #' The palette \code{uni_goettingen_1} adds some derived colors, 
 #' while the palette \code{\link{uni_goettingen_2}} provides secondary colors. 
 #' 
@@ -474,8 +474,8 @@ nam_goe_primary <- c("uniblau", "logoblau", "logomittelblau", "logohellblau")
 #' 
 #' @examples
 #' uni_goettingen_1
-#' seecol(uni_goettingen_1)  # view color palette
-#' demopal(uni_goettingen_1, type = 1, main = "Primary colors of the University of Göttingen")
+#' seecol(uni_goettingen_1, main = "The primary colors of Uni Göttingen")
+#' demopal(uni_goettingen_1, type = 1, main = "Primary colors of the University of Goettingen")
 #'
 #' @family contributed color palettes
 #'
@@ -520,7 +520,7 @@ nam_goe_secondary <- c("schwarz", "weiss", "chamois", "altweiss",
 #' 
 #' \code{uni_goettingen_2} corrects an error in the color definitions 
 #' of \url{https://www.uni-goettingen.de/de/589412.html}, 
-#' where "Chamois" and "Altweiss" had identical, 
+#' where \code{"Chamois"} and \code{"Altweiss"} had identical, 
 #' but non-corresponding RGB and HEX values.
 #' 
 #' @return 
@@ -535,8 +535,8 @@ nam_goe_secondary <- c("schwarz", "weiss", "chamois", "altweiss",
 #' 
 #' @examples
 #' uni_goettingen_2
-#' seecol(uni_goettingen_2)  # view color palette
-#' demopal(uni_goettingen_2, type = 3, main = "Secondary colors of the University of Göttingen")
+#' seecol(uni_goettingen_2, main = "Secondary colors of the University of Göttingen")
+#' demopal(uni_goettingen_2, type = 3, main = "Secondary colors of Uni Goettingen")
 #'
 #' @family contributed color palettes
 #'
@@ -595,7 +595,7 @@ nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "F
 #' 
 #' \code{uni_goettingen_3} corrects an error in the color definitions 
 #' of \url{https://www.uni-goettingen.de/de/589412.html}, 
-#' where the color definition for "Theologie" used non-corresponding RGB and HEX values. 
+#' where the color definition for "Theologie" provided non-corresponding RGB and HEX values. 
 #' We adopted \code{RGB 68/37/61} and the corresponding \code{HEX #44253d} values.
 #' 
 #' @return 
@@ -610,8 +610,8 @@ nam_goe_fac <- c("Agrarwissenschaften", "Biologie und Psychologie", "Chemie", "F
 #' 
 #' @examples
 #' uni_goettingen_3
-#' seecol(uni_goettingen_3, main = "Department colors at the University of Goettingen")  
-#' demopal(uni_goettingen_3, type = 3, main = "Departmental colors of the University of Göttingen")
+#' seecol(uni_goettingen_3, main = "Department colors at the University of Göttingen")  
+#' demopal(uni_goettingen_3, type = 3, main = "Department colors of the University of Goettingen")
 #'
 #' @family contributed color palettes
 #'
@@ -2501,8 +2501,9 @@ uni_jena_1 <- newpal(col = c(jena_dunkelblau, jena_gold),
 
 uni_jena_2 <- newpal(col = jena_faculties,
                      names = c("Theologie", "Rechtswissenschaft", "Wirtschaftswissenschaft", "Philosophie",
-                               "Sozial- und Verhaltenswissenschaften", "Mathematik und Informatik", "Physik und Astronomie",
-                               "Chemie und Geowissenschaft", "Biowissenschaften", "Medizin"),
+                               "Sozial- und Verhaltenswissenschaften", "Mathematik und Informatik", 
+                               "Physik und Astronomie", "Chemie und Geowissenschaft", "Biowissenschaften", 
+                               "Medizin"),
                      as_df = FALSE)
 
 # seecol(uni_jena_2, main = "Departmental / faculty colors of Jena University")
@@ -2544,7 +2545,65 @@ uni_jena_2 <- newpal(col = jena_faculties,
 kiel_main <- "#9b0a7d"  # = rgb(155, 10, 125, maxColorValue = 255)
 # seecol(kiel_main)
 
-# +++ here now +++
+
+# uni_kiel_1: ----
+
+#' Primary colors of Kiel University
+#'
+#' \code{uni_kiel_1} provides the primary \code{violett} color
+#' of \href{https://www.uni-kiel.de/en/}{Kiel University}, Germany. 
+#' 
+#' The main color is the luminant \code{violett} of \code{uni_kiel_1[2]}, 
+#' which is historically based on the founding faculty of theology. 
+#' It is alternatively defined as \code{RGB 155/10/125}, \code{Hex #9b0a7d}, 
+#' \code{HKS 33}, or \code{CMYK 45/100/0/0}. 
+#' 
+#' The palette \code{uni_kiel_1} enframes this color as its central element 
+#' in \code{"black"} and \code{"white"} to easily enable mixing it with 
+#' shades of \code{"grey"}. 
+#' See examples and the \code{\link{ac}} and \code{\link{usecol}} functions 
+#' for creating color gradients. 
+#' 
+#' The full name of \href{https://www.uni-kiel.de/en/}{Kiel University} 
+#' is Christian-Albrechts-Universität (CAU) zu Kiel.
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2023-01-02.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.presse.uni-kiel.de/de/erscheinungsbild/farben}. 
+#' 
+#' @examples
+#' uni_kiel_1
+#' seecol(uni_kiel_1, main = "The main color of Kiel University (CAU)")
+#' demopal(uni_kiel_1, type = 3, main = "Primary colors of the University of Kiel")
+#' 
+#' # Gradient: Mixing the main color with shades of grey: 
+#' N = 9
+#' kiel_mix <- usecol(uni_kiel_1, n = N)[c(-1, -N)]  # remove extremes
+#' seecol(kiel_mix, main = "A color gradient of Kiel University (CAU)")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_kiel_2}} for departmental colors of Kiel University;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+uni_kiel_1 <- newpal(col = c("black", kiel_main, "white"),
+                     names = c("schwarz", "violett", "weiss"),
+                     as_df = FALSE)
+
+# uni_kiel_2: ----
 
 # Fakultätsfarben
 #
@@ -2598,8 +2657,59 @@ kiel_technik <- "#003d86"
 kiel_faculties <- c(kiel_theologie, kiel_rechtswiss, kiel_medizin, kiel_philosophie, 
                     kiel_agrarernaehrungswiss, kiel_mathenaturwiss, kiel_wirtchaftsozialwiss, kiel_technik)
 
-# seecol(kiel_faculties, main = "8 Fakultäten der Uni Kiel")
+kiel_faculty_names <- c("Theologie", "Rechtswissenschaft", "Medizin", "Philosophie", 
+                        "Agrar-und Ernährungswissenschaft", "Mathematik und Naturwissenschaften", 
+                        "Wirtschafts- und Sozialwissenschaften", "Technik")
 
+
+#' Departmental colors of Kiel University 
+#'
+#' \code{uni_kiel_2} provides the 8 departmental colors (German "Fakultäten") 
+#' of \href{https://www.uni-kiel.de/en/}{Kiel University}, Germany. 
+#' 
+#' These colors may be mixed with darker shades of \code{"grey"} (or \code{"black"}). 
+#' See examples and the \code{\link{ac}} and \code{\link{usecol}} functions 
+#' for creating color gradients. 
+#' 
+#' The full name of \href{https://www.uni-kiel.de/en/}{Kiel University} 
+#' is Christian-Albrechts-Universität (CAU) zu Kiel.  
+#' 
+#' @return 
+#' A named vector of colors (HEX/HTML codes of type character).
+#' 
+#' @author 
+#' \strong{unikn}, 2023-01-02.
+#' 
+#' @source 
+#' Color definitions are based on 
+#' \url{https://www.presse.uni-kiel.de/de/erscheinungsbild/farben}. 
+#' 
+#' @examples
+#' uni_kiel_2
+#' seecol(uni_kiel_2, main = "Departmental colors of Kiel University (CAU)")
+#' demopal(uni_kiel_2, type = 3, main = "Department colors of the University of Kiel")
+#' 
+#' # Gradients: Mix with "black" for darker shades:
+#' uni_kiel_med <- usecol(c(uni_kiel_2["Medizin"], "black"), n = 5)
+#' seecol(uni_kiel_med, main = "5 shades of 'Medizin' of Uni Kiel")
+#'
+#' @family contributed color palettes
+#'
+#' @seealso 
+#' \code{\link{uni_kiel_1}} for primary colors of Kiel University;  
+#' \code{\link{seecol}} for viewing and comparing color palettes; 
+#' \code{\link{usecol}} for using color palettes; 
+#' \code{\link{simcol}} for finding similar colors; 
+#' \code{\link{newpal}} for defining new color palettes; 
+#' \code{\link{grepal}} for finding named colors. 
+#' 
+#' @export
+
+uni_kiel_2 <- newpal(col = kiel_faculties,
+                     names = kiel_faculty_names,
+                     as_df = FALSE)
+
+# +++ here now +++
 
 
 # Uni Koeln: ------
@@ -3623,7 +3733,7 @@ uni_ulm_2 <- newpal(col = c(UU_blau, UU_rot, UU_gruen, UU_orange),
 
 
 
-# RPI: Rensselaer Polytechnic Institute: ------ 
+# RPI / Rensselaer Polytechnic Institute: ------ 
 
 # Source: <https://scer.rpi.edu/brand-in-action/colors>
 # 2022-12-01
