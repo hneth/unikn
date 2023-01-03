@@ -109,10 +109,11 @@ devtools::install_github('hneth/unikn')
 
 ## Colors and color palettes
 
-The **unikn** contains two categories of color palettes:
+The colors of **unikn** belong to two categories of color palettes:
 
 - 16 palettes implementing the colors of the [University of
   Konstanz](https://www.uni-konstanz.de/)’s corporate design
+
 - 52 additional color palettes from various academic institutions
 
 ### The colors of Konstanz University
@@ -792,6 +793,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-01-02.\]
+\[File `README.md` updated on 2023-01-03.\]
 
 <!-- eof. -->
