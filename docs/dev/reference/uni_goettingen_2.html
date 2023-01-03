@@ -18,7 +18,7 @@ of the University of Göttingen, Germany."><meta property="og:image" content="ht
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.7.0.9010</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.7.0.9016</span>
       </span>
     </div>
 
@@ -105,7 +105,7 @@ of the <a href="https://www.uni-goettingen.de/" class="external-link">University
 provided by palette <code><a href="uni_goettingen_1.html">uni_goettingen_1</a></code>.</p>
 <p><code>uni_goettingen_2</code> corrects an error in the color definitions 
 of <a href="https://www.uni-goettingen.de/de/589412.html" class="external-link">https://www.uni-goettingen.de/de/589412.html</a>, 
-where "Chamois" and "Altweiss" had identical, 
+where <code>"Chamois"</code> and <code>"Altweiss"</code> had identical, 
 but non-corresponding RGB and HEX values.</p>
     </div>
     <div id="see-also">
@@ -120,9 +120,9 @@ but non-corresponding RGB and HEX values.</p>
 <code><a href="caltech_pal_1.html">caltech_pal_1</a></code>,
 <code><a href="caltech_pal_2.html">caltech_pal_2</a></code>,
 <code><a href="caltech_pal_3.html">caltech_pal_3</a></code>,
-<code><a href="eth_pal_grey.html">eth_pal_grey</a></code>,
-<code><a href="eth_pal_light.html">eth_pal_light</a></code>,
-<code><a href="eth_pal.html">eth_pal</a></code>,
+<code><a href="eth_pal_1.html">eth_pal_1</a></code>,
+<code><a href="eth_pal_2.html">eth_pal_2</a></code>,
+<code><a href="eth_pal_3.html">eth_pal_3</a></code>,
 <code><a href="fu_pal_0.html">fu_pal_0</a></code>,
 <code><a href="fu_pal_1.html">fu_pal_1</a></code>,
 <code><a href="fu_pal_2.html">fu_pal_2</a></code>,
@@ -136,8 +136,12 @@ but non-corresponding RGB and HEX values.</p>
 <code><a href="rpi_pal_1.html">rpi_pal_1</a></code>,
 <code><a href="rpi_pal_2.html">rpi_pal_2</a></code>,
 <code><a href="rpi_pal_3.html">rpi_pal_3</a></code>,
+<code><a href="rptu_pal.html">rptu_pal</a></code>,
 <code><a href="uni_bonn_1.html">uni_bonn_1</a></code>,
 <code><a href="uni_bonn_2.html">uni_bonn_2</a></code>,
+<code><a href="uni_freiburg_0.html">uni_freiburg_0</a></code>,
+<code><a href="uni_freiburg_1.html">uni_freiburg_1</a></code>,
+<code><a href="uni_freiburg_2.html">uni_freiburg_2</a></code>,
 <code><a href="uni_freiburg_blue.html">uni_freiburg_blue</a></code>,
 <code><a href="uni_freiburg_br.html">uni_freiburg_br</a></code>,
 <code><a href="uni_freiburg_grey.html">uni_freiburg_grey</a></code>,
@@ -146,16 +150,24 @@ but non-corresponding RGB and HEX values.</p>
 <code><a href="uni_goettingen_3.html">uni_goettingen_3</a></code>,
 <code><a href="uni_hamburg_1.html">uni_hamburg_1</a></code>,
 <code><a href="uni_hamburg_2.html">uni_hamburg_2</a></code>,
+<code><a href="uni_jena_1.html">uni_jena_1</a></code>,
+<code><a href="uni_jena_2.html">uni_jena_2</a></code>,
+<code><a href="uni_kiel_1.html">uni_kiel_1</a></code>,
+<code><a href="uni_kiel_2.html">uni_kiel_2</a></code>,
 <code><a href="uni_koeln_1.html">uni_koeln_1</a></code>,
 <code><a href="uni_koeln_2.html">uni_koeln_2</a></code>,
-<code><a href="uni_konstanz_pref.html">uni_konstanz_pref</a></code>,
-<code><a href="uni_konstanz.html">uni_konstanz</a></code>,
+<code><a href="uni_konstanz_1.html">uni_konstanz_1</a></code>,
+<code><a href="uni_konstanz_2.html">uni_konstanz_2</a></code>,
+<code><a href="uni_mannheim_1.html">uni_mannheim_1</a></code>,
+<code><a href="uni_mannheim_2.html">uni_mannheim_2</a></code>,
 <code><a href="uni_princeton_0.html">uni_princeton_0</a></code>,
 <code><a href="uni_princeton_1.html">uni_princeton_1</a></code>,
 <code><a href="uni_princeton_2.html">uni_princeton_2</a></code>,
 <code><a href="uni_regensburg_1.html">uni_regensburg_1</a></code>,
 <code><a href="uni_regensburg_2.html">uni_regensburg_2</a></code>,
-<code><a href="uni_regensburg_3.html">uni_regensburg_3</a></code></p></div>
+<code><a href="uni_regensburg_3.html">uni_regensburg_3</a></code>,
+<code><a href="uni_ulm_1.html">uni_ulm_1</a></code>,
+<code><a href="uni_ulm_2.html">uni_ulm_2</a></code></p></div>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -165,11 +177,11 @@ but non-corresponding RGB and HEX values.</p>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">uni_goettingen_2</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Schwarz     Weiss   Chamois  Altweiss   Grau 90   Grau 80   Grau 60   Grau 20 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "#000000" "#FFFFFF" "#EAE2D8" "#f2f0e8" "#3b3b3a" "#575656" "#878786" "#d9dada" </span>
-<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">uni_goettingen_2</span><span class="op">)</span>  <span class="co"># view color palette</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   schwarz     weiss   chamois  altweiss  grau 90%  grau 80%  grau 60%  grau 20% </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "black"   "white" "#eae2d8" "#f2f0e8" "#3b3b3a" "#575656" "#878786" "#d9dada" </span>
+<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">uni_goettingen_2</span>, main <span class="op">=</span> <span class="st">"Secondary colors of the University of Göttingen"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="uni_goettingen_2-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="fu"><a href="demopal.html">demopal</a></span><span class="op">(</span><span class="va">uni_goettingen_2</span>, type <span class="op">=</span> <span class="fl">3</span>, main <span class="op">=</span> <span class="st">"Secondary colors of the University of Göttingen"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="demopal.html">demopal</a></span><span class="op">(</span><span class="va">uni_goettingen_2</span>, type <span class="op">=</span> <span class="fl">3</span>, main <span class="op">=</span> <span class="st">"Secondary colors of Uni Goettingen"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="uni_goettingen_2-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

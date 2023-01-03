@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2022 12 20
+## spds, uni.kn | 2023 01 03
 ## -------------------------
 
 ## site info: ----------
@@ -82,6 +82,7 @@ reference:
   - starts_with("mpg_")
   - starts_with("uni_")
   - starts_with("rpi_")
+  - starts_with("rptu_")
 - title: Color manipulation functions
   desc: Commands for viewing, creating, changing, finding and using colors and color palettes. 
   contents:

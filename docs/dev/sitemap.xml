@@ -76,6 +76,15 @@
     <loc>https://hneth.github.io/unikn/reference/eth_pal.html</loc>
   </url>
   <url>
+    <loc>https://hneth.github.io/unikn/reference/eth_pal_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/eth_pal_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/eth_pal_3.html</loc>
+  </url>
+  <url>
     <loc>https://hneth.github.io/unikn/reference/eth_pal_grey.html</loc>
   </url>
   <url>
@@ -187,6 +196,9 @@
     <loc>https://hneth.github.io/unikn/reference/rpi_pal_3.html</loc>
   </url>
   <url>
+    <loc>https://hneth.github.io/unikn/reference/rptu_pal.html</loc>
+  </url>
+  <url>
     <loc>https://hneth.github.io/unikn/reference/seecol.html</loc>
   </url>
   <url>
@@ -212,6 +224,15 @@
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/uni_bonn_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_freiburg_0.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_freiburg_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_freiburg_2.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/uni_freiburg_blue.html</loc>
@@ -241,6 +262,18 @@
     <loc>https://hneth.github.io/unikn/reference/uni_hamburg_2.html</loc>
   </url>
   <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_jena_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_jena_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_kiel_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_kiel_2.html</loc>
+  </url>
+  <url>
     <loc>https://hneth.github.io/unikn/reference/uni_koeln_1.html</loc>
   </url>
   <url>
@@ -250,7 +283,19 @@
     <loc>https://hneth.github.io/unikn/reference/uni_konstanz.html</loc>
   </url>
   <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_konstanz_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_konstanz_2.html</loc>
+  </url>
+  <url>
     <loc>https://hneth.github.io/unikn/reference/uni_konstanz_pref.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_mannheim_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_mannheim_2.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/uni_princeton_0.html</loc>
@@ -269,6 +314,12 @@
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/uni_regensburg_3.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_ulm_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_ulm_2.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/unikn.guide.html</loc>
