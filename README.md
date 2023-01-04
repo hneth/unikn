@@ -753,11 +753,11 @@ or publications:
 
 <!-- Citation / reference (in APA format): -->
 
-- Neth, H., & Gradwohl, N., (2022). unikn: Graphical elements of the
+- Neth, H., & Gradwohl, N., (2023). unikn: Graphical elements of the
   University of Konstanz’s corporate design.  
   Social Psychology and Decision Sciences, University of Konstanz,
   Germany.  
-  Computer software (R package version 0.7.0, November 10, 2022).  
+  Computer software (R package version 0.8.0, January 8, 2023).  
   Retrieved from <https://CRAN.R-project.org/package=unikn>.  
   doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)
 
@@ -768,10 +768,10 @@ A BibTeX entry for LaTeX users is:
     @Manual{,
       title = {unikn: Graphical elements of the University of Konstanz's corporate design},
       author = {Hansjörg Neth and Nico Gradwohl},
-      year = {2022},
+      year = {2023},
       organization = {Social Psychology and Decision Sciences, University of Konstanz},
       address = {Konstanz, Germany},
-      note = {R package (version 0.7.0, November 10, 2022)},
+      note = {R package (version 0.8.0, January 8, 2023)},
       url = {https://CRAN.R-project.org/package=unikn},
       doi = {10.5281/zenodo.7096191},
     }
@@ -793,6 +793,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-01-03.\]
+\[File `README.md` updated on 2023-01-04.\]
 
 <!-- eof. -->
