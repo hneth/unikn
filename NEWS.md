@@ -1,7 +1,7 @@
 
-# unikn 0.7.0.9016
+# unikn 0.8.0
 
-This is the current development version of **unikn** (v0.7.0.9001+). 
+This release of **unikn** (v0.8.0) extends its functionality to additional color palettes. [2023-01-08] 
 
 <!-- Log of changes: --> 
 
@@ -294,6 +294,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-01-03.] 
+[File `NEWS.md` updated on 2023-01-04.] 
 
 <!-- eof. -->
