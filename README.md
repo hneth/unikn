@@ -757,7 +757,7 @@ or publications:
   University of Konstanz’s corporate design.  
   Social Psychology and Decision Sciences, University of Konstanz,
   Germany.  
-  Computer software (R package version 0.8.0, January 8, 2023).  
+  Computer software (R package version 0.8.0, January 6, 2023).  
   Retrieved from <https://CRAN.R-project.org/package=unikn>.  
   doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)
 
@@ -771,7 +771,7 @@ A BibTeX entry for LaTeX users is:
       year = {2023},
       organization = {Social Psychology and Decision Sciences, University of Konstanz},
       address = {Konstanz, Germany},
-      note = {R package (version 0.8.0, January 8, 2023)},
+      note = {R package (version 0.8.0, January 6, 2023)},
       url = {https://CRAN.R-project.org/package=unikn},
       doi = {10.5281/zenodo.7096191},
     }
@@ -793,6 +793,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-01-04.\]
+\[File `README.md` updated on 2023-01-05.\]
 
 <!-- eof. -->

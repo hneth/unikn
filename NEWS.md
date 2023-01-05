@@ -1,7 +1,7 @@
 
 # unikn 0.8.0
 
-This release of **unikn** (v0.8.0) extends its functionality to additional color palettes. [2023-01-08] 
+This release of **unikn** (v0.8.0) extends its functionality to additional color palettes. [2023-01-06] 
 
 <!-- Log of changes: --> 
 
@@ -294,6 +294,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-01-04.] 
+[File `NEWS.md` updated on 2023-01-05.] 
 
 <!-- eof. -->

@@ -7,7 +7,7 @@ citEntry(entry = "Manual",
          year         = "2023",
          organization = "Social Psychology and Decision Sciences, University of Konstanz",
          address      = "Konstanz, Germany",
-         note         = "R package (version 0.8.0, January 8, 2023)",
+         note         = "R package (version 0.8.0, January 6, 2023)",
          url          = "https://CRAN.R-project.org/package=unikn",
          doi          = "10.5281/zenodo.7096191", 
 
