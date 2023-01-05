@@ -11,6 +11,7 @@ output: github_document
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191) 
 <!-- Status badges end. -->
 
+
 <!-- Possible status badges: 
 [![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml) 
 [![CRAN_status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
@@ -106,7 +107,7 @@ The colors of **unikn** belong to two categories of color palettes:
 - 52\ additional color palettes from various academic institutions
 
 
-### The colors of Konstanz University
+### The colors of Konstanz University 
 
 Originally, the **unikn** package primarily provided the 16\ color palettes of the [University of Konstanz](https://www.uni-konstanz.de/):
 
@@ -213,6 +214,7 @@ seecol(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
 ```
 
 <!-- More flexible and complex color palettes can be created by using the `seecol()` and `usecol()` functions.  -->
+
 
 ### Additional color palettes
 
@@ -483,8 +485,6 @@ seecol(pal = list(olives, oranges),
 ```
 
 See the vignette on [Colors and color functions](https://hneth.github.io/unikn/articles/colors.html) and [Color recipes](https://hneth.github.io/unikn/articles/color_recipes.html) for additional examples. 
-
-<!-- +++ here now +++ -->
 
 
 ## Text decorations

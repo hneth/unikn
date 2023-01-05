@@ -528,8 +528,6 @@ functions](https://hneth.github.io/unikn/articles/colors.html) and
 recipes](https://hneth.github.io/unikn/articles/color_recipes.html) for
 additional examples.
 
-<!-- +++ here now +++ -->
-
 ## Text decorations
 
 Beyond colors and color functions, **unikn** provides functions for
@@ -793,6 +791,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-01-05.\]
+\[File `README.md` updated on 2023-01-06.\]
 
 <!-- eof. -->
