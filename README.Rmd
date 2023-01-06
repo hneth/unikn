@@ -694,6 +694,7 @@ Computer software (R package version 0.8.0, January 6, 2023).
 Retrieved from <https://CRAN.R-project.org/package=unikn>.  
 doi\ [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)  
 
+
 <!-- BibTeX:  -->
 
 A BibTeX entry for LaTeX users is:
@@ -709,8 +710,8 @@ toBibtex(x)
 
 The copyrights to all [uni.kn](https://www.uni-konstanz.de/) designs remain with their original creators: 
 
-- [The University of Konstanz’s corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (Version 1.6, September 2015) 
-- [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) 
+- [The University of Konstanz’s corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (Version 1.6, September 2015)  
+- [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)  
 - Strichpunkt GmbH, [`r url_unikn("https://www.strichpunkt-design.de/")`](https://www.strichpunkt-design.de/) 
 
 
