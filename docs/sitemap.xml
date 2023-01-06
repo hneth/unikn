@@ -61,10 +61,28 @@
     <loc>https://hneth.github.io/unikn/reference/all_colors.html</loc>
   </url>
   <url>
+    <loc>https://hneth.github.io/unikn/reference/caltech_pal_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/caltech_pal_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/caltech_pal_3.html</loc>
+  </url>
+  <url>
     <loc>https://hneth.github.io/unikn/reference/demopal.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/eth_pal.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/eth_pal_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/eth_pal_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/eth_pal_3.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/eth_pal_grey.html</loc>
@@ -73,13 +91,40 @@
     <loc>https://hneth.github.io/unikn/reference/eth_pal_light.html</loc>
   </url>
   <url>
+    <loc>https://hneth.github.io/unikn/reference/fu_pal_0.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/fu_pal_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/fu_pal_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/fu_pal_3.html</loc>
+  </url>
+  <url>
     <loc>https://hneth.github.io/unikn/reference/grepal.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/heading.html</loc>
   </url>
   <url>
+    <loc>https://hneth.github.io/unikn/reference/hu_pal_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/hu_pal_2.html</loc>
+  </url>
+  <url>
     <loc>https://hneth.github.io/unikn/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/lmu_pal_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/lmu_pal_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/lmu_pal_3.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/mark.html</loc>
@@ -142,6 +187,18 @@
     <loc>https://hneth.github.io/unikn/reference/post.html</loc>
   </url>
   <url>
+    <loc>https://hneth.github.io/unikn/reference/rpi_pal_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/rpi_pal_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/rpi_pal_3.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/rptu_pal.html</loc>
+  </url>
+  <url>
     <loc>https://hneth.github.io/unikn/reference/seecol.html</loc>
   </url>
   <url>
@@ -163,6 +220,21 @@
     <loc>https://hneth.github.io/unikn/reference/uline.html</loc>
   </url>
   <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_bonn_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_bonn_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_freiburg_0.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_freiburg_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_freiburg_2.html</loc>
+  </url>
+  <url>
     <loc>https://hneth.github.io/unikn/reference/uni_freiburg_blue.html</loc>
   </url>
   <url>
@@ -175,10 +247,55 @@
     <loc>https://hneth.github.io/unikn/reference/uni_freiburg_info.html</loc>
   </url>
   <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_goettingen_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_goettingen_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_goettingen_3.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_hamburg_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_hamburg_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_jena_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_jena_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_kiel_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_kiel_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_koeln_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_koeln_2.html</loc>
+  </url>
+  <url>
     <loc>https://hneth.github.io/unikn/reference/uni_konstanz.html</loc>
   </url>
   <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_konstanz_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_konstanz_2.html</loc>
+  </url>
+  <url>
     <loc>https://hneth.github.io/unikn/reference/uni_konstanz_pref.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_mannheim_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_mannheim_2.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/uni_princeton_0.html</loc>
@@ -188,6 +305,21 @@
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/uni_princeton_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_regensburg_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_regensburg_2.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_regensburg_3.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_ulm_1.html</loc>
+  </url>
+  <url>
+    <loc>https://hneth.github.io/unikn/reference/uni_ulm_2.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/unikn.guide.html</loc>

@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0</span>
       </span>
     </div>
 
@@ -105,7 +105,7 @@
                         <h4 data-toc-skip class="author">SPDS,
 uni.kn</h4>
             
-            <h4 data-toc-skip class="date">2022 11 10</h4>
+            <h4 data-toc-skip class="date">2022 11 30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/HEAD/vignettes/color_recipes.Rmd" class="external-link"><code>vignettes/color_recipes.Rmd</code></a></small>
       <div class="hidden name"><code>color_recipes.Rmd</code></div>
@@ -246,11 +246,32 @@ of <code><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-lin
 <p>For instance, let’s create and compare a set of 20 random HCL
 palettes:</p>
 <ul>
-<li><p>Generate random HCL palettes (and save them as a list):</p></li>
-<li><p>Use <code><a href="../reference/seecol.html">seecol()</a></code> for comparing multiple color
-palettes:</p></li>
+<li>Generate random HCL palettes (and save them as a list):</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parameters:</span></span>
+<span><span class="va">n_col</span> <span class="op">&lt;-</span>  <span class="fl">8</span>   <span class="co"># colors in each palette</span></span>
+<span><span class="va">n_pal</span> <span class="op">&lt;-</span> <span class="fl">20</span>   <span class="co"># length(hcl.pals())</span></span>
+<span><span class="va">ptype</span> <span class="op">&lt;-</span> <span class="cn">NULL</span> <span class="co"># c("diverging", "divergingx", "qualitative", "sequential")[4] </span></span>
+<span></span>
+<span><span class="va">s_pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.pals</a></span><span class="op">(</span>type <span class="op">=</span> <span class="va">ptype</span><span class="op">)</span>, size <span class="op">=</span> <span class="va">n_pal</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">s_pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="va">s_pal</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Initialize:</span></span>
+<span><span class="va">t_lbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"See "</span>, <span class="va">n_pal</span>, <span class="st">" random HCL color palettes (n = "</span>, <span class="va">n_col</span>, <span class="st">")"</span><span class="op">)</span> </span>
+<span><span class="va">l_pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">vector</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="va">n_pal</span><span class="op">)</span>  <span class="co"># lists of palettes</span></span>
+<span></span>
+<span><span class="co"># Loop:</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n_pal</span><span class="op">)</span><span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="va">l_pal</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span>n <span class="op">=</span> <span class="va">n_col</span>, palette <span class="op">=</span> <span class="va">s_pal</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>Use <code><a href="../reference/seecol.html">seecol()</a></code> for comparing multiple color
+palettes:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span>pal <span class="op">=</span> <span class="va">l_pal</span>, </span>
 <span>       pal_names <span class="op">=</span> <span class="va">s_pal</span>,</span>
 <span>       col_brd <span class="op">=</span> <span class="st">"white"</span>, lwd_brd <span class="op">=</span> <span class="fl">1</span>,</span>
@@ -264,7 +285,7 @@ palettes:</p></li>
 color.</p>
 <p>Use the <code><a href="../reference/simcol.html">simcol()</a></code> function for finding (and
 plotting/seeing) similar colors:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/simcol.html">simcol</a></span><span class="op">(</span><span class="st">"forestgreen"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    forestgreen    chartreuse4         green4      olivedrab     olivedrab4 </span></span>
 <span><span class="co">#&gt;  "forestgreen"  "chartreuse4"       "green4"    "olivedrab"   "olivedrab4" </span></span>
@@ -279,7 +300,7 @@ in RGB values. If this distance falls below some tolerance value(s)
 (<code>tol</code>), the corresponding <code>col_candidates</code> are
 shown and returned. Thus, increasing the tolerance value yields a wider
 range of colors:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/simcol.html">simcol</a></span><span class="op">(</span>col_target <span class="op">=</span> <span class="st">"orange"</span>, col_candidates <span class="op">=</span> <span class="va">pal_unikn_pref</span>, tol <span class="op">=</span> <span class="fl">150</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    orange     Pinky     Peach    Signal  Bordeaux </span></span>
 <span><span class="co">#&gt;  "orange" "#E0607E" "#FEA090" "#EFDC60" "#8E2043"</span></span></code></pre></div>
@@ -287,7 +308,7 @@ range of colors:</p>
 <p>Specifying a vector of three <code>tol</code> values compares RGB
 dimensions in the order of their rank. This allows for more fine-grained
 similarity searches:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/simcol.html">simcol</a></span><span class="op">(</span>col_target <span class="op">=</span> <span class="va">Seeblau</span>, tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">20</span>, <span class="fl">80</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         Seeblau    lightskyblue   lightskyblue2         skyblue        skyblue1 </span></span>
 <span><span class="co">#&gt;       "#59C7EB"  "lightskyblue" "lightskyblue2"       "skyblue"      "skyblue1" </span></span>
@@ -314,7 +335,7 @@ palette (as an R data frame or vector).</p></li>
 <p>Once a new palette has been defined, it can be inspected (with
 <code><a href="../reference/seecol.html">seecol()</a></code>) or further modified and used in visualizations
 (with <code><a href="../reference/usecol.html">usecol()</a></code>):</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 1. Choose colors:</span></span>
 <span><span class="co"># Google logo colors (from &lt;https://www.schemecolor.com/google-logo-colors.php&gt;)</span></span>
 <span></span>
@@ -342,7 +363,7 @@ provides additional examples for defining color palettes.</p>
 pattern (as a regular expression).</p>
 <p>Here are some additional examples for using the <code><a href="../reference/grepal.html">grepal()</a></code>
 function for finding colors by their names (or a pattern):</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Get color palettes matching a pattern:</span></span>
 <span><span class="va">pal_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"orange"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">pal_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"olive"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
@@ -356,7 +377,7 @@ function for finding colors by their names (or a pattern):</p>
 <p>Providing a list of color palettes to the <code>pal</code> argument
 of the <code><a href="../reference/seecol.html">seecol()</a></code> function allows comparing multiple color
 palettes:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># See multiple color palettes:</span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span>pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">pal_1</span>, <span class="va">pal_2</span>, <span class="va">pal_3</span><span class="op">)</span>, </span>
 <span>       pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"orange"</span>, <span class="st">"olive"</span>, <span class="st">"white"</span><span class="op">)</span>, </span>
@@ -371,7 +392,7 @@ expressions, and that (b) the <code>x</code> argument of
 violet” provided by the <strong>grDevices</strong> vector of named
 <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> with various shades of “blau”, “pink”, “peach” and
 “bordeaux” provided by <strong>unikn</strong> color palettes:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Search colors() with specific patterns (in their names): </span></span>
 <span><span class="va">blues</span>    <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"blue$"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>   <span class="co"># ending on "blue"</span></span>
 <span><span class="va">oranges</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grepal.html">grepal</a></span><span class="op">(</span><span class="st">"orange"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>  <span class="co"># containing "orange"</span></span>
@@ -401,30 +422,39 @@ an initial color .</p>
 <p>By default, <code>shades_of(n)</code> yields <code>n</code> shades
 ranging from <code>col_1 = "black"</code> to <code>col_n = "white</code>
 (i.e., <code>n</code> shades of grey):</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">greys</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">greys</span>, main <span class="op">=</span> <span class="st">"10 shades of grey"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="color_recipes_files/figure-html/shades-of-example-1-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>By adjusting <code>n</code>, the initial color <code>col_1</code>,
 and/or the final color <code>col_n</code>, we can conveniently create
 simple color ranges:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">4</span>, <span class="va">Seeblau</span>, <span class="st">"black"</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"4 shades of Seeblau"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/shades-of-example-2-1.png" width="60%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">7</span>, <span class="st">"forestgreen"</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"7 shades of 'forestgreen'"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_recipes_files/figure-html/shades-of-example-2-2.png" width="60%" style="display: block; margin: auto;"></p>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">4</span>, <span class="va">Seeblau</span>, <span class="st">"black"</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"4 shades of Seeblau"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">5</span>, <span class="st">"forestgreen"</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"5 shades of 'forestgreen'"</span><span class="op">)</span></span></code></pre></div>
 <p>Using <code>alpha</code> in the range <span class="math inline">\([0;
-1]\)</span> allows adjusting the transparency of the obtained
-colors:</p>
+1]\)</span> allows adjusting the transparency of the color gradient:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">wine_gold</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">4</span>, <span class="va">Bordeaux</span>, col_n <span class="op">=</span> <span class="st">"gold"</span>, alpha <span class="op">=</span> <span class="fl">.65</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">wine_gold</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/shades_of.html">shades_of</a></span><span class="op">(</span><span class="fl">4</span>, <span class="va">Bordeaux</span>, col_n <span class="op">=</span> <span class="st">"gold"</span>, alpha <span class="op">=</span> <span class="fl">.75</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">wine_gold</span>, main <span class="op">=</span> <span class="st">"5 transparent shades from Bordeaux to gold"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="color_recipes_files/figure-html/shades-of-example-3-1.png" width="60%" style="display: block; margin: auto;"></p>
-<p>Note that <code><a href="../reference/shades_of.html">shades_of()</a></code> is merely a convenient wrapper
+</div>
+<div class="section level2">
+<h2 id="creating-color-gradients">Creating color gradients<a class="anchor" aria-label="anchor" href="#creating-color-gradients"></a>
+</h2>
+<p><strong>Task:</strong> Creating color gradients.</p>
+<p>The <code><a href="../reference/shades_of.html">shades_of()</a></code> function is merely a convenient wrapper
 function for the <code><a href="../reference/usecol.html">usecol()</a></code> function. Using the
 <code>pal</code> argument of <code><a href="../reference/usecol.html">usecol()</a></code> allows defining more
-complex color gradients (e.g., by specifying more than two colors).</p>
+complex color gradients (e.g., by specifying more than two colors). For
+instance, to create a bi-polar (divergent) color palette, we could mix
+two main colors with “white” and then remove the middle color:</p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create bi-polar color gradient (and remove 'white' middle color):</span></span>
+<span><span class="va">divergent_gradient</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/usecol.html">usecol</a></span><span class="op">(</span>pal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"firebrick"</span>, <span class="st">"white"</span>, <span class="st">"steelblue"</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">7</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">4</span><span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">divergent_gradient</span>, main <span class="op">=</span> <span class="st">"A bi-polar color palette"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="color_recipes_files/figure-html/gradient-example-1-1.png" width="60%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
