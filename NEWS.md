@@ -1,4 +1,40 @@
 
+# unikn 0.8.0.9001
+
+This is the development version of **unikn**, which is available at <https://github.com/hneth/unikn/>. 
+
+<!-- Log of changes: --> 
+
+Changes since last release: 
+
+## Major changes 
+
+- none yet
+
+<!-- Blank line.  --> 
+
+
+## Minor changes 
+
+- none yet
+
+<!-- Blank line.  --> 
+
+
+## Details 
+
+- none yet
+
+<!-- Development version:  --> 
+
+The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
+
+
+<!-- Previous versions: -->  
+
+---------- 
+
+
 # unikn 0.8.0
 
 This release of **unikn** (v0.8.0) extends its functionality to additional color palettes. [2023-01-06] 
@@ -54,12 +90,6 @@ Changes since last release:
 - Add utility functions `col_asif_alpha()` and `v_col_asif_alpha()`. 
 - Revise vignettes. 
 - Fix some bugs.
-
-
-
-<!-- Development version:  --> 
-
-The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
 
 
 <!-- Previous versions: -->  
