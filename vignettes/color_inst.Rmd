@@ -1,7 +1,7 @@
 ---
 title: "Institutional colors"
 author: "SPDS, uni.kn"
-date: "2023 01 06"
+date: "2023 01 09"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -43,8 +43,8 @@ However, the functionality provided by the package makes it easy and straightfor
 This vignette first shows which color palettes from other institutions are currently provided by the **unikn** package. 
 As these will never be complete, it then explains how the color-related tools of **unikn** can be used for **creating new color palettes**. 
 <!-- Main color info: --> 
-(For a general introduction to the package's colors, color palettes, and color functions, see the vignettes on [Colors and color functions](colors.html) and [Color recipes](color_recipes.Rmd). 
-The vignette on [text](text.html) provides information on creating text boxes and decorations.) 
+(For a general introduction to the package's colors, color palettes, and color functions, see the vignettes on [Colors and color functions](colors.html) and [Color recipes](color_recipes.html). 
+The vignette on [Text boxes and decorations](text.html) provides information on plotting slides and text elements.) 
 
 We install or load the **unikn** package to get started: 
 
