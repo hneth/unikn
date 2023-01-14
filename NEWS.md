@@ -1,5 +1,5 @@
 
-# unikn 0.8.0.9001
+# unikn 0.8.0.9002
 
 This is the development version of **unikn**, which is available at <https://github.com/hneth/unikn/>. 
 
@@ -23,7 +23,8 @@ Changes since last release:
 
 ## Details 
 
-- none yet
+- Update status badges in `README`. 
+
 
 <!-- Development version:  --> 
 
@@ -324,6 +325,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-01-06.] 
+[File `NEWS.md` updated on 2023-01-14.] 
 
 <!-- eof. -->
