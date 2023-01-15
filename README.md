@@ -1,13 +1,5 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
-
-# unikn 0.8.0.9002 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
-
-<!-- unikn pkg logo and link: -->
-<!-- <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
-</a> 
--->
 <!-- Devel badges start: -->
 
 [![CRAN
@@ -31,26 +23,34 @@ status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-## Enabling corporate design elements in R
+# unikn 0.8.0.9002 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
-The **unikn** package provides useful color functions — by defining
-dedicated colors and color palettes, and commands for finding, changing,
-viewing, and using them — and styled text elements (e.g., for marking,
-underlining, or plotting colored titles)
-in [R](https://www.r-project.org/). The package’s pre-defined range of
-colors and text decoration functions is based on the corporate design of
-the [University of Konstanz](https://www.uni-konstanz.de/) (see
+<!-- unikn pkg logo and link: -->
+<!-- <a href = "https://CRAN.R-project.org/package=unikn">
+<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
+</a> 
+-->
+<!-- ## Enabling corporate design elements in\ R  -->
+
+The **unikn** package enables corporate design elements in R. It
+provides useful color functionality — by defining dedicated colors and
+color palettes, and functions for finding, changing, viewing, and using
+them — and styled text elements (e.g., for marking, underlining, or
+plotting colored titles) in [R](https://www.r-project.org/). The
+package’s pre-defined range of colors and text decoration functions is
+based on the corporate design of the [University of
+Konstanz](https://www.uni-konstanz.de/) (see
 [link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
 for details), but can easily be adapted and extended to other purposes
 or institutions.
 
 ## Overview
 
-Institutions devise corporate designs (CDs) for creating and maintaining
-a consistent impression in presentations and publications. Even when
-writing an article or thesis, it makes sense to define some graphical
-elements (e.g., a color scheme) and use them consistently throughout the
-report.
+Many institutions devise and impose corporate designs (CDs) for creating
+and maintaining a consistent impression in presentations and
+publications. Even when writing an article or thesis, it usually makes
+sense to define some graphical elements (e.g., a color scheme) and use
+them consistently throughout a project.
 
 <!-- Contents/goals of the unikn pgk: -->
 
