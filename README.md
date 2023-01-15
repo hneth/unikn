@@ -30,21 +30,25 @@ status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/
 <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
 </a> 
 -->
-<!-- ## Enabling corporate design elements in\ R  -->
 
-The **unikn** package enables corporate design elements in R. It
-provides useful color functionality — by defining dedicated colors and
-color palettes, and functions for finding, changing, viewing, and using
-them — and styled text elements (e.g., for marking, underlining, or
-plotting colored titles) in [R](https://www.r-project.org/). The
-package’s pre-defined range of colors and text decoration functions is
-based on the corporate design of the [University of
-Konstanz](https://www.uni-konstanz.de/) (see
+### Enabling corporate design elements in R
+
+<!-- The **unikn** package enables corporate design elements in\ R. It... -->
+
+The **unikn** package provides useful color functionality — by defining
+dedicated colors and color palettes, and functions for finding,
+changing, viewing, and using them — and styled text elements (e.g., for
+marking, underlining, or plotting colored titles)
+in [R](https://www.r-project.org/). The package’s pre-defined range of
+colors and text decoration functions is based on the corporate design of
+the [University of Konstanz](https://www.uni-konstanz.de/) (see
 [link](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)
 for details), but can easily be adapted and extended to other purposes
 or institutions.
 
-## Overview
+### Overview
+
+<!-- Motivation    -->
 
 Many institutions devise and impose corporate designs (CDs) for creating
 and maintaining a consistent impression in presentations and
@@ -93,7 +97,7 @@ has now grown into a toolbox for addressing color- and plotting-related
 tasks in R. As we had fun creating it, we hope that you enjoy using it
 as well!
 
-## Installation
+### Installation
 
 The latest release of **unikn** is available from
 [CRAN](https://CRAN.R-project.org/) at
