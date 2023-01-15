@@ -21,8 +21,8 @@ development:
   mode: devel # devel OR release
 
 # template:
-#  params:
-#    bootswatch: sandstone
+#   bootstrap: 5
+#   bootswatch: lumen
 
 toc:
   depth: 3

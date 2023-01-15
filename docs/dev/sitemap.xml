@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hneth.github.io/unikn/404.html</loc>
-  </url>
-  <url>
     <loc>https://hneth.github.io/unikn/articles/color_inst.html</loc>
   </url>
   <url>
@@ -73,9 +70,6 @@
     <loc>https://hneth.github.io/unikn/reference/demopal.html</loc>
   </url>
   <url>
-    <loc>https://hneth.github.io/unikn/reference/eth_pal.html</loc>
-  </url>
-  <url>
     <loc>https://hneth.github.io/unikn/reference/eth_pal_1.html</loc>
   </url>
   <url>
@@ -83,12 +77,6 @@
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/eth_pal_3.html</loc>
-  </url>
-  <url>
-    <loc>https://hneth.github.io/unikn/reference/eth_pal_grey.html</loc>
-  </url>
-  <url>
-    <loc>https://hneth.github.io/unikn/reference/eth_pal_light.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/fu_pal_0.html</loc>
@@ -280,16 +268,10 @@
     <loc>https://hneth.github.io/unikn/reference/uni_koeln_2.html</loc>
   </url>
   <url>
-    <loc>https://hneth.github.io/unikn/reference/uni_konstanz.html</loc>
-  </url>
-  <url>
     <loc>https://hneth.github.io/unikn/reference/uni_konstanz_1.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/uni_konstanz_2.html</loc>
-  </url>
-  <url>
-    <loc>https://hneth.github.io/unikn/reference/uni_konstanz_pref.html</loc>
   </url>
   <url>
     <loc>https://hneth.github.io/unikn/reference/uni_mannheim_1.html</loc>
