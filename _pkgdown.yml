@@ -123,7 +123,7 @@ figures:
   fig.ext: png
   fig.width: 7  # default: 7.292
   fig.height: ~
-  fig.asp: 1.33 # default: 1.618
+  fig.asp: 0.85
   fig.retina: 2
 
 ## eof. ----------
