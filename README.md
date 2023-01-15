@@ -1,24 +1,5 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
-<!-- Status badges start: -->
-
-[![CRAN
-status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
-[![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
-[![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
-[![Total
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color='e0607e')](https://www.r-pkg.org/pkg/unikn)
-<!-- Status badges end. -->
-
-<!-- Possible status badges: 
-[![CRAN status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
-[![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml) 
-[![Build status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/)
-[![Downloads](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
-[![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color='e0607e')](https://www.r-pkg.org/pkg/unikn)
-[![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
--->
 
 # unikn 0.8.0.9002 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
@@ -27,8 +8,30 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color='e0607e')](
 <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
 </a> 
 -->
+<!-- Devel badges start: -->
 
-### Enabling corporate design elements in R
+[![CRAN
+status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
+[![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml)
+[![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn?color='e0607e')](https://www.r-pkg.org/pkg/unikn)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
+<!-- Devel badges end. -->
+
+<!-- Release badges start: -->
+<!-- [![CRAN status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)  -->
+<!-- [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color='e0607e')](https://www.r-pkg.org/pkg/unikn)  -->
+<!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)  -->
+<!-- Release badges end. -->
+<!-- ALL status badges: 
+[![CRAN status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
+[![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml) 
+[![Build status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/)
+[![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
+[![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color='e0607e')](https://www.r-pkg.org/pkg/unikn)
+[![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
+-->
+
+## Enabling corporate design elements in R
 
 The **unikn** package provides useful color functions — by defining
 dedicated colors and color palettes, and commands for finding, changing,
@@ -794,6 +797,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-01-14.\]
+\[File `README.md` updated on 2023-01-15.\]
 
 <!-- eof. -->
