@@ -200,6 +200,7 @@ Changes since last release:
 
 <!-- Blank line.  --> 
 
+
 ## Minor changes
 
 - Add a `plot` argument to `grepal()` and `simcol()` to visualize results.
@@ -210,6 +211,7 @@ detecting and filtering visual duplicates (`col_distinct()`).
 - Add an `x_layout` argument to control horizontal positions of text labels (e.g., by numeric increments, centering, right-adjusted). 
 
 <!-- Blank line.  --> 
+
 
 ## Details
 
@@ -325,6 +327,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-01-14.] 
+[File `NEWS.md` updated on 2023-03-06.] 
 
 <!-- eof. -->
