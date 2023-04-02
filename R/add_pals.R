@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 01 02
+## spds | uni.kn |  2022 04 02
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -1824,7 +1824,7 @@ uni_bonn_2 <- newpal(col = c(ub_blau_4, ub_gelb_4, ub_grau_4),
 # Uni Freiburg: ------
 
 # Source: https://uni-freiburg.de/universitaet/corporate-design/
-# Last check: 2022-12-27  +++ here now +++ 
+# Last check: 2022-12-27  
 
 # 1 primary color: 
 
@@ -1935,6 +1935,11 @@ uni_freiburg_0 <- newpal(col = c("black", frbg_blau, "white"),
 
 
 # - uni_freiburg_1: ---- 
+
+# ToDo: +++ here now +++  
+# Update based on "Farbwerte der Hintergrundfarben" on 
+# <https://cd.uni-freiburg.de/farben/>
+
 
 # Primary colors (with primary blue color gradient):
 
@@ -2800,7 +2805,7 @@ uni_kiel_2 <- newpal(col = kiel_faculties,
                      names = kiel_faculty_names,
                      as_df = FALSE)
 
-# +++ here now +++
+
 
 
 # Uni Koeln: ------
