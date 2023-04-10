@@ -1,5 +1,5 @@
 
-# unikn 0.8.0.9002
+# unikn 0.8.0.9004
 
 This is the development version of **unikn**, which is available at <https://github.com/hneth/unikn/>. 
 
@@ -16,9 +16,10 @@ Changes since last release:
 
 ## Minor changes 
 
-- none yet
+- Add `is_col_pal()` utility function.
 
 <!-- Blank line.  --> 
+
 
 
 ## Details 
@@ -327,6 +328,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-03-06.] 
+[File `NEWS.md` updated on 2023-04-10.] 
 
 <!-- eof. -->
