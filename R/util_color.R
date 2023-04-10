@@ -1,5 +1,5 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2022 12 30
+## spds | uni.kn | 2023 04 10
 ## ---------------------------
 
 # Color-related utility functions: 
@@ -135,6 +135,43 @@ is_col <- function(color) {
 
 # BUT note: 
 # is_col(col2rgb("white"))  # => FALSE FALSE FALSE
+
+
+
+# - is_col_pal(): Verify an existing color palette ------ 
+
+is_col_pal <- function(x) {
+  
+  # if ( !typeof(x) %in% c("vector", "list") ) {  # BUG: uni-pals are of type "character"!
+  if ( !is.vector(x) & !is.list(x) ) { # most palettes are vectors or lists:
+    
+    is_color_ix <- FALSE
+    
+    # ToDo: usecol() returns an object for which attr(cols, which = "comment") == "custom"
+    #       => is.vector() is FALSE for such objects!
+    
+  } else { # verify that all elements of x:
+    
+    # is_color_ix <- is_hex_col(color = x)  # Why only check for HEX colors?
+    is_color_ix <- is_col(color = x)
+    
+  }
+  
+  return(all(is_color_ix))  # TRUE iff ALL elements are colors
+  
+} # is_col_pal(). 
+
+## Check: 
+# # TRUE for 
+# is_col_pal(c("black", "grey", "white"))
+# is_col_pal(pal_unikn)
+# is_col_pal(uni_freiburg_br)
+# is_col_pal(newpal(col = c("black", "white"), as_df = FALSE))
+# is_col_pal(RColorBrewer::brewer.pal(n = 5, name = "Set2"))
+# # but FALSE for palettes modified by usecol():
+# is_col_pal(usecol(c("black", "white"), n = 3))
+# is_col_pal(usecol(pal_unikn, n = 3))
+
 
 
 # - col_asif_alpha(): Color corresponding to the hue of a transparent color ------ 
@@ -716,27 +753,31 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   
   # Check which lst_pal elements are actually color palettes:
   is_pal <- lapply(X = lst_pal,
-                   FUN = function(x) {
-                     
-                     # if ( !typeof(x) %in% c("vector", "list") ) {  # BUG: uni-pals are of type "character"!
-                     if ( !is.vector(x) & !is.list(x) ) { # palettes are vectors or lists:
-                       
-                       is_color_ix <- FALSE
-                       
-                       # ToDo: usecol() returns an object for which attr(cols, which = "comment") == "custom"
-                       #       => is.vector() is FALSE for such objects!
-                       
-                     } else { # check all elements:
-                       
-                       # is_color_ix <- is_hex_col(color = x)  # Why only check for HEX colors?
-                       is_color_ix <- is_col(color = x)
-                       
-                     }
-                     
-                     return(all(is_color_ix))  # TRUE iff ALL elements are colors
-                     
-                   }
-  ) # ToDo: Define FUN as a separate function is_col_pal().
+                   FUN = is_col_pal
+  )
+  
+  # Done: Defined FUN as a separate function is_col_pal():                   
+  #                    function(x) {
+  #                    
+  #                    # if ( !typeof(x) %in% c("vector", "list") ) {  # BUG: uni-pals are of type "character"!
+  #                    if ( !is.vector(x) & !is.list(x) ) { # most palettes are vectors or lists:
+  #                      
+  #                      is_color_ix <- FALSE
+  #                      
+  #                      # ToDo: usecol() returns an object for which attr(cols, which = "comment") == "custom"
+  #                      #       => is.vector() is FALSE for such objects!
+  #                      
+  #                    } else { # check all elements of x:
+  #                      
+  #                      # is_color_ix <- is_hex_col(color = x)  # Why only check for HEX colors?
+  #                      is_color_ix <- is_col(color = x)
+  #                      
+  #                    }
+  #                    
+  #                    return(all(is_color_ix))  # TRUE iff ALL elements are colors
+  #                    
+  #                  } 
+  # ) 
   
   # print(is_pal)  # 4debugging
   
