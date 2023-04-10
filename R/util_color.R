@@ -751,33 +751,10 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   lst_pal <- sapply(pal_names, get)
   # print(lst_pal)  # 4debugging
   
-  # Check which lst_pal elements are actually color palettes:
+  # Check which lst_pal elements are pre-existing color palettes:
   is_pal <- lapply(X = lst_pal,
-                   FUN = is_col_pal
-  )
-  
-  # Done: Defined FUN as a separate function is_col_pal():                   
-  #                    function(x) {
-  #                    
-  #                    # if ( !typeof(x) %in% c("vector", "list") ) {  # BUG: uni-pals are of type "character"!
-  #                    if ( !is.vector(x) & !is.list(x) ) { # most palettes are vectors or lists:
-  #                      
-  #                      is_color_ix <- FALSE
-  #                      
-  #                      # ToDo: usecol() returns an object for which attr(cols, which = "comment") == "custom"
-  #                      #       => is.vector() is FALSE for such objects!
-  #                      
-  #                    } else { # check all elements of x:
-  #                      
-  #                      # is_color_ix <- is_hex_col(color = x)  # Why only check for HEX colors?
-  #                      is_color_ix <- is_col(color = x)
-  #                      
-  #                    }
-  #                    
-  #                    return(all(is_color_ix))  # TRUE iff ALL elements are colors
-  #                    
-  #                  } 
-  # ) 
+                   FUN = is_col_pal)  # using utility function (see above)
+  # Note: Palettes modified by usecol() are NOT pre-existing color palettes.
   
   # print(is_pal)  # 4debugging
   
@@ -815,6 +792,7 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
   return(out)
   
 } # get_pal_key(). 
+
 
 
 # - get_col_names(): Get custom and default color names ------
