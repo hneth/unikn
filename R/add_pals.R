@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 04 02
+## spds | uni.kn |  2022 04 27
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -36,6 +36,10 @@
 #               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3",
 #               "rptu_pal"
 # )
+
+# Note: 
+# - add_pals is a character vector that contains all names of additional color palettes 
+# - add_pals is currently defined in file color_def_1.R
 
 inst <- c(rep("Caltech", 3), 
           rep("ETH Zurich", 3),
@@ -680,7 +684,7 @@ uni_goettingen_3 <- newpal(col = col_goe_fac,
 #   "#6F6F6F"
 
 col_ETH <- c("#215CAF", "#007894", "#627313", "#8E6713", "#B7352D", "#A7117A", "#6F6F6F")
-nam_ETH <- c("ETH Blue", "ETH Petrol", "ETH Green", "ETH Bronze", "ETH Red", "ETH Purple", "ETH Grey")
+nam_ETH <- c("ETH blue", "ETH petrol", "ETH green", "ETH bronze", "ETH red", "ETH purple", "ETH grey")
 
 
 #' Default colors of the ETH Zurich 
