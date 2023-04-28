@@ -10,7 +10,7 @@ An object of class \code{character} of length 3.
 \source{
 Color definitions are based on the new web style guide at 
 \url{https://uni-freiburg.de/} 
-(at \code{https://uni-freiburg.de/universitaet/corporate-design/} on 2023-01-01).
+(at \code{https://cd.uni-freiburg.de/farben/} on 2023-04-28).
 }
 \usage{
 uni_freiburg_0
@@ -99,7 +99,7 @@ Other contributed color palettes:
 \code{\link{uni_ulm_2}}
 }
 \author{
-\strong{unikn}, 2023-01-01.
+\strong{unikn}, 2023-04-28.
 }
 \concept{contributed color palettes}
 \keyword{datasets}

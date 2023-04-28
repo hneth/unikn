@@ -10,7 +10,7 @@ An object of class \code{character} of length 7.
 \source{
 Color definitions are based on the new web style guide at 
 \url{https://uni-freiburg.de/} 
-(at \code{https://uni-freiburg.de/universitaet/corporate-design/} on 2023-01-01).
+(at \code{https://cd.uni-freiburg.de/farben/} on 2023-04-28).
 }
 \usage{
 uni_freiburg_1
@@ -23,20 +23,24 @@ A named vector of colors (HEX/HTML codes of type character).
 of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany.
 }
 \details{
-The primary color \code{Blau} (here: \code{uni_freiburg_1[2]}) is alternatively defined as 
+The primary color \code{blau} (here: \code{uni_freiburg_1[1]}) is alternatively defined as 
 \code{Pantone 7687C}, \code{RGB 52/74/154}, \code{HEX #344a9a}, or \code{CMYK 90/75/0/0}.
 
-The gradient of \code{Blau} was created by mixing 
-the primary color \code{uni_freiburg_0[2]} with \code{"white"}, 
-as in \code{usecol(c(uni_freiburg_0[2], "white"), n = 6)[1:5]}. 
+The color \code{sand} is alternatively defined as \code{HEX #f6f1e3}, \code{RGB 246/241/227}, and \code{CMYK 0/2/10/5}. 
+
+The gradient of \code{blau} colors is defined on \url{https://cd.uni-freiburg.de/farben/}. 
 
 See \code{\link{uni_freiburg_0}} for the basic colors (without the \code{Blau} color gradient) 
-and the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients.
+and the \code{\link{ac}} and \code{\link{usecol}} functions for creating alternative color gradients.
 }
 \examples{
 uni_freiburg_1
 seecol(uni_freiburg_1, main = "Primary color gradient of the University of Freiburg")
 demopal(uni_freiburg_1, type = 1, main = "Primary color gradient of Freiburg University")
+
+# Get a "sand" color gradient:
+sand_gradient <- usecol(c(uni_freiburg_1["sand"], "white"), n = 3)[1:3] 
+# demopal(sand_gradient)
 
 }
 \seealso{
@@ -102,7 +106,7 @@ Other contributed color palettes:
 \code{\link{uni_ulm_2}}
 }
 \author{
-\strong{unikn}, 2023-01-01.
+\strong{unikn}, 2023-04-28.
 }
 \concept{contributed color palettes}
 \keyword{datasets}
