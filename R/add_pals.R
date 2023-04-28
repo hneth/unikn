@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2022 04 27
+## spds | uni.kn |  2022 04 28
 ## ---------------------------
 
 # Add color palettes of various institutions 
@@ -1980,9 +1980,25 @@ uni_freiburg_0 <- newpal(col = c(frbg_blau, "black", "white"),
 
 # - uni_freiburg_1: ---- 
 
-# ToDo: +++ here now +++  
-# Update based on "Farbwerte der Hintergrundfarben" on 
-# <https://cd.uni-freiburg.de/farben/>
+# Source: <https://cd.uni-freiburg.de/farben/>
+# Last check: 2023-04-28 
+
+# Farbwerte der Hintergrundfarben
+
+# Farbe	    CMYK (Print)	      RGB (Screen)	  HEX (Web)	Pantone
+# Blau 100%	C90 M75 Y0 K0	      R52 G74 B154	  #344A9A	  7687 C
+# Blau 80%	C72 M60 Y0 K0	      R93 G107 B173	  #5D6BAD 	–
+# Blau 60%	C54 M45 Y0 K0	      R134 G141 B194	#868DC2	  –
+# Blau 40%	C36 M30 Y0 K0	      R175 G177 B216	#AFB1D8	  –
+# Blau 20%	C36 M30 Y0 K0	      R215 G216 B236	#D7D8EC	  –
+# Dunkelblau C100 M98 Y11 K50	  R0 G1 B73	      #00004a	  274 C
+# Sand 100%	 C0 M2 Y10 K5	      R246 G241 B227	#f6f1e3	  –
+
+frbg_blues <- c("#344A9A", "#5D6BAD", "#868DC2", "#AFB1D8", "#D7D8EC", "#00004a")
+frbg_blues_names = c("blau", "blau 80%", "blau 60%", "blau 40%", "blau 20%", "dunkelblau")
+
+frbg_sand_1 <- "#F6F1E3"
+frbg_sand_name <- c("sand")
 
 
 # Primary colors (with primary blue color gradient):
@@ -1992,31 +2008,35 @@ uni_freiburg_0 <- newpal(col = c(frbg_blau, "black", "white"),
 #' \code{uni_freiburg_1} provides a primary color palette 
 #' of the \href{https://uni-freiburg.de/}{University of Freiburg}, Germany. 
 #' 
-#' The primary color \code{Blau} (here: \code{uni_freiburg_1[2]}) is alternatively defined as 
+#' The primary color \code{blau} (here: \code{uni_freiburg_1[1]}) is alternatively defined as 
 #' \code{Pantone 7687C}, \code{RGB 52/74/154}, \code{HEX #344a9a}, or \code{CMYK 90/75/0/0}.
 #' 
-#' The gradient of \code{Blau} was created by mixing 
-#' the primary color \code{uni_freiburg_0[2]} with \code{"white"}, 
-#' as in \code{usecol(c(uni_freiburg_0[2], "white"), n = 6)[1:5]}. 
+#' The color \code{sand} is alternatively defined as \code{HEX #f6f1e3}, \code{RGB 246/241/227}, and \code{CMYK 0/2/10/5}. 
+#' 
+#' The gradient of \code{blau} colors is defined on \url{https://cd.uni-freiburg.de/farben/}. 
 #' 
 #' See \code{\link{uni_freiburg_0}} for the basic colors (without the \code{Blau} color gradient) 
-#' and the \code{\link{ac}} and \code{\link{usecol}} functions for creating color gradients. 
+#' and the \code{\link{ac}} and \code{\link{usecol}} functions for creating alternative color gradients. 
 #' 
 #' @return 
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' \strong{unikn}, 2023-01-01.
+#' \strong{unikn}, 2023-04-28.
 #' 
 #' @source 
 #' Color definitions are based on the new web style guide at 
 #' \url{https://uni-freiburg.de/} 
-#' (at \code{https://uni-freiburg.de/universitaet/corporate-design/} on 2023-01-01). 
+#' (at \code{https://cd.uni-freiburg.de/farben/} on 2023-04-28). 
 #' 
 #' @examples
 #' uni_freiburg_1
 #' seecol(uni_freiburg_1, main = "Primary color gradient of the University of Freiburg")
 #' demopal(uni_freiburg_1, type = 1, main = "Primary color gradient of Freiburg University")
+#' 
+#' # Get a "sand" color gradient:
+#' sand_gradient <- usecol(c(uni_freiburg_1["sand"], "white"), n = 3)[1:3] 
+#' # demopal(sand_gradient)
 #'
 #' @family contributed color palettes
 #'
@@ -2031,8 +2051,8 @@ uni_freiburg_0 <- newpal(col = c(frbg_blau, "black", "white"),
 #' 
 #' @export
 
-uni_freiburg_1 <- newpal(col = c("black", frbg_blues, "white"),
-                         names = c("schwarz", "blau", "blau 80%", "blau 60%", "blau 40%", "blau 20%", "weiss"), 
+uni_freiburg_1 <- newpal(col = c(frbg_blues, frbg_sand_1),
+                         names = c(frbg_blues_names, frbg_sand_name), 
                          as_df = FALSE)
 
 
@@ -2059,7 +2079,7 @@ uni_freiburg_1 <- newpal(col = c("black", frbg_blues, "white"),
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' \strong{unikn}, 2023-01-01.
+#' \strong{unikn}, 2023-04-28.
 #' 
 #' @source 
 #' Color definitions are based on the new web style guide at 
