@@ -1828,7 +1828,16 @@ uni_bonn_2 <- newpal(col = c(ub_blau_4, ub_gelb_4, ub_grau_4),
 # Uni Freiburg: ------
 
 # Source: https://uni-freiburg.de/universitaet/corporate-design/
-# Last check: 2022-12-27  
+# Source: <https://cd.uni-freiburg.de/farben/>
+# Last check: 2023-04-28  
+
+# 1. Main colors: ---- 
+
+# Farbwerte der Hauptfarben:
+# Farbe	  CMYK (Print)	  RGB (Screen)	  HEX (Web)	Vollton
+# Blau 	  C90 M75 Y0 K0	  R52 G74 B154	  #344A9A	  7687 C
+# Schwarz	C40 M0 Y0 K100	R0 G0 B0	      #000000	    –
+# Weiß	  C0  M0 Y0 K0	  R255 G255 B255	#FFFFFF	    –
 
 # 1 primary color: 
 
@@ -1842,9 +1851,40 @@ frbg_blues <- newpal(col =  frbg_blau_gradient,
                      names = c("Blau", "Blau_80", "Blau_60", "Blau_40", "Blau_20"),
                      as_df = FALSE)
 
+
+# 2. Background colors: ---- 
+
+# Source: <https://cd.uni-freiburg.de/farben/>
+# Last check: 2023-04-28 
+
+# Farbwerte der Hintergrundfarben
+
+# Farbe	    CMYK (Print)	      RGB (Screen)	  HEX (Web)	Pantone
+# Blau 100%	C90 M75 Y0 K0	      R52 G74 B154	  #344A9A	  7687 C
+# Blau 80%	C72 M60 Y0 K0	      R93 G107 B173	  #5D6BAD 	–
+# Blau 60%	C54 M45 Y0 K0	      R134 G141 B194	#868DC2	  –
+# Blau 40%	C36 M30 Y0 K0	      R175 G177 B216	#AFB1D8	  –
+# Blau 20%	C36 M30 Y0 K0	      R215 G216 B236	#D7D8EC	  –
+# Dunkelblau C100 M98 Y11 K50	  R0 G1 B73	      #00004a	  274 C
+# Sand 100%	 C0 M2 Y10 K5	      R246 G241 B227	#f6f1e3	  –
+
+
+# 3. Additional/auxiliary colors: ---- 
+
+# Source: <https://cd.uni-freiburg.de/farben/>
+# Last check: 2023-04-28 
+
+# Farbwerte der Zusatzfarben
+# Farbe	      CMYK (Print)	  RGB (Screen)	  HEX (Web)	Pantone
+# Grün 100	  C91 M0 Y60 K0	  R0 G160 B130	  #00a082	    339 C
+# Braun 100%	C25 M44 Y81 K38	R143 G107 B48	  8f6b30	    872 C
+# Gelb 100%	  C2 M5 Y72 K0	  R255 G232 B99	  ffe863	    101 C
+# Rosa 100%	  C9 M30 Y0 K0	  R245 G194 B237	f5c2ed	    250 C
+
+
 # 4 secondary colors: 
 
-frbg_gruen <- "#00997D"  # "#00997d"
+frbg_gruen <- "#00A082"  # WAS: #00997D"  # "#00997d"
 names(frbg_gruen) <- "gruen"
 
 # frbg_gruen_gradient <- usecol(c(frbg_gruen, "white"), n = 6)[1:5]  # mix with "white"
@@ -1890,7 +1930,7 @@ names(frbg_rosa) <- "rosa"
 
 # - uni_freiburg_0: ----
 
-# Basic colors only: black + Primary blue + white
+# Basic colors only: Primary blue + black + white
 
 #' Basic colors of the University of Freiburg 
 #'
@@ -1907,12 +1947,12 @@ names(frbg_rosa) <- "rosa"
 #' A named vector of colors (HEX/HTML codes of type character).
 #' 
 #' @author 
-#' \strong{unikn}, 2023-01-01.
+#' \strong{unikn}, 2023-04-28.
 #' 
 #' @source 
 #' Color definitions are based on the new web style guide at 
 #' \url{https://uni-freiburg.de/} 
-#' (at \code{https://uni-freiburg.de/universitaet/corporate-design/} on 2023-01-01). 
+#' (at \code{https://cd.uni-freiburg.de/farben/} on 2023-04-28). 
 #' 
 #' @examples
 #' uni_freiburg_0
@@ -1933,8 +1973,8 @@ names(frbg_rosa) <- "rosa"
 #' 
 #' @export
 
-uni_freiburg_0 <- newpal(col = c("black", frbg_blau, "white"),
-                         names = c("schwarz", "blau", "weiss"), 
+uni_freiburg_0 <- newpal(col = c(frbg_blau, "black", "white"),
+                         names = c("blau", "schwarz", "weiss"), 
                          as_df = FALSE)
 
 
