@@ -1,4 +1,4 @@
-## .gitignore | unikn | 2021 03 25:
+## .gitignore | unikn | 2023 05 16:
 
 ## 1. generic stuff: -----
 
@@ -8,6 +8,8 @@
 # Mac OS:
 .DS_Store
 
+# Output files:
+*.html
 
 ## 2. R stuff: -----
 
