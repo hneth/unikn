@@ -393,8 +393,9 @@ usecol <- function(pal = pal_unikn,
     # FAILS:     
     # names(out_col) <- get_col_names(col = out_col, custom_pals = val_all_pals_lst)  # use helper function (with VALUES of val_all_pals_lst)
     
-    # WORKS: 
+    # WORKS: +++ here now +++ 
     names(out_col) <- get_col_names(col = out_col, custom_pals = all_pals)  # use helper function (with NAMES of all pals)
+    
     
   } # if (no names in out_col).
   

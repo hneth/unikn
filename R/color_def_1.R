@@ -1292,6 +1292,8 @@ add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
 
 all_pals <- c(all_palkn, add_pals)
 
+# all_pals <- paste("unikn", all_pals, sep = "::")
+
 
 # Sources: Links to unikn color definitions ------ 
 
