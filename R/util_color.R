@@ -1,5 +1,5 @@
 ## util_color.R  |  unikn
-## spds | uni.kn | 2023 04 10
+## spds | uni.kn | 2023 06 06
 ## ---------------------------
 
 # Color-related utility functions: 
@@ -797,7 +797,21 @@ get_pal_key <- function(pal = "all", n = "all", alpha = NA) {
 
 # - get_col_names(): Get custom and default color names ------
 
+#' Get color names
+#'
+#' \code{get_col_names} gets color names from color palettes.
+#' 
+#' @param col A vector of colors.
+#' @param custom_pals A vector of color palettes.
+#' 
+#' @return A vector of color names.
+#' 
+#' @family utility functions
+
 get_col_names <- function(col, custom_pals = all_pals){
+  
+  # 0. Prepare:
+  require(unikn, quietly = TRUE)  # ensure that unikn is attached (when calling from other pkgs)
   
   # 1. Customized names from custom color palettes:
   cus_pals  <- lapply(X = custom_pals, FUN = get)
