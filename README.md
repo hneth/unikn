@@ -5,13 +5,13 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
 [![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml)
-[![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn?color='e0607e')](https://www.r-pkg.org/pkg/unikn)
+[![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn)](https://www.r-pkg.org/pkg/unikn)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
 <!-- Devel badges end. -->
 
 <!-- Release badges start: -->
 <!-- [![CRAN status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)  -->
-<!-- [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color='e0607e')](https://www.r-pkg.org/pkg/unikn)  -->
+<!-- [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn)  -->
 <!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)  -->
 <!-- Release badges end. -->
 <!-- ALL status badges: 
@@ -23,7 +23,7 @@ status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 0.8.0.9006 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
+# unikn 0.8.0.9007 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
@@ -801,6 +801,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-05-02.\]
+\[File `README.md` updated on 2023-07-08.\]
 
 <!-- eof. -->
