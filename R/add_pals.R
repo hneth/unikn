@@ -1,5 +1,5 @@
 ## add_pals.R | unikn
-## spds | uni.kn |  2023 07 08
+## spds | uni.kn |  2023 07 12
 ## ---------------------------
 
 # Add color palettes of various institutions 
