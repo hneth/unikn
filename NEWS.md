@@ -1,5 +1,5 @@
 
-# unikn 0.8.0.9006
+# unikn 0.8.0.9008
 
 This is the development version of **unikn**, which is available at <https://github.com/hneth/unikn/>. 
 
@@ -21,6 +21,8 @@ Changes since last release:
     - [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_0`, `uni_freiburg_1`, `uni_freiburg_2`  
 
 <!-- Blank line.  --> 
+
+- Add feedback when `newpal()` uses `col` and `names` of different lengths. 
 
 - Add `is_col_pal()` utility function.
 
@@ -333,6 +335,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-05-02.] 
+[File `NEWS.md` updated on 2023-07-20.] 
 
 <!-- eof. -->
