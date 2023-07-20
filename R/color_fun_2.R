@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2022 12 29
+## spds | uni.kn | 2023 07 20
 ## --------------------------
 
 ## Define color-related functions 
@@ -142,8 +142,9 @@ newpal <- function(col,            # a vector of colors
   
   if ( any(!is.na(names)) && ((length(col) != length(names))) ) {
     
-    message(paste0("Length of 'col' = ", length(col), 
-                   " vs. 'names' = ",    length(names), ". Using default names..."))
+    message(paste0("Length of 'col' = ", length(col), " (", head(paste(col, collapse = ", ")), ")",  
+                   " vs. 'names' = ",    length(names), " (", head(paste(names, collapse = ", ")), ").\n", 
+                   "Using default names..."))
     names <- NULL
     
   }
