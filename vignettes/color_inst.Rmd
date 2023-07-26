@@ -40,6 +40,8 @@ knitr::opts_chunk$set(echo = TRUE,
 The color palettes included in the **unikn** package are based on the CD\ manual of the [University of Konstanz](https://www.uni-konstanz.de/). 
 However, the functionality provided by the package makes it easy and straightforward to define and use **your own colors**.  
 
+<!-- Mention the **unicol** package here! -->
+
 This vignette first shows which color palettes from other institutions are currently provided by the **unikn** package. 
 As these will never be complete, it then explains how the color-related tools of **unikn** can be used for **creating new color palettes**. 
 <!-- Main color info: --> 
