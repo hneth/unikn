@@ -1,7 +1,7 @@
 ---
 title: "Institutional colors"
 author: "SPDS, uni.kn"
-date: "2023 07 26"
+date: "2023 07 27"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -30,6 +30,10 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.align = "center",
                       out.width = "60%"
 )
+
+# URLs:
+url_unicol_cran   <- "" # "https://CRAN.R-project.org/package=unicol"
+url_unicol_github <- "https://github.com/hneth/unicol"
 ```
 
 <!-- unikn pkg logo and link: -->
@@ -42,10 +46,16 @@ However, the functionality provided by the package makes it easy and straightfor
 
 <!-- Mention the **unicol** package here! -->
 
-This vignette first shows which color palettes from other institutions are currently provided by the **unikn** package. 
-As these will never be complete, it then explains how the color-related tools of **unikn** can be used for **creating new color palettes**. 
-<!-- Main color info: --> 
-(For a general introduction to the package's colors, color palettes, and color functions, see the vignettes on [Colors and color functions](colors.html) and [Color recipes](color_recipes.html). 
+Version\ 0.8.0 of **unikn** (released in 2023-01-06) contained 52\ additional color palettes from other institutions (mostly universities). 
+As the number of color palettes has been growing further, the color palettes from other institutions are now being collected in a separate R\ package **unicol**.
+Installing **unicol** (from [GitHub](`r url_unicol_github`)) currently provides access to a range of over 150\ color palettes. 
+
+<!-- This vignette: -->
+
+The rest of this vignette explains how the color-related tools of **unikn** can be used for **creating new color palettes**. 
+If you do so, please consider submitting it to be included in future versions of the **unicol** package. 
+<!-- Vignette info: --> 
+(For a general introduction of the **unikn** colors, color palettes, and color functions, see the vignettes on [Colors and color functions](colors.html) and [Color recipes](color_recipes.html). 
 The vignette on [Text boxes and decorations](text.html) provides information on plotting slides and text elements.) 
 
 We install or load the **unikn** package to get started: 
@@ -54,67 +64,6 @@ We install or load the **unikn** package to get started:
 # install.packages('unikn')  # install unikn from CRAN client
 library('unikn')             # load the package
 ```
-
-
-## Current color palettes
-
-### Overview
-
-In addition to the specific color palettes of the [University of Konstanz](https://www.uni-konstanz.de/), 
-**unikn** currently provides the general color palettes of the following institutions: 
-
-- [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3` 
-- [ETH Zurich](https://ethz.ch/): `eth_pal_1`, `eth_pal_2`, `eth_pal_3` 
-- [Free University Berlin](https://www.fu-berlin.de/en/index.html): `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3` 
-- [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2` 
-- [Max Planck Society](https://www.mpg.de/en): `mpg_pal` 
-- [LMU Munich](https://www.lmu.de/en/index.html): `lmu_pal_1`, `lmu_pal_2`, `lmu_pal_3` 
-- [University of Bonn](https://www.uni-bonn.de/en): `uni_bonn_1`, `uni_bonn_2` 
-- [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_0`, `uni_freiburg_1`, `uni_freiburg_2`,   
-  (from\ 2022: `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`) 
-- [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
-- [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2` 
-- [University of Jena](https://www.uni-jena.de/): `uni_jena_1`, `uni_jena_2` 
-- [Kiel University](https://www.uni-kiel.de/en/): `uni_kiel_1`, `uni_kiel_2` 
-- [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2` 
-- [University of Konstanz](https://www.uni-konstanz.de/): `uni_konstanz_1`, `uni_konstanz_2` 
-- [University of Mannheim](https://www.uni-mannheim.de/): `uni_mannheim_1`, `uni_mannheim_2` 
-- [Princeton University](https://www.princeton.edu/): `uni_princeton_0`, `uni_princeton_1`, `uni_princeton_2` 
-- [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3` 
-- [University of Ulm](https://www.uni-ulm.de/): `uni_ulm_1`, `uni_ulm_2` 
-- [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3` 
-- [RPTU Kaiserslautern-Landau](https://rptu.de/): `rptu_pal` 
-
-<!-- Note: Number of palettes & exported as named vectors: -->
-
-These 52\ palettes are exported (as named vectors) and documented (to credit their contributors and sources). 
-We can use and modify these palettes with the **unikn** [color functions](colors.html):
-
-<!-- Note: Duplicate image in README.Rmd -->
-
-```{r show-add-pals, fig.width = 7.2, out.width = "550px", fig.asp = 2.0}
-seecol("add", main = "Color palettes from various institutions")
-```
-
-
-### Call for contributions
-
-<!-- Collecting contributed color palettes: -->
-
-> **Collecting color palettes**
->
-> Are you using **unikn** to create **your own color palettes**?  
-> If so, please **let us know** (e.g., by posting on this [GitHub issue](https://github.com/hneth/unikn/issues/11))!  
->  
-> We collect color palettes from other institutions to make them available in future versions of **unikn**.  
->   
-> To enable us to verify and provide appropriate credit to your contributions, please provide us with the following information:  
->   
-> 1. your code (e.g., the `newpal()` command creating your color palette),   
-> 2. your source (e.g., some URL with color definitions),   
-> 3. your name and some contact information (e.g., an Email address).  
->  
-> We're looking forward to your inputs and contributions!  
 
 
 ## Creating new color palettes
