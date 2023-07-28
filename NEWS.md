@@ -1,5 +1,5 @@
 
-# unikn 0.8.0.9008
+# unikn 0.8.0.9010
 
 This is the development version of **unikn**, which is available at <https://github.com/hneth/unikn/>. 
 
@@ -7,22 +7,17 @@ This is the development version of **unikn**, which is available at <https://git
 
 Changes since last release: 
 
+
 ## Major changes 
 
-- none yet
+- Migrated added color palettes (from other institutions) to a dedicated R\ package **unicol**.  
 
 <!-- Blank line.  --> 
 
 
 ## Minor changes 
 
-- Updated color palettes:
-
-    - [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_0`, `uni_freiburg_1`, `uni_freiburg_2`  
-
-<!-- Blank line.  --> 
-
-- Add feedback when `newpal()` uses `col` and `names` of different lengths. 
+- Add user feedback when `newpal()` uses `col` and `names` of different lengths. 
 
 - Add `is_col_pal()` utility function.
 
@@ -335,6 +330,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-07-20.] 
+[File `NEWS.md` updated on 2023-07-28.] 
 
 <!-- eof. -->
