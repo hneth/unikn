@@ -1,7 +1,7 @@
 ---
 title: "Institutional colors"
 author: "SPDS, uni.kn"
-date: "2023 07 27"
+date: "2023 07 28"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -47,7 +47,7 @@ However, the functionality provided by the package makes it easy and straightfor
 <!-- Mention the **unicol** package here! -->
 
 Version\ 0.8.0 of **unikn** (released in 2023-01-06) contained 52\ additional color palettes from other institutions (mostly universities). 
-As the number of color palettes has been growing further, the color palettes from other institutions are now being collected in a separate R\ package **unicol**.
+As the number of color palettes has been growing beyond the scope of this package, the color palettes from other institutions are now being collected in a separate R\ package **unicol**.
 Installing **unicol** (from [GitHub](`r url_unicol_github`)) currently provides access to a range of over 150\ color palettes. 
 
 <!-- This vignette: -->
@@ -115,10 +115,16 @@ For instance, whereas the RGB and HEX systems usually distinguish between more t
 
 An example helps clarifying these abstract terms. 
 When viewing an existing color or color palette with the `seecol()` function of **unikn**, the name, HEX and RGB values of the individual colors are being shown. 
-For instance, the color palette `mpg_pal` provides the colors of the [Max Planck Society](https://www.mpg.de/en) as: 
+For instance, the following color palette `mpg_pal` provides the colors of the [Max Planck Society](https://www.mpg.de/en): 
 
-```{r def-col-mpg-example, fig.width = 5, fig.asp = 1, fig.align = 'center'}
-seecol(pal = unikn::mpg_pal, col_brd = "black", lwd_brd = .5)
+```{r def-col-mpg-pal-local, echo = FALSE}
+mpg_pal <- newpal(col = c(rgb( 17, 102,  86, maxColorValue = 255), "white", "#DDDED6"),
+                  names = c("MPG green", "white", "MPG grey"),
+                  as_df = FALSE)
+```
+
+```{r def-col-mpg-example, echo = FALSE, fig.width = 5, fig.asp = 1, fig.align = 'center'}
+seecol(pal = mpg_pal, col_brd = "black", lwd_brd = .5)
 ```
 
 As the middle color of `mpg_pal` is one of the `r length(colors())` named colors of `colors()`, R will recognize it as a color when we type its name (as a character object `"white"`) in a context that expects color inputs. 
@@ -260,12 +266,9 @@ This concludes our illustration of defining a new colors and color palettes.
 Once a new palette has been defined (and is available in your current R environment), the `seecol()` and `usecol()` functions allow comparing, scaling, and using them in the same fashion as the native **unikn** color palettes: 
 
 ```{r compare-custom-pals, eval = TRUE, fig.width = 5, fig.asp = .55, fig.align = 'center', collapse = TRUE}
-# Re-define an existing color palette:
-lmu_pal_rev <- newpal(col = lmu_pal_1[c(1, 3, 2)])
-
-# Scaled version: 
-seecol(list(lmu_pal_rev, uni_princeton_1, mpg_pal, pal_unikn), n = 7,
-       pal_names = c("LMU Munich", "Princeton Uni", "Max Planck", "Uni Konstanz"),
+# Scaled palettes: 
+seecol(list(mpg_pal, pal_unikn), n = 7,
+       pal_names = c("Max Planck", "Uni Konstanz"),
        main = "Comparing scaled color palettes")
 ```
 

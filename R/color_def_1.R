@@ -1,5 +1,5 @@
 ## color_def_1.R | unikn
-## spds | uni.kn |  2023 07 12
+## spds | uni.kn |  2023 07 28
 ## ---------------------------
 
 ## Define colors and color palettes (1 of 2).
@@ -1262,30 +1262,32 @@ all_palkn <- c(all_palkn_basic, all_palkn_pair, all_palkn_pref)
 
 # - Additional/contributed palettes: ----
 
-add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
-              "eth_pal_1", "eth_pal_2", "eth_pal_3",
-              "fu_pal_0", "fu_pal_1", "fu_pal_2", "fu_pal_3",
-              "hu_pal_1", "hu_pal_2",
-              "lmu_pal_1", "lmu_pal_2", "lmu_pal_3",
-              "mpg_pal",
-              "uni_bonn_1", "uni_bonn_2",
-              "uni_freiburg_0", "uni_freiburg_1", "uni_freiburg_2",
-              "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
-              "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
-              "uni_hamburg_1", "uni_hamburg_2",
-              "uni_jena_1", "uni_jena_2", 
-              "uni_kiel_1", "uni_kiel_2",
-              "uni_koeln_1", "uni_koeln_2",
-              "uni_konstanz_1", "uni_konstanz_2",
-              "uni_mannheim_1", "uni_mannheim_2",
-              "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
-              "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
-              "uni_ulm_1", "uni_ulm_2",
-              "rpi_pal_1", "rpi_pal_2", "rpi_pal_3",
-              "rptu_pal"
-)
+# add_pals <- c("caltech_pal_1", "caltech_pal_2", "caltech_pal_3",
+#               "eth_pal_1", "eth_pal_2", "eth_pal_3",
+#               "fu_pal_0", "fu_pal_1", "fu_pal_2", "fu_pal_3",
+#               "hu_pal_1", "hu_pal_2",
+#               "lmu_pal_1", "lmu_pal_2", "lmu_pal_3",
+#               "mpg_pal",
+#               "uni_bonn_1", "uni_bonn_2",
+#               "uni_freiburg_0", "uni_freiburg_1", "uni_freiburg_2",
+#               "uni_freiburg_br", "uni_freiburg_blue", "uni_freiburg_grey", "uni_freiburg_info",
+#               "uni_goettingen_1", "uni_goettingen_2", "uni_goettingen_3",
+#               "uni_hamburg_1", "uni_hamburg_2",
+#               "uni_jena_1", "uni_jena_2", 
+#               "uni_kiel_1", "uni_kiel_2",
+#               "uni_koeln_1", "uni_koeln_2",
+#               "uni_konstanz_1", "uni_konstanz_2",
+#               "uni_mannheim_1", "uni_mannheim_2",
+#               "uni_princeton_0", "uni_princeton_1", "uni_princeton_2",
+#               "uni_regensburg_1", "uni_regensburg_2", "uni_regensburg_3",
+#               "uni_ulm_1", "uni_ulm_2",
+#               "rpi_pal_1", "rpi_pal_2", "rpi_pal_3",
+#               "rptu_pal"
+# )
 
 # length(add_pals)  # 52 [2023-07-12]
+
+add_pals <- NULL # migrated to R package unicol. 
 
 
 # - All palettes / largest set (of unikn package): ----

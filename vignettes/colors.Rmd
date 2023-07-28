@@ -1,7 +1,7 @@
 ---
 title: "Colors and color functions"
 author: "SPDS, uni.kn"
-date: "2023 01 01"
+date: "2023 07 28"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -165,7 +165,7 @@ Some special keywords within the **unikn** package denote sets of color palettes
 
 - The keywords `"unikn_all"`, `"unikn_basic"`, `pair_all"`, `"pref_all"` and `"grad_all"` refer to [University of Konstanz](https://www.uni-konstanz.de/) color palettes.
 
-- The keywords `"all"` and `"add"` allow comparing all or only the additional color palettes, respectively. 
+<!-- - The keywords `"all"` and `"add"` allow comparing all or only the additional color palettes, respectively.  -->
 
 Calling `seecol` with `pal` set to these keywords allows comparing pre-defined sets of the color palettes:   
 
@@ -201,9 +201,9 @@ seecol("pref_all")
 seecol("grad_all")
 ```
 
-All _additional_ color palettes (from other institutions):
+<!-- All _additional_ color palettes (from other institutions): -->
 
-```{r seecol-add, fig.width = 7.2, fig.asp = .9, fig.align = 'center', out.width="500"}
+```{r seecol-add, echo = FALSE, eval = FALSE, fig.width = 7.2, fig.asp = .9, fig.align = 'center', out.width="500"}
 seecol("add")
 ```
 
@@ -525,7 +525,7 @@ All types of `demopal()` invisibly return their (randomly generated) data and ac
 Some functions additionally accept type-specific arguments (e.g., logical `beside`, `horiz`, and `as_prop` arguments for plot `type = "bar"`).
 
 ```{r demopal, fig.width = 5, fig.asp = .8, fig.align = 'center'}
-demopal(pal = uni_freiburg_info, type = 3)
+demopal(pal = pg_2, type = 3)
 ```
 
 <!-- Conclusion: -->

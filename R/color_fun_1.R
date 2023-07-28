@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2023 07 12
+## spds | uni.kn | 2023 07 28
 ## --------------------------
 
 ## Define color-related functions 
@@ -202,10 +202,10 @@ usecol <- function(pal = pal_unikn,
       set6 <- pal_name %in% c("pal_unikn_dark", "pal_unikn_light", "pal_unikn_pref")  # categorical scales
       set7 <- pal_name %in% c("pal_signal")  # categorical scale
       
-      set8 <- pal_name %in% add_pals  # (8) all added/contributed palettes
+      # set8 <- pal_name %in% add_pals  # (8) all added/contributed palettes
       
       # Determine pal_set (as a number):
-      pal_set <- which(c(set1, set2, set3, set4, set5, set6, set7, set8))
+      pal_set <- which(c(set1, set2, set3, set4, set5, set6, set7))  # , set8))
       # print(paste0("pal_set = ", pal_set))  # 4debugging
       
       
@@ -494,7 +494,8 @@ usecol <- function(pal = pal_unikn,
 #'   
 #'   \item \code{"pref_all"}: All preferred uni.kn colors and their gradients. 
 #'   
-#'   \item \code{"add"}: Additional/contributed color palettes of the \bold{unikn} package.
+#'   \item \code{"add"}: Additional/contributed color palettes 
+#'   (migrated to the \bold{unicol} package).
 #' }
 #' 
 #' \code{seecol} does also recognize keywords (e.g., \code{"all_unikn"}) or 
@@ -1208,34 +1209,65 @@ all_colors <- function(distinct = TRUE){
   
   # +++ here now +++:
   
+  # unikn_pkg_colors <- usecol(c("black", "white",
+  #                              # Local uni.kn colors:
+  #                              pal_grau, pal_bordeaux, pal_petrol, pal_peach, 
+  #                              pal_seeblau, pal_pinky, pal_seegruen, pal_karpfenblau, 
+  #                              pal_signal, 
+  #                              pal_unikn,  # contains 4 "seegrau" variants of "grey"
+  #                              # Added/contributed color palettes:
+  #                              caltech_pal_1, caltech_pal_2, caltech_pal_3, 
+  #                              eth_pal_1, eth_pal_2, eth_pal_3, 
+  #                              fu_pal_0, fu_pal_1, fu_pal_2, fu_pal_3, 
+  #                              hu_pal_1, hu_pal_2, 
+  #                              lmu_pal_1, lmu_pal_2, lmu_pal_3, 
+  #                              mpg_pal, 
+  #                              uni_bonn_1, uni_bonn_2, 
+  #                              uni_goettingen_1, uni_goettingen_2, uni_goettingen_3, 
+  #                              uni_freiburg_0, uni_freiburg_1, uni_freiburg_2, 
+  #                              uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
+  #                              uni_hamburg_1, uni_hamburg_2, 
+  #                              uni_jena_1, uni_jena_2, 
+  #                              uni_kiel_1, uni_kiel_2, 
+  #                              uni_koeln_1, uni_koeln_2, 
+  #                              # uni_konstanz_1, uni_konstanz_2,  # duplicates of pal_ (above).
+  #                              uni_mannheim_1, uni_mannheim_2, 
+  #                              uni_princeton_0, uni_princeton_1, uni_princeton_2,
+  #                              uni_regensburg_1, uni_regensburg_2, uni_regensburg_3,
+  #                              uni_ulm_1, uni_ulm_2, 
+  #                              rpi_pal_1, rpi_pal_2, rpi_pal_3,
+  #                              rptu_pal 
+  # ), 
+  # use_names = TRUE)
+  
   unikn_pkg_colors <- usecol(c("black", "white",
                                # Local uni.kn colors:
                                pal_grau, pal_bordeaux, pal_petrol, pal_peach, 
                                pal_seeblau, pal_pinky, pal_seegruen, pal_karpfenblau, 
                                pal_signal, 
-                               pal_unikn,  # contains 4 "seegrau" variants of "grey"
-                               # Added/contributed color palettes:
-                               caltech_pal_1, caltech_pal_2, caltech_pal_3, 
-                               eth_pal_1, eth_pal_2, eth_pal_3, 
-                               fu_pal_0, fu_pal_1, fu_pal_2, fu_pal_3, 
-                               hu_pal_1, hu_pal_2, 
-                               lmu_pal_1, lmu_pal_2, lmu_pal_3, 
-                               mpg_pal, 
-                               uni_bonn_1, uni_bonn_2, 
-                               uni_goettingen_1, uni_goettingen_2, uni_goettingen_3, 
-                               uni_freiburg_0, uni_freiburg_1, uni_freiburg_2, 
-                               uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
-                               uni_hamburg_1, uni_hamburg_2, 
-                               uni_jena_1, uni_jena_2, 
-                               uni_kiel_1, uni_kiel_2, 
-                               uni_koeln_1, uni_koeln_2, 
-                               # uni_konstanz_1, uni_konstanz_2,  # duplicates of pal_ (above).
-                               uni_mannheim_1, uni_mannheim_2, 
-                               uni_princeton_0, uni_princeton_1, uni_princeton_2,
-                               uni_regensburg_1, uni_regensburg_2, uni_regensburg_3,
-                               uni_ulm_1, uni_ulm_2, 
-                               rpi_pal_1, rpi_pal_2, rpi_pal_3,
-                               rptu_pal 
+                               pal_unikn # contains 4 "seegrau" variants of "grey"
+                               # # Added/contributed color palettes:
+                               # caltech_pal_1, caltech_pal_2, caltech_pal_3, 
+                               # eth_pal_1, eth_pal_2, eth_pal_3, 
+                               # fu_pal_0, fu_pal_1, fu_pal_2, fu_pal_3, 
+                               # hu_pal_1, hu_pal_2, 
+                               # lmu_pal_1, lmu_pal_2, lmu_pal_3, 
+                               # mpg_pal, 
+                               # uni_bonn_1, uni_bonn_2, 
+                               # uni_goettingen_1, uni_goettingen_2, uni_goettingen_3, 
+                               # uni_freiburg_0, uni_freiburg_1, uni_freiburg_2, 
+                               # uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
+                               # uni_hamburg_1, uni_hamburg_2, 
+                               # uni_jena_1, uni_jena_2, 
+                               # uni_kiel_1, uni_kiel_2, 
+                               # uni_koeln_1, uni_koeln_2, 
+                               # # uni_konstanz_1, uni_konstanz_2,  # duplicates of pal_ (above).
+                               # uni_mannheim_1, uni_mannheim_2, 
+                               # uni_princeton_0, uni_princeton_1, uni_princeton_2,
+                               # uni_regensburg_1, uni_regensburg_2, uni_regensburg_3,
+                               # uni_ulm_1, uni_ulm_2, 
+                               # rpi_pal_1, rpi_pal_2, rpi_pal_3,
+                               # rptu_pal 
   ), 
   use_names = TRUE)
   
@@ -1273,8 +1305,13 @@ all_colors <- function(distinct = TRUE){
 
 ## Check:
 # all_colors()[1:50]
-# length(all_colors(distinct = TRUE))   #  756 [on 2023-07-12]
-# length(all_colors(distinct = FALSE))  # 1031 [on 2023-07-12]
+
+# length(all_colors(distinct = TRUE))   #  756 [on 2023-07-13]
+# length(all_colors(distinct = FALSE))  # 1031 [on 2023-07-13]
+
+# length(all_colors(distinct = TRUE))   #  545 [on 2023-07-28]
+# length(all_colors(distinct = FALSE))  #  713 [on 2023-07-28]
+
 # grepal("see", all_colors())     # finds unikn colors (and matching colors())
 # grepal("gruen", all_colors())   # finds unikn and added colors
 # grepal("purple", all_colors())  # finds added and base R colors
