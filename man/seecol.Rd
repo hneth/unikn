@@ -47,7 +47,8 @@ Recognized keywords are:
   
   \item \code{"pref_all"}: All preferred uni.kn colors and their gradients. 
   
-  \item \code{"add"}: Additional/contributed color palettes of the \bold{unikn} package.
+  \item \code{"add"}: Additional/contributed color palettes 
+  (migrated to the \bold{unicol} package).
 }
 
 \code{seecol} does also recognize keywords (e.g., \code{"all_unikn"}) or 
