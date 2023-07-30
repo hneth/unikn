@@ -32,6 +32,7 @@ knitr::opts_chunk$set(echo = TRUE,
 )
 
 # URLs:
+# unicol: 
 url_unicol_cran   <- "" # "https://CRAN.R-project.org/package=unicol"
 url_unicol_github <- "https://github.com/hneth/unicol"
 ```

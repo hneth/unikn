@@ -23,7 +23,7 @@ status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 0.8.0.9007 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
+# unikn 0.8.0.9012 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
@@ -216,61 +216,38 @@ pal_unikn["seeblau3"]  # color by name
 ### Additional color palettes
 
 In addition to the 16 specific color palettes of the [University of
-Konstanz](https://www.uni-konstanz.de/), **unikn** currently provides
-color palettes of the following institutions:
+Konstanz](https://www.uni-konstanz.de/), former versions of **unikn**
+provided color palettes of many other institutions. As the number of
+color palettes has been growing beyond the scope of this package, the
+color palettes from other institutions are now being collected in a
+separate R package **unicol**. Installing **unicol** (from
+[GitHub](https://github.com/hneth/unicol)) currently provides access to
+a range of over 150 color palettes.
 
-- [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`,
-  `caltech_pal_3`
-- [ETH Zurich](https://ethz.ch/): `eth_pal_1`, `eth_pal_2`, `eth_pal_3`
-- [Free University Berlin](https://www.fu-berlin.de/en/index.html):
-  `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3`
-- [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`,
-  `hu_pal_2`
-- [LMU Munich](https://www.lmu.de/en/index.html): `lmu_pal_1`,
-  `lmu_pal_2`, `lmu_pal_3`
-- [Max Planck Society](https://www.mpg.de/en): `mpg_pal`
-- [University of Bonn](https://www.uni-bonn.de/en): `uni_bonn_1`,
-  `uni_bonn_2`
-- [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_0`,
-  `uni_freiburg_1`, `uni_freiburg_2`,  
-  (from 2022: `uni_freiburg_br`, `uni_freiburg_blue`,
-  `uni_freiburg_grey`, `uni_freiburg_info`)
-- [University of Göttingen](https://uni-goettingen.de/):
-  `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3`
-- [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`,
-  `uni_hamburg_2`
-- [University of Jena](https://www.uni-jena.de/): `uni_jena_1`,
-  `uni_jena_2`
-- [Kiel University](https://www.uni-kiel.de/en/): `uni_kiel_1`,
-  `uni_kiel_2`
-- [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`,
-  `uni_koeln_2`
-- [University of Konstanz](https://www.uni-konstanz.de/):
-  `uni_konstanz_1`, `uni_konstanz_2`
-- [University of Mannheim](https://www.uni-mannheim.de/):
-  `uni_mannheim_1`, `uni_mannheim_2`
-- [Princeton University](https://www.princeton.edu/): `uni_princeton_0`,
-  `uni_princeton_1`, `uni_princeton_2`
-- [University of Regensburg](https://www.uni-regensburg.de/):
-  `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3`
-- [University of Ulm](https://www.uni-ulm.de/): `uni_ulm_1`, `uni_ulm_2`
-- [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`,
-  `rpi_pal_2`, `rpi_pal_3`
-- [RPTU Kaiserslautern-Landau](https://rptu.de/): `rptu_pal`
-
+<!-- OLDER parts: List of additional color palettes -->
+<!-- - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3`  -->
+<!-- - [ETH Zurich](https://ethz.ch/): `eth_pal_1`, `eth_pal_2`, `eth_pal_3`  -->
+<!-- - [Free University Berlin](https://www.fu-berlin.de/en/index.html): `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3`  -->
+<!-- - [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2`  -->
+<!-- - [LMU Munich](https://www.lmu.de/en/index.html): `lmu_pal_1`, `lmu_pal_2`, `lmu_pal_3`  -->
+<!-- - [Max Planck Society](https://www.mpg.de/en): `mpg_pal`  -->
+<!-- - [University of Bonn](https://www.uni-bonn.de/en): `uni_bonn_1`, `uni_bonn_2`  -->
+<!-- - [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_0`, `uni_freiburg_1`, `uni_freiburg_2`,    -->
+<!--   (from\ 2022: `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`)  -->
+<!-- - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3`  -->
+<!-- - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2`  -->
+<!-- - [University of Jena](https://www.uni-jena.de/): `uni_jena_1`, `uni_jena_2`  -->
+<!-- - [Kiel University](https://www.uni-kiel.de/en/): `uni_kiel_1`, `uni_kiel_2`  -->
+<!-- - [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2`  -->
+<!-- - [University of Konstanz](https://www.uni-konstanz.de/): `uni_konstanz_1`, `uni_konstanz_2`  -->
+<!-- - [University of Mannheim](https://www.uni-mannheim.de/): `uni_mannheim_1`, `uni_mannheim_2`  -->
+<!-- - [Princeton University](https://www.princeton.edu/): `uni_princeton_0`, `uni_princeton_1`, `uni_princeton_2`  -->
+<!-- - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3`  -->
+<!-- - [University of Ulm](https://www.uni-ulm.de/): `uni_ulm_1`, `uni_ulm_2`  -->
+<!-- - [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3` -->
+<!-- - [RPTU Kaiserslautern-Landau](https://rptu.de/): `rptu_pal`  -->
 <!-- Note: Duplicate image in vignette color_inst.Rmd -->
-
-``` r
-# Inspect additional/alternative color palettes:
-seecol("add")
-```
-
-<img src="inst/pix/README-seecol-add-pals-1.png" width="550px" style="display: block; margin: auto;" />
-
-These 52 palettes are exported (as named vectors), documented (to credit
-their contributors and sources), and can easily be used and modified by
-the R community (e.g., in visualizations).
-
+<!-- These 52\ palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations). -->
 <!-- Collecting contributed color palettes: -->
 
 #### Call for contributions
@@ -325,9 +302,9 @@ overview over its colors and details:
 
 ``` r
 # Inspect an individual color palette:
-seecol(pal = eth_pal_1,                    # a color palette / list of palettes / keyword
+seecol(pal = pal_pinky,                    # a color palette / list of palettes / keyword
        col_brd = "white", lwd_brd = 5,     # color and width of borders
-       main = "Colors of the ETH Zurich")  # plot title 
+       main = "Pinky colors of the University of Konstanz")  # plot title 
 ```
 
 <img src="inst/pix/README-seecol-pref-1.png" width="550px" style="display: block; margin: auto;" />
@@ -410,7 +387,7 @@ The `demopal()` function provides a quick illustration of a pre-defined
 or modified color palette:
 
 ``` r
-demopal(usecol(uni_princeton_1, n = 7),  # use a modified color palette
+demopal(usecol(pal_unikn_light, n = 7),  # use a modified color palette
         type = "curve", seed = 2)        # reproducible randomness
 ```
 
@@ -472,19 +449,19 @@ situations.
 
 #### Finding similar colors with `simcol()`
 
-- Which R colors are similar to the “Princeton orange” of the
-  `uni_princeton_0` palette?
+- Which R colors are similar to the color `Pinky` (or `pinky4` of the
+  `pal_pinky` palette)?
 
 ``` r
-simcol(col_target = uni_princeton_0["Princeton orange"], tol = 30)
+simcol(col_target = Pinky, tol = 30)
 ```
 
 <img src="inst/pix/README-simcol-example-1.png" width="500px" style="display: block; margin: auto;" />
 
-    #> Princeton orange        chocolate       chocolate1       chocolate2 
-    #>        "#E87722"      "chocolate"     "chocolate1"     "chocolate2" 
-    #>       chocolate3   darkgoldenrod3             peru          sienna3 
-    #>     "chocolate3" "darkgoldenrod3"           "peru"        "sienna3"
+    #>            Pinky         hotpink3       indianred2    palevioletred 
+    #>        "#E0607E"       "hotpink3"     "indianred2"  "palevioletred" 
+    #>   palevioletred3 
+    #> "palevioletred3"
 
 By default, `simcol()` considers all unique named `colors()` of R, but
 its search range can be adjusted by its `col_candiates`, `tol`, and
@@ -625,12 +602,7 @@ All **unikn** color palettes and user-generated color palette (e.g.,
 defined by `newpal()` or `usecol()`) can be used for graphical
 annotations. For example:
 
-- Using the color palettes of academic institutions (see the vignette on
-  [Institutional
-  colors](https://hneth.github.io/unikn/articles/color_inst.html)) with
-  text decoration functions:
-
-<img src="inst/pix/README-others-txt-demo-1.png" width="500px" style="display: block; margin: auto;" />
+<!-- - Using the color palettes of academic institutions (see the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/color_inst.html)) with text decoration functions:  -->
 
 - Using the color palette `pal_google` (defined above):
 
@@ -638,7 +610,7 @@ annotations. For example:
 
 See the vignette on [Text boxes and
 decorations](https://hneth.github.io/unikn/articles/text.html) for
-additional examples.
+instructions and additional examples.
 
 ### Caveats
 
@@ -671,7 +643,7 @@ design for your presentations and visualizations.
 
 The **unikn** package is work in progress. We are currently working on:
 
-- Adding institutional color palettes
+- Migrating institutional color palettes to the **unicol** package
 - Additional templates and themes (for plots and text decoration)
 
 Please comment on [GitHub](https://github.com/hneth/unikn) or [contact
@@ -801,6 +773,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-07-08.\]
+\[File `README.md` updated on 2023-07-30.\]
 
 <!-- eof. -->
