@@ -23,7 +23,7 @@ status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 0.8.0.9012 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
+# unikn 0.8.0.9010 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">

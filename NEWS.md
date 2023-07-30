@@ -330,6 +330,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-07-28.] 
+[File `NEWS.md` updated on 2023-07-30.]
 
 <!-- eof. -->

@@ -49,6 +49,7 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 -->
 
 
+
 # unikn `r packageVersion('unikn')` <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link: --> 
@@ -56,6 +57,7 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
 </a> 
 -->
+
 
 ### Enabling corporate design elements in\ R {-}
 
@@ -571,9 +573,9 @@ post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
 All **unikn** color palettes and user-generated color palette (e.g., defined by `newpal()` or `usecol()`) can be used for graphical annotations. 
 For example: 
 
-- Using the color palettes of academic institutions (see the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/color_inst.html)) with text decoration functions: 
+<!-- - Using the color palettes of academic institutions (see the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/color_inst.html)) with text decoration functions:  -->
 
-```{r others-txt-demo, echo = FALSE, eval = TRUE, fig.align = 'center', out.width = "500px", fig.width = 4.5, fig.height = 3}
+```{r others-txt-demo, echo = FALSE, eval = FALSE, fig.align = 'center', out.width = "500px", fig.width = 4.5, fig.height = 3}
 x_pos <- .70
 
 # A. Using uni_freiburg_br and uni_freiburg_blue: 
@@ -618,7 +620,8 @@ mark(labels = c("Don't", "be", "evil."),
      col = "white", col_bg = usecol(pal_google[c(2:4)]))
 ```
 
-See the vignette on [Text boxes and decorations](https://hneth.github.io/unikn/articles/text.html) for additional examples. 
+See the vignette on [Text boxes and decorations](https://hneth.github.io/unikn/articles/text.html) 
+for instructions and additional examples. 
 
 
 ### Caveats
@@ -640,7 +643,7 @@ Overall, the **unikn** functions can be useful for solving color-related tasks a
 
 The **unikn** package is work in progress. We are currently working on:
 
-- Adding institutional color palettes 
+- Migrating institutional color palettes to the **unicol** package 
 - Additional templates and themes (for plots and text decoration)   
    
 Please comment on [GitHub](https://github.com/hneth/unikn) or [contact us](https://www.spds.uni-konstanz.de/) 
