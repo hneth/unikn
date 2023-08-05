@@ -16,7 +16,12 @@ knitr::opts_chunk$set(collapse = TRUE,
 
 library(unikn)  # load package
 
-# URLs:
+# URLs: ------ 
+
+# unikn:
+url_unikn_cran   <- "https://CRAN.R-project.org/package=unikn"
+url_unikn_github <- "https://github.com/hneth/unikn"
+
 # unicol: 
 url_unicol_cran   <- "" # "https://CRAN.R-project.org/package=unicol"
 url_unicol_github <- "https://github.com/hneth/unicol"
