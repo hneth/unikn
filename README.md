@@ -23,7 +23,7 @@ status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 0.8.0.9011 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
+# unikn 0.8.0.9012 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
@@ -217,12 +217,13 @@ pal_unikn["seeblau3"]  # color by name
 
 In addition to the 16 specific color palettes of the [University of
 Konstanz](https://www.uni-konstanz.de/), former versions of **unikn**
-provided color palettes of many other institutions. As the number of
-color palettes has been growing beyond the scope of this package, the
-color palettes from other institutions are now being collected in a
-separate R package **unicol**. Installing **unicol** (from
-[GitHub](https://github.com/hneth/unicol)) currently provides access to
-a range of over 150 color palettes.
+provided color palettes of many other institutions.
+
+As the number of color palettes has been growing beyond the scope of
+this package, the color palettes from other institutions are now being
+collected in a separate R package **unicol**. Installing **unicol**
+(from [GitHub](https://github.com/hneth/unicol)) currently provides
+access to a diverse range of over 200 color palettes.
 
 <!-- OLDER parts: List of additional color palettes -->
 <!-- - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3`  -->
@@ -263,14 +264,16 @@ If so, please **let us know** (e.g., by posting on this [GitHub
 issue](https://github.com/hneth/unikn/issues/11))!
 
 We collect color palettes from other institutions to make them available
-to R users in future versions of **unikn**.
+to R users in future versions of
+**[unicol](https://github.com/hneth/unicol)**.
 
-To enable us to verify and provide appropriate credit to your
-contributions, please provide us with the following information:
+To enable us to verify and provide credit to your contributions, please
+send us the following information:
 
 1.  your code (e.g., the `newpal()` command creating your color
     palette),  
-2.  your source (e.g., some URL with color definitions),  
+2.  your reference or source information (e.g., some URL with color
+    definitions),  
 3.  your name and some contact information (e.g., an Email address).
 
 We’re looking forward to your inputs and contributions!
@@ -718,9 +721,9 @@ by relaxing some restrictions. Examples include:
 <!-- Text with links: -->
 
 <span xmlns:dct="https://purl.org/dc/terms/"
-property="dct:title"><strong>unikn</strong></span> by
+property="dct:title"><strong>unikn</strong></span> (created by
 <a xmlns:cc="https://creativecommons.org/ns#" href="https://github.com/hneth/unikn" property="cc:attributionName" rel="cc:attributionURL">Hansjörg
-Neth and Nico Gradwohl</a> is licensed under a
+Neth and Nico Gradwohl</a>) is licensed under a
 <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
 Commons Attribution-ShareAlike 4.0 International License</a>. (Based on
 a work at
@@ -773,6 +776,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-08-02.\]
+\[File `README.md` updated on 2023-08-08.\]
 
 <!-- eof. -->
