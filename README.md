@@ -30,6 +30,7 @@ status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/
 <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
 </a> 
 -->
+<!-- Slogan: -->
 
 ### Enabling corporate design elements in R
 
