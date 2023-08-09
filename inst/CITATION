@@ -1,9 +1,9 @@
 citHeader("To cite 'unikn' in derivations and publications, please use:")
 
-citEntry(entry = "Manual",
+bibentry(entry = "Manual",
          title        = "unikn: Graphical elements of the University of Konstanz's corporate design",
-         author       = personList(as.person("Hansjörg Neth"),
-                                   as.person("Nico Gradwohl")),
+         author       = c(person("Hansjörg", "Neth", role = c("aut", "cre"), email = "h.neth@uni.kn"),
+                          person("Nico", "Gradwohl", role = "aut"))),
          year         = "2023",
          organization = "Social Psychology and Decision Sciences, University of Konstanz",
          address      = "Konstanz, Germany",
