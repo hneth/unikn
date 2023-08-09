@@ -23,7 +23,7 @@ status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 0.8.0.9012 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
+# unikn 0.8.0.9013 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
@@ -250,20 +250,21 @@ access to a diverse range of over 200 color palettes.
 <!-- - [RPTU Kaiserslautern-Landau](https://rptu.de/): `rptu_pal`  -->
 <!-- Note: Duplicate image in vignette color_inst.Rmd -->
 <!-- These 52\ palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations). -->
-<!-- Collecting contributed color palettes: -->
+<!-- Collecting contributed color palettes (in unicol): -->
 
 #### Call for contributions
 
-We are currently expanding the range of color palettes from other
-institutions:
+We are still expanding the range of color palettes from other
+institutions in a dedicated R package
+**[unicol](https://github.com/hneth/unicol)**.
 
 **Collecting color palettes**
 
-- Are you using **unikn** to create **your own color palettes**?
+- Are you using the **unikn** color functions to create **your own color
+  palettes**?
 
 If so, please **let us know** (e.g., by posting on this [GitHub
-issue](https://github.com/hneth/unikn/issues/11))!
-
+issue](https://github.com/hneth/unicol/issues/30))!  
 We collect color palettes from other institutions to make them available
 to R users in future versions of
 **[unicol](https://github.com/hneth/unicol)**.
@@ -277,7 +278,8 @@ send us the following information:
     definitions),  
 3.  your name and some contact information (e.g., an Email address).
 
-We’re looking forward to your inputs and contributions!
+We’re looking forward to your inputs and contributions (at this [GitHub
+issue](https://github.com/hneth/unicol/issues/30))!
 
 ## Color-related functions
 
@@ -777,6 +779,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-08-08.\]
+\[File `README.md` updated on 2023-08-09.\]
 
 <!-- eof. -->

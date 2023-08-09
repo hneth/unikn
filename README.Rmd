@@ -36,7 +36,6 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 <!-- Devel badges end. -->
 
 
-
 <!-- Release badges start: -->
 <!-- [![CRAN status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)  -->
 <!-- [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn)  -->
@@ -282,19 +281,18 @@ seecol("add")
 <!-- These 52\ palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations). -->
 
 
-<!-- Collecting contributed color palettes: -->
+<!-- Collecting contributed color palettes (in unicol): -->
 
 #### Call for contributions {-}
 
-We are currently expanding the range of color palettes from other institutions: 
+We are still expanding the range of color palettes from other institutions in a dedicated R\ package **[unicol](`r url_unicol_github`)**. 
 
 **Collecting color palettes**
 
-- Are you using **unikn** to create **your own color palettes**? 
+- Are you using the **unikn** color functions to create **your own color palettes**? 
 
-If so, please **let us know** (e.g., by posting on this [GitHub issue](https://github.com/hneth/unikn/issues/11))!  
-  
-We collect color palettes from other institutions to make them available to R users in future versions of **[unicol](`r url_unicol_github`)**.  
+If so, please **let us know** (e.g., by posting on this [GitHub issue](https://github.com/hneth/unicol/issues/30))!   
+We collect color palettes from other institutions to make them available to R users in future versions of **[unicol](`r url_unicol_github`)**. 
 
 To enable us to verify and provide credit to your contributions, please send us the following information:  
    
@@ -302,7 +300,7 @@ To enable us to verify and provide credit to your contributions, please send us 
 2. your reference or source information (e.g., some URL with color definitions),   
 3. your name and some contact information (e.g., an Email address).  
   
-We're looking forward to your inputs and contributions! 
+We're looking forward to your inputs and contributions (at this [GitHub issue](https://github.com/hneth/unicol/issues/30))! 
 
 
 ## Color-related functions
