@@ -1,7 +1,11 @@
 
-# unikn 0.8.0.9013
+# unikn 0.9.0
 
-This is the development version of **unikn**, which is available at <https://github.com/hneth/unikn/>. 
+This release of **unikn** (v0.9.0) reduces its functionality by migrating some color palettes to a new R\ package **[unicol](https://github.com/hneth/unicol/)**. [2023-08-09] 
+
+<!-- Log of changes: --> 
+
+<!-- This is the development version of **unikn**, which is available at <https://github.com/hneth/unikn/>. --> 
 
 <!-- Log of changes: --> 
 
@@ -331,6 +335,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-08-08.]
+[File `NEWS.md` updated on 2023-08-09.] 
 
 <!-- eof. -->
