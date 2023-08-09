@@ -229,7 +229,7 @@ access to a diverse range of over 200 color palettes.
 
 <!-- OLDER parts: List of additional color palettes -->
 <!-- - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3`  -->
-<!-- - [ETH Zurich](https://ethz.ch/): `eth_pal_1`, `eth_pal_2`, `eth_pal_3`  -->
+<!-- - [ETH Zurich](https://ethz.ch/de.html): `eth_pal_1`, `eth_pal_2`, `eth_pal_3`  -->
 <!-- - [Free University Berlin](https://www.fu-berlin.de/en/index.html): `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3`  -->
 <!-- - [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2`  -->
 <!-- - [LMU Munich](https://www.lmu.de/en/index.html): `lmu_pal_1`, `lmu_pal_2`, `lmu_pal_3`  -->
