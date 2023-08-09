@@ -1,5 +1,5 @@
 
-# unikn 0.8.0.9012
+# unikn 0.8.0.9013
 
 This is the development version of **unikn**, which is available at <https://github.com/hneth/unikn/>. 
 
@@ -8,12 +8,13 @@ This is the development version of **unikn**, which is available at <https://git
 
 Changes since last release: 
 
+<!-- Major changes: --> 
+
 ## Major changes 
 
 - Migrated all color palettes from other institutions to a dedicated R\ package **[unicol](https://github.com/hneth/unicol/)**.  
 
-<!-- Blank line.  --> 
-
+<!-- Minor changes: --> 
 
 ## Minor changes 
 
