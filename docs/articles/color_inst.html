@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
       </span>
     </div>
 
@@ -105,7 +105,7 @@
                         <h4 data-toc-skip class="author">SPDS,
 uni.kn</h4>
             
-            <h4 data-toc-skip class="date">2023 01 06</h4>
+            <h4 data-toc-skip class="date">2023 08 09</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/hneth/unikn/blob/HEAD/vignettes/color_inst.Rmd" class="external-link"><code>vignettes/color_inst.Rmd</code></a></small>
       <div class="hidden name"><code>color_inst.Rmd</code></div>
@@ -121,157 +121,29 @@ uni.kn</h4>
 based on the CD manual of the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>. However,
 the functionality provided by the package makes it easy and
 straightforward to define and use <strong>your own colors</strong>.</p>
-<p>This vignette first shows which color palettes from other
-institutions are currently provided by the <strong>unikn</strong>
-package. As these will never be complete, it then explains how the
-color-related tools of <strong>unikn</strong> can be used for
-<strong>creating new color palettes</strong>. <!-- Main color info: -->
-(For a general introduction to the package’s colors, color palettes, and
-color functions, see the vignettes on <a href="colors.html">Colors and
-color functions</a> and <a href="color_recipes.Rmd">Color recipes</a>.
-The vignette on <a href="text.html">text</a> provides information on
-creating text boxes and decorations.)</p>
+<!-- Mention the **unicol** package here! -->
+<p>Version 0.8.0 of <strong>unikn</strong> (released in 2023-01-06)
+contained 52 additional color palettes from other institutions (mostly
+universities). As the number of color palettes has been growing beyond
+the scope of this package, the color palettes from other institutions
+are now being collected in a separate R package <strong>unicol</strong>.
+Installing <strong>unicol</strong> (from <a href="https://github.com/hneth/unicol" class="external-link">GitHub</a>) currently provides
+access to a range of over 150 color palettes.</p>
+<!-- This vignette: -->
+<p>The rest of this vignette explains how the color-related tools of
+<strong>unikn</strong> can be used for <strong>creating new color
+palettes</strong>. If you do so, please consider submitting it to be
+included in future versions of the <strong>unicol</strong> package.
+<!-- Vignette info: --> (For a general introduction of the
+<strong>unikn</strong> colors, color palettes, and color functions, see
+the vignettes on <a href="colors.html">Colors and color functions</a>
+and <a href="color_recipes.html">Color recipes</a>. The vignette on <a href="text.html">Text boxes and decorations</a> provides information on
+plotting slides and text elements.)</p>
 <p>We install or load the <strong>unikn</strong> package to get
 started:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages('unikn')  # install unikn from CRAN client</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://CRAN.R-project.org/package=unikn" class="external-link">'unikn'</a></span><span class="op">)</span>             <span class="co"># load the package</span></span></code></pre></div>
-<div class="section level2">
-<h2 id="current-color-palettes">Current color palettes<a class="anchor" aria-label="anchor" href="#current-color-palettes"></a>
-</h2>
-<div class="section level3">
-<h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
-</h3>
-<p>In addition to the specific color palettes of the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>,
-<strong>unikn</strong> currently provides the general color palettes of
-the following institutions:</p>
-<ul>
-<li>
-<a href="https://www.caltech.edu/" class="external-link">Caltech</a>:
-<code>caltech_pal_1</code>, <code>caltech_pal_2</code>,
-<code>caltech_pal_3</code>
-</li>
-<li>
-<a href="https://ethz.ch/de.html" class="external-link">ETH Zurich</a>: <code>eth_pal_1</code>,
-<code>eth_pal_2</code>, <code>eth_pal_3</code>
-</li>
-<li>
-<a href="https://www.fu-berlin.de/en/index.html" class="external-link">Free University
-Berlin</a>: <code>fu_pal_0</code>, <code>fu_pal_1</code>,
-<code>fu_pal_2</code>, <code>fu_pal_3</code>
-</li>
-<li>
-<a href="https://www.hu-berlin.de/en" class="external-link">Humboldt University
-Berlin</a>: <code>hu_pal_1</code>, <code>hu_pal_2</code>
-</li>
-<li>
-<a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a>:
-<code>mpg_pal</code>
-</li>
-<li>
-<a href="https://www.lmu.de/en/index.html" class="external-link">LMU Munich</a>:
-<code>lmu_pal_1</code>, <code>lmu_pal_2</code>,
-<code>lmu_pal_3</code>
-</li>
-<li>
-<a href="https://www.uni-bonn.de/en" class="external-link">University of Bonn</a>:
-<code>uni_bonn_1</code>, <code>uni_bonn_2</code>
-</li>
-<li>
-<a href="https://uni-freiburg.de/" class="external-link">University of Freiburg</a>:
-<code>uni_freiburg_0</code>, <code>uni_freiburg_1</code>,
-<code>uni_freiburg_2</code>,<br>
-(from 2022: <code>uni_freiburg_br</code>,
-<code>uni_freiburg_blue</code>, <code>uni_freiburg_grey</code>,
-<code>uni_freiburg_info</code>)</li>
-<li>
-<a href="https://uni-goettingen.de/" class="external-link">University of Göttingen</a>:
-<code>uni_goettingen_1</code>, <code>uni_goettingen_2</code>,
-<code>uni_goettingen_3</code>
-</li>
-<li>
-<a href="https://www.uni-hamburg.de/" class="external-link">University of Hamburg</a>:
-<code>uni_hamburg_1</code>, <code>uni_hamburg_2</code>
-</li>
-<li>
-<a href="https://www.uni-jena.de/" class="external-link">University of Jena</a>:
-<code>uni_jena_1</code>, <code>uni_jena_2</code>
-</li>
-<li>
-<a href="https://www.uni-kiel.de/en/" class="external-link">Kiel University</a>:
-<code>uni_kiel_1</code>, <code>uni_kiel_2</code>
-</li>
-<li>
-<a href="https://www.uni-koeln.de/" class="external-link">University of Köln</a>:
-<code>uni_koeln_1</code>, <code>uni_koeln_2</code>
-</li>
-<li>
-<a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>:
-<code>uni_konstanz_1</code>, <code>uni_konstanz_2</code>
-</li>
-<li>
-<a href="https://www.uni-mannheim.de/" class="external-link">University of Mannheim</a>:
-<code>uni_mannheim_1</code>, <code>uni_mannheim_2</code>
-</li>
-<li>
-<a href="https://www.princeton.edu/" class="external-link">Princeton University</a>:
-<code>uni_princeton_0</code>, <code>uni_princeton_1</code>,
-<code>uni_princeton_2</code>
-</li>
-<li>
-<a href="https://www.uni-regensburg.de/" class="external-link">University of
-Regensburg</a>: <code>uni_regensburg_1</code>,
-<code>uni_regensburg_2</code>, <code>uni_regensburg_3</code>
-</li>
-<li>
-<a href="https://www.uni-ulm.de/" class="external-link">University of Ulm</a>:
-<code>uni_ulm_1</code>, <code>uni_ulm_2</code>
-</li>
-<li>
-<a href="https://www.rpi.edu/" class="external-link">Rensselaer Polytechnic Institute</a>:
-<code>rpi_pal_1</code>, <code>rpi_pal_2</code>,
-<code>rpi_pal_3</code>
-</li>
-<li>
-<a href="https://rptu.de/" class="external-link">RPTU Kaiserslautern-Landau</a>:
-<code>rptu_pal</code>
-</li>
-</ul>
-<!-- Note: Number of palettes & exported as named vectors: --><p>These 52 palettes are exported (as named vectors) and documented (to
-credit their contributors and sources). We can use and modify these
-palettes with the <strong>unikn</strong> <a href="colors.html">color
-functions</a>:</p>
-<!-- Note: Duplicate image in README.Rmd -->
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="st">"add"</span>, main <span class="op">=</span> <span class="st">"Color palettes from various institutions"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="color_inst_files/figure-html/show-add-pals-1.png" width="550px" style="display: block; margin: auto;"></p>
-</div>
-<div class="section level3">
-<h3 id="call-for-contributions">Call for contributions<a class="anchor" aria-label="anchor" href="#call-for-contributions"></a>
-</h3>
-<!-- Collecting contributed color palettes: -->
-<blockquote>
-<p><strong>Collecting color palettes</strong></p>
-<p>Are you using <strong>unikn</strong> to create <strong>your own color
-palettes</strong>?<br>
-If so, please <strong>let us know</strong> (e.g., by posting on this <a href="https://github.com/hneth/unikn/issues/11" class="external-link">GitHub issue</a>)!</p>
-<p>We collect color palettes from other institutions to make them
-available in future versions of <strong>unikn</strong>.</p>
-<p>To enable us to verify and provide appropriate credit to your
-contributions, please provide us with the following information:</p>
-<ol style="list-style-type: decimal">
-<li>your code (e.g., the <code><a href="../reference/newpal.html">newpal()</a></code> command creating your
-color palette),<br>
-</li>
-<li>your source (e.g., some URL with color definitions),<br>
-</li>
-<li>your name and some contact information (e.g., an Email
-address).</li>
-</ol>
-<p>We’re looking forward to your inputs and contributions!</p>
-</blockquote>
-</div>
-</div>
 <div class="section level2">
 <h2 id="creating-new-color-palettes">Creating new color palettes<a class="anchor" aria-label="anchor" href="#creating-new-color-palettes"></a>
 </h2>
@@ -339,10 +211,8 @@ HEX values, they denote the same color.<a href="#fn1" class="footnote-ref" id="f
 <p>An example helps clarifying these abstract terms. When viewing an
 existing color or color palette with the <code><a href="../reference/seecol.html">seecol()</a></code> function
 of <strong>unikn</strong>, the name, HEX and RGB values of the
-individual colors are being shown. For instance, the color palette
-<code>mpg_pal</code> provides the colors of the <a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a> as:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span>pal <span class="op">=</span> <span class="fu">unikn</span><span class="fu">::</span><span class="va"><a href="../reference/mpg_pal.html">mpg_pal</a></span>, col_brd <span class="op">=</span> <span class="st">"black"</span>, lwd_brd <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span></span></code></pre></div>
+individual colors are being shown. For instance, the following color
+palette <code>mpg_pal</code> provides the colors of the <a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a>:</p>
 <p><img src="color_inst_files/figure-html/def-col-mpg-example-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>As the middle color of <code>mpg_pal</code> is one of the 657 named
 colors of <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code>, R will recognize it as a color when we
@@ -382,7 +252,7 @@ been provided) to define the same color objects.</p>
 <p>As our two colors of interest are given in RGB values, we can use the
 <code><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb()</a></code> function of the <strong>grDevices</strong> package to
 define corresponding objects:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mpg_green</span> <span class="op">&lt;-</span> <span class="fu">grDevices</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span> <span class="fl">17</span>, <span class="fl">102</span>,  <span class="fl">86</span>, maxColorValue <span class="op">=</span> <span class="fl">255</span><span class="op">)</span></span>
 <span><span class="va">mpg_grey</span>  <span class="op">&lt;-</span> <span class="fu">grDevices</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">221</span>, <span class="fl">222</span>, <span class="fl">214</span>, maxColorValue <span class="op">=</span> <span class="fl">255</span><span class="op">)</span></span></code></pre></div>
 <p>The first three arguments specify values on the <code>red</code>,
@@ -399,7 +269,7 @@ but as we can modify these aspects later, we do not need to use them at
 this point.</p>
 <p>What do we obtain when we evaluate our new color objects? Let’s
 see:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mpg_green</span></span>
 <span><span class="co">#&gt; [1] "#116656"</span></span>
 <span><span class="va">mpg_grey</span></span>
@@ -438,12 +308,12 @@ way of expressing the RGB values 17/102/86 — and both refer to the color
 <p>The equivalence of the RGB and HEX notations can be illustrated by
 defining the same colors a second time, but this time specifying their
 HEX values (returned above):</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mpg_green_2</span> <span class="op">&lt;-</span> <span class="st">"#116656"</span></span>
 <span><span class="va">mpg_grey_2</span>  <span class="op">&lt;-</span> <span class="st">"#DDDED6"</span></span></code></pre></div>
 <p>If both definitions really yield identical R objects, the following
 checks must evaluate to <code>TRUE</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">mpg_green</span>, <span class="va">mpg_green_2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">mpg_grey</span>,  <span class="va">mpg_grey_2</span><span class="op">)</span></span>
@@ -462,7 +332,7 @@ that are stored in some sequential data structure. The two simplest data
 structures in R that are suited for this purpose are vectors or data
 frames. Thus, the following two expressions both define valid color
 palettes:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">mpg_green</span>, <span class="va">mpg_grey</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#116656" "#DDDED6"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">mpg_green</span>, <span class="va">mpg_grey</span><span class="op">)</span></span>
@@ -480,13 +350,13 @@ specifying color names and switching between returning the new palette
 as a vector or data base.<br>
 Importantly, the color objects of <code>col</code> can be provided as
 RGB values, as R color names, or as HEX values:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mpg_pal_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newpal.html">newpal</a></span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span> <span class="fl">17</span>, <span class="fl">102</span>,  <span class="fl">86</span>, maxColorValue <span class="op">=</span> <span class="fl">255</span><span class="op">)</span>, <span class="st">"white"</span>, <span class="st">"#DDDED6"</span><span class="op">)</span>,</span>
 <span>                    names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"MPG green"</span>, <span class="st">"white"</span>, <span class="st">"MPG grey"</span><span class="op">)</span>,</span>
 <span>                    as_df <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>The new color palette <code>mpg_pal_3</code> contains the three basic
 colors of <code>mpg_pal</code> (shown above):</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">mpg_pal_3</span>, </span>
 <span>       main <span class="op">=</span> <span class="st">"My new color palette"</span>, col_brd <span class="op">=</span> <span class="st">"black"</span>, lwd_brd <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span></span></code></pre></div>
 <p><img src="color_inst_files/figure-html/seecol-mpg-3-1.png" width="60%" style="display: block; margin: auto;"></p>
@@ -497,12 +367,12 @@ MPG colors with “white” in a balanced (50:50) fashion. The
 <code><a href="../reference/usecol.html">usecol()</a></code> function of <strong>unikn</strong> automatically
 performs these extrapolations when extending a 3-element color palette
 (e.g., <code>mpg_pal_3</code>) to <code>n = 5</code> colors:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_mpg_pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/usecol.html">usecol</a></span><span class="op">(</span><span class="va">mpg_pal_3</span>, n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <p>The resulting color palette <code>my_mpg_pal</code> recreates the
 colors of the <strong>unikn</strong> color palette <code>mpg_pal</code>
 (shown above):</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">my_mpg_pal</span>, main <span class="op">=</span> <span class="st">"My new MPG color palette"</span>, </span>
 <span>       col_brd <span class="op">=</span> <span class="st">"black"</span>, lwd_brd <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span></span></code></pre></div>
 <p><img src="color_inst_files/figure-html/seecol-mpg-5-1.png" width="60%" style="display: block; margin: auto;"></p>
@@ -511,9 +381,9 @@ in which its middle color (“white”) was specified (by its R color name
 or HEX values). However, when using <code><a href="https://rdrr.io/r/grDevices/col2rgb.html" class="external-link">col2rgb()</a></code> for
 converting both palettes into their RGB values, we see that they contain
 the same colors:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/col2rgb.html" class="external-link">col2rgb</a></span><span class="op">(</span><span class="va">mpg_pal</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/grDevices/col2rgb.html" class="external-link">col2rgb</a></span><span class="op">(</span><span class="va">my_mpg_pal</span><span class="op">)</span>, check.attributes <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "Numeric: lengths (9, 15) differ"</span></span></code></pre></div>
 <p>This concludes our illustration of defining a new colors and color
 palettes.</p>
 </div>
@@ -525,18 +395,45 @@ palettes.</p>
 R environment), the <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code>
 functions allow comparing, scaling, and using them in the same fashion
 as the native <strong>unikn</strong> color palettes:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Re-define an existing color palette:</span></span>
-<span><span class="va">lmu_pal_rev</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newpal.html">newpal</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">lmu_pal_1</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Scaled version: </span></span>
-<span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">lmu_pal_rev</span>, <span class="va">uni_princeton_1</span>, <span class="va">mpg_pal</span>, <span class="va">pal_unikn</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">7</span>,</span>
-<span>       pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"LMU Munich"</span>, <span class="st">"Princeton Uni"</span>, <span class="st">"Max Planck"</span>, <span class="st">"Uni Konstanz"</span><span class="op">)</span>,</span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Scaled palettes: </span></span>
+<span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">mpg_pal</span>, <span class="va">pal_unikn</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">7</span>,</span>
+<span>       pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Max Planck"</span>, <span class="st">"Uni Konstanz"</span><span class="op">)</span>,</span>
 <span>       main <span class="op">=</span> <span class="st">"Comparing scaled color palettes"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="color_inst_files/figure-html/compare-custom-pals-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>See the vignette on <a href="color_recipes.html">Color recipes</a>
 for additional examples of using <strong>unikn</strong> functions for
 solving color-related tasks.</p>
+<!-- Collecting contributed color palettes (in unicol): -->
+</div>
+<div class="section level2">
+<h2 id="call-for-contributions">Call for contributions<a class="anchor" aria-label="anchor" href="#call-for-contributions"></a>
+</h2>
+<p>We are still expanding the range of color palettes from other
+institutions in a dedicated R package <strong><a href="https://github.com/hneth/unicol" class="external-link">unicol</a></strong>.</p>
+<p><strong>Collecting color palettes</strong></p>
+<ul>
+<li>Are you using the <strong>unikn</strong> color functions to create
+<strong>your own color palettes</strong>?</li>
+</ul>
+<p>If so, please <strong>let us know</strong> (e.g., by posting on this
+<a href="https://github.com/hneth/unicol/issues/30" class="external-link">GitHub
+issue</a>)!<br>
+We collect color palettes from other institutions to make them available
+to R users in future versions of <strong><a href="https://github.com/hneth/unicol" class="external-link">unicol</a></strong>.</p>
+<p>To enable us to verify and provide credit to your contributions,
+please send us the following information:</p>
+<ol style="list-style-type: decimal">
+<li>your code (e.g., the <code><a href="../reference/newpal.html">newpal()</a></code> command creating your
+color palette),<br>
+</li>
+<li>your reference or source information (e.g., some URL with color
+definitions),<br>
+</li>
+<li>your name and some contact information (e.g., an Email
+address).</li>
+</ol>
+<p>We’re looking forward to your inputs and contributions (at this <a href="https://github.com/hneth/unicol/issues/30" class="external-link">GitHub issue</a>)!</p>
 </div>
 <div class="section level2">
 <h2 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
@@ -656,7 +553,7 @@ as different colors.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

@@ -19,7 +19,7 @@ to some target color col_target."><meta property="og:image" content="https://hne
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
       </span>
     </div>
 
@@ -168,31 +168,31 @@ more fine-grained similarity matching.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Basic uses:</span></span></span>
 <span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span>col_target <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="simcol-1.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="simcol-1.png" alt="" width="672" height="571"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          red   firebrick1   firebrick2    orangered   orangered2         red2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        "red" "firebrick1" "firebrick2"  "orangered" "orangered2"       "red2" </span>
 <span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="st">"tan"</span>, tol <span class="op">=</span> <span class="fl">15</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="simcol-2.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="simcol-2.png" alt="" width="672" height="571"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            tan      burlywood     burlywood3   navajowhite3     peachpuff3 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          "tan"    "burlywood"   "burlywood3" "navajowhite3"   "peachpuff3" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         wheat3 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "wheat3" </span>
 <span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="va">Seeblau</span>, tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">30</span>, <span class="fl">40</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="simcol-3.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="simcol-3.png" alt="" width="672" height="571"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      Seeblau     skyblue2   steelblue1   steelblue2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    "#59C7EB"   "skyblue2" "steelblue1" "steelblue2" </span>
 <span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="st">"blue"</span>, col_candidates <span class="op">=</span> <span class="va">pal_unikn_pref</span>, tol <span class="op">=</span> <span class="fl">120</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="simcol-4.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="simcol-4.png" alt="" width="672" height="571"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        blue Karpfenblau      Petrol </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      "blue"   "#3E5496"   "#077187" </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Fine-tuning the range of color matching:</span></span></span>
 <span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="va">Seeblau</span>, tol <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>  <span class="co"># = simcol(Seeblau, tol = c(30, 30, 30))</span></span></span>
-<span class="r-plt img"><img src="simcol-5.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="simcol-5.png" alt="" width="672" height="571"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      Seeblau   steelblue1   steelblue2    turquoise </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    "#59C7EB" "steelblue1" "steelblue2"  "turquoise" </span>
 <span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="va">Seeblau</span>, tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">20</span>, <span class="fl">80</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="simcol-6.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="simcol-6.png" alt="" width="672" height="571"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         Seeblau    lightskyblue   lightskyblue2         skyblue        skyblue1 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       "#59C7EB"  "lightskyblue" "lightskyblue2"       "skyblue"      "skyblue1" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        skyblue2      steelblue1 </span>
@@ -200,8 +200,8 @@ more fine-grained similarity matching.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Increasing tolerance widens range:</span></span></span>
 <span class="r-in"><span><span class="fu">simcol</span><span class="op">(</span><span class="st">"grey"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"white"</span>, <span class="st">"grey"</span>, <span class="st">"black"</span><span class="op">)</span>, tol <span class="op">=</span> <span class="fl">255</span>, distinct <span class="op">=</span> <span class="cn">FALSE</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        gray weiss/white        gray       black </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      "grey"     "white"      "grey"     "black" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    gray   white    gray   black </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  "grey" "white"  "grey" "black" </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -217,7 +217,7 @@ more fine-grained similarity matching.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

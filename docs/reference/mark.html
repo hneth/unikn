@@ -19,7 +19,7 @@ each label to mark it (i.e., highlight or make it stand out from the background)
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
       </span>
     </div>
 
@@ -193,13 +193,13 @@ are recycled to match <code>length(labels)</code>.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Basics: </span></span></span>
 <span class="r-in"><span><span class="fu">mark</span><span class="op">(</span>labels <span class="op">=</span> <span class="st">"This is a test."</span>, new_plot <span class="op">=</span> <span class="st">"blank"</span><span class="op">)</span>  <span class="co"># create a new blank plot</span></span></span>
 <span class="r-in"><span><span class="fu">mark</span><span class="op">(</span>labels <span class="op">=</span> <span class="st">"More testing here..."</span>, y <span class="op">=</span> <span class="fl">.45</span>, col_bg <span class="op">=</span> <span class="va">pal_pinky</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>  <span class="co"># add to plot</span></span></span>
-<span class="r-plt img"><img src="mark-1.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="mark-1.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example: </span></span></span>
 <span class="r-in"><span><span class="co"># (a) Mark text on an existing plot:</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="fl">0</span>, type <span class="op">=</span> <span class="st">"n"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, xlab <span class="op">=</span> <span class="st">""</span>, ylab <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">mark</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="fl">.8</span>, labels <span class="op">=</span> <span class="st">"Mark (on an existing plot)"</span><span class="op">)</span>  <span class="co"># uses existing plot</span></span></span>
-<span class="r-plt img"><img src="mark-2.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="mark-2.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># (b) Mark text on a new plot:</span></span></span>
 <span class="r-in"><span><span class="fu">mark</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="fl">.8</span>, labels <span class="op">=</span> <span class="st">"Mark (and create a new plot)"</span>, </span></span>
@@ -213,18 +213,18 @@ are recycled to match <code>length(labels)</code>.</p>
 <span class="r-in"><span><span class="fu">mark</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"It is also flexible"</span>, <span class="st">"but to be handled with care"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>     x <span class="op">=</span> <span class="fl">.4</span>, y <span class="op">=</span> <span class="fl">.3</span>, y_layout <span class="op">=</span> <span class="st">"flush"</span>, cex <span class="op">=</span> <span class="fl">1.2</span>,</span></span>
 <span class="r-in"><span>     col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"white"</span>, <span class="st">"black"</span><span class="op">)</span>, col_bg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">pal_seeblau</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span>, <span class="st">"gold"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="mark-3.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="mark-3.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span>     </span></span>
 <span class="r-in"><span><span class="co"># Using x_layout and y_layout:</span></span></span>
 <span class="r-in"><span><span class="fu">mark</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Ene,"</span>, <span class="st">"mene, miste,"</span>, <span class="st">"es rappelt"</span>, <span class="st">"in der Kiste."</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>     cex <span class="op">=</span> <span class="fl">1.4</span>, font <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"white"</span>, col_bg <span class="op">=</span> <span class="va">Petrol</span>,</span></span>
 <span class="r-in"><span>     x <span class="op">=</span> <span class="cn">NA</span>, y <span class="op">=</span> <span class="fl">.85</span>, x_layout <span class="op">=</span> <span class="st">"center"</span>, y_layout <span class="op">=</span> <span class="st">"even"</span>, new_plot <span class="op">=</span> <span class="st">"slide"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="mark-4.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="mark-4.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span>     </span></span>
 <span class="r-in"><span><span class="fu">mark</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"One, and"</span>, <span class="st">"two, and"</span>, <span class="st">"three and four is"</span>, <span class="st">"plenty and perhaps enough..."</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>     cex <span class="op">=</span> <span class="fl">1.4</span>, font <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"white"</span>, col_bg <span class="op">=</span> <span class="va">Bordeaux</span>,</span></span>
 <span class="r-in"><span>     x <span class="op">=</span> <span class="fl">.5</span>, y <span class="op">=</span> <span class="fl">.6</span>, x_layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">.25</span>, <span class="op">+</span><span class="fl">.25</span><span class="op">)</span>, y_layout <span class="op">=</span> <span class="fl">0</span>, new_plot <span class="op">=</span> <span class="st">"slide"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="mark-5.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="mark-5.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -240,7 +240,7 @@ are recycled to match <code>length(labels)</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
