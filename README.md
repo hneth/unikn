@@ -1,20 +1,19 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
 <!-- Devel badges start: -->
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)  -->
-<!-- [![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml)  -->
-<!-- [![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn)](https://www.r-pkg.org/pkg/unikn) -->
-<!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)  -->
-<!-- Devel badges end. -->
-<!-- Release badges start: -->
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
-[![Total
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn)
+[![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml)
+[![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn)](https://www.r-pkg.org/pkg/unikn)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
-<!-- Release badges end. -->
+<!-- Devel badges end. -->
 
+<!-- Release badges start: -->
+<!-- [![CRAN status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) -->
+<!-- [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn) -->
+<!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191) -->
+<!-- Release badges end. -->
 <!-- ALL status badges: 
 [![CRAN status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml) 
@@ -24,7 +23,7 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 0.9.0 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
+# unikn 0.9.0.9001 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
@@ -780,6 +779,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-08-09.\]
+\[File `README.md` updated on 2023-08-10.\]
 
 <!-- eof. -->
