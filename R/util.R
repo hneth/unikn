@@ -1,8 +1,8 @@
 ## util.R | unikn
-## spds | uni.kn |  2022 12 30
+## spds | uni.kn |  2023 08 15
 ## ---------------------------
 
-# General utility functions (mostly for internal use, not exported).
+# General utility functions (mostly for internal use and not exported).
 
 
 # Generic utility functions: --------  

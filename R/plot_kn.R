@@ -1,8 +1,8 @@
 ## plot_kn.R | unikn
-## spds | uni.kn |  2022 08 23
+## spds | uni.kn |  2023 08 15
 ## ---------------------------
 
-## plot_unikn(): Function to plot unikn logo ------ 
+## plot_kn(): Plot the unikn logo ------ 
 
 plot_kn <- function(back = TRUE, 
                     city = TRUE, 
