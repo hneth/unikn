@@ -1,6 +1,5 @@
 
-
-# unikn 0.9.0.9001
+# unikn 0.9.0.9002
 
 This is the current development version of **unikn** at <https://github.com/hneth/unikn/>. 
 
@@ -28,7 +27,9 @@ Changes since last release:
 
 ## Details 
 
-- none yet.
+- Added **[unicol](https://CRAN.R-project.org/package=unicol)** logo and links [to CRAN](https://CRAN.R-project.org/package=unicol).  
+
+- Changed URLs linking to **[unicol](https://CRAN.R-project.org/package=unicol)** [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol). 
 
 
 <!-- Development version:  --> 
@@ -41,7 +42,7 @@ The current development version of **unikn** is available at <https://github.com
 
 # unikn 0.9.0
 
-This release of **unikn** (v0.9.0) reduces its functionality by migrating some color palettes to a new R\ package **[unicol](https://github.com/hneth/unicol/)**. [2023-08-09] 
+This release of **unikn** (v0.9.0) reduces its functionality by migrating some color palettes to a new R\ package **[unicol](https://CRAN.R-project.org/package=unicol)**. [2023-08-09] 
 
 <!-- Log of changes: --> 
 
@@ -56,7 +57,7 @@ Changes since last release:
 
 ## Major changes 
 
-- Migrated all color palettes from other institutions to a dedicated R\ package **[unicol](https://github.com/hneth/unicol/)**.  
+- Migrated all color palettes from other institutions to a dedicated R\ package **[unicol](https://CRAN.R-project.org/package=unicol)**.  
 
 <!-- Minor changes: --> 
 
@@ -375,6 +376,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-08-10.] 
+[File `NEWS.md` updated on 2023-08-16.] 
 
 <!-- eof. -->
