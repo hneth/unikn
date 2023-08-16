@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.9.0.9001</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.9.0.9002</span>
       </span>
     </div>
 
@@ -117,7 +117,7 @@
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 <div class="section level1">
-<div class="page-header"><h1 id="unikn-0909001-">unikn 0.9.0.9001 <img src="./inst/pix/unikn.png" align="right" alt="unikn::" width="150px"><a class="anchor" aria-label="anchor" href="#unikn-0909001-"></a>
+<div class="page-header"><h1 id="unikn-090-">unikn 0.9.0 <img src="./inst/pix/unikn.png" align="right" alt="unikn::" width="150px"><a class="anchor" aria-label="anchor" href="#unikn-090-"></a>
 </h1></div>
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
@@ -155,7 +155,7 @@
 <p>The latest release of <strong>unikn</strong> is available from <a href="https://CRAN.R-project.org/" class="external-link">CRAN</a> at <a href="https://CRAN.R-project.org/package=unikn" class="external-link uri">https://CRAN.R-project.org/package=unikn</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'unikn'</span><span class="op">)</span>  <span class="co"># install from CRAN client</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://CRAN.R-project.org/package=unikn" class="external-link">'unikn'</a></span><span class="op">)</span>           <span class="co"># loads the package</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://CRAN.R-project.org/package=unikn" class="external-link">'unikn'</a></span><span class="op">)</span>           <span class="co"># load the package</span></span></code></pre></div>
 <p>The current development version can be installed from its <a href="https://github.com" class="external-link">GitHub</a> repository at <a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages('devtools')  # install pkg</span></span>
@@ -226,8 +226,11 @@
 <div class="section level3">
 <h3 id="additional-color-palettes">Additional color palettes<a class="anchor" aria-label="anchor" href="#additional-color-palettes"></a>
 </h3>
-<p>In addition to the 16 specific color palettes of the <a href="https://www.uni-konstanz.de/" class="external-link">University of Konstanz</a>, former versions of <strong>unikn</strong> provided color palettes of many other institutions.</p>
-<p>As the number of color palettes has been growing beyond the scope of this package, the color palettes from other institutions are now being collected in a separate R package <strong>unicol</strong>. Installing <strong>unicol</strong> (from <a href="https://github.com/hneth/unicol" class="external-link">GitHub</a>) currently provides access to a diverse range of over 200 color palettes.</p>
+<!-- unicol pkg logo and link: -->
+<p><a href="https://CRAN.R-project.org/package=unicol" class="external-link"> <img src="./inst/pix/logo_unicol.png" alt="unicol::" align="right" width="165px" style="width: 165px; float: right; border:0;"></a></p>
+<p>In addition to the 16 specific color palettes of the <a href="https://www.uni-konstanz.de" class="external-link">University of Konstanz</a>, former versions of <strong>unikn</strong> (up to version 0.8.0) provided color palettes of many other institutions.</p>
+<p>As the number of color palettes has been growing beyond the scope of this package, the color palettes from other institutions are now being collected in a separate R package <strong><a href="https://CRAN.R-project.org/package=unicol" class="external-link">unicol</a></strong>.</p>
+<p>Installing <strong><a href="https://CRAN.R-project.org/package=unicol" class="external-link">unicol</a></strong> currently provides access to a diverse range of over <strong>200 color palettes</strong> from over <strong>80 institutions</strong>.</p>
 <!-- OLDER parts: List of additional color palettes -->
 <!-- - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3`  -->
 <!-- - [ETH Zurich](https://ethz.ch/de.html): `eth_pal_1`, `eth_pal_2`, `eth_pal_3`  -->
@@ -256,13 +259,13 @@
 <div class="section level4">
 <h4 id="call-for-contributions">Call for contributions<a class="anchor" aria-label="anchor" href="#call-for-contributions"></a>
 </h4>
-<p>We are still expanding the range of color palettes from other institutions in a dedicated R package <strong><a href="https://github.com/hneth/unicol" class="external-link">unicol</a></strong>.</p>
+<p>We are expanding the range of color palettes from other institutions in a dedicated R package <strong><a href="https://CRAN.R-project.org/package=unicol" class="external-link">unicol</a></strong>.</p>
 <p><strong>Collecting color palettes</strong></p>
 <ul>
 <li>Are you using the <strong>unikn</strong> color functions to create <strong>your own color palettes</strong>?</li>
 </ul>
 <p>If so, please <strong>let us know</strong> (e.g., by posting on this <a href="https://github.com/hneth/unicol/issues/30" class="external-link">GitHub issue</a>)!<br>
-We collect color palettes from other institutions to make them available to R users in future versions of <strong><a href="https://github.com/hneth/unicol" class="external-link">unicol</a></strong>.</p>
+We collect color palettes from other institutions to make them available to R users in future versions of <strong><a href="https://CRAN.R-project.org/package=unicol" class="external-link">unicol</a></strong>.</p>
 <p>To enable us to verify and provide credit to your contributions, please send us the following information:</p>
 <ol style="list-style-type: decimal">
 <li>your code (e.g., the <code><a href="reference/newpal.html">newpal()</a></code> command creating your color palette),<br>
@@ -533,9 +536,9 @@ We collect color palettes from other institutions to make them available to R us
 <h2 id="todo">ToDo<a class="anchor" aria-label="anchor" href="#todo"></a>
 </h2>
 <p><img src="./inst/pix/todo.png" alt="ToDo" align="right" width="140px" style="width: 140px; float: right; border:10;"></p>
-<p>The <strong>unikn</strong> package is work in progress. We are currently working on:</p>
+<p>The <strong>unikn</strong> and <strong><a href="https://CRAN.R-project.org/package=unicol" class="external-link">unicol</a></strong> packages are still under development. We are currently working on:</p>
 <ul>
-<li>Migrating institutional color palettes to the <strong>unicol</strong> package</li>
+<li>Adding institutional color palettes to the <strong><a href="https://CRAN.R-project.org/package=unicol" class="external-link">unicol</a></strong> package</li>
 <li>Additional templates and themes (for plots and text decoration)</li>
 </ul>
 <p>Please comment on <a href="https://github.com/hneth/unikn" class="external-link">GitHub</a> or <a href="https://www.spds.uni-konstanz.de/" class="external-link">contact us</a> if you need additional features or want to help creating them.</p>
@@ -647,7 +650,7 @@ doi <a href="https://doi.org/10.5281/zenodo.7096191" class="external-link">10.5
 </li>
 </ul>
 <hr>
-<!-- Footer: --><p>[File <code>README.md</code> updated on 2023-08-10.]</p>
+<!-- Footer: --><p>[File <code>README.md</code> updated on 2023-08-16.]</p>
 <!-- eof. -->
 </div>
 </div>
