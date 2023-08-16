@@ -32,7 +32,7 @@ knitr::opts_chunk$set(echo = TRUE,
 ```
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/">
+<a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
 </a>
 
@@ -550,7 +550,7 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)   
 ## Vignettes
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/">
+<a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
 </a> 
 

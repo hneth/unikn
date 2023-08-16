@@ -28,10 +28,23 @@ knitr::opts_chunk$set(echo = TRUE,
                       # fig.asp = .8 # .618, # golden ratio
                       # out.width = "60%"
                       )
+
+# URLs: ------ 
+
+# unikn / Uni Konstanz:
+url_unikn <- "https://www.uni-konstanz.de"
+
+# unikn package:
+url_unikn_cran   <- "https://CRAN.R-project.org/package=unikn"
+url_unikn_github <- "https://github.com/hneth/unikn"
+
+# unicol package: 
+url_unicol_cran   <- "https://CRAN.R-project.org/package=unicol"
+url_unicol_github <- "https://github.com/hneth/unicol"
 ```
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/">
+<a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
 </a>
 
@@ -690,7 +703,7 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)   
 ## Vignettes
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/">
+<a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
 </a> 
 

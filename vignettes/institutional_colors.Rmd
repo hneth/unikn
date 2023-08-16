@@ -1,7 +1,7 @@
 ---
 title: "Institutional colors"
 author: "SPDS, uni.kn"
-date: "2023 08 09"
+date: "2023 08 16"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -31,30 +31,47 @@ knitr::opts_chunk$set(echo = TRUE,
                       out.width = "60%"
 )
 
-# URLs:
-# unicol: 
-url_unicol_cran   <- "" # "https://CRAN.R-project.org/package=unicol"
+# URLs: ------ 
+
+# unikn / Uni Konstanz:
+url_unikn <- "https://www.uni-konstanz.de"
+
+# unikn package:
+url_unikn_cran   <- "https://CRAN.R-project.org/package=unikn"
+url_unikn_github <- "https://github.com/hneth/unikn"
+
+# unicol package: 
+url_unicol_cran   <- "https://CRAN.R-project.org/package=unicol"
 url_unicol_github <- "https://github.com/hneth/unicol"
 ```
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/">
+<a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
 </a>
 
 The color palettes included in the **unikn** package are based on the CD\ manual of the [University of Konstanz](https://www.uni-konstanz.de/). 
-However, the functionality provided by the package makes it easy and straightforward to define and use **your own colors**.  
-
-<!-- Mention the **unicol** package here! -->
+However, the functionality provided by the package makes it easy and straightforward to define and use **your own colors**. 
 
 Version\ 0.8.0 of **unikn** (released in 2023-01-06) contained 52\ additional color palettes from other institutions (mostly universities). 
-As the number of color palettes has been growing beyond the scope of this package, the color palettes from other institutions are now being collected in a separate R\ package **unicol**.
-Installing **unicol** (from [GitHub](`r url_unicol_github`)) currently provides access to a range of over 150\ color palettes. 
+
+<!-- The **unicol** package: -->
+
+As the number of color palettes has been growing beyond the scope of this package, the color palettes from other institutions are now being collected in a separate R\ package **[unicol](`r url_unicol_cran`)**. 
+
+<!-- unicol pkg logo and link: -->
+<a href = "`r url_unicol_cran`">
+<img src = "../inst/pix/logo_unicol.png" alt = "unicol::" align = "right" width = "150px" style = "width: 150px; float: right; border:0;"/>
+</a>
+
+Installing **[unicol](`r url_unicol_cran`)** currently provides access to a diverse range of over **200\ color palettes** from over **80\ institutions**. 
+
+
 
 <!-- This vignette: -->
 
 The rest of this vignette explains how the color-related tools of **unikn** can be used for **creating new color palettes**. 
-If you do so, please consider submitting it to be included in future versions of the **unicol** package. 
+If you do so, please consider submitting it to be included in future versions of the **[unicol](`r url_unicol_cran`)** package. 
 <!-- Vignette info: --> 
 (For a general introduction of the **unikn** colors, color palettes, and color functions, see the vignettes on [Colors and color functions](colors.html) and [Color recipes](color_recipes.html). 
 The vignette on [Text boxes and decorations](text.html) provides information on plotting slides and text elements.) 
@@ -284,9 +301,15 @@ We are still expanding the range of color palettes from other institutions in a 
 
 **Collecting color palettes**
 
+<!-- unicol pkg logo and link: -->
+<a href = "`r url_unicol_cran`">
+<img src = "../inst/pix/logo_unicol.png" alt = "unicol::" align = "right" width = "150px" style = "width: 150px; float: right; border:0;"/>
+</a>
+
 - Are you using the **unikn** color functions to create **your own color palettes**? 
 
 If so, please **let us know** (e.g., by posting on this [GitHub issue](https://github.com/hneth/unicol/issues/30))!   
+
 We collect color palettes from other institutions to make them available to R users in future versions of **[unicol](`r url_unicol_github`)**. 
 
 To enable us to verify and provide credit to your contributions, please send us the following information:  
@@ -314,7 +337,7 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)   
 ## Vignettes
 
 <!-- unikn pkg logo and link: -->
-<a href = "https://github.com/hneth/unikn/">
+<a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
 </a> 
 
