@@ -23,7 +23,7 @@ status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 0.9.0.9001 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
+# unikn 0.9.0 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
@@ -106,7 +106,7 @@ The latest release of **unikn** is available from
 
 ``` r
 install.packages('unikn')  # install from CRAN client
-library('unikn')           # loads the package
+library('unikn')           # load the package
 ```
 
 The current development version can be installed from its
@@ -222,9 +222,10 @@ provided color palettes of many other institutions.
 
 As the number of color palettes has been growing beyond the scope of
 this package, the color palettes from other institutions are now being
-collected in a separate R package **unicol**. Installing **unicol**
-(from [GitHub](https://github.com/hneth/unicol)) currently provides
-access to a diverse range of over 200 color palettes.
+collected in a separate R package
+**[unicol](https://CRAN.R-project.org/package=unicol)**. Installing
+**[unicol](https://CRAN.R-project.org/package=unicol)** currently
+provides access to a diverse range of over 200 color palettes.
 
 <!-- OLDER parts: List of additional color palettes -->
 <!-- - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3`  -->
@@ -254,9 +255,9 @@ access to a diverse range of over 200 color palettes.
 
 #### Call for contributions
 
-We are still expanding the range of color palettes from other
-institutions in a dedicated R package
-**[unicol](https://github.com/hneth/unicol)**.
+We are expanding the range of color palettes from other institutions in
+a dedicated R package
+**[unicol](https://CRAN.R-project.org/package=unicol)**.
 
 **Collecting color palettes**
 
@@ -267,7 +268,7 @@ If so, please **let us know** (e.g., by posting on this [GitHub
 issue](https://github.com/hneth/unicol/issues/30))!  
 We collect color palettes from other institutions to make them available
 to R users in future versions of
-**[unicol](https://github.com/hneth/unicol)**.
+**[unicol](https://CRAN.R-project.org/package=unicol)**.
 
 To enable us to verify and provide credit to your contributions, please
 send us the following information:
@@ -647,9 +648,12 @@ design for your presentations and visualizations.
 
 <img src = "./inst/pix/todo.png" alt = "ToDo" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/>
 
-The **unikn** package is work in progress. We are currently working on:
+The **unikn** and
+**[unicol](https://CRAN.R-project.org/package=unicol)** packages are
+still under development. We are currently working on:
 
-- Migrating institutional color palettes to the **unicol** package
+- Adding institutional color palettes to the
+  **[unicol](https://CRAN.R-project.org/package=unicol)** package
 - Additional templates and themes (for plots and text decoration)
 
 Please comment on [GitHub](https://github.com/hneth/unikn) or [contact
@@ -779,6 +783,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-08-10.\]
+\[File `README.md` updated on 2023-08-16.\]
 
 <!-- eof. -->

@@ -19,11 +19,14 @@ library(unikn)  # load package
 # URLs: ------ 
 
 # unikn:
+url_unikn <- "https://www.uni-konstanz.de"
+
+# unikn package:
 url_unikn_cran   <- "https://CRAN.R-project.org/package=unikn"
 url_unikn_github <- "https://github.com/hneth/unikn"
 
-# unicol: 
-url_unicol_cran   <- "" # "https://CRAN.R-project.org/package=unicol"
+# unicol package: 
+url_unicol_cran   <- "https://CRAN.R-project.org/package=unicol"
 url_unicol_github <- "https://github.com/hneth/unicol"
 ```
 
@@ -110,7 +113,7 @@ The latest release of **unikn** is available from [CRAN](https://CRAN.R-project.
 
 ```{r install-CRAN, echo = TRUE, eval = FALSE}
 install.packages('unikn')  # install from CRAN client
-library('unikn')           # loads the package
+library('unikn')           # load the package
 ```
 
 The current development version can be installed from its [GitHub](https://github.com) repository at <https://github.com/hneth/unikn/>: 
@@ -244,8 +247,8 @@ seecol(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
 In addition to the 16\ specific color palettes of the [University of Konstanz](https://www.uni-konstanz.de/), 
 former versions of **unikn** provided color palettes of many other institutions. 
 
-As the number of color palettes has been growing beyond the scope of this package, the color palettes from other institutions are now being collected in a separate R\ package **unicol**. 
-Installing **unicol** (from [GitHub](`r url_unicol_github`)) currently provides access to a diverse range of over 200\ color palettes. 
+As the number of color palettes has been growing beyond the scope of this package, the color palettes from other institutions are now being collected in a separate R\ package **[unicol](`r url_unicol_cran`)**. 
+Installing **[unicol](`r url_unicol_cran`)** currently provides access to a diverse range of over 200\ color palettes. 
 
 <!-- OLDER parts: List of additional color palettes -->
 
@@ -285,14 +288,14 @@ seecol("add")
 
 #### Call for contributions {-}
 
-We are still expanding the range of color palettes from other institutions in a dedicated R\ package **[unicol](`r url_unicol_github`)**. 
+We are expanding the range of color palettes from other institutions in a dedicated R\ package **[unicol](`r url_unicol_cran`)**. 
 
 **Collecting color palettes**
 
 - Are you using the **unikn** color functions to create **your own color palettes**? 
 
 If so, please **let us know** (e.g., by posting on this [GitHub issue](https://github.com/hneth/unicol/issues/30))!   
-We collect color palettes from other institutions to make them available to R users in future versions of **[unicol](`r url_unicol_github`)**. 
+We collect color palettes from other institutions to make them available to R users in future versions of **[unicol](`r url_unicol_cran`)**. 
 
 To enable us to verify and provide credit to your contributions, please send us the following information:  
    
@@ -644,9 +647,9 @@ Overall, the **unikn** functions can be useful for solving color-related tasks a
 
 <img src = "./inst/pix/todo.png" alt = "ToDo" align = "right" width = "140px" style = "width: 140px; float: right; border:10;"/>
 
-The **unikn** package is work in progress. We are currently working on:
+The **unikn** and **[unicol](`r url_unicol_cran`)** packages are still under development. We are currently working on:
 
-- Migrating institutional color palettes to the **unicol** package 
+- Adding institutional color palettes to the **[unicol](`r url_unicol_cran`)** package 
 - Additional templates and themes (for plots and text decoration)   
    
 Please comment on [GitHub](https://github.com/hneth/unikn) or [contact us](https://www.spds.uni-konstanz.de/) 
