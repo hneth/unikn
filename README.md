@@ -216,16 +216,24 @@ pal_unikn["seeblau3"]  # color by name
 
 ### Additional color palettes
 
+<!-- unicol pkg logo and link: -->
+
+<a href = "https://CRAN.R-project.org/package=unicol">
+<img src = "./inst/pix/logo_unicol.png" alt = "unicol::" align = "right" width = "165px" style = "width: 165px; float: right; border:0;"/>
+</a>
+
 In addition to the 16 specific color palettes of the [University of
-Konstanz](https://www.uni-konstanz.de/), former versions of **unikn**
-provided color palettes of many other institutions.
+Konstanz](https://www.uni-konstanz.de), former versions of **unikn** (up
+to version 0.8.0) provided color palettes of many other institutions.
 
 As the number of color palettes has been growing beyond the scope of
 this package, the color palettes from other institutions are now being
 collected in a separate R package
-**[unicol](https://CRAN.R-project.org/package=unicol)**. Installing
-**[unicol](https://CRAN.R-project.org/package=unicol)** currently
-provides access to a diverse range of over 200 color palettes.
+**[unicol](https://CRAN.R-project.org/package=unicol)**.
+
+Installing **[unicol](https://CRAN.R-project.org/package=unicol)**
+currently provides access to a diverse range of over **200 color
+palettes** from over **80 institutions**.
 
 <!-- OLDER parts: List of additional color palettes -->
 <!-- - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3`  -->

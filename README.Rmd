@@ -18,7 +18,7 @@ library(unikn)  # load package
 
 # URLs: ------ 
 
-# unikn:
+# unikn / Uni Konstanz:
 url_unikn <- "https://www.uni-konstanz.de"
 
 # unikn package:
@@ -38,13 +38,11 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
 <!-- Devel badges end. -->
 
-
 <!-- Release badges start: -->
 <!-- [![CRAN status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) -->
 <!-- [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn) -->
 <!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191) -->
 <!-- Release badges end. -->
-
 
 <!-- ALL status badges: 
 [![CRAN status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
@@ -244,11 +242,17 @@ seecol(pal_unikn_pair)   # palette of 16 paired colors (in 8 pairs)
 
 ### Additional color palettes
 
-In addition to the 16\ specific color palettes of the [University of Konstanz](https://www.uni-konstanz.de/), 
-former versions of **unikn** provided color palettes of many other institutions. 
+<!-- unicol pkg logo and link: -->
+<a href = "`r url_unicol_cran`">
+<img src = "./inst/pix/logo_unicol.png" alt = "unicol::" align = "right" width = "165px" style = "width: 165px; float: right; border:0;"/>
+</a>
+
+In addition to the 16\ specific color palettes of the [University of Konstanz](`r url_unikn`), 
+former versions of **unikn** (up to version\ 0.8.0) provided color palettes of many other institutions. 
 
 As the number of color palettes has been growing beyond the scope of this package, the color palettes from other institutions are now being collected in a separate R\ package **[unicol](`r url_unicol_cran`)**. 
-Installing **[unicol](`r url_unicol_cran`)** currently provides access to a diverse range of over 200\ color palettes. 
+
+Installing **[unicol](`r url_unicol_cran`)** currently provides access to a diverse range of over **200\ color palettes** from over **80\ institutions**. 
 
 <!-- OLDER parts: List of additional color palettes -->
 
