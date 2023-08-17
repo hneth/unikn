@@ -5,6 +5,7 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
 
 ```{r setup, include = FALSE}
+# Set default chunk options: 
 knitr::opts_chunk$set(collapse = TRUE,
                       comment = "#>",
                       message = FALSE,
@@ -697,7 +698,8 @@ We aim for an authentic representation of a highly-specified corporate design. W
 - using the spelling "color" (rather than "colour")  throughout the **unikn** package.  
 
 
-### License
+
+### License 
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
