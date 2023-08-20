@@ -1,6 +1,6 @@
-## util_color.R  |  unikn
-## spds | uni.kn | 2023 06 06
-## ---------------------------
+## util_color.R  | unikn
+## spds | uni.kn | 2023 08 20
+## --------------------------
 
 # Color-related utility functions: 
 # Converting and evaluating colors and accessing and plotting color palettes. 
@@ -556,15 +556,15 @@ parse_pal <- function(pal) {
   
   # Check if pal is legible (already a color palette): 
   vector_input <- tryCatch(
-    {
-      all(sapply(pal, is_col))
-    },
+    
+    {all(sapply(pal, is_col))},
     
     error = function(e) {
       
       return(FALSE)  # return FALSE if not all are colors. 
       
     },
+    
     silent = TRUE
   )
   
@@ -604,7 +604,7 @@ parse_pal <- function(pal) {
     }
     
     elem <- gsub(" |\"", "", unlist(strsplit(tmp, split = ",")))  
-    # Split get elements of the input at ',' and remove whitespace and quotes.
+    # Split get elements of the input at ',' and remove white space and quotes.
     
     # Check if any element is warpped in one or more functions: 
     parens <- grepl("\\(", elem)   # are there any parentheses left?
@@ -618,7 +618,7 @@ parse_pal <- function(pal) {
     # Existence checks: ----- 
     
     ## Check existence of every element:
-    elemex <- sapply(elem, function(x) exists(x) & x != "pal")
+    elemex <- sapply(elem, function(x) exists(x) & (x != "pal"))
     # also ask, whether the element is named pal, to prevent name conflicts!
     # Was: elemex <- sapply(elem, exists)
     
