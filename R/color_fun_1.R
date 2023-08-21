@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2023 07 28
+## spds | uni.kn | 2023 08 21
 ## --------------------------
 
 ## Define color-related functions 
@@ -95,12 +95,12 @@ usecol <- function(pal = pal_unikn,
                    use_names = FALSE,  # should colors be returned as a named vector?
                    use_col_ramp = FALSE) {
   
-  ## 0. Handle NA input: ----
+  ## Handle NA input: ----
   
   if (all(is.na(pal))) { return(NA) }
   
   
-  ## 1. Parse input: ---- 
+  ## Parse input: ---- 
   
   parenv <- parent.frame()
   
@@ -337,8 +337,7 @@ usecol <- function(pal = pal_unikn,
   } # if ( !use_col_ramp ).
   
   
-  # If no defined palette is used or the number exceeds 
-  # the number of colors use colorRamp: ----- 
+  # No defined pal or excess N of colors: Use colorRamp: ----- 
   
   if (!pal_def) {
     
@@ -349,7 +348,7 @@ usecol <- function(pal = pal_unikn,
       
     } else {
       
-      # use the colorRamp (removing all names): 
+      # use colorRamp (removing all names): 
       out_col <- grDevices::colorRampPalette(pal_inp)(n) 
       
     } # if (n == length(pal_inp)).
@@ -359,10 +358,10 @@ usecol <- function(pal = pal_unikn,
   
   # Process out_col: ------ 
   
-  # Name the palette (as comment attribute): ---- 
+  # - Name the palette (as comment attribute): ---- 
   comment(out_col) <- ifelse(pal_def, pal_name, "custom")
   
-  # Get color names (if no names are given): ---- 
+  # - Get color names (if no names are given): ---- 
   if ( use_names & all(is.null(names(out_col))) ) {
     
     # # (A) Combine kn_names with color() names:
@@ -399,10 +398,10 @@ usecol <- function(pal = pal_unikn,
     
   } # if (no names in out_col).
   
-  # Remove names if required (default): ---- 
+  # - Remove names if required (default): ---- 
   if ( !use_names ) { out_col <- unname(out_col) }
   
-  # Handle alpha: ----
+  # - Handle alpha: ----
   if ( !(is.null(alpha) | is.na(alpha))) { 
     
     cmnt <- comment(out_col)  # save palette name
@@ -411,12 +410,13 @@ usecol <- function(pal = pal_unikn,
     
   }
   
-  # Remove visual duplicates: ---- 
+  # - Remove visual duplicates: ---- 
   if ( distinct ){
     
     out_col <- col_distinct(out_col, use_alpha = FALSE) # (based on HEX values, but ignoring transparency)
     
   }
+  
   
   
   # Output: ---- 
@@ -1181,7 +1181,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
 # par(op)
 
 
-# all_colors(): Combine all unikn color palettes with default R colors() ------
+# all_colors(): Combine all colors from unikn palettes with default R colors() ------
 
 #' Provide all unikn colors and base R colors 
 #' 
@@ -1309,8 +1309,8 @@ all_colors <- function(distinct = TRUE){
 # length(all_colors(distinct = TRUE))   #  756 [on 2023-07-13]
 # length(all_colors(distinct = FALSE))  # 1031 [on 2023-07-13]
 
-# length(all_colors(distinct = TRUE))   #  545 [on 2023-07-28]
-# length(all_colors(distinct = FALSE))  #  713 [on 2023-07-28]
+# length(all_colors(distinct = TRUE))   #  545 [on 2023-08-20]
+# length(all_colors(distinct = FALSE))  #  713 [on 2023-08-20]
 
 # grepal("see", all_colors())     # finds unikn colors (and matching colors())
 # grepal("gruen", all_colors())   # finds unikn and added colors

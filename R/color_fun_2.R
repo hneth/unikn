@@ -136,6 +136,7 @@ newpal <- function(col,            # a vector of colors
   # Prepare: ----- 
   
   # Robustify inputs:
+  
   if ( any(is.na(col)) ) stop("'col' must be a vector of (named or HEX) colors without NA values.")
   
   if ( any(!is_col(col)) ) stop("'col' must be a vector containing ONLY (named or HEX) colors.")
