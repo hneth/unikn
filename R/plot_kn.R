@@ -1,5 +1,5 @@
 ## plot_kn.R | unikn
-## spds | uni.kn |  2023 08 15
+## spds | uni.kn |  2023 08 24
 ## ---------------------------
 
 ## plot_kn(): Plot the unikn logo ------ 
@@ -43,8 +43,10 @@ plot_kn <- function(back = TRUE,
   }
   
   par("lwd" = 2)
-  par("fg" = "black")
   
+  # Basic colors:
+  par("fg" = "black") # "black" / "white"
+  par("bg" = "white") # "white" / "black"
   
   
   # Dimensions: ---- 
@@ -80,9 +82,9 @@ plot_kn <- function(back = TRUE,
   # Colors: ---- 
   
   # (a) Main colors:
-  col_line <- "black"  # default line
+  col_line <- par("fg")  # "black"  # default line
   # col_line <- grey(0, .33)  # transparent (to show overlaps)
-  col_area <- "white"  # default area
+  col_area <- par("bg")  # "white"  # default area
   
   # (b) Plot support: 
   col_axes <- grey(.50, 1)
@@ -130,8 +132,8 @@ plot_kn <- function(back = TRUE,
     col_univ  <- col_line
     
     # area colors (only used if use_areas = TRUE and use_colors = TRUE): 
-    col_cath_roof <- "white"  # use always (to obscure line)    
-    col_roof <- NA            # transparent
+    col_cath_roof <- par("bg")  # "white"  # use always (to obscure line)    
+    col_roof <- NA              # transparent
     col_sail <- NA
     col_flap <- NA
     
@@ -160,10 +162,14 @@ plot_kn <- function(back = TRUE,
     x_ax_lbl <- seq(0,  50, by =  5)
     y_ax_seq <- seq(0,  50, by =  5)
     
-    axis(1, at = x_ax_seq, labels = x_ax_lbl, col = col_axes)  # x-bottom
-    axis(2, at = y_ax_seq, col = col_axes)  # y-left
-    axis(3, at = x_ax_seq, labels = x_ax_lbl, col = col_axes)  # x-top
-    axis(4, at = y_ax_seq, col = col_axes)  # y-right
+    axis(1, at = x_ax_seq, labels = x_ax_lbl, 
+         col = col_axes, col.ticks = col_axes, col.axis = col_axes)  # x-bottom
+    axis(2, at = y_ax_seq, 
+         col = col_axes, col.ticks = col_axes, col.axis = col_axes)  # y-left
+    axis(3, at = x_ax_seq, labels = x_ax_lbl, 
+         col = col_axes, col.ticks = col_axes, col.axis = col_axes)  # x-top
+    axis(4, at = y_ax_seq, 
+         col = col_axes, col.ticks = col_axes, col.axis = col_axes)  # y-right
     
   } # axes end. 
   
