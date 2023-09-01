@@ -1,5 +1,5 @@
 ## util_color.R  | unikn
-## spds | uni.kn | 2023 08 20
+## spds | uni.kn | 2023 09 01
 ## --------------------------
 
 # Color-related utility functions: 
@@ -569,14 +569,14 @@ parse_pal <- function(pal) {
   )
   
   
-  if ( vector_input ) {  # if the input is a color vector (or list).
+  if (vector_input) {  # if the input is a color vector (or list).
     
     out <- pal
     
   } else { # otherwise:
     
     # Deparse argument: 
-    if ( identical(parenv , globalenv()) ) {  # if the calling environment is the global env:
+    if (identical(parenv, globalenv())) {  # if the calling environment is the global env:
       
       tmp <- noquote(deparse(substitute(pal)))  # get the palette. 
       
