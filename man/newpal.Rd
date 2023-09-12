@@ -6,7 +6,7 @@
 \alias{defcol}
 \title{Define a new color palette}
 \usage{
-newpal(col, names = NULL, as_df = FALSE)
+newpal(col, names = NULL, pattern = NULL, replacement = NULL, as_df = FALSE)
 }
 \arguments{
 \item{col}{A required vector of colors 
@@ -16,16 +16,31 @@ newpal(col, names = NULL, as_df = FALSE)
 Default: \code{names = NULL}, using default color names. 
 Setting \code{names = NA} removes all color names.}
 
+\item{pattern}{A pattern to be replaced in \code{names} (as REGEX). 
+Default: \code{pattern = NULL}.}
+
+\item{replacement}{A replacement for \code{pattern} in \code{names} (as REGEX).
+Default: \code{replacement = NULL}.}
+
 \item{as_df}{Should the new color palette be returned as 
 a data frame (rather than as a vector)? 
 Default: \code{as_df = FALSE}.}
+}
+\value{
+A (named) vector or data frame.
 }
 \description{
 \code{newpal} allows defining new color palettes 
 (as data frames or vectors).
 }
-\examples{
+\details{
+Specifying \code{pattern} and \code{replacment} allows modifying \code{names} 
+by regular expressions (using \code{gsub(..., perl = TRUE)}).
 
+By default, new palette is returned as a (named) vector. 
+Setting \code{as_df = TRUE} returns new palette as a data frame.
+}
+\examples{
 newpal(col = c("black", "white"), names = c("dark", "bright"))
 
 # Example: 3 ways of defining a new color palette:
@@ -34,15 +49,16 @@ newpal(col = c("black", "white"), names = c("dark", "bright"))
 
 pal_flag_de <- newpal(col = c("black", "firebrick3", "gold"),
                       names = c("Schwarz", "Rot", "Gold"))
-seecol(pal_flag_de, main = "Colors in the flag of Germany")
+seecol(pal_flag_de, main = "Colors of the German flag")
 
 # (2) From HEX values: -----
 
 # (a) Google logo colors:
 # Source: https://www.schemecolor.com/google-logo-colors.php
 color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
-names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
-pal_google   <- newpal(color_google, names_google)
+names_google <- c("blueberry", "sea green", "selective   yellow", "cinnabar")
+pal_google   <- newpal(color_google, names_google, pattern = "\\\\s+", replacement = "_")
+
 seecol(pal_google, main = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
 
 # (b) German flag (revised):
@@ -53,11 +69,12 @@ pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
                         )
 seecol(pal_flag_de_2, main = "Colors of the German flag (www.schemecolor.com)")
 
-# (c) MPG colors:
+# (c) Mixing HEX and R color names:
 pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
-                  names = c("mpg green", "white", "mpg grey")
+                  names = c("MPG green", "white", "MPG grey"),
+                  pattern = "([A-Z])", replacement = "\\\\L\\\\1"  # replace upper by lowercase
                   )
-seecol(pal_mpg, main = "Colors of the Max Planck Society")
+seecol(pal_mpg, main = "The colors of the Max Planck Society", col_bg = "grey")
 
 # (3) From RGB values: -----
 
@@ -80,8 +97,8 @@ o_i_colors <- c(rgb(  0,   0,   0, maxColorValue = 255),  # black
 o_i_names <- c("black", "orange", "skyblue", "green", "yellow", "blue", "vermillion", "purple")
 
 # (c) Use newpal() to combine colors and names:
-pal_okabe_ito <- newpal(col = o_i_colors,
-                        names = o_i_names)
+pal_okabe_ito <- newpal(col = o_i_colors, names = o_i_names, 
+                        pattern = "(^[a-z])", replacement = "\\\\U\\\\1")  # capitalize initial
 
 seecol(pal_okabe_ito,
        main = "Color-blind friendly color scale (Okabe & Ito, 2002)")
@@ -89,7 +106,7 @@ seecol(pal_okabe_ito,
 # (+) Compare custom color palettes: ----- 
 
 my_pals <- list(pal_flag_de, pal_flag_de_2, pal_google, pal_mpg, pal_okabe_ito)
-seecol(my_pals, col_brd = "white", lwd_brd = 5,
+seecol(my_pals, col_brd = "white", lwd_brd = 4,
        main = "Comparing custom color palettes")
 
 }
