@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2023 07 20
+## spds | uni.kn | 2023 09 12
 ## --------------------------
 
 ## Define color-related functions 
@@ -20,6 +20,13 @@
 #' \code{newpal} allows defining new color palettes 
 #' (as data frames or vectors). 
 #' 
+#' @details
+#' Specifying \code{pattern} and \code{replacment} allows modifying \code{names} 
+#' by regular expressions (using \code{gsub(..., perl = TRUE)}).
+#' 
+#' By default, new palette is returned as a (named) vector. 
+#' Setting \code{as_df = TRUE} returns new palette as a data frame.  
+#' 
 #' @param col A required vector of colors 
 #' (specified as R color names, HEX codes, or RGB values). 
 #' 
@@ -27,12 +34,20 @@
 #' Default: \code{names = NULL}, using default color names. 
 #' Setting \code{names = NA} removes all color names.
 #' 
+#' @param pattern A pattern to be replaced in \code{names} (as REGEX). 
+#' Default: \code{pattern = NULL}. 
+#' 
+#' @param replacement A replacement for \code{pattern} in \code{names} (as REGEX).
+#' Default: \code{replacement = NULL}. 
+#' 
 #' @param as_df Should the new color palette be returned as 
 #' a data frame (rather than as a vector)? 
 #' Default: \code{as_df = FALSE}. 
 #' 
-#' @examples
 #' 
+#' @return A (named) vector or data frame.
+#' 
+#' @examples
 #' newpal(col = c("black", "white"), names = c("dark", "bright"))
 #' 
 #' # Example: 3 ways of defining a new color palette:
@@ -48,8 +63,9 @@
 #' # (a) Google logo colors:
 #' # Source: https://www.schemecolor.com/google-logo-colors.php
 #' color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
-#' names_google <- c("blueberry", "sea green", "selective yellow", "cinnabar")
-#' pal_google   <- newpal(color_google, names_google)
+#' names_google <- c("blueberry", "sea green", "selective   yellow", "cinnabar")
+#' pal_google   <- newpal(color_google, names_google, pattern = "\\s+", replacement = "_")
+#' 
 #' seecol(pal_google, main = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
 #' 
 #' # (b) German flag (revised):
@@ -62,9 +78,10 @@
 #' 
 #' # (c) MPG colors:
 #' pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
-#'                   names = c("mpg green", "white", "mpg grey")
+#'                   names = c("MPG green", "white", "MPG grey"),
+#'                   pattern = "([A-Z])", replacement = "\\L\\1"  # replace upper by lowercase
 #'                   )
-#' seecol(pal_mpg, main = "Colors of the Max Planck Society")
+#' seecol(pal_mpg, main = "The colors of the Max Planck Society")
 #' 
 #' # (3) From RGB values: -----
 #' 
@@ -121,16 +138,18 @@
 
 ## Not used:
 ## @param ... Additional arguments (passed on to \code{\link{usecol()}}). 
-## Candiates for additional arguments are 
-## \code{n} (an integer for specifying the number of desired colors in the palette) 
-## and \code{alpha} (opacity value from 0 to 1). 
+## Candidates for additional arguments are: 
+## \code{n} (an integer for specifying the number of desired colors in the palette), and 
+## \code{alpha} (opacity value from 0 to 1). 
 
 # - Definition: ------ 
 
-newpal <- function(col,            # a vector of colors
-                   names = NULL,   # a vector of color names
-                   as_df = FALSE   # return palette as df? 
-                   # ...           # additional arguments to usecol().
+newpal <- function(col,                 # a vector of colors
+                   names = NULL,        # a vector of color names
+                   pattern = NULL,      # a pattern (in names)
+                   replacement = NULL,  # replacement (in names)
+                   as_df = FALSE        # return palette as df? 
+                   # ...                # additional arguments to usecol().
 ) {
   
   # Prepare: ----- 
@@ -169,11 +188,12 @@ newpal <- function(col,            # a vector of colors
   
   # Handle names: ----
   
-  if ( !is.null(names) && all(is.na(names)) ) { # 1. names were SET to NA:
+  # 1. Set names:
+  if ( !is.null(names) && all(is.na(names)) ) { # 1. all names were SET to NA:
     
     outpal <- unname(outpal)  # remove names
     
-  } else if ( !is.null(names) && all(!is.na(names)) ) { # 2. names exist:
+  } else if ( !is.null(names) && all(!is.na(names)) ) { # 2. all names exist:
     
     names(outpal) <- names  # use existing names
     
@@ -188,6 +208,17 @@ newpal <- function(col,            # a vector of colors
     # names(outpal) <- as.character(1:length(col))  # (b) use numeric digits as names
     
   } # if (names).
+  
+  # Adjust names:
+  # pattern     <- # "([A-Z])"  #  "_"
+  # replacement <- # "\\L\\1"   #  " "
+  
+  if ( !is.null(names) & !is.null(pattern) & !is.null(replacement) ){
+    
+    # substitute pattern by replacement:
+    names(outpal) <- gsub(pattern = pattern, replacement = replacement, x = names(outpal), perl = TRUE)
+    
+  } # if.
   
   # # Apply ... arguments:
   # outpal <- usecol(pal = outpal, use_names = TRUE, ...) 
@@ -212,7 +243,7 @@ newpal <- function(col,            # a vector of colors
     if (!is.vector(outpal)) {
       outpal <- as.vector(outpal)  # remove attributes other than names!
     }
-
+    
   }
   
   
@@ -220,7 +251,7 @@ newpal <- function(col,            # a vector of colors
   
   return(outpal)
   
-} # newpal().  
+} # newpal().
 
 # ## Check:
 # # (0) Basics:
