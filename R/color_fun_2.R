@@ -56,7 +56,7 @@
 #' 
 #' pal_flag_de <- newpal(col = c("black", "firebrick3", "gold"),
 #'                       names = c("Schwarz", "Rot", "Gold"))
-#' seecol(pal_flag_de, main = "Colors in the flag of Germany")
+#' seecol(pal_flag_de, main = "Colors of the German flag")
 #' 
 #' # (2) From HEX values: -----
 #' 
@@ -76,12 +76,12 @@
 #'                         )
 #' seecol(pal_flag_de_2, main = "Colors of the German flag (www.schemecolor.com)")
 #' 
-#' # (c) MPG colors:
+#' # (c) Mixing HEX and R color names:
 #' pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
 #'                   names = c("MPG green", "white", "MPG grey"),
 #'                   pattern = "([A-Z])", replacement = "\\L\\1"  # replace upper by lowercase
 #'                   )
-#' seecol(pal_mpg, main = "The colors of the Max Planck Society")
+#' seecol(pal_mpg, main = "The colors of the Max Planck Society", col_bg = "grey")
 #' 
 #' # (3) From RGB values: -----
 #' 
@@ -104,8 +104,8 @@
 #' o_i_names <- c("black", "orange", "skyblue", "green", "yellow", "blue", "vermillion", "purple")
 #' 
 #' # (c) Use newpal() to combine colors and names:
-#' pal_okabe_ito <- newpal(col = o_i_colors,
-#'                         names = o_i_names)
+#' pal_okabe_ito <- newpal(col = o_i_colors, names = o_i_names, 
+#'                         pattern = "(^[a-z])", replacement = "\\U\\1")  # capitalize initial
 #' 
 #' seecol(pal_okabe_ito,
 #'        main = "Color-blind friendly color scale (Okabe & Ito, 2002)")
@@ -113,7 +113,7 @@
 #' # (+) Compare custom color palettes: ----- 
 #' 
 #' my_pals <- list(pal_flag_de, pal_flag_de_2, pal_google, pal_mpg, pal_okabe_ito)
-#' seecol(my_pals, col_brd = "white", lwd_brd = 5,
+#' seecol(my_pals, col_brd = "white", lwd_brd = 4,
 #'        main = "Comparing custom color palettes")
 #' 
 #' @family color functions
@@ -192,6 +192,7 @@ newpal <- function(col,                 # a vector of colors
   if ( !is.null(names) && all(is.na(names)) ) { # 1. all names were SET to NA:
     
     outpal <- unname(outpal)  # remove names
+    # message("unnamed names")  # 4debugging
     
   } else if ( !is.null(names) && all(!is.na(names)) ) { # 2. all names exist:
     
@@ -213,7 +214,7 @@ newpal <- function(col,                 # a vector of colors
   # pattern     <- # "([A-Z])"  #  "_"
   # replacement <- # "\\L\\1"   #  " "
   
-  if ( !is.null(names) & !is.null(pattern) & !is.null(replacement) ){
+  if ( !is.null(names) & !all(is.na(names)) & !is.null(pattern) & !is.null(replacement) ){
     
     # substitute pattern by replacement:
     names(outpal) <- gsub(pattern = pattern, replacement = replacement, x = names(outpal), perl = TRUE)
