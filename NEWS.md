@@ -26,11 +26,11 @@ Changes since last release:
 
 <!-- Details:  --> 
 
+
 ## Details 
 
-- Added **[unicol](https://CRAN.R-project.org/package=unicol)** logo and links [to CRAN](https://CRAN.R-project.org/package=unicol).  
-
-- Changed URLs linking to **[unicol](https://CRAN.R-project.org/package=unicol)** [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol). 
+- deprecated `pal = "add"` keyword for `seecol()`
+- updated **[unicol](https://CRAN.R-project.org/package=unicol)** references [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol). 
 
 
 <!-- Development version:  --> 
