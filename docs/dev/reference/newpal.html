@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.9.0.9002</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.9.0.9005</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">newpal</span><span class="op">(</span><span class="va">col</span>, names <span class="op">=</span> <span class="cn">NULL</span>, as_df <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">newpal</span><span class="op">(</span><span class="va">col</span>, names <span class="op">=</span> <span class="cn">NULL</span>, pattern <span class="op">=</span> <span class="cn">NULL</span>, replacement <span class="op">=</span> <span class="cn">NULL</span>, as_df <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -97,12 +97,35 @@ Default: <code>names = NULL</code>, using default color names.
 Setting <code>names = NA</code> removes all color names.</p></dd>
 
 
+<dt>pattern</dt>
+<dd><p>A pattern to be replaced in <code>names</code> (as REGEX). 
+Default: <code>pattern = NULL</code>.</p></dd>
+
+
+<dt>replacement</dt>
+<dd><p>A replacement for <code>pattern</code> in <code>names</code> (as REGEX).
+Default: <code>replacement = NULL</code>.</p></dd>
+
+
 <dt>as_df</dt>
 <dd><p>Should the new color palette be returned as 
 a data frame (rather than as a vector)? 
 Default: <code>as_df = FALSE</code>.</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    
+
+<p>A (named) vector or data frame.</p>
+    </div>
+    <div id="details">
+    <h2>Details</h2>
+    <p>Specifying <code>pattern</code> and <code>replacment</code> allows modifying <code>names</code> 
+by regular expressions (using <code>gsub(..., perl = TRUE)</code>).</p>
+<p>By default, new palette is returned as a (named) vector. 
+Setting <code>as_df = TRUE</code> returns new palette as a data frame.</p>
+    </div>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p><code><a href="seecol.html">seecol</a></code> for viewing and comparing color palettes;  
@@ -124,8 +147,7 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">newpal</span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"white"</span><span class="op">)</span>, names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dark"</span>, <span class="st">"bright"</span><span class="op">)</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">newpal</span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"white"</span><span class="op">)</span>, names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dark"</span>, <span class="st">"bright"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    dark  bright </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> "black" "white" </span>
 <span class="r-in"><span></span></span>
@@ -135,7 +157,7 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">pal_flag_de</span> <span class="op">&lt;-</span> <span class="fu">newpal</span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"firebrick3"</span>, <span class="st">"gold"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                      names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Schwarz"</span>, <span class="st">"Rot"</span>, <span class="st">"Gold"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_flag_de</span>, main <span class="op">=</span> <span class="st">"Colors in the flag of Germany"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_flag_de</span>, main <span class="op">=</span> <span class="st">"Colors of the German flag"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-1.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># (2) From HEX values: -----</span></span></span>
@@ -143,8 +165,9 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 <span class="r-in"><span><span class="co"># (a) Google logo colors:</span></span></span>
 <span class="r-in"><span><span class="co"># Source: https://www.schemecolor.com/google-logo-colors.php</span></span></span>
 <span class="r-in"><span><span class="va">color_google</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#4285f4"</span>, <span class="st">"#34a853"</span>, <span class="st">"#fbbc05"</span>, <span class="st">"#ea4335"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">names_google</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"blueberry"</span>, <span class="st">"sea green"</span>, <span class="st">"selective yellow"</span>, <span class="st">"cinnabar"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">pal_google</span>   <span class="op">&lt;-</span> <span class="fu">newpal</span><span class="op">(</span><span class="va">color_google</span>, <span class="va">names_google</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">names_google</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"blueberry"</span>, <span class="st">"sea green"</span>, <span class="st">"selective   yellow"</span>, <span class="st">"cinnabar"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pal_google</span>   <span class="op">&lt;-</span> <span class="fu">newpal</span><span class="op">(</span><span class="va">color_google</span>, <span class="va">names_google</span>, pattern <span class="op">=</span> <span class="st">"\\s+"</span>, replacement <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_google</span>, main <span class="op">=</span> <span class="st">"Colors of the Google logo"</span>, col_brd <span class="op">=</span> <span class="st">"white"</span>, lwd_brd <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-2.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
@@ -157,11 +180,12 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 <span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_flag_de_2</span>, main <span class="op">=</span> <span class="st">"Colors of the German flag (www.schemecolor.com)"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-3.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># (c) MPG colors:</span></span></span>
+<span class="r-in"><span><span class="co"># (c) Mixing HEX and R color names:</span></span></span>
 <span class="r-in"><span><span class="va">pal_mpg</span> <span class="op">&lt;-</span> <span class="fu">newpal</span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#007367"</span>, <span class="st">"white"</span>, <span class="st">"#D0D3D4"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                  names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mpg green"</span>, <span class="st">"white"</span>, <span class="st">"mpg grey"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>                  names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"MPG green"</span>, <span class="st">"white"</span>, <span class="st">"MPG grey"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                  pattern <span class="op">=</span> <span class="st">"([A-Z])"</span>, replacement <span class="op">=</span> <span class="st">"\\L\\1"</span>  <span class="co"># replace upper by lowercase</span></span></span>
 <span class="r-in"><span>                  <span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_mpg</span>, main <span class="op">=</span> <span class="st">"Colors of the Max Planck Society"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_mpg</span>, main <span class="op">=</span> <span class="st">"The colors of the Max Planck Society"</span>, col_bg <span class="op">=</span> <span class="st">"grey"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-4.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># (3) From RGB values: -----</span></span></span>
@@ -185,8 +209,8 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 <span class="r-in"><span><span class="va">o_i_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"orange"</span>, <span class="st">"skyblue"</span>, <span class="st">"green"</span>, <span class="st">"yellow"</span>, <span class="st">"blue"</span>, <span class="st">"vermillion"</span>, <span class="st">"purple"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># (c) Use newpal() to combine colors and names:</span></span></span>
-<span class="r-in"><span><span class="va">pal_okabe_ito</span> <span class="op">&lt;-</span> <span class="fu">newpal</span><span class="op">(</span>col <span class="op">=</span> <span class="va">o_i_colors</span>,</span></span>
-<span class="r-in"><span>                        names <span class="op">=</span> <span class="va">o_i_names</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pal_okabe_ito</span> <span class="op">&lt;-</span> <span class="fu">newpal</span><span class="op">(</span>col <span class="op">=</span> <span class="va">o_i_colors</span>, names <span class="op">=</span> <span class="va">o_i_names</span>, </span></span>
+<span class="r-in"><span>                        pattern <span class="op">=</span> <span class="st">"(^[a-z])"</span>, replacement <span class="op">=</span> <span class="st">"\\U\\1"</span><span class="op">)</span>  <span class="co"># capitalize initial</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">pal_okabe_ito</span>,</span></span>
 <span class="r-in"><span>       main <span class="op">=</span> <span class="st">"Color-blind friendly color scale (Okabe &amp; Ito, 2002)"</span><span class="op">)</span></span></span>
@@ -195,7 +219,7 @@ Default: <code>as_df = FALSE</code>.</p></dd>
 <span class="r-in"><span><span class="co"># (+) Compare custom color palettes: ----- </span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">my_pals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">pal_flag_de</span>, <span class="va">pal_flag_de_2</span>, <span class="va">pal_google</span>, <span class="va">pal_mpg</span>, <span class="va">pal_okabe_ito</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">my_pals</span>, col_brd <span class="op">=</span> <span class="st">"white"</span>, lwd_brd <span class="op">=</span> <span class="fl">5</span>,</span></span>
+<span class="r-in"><span><span class="fu"><a href="seecol.html">seecol</a></span><span class="op">(</span><span class="va">my_pals</span>, col_brd <span class="op">=</span> <span class="st">"white"</span>, lwd_brd <span class="op">=</span> <span class="fl">4</span>,</span></span>
 <span class="r-in"><span>       main <span class="op">=</span> <span class="st">"Comparing custom color palettes"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="newpal-6.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>

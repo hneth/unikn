@@ -20,9 +20,9 @@ authors:
 development:
   mode: devel # devel OR release
 
-template:
-  bootstrap: 5
-  bootswatch: lumen # spacelab sandstone flatly 
+# template:
+#  bootstrap: 5
+#  bootswatch: lumen # lumen spacelab sandstone flatly 
 
 toc:
   depth: 3
