@@ -651,7 +651,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
     main <- title  # Note: Any prior settings of main is lost.
   }
   
-  if (pal == "add"){
+  if ((length(pal) == 1) && (pal == "add")){
     message("As the 'add' keyword is deprecated, I will use 'all' instead.\nAdditional color palettes were migrated to the 'unicol' R package.")
     pal <- "all"
   }
