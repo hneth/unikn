@@ -188,7 +188,6 @@ usecol <- function(pal = pal_unikn,
       
       # Define sets of known palettes:
       set1 <- pal_name %in% c("pal_peach",
-                              "pal_peach",
                               "pal_petrol",
                               "pal_pinky",
                               "pal_karpfenblau",
@@ -215,7 +214,7 @@ usecol <- function(pal = pal_unikn,
                         
                         # Set 1: -----
                         switch(n,
-                               pal[4],
+                               pal[4], # main color
                                pal[c(4, 2)],
                                pal[c(5, 3, 1)],
                                pal[c(5, 4, 2, 1)],
@@ -223,7 +222,7 @@ usecol <- function(pal = pal_unikn,
                         
                         # Set 2: -----
                         switch(n,
-                               pal[3],
+                               pal[3], # main color
                                pal[c(4, 2)],
                                pal[c(5, 3, 1)],
                                pal[c(5, 4, 2, 1)],
