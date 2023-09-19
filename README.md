@@ -6,6 +6,8 @@
 status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
 [![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml)
 [![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn)](https://www.r-pkg.org/pkg/unikn)
+[![Total
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
 <!-- Devel badges end. -->
 
@@ -23,7 +25,7 @@ status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 0.9.0.9002 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
+# unikn 0.9.0.9005 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
@@ -125,7 +127,9 @@ The colors of **unikn** belong to two categories of color palettes:
 - 16 palettes implementing the colors of the [University of
   Konstanz](https://www.uni-konstanz.de/)’s corporate design
 
-- 52 additional color palettes from various academic institutions
+- over 230 color palettes of more than 100 additional institutions are
+  now provided by the
+  **[unicol](https://CRAN.R-project.org/package=unicol)** package
 
 ### The colors of Konstanz University
 
@@ -232,31 +236,9 @@ collected in a separate R package
 **[unicol](https://CRAN.R-project.org/package=unicol)**.
 
 Installing **[unicol](https://CRAN.R-project.org/package=unicol)**
-currently provides access to a diverse range of over **200 color
-palettes** from over **80 institutions**.
+currently provides access to a diverse range of over **230 color
+palettes** from more than **100 institutions**.
 
-<!-- OLDER parts: List of additional color palettes -->
-<!-- - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3`  -->
-<!-- - [ETH Zurich](https://ethz.ch/de.html): `eth_pal_1`, `eth_pal_2`, `eth_pal_3`  -->
-<!-- - [Free University Berlin](https://www.fu-berlin.de/en/index.html): `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3`  -->
-<!-- - [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2`  -->
-<!-- - [LMU Munich](https://www.lmu.de/en/index.html): `lmu_pal_1`, `lmu_pal_2`, `lmu_pal_3`  -->
-<!-- - [Max Planck Society](https://www.mpg.de/en): `mpg_pal`  -->
-<!-- - [University of Bonn](https://www.uni-bonn.de/en): `uni_bonn_1`, `uni_bonn_2`  -->
-<!-- - [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_0`, `uni_freiburg_1`, `uni_freiburg_2`,    -->
-<!--   (from\ 2022: `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`)  -->
-<!-- - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3`  -->
-<!-- - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2`  -->
-<!-- - [University of Jena](https://www.uni-jena.de/): `uni_jena_1`, `uni_jena_2`  -->
-<!-- - [Kiel University](https://www.uni-kiel.de/en/): `uni_kiel_1`, `uni_kiel_2`  -->
-<!-- - [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2`  -->
-<!-- - [University of Konstanz](https://www.uni-konstanz.de/): `uni_konstanz_1`, `uni_konstanz_2`  -->
-<!-- - [University of Mannheim](https://www.uni-mannheim.de/): `uni_mannheim_1`, `uni_mannheim_2`  -->
-<!-- - [Princeton University](https://www.princeton.edu/): `uni_princeton_0`, `uni_princeton_1`, `uni_princeton_2`  -->
-<!-- - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3`  -->
-<!-- - [University of Ulm](https://www.uni-ulm.de/): `uni_ulm_1`, `uni_ulm_2`  -->
-<!-- - [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3` -->
-<!-- - [RPTU Kaiserslautern-Landau](https://rptu.de/): `rptu_pal`  -->
 <!-- Note: Duplicate image in vignette color_inst.Rmd -->
 <!-- These 52\ palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations). -->
 <!-- Collecting contributed color palettes (in unicol): -->
@@ -791,6 +773,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-08-17.\]
+\[File `README.md` updated on 2023-09-19.\]
 
 <!-- eof. -->
