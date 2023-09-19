@@ -493,7 +493,7 @@ usecol <- function(pal = pal_unikn,
 #'   \item \code{"pref_all"}: All preferred uni.kn colors and their gradients. 
 #'   
 #'   \item \code{"add"}: Additional/contributed color palettes 
-#'   (migrated to the \bold{unicol} package).
+#'   (deprecated, as additional color palettes were migrated to the \bold{unicol} R package).
 #' }
 #' 
 #' \code{seecol} does also recognize keywords (e.g., \code{"all_unikn"}) or 
@@ -649,6 +649,11 @@ seecol <- function(pal = "unikn_all",  # which palette?
   if (is.null(title) == FALSE){
     message("The 'title' argument is deprecated. Please use 'main' instead")
     main <- title  # Note: Any prior settings of main is lost.
+  }
+  
+  if (pal == "add"){
+    message("As the 'add' keyword is deprecated, I will use 'all' instead.\nAdditional color palettes were migrated to the 'unicol' R package.")
+    pal <- "all"
   }
   
   # Constants/parameters: ---- 
