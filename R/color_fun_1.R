@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2023 08 21
+## spds | uni.kn | 2023 09 19
 ## --------------------------
 
 ## Define color-related functions 
@@ -110,21 +110,20 @@ usecol <- function(pal = pal_unikn,
   pal_inp <- tryCatch(
     
     {
-      suppressWarnings(parse_pal(pal = pal))  # suppress any warnings in parsing. 
-      
+      suppressWarnings(parse_pal(pal = pal))  # suppress warnings in parsing. 
     },
     
-    # Handle any errors by checking further:
+    # Handle errors by checking further:
     error = function(e) {
       
-      # seecol always triggers this part
+      # Get object name in parenv (always triggered by seecol):
       pal <- deparse(substitute(expr = pal, env = parenv))
       
       # Remove slashes and quotes:
       pal <- gsub("\\\\", "", pal)
-      pal <- gsub("\"", "", pal)
+      pal <- gsub("\"",   "", pal)
       
-      # Reparse with new input: 
+      # Recursion: Re-parse with new input pal: 
       parse_pal(pal = pal)
       
     }
@@ -748,7 +747,14 @@ seecol <- function(pal = "unikn_all",  # which palette?
           
         } else { # use default names: 
           
-          names(pal_tmp)[ix_cp] <- paste0("pal_", which(ix_cp))
+          # (a) use pal_nr:
+          # names(pal_tmp)[ix_cp] <- paste0("pal_", which(ix_cp))
+          
+          # (b) use element names of the pal list argument:
+          list_element_names <- paste0(as.character(substitute(pal)))[-1]
+          # print(list_element_names)  # 4debugging
+
+          names(pal_tmp) <- list_element_names  # +++ here now +++ 
           
         }
       }
@@ -830,6 +836,11 @@ seecol <- function(pal = "unikn_all",  # which palette?
   if (length(pal_tmp) > 1) {
     
     # print(length(pal_tmp))  # 4debugging
+    
+    # list_element_names <- paste0(as.character(substitute(pal)))[-1]
+    # print(list_element_names)
+    # # OR: 
+    # rlang::enexpr(pal)  
     
     # Set margins:
     if ((is.null(sub) == FALSE) && (is.na(sub) == FALSE) && (sub != "") ){
