@@ -1,5 +1,5 @@
 
-# unikn 0.9.0.9004
+# unikn 0.9.0.9005
 
 This is the current development version of **unikn** at <https://github.com/hneth/unikn/>. 
 
@@ -20,6 +20,7 @@ Changes since last release:
 
 ## Minor changes 
 
+- `seecol()` uses the list element names of the `pal` argument as default names 
 - `newpal()` gained `pattern` and `replacement` arguments (to allow for REGEX operations on color `names`). 
 
 
@@ -376,6 +377,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-09-12.] 
+[File `NEWS.md` updated on 2023-09-19.] 
 
 <!-- eof. -->
