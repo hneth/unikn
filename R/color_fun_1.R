@@ -752,7 +752,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
           # (b) use element names of the pal list argument:
           list_element_names <- paste0(as.character(substitute(pal)))[-1]
           # print(list_element_names)  # 4debugging
-
+          
           names(pal_tmp) <- list_element_names  # +++ here now +++ 
           
         }
@@ -1334,15 +1334,14 @@ all_colors <- function(distinct = TRUE){
 # grepal("orange", all_colors())  # finds Caltech and Princeton orange colors
 # 
 # simcol(Petrol, all_colors())
-# simcol(mpg_pal[1], all_colors())
-# simcol(uni_princeton_0[1], all_colors())
+
 
 
 ## ToDo: ------
 
 # - seecol(): Compare 
-# seecol(eth_pal_3) # showing only 6-digit HEX values, with 
-# seecol(eth_pal_3[3:7]) # showing full HEX values (8 digits) for transparent colors
+# seecol(unicol::eth_3) # showing only 6-digit HEX values for transparent colors, with 
+# seecol(unicol::eth_3[3:7]) # showing full HEX values (8 digits) for transparent colors
 
 # - usecol(): $comment attribute "custom" prevents output from being a vector
 
