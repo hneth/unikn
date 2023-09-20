@@ -1,5 +1,5 @@
 ## util.R | unikn
-## spds | uni.kn |  2023 09 19
+## spds | uni.kn |  2023 09 20
 ## ---------------------------
 
 # General utility functions (mostly for internal use and not exported).
@@ -121,18 +121,6 @@ url_unikn <- function(url = "https://www.uni-konstanz.de/"){
 
 
 
-# - get_args: Get arguments of a function ------
-
-# get_list_args <- function(x){
-# 
-#   base::substitute(x)
-#   
-#   # rlang::enexpr(x)
-# 
-# } # get_list_args().
-
-# # Check:
-# as.character(get_list_args(x = list(a, b, c)))[-1]
 
 
 
