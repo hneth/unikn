@@ -10,7 +10,6 @@ Description: Define and use graphical elements of corporate design manuals in R.
 Depends:
     R (>= 3.4.0)
 Imports:
-    utils,
     cli,
     ggplot2 
 Suggests:
