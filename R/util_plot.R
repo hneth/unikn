@@ -72,9 +72,11 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
   # ToDo: Allow scaling shape widths to fill a FIXED total width 
   #       (e.g., each shape with a width of 10/len_x).
 
-  xpos <- 1:len_x * xlen - 0.5 * xlen
+  xpos <- 1:len_x * xlen - (0.5 * xlen)
     # was: xpos <- (1:len_x) - 0.5  # subtracting 0.5 assumes a shape width of 1.
     # xpos = c(2.5/2, 2.5/2 + 5/2)  # example 2 vs. 5.
+  
+  if (shape == "circle") { xpos <- (1:len_x) - 0.5 }
   
   # Adjust xpos by distance:
   mid <- mean(xpos)  # get midpoint. 
