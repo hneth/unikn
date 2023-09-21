@@ -15,6 +15,7 @@ seecol(
   col_brd = NULL,
   lwd_brd = NULL,
   grid = TRUE,
+  scalecol = FALSE,
   main = NA,
   sub = NULL,
   title = NULL,
@@ -83,6 +84,9 @@ Default: \code{lwd_brd = NULL}.}
 
 \item{grid}{Show grid in the color plot?
 Default: \code{grid = TRUE}.}
+
+\item{scalecol}{Scale palettes of different length to same width?
+Default: \code{scalcol = FALSE}.}
 
 \item{main}{Main plot title (as a character string). 
 Default: \code{main = NA} creates a default title.}
