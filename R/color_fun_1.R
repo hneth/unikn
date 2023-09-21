@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2023 09 19
+## spds | uni.kn | 2023 09 21
 ## --------------------------
 
 ## Define color-related functions 
@@ -529,6 +529,9 @@ usecol <- function(pal = pal_unikn,
 #' @param grid Show grid in the color plot?  
 #' Default: \code{grid = TRUE}. 
 #' 
+#' @param scale_x Scale color shapes (when comparing multiple palettes) to a fixed total width?
+#' Default: \code{scale_x = FALSE}. 
+#' 
 #' @param main Main plot title (as a character string). 
 #' Default: \code{main = NA} creates a default title.
 #' 
@@ -560,6 +563,9 @@ usecol <- function(pal = pal_unikn,
 #' seecol(c(rev(pal_seeblau), "white", pal_pinky))  # combine color palettes and color names
 #' seecol(c("black", "firebrick", "gold"))          # combine color names
 #' 
+#' # Scale a set of color palettes to a fixed width:
+#' seecol(scale_x = TRUE)
+#' 
 #' # Using n to reduce or extend color palettes:
 #' seecol(n =  3)  # viewing reduced ranges of all palettes
 #' seecol(n = 12)  # viewing extended ranges of all palettes
@@ -577,13 +583,13 @@ usecol <- function(pal = pal_unikn,
 #' pal_mpg <- c("#007367", "white", "#D0D3D4")  # mixing hex values and color names
 #' names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")  # color names
 #' 
-#' pal_bdg <- usecol(c(Bordeaux, "gold"), n = 10)  # using usecol
+#' pal_bdg <- usecol(c(Bordeaux, "gold"), n = 5)  # using usecol
 #' 
 #' # Viewing extended color palette: 
 #' seecol(pal_mpg, n = 9, main = "Custom color palette of the Max Planck Society")
 #' 
 #' # Comparing (and labeling) custom color palettes: 
-#' seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
+#' seecol(list(pal_mpg, pal_bdg, pal_unikn), scale_x = TRUE,
 #'        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
 #'        main = "Comparing and labeling custom color palettes")
 #' 
@@ -624,7 +630,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
                    col_brd = NULL,     # border color of the boxes
                    lwd_brd = NULL,     # line width of box borders
                    grid = TRUE,        # show grid? 
-                   scalecol = FALSE,   # should the colors be scaled to a common length?
+                   scale_x = FALSE,    # scale color shapes (when comparing multiple palettes) to a fixed total width?
                    main = NA,          # main plot title (using the default 'main = NA' constructs a default title)
                    sub = NULL,         # plot subtitle (on bottom)
                    title = NULL,       # Deprecated: plot title (replaced by main)
@@ -816,8 +822,8 @@ seecol <- function(pal = "unikn_all",  # which palette?
   
   # 2. Plotting parameters: -------- 
   
-  distance <- 0   # set distance of boxes?
-  xlen <- 1       # set x length of color boxes.
+  distance <- 0   # distance of boxes
+  xlen <- 1       # x length of color boxes
   
   # Get maximum number of colors:
   max_ncol <- max(unlist(lapply(pal_tmp, FUN = length)))
@@ -893,7 +899,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
     
     # Add the color vectors:
     # if (is.null(lwd_brd)) { lwd_brd <- 0 } # set default lwd_brd
-
+    
     # # For testing:
     # plot(x = 0,
     #      type = "n",
@@ -907,10 +913,11 @@ seecol <- function(pal = "unikn_all",  # which palette?
     # )
     
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
-      # If the colors should be scaled, give them a corresponding length:
-      if(scalecol){xlen <- max_ncol/length(row[[1]])}  
       
-      # Plot the color shapes:
+      # If color swaps are to be scaled, determine length:
+      if (scale_x) { xlen <- max_ncol/length(row[[1]]) }  
+      
+      # Plot color shapes:
       plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE,
                ylen = ylen, col_brd = col_brd, xlen = xlen, lwd = lwd_brd)
     })
@@ -933,10 +940,10 @@ seecol <- function(pal = "unikn_all",  # which palette?
     while (wdth_ind > xlim[2]) {
       
       # TODO: Issue of displayed indices: they are adapted to width and for even numbers starting from 1
-       # creates uneven ends of the sequence.
-       # Would need a function with fixed start and end, interpolating between the two.
-      txt_ind <- txt_ind[seq(1, length(txt_ind), by = 2)]  # only show every 2nd index.
-      pos_ind <- pos_ind[seq(1, length(pos_ind), by = 2)]
+      #       creates uneven ends of the sequence.
+      #       Requires a function with fixed start and end, interpolating between the two.
+      txt_ind  <- txt_ind[seq(1, length(txt_ind), by = 2)]  # only show every 2nd index.
+      pos_ind  <- pos_ind[seq(1, length(pos_ind), by = 2)]
       wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))  # is the width of the string [..] small enough?
       
     } # while end. 
@@ -945,17 +952,17 @@ seecol <- function(pal = "unikn_all",  # which palette?
     cex_ixs <- .80
     yix <- -0.02 * length(pal_tmp)  # dynamic positioning of indices. 
     
-    # Add the labels only, when colors are not scaled to width and if there are less than 30 colors:
+    # Add labels only, when colors are not scaled to width and if there are less than 30 colors:
     # TODO: Determine maximum number!
-    if(!scalecol & max_ncol < 100){
+    if (!scale_x & (max_ncol < 100)) {
+      
       text(x = pos_ind, y = yix, labels = txt_ind, pos = 1, xpd = TRUE,
            cex = cex_ixs, col = grey(0, 2/3))
+      
     }
     
-
     
   } else {  # if length(pal_tmp) list is NOT > 1:
-    
     
     
     # 3-2. Plot a detailed view of 1 palette: -------  
@@ -1069,8 +1076,11 @@ seecol <- function(pal = "unikn_all",  # which palette?
              # ...  # other graphical parameters
     )
     
-    # Plot circles: ---- 
-    circle_len <- ifelse(((xlim[2] / 10) < .70), (xlim[2] / 10), .70)
+    # Plot circles: ----
+    
+    # WAS: circle_len <- ifelse(((xlim[2] / 10) < .70), (xlim[2] / 10), .70)    
+    # Bigger circle shapes:
+    circle_len <- ifelse(((xlim[2] / 10) < .70), (xlim[2] / 8), .75)
     
     plot_col(x = pal_tmp, ypos = y_circ, shape = "circle", xlen = circle_len, plot.new = FALSE, col_brd = col_brd, lwd = lwd_brd#,
              # ...  # other graphical parameters
@@ -1250,67 +1260,12 @@ all_colors <- function(distinct = TRUE){
   
   # 1. All colors (of unikn package): ---- 
   
-  # +++ here now +++:
-  
-  # unikn_pkg_colors <- usecol(c("black", "white",
-  #                              # Local uni.kn colors:
-  #                              pal_grau, pal_bordeaux, pal_petrol, pal_peach, 
-  #                              pal_seeblau, pal_pinky, pal_seegruen, pal_karpfenblau, 
-  #                              pal_signal, 
-  #                              pal_unikn,  # contains 4 "seegrau" variants of "grey"
-  #                              # Added/contributed color palettes:
-  #                              caltech_pal_1, caltech_pal_2, caltech_pal_3, 
-  #                              eth_pal_1, eth_pal_2, eth_pal_3, 
-  #                              fu_pal_0, fu_pal_1, fu_pal_2, fu_pal_3, 
-  #                              hu_pal_1, hu_pal_2, 
-  #                              lmu_pal_1, lmu_pal_2, lmu_pal_3, 
-  #                              mpg_pal, 
-  #                              uni_bonn_1, uni_bonn_2, 
-  #                              uni_goettingen_1, uni_goettingen_2, uni_goettingen_3, 
-  #                              uni_freiburg_0, uni_freiburg_1, uni_freiburg_2, 
-  #                              uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
-  #                              uni_hamburg_1, uni_hamburg_2, 
-  #                              uni_jena_1, uni_jena_2, 
-  #                              uni_kiel_1, uni_kiel_2, 
-  #                              uni_koeln_1, uni_koeln_2, 
-  #                              # uni_konstanz_1, uni_konstanz_2,  # duplicates of pal_ (above).
-  #                              uni_mannheim_1, uni_mannheim_2, 
-  #                              uni_princeton_0, uni_princeton_1, uni_princeton_2,
-  #                              uni_regensburg_1, uni_regensburg_2, uni_regensburg_3,
-  #                              uni_ulm_1, uni_ulm_2, 
-  #                              rpi_pal_1, rpi_pal_2, rpi_pal_3,
-  #                              rptu_pal 
-  # ), 
-  # use_names = TRUE)
-  
   unikn_pkg_colors <- usecol(c("black", "white",
                                # Local uni.kn colors:
                                pal_grau, pal_bordeaux, pal_petrol, pal_peach, 
                                pal_seeblau, pal_pinky, pal_seegruen, pal_karpfenblau, 
                                pal_signal, 
                                pal_unikn # contains 4 "seegrau" variants of "grey"
-                               # # Added/contributed color palettes:
-                               # caltech_pal_1, caltech_pal_2, caltech_pal_3, 
-                               # eth_pal_1, eth_pal_2, eth_pal_3, 
-                               # fu_pal_0, fu_pal_1, fu_pal_2, fu_pal_3, 
-                               # hu_pal_1, hu_pal_2, 
-                               # lmu_pal_1, lmu_pal_2, lmu_pal_3, 
-                               # mpg_pal, 
-                               # uni_bonn_1, uni_bonn_2, 
-                               # uni_goettingen_1, uni_goettingen_2, uni_goettingen_3, 
-                               # uni_freiburg_0, uni_freiburg_1, uni_freiburg_2, 
-                               # uni_freiburg_br, uni_freiburg_blue, uni_freiburg_info,
-                               # uni_hamburg_1, uni_hamburg_2, 
-                               # uni_jena_1, uni_jena_2, 
-                               # uni_kiel_1, uni_kiel_2, 
-                               # uni_koeln_1, uni_koeln_2, 
-                               # # uni_konstanz_1, uni_konstanz_2,  # duplicates of pal_ (above).
-                               # uni_mannheim_1, uni_mannheim_2, 
-                               # uni_princeton_0, uni_princeton_1, uni_princeton_2,
-                               # uni_regensburg_1, uni_regensburg_2, uni_regensburg_3,
-                               # uni_ulm_1, uni_ulm_2, 
-                               # rpi_pal_1, rpi_pal_2, rpi_pal_3,
-                               # rptu_pal 
   ), 
   use_names = TRUE)
   
