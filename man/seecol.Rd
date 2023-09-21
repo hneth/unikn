@@ -15,6 +15,7 @@ seecol(
   col_brd = NULL,
   lwd_brd = NULL,
   grid = TRUE,
+  scale_x = FALSE,
   main = NA,
   sub = NULL,
   title = NULL,
@@ -84,6 +85,9 @@ Default: \code{lwd_brd = NULL}.}
 \item{grid}{Show grid in the color plot?
 Default: \code{grid = TRUE}.}
 
+\item{scale_x}{Scale color shapes (when comparing multiple palettes) to a fixed total width?
+Default: \code{scale_x = FALSE}.}
+
 \item{main}{Main plot title (as a character string). 
 Default: \code{main = NA} creates a default title.}
 
@@ -142,6 +146,9 @@ seecol(c(rev(pal_seeblau), pal_seegruen))        # combine color palettes
 seecol(c(rev(pal_seeblau), "white", pal_pinky))  # combine color palettes and color names
 seecol(c("black", "firebrick", "gold"))          # combine color names
 
+# Scale a set of color palettes to a fixed width:
+seecol(scale_x = TRUE)
+
 # Using n to reduce or extend color palettes:
 seecol(n =  3)  # viewing reduced ranges of all palettes
 seecol(n = 12)  # viewing extended ranges of all palettes
@@ -159,13 +166,13 @@ seecol(c(rev(pal_seeblau), "white", pal_bordeaux), n = 17,
 pal_mpg <- c("#007367", "white", "#D0D3D4")  # mixing hex values and color names
 names(pal_mpg) <- c("mpg green", "mpg white", "mpg grey")  # color names
 
-pal_bdg <- usecol(c(Bordeaux, "gold"), n = 10)  # using usecol
+pal_bdg <- usecol(c(Bordeaux, "gold"), n = 5)  # using usecol
 
 # Viewing extended color palette: 
 seecol(pal_mpg, n = 9, main = "Custom color palette of the Max Planck Society")
 
 # Comparing (and labeling) custom color palettes: 
-seecol(list(pal_mpg, pal_bdg, pal_unikn), n = 7,
+seecol(list(pal_mpg, pal_bdg, pal_unikn), scale_x = TRUE,
        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
        main = "Comparing and labeling custom color palettes")
 
