@@ -929,11 +929,15 @@ seecol <- function(pal = "unikn_all",  # which palette?
     wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))
     pos_ind <- seq(0.5, (max_ncol - 0.5), by = 1)
     
+    # Recursively decrease the width (to fitting, even number):
     while (wdth_ind > xlim[2]) {
       
+      # TODO: Issue of displayed indices: they are adapted to width and for even numbers starting from 1
+       # creates uneven ends of the sequence.
+       # Would need a function with fixed start and end, interpolating between the two.
       txt_ind <- txt_ind[seq(1, length(txt_ind), by = 2)]  # only show every 2nd index.
       pos_ind <- pos_ind[seq(1, length(pos_ind), by = 2)]
-      wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))  # is the width small enough?
+      wdth_ind <- sum(strwidth(txt_ind, cex = cex_ind))  # is the width of the string [..] small enough?
       
     } # while end. 
     
@@ -941,8 +945,14 @@ seecol <- function(pal = "unikn_all",  # which palette?
     cex_ixs <- .80
     yix <- -0.02 * length(pal_tmp)  # dynamic positioning of indices. 
     
-    text(x = pos_ind, y = yix, labels = txt_ind, pos = 1, xpd = TRUE,
-         cex = cex_ixs, col = grey(0, 2/3))
+    # Add the labels only, when colors are not scaled to width and if there are less than 30 colors:
+    # TODO: Determine maximum number!
+    if(!scalecol & max_ncol < 100){
+      text(x = pos_ind, y = yix, labels = txt_ind, pos = 1, xpd = TRUE,
+           cex = cex_ixs, col = grey(0, 2/3))
+    }
+    
+
     
   } else {  # if length(pal_tmp) list is NOT > 1:
     
