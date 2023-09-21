@@ -530,7 +530,7 @@ usecol <- function(pal = pal_unikn,
 #' Default: \code{grid = TRUE}. 
 #' 
 #' @param scale_x Scale color shapes (when comparing multiple palettes) to a fixed total width?
-#' Default: \code{scale_x = FALSE}. 
+#' Default: \code{scale_x = FALSE}.
 #' 
 #' @param main Main plot title (as a character string). 
 #' Default: \code{main = NA} creates a default title.
