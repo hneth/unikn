@@ -79,7 +79,7 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
   add <- cumsum(rep(distance, sum(xpos < mid)))  # values to be added to the 1st half 
   sub <- add * (-1)                              # values to be subtracted from the 2nd half 
   xpos <- xpos + if (len_x %% 2 == 0) {c(rev(sub), add)} else  # even numbers: no center position needed
-  {c(rev(sub), 0, add)}                                      # odd numbers: include a middle (0)
+  {c(rev(sub), 0, add)}                                        # odd numbers: include a middle (0)
   
   # Recycle other constants (to len_x):
   ypos <- rep(ypos, length.out = len_x) 

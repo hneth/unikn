@@ -755,7 +755,8 @@ seecol <- function(pal = "unikn_all",  # which palette?
           # names(pal_tmp)[ix_cp] <- paste0("pal_", which(ix_cp))
           
           # (b) use element names of the pal list argument:
-          list_element_names <- paste0(as.character(substitute(pal)))[-1]
+          # list_element_names <- paste0(as.character(substitute(pal)))[-1]
+          list_element_names <- as.character(substitute(pal))[-1]
           # print(list_element_names)  # 4debugging
           
           names(pal_tmp) <- list_element_names  # +++ here now +++ 
