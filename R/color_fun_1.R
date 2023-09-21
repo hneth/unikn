@@ -529,6 +529,9 @@ usecol <- function(pal = pal_unikn,
 #' @param grid Show grid in the color plot?  
 #' Default: \code{grid = TRUE}. 
 #' 
+#' @param scalecol Scale palettes of different length to same width?  
+#' Default: \code{scalcol = FALSE}. 
+#' 
 #' @param main Main plot title (as a character string). 
 #' Default: \code{main = NA} creates a default title.
 #' 
@@ -624,7 +627,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
                    col_brd = NULL,     # border color of the boxes
                    lwd_brd = NULL,     # line width of box borders
                    grid = TRUE,        # show grid? 
-                   # scalecol = FALSE,   # should the colors be scaled to a common length?
+                   scalecol = FALSE,   # should the colors be scaled to a common length?
                    main = NA,          # main plot title (using the default 'main = NA' constructs a default title)
                    sub = NULL,         # plot subtitle (on bottom)
                    title = NULL,       # Deprecated: plot title (replaced by main)
@@ -908,7 +911,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
     
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
       # If the colors should be scaled, give them a corresponding length:
-      # if(scalecol){xlen <- max_ncol/length(row[[1]])}  
+      if(scalecol){xlen <- max_ncol/length(row[[1]])}  
       
       # Plot the color shapes:
       plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE,
@@ -947,10 +950,10 @@ seecol <- function(pal = "unikn_all",  # which palette?
     
     # Add the labels only, when colors are not scaled to width and if there are less than 30 colors:
     # TODO: Determine maximum number!
-    # if(!scalecol & max_ncol < 100){
+    if(!scalecol & max_ncol < 100){
       text(x = pos_ind, y = yix, labels = txt_ind, pos = 1, xpd = TRUE,
            cex = cex_ixs, col = grey(0, 2/3))
-    # }
+    }
     
 
     
