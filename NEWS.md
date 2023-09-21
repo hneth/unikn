@@ -1,10 +1,9 @@
 
-# unikn 0.9.0.9005
+# unikn 0.9.0.9006
 
 This is the current development version of **unikn** at <https://github.com/hneth/unikn/>. 
 
 <!-- Log of changes: --> 
-
 
 Changes since last release: 
 
@@ -13,15 +12,16 @@ Changes since last release:
 
 ## Major changes 
 
-- none yet.
+- When `seecol()` compares a list of color palettes:  
+   - add `scale_x` option to scale palettes to a fixed total width
+   - use list element names of the `pal` argument as default names  
 
 
 <!-- Minor changes: --> 
 
 ## Minor changes 
 
-- `seecol()` uses the list element names of the `pal` argument as default names 
-- `newpal()` gained `pattern` and `replacement` arguments (to allow for REGEX operations on color `names`). 
+- `newpal()` gains `pattern` and `replacement` arguments (to allow for REGEX operations on color `names`). 
 
 
 <!-- Details:  --> 
@@ -29,8 +29,8 @@ Changes since last release:
 
 ## Details 
 
-- deprecated `pal = "add"` keyword for `seecol()`
-- updated **[unicol](https://CRAN.R-project.org/package=unicol)** references [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol). 
+- deprecate `pal = "add"` keyword for `seecol()`
+- update **[unicol](https://CRAN.R-project.org/package=unicol)** references [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol). 
 
 
 <!-- Development version:  --> 
@@ -377,6 +377,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-09-19.] 
+[File `NEWS.md` updated on 2023-09-21.] 
 
 <!-- eof. -->
