@@ -624,6 +624,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
                    col_brd = NULL,     # border color of the boxes
                    lwd_brd = NULL,     # line width of box borders
                    grid = TRUE,        # show grid? 
+                   scalecol = FALSE,   # should the colors be scaled to a common length?
                    main = NA,          # main plot title (using the default 'main = NA' constructs a default title)
                    sub = NULL,         # plot subtitle (on bottom)
                    title = NULL,       # Deprecated: plot title (replaced by main)
@@ -892,10 +893,26 @@ seecol <- function(pal = "unikn_all",  # which palette?
     
     # Add the color vectors:
     # if (is.null(lwd_brd)) { lwd_brd <- 0 } # set default lwd_brd
+
+    # # For testing:
+    # plot(x = 0,
+    #      type = "n",
+    #      xlim = xlim, ylim = ylim,
+    #      xaxt = "n", yaxt = "n",  # hide axes.
+    #      xlab = "", ylab = "",
+    #      main = main,
+    #      sub = sub,
+    #      bty = "n"
+    #      # ...  # other graphical parameters
+    # )
     
     apply(pal_mat, MARGIN = 1, FUN = function(row) {
-      plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE, 
-               ylen = ylen, col_brd = col_brd, lwd = lwd_brd)
+      # If the colors should be scaled, give them a corresponding length:
+      if(scalecol){xlen <- max_ncol/length(row[[1]])}  
+      
+      # Plot the color shapes:
+      plot_col(x = row[[1]], ypos = row[2], plot.new = FALSE,
+               ylen = ylen, col_brd = col_brd, xlen = xlen, lwd = lwd_brd)
     })
     
     # Label pal names:

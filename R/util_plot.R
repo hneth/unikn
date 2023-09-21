@@ -69,14 +69,18 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
   # 2. Position parameters: -----
   
   # Shape centers:
-  xpos <- (1:len_x) - 0.5  # subtracting 0.5 assumes a shape width of 1.
-  
   # ToDo: Allow scaling shape widths to fill a FIXED total width 
   #       (e.g., each shape with a width of 10/len_x).
+
+  xpos <- 1:len_x * xlen - 0.5 * xlen
+    # was: xpos <- (1:len_x) - 0.5  # subtracting 0.5 assumes a shape width of 1.
+    # xpos = c(2.5/2, 2.5/2 + 5/2)  # example 2 vs. 5.
   
   # Adjust xpos by distance:
   mid <- mean(xpos)  # get midpoint. 
-  add <- cumsum(rep(distance, sum(xpos < mid)))  # values to be added to the 1st half 
+  add <- cumsum(rep(distance/len_x, sum(xpos < mid - 0.0001)))  # values to be added to the 1st half 
+    # Note: subtraction of a very small value may be necessary 
+     # because some comparisons appear to suffer from imprecision of floats.
   sub <- add * (-1)                              # values to be subtracted from the 2nd half 
   xpos <- xpos + if (len_x %% 2 == 0) {c(rev(sub), add)} else  # even numbers: no center position needed
   {c(rev(sub), 0, add)}                                        # odd numbers: include a middle (0)
@@ -88,7 +92,6 @@ plot_col <- function(x,         # a *vector* of colors to be plotted.
   
   
   # 3. Plot shapes: ------ 
-  
   plot_shape(pos_x = xpos,  # x positions of the shapes. 
              pos_y = ypos,  # position in y dimension (given). 
              xlen = xlen, ylen = ylen,  # length of the axes. 
