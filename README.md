@@ -25,7 +25,7 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 0.9.0.9005 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
+# unikn 0.9.0.9006 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
@@ -343,7 +343,8 @@ barplot(1/sqrt(1:9),  col = my_pal)
 
 <img src="inst/pix/README-usecol-1-1.png" width="500px" style="display: block; margin: auto;" />
 
-- the `image()` function of the **graphics** package:
+- the `image()` function of the **graphics** package (for geometric
+  transformations of a vector `r`):
 
 ``` r
 # Data:
@@ -360,7 +361,30 @@ image(z = cos(r^2) * exp(-r/10),
 
 <img src="inst/pix/README-usecol-2-1.png" width="250px" style="display: block; margin: auto;" />
 
-- the `ggplot()` function of the **ggplot2** package:
+- the `ggplot()` function of the **ggplot2** package (for a data
+  frame `df`):
+
+``` r
+# Data (based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/):
+
+n <- 50
+groups <- 1:n
+df <- data.frame()
+set.seed(3)
+
+for (i in seq(1:30)){
+  data = data.frame(matrix(0, n, 3))
+  data[, 1] <- i
+  data[, 2] <- sample(groups, nrow(data))
+  data[, 3] <- prop.table(sample(c(rep(0, 100), c(1:n)), nrow(data)))
+  df = rbind(df, data)
+  }
+
+names(df) <- c("x","group","y")     # name variables
+df$group <- as.factor(df$group)     # group as factor
+df <- df[c(2, 1, 3)]                # order of variables
+df <- df[order(df$x, df$group) , ]  # order of rows
+```
 
 ``` r
 # Mix a color gradient: 
@@ -369,7 +393,7 @@ my_col <- usecol(c(Bordeaux, "white", Petrol), n = 50)
 # Plot (with ggplot2):
 library(ggplot2)
 
-ggplot(my_data, aes(x = X, y = Y, fill = Group)) + 
+ggplot(df, aes(x = x, y = y, fill = group)) + 
   geom_area() +
   scale_fill_manual(values = my_col) +
   theme_void() +
@@ -773,6 +797,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2023-09-19.\]
+\[File `README.md` updated on 2023-12-18.\]
 
 <!-- eof. -->

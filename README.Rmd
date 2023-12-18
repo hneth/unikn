@@ -296,6 +296,7 @@ Beyond defining colors and color palettes, the **unikn** package provides a rang
 
 - Additional color functions (i.e., `simcol()`, `grepal()`, `newpal()`, `shades_of()`, or `ac()`) provide auxiliary functionality (for finding similar colors and color names, creating new color palettes and color gradients, or adjusting transparency). 
 
+
 <!-- Examples: -->
 
 ### Seeing color palettes with `seecol()` 
@@ -342,7 +343,7 @@ my_pal <- usecol(c(Seeblau, "white", Pinky), n = 9)
 barplot(1/sqrt(1:9),  col = my_pal)
 ```
 
-- the `image()` function of the **graphics** package:
+- the `image()` function of the **graphics** package (for geometric transformations of a vector\ `r`):
 
 ```{r usecol-2, eval = TRUE, fig.width = 3.5, fig.height = 4, out.width = "250px", fig.show = 'hold', fig.align = 'center'}
 # Data:
@@ -357,32 +358,28 @@ image(z = cos(r^2) * exp(-r/10),
       col = my_col, axes = FALSE)
 ```
 
-- the `ggplot()` function of the **ggplot2** package: 
+- the `ggplot()` function of the **ggplot2** package (for a data frame\ `df`): 
 
-```{r usecol-ggplot-data, echo = FALSE, eval = TRUE, out.width = "550px", fig.asp = .618, fig.align = 'center', collapse = TRUE}
-# 0. Create data: ---- 
+```{r usecol-ggplot-data, echo = TRUE, eval = TRUE, out.width = "550px", fig.asp = .618, fig.align = 'center', collapse = TRUE}
+# Data (based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/):
 
-# Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/
 n <- 50
 groups <- 1:n
 df <- data.frame()
-
 set.seed(3)
+
 for (i in seq(1:30)){
   data = data.frame(matrix(0, n, 3))
   data[, 1] <- i
   data[, 2] <- sample(groups, nrow(data))
   data[, 3] <- prop.table(sample(c(rep(0, 100), c(1:n)), nrow(data)))
-  df = rbind(df, data)}
+  df = rbind(df, data)
+  }
 
-names(df) <- c("X","Group","Y")
-
-df$Group <- as.factor(df$Group)  # Group as factor
-df <- df[c(2, 1, 3)]             # order of variables
-df <- df[order(df$X, df$Group) , ] # order of rows
-rownames(df) <- NULL
-
-my_data <- df  # copy
+names(df) <- c("x","group","y")     # name variables
+df$group <- as.factor(df$group)     # group as factor
+df <- df[c(2, 1, 3)]                # order of variables
+df <- df[order(df$x, df$group) , ]  # order of rows
 ```
 
 ```{r usecol-ggplot2, eval = TRUE, out.width = "550px", fig.asp = .618, fig.align = 'center', collapse = TRUE}
@@ -392,12 +389,13 @@ my_col <- usecol(c(Bordeaux, "white", Petrol), n = 50)
 # Plot (with ggplot2):
 library(ggplot2)
 
-ggplot(my_data, aes(x = X, y = Y, fill = Group)) + 
+ggplot(df, aes(x = x, y = y, fill = group)) + 
   geom_area() +
   scale_fill_manual(values = my_col) +
   theme_void() +
   theme(legend.position = "none")
 ```
+
 
 #### Illustrating color palettes {-}
 
