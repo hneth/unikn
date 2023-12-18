@@ -358,7 +358,7 @@ image(z = cos(r^2) * exp(-r/10),
       col = my_col, axes = FALSE)
 ```
 
-- the `ggplot()` function of the **ggplot2** package (for a data frame\ `df`): 
+- the `ggplot()` function of the **ggplot2** package (for a data frame\ `df`):
 
 ```{r usecol-ggplot-data, echo = TRUE, eval = TRUE, out.width = "550px", fig.asp = .618, fig.align = 'center', collapse = TRUE}
 # Data (based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/):
