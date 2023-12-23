@@ -1,5 +1,5 @@
 
-# unikn 0.9.0.9006
+# unikn 0.9.0.9008
 
 This is the current development version of **unikn** at <https://github.com/hneth/unikn/>. 
 
@@ -377,6 +377,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2023-09-21.] 
+[File `NEWS.md` updated on 2023-12-23.] 
 
 <!-- eof. -->
