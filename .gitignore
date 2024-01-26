@@ -1,4 +1,4 @@
-## .gitignore | unikn | 2023 05 16:
+## .gitignore | unikn | 2024 01 26:
 
 ## 1. generic stuff: -----
 
@@ -64,6 +64,7 @@ cran-comments.md
 
 # dirs:
 _gitless
+_logo
 
 # files:
 .PowerFolder
