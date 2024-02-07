@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2023 03 06
+## spds | uni.kn | 2024 02 06
 ## ---------------------------
 
 ## Demo functions for color palettes.
@@ -583,7 +583,7 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 
 
 
-# 5. plot_scatter(): A plot of points ------ 
+# 5. plot_scatter(): A plot of dots / points ------ 
 
 # Note: ... passed to plot().
 
@@ -648,6 +648,30 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
   y <- round(stats::runif(n, min = y_min, max = y_max), 2)
   
   df <- data.frame(x = x, y = y)
+  
+  
+  # Modify df (to add 3d-perspective effect): ----
+  
+  perspective_3d <- FALSE # TRUE
+  
+  if (perspective_3d){
+    
+    # Reduce level (horizon):
+    df$y <- .60 * df$y
+    
+    # Re-arrange rows of df:
+    df <- df[order(y, decreasing = TRUE), ]  # lower y-values on top
+    
+    # Reduce size of points with larger y values:
+    cex <- rep(cex, n)
+    y_pos <- df$y > 1
+    cex[y_pos] <- cex[y_pos] / (.999 * df$y[y_pos])  # shrink size by y-value
+    
+    # x-distortion: Reduce range of x-values depending on y-values:
+    # +++ here now +++
+    
+  } 
+  
   
   # Main plot: ---- 
   
@@ -864,6 +888,7 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, ...){
 
 ## ToDo: --------
 
+# - Add 3d-perspective effects (e.g., to scatterplot).
 # - Add more plot types.
 
 ## eof. ----------
