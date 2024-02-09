@@ -1,6 +1,6 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2024 02 08
-## ---------------------------
+## spds | uni.kn | 2024 02 09
+## --------------------------
 
 ## Demo functions for color palettes.
 
@@ -652,31 +652,41 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
   
   # Modify df (to add 3d-perspective effect): ----
   
-  perspective_3d <- FALSE # TRUE
+  perspective_3d <- FALSE # FALSE # TRUE
   
   if (perspective_3d){
     
-    # Reduce level (horizon):
-    df$y <- 1/3 * df$y
-    y_max <- max(df$y)
+    # Reduce viewing level (horizon):
+    # df$y  <- .25 * df$y
+    # y_max <- max(df$y)
     
     # Re-arrange rows of df:
     df <- df[order(y, decreasing = TRUE), ]  # lower y-values on top
     
     # Reduce size of points with larger y values:
+    max_cex_reduce <- cex/2
+    
+    max_y <- max(df$y)
+    min_y <- min(df$y)
+    y_pos <- df$y > 1     # logical index of values to reduce
     cex   <- rep(cex, n)  # as vector
-    y_pos <- df$y > 1     # logical index
-    cex[y_pos] <- cex[y_pos] / (.999 * df$y[y_pos])  # shrink object cex by y-value
+    
+    # cex[y_pos] <- cex[y_pos] / (.999 * df$y[y_pos])  # shrink object cex by y-value
+    cex[y_pos] <- cex[y_pos] - max_cex_reduce * df$y[y_pos]/(max_y - min_y)
     
     # x-distortion: Reduce range of x-values depending on y-values:
     # +++ here now +++
     
     # shift points with high y-values to right:
-    max_shift_right <- 1
+    max_shift_right <- max(df$y) / 4
     max_y <- max(df$y)
     min_y <- min(df$y)
     
     df$x <- df$x + max_shift_right * df$y/(max_y - min_y)
+    
+    
+    # remove border:
+    # col_par <- NA
     
   } 
   
@@ -734,7 +744,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
 # x
 
 # 3d-effects:
-# plot_scatter(pal_unikn, n = 2000, alpha = 1)
+# plot_scatter(pal_unikn, n = 1000, alpha = 1, cex = 3, col_par = "black")
 
 
 
