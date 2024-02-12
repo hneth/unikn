@@ -57,12 +57,12 @@ Other color palettes:
 \code{\link{pal_seeblau}},
 \code{\link{pal_seegruen}},
 \code{\link{pal_signal}},
+\code{\link{pal_unikn}},
 \code{\link{pal_unikn_dark}},
 \code{\link{pal_unikn_light}},
 \code{\link{pal_unikn_pair}},
 \code{\link{pal_unikn_ppt}},
-\code{\link{pal_unikn_web}},
-\code{\link{pal_unikn}}
+\code{\link{pal_unikn_web}}
 }
 \concept{color palettes}
 \keyword{datasets}
