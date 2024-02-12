@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2024 02 09
+## spds | uni.kn | 2024 02 12
 ## --------------------------
 
 ## Demo functions for color palettes.
@@ -652,7 +652,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
   
   # Modify df (to add 3d-perspective effect): ----
   
-  perspective_3d <- FALSE # FALSE # TRUE
+  perspective_3d <- FALSE # TRUE
   
   if (perspective_3d){
     
@@ -675,15 +675,18 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
     cex[y_pos] <- cex[y_pos] - max_cex_reduce * df$y[y_pos]/(max_y - min_y)
     
     # x-distortion: Reduce range of x-values depending on y-values:
-    # +++ here now +++
-    
+
     # shift points with high y-values to right:
-    max_shift_right <- max(df$y) / 4
+    max_shift_right <- 2
+    max_shift_left  <- 2
+    
+    max_x <- max(df$x)
+    min_x <- min(df$x)    
     max_y <- max(df$y)
     min_y <- min(df$y)
     
-    df$x <- df$x + max_shift_right * df$y/(max_y - min_y)
-    
+    df$x <- df$x + (max_shift_right * df$y / (max_y - min_y)) 
+                 - (max_shift_left  * df$y / (max_y - min_y))   # +++ here now +++
     
     # remove border:
     # col_par <- NA
@@ -743,7 +746,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
 # x <- plot_scatter(pal_unikn_pref, alpha = 2/3, seed = 101)
 # x
 
-# 3d-effects:
+# 3d-effect:
 # plot_scatter(pal_unikn, n = 1000, alpha = 1, cex = 3, col_par = "black")
 
 
