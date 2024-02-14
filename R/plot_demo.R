@@ -684,9 +684,20 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
     min_x <- min(df$x)    
     max_y <- max(df$y)
     min_y <- min(df$y)
+
+    old_x_range <- (max_x - min_x)
+    new_x_range <- (max_x - max_shift_left) - (min_x + max_shift_right)
+        
+    scale_y <- df$y / (max_y - min_y)
+    scale_x <- df$x / old_x_range
     
-    df$x <- df$x + (max_shift_right * df$y / (max_y - min_y)) 
-                 - (max_shift_left  * df$y / (max_y - min_y))   # +++ here now +++
+    new_x <- (min_x + max_shift_right) + scale_x * new_x_range
+    
+    df$x <- new_x # * scale_y
+    
+    
+    # + (max_shift_right * df$y / (max_y - min_y)) 
+    #             - (max_shift_left  * df$y / (max_y - min_y))   # +++ here now +++
     
     # remove border:
     # col_par <- NA
