@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2024 02 12
+## spds | uni.kn | 2024 02 14
 ## --------------------------
 
 ## Demo functions for color palettes.
@@ -675,7 +675,7 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
     cex[y_pos] <- cex[y_pos] - max_cex_reduce * df$y[y_pos]/(max_y - min_y)
     
     # x-distortion: Reduce range of x-values depending on y-values:
-
+    
     # shift points with high y-values to right:
     max_shift_right <- 2
     max_shift_left  <- 2
@@ -684,10 +684,10 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
     min_x <- min(df$x)    
     max_y <- max(df$y)
     min_y <- min(df$y)
-
+    
     old_x_range <- (max_x - min_x)
     new_x_range <- (max_x - max_shift_left) - (min_x + max_shift_right)
-        
+    
     scale_y <- df$y / (max_y - min_y)
     scale_x <- df$x / old_x_range
     
