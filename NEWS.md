@@ -1,7 +1,9 @@
 
-# unikn 0.9.0.9008
+# unikn 0.9.0.9009
 
 This is the current development version of **unikn** at <https://github.com/hneth/unikn/>. 
+
+**unikn** 1.0.0 is to be released in **April 2024**.
 
 <!-- Log of changes: --> 
 
@@ -377,6 +379,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-01-30.]
+[File `NEWS.md` updated on 2024-04-08.]
 
 <!-- eof. -->
