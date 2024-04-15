@@ -1,5 +1,5 @@
 
-# unikn 0.9.0.9009
+# unikn 0.9.0.9010
 
 This is the current development version of **unikn** at <https://github.com/hneth/unikn/>. 
 
@@ -22,6 +22,8 @@ Changes since last release:
 <!-- Minor changes: --> 
 
 ## Minor changes 
+
+- Add new hexagon logo. 
 
 - `newpal()` gains `pattern` and `replacement` arguments (to allow for REGEX operations on color `names`). 
 
@@ -379,6 +381,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-04-08.]
+[File `NEWS.md` updated on 2024-04-15.]
 
 <!-- eof. -->
