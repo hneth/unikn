@@ -45,7 +45,7 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
 </a>
 
 This vignette explains the **unikn** functions for plotting graphical elements and text decorations. 
@@ -704,7 +704,7 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)   
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
 </a> 
 
 The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 

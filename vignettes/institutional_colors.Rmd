@@ -47,7 +47,7 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
 </a>
 
 The color palettes included in the **unikn** package are based on the CD\ manual of the [University of Konstanz](https://www.uni-konstanz.de/). 
@@ -59,13 +59,12 @@ Version\ 0.8.0 of **unikn** (released in 2023-01-06) contained 52\ additional co
 
 As the number of color palettes has been growing beyond the scope of this package, the color palettes from other institutions are now being collected in a separate R\ package **[unicol](`r url_unicol_cran`)**. 
 
-<!-- unicol pkg logo and link: -->
-<a href = "`r url_unicol_cran`">
-<img src = "../inst/pix/logo_unicol.png" alt = "unicol::" align = "right" width = "150px" style = "width: 150px; float: right; border:0;"/>
-</a>
-
 Installing **[unicol](`r url_unicol_cran`)** currently provides access to a diverse range of over **200\ color palettes** from over **80\ institutions**. 
 
+<!-- unicol pkg logo and link: -->
+<a href = "`r url_unicol_cran`">
+<img src = "../inst/pix/logo_unicol.png" alt = "unicol::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
+</a>
 
 
 <!-- This vignette: -->
@@ -338,7 +337,7 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)   
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "140px" style = "width: 140px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
 </a> 
 
 The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 

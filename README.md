@@ -25,11 +25,11 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 0.9.0.9009 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
+# unikn 0.9.0.9009 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "165px" />
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
+<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "165px" style = "width: 165px; float: right; border:10;"/>
 </a> 
 -->
 <!-- Slogan: -->
@@ -731,7 +731,7 @@ by relaxing some restrictions. Examples include:
 <!-- unikn pkg logo and link: -->
 
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
+<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "165px" style = "width: 165px; float: right; border:10;"/>
 </a>
 
 <!-- License: CC BY-SA 4.0 (also in Description) -->
@@ -797,6 +797,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2024-01-26.\]
+\[File `README.md` updated on 2024-04-15.\]
 
 <!-- eof. -->
