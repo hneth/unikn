@@ -362,7 +362,7 @@ image(z = cos(r^2) * exp(-r/10),
 
 - the `ggplot()` function of the **ggplot2** package (for a data frame\ `df`):
 
-```{r usecol-ggplot-data, echo = TRUE, eval = TRUE, out.width = "550px", fig.asp = .618, fig.align = 'center', collapse = TRUE}
+```{r usecol-ggplot-data, echo = TRUE, eval = TRUE, out.width = "500px", fig.asp = .618, fig.align = 'center', collapse = TRUE}
 # Data (based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/):
 
 n <- 50
@@ -384,7 +384,7 @@ df <- df[c(2, 1, 3)]                # order of variables
 df <- df[order(df$x, df$group) , ]  # order of rows
 ```
 
-```{r usecol-ggplot2, eval = TRUE, out.width = "550px", fig.asp = .618, fig.align = 'center', collapse = TRUE}
+```{r usecol-ggplot2, eval = TRUE, out.width = "500px", fig.asp = .618, fig.align = 'center', collapse = TRUE}
 # Mix a color gradient: 
 my_col <- usecol(c(Bordeaux, "white", Petrol), n = 50)
 
@@ -484,7 +484,7 @@ seecol(deep_purple,
 
 Providing a list of color palettes to the `pal` argument of `seecol()` allows comparing multiple color palettes: 
 
-```{r grepal-example-2, fig.width = 8, out.width = "600px", fig.asp = .30, fig.align = 'center', message=FALSE}
+```{r grepal-example-2, fig.width = 8, out.width = "550px", fig.asp = .30, fig.align = 'center', message=FALSE}
 # Find colors matching some term(s):
 olives  <- grepal("olive", plot = FALSE)
 oranges <- grepal("orange", plot = FALSE)

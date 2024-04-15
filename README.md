@@ -25,7 +25,7 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 0.9.0.9009 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "165px" />
+# unikn 0.9.0.9010 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "165px" />
 
 <!-- unikn pkg logo and link: -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn">
@@ -400,7 +400,7 @@ ggplot(df, aes(x = x, y = y, fill = group)) +
   theme(legend.position = "none")
 ```
 
-<img src="inst/pix/README-usecol-ggplot2-1.png" width="550px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usecol-ggplot2-1.png" width="500px" style="display: block; margin: auto;" />
 
 #### Illustrating color palettes
 
@@ -528,7 +528,7 @@ seecol(pal = list(olives, oranges),
        main = "Comparing olives with oranges")
 ```
 
-<img src="inst/pix/README-grepal-example-2-1.png" width="600px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-grepal-example-2-1.png" width="550px" style="display: block; margin: auto;" />
 
 See the vignette on [Colors and color
 functions](https://hneth.github.io/unikn/articles/colors.html) and
