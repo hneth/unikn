@@ -1,5 +1,5 @@
 ## plot_text_calls.R | unikn
-## spds | uni.kn |  2022 11 29
+## spds | uni.kn |  2024 04 15
 ## ---------------------------
 
 # Specialized functions for plotting formatted text (with decorations):
@@ -108,9 +108,6 @@
 #'      col = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
 #'      
 #' # Using x_layout and y_layout:
-#' mark(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
-#'      cex = 1.4, font = 2, col = "white", col_bg = Petrol,
-#'      x = NA, y = .85, x_layout = "center", y_layout = "even", new_plot = "slide")
 #'      
 #' mark(labels = c("One, and", "two, and", "three and four is", "plenty and perhaps enough..."), 
 #'      cex = 1.4, font = 2, col = "white", col_bg = Bordeaux,
@@ -321,10 +318,6 @@ mark <- function(labels,             # labels of text element(s) to plot
 #' uline(labels = lbl_line, new_plot = "blank")  # create a new plot
 #' uline(labels = "(which is why we underline it).", y = .40, cex = 1.2)  # add to plot
 #'
-#' # Using x_layout and y_layout:
-#' uline(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
-#'      cex = 1.4, font = 2, col = Grau, col_bg = Pinky,
-#'      x = 1.2, y = .85, x_layout = "right", y_layout = "even", new_plot = "slide")
 #'                                       
 #' @family text functions
 #' 
@@ -455,8 +448,6 @@ uline <- function(labels,             # labels of text element(s) to plot
 #' Default: \code{new_plot = "none"} (i.e., assumes a pre-existing \code{\link{xbox}}). 
 #' 
 #' @examples 
-#' post(labels = "Post this line with default settings.", new_plot = "xbox")
-#' 
 #' # Create a new xbox: 
 #' post(labels = "This is a test.", new_plot = "xbox", 
 #'      cex = 1.2, font = 2, col_bg = pal_seeblau[[5]])
