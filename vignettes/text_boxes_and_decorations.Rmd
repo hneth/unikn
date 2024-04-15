@@ -679,8 +679,8 @@ abline(v = x_l, col = "grey", lty = 2)
 One of the more obscure rules (on p. 31 of the CD manual) concerns the rendering of URLs, in which typical web patterns (like "http" or "www") are to be omitted and replaced by a typographical dash (which is longer than a hyphen). The `url_unikn` utility function allows formatting URLs the uni.kn way:
 
 ```{r url-post, fig.align = 'center', fig.width = 2, fig.height = 2, out.width = "25%"}
-my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from web browser
-my_url  # formatted URL
+my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL
+# my_url  # formatted URL
 
 # Put URL at bottom of an xbox:
 post(labels = my_url, x = .05, y = .1, font = 4, 
