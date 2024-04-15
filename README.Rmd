@@ -139,7 +139,7 @@ The colors of **unikn** belong to two categories of color palettes:
 
 Originally, the **unikn** package primarily provided the 16\ color palettes of the [University of Konstanz](https://www.uni-konstanz.de/):
 
-```{r pal-all, fig.align = 'center', fig.width = 6, out.width = "550px", fig.asp = .90}
+```{r pal-all, fig.align = 'center', fig.width = 5.75, out.width = "525px", fig.asp = .90}
 seecol("all_unikn")
 ```
 
@@ -150,7 +150,7 @@ Its key component is the ubiquitous use of a `Seeblau` color and a corresponding
 
 The default **unikn** color palette `pal_unikn` combines shades of `pal_seeblau` and `pal_grau` with the base R colors "white" and "black" into a diverging, symmetrical palette (of 11\ colors):
 
-```{r pal-unikn, eval = TRUE, fig.width = 6, out.width = "550px", fig.asp = .70, fig.align = 'center'}
+```{r pal-unikn, eval = TRUE, fig.width = 5.75, out.width = "525px", fig.asp = .70, fig.align = 'center'}
 seecol(pal_unikn)
 ```
 
@@ -181,7 +181,7 @@ A shorter version (with 10\ colors) and an alternative (with more muted colors f
 Several more specialized color palettes combine the elements of nine color hues. 
 The preferred colors are contained in palette\ `pal_unikn_pref`: 
 
-```{r pal-unikn-pref, eval = TRUE, fig.width = 6, out.width = "550px", fig.asp = .70, fig.align = 'center'}
+```{r pal-unikn-pref, eval = TRUE, fig.width = 5.75, out.width = "525px", fig.asp = .70, fig.align = 'center'}
 seecol(pal_unikn_pref)
 ```
 
@@ -260,7 +260,7 @@ Installing **[unicol](`r url_unicol_cran`)** currently provides access to a dive
 
 <!-- Note: Duplicate image in vignette color_inst.Rmd -->
 
-```{r seecol-add-pals, echo = FALSE, eval = FALSE, fig.width = 7.2, out.width = "550px", fig.align = 'center', fig.asp = 2.0}
+```{r seecol-add-pals, echo = FALSE, eval = FALSE, fig.width = 7.0, out.width = "525px", fig.align = 'center', fig.asp = 2.0}
 # Inspect additional/alternative color palettes:
 seecol("add")
 ```
@@ -309,7 +309,7 @@ The `seecol()` function enables either inspections of an individual color palett
 
 Using `seecol()` on an individual color palette provides a quick overview over its colors and details: 
 
-```{r seecol-pref, fig.width = 7, out.width = "550px", fig.align = 'center', fig.asp = .80}
+```{r seecol-pref, fig.width = 6.5, out.width = "525px", fig.align = 'center', fig.asp = .80}
 # Inspect an individual color palette:
 seecol(pal = pal_pinky,                    # a color palette / list of palettes / keyword
        col_brd = "white", lwd_brd = 5,     # color and width of borders
@@ -472,7 +472,7 @@ Specifically, `grepal(pattern, x)` searches a color palette\ `x` (i.e., a vector
 By default, `grepal()` searches the `r length(colors())`\ named colors provided by `colors()` in **base**\ R. 
 To make the `grepal()` more flexible, its `pattern`\ argument can use regular expressions: 
 
-```{r grepal-example-1, fig.width = 5, out.width = "550px", fig.asp = .9, fig.align = 'center', message=FALSE}
+```{r grepal-example-1, fig.width = 5, out.width = "525px", fig.asp = .9, fig.align = 'center', message=FALSE}
 # Find colors matching a pattern: 
 deep_purple <- grepal(pattern = "deep|purple", plot = FALSE)
 
@@ -484,7 +484,7 @@ seecol(deep_purple,
 
 Providing a list of color palettes to the `pal` argument of `seecol()` allows comparing multiple color palettes: 
 
-```{r grepal-example-2, fig.width = 8, out.width = "550px", fig.asp = .30, fig.align = 'center', message=FALSE}
+```{r grepal-example-2, fig.width = 8, out.width = "525px", fig.asp = .30, fig.align = 'center', message=FALSE}
 # Find colors matching some term(s):
 olives  <- grepal("olive", plot = FALSE)
 oranges <- grepal("orange", plot = FALSE)

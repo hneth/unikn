@@ -140,7 +140,7 @@ palettes of the [University of Konstanz](https://www.uni-konstanz.de/):
 seecol("all_unikn")
 ```
 
-<img src="inst/pix/README-pal-all-1.png" width="550px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-pal-all-1.png" width="525px" style="display: block; margin: auto;" />
 
 In 2014, the [University of Konstanz](https://www.uni-konstanz.de/)
 introduced a highly recognizable CD. Its key component is the ubiquitous
@@ -158,7 +158,7 @@ into a diverging, symmetrical palette (of 11 colors):
 seecol(pal_unikn)
 ```
 
-<img src="inst/pix/README-pal-unikn-1.png" width="550px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-pal-unikn-1.png" width="525px" style="display: block; margin: auto;" />
 
 A shorter version (with 10 colors) and an alternative (with more muted
 colors for PowerPoint presentations) are provided as `pal_unikn_web`
@@ -189,7 +189,7 @@ palette `pal_unikn_pref`:
 seecol(pal_unikn_pref)
 ```
 
-<img src="inst/pix/README-pal-unikn-pref-1.png" width="550px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-pal-unikn-pref-1.png" width="525px" style="display: block; margin: auto;" />
 
 Each distinct hue is exported as a named color (e.g., `Pinky`) and a
 corresponding gradient color palette (e.g., `pal_pinky`). (Inspect
@@ -304,7 +304,7 @@ seecol(pal = pal_pinky,                    # a color palette / list of palettes 
        main = "Pinky colors of the University of Konstanz")  # plot title 
 ```
 
-<img src="inst/pix/README-seecol-pref-1.png" width="550px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-seecol-pref-1.png" width="525px" style="display: block; margin: auto;" />
 
 #### Comparing color palettes
 
@@ -512,7 +512,7 @@ seecol(deep_purple,
        main = "Finding 'deep' or 'purple' colors")
 ```
 
-<img src="inst/pix/README-grepal-example-1-1.png" width="550px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-grepal-example-1-1.png" width="525px" style="display: block; margin: auto;" />
 
 Providing a list of color palettes to the `pal` argument of `seecol()`
 allows comparing multiple color palettes:
@@ -528,7 +528,7 @@ seecol(pal = list(olives, oranges),
        main = "Comparing olives with oranges")
 ```
 
-<img src="inst/pix/README-grepal-example-2-1.png" width="550px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-grepal-example-2-1.png" width="525px" style="display: block; margin: auto;" />
 
 See the vignette on [Colors and color
 functions](https://hneth.github.io/unikn/articles/colors.html) and
