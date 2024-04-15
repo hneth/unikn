@@ -9,23 +9,21 @@ This is the current development version of **unikn** at <https://github.com/hnet
 
 Changes since last release: 
 
-
 <!-- Major changes: --> 
 
 ## Major changes 
 
 - When `seecol()` compares a list of color palettes:  
-   - add `scale_x` option to scale palettes to a fixed total width
-   - use list element names of the `pal` argument as default names  
+   - add `scale_x` option to scale palettes to a fixed total width; 
+   - use list element names of the `pal` argument as default names.   
 
 
 <!-- Minor changes: --> 
 
 ## Minor changes 
 
-- Add new hexagon logo. 
-
-- `newpal()` gains `pattern` and `replacement` arguments (to allow for REGEX operations on color `names`). 
+- Add new hexagon logo.  
+- `newpal()` gains `pattern` and `replacement` arguments (to allow for REGEX operations on color `names`).  
 
 
 <!-- Details:  --> 
@@ -33,9 +31,9 @@ Changes since last release:
 
 ## Details 
 
-- deprecate `pal = "add"` keyword for `seecol()`
-- update **[unicol](https://CRAN.R-project.org/package=unicol)** references [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol). 
-
+- Deprecate `pal = "add"` keyword for `seecol()`. 
+- Update **[unicol](https://CRAN.R-project.org/package=unicol)** references [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol).  
+- Reduce image sizes. 
 
 <!-- Development version:  --> 
 
