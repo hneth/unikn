@@ -108,9 +108,6 @@ mark(labels = c("It is also flexible", "but to be handled with care"),
      col = c("white", "black"), col_bg = c(pal_seeblau[[5]], "gold"))
      
 # Using x_layout and y_layout:
-mark(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
-     cex = 1.4, font = 2, col = "white", col_bg = Petrol,
-     x = NA, y = .85, x_layout = "center", y_layout = "even", new_plot = "slide")
      
 mark(labels = c("One, and", "two, and", "three and four is", "plenty and perhaps enough..."), 
      cex = 1.4, font = 2, col = "white", col_bg = Bordeaux,

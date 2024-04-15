@@ -85,8 +85,6 @@ are recycled to match \code{length(labels)}.
 \code{post} uses the base graphics system \code{graphics::}.
 }
 \examples{
-post(labels = "Post this line with default settings.", new_plot = "xbox")
-
 # Create a new xbox: 
 post(labels = "This is a test.", new_plot = "xbox", 
      cex = 1.2, font = 2, col_bg = pal_seeblau[[5]])

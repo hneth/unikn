@@ -103,10 +103,6 @@ lbl_line <- c("This is neat, true, and terribly important.")
 uline(labels = lbl_line, new_plot = "blank")  # create a new plot
 uline(labels = "(which is why we underline it).", y = .40, cex = 1.2)  # add to plot
 
-# Using x_layout and y_layout:
-uline(labels = c("Ene,", "mene, miste,", "es rappelt", "in der Kiste."), 
-     cex = 1.4, font = 2, col = Grau, col_bg = Pinky,
-     x = 1.2, y = .85, x_layout = "right", y_layout = "even", new_plot = "slide")
                                       
 }
 \seealso{
