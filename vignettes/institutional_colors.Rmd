@@ -47,7 +47,7 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
 </a>
 
 The color palettes included in the **unikn** package are based on the CD\ manual of the [University of Konstanz](https://www.uni-konstanz.de/). 
@@ -63,7 +63,7 @@ Installing **[unicol](`r url_unicol_cran`)** currently provides access to a dive
 
 <!-- unicol pkg logo and link: -->
 <a href = "`r url_unicol_cran`">
-<img src = "../inst/pix/logo_unicol.png" alt = "unicol::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
+<img src = "../inst/pix/logo_unicol.png" alt = "unicol::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
 </a>
 
 
@@ -140,7 +140,7 @@ mpg_pal <- newpal(col = c(rgb( 17, 102,  86, maxColorValue = 255), "white", "#DD
                   as_df = FALSE)
 ```
 
-```{r def-col-mpg-example, echo = FALSE, fig.width = 5, fig.asp = 1, fig.align = 'center'}
+```{r def-col-mpg-example, echo = FALSE, fig.width = 4.5, fig.asp = 1, fig.align = 'center'}
 seecol(pal = mpg_pal, col_brd = "black", lwd_brd = .5)
 ```
 
@@ -241,7 +241,7 @@ The `newpal()` function of **unikn** provides a convenient wrapper for defining 
 Its main argument `col` uses a vector of color objects that make up the new palette, whereas `names` and `as_df` allow specifying color names and switching between returning the new palette as a vector or data base.    
 Importantly, the color objects of `col` can be provided as RGB\ values, as R\ color names, or as HEX\ values:
 
-```{r newpal-mpg-3, fig.width = 5, fig.asp = 1, fig.align = 'center'}
+```{r newpal-mpg-3, fig.width = 4.5, fig.asp = 1, fig.align = 'center'}
 mpg_pal_3 <- newpal(col = c(rgb( 17, 102,  86, maxColorValue = 255), "white", "#DDDED6"),
                     names = c("MPG green", "white", "MPG grey"),
                     as_df = FALSE)
@@ -249,7 +249,7 @@ mpg_pal_3 <- newpal(col = c(rgb( 17, 102,  86, maxColorValue = 255), "white", "#
 
 The new color palette `mpg_pal_3` contains the three basic colors of `mpg_pal` (shown above):
 
-```{r seecol-mpg-3, fig.width = 5, fig.asp = 1, fig.align = 'center'}
+```{r seecol-mpg-3, fig.width = 4.5, fig.asp = 1, fig.align = 'center'}
 seecol(mpg_pal_3, 
        main = "My new color palette", col_brd = "black", lwd_brd = .5)
 ```
@@ -263,7 +263,7 @@ my_mpg_pal <- usecol(mpg_pal_3, n = 5)
 
 The resulting color palette `my_mpg_pal` recreates the colors of the **unikn** color palette `mpg_pal` (shown above):
 
-```{r seecol-mpg-5, fig.width = 5, fig.asp = 1, fig.align = 'center'}
+```{r seecol-mpg-5, fig.width = 4.5, fig.asp = 1, fig.align = 'center'}
 seecol(my_mpg_pal, main = "My new MPG color palette", 
        col_brd = "black", lwd_brd = .5)
 ```
@@ -282,7 +282,7 @@ This concludes our illustration of defining a new colors and color palettes.
 
 Once a new palette has been defined (and is available in your current R environment), the `seecol()` and `usecol()` functions allow comparing, scaling, and using them in the same fashion as the native **unikn** color palettes: 
 
-```{r compare-custom-pals, eval = TRUE, fig.width = 5, fig.asp = .55, fig.align = 'center', collapse = TRUE}
+```{r compare-custom-pals, eval = TRUE, fig.width = 4.5, fig.asp = .55, fig.align = 'center', collapse = TRUE}
 # Scaled palettes: 
 seecol(list(mpg_pal, pal_unikn), n = 7,
        pal_names = c("Max Planck", "Uni Konstanz"),
@@ -337,7 +337,7 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)   
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
 </a> 
 
 The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 

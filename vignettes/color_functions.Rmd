@@ -33,7 +33,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
 </a>
 
 This vignette explains the colors, color palettes, and color-related functions provided by the **unikn** package. 
@@ -551,7 +551,7 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)   
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
 </a> 
 
 The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and color functions: 

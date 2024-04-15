@@ -45,7 +45,7 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
 </a>
 
 This vignette explains the **unikn** functions for plotting graphical elements and text decorations. 
@@ -87,7 +87,7 @@ As the text functions of **unikn** add styled text to an existing plot, we must 
 
 Here are both commands with their default settings: 
 
-```{r slide-def, fig.align = 'center', fig.width = 4, fig.height = 3}
+```{r slide-def, fig.align = 'center', fig.width = 3.5, fig.height = 2.5}
 slide()  # plot default slide
 ```
 
@@ -101,7 +101,7 @@ Both functions accept additional arguments to customize their appearance.
 
 The background and border colors of slides can be changed by setting their `col`, `border`, and `lwd` arguments:
 
-```{r slide-col, fig.align = 'center', fig.width = 4, fig.height = 3}
+```{r slide-col, fig.align = 'center', fig.width = 3.5, fig.height = 2.5}
 slide(col = pal_seeblau[[1]], border = Petrol, lwd = 5)  # set colors of slide background and border
 slide(col = pal_peach[[2]], border = NA)  # colored slide without a border
 ```
@@ -119,8 +119,8 @@ By default, both `slide` and `xbox` fill the entire plotting region (i.e., all m
 The width of a slide is set to 4/3\ of its height (of\ 1). 
 To change this default, use the `dim`\ argument for specifying the slide's x- and y-dimensions, respectively:
 
-```{r slide-dim, fig.align = 'center', fig.width = 6, fig.height = 2}
-slide(dim = c(3, 1))  # a slide 3 times wider than high
+```{r slide-dim, fig.align = 'center', fig.width = 4.5, fig.height = 1.5}
+slide(dim = c(3, 1))  # a slide 3x wider than high
 ```
 
 Note that changes in slide dimensions are invisible when viewing images interactively, as R automatically scales images to the size of the canvass. They mostly affect the relation between metrics when adding elements to an\ object.
@@ -128,7 +128,7 @@ Note that changes in slide dimensions are invisible when viewing images interact
 Similarly, an xbox has the default dimensions of a unit square (i.e., `dim = c(1, 1)`). 
 To change this default, use the `dim` argument for specifying the xbox's `x`- and `y`-dimensions, respectively:
 
-```{r xbox-dim, fig.align = 'center', fig.width = 2, fig.height = 4}
+```{r xbox-dim, fig.align = 'center', fig.width = 1.5, fig.height = 3}
 xbox(col = Petrol, dim  = c(1, 2))  # an xbox 2 times higher than wide
 ```
 
@@ -187,7 +187,7 @@ par(mar = c(1, 1, 1, 1))
 ```
 
 
-```{r mark-messy-plot, echo = TRUE, fig.width = 6, fig.height = 4, out.width = "60%"}
+```{r mark-messy-plot, echo = TRUE, fig.width = 5.5, fig.height = 3.5, out.width = "60%"}
 # Some pre-existing plot: 
 n <- 20
 set.seed(1)
@@ -211,7 +211,7 @@ par(opar)
 
 If no pre-existing plot is available, setting the `new_plot` argument to either\ `"blank"` or\ `"slide"` will generate a new default plot (by calling the `slide()` function described above):
 
-```{r mark-new-plot, echo = TRUE, fig.width = 4, fig.height = 4, out.width = "35%"}
+```{r mark-new-plot, echo = TRUE, fig.width = 3.5, fig.height = 3.5, out.width = "35%"}
 # A sentence to plot: 
 s <- c("Markieren",
        "ist ein Bestandteil",
@@ -704,7 +704,7 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)   
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "160px" style = "width: 160px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
 </a> 
 
 The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 
