@@ -1,5 +1,5 @@
 
-# unikn 0.9.0.9010
+# unikn 1.0.0
 
 This is the current development version of **unikn** at <https://github.com/hneth/unikn/>. 
 
