@@ -1,13 +1,12 @@
 
 # unikn 1.0.0
 
-This is the current development version of **unikn** at <https://github.com/hneth/unikn/>. 
-
-**unikn** 1.0.0 is to be released in **April 2024**.
+This release of **unikn** (v1.0.0) mostly acknowledges the package's stable state. [2024-04-16] 
 
 <!-- Log of changes: --> 
 
 Changes since last release: 
+
 
 <!-- Major changes: --> 
 
@@ -28,16 +27,17 @@ Changes since last release:
 
 <!-- Details:  --> 
 
-
 ## Details 
 
 - Deprecate `pal = "add"` keyword for `seecol()`. 
-- Update **[unicol](https://CRAN.R-project.org/package=unicol)** references [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol).  
-- Reduce image sizes. 
+- Update **[unicol](https://CRAN.R-project.org/package=unicol)** references [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol). 
+- Reduce number of examples and image sizes. 
+
 
 <!-- Development version:  --> 
 
 The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
+
 
 <!-- Previous versions: -->  
 
@@ -99,41 +99,15 @@ Changes since last release:
 
 ## Major changes 
 
-- Add color palettes of the following academic institutions:  
-
-    - [Caltech](https://www.caltech.edu/): `caltech_pal_1`, `caltech_pal_2`, `caltech_pal_3` 
-    - [Free University Berlin](https://www.fu-berlin.de/en/index.html): `fu_pal_0`, `fu_pal_1`, `fu_pal_2`, `fu_pal_3` 
-    - [Humboldt University Berlin](https://www.hu-berlin.de/en): `hu_pal_1`, `hu_pal_2` 
-    - [LMU Munich](https://www.lmu.de/en/index.html): `lmu_pal_1`, `lmu_pal_2`, `lmu_pal_3` 
-    - [University of Bonn](https://www.uni-bonn.de/en): `uni_bonn_1`, `uni_bonn_2` 
-    - [University of Göttingen](https://uni-goettingen.de/): `uni_goettingen_1`, `uni_goettingen_2`, `uni_goettingen_3` 
-    - [University of Hamburg](https://www.uni-hamburg.de/): `uni_hamburg_1`, `uni_hamburg_2`  
-    - [University of Jena](https://www.uni-jena.de/): `uni_jena_1`, `uni_jena_2` 
-    - [Kiel University](https://www.uni-kiel.de/en/): `uni_kiel_1`, `uni_kiel_2` 
-    - [University of Köln](https://www.uni-koeln.de/): `uni_koeln_1`, `uni_koeln_2` 
-    - [University of Mannheim](https://www.uni-mannheim.de/): `uni_mannheim_1`, `uni_mannheim_2` 
-    - [University of Regensburg](https://www.uni-regensburg.de/): `uni_regensburg_1`, `uni_regensburg_2`, `uni_regensburg_3` 
-    - [University of Ulm](https://www.uni-ulm.de/): `uni_ulm_1`, `uni_ulm_2` 
-    - [Rensselaer Polytechnic Institute](https://www.rpi.edu/): `rpi_pal_1`, `rpi_pal_2`, `rpi_pal_3` 
-    - [RPTU Kaiserslautern-Landau](https://rptu.de/): `rptu_pal` 
+- Add color palettes of many academic institutions (migrated to R\ package **[unicol](https://CRAN.R-project.org/package=unicol)**).
 
 
 <!-- Blank line.  --> 
 
-
 ## Minor changes 
 
-- Updated color palettes:
+- Updated color palettes (migrated to R\ package **[unicol](https://CRAN.R-project.org/package=unicol)**).
 
-    - [ETH Zurich](https://ethz.ch/de.html): Renamed `eth_pal`, `eth_pal_light`, `eth_pal_grey` 
-    to `eth_pal_1`, `eth_pal_2`, `eth_pal_3`, respectively 
-    - [Max Planck Society](https://www.mpg.de/en): `mpg_pal` (based on RGB values and extended to 5 colors) 
-    - [University of Freiburg](https://uni-freiburg.de/): `uni_freiburg_0`, `uni_freiburg_1`, `uni_freiburg_2`,   
-    (added to palettes from\ 2022: `uni_freiburg_br`, `uni_freiburg_blue`, `uni_freiburg_grey`, `uni_freiburg_info`)  
-    - [University of Konstanz](https://www.uni-konstanz.de/): Renamed `uni_konstanz` and `uni_konstanz_pref` 
-    to `uni_konstanz_1` and `uni_konstanz_2`, respectively 
-  
-  
 <!-- Blank line.  --> 
 
 
@@ -379,6 +353,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-04-15.]
+[File `NEWS.md` updated on 2024-04-16.]
 
 <!-- eof. -->
