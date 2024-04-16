@@ -13,7 +13,12 @@ url_unikn(url = "https://www.uni-konstanz.de/")
 \code{url_unikn} removes various patterns (e.g., 
 \code{"http", "https", "://", "www."}) from the 
 front of a given URL and returns the remaining character string 
-with a figure dash prefix.
+with an n-dash (Unicode \code{\\u2013}) prefix, 
+rather than the former figure dash (\code{\\u2012}) prefix 
+(as the latter created issues on Fedora Linux).
+}
+\details{
+A figure dash created
 }
 \examples{
 url_unikn("https://www.uni-konstanz.de/")

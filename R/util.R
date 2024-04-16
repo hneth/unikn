@@ -63,8 +63,8 @@ set_seed <- function(seed = NULL){
 #' \code{url_unikn} removes various patterns (e.g., 
 #' \code{"http", "https", "://", "www."}) from the 
 #' front of a given URL and returns the remaining character string 
-#' with an n-dash (Unicode \code{\u2013}) prefix, 
-#' rather than the former figure dash (\code{\u2012}) prefix 
+#' with an n-dash (Unicode \code{\\u2013}) prefix, 
+#' rather than the former figure dash (\code{\\u2012}) prefix 
 #' (as the latter created issues on Fedora Linux).
 #' 
 #' A figure dash created 
