@@ -350,9 +350,9 @@ The following vignettes provide instructions and examples for using the **unikn*
 
 | Nr.  | Vignette | Content    |        
 | ---: |:---------|:-----------|
-| 1. | [Colors](colors.html) | Colors and color functions |
-| 2. | [Color recipes](color_recipes.html) | Recipes for color-related tasks |
+| 1. | [Colors](colors.html)                   | Colors and color functions |
+| 2. | [Color recipes](color_recipes.html)     | Recipes for color-related tasks |
 | 3. | [Institutional colors](color_inst.html) | Creating color palettes for other institutions |
-| 4. | [Text](text.html)     | Text boxes and decorations | 
+| 4. | [Text](text.html)                       | Text boxes and decorations | 
 
 <!-- eof. -->
