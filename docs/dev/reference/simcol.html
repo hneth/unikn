@@ -38,16 +38,16 @@ to some target color col_target."><meta property="og:image" content="https://hne
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/colors.html">Colors and color functions</a>
+      <a href="../articles/color_functions.html">Colors and color functions</a>
     </li>
     <li>
       <a href="../articles/color_recipes.html">Color recipes</a>
     </li>
     <li>
-      <a href="../articles/color_inst.html">Institutional colors</a>
+      <a href="../articles/inst_colors.html">Institutional colors</a>
     </li>
     <li>
-      <a href="../articles/text.html">Text decoration</a>
+      <a href="../articles/text_decorations.html">Text decoration</a>
     </li>
   </ul></li>
 <li>
@@ -85,7 +85,7 @@ to some target color <code>col_target</code>.</p>
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">simcol</span><span class="op">(</span></span>
 <span>  <span class="va">col_target</span>,</span>
-<span>  col_candidates <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  col_candidates <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/color_functions.html" class="external-link">colors</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  tol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">50</span>, <span class="fl">75</span><span class="op">)</span>,</span>
 <span>  distinct <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  plot <span class="op">=</span> <span class="cn">TRUE</span></span>
@@ -129,7 +129,7 @@ Default: <code>plot = TRUE</code>.</p></dd>
     <div id="details">
     <h2>Details</h2>
     <p><code>simcol</code> returns a vector of the (named) colors or color values in 
-<code>col_candidates</code> (set to <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> of <strong>grDevices</strong> per default) 
+<code>col_candidates</code> (set to <code><a href="https://rdrr.io/r/grDevices/color_functions.html" class="external-link">colors()</a></code> of <strong>grDevices</strong> per default) 
 that are similar to the specified target color <code>col_target</code>.</p>
 <p>If <code>plot = TRUE</code>, <code>simcol</code> also visualizes the detected colors  
 (by passing its result to <code><a href="seecol.html">seecol</a></code>, as a side-effect).</p>
