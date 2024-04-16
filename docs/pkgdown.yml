@@ -4,9 +4,9 @@ pkgdown_sha: ~
 articles:
   color_functions: color_functions.html
   color_recipes: color_recipes.html
-  institutional_colors: institutional_colors.html
-  text_boxes_and_decorations: text_boxes_and_decorations.html
-last_built: 2024-04-16T07:00Z
+  inst_colors: inst_colors.html
+  text_decorations: text_decorations.html
+last_built: 2024-04-16T16:50Z
 urls:
   reference: https://hneth.github.io/unikn/reference
   article: https://hneth.github.io/unikn/articles
