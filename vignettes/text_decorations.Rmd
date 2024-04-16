@@ -4,9 +4,6 @@ author: "SPDS, uni.kn"
 date: "2023 01 01"
 output: 
   rmarkdown::html_vignette:
-    md_extensions: [ 
-      "-autolink_bare_uris" 
-    ]
     fig_caption: yes
 vignette: > 
   %\VignetteIndexEntry{Text boxes and decorations}
