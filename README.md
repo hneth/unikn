@@ -455,7 +455,7 @@ seecol(pal_google,
 <img src="inst/pix/README-newpal-google-1.png" width="450px" style="display: block; margin: auto;" />
 
 See the vignette on [Institutional
-colors](https://hneth.github.io/unikn/articles/color_inst.html) for
+colors](https://hneth.github.io/unikn/articles/inst_colors.html) for
 additional examples of creating color palettes.
 
 ### Finding colors
@@ -531,8 +531,8 @@ seecol(pal = list(olives, oranges),
 <img src="inst/pix/README-grepal-example-2-1.png" width="525px" style="display: block; margin: auto;" />
 
 See the vignette on [Colors and color
-functions](https://hneth.github.io/unikn/articles/colors.html) and
-[Color
+functions](https://hneth.github.io/unikn/articles/color_functions.html)
+and [Color
 recipes](https://hneth.github.io/unikn/articles/color_recipes.html) for
 additional examples.
 
@@ -545,8 +545,8 @@ functions assume that you want to add styled text to an existing plot,
 unless the `new_plot` argument specifies a type of plot to be generated.
 As the use of these functions is explained in detail in the vignette on
 [Text boxes and
-decorations](https://hneth.github.io/unikn/articles/text.html), we only
-provide some examples here.
+decorations](https://hneth.github.io/unikn/articles/text_decorations.html),
+we only provide some examples here.
 
 ### Mark
 
@@ -623,15 +623,15 @@ All **unikn** color palettes and user-generated color palette (e.g.,
 defined by `newpal()` or `usecol()`) can be used for graphical
 annotations. For example:
 
-<!-- - Using the color palettes of academic institutions (see the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/color_inst.html)) with text decoration functions:  -->
+<!-- - Using the color palettes of academic institutions (see the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/inst_colors.html)) with text decoration functions:  -->
 
 - Using the color palette `pal_google` (defined above):
 
 <img src="inst/pix/README-others-google-1.png" width="350px" style="display: block; margin: auto;" />
 
 See the vignette on [Text boxes and
-decorations](https://hneth.github.io/unikn/articles/text.html) for
-instructions and additional examples.
+decorations](https://hneth.github.io/unikn/articles/text_decorations.html)
+for instructions and additional examples.
 
 ### Caveats
 

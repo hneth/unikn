@@ -51,7 +51,7 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 
 This vignette shows how various color-related tasks can be solved by the tools provided by **unikn**. 
 <!-- Main color info: --> 
-(For a general introduction of the  **unikn** colors, color palettes, and color functions, see the vignette on [Colors and color functions](colors.html). The vignette on [text](text.html) provides information on creating text boxes and decorations.) 
+(For a general introduction of the  **unikn** colors, color palettes, and color functions, see the vignette on [Colors and color functions](color_functions.html). The vignette on [text](text_decorations.html) provides information on creating text boxes and decorations.) 
 
 
 The following recipes illustrate how plotting functions in R can use the colors and color palettes provided by the **unikn** package. 
@@ -289,7 +289,7 @@ seecol(pal_google,
        main = "Colors of the Google logo")
 ```
 
-The vignette on [Institutional colors](color_inst.html) provides additional examples for defining color palettes. 
+The vignette on [Institutional colors](inst_colors.html) provides additional examples for defining color palettes. 
 
 
 ## Finding colors by name 

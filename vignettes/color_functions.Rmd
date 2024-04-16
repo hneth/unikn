@@ -37,8 +37,8 @@ knitr::opts_chunk$set(echo = TRUE,
 </a>
 
 This vignette explains the colors, color palettes, and color-related functions provided by the **unikn** package. 
-(See the vignettes on [color recipes](color_recipes.html) and [institutional colors](color_inst.html) for more specialized tasks 
-and the vignette on [text](text.html) for information on text boxes and decorations.) 
+(See the vignettes on [color recipes](color_recipes.html) and [institutional colors](inst_colors.html) for more specialized tasks 
+and the vignette on [text](text_decorations.html) for information on text boxes and decorations.) 
 
 Please install and/or load the **unikn** package to get started: 
 
@@ -207,7 +207,7 @@ seecol("grad_all")
 seecol("add")
 ```
 
-See the vignette on [Institutional colors](color_inst.html) for creating color palettes for other institutions. 
+See the vignette on [Institutional colors](inst_colors.html) for creating color palettes for other institutions. 
 
 
 ### Other `seecol()` arguments 

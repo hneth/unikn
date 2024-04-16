@@ -72,8 +72,8 @@ Installing **[unicol](`r url_unicol_cran`)** currently provides access to a dive
 The rest of this vignette explains how the color-related tools of **unikn** can be used for **creating new color palettes**. 
 If you do so, please consider submitting it to be included in future versions of the **[unicol](`r url_unicol_cran`)** package. 
 <!-- Vignette info: --> 
-(For a general introduction of the **unikn** colors, color palettes, and color functions, see the vignettes on [Colors and color functions](colors.html) and [Color recipes](color_recipes.html). 
-The vignette on [Text boxes and decorations](text.html) provides information on plotting slides and text elements.) 
+(For a general introduction of the **unikn** colors, color palettes, and color functions, see the vignettes on [Colors and color functions](color_functions.html) and [Color recipes](color_recipes.html). 
+The vignette on [Text boxes and decorations](text_decorations.html) provides information on plotting slides and text elements.) 
 
 We install or load the **unikn** package to get started: 
 

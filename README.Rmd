@@ -40,13 +40,11 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 <!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191) -->
 <!-- Devel badges end. -->
 
-
 <!-- Release badges start: -->
 [![CRAN status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
 [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
 <!-- Release badges end. -->
-
 
 <!-- ALL status badges: 
 [![CRAN status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
@@ -441,7 +439,7 @@ seecol(pal_google,
        main = "Colors of Google")
 ```
 
-See the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/color_inst.html) for additional examples of creating color palettes. 
+See the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/inst_colors.html) for additional examples of creating color palettes. 
 
 
 ### Finding colors 
@@ -495,12 +493,12 @@ seecol(pal = list(olives, oranges),
        main = "Comparing olives with oranges")
 ```
 
-See the vignette on [Colors and color functions](https://hneth.github.io/unikn/articles/colors.html) and [Color recipes](https://hneth.github.io/unikn/articles/color_recipes.html) for additional examples. 
+See the vignette on [Colors and color functions](https://hneth.github.io/unikn/articles/color_functions.html) and [Color recipes](https://hneth.github.io/unikn/articles/color_recipes.html) for additional examples. 
 
 
 ## Text decorations
 
-Beyond colors and color functions, **unikn** provides functions for plotting graphical elements (like boxes) and styled text elements (with lines or background decorations). By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the `new_plot` argument specifies a type of plot to be generated. As the use of these functions is explained in detail in the vignette on [Text boxes and decorations](https://hneth.github.io/unikn/articles/text.html), we only provide some examples here.
+Beyond colors and color functions, **unikn** provides functions for plotting graphical elements (like boxes) and styled text elements (with lines or background decorations). By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the `new_plot` argument specifies a type of plot to be generated. As the use of these functions is explained in detail in the vignette on [Text boxes and decorations](https://hneth.github.io/unikn/articles/text_decorations.html), we only provide some examples here.
 
 ### Mark
 
@@ -561,7 +559,7 @@ post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
 All **unikn** color palettes and user-generated color palette (e.g., defined by `newpal()` or `usecol()`) can be used for graphical annotations. 
 For example: 
 
-<!-- - Using the color palettes of academic institutions (see the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/color_inst.html)) with text decoration functions:  -->
+<!-- - Using the color palettes of academic institutions (see the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/inst_colors.html)) with text decoration functions:  -->
 
 ```{r others-txt-demo, echo = FALSE, eval = FALSE, fig.align = 'center', out.width = "500px", fig.width = 4.5, fig.height = 3}
 x_pos <- .70
@@ -608,7 +606,7 @@ mark(labels = c("Don't", "be", "evil."),
      col = "white", col_bg = usecol(pal_google[c(2:4)]))
 ```
 
-See the vignette on [Text boxes and decorations](https://hneth.github.io/unikn/articles/text.html) 
+See the vignette on [Text boxes and decorations](https://hneth.github.io/unikn/articles/text_decorations.html) 
 for instructions and additional examples. 
 
 
