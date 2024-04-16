@@ -728,12 +728,6 @@ by relaxing some restrictions. Examples include:
 
 ### License
 
-<!-- unikn pkg logo and link: -->
-
-<a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "165px" style = "width: 165px; float: right; border:10;"/>
-</a>
-
 <!-- License: CC BY-SA 4.0 (also in Description) -->
 <!-- Image with link: -->
 
@@ -752,18 +746,23 @@ a work at
 
 ### Citation and References
 
+<!-- unikn pkg logo and link: -->
+
+<a href = "https://CRAN.R-project.org/package=unikn">
+<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "165px" style = "width: 165px; float: right; border:10;"/>
+</a>
+
 To support our efforts, please cite the **unikn** package in derivations
 or publications:
 
 <!-- Citation / reference (in APA format): -->
 
 - Neth, H., & Gradwohl, N., (2024). unikn: Graphical elements of the
-  University of Konstanz’s corporate design.  
-  Social Psychology and Decision Sciences, University of Konstanz,
-  Germany.  
-  Computer software (R package version 1.0.0, April 16, 2024).  
+  University of Konstanz’s corporate design. Social Psychology and
+  Decision Sciences, University of Konstanz, Germany. Computer software
+  (R package version 1.0.0, April 16, 2024).  
   Retrieved from <https://CRAN.R-project.org/package=unikn>.  
-  doi [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191)
+  <https://doi.org/10.5281/zenodo.7096191>
 
 <!-- BibTeX:  -->
 
@@ -790,7 +789,7 @@ remain with their original creators:
   (Version 1.6, September 2015)  
 - [Colours for complex
   graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)  
-- Strichpunkt GmbH, [‒
+- Strichpunkt GmbH, [–
   strichpunkt-design.de](https://www.strichpunkt-design.de/)
 
 ------------------------------------------------------------------------
