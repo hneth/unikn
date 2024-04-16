@@ -65,9 +65,7 @@ set_seed <- function(seed = NULL){
 #' front of a given URL and returns the remaining character string 
 #' with an n-dash (Unicode \code{\\u2013}) prefix, 
 #' rather than the former figure dash (\code{\\u2012}) prefix 
-#' (as the latter created issues on Fedora Linux).
-#' 
-#' A figure dash created 
+#' (as the latter created issues on Fedora Linux systems). 
 #' 
 #' @param url The url to be written (as copied from a web browser).
 #' 
