@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2024 04 15
+## spds, uni.kn | 2024 04 16
 ## -------------------------
 
 ## site info: ----------
@@ -18,7 +18,7 @@ authors:
     href: https://www.spds.uni-konstanz.de/
 
 development:
-  mode: devel # devel OR release
+  mode: release # devel OR release
 
 # template:
 #  bootstrap: 5
