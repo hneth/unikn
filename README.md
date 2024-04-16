@@ -786,9 +786,9 @@ remain with their original creators:
 
 - [The University of Konstanz’s corporate
   design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/)
-  (Version 1.6, September 2015)  
+  (Version 1.6, September 2015)
 - [Colours for complex
-  graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)  
+  graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
 - Strichpunkt GmbH, [–
   strichpunkt-design.de](https://www.strichpunkt-design.de/)
 

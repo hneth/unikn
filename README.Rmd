@@ -40,11 +40,13 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 <!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191) -->
 <!-- Devel badges end. -->
 
+
 <!-- Release badges start: -->
 [![CRAN status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
 [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
 <!-- Release badges end. -->
+
 
 <!-- ALL status badges: 
 [![CRAN status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
@@ -493,30 +495,33 @@ seecol(pal = list(olives, oranges),
        main = "Comparing olives with oranges")
 ```
 
-See the vignette on [Colors and color functions](https://hneth.github.io/unikn/articles/color_functions.html) and [Color recipes](https://hneth.github.io/unikn/articles/color_recipes.html) for additional examples. 
+See the vignette on [Colors and color functions](https://hneth.github.io/unikn/articles/color_functions.html) and [Color recipes](https://hneth.github.io/unikn/articles/color_recipes.html) for additional examples.
 
 
 ## Text decorations
 
 Beyond colors and color functions, **unikn** provides functions for plotting graphical elements (like boxes) and styled text elements (with lines or background decorations). By default, the text-decoration functions assume that you want to add styled text to an existing plot, unless the `new_plot` argument specifies a type of plot to be generated. As the use of these functions is explained in detail in the vignette on [Text boxes and decorations](https://hneth.github.io/unikn/articles/text_decorations.html), we only provide some examples here.
 
+
 ### Mark
 
-The `mark()` function allows emphasizing text by plotting it with colored background (to provide the functionality of "Markieren"):  
+The `mark()` function allows emphasizing text by plotting it with colored background (to provide the functionality of "Markieren"): 
 
 ```{r mark-new-plot, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 3, out.width = "250px", fig.height = 3}
 mark(labels = c("Markieren", "ist ein Bestandteil", "von Studieren."), 
      x = 0, y = .8, y_layout = .03, cex = 1.5, new_plot = "slide")
 ```
 
+
 ### Underline
 
-The `uline()` function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"):  
+The `uline()` function allows emphasizing text by plotting it with colored underlining (to provide the functionality of "Unterstreichen"): 
 
 ```{r uline-demo, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 3, out.width = "250px", fig.height = 3}
 uline(labels = c("Linear", "Authentic", "Flexible", "Open", "Practical"), 
       x = .05, y = .9, y_layout = "even", cex = 1.1, font = 2, new_plot = "slide")
 ```
+
 
 ### Post
 
@@ -535,6 +540,7 @@ post(labels = c("creative.", "together"), new_plot = "xbox",
      col_bg = pal_seegruen[[1]], col = c(Petrol, Pinky))
 ```
 
+
 ### Headings
 
 The `heading()` function is a convenient wrapper around `mark`:  
@@ -542,6 +548,7 @@ The `heading()` function is a convenient wrapper around `mark`:
 ```{r heading-demo-1, echo = TRUE, eval = TRUE, fig.align = 'center', fig.width = 2, out.width = "200px", fig.height = 3}
 heading(labels = c("pa-", "ra-", "die-", "sisch"))
 ```
+
 
 ### URLs
 
@@ -557,7 +564,7 @@ post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
 ### Using custom color palettes 
 
 All **unikn** color palettes and user-generated color palette (e.g., defined by `newpal()` or `usecol()`) can be used for graphical annotations. 
-For example: 
+For example:
 
 <!-- - Using the color palettes of academic institutions (see the vignette on [Institutional colors](https://hneth.github.io/unikn/articles/inst_colors.html)) with text decoration functions:  -->
 
@@ -708,9 +715,9 @@ Retrieved from <https://CRAN.R-project.org/package=unikn>.
 
 <!-- BibTeX:  -->
 
-A BibTeX entry for LaTeX users is:
+A BibTeX entry for LaTeX users is: 
 
-```{r pkg-unikn-citation, echo = FALSE, eval = TRUE, comment = "", highlight = FALSE}
+```{r pkg-citation, echo = FALSE, eval = TRUE, comment = "", highlight = FALSE}
 # From package citation:
 x <- citation(package = 'unikn')
 # print(x, prefix = "")
@@ -721,9 +728,10 @@ toBibtex(x)
 
 The copyrights to all [uni.kn](https://www.uni-konstanz.de/) designs remain with their original creators: 
 
-- [The University of Konstanz’s corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (Version 1.6, September 2015)  
-- [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)  
+- [The University of Konstanz’s corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (Version 1.6, September 2015) 
+- [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) 
 - Strichpunkt GmbH, [`r url_unikn("https://www.strichpunkt-design.de/")`](https://www.strichpunkt-design.de/) 
+
 
 
 ------ 
