@@ -45,7 +45,7 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:0;"/>
 </a>
 
 This vignette explains the **unikn** functions for plotting graphical elements and text decorations. 
@@ -87,11 +87,11 @@ As the text functions of **unikn** add styled text to an existing plot, we must 
 
 Here are both commands with their default settings: 
 
-```{r slide-def, fig.align = 'center', fig.width = 3.5, fig.height = 2.5}
+```{r slide-def, fig.align = 'center', fig.width = 3, fig.height = 2}
 slide()  # plot default slide
 ```
 
-```{r xbox-def, fig.align = 'center', fig.width = 2, fig.height = 2}
+```{r xbox-def, fig.align = 'center', fig.width = 1.5, fig.height = 1.5}
 xbox()  # plot default xbox
 ```
 
@@ -101,14 +101,14 @@ Both functions accept additional arguments to customize their appearance.
 
 The background and border colors of slides can be changed by setting their `col`, `border`, and `lwd` arguments:
 
-```{r slide-col, fig.align = 'center', fig.width = 3.5, fig.height = 2.5}
+```{r slide-col, fig.align = 'center', fig.width = 3, fig.height = 2}
 slide(col = pal_seeblau[[1]], border = Petrol, lwd = 5)  # set colors of slide background and border
 slide(col = pal_peach[[2]], border = NA)  # colored slide without a border
 ```
 
 Similarly, the background color of xboxes can be changed by the `col` argument:
 
-```{r xbox-col, fig.align = 'center', fig.width = 2, fig.height = 2}
+```{r xbox-col, fig.align = 'center', fig.width = 1.5, fig.height = 1.5}
 xbox(col = Pinky)  # set background color of xbox
 ```
 
@@ -119,7 +119,7 @@ By default, both `slide` and `xbox` fill the entire plotting region (i.e., all m
 The width of a slide is set to 4/3\ of its height (of\ 1). 
 To change this default, use the `dim`\ argument for specifying the slide's x- and y-dimensions, respectively:
 
-```{r slide-dim, fig.align = 'center', fig.width = 4.5, fig.height = 1.5}
+```{r slide-dim, fig.align = 'center', fig.width = 3, fig.height = 1}
 slide(dim = c(3, 1))  # a slide 3x wider than high
 ```
 
@@ -128,11 +128,12 @@ Note that changes in slide dimensions are invisible when viewing images interact
 Similarly, an xbox has the default dimensions of a unit square (i.e., `dim = c(1, 1)`). 
 To change this default, use the `dim` argument for specifying the xbox's `x`- and `y`-dimensions, respectively:
 
-```{r xbox-dim, fig.align = 'center', fig.width = 1.5, fig.height = 3}
+```{r xbox-dim, fig.align = 'center', fig.width = 1, fig.height = 2}
 xbox(col = Petrol, dim  = c(1, 2))  # an xbox 2 times higher than wide
 ```
 
 The two strokes of the\ X (in the top right corner) are orthogonal when viewing the `xbox` at the aspect ratio indicated by `dim` (i.e., here: at a ratio of width x = 1 to height y = 2). When viewing the box at any different aspect ratio, the X appears to be distorted. Hence, viewing and printing plots at the desired aspect ratio helps when creating an xbox.
+
 
 ## Plotting styled text
 
@@ -706,7 +707,7 @@ The following vignettes provide instructions and examples for using the **unikn*
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:0;"/>
 </a> 
 
 <!-- Table of vignettes: -->

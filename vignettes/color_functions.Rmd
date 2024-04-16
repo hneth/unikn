@@ -33,7 +33,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:0;"/>
 </a>
 
 This vignette explains the colors, color palettes, and color-related functions provided by the **unikn** package. 
@@ -355,7 +355,7 @@ seecol(four_cols, main = "Four named colors with added transparency")
 Setting opacity for comparing of multiple color palettes: 
 
 ```{r transparency-all, fig.width = 5, fig.height = 4, fig.align = 'center'}
-seecol("grad", alpha = 0.67, main = "Seeing color palettes with added transparency")
+seecol("grad", alpha = 0.67, main = "Seeing transparent color palettes")
 ```
 
 
@@ -472,7 +472,7 @@ The name `ac` is an abbreviation of "adjust color", but also a mnemonic aid for 
 We have seen that the main `usecol()` function allows stretching and squeezing color palettes and thus creating complex color gradients. 
 An even simpler way for creating linear color gradients is provided by the `shades_of()` function:
 
-```{r shades-of-1, fig.width = 5, fig.asp = .8, fig.align = 'center'}
+```{r shades-of-1, fig.width = 4.5, fig.asp = .8, fig.align = 'center'}
 seecol(shades_of(n = 5, col_1 = Karpfenblau), main = "5 shades of Karpfenblau")
 ```
 
@@ -534,7 +534,6 @@ This concludes our quick tour through the colors and color functions of the **un
 We hope that they enable you to find, design, and use beautiful color palettes ---\ and spice up your visualizations by vivid and flamboyant colors! 
 
 
-
 ## Resources
 
 The following versions of **unikn** and corresponding resources are currently available: 
@@ -553,7 +552,7 @@ The following vignettes provide instructions and examples for using the **unikn*
 
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
+<img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:0;"/>
 </a> 
 
 <!-- Table of vignettes: -->
