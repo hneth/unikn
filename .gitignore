@@ -1,4 +1,4 @@
-## .gitignore | unikn | 2024 01 26:
+## .gitignore | unikn | 2024 04 16:
 
 ## 1. generic stuff: -----
 
@@ -9,7 +9,7 @@
 .DS_Store
 
 # Output files:
-*.html
+# *.html
 
 ## 2. R stuff: -----
 
