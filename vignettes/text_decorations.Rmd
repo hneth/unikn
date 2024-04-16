@@ -705,20 +705,20 @@ B. Online documentation:  | [Release version](https://hneth.github.io/unikn/)   
 
 ## Vignettes
 
+The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 
+
 <!-- unikn pkg logo and link: -->
 <a href = "https://CRAN.R-project.org/package=unikn">
 <img src = "../inst/pix/unikn.png" alt = "unikn::" align = "right" width = "155px" style = "width: 155px; float: right; border:0;"/>
 </a> 
 
-The following vignettes provide instructions and examples for using the **unikn** colors, color palettes, and functions: 
-
 <!-- Table of vignettes: -->
 
 | Nr.  | Vignette | Content    |        
 | ---: |:---------|:-----------|
-| 1. | [Colors](colors.html)                   | Colors and color functions |
-| 2. | [Color recipes](color_recipes.html)     | Recipes for color-related tasks |
-| 3. | [Institutional colors](color_inst.html) | Creating color palettes for other institutions |
-| 4. | [Text](text.html)                       | Text boxes and decorations | 
+| 1. | [Colors](colors_and_functions.html)      | Colors and color functions                     |
+| 2. | [Color recipes](color_recipes.html)      | Recipes for color-related tasks                |
+| 3. | [Institutional colors](inst_colors.html) | Creating color palettes for other institutions |
+| 4. | [Text](text_decorations.html)            | Text boxes and decorations                     | 
 
 <!-- eof. -->
