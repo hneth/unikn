@@ -5,6 +5,9 @@ date: "2023 07 28"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
+    md_extensions: [ 
+      "-autolink_bare_uris" 
+    ]
 vignette: > 
   %\VignetteIndexEntry{Colors and color functions}
   %\VignetteEncoding{UTF-8}
