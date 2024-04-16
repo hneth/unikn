@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9001</span>
       </span>
     </div>
 
@@ -241,7 +241,7 @@
 <p>Changes since last release:</p>
 <div class="section level3">
 <h3 id="major-changes-0-4-0">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-4-0"></a></h3>
-<ul><li>Add a <code><a href="../reference/grepal.html">grepal()</a></code> function to match patterns in the names of <code><a href="https://rdrr.io/r/grDevices/color_functions.html" class="external-link">colors()</a></code> or color palettes.</li>
+<ul><li>Add a <code><a href="../reference/grepal.html">grepal()</a></code> function to match patterns in the names of <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> or color palettes.</li>
 <li>Change color sequence of <code>pal_unikn_pref</code> to increase contrast between adjacent colors.</li>
 </ul><!-- Blank line.  --></div>
 <div class="section level3">
@@ -296,7 +296,7 @@ Show HEX codes on two alternating lines (or with diagonal labels) when length of
 <div class="section level3">
 <h3 id="details-0-2-0">Details<a class="anchor" aria-label="anchor" href="#details-0-2-0"></a></h3>
 <ul><li>Bug fix: Correct an error in <code><a href="../reference/seecol.html">seecol()</a></code> and <code><a href="../reference/usecol.html">usecol()</a></code> that prevented use in other packages (by requiring list of palettes).</li>
-<li>Bug fix: Prevent showing duplicate color names in <code><a href="../reference/seecol.html">seecol()</a></code>, due to searching both the current set of color palettes and <strong>base</strong> R <code><a href="https://rdrr.io/r/grDevices/color_functions.html" class="external-link">colors()</a></code>. Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming.</li>
+<li>Bug fix: Prevent showing duplicate color names in <code><a href="../reference/seecol.html">seecol()</a></code>, due to searching both the current set of color palettes and <strong>base</strong> R <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code>. Different names for the same color are now separated by a forward slash (/), duplicates are removed before naming.</li>
 <li>Bug fix: Allow <code>isHexCol()</code> to recognize hexadecimal color values starting with lowercase letters.</li>
 <li>Cleanup: Remove packages not needed from list of suggested packages.</li>
 </ul><!-- Previous version: --><hr></div>

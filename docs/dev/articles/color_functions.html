@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">unikn</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9001</span>
       </span>
     </div>
 
@@ -117,12 +117,12 @@ uni.kn</h4>
     
 <!-- unikn pkg logo and link: -->
 <p><a href="https://CRAN.R-project.org/package=unikn" class="external-link">
-<img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="155px" style="width: 155px; float: right; border:0;"></a></p>
+<img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="150px" style="width: 150px; float: right; border:0;"></a></p>
 <p>This vignette explains the colors, color palettes, and color-related
 functions provided by the <strong>unikn</strong> package. (See the
 vignettes on <a href="color_recipes.html">color recipes</a> and <a href="inst_colors.html">institutional colors</a> for more specialized
-tasks and the vignette on <a href="text_decorations.html">text</a> for information
-on text boxes and decorations.)</p>
+tasks and the vignette on <a href="text_decorations.html">text</a> for
+information on text boxes and decorations.)</p>
 <p>Please install and/or load the <strong>unikn</strong> package to get
 started:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -496,7 +496,7 @@ opacity/transparency:</p>
 <p><img src="color_functions_files/figure-html/transparency-four-1.png" width="60%" style="display: block; margin: auto;"></p>
 <p>Setting opacity for comparing of multiple color palettes:</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="st">"grad"</span>, alpha <span class="op">=</span> <span class="fl">0.67</span>, main <span class="op">=</span> <span class="st">"Seeing color palettes with added transparency"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="st">"grad"</span>, alpha <span class="op">=</span> <span class="fl">0.67</span>, main <span class="op">=</span> <span class="st">"Seeing transparent color palettes"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="color_functions_files/figure-html/transparency-all-1.png" width="60%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
@@ -567,7 +567,7 @@ find and return visually similar ones:</p>
 <span><span class="co">#&gt;     deeppink    deeppink2      maroon1      maroon2   violetred1   violetred2 </span></span>
 <span><span class="co">#&gt;   "deeppink"  "deeppink2"    "maroon1"    "maroon2" "violetred1" "violetred2"</span></span></code></pre></div>
 <p>By default, <code><a href="../reference/simcol.html">simcol()</a></code> searches though all named R colors
-of <code><a href="https://rdrr.io/r/grDevices/color_functions.html" class="external-link">colors()</a></code> (of the <strong>grDevices</strong> package),
+of <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code> (of the <strong>grDevices</strong> package),
 but adjusting the <code>col_candidates</code> and <code>tol</code>
 arguments allows for more fine-grained searches:</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
@@ -762,12 +762,11 @@ version</a></td>
 <div class="section level2">
 <h2 id="vignettes">Vignettes<a class="anchor" aria-label="anchor" href="#vignettes"></a>
 </h2>
+<p>The following vignettes provide instructions and examples for using
+the <strong>unikn</strong> colors, color palettes, and functions:</p>
 <!-- unikn pkg logo and link: -->
 <p><a href="https://CRAN.R-project.org/package=unikn" class="external-link">
-<img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="155px" style="width: 155px; float: right; border:0;"></a></p>
-<p>The following vignettes provide instructions and examples for using
-the <strong>unikn</strong> colors, color palettes, and color
-functions:</p>
+<img src="../inst/pix/unikn.png" alt="unikn::" align="right" width="150px" style="width: 150px; float: right; border:0;"></a></p>
 <!-- Table of vignettes: -->
 <table class="table">
 <colgroup>
@@ -793,7 +792,8 @@ functions:</p>
 </tr>
 <tr class="odd">
 <td align="right">3.</td>
-<td align="left"><a href="inst_colors.html">Institutional colors</a></td>
+<td align="left"><a href="inst_colors.html">Institutional
+colors</a></td>
 <td align="left">Creating color palettes for other institutions</td>
 </tr>
 <tr class="even">
