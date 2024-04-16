@@ -13,25 +13,26 @@ Changes since last release:
 ## Major changes 
 
 - When `seecol()` compares a list of color palettes:  
-   - add `scale_x` option to scale palettes to a fixed total width; 
-   - use list element names of the `pal` argument as default names.   
+   - Add a `scale_x` option to scale palettes to a fixed total width; 
+   - Use list element names of the `pal` argument as default names.   
 
 
 <!-- Minor changes: --> 
 
 ## Minor changes 
 
-- Add new hexagon logo.  
-- `newpal()` gains `pattern` and `replacement` arguments (to allow for REGEX operations on color `names`).  
-
+- `url_unikn()` prints an en-dash, rather than a figure dash (as the latter created issues on Fedora Linux systems).  
+- `newpal()` provides `pattern` and `replacement` arguments (to allow for REGEX operations on color `names`).  
 
 <!-- Details:  --> 
 
 ## Details 
 
+- Add a new hexagon logo. 
 - Deprecate `pal = "add"` keyword for `seecol()`. 
-- Update **[unicol](https://CRAN.R-project.org/package=unicol)** references [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol). 
 - Reduce number of examples and image sizes. 
+- Update **[unicol](https://CRAN.R-project.org/package=unicol)** references [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol). 
+
 
 
 <!-- Development version:  --> 
