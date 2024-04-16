@@ -9,7 +9,7 @@
 .DS_Store
 
 # Output files:
-*.html
+# *.html
 
 ## 2. R stuff: -----
 
