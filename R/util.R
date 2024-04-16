@@ -1,5 +1,5 @@
 ## util.R | unikn
-## spds | uni.kn |  2023 09 20
+## spds | uni.kn |  2024 04 16
 ## ---------------------------
 
 # General utility functions (mostly for internal use and not exported).
@@ -56,14 +56,18 @@ set_seed <- function(seed = NULL){
 
 
 
-# - url_unikn: Format an URL the unikn way ------ 
+# - url_unikn: Format an URL the uni.kn way ------ 
 
 #' \code{url_unikn} formats an URL the uni.kn way 
 #' 
 #' \code{url_unikn} removes various patterns (e.g., 
 #' \code{"http", "https", "://", "www."}) from the 
 #' front of a given URL and returns the remaining character string 
-#' with a figure dash prefix.
+#' with an n-dash (Unicode \code{\u2013}) prefix, 
+#' rather than the former figure dash (\code{\u2012}) prefix 
+#' (as the latter created issues on Fedora Linux).
+#' 
+#' A figure dash created 
 #' 
 #' @param url The url to be written (as copied from a web browser).
 #' 
@@ -106,7 +110,7 @@ url_unikn <- function(url = "https://www.uni-konstanz.de/"){
   # "\u2212": minus 
   
   # Add dash to front:
-  prefix <- "\u2012"
+  prefix <- "\u2013" # WAS: "\u2012"
   out <- paste0(prefix, " ", out)  # prefix + 1 space  
   
   return(out)
@@ -117,9 +121,6 @@ url_unikn <- function(url = "https://www.uni-konstanz.de/"){
 # url_unikn()
 # url_unikn("https://www.spds.uni-konstanz.de/")
 # url_unikn("https://www.uni-konstanz.de/www/https/http/_test_//")
-
-
-
 
 
 
