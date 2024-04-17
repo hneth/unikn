@@ -6,6 +6,7 @@
 
 # Color palettes: ------
 
+
 # (A) Basic color palettes: -----
 
 #   (1) unikn default (web/sRGB) palette: ---- 
@@ -150,6 +151,7 @@ pal_unikn_ppt <- pal_unikn_ppt[c(4:1, 10:5)] # seeblau (1) > white (5) > grey > 
 
 
 
+
 # (B) Additional unikn color palettes: -----
 
 ## Source: MS Excel file at
@@ -284,6 +286,7 @@ names(Seeblau) <- "Seeblau"
 # Seeblau # "#59C7EB"
 # names(Seeblau)
 
+
 #  (2) peach: -----
 
 #   (a) Table (from Excel file): ---- 
@@ -402,6 +405,7 @@ names(Peach) <- "Peach"
 # Peach  # "#FEA090"
 # names(Peach)
 
+
 #  (3) grau: ----- 
 
 #   (a) Table (from Excel file): ----  
@@ -516,6 +520,7 @@ names(Grau) <- "Grau"
 
 ## Check:
 # Grau  # "#9AA0A7"
+
 
 
 
@@ -638,6 +643,7 @@ names(Petrol) <- "Petrol"
 # Petrol  #  "#077187"
 
 
+
 #  (5) seegruen: -----
 
 #   (a) Table (from Excel file): ----  
@@ -753,6 +759,7 @@ names(Seegruen) <- "Seegruen"
 
 ## Check:
 # Seegruen  #  "#0A9086"
+
 
 
 
@@ -873,6 +880,7 @@ names(Karpfenblau) <- "Karpfenblau"
 # Karpfenblau  #  "#3E5496"
 
 
+
 #  (7) pinky: -----
 
 #   (a) Table (from Excel file): ----  
@@ -990,6 +998,7 @@ names(Pinky) <- "Pinky"
 Pinky  #  "#E0607E"
 
 
+
 #  (8) bordeaux: -----
 
 #   (a) Table (from Excel file): ----  
@@ -1105,6 +1114,7 @@ names(Bordeaux) <- "Bordeaux"
 
 ## Check:
 # Bordeaux  #  "#8E2043"
+
 
 
 #  (9) Ampeltöne: pal_signal -----
@@ -1242,6 +1252,7 @@ names(Signal) <- "Signal"
 
 ## Check:
 # Signal  # "#EFDC60"
+
 
 
 
