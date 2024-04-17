@@ -1,4 +1,43 @@
 
+# unikn 1.0.0.9001
+
+This is the development version of **unikn**, available at <https://github.com/hneth/unikn/>. 
+
+This version corresponds to the release of **unikn** (v1.0.0). [2024-04-16] 
+
+<!-- Log of changes: --> 
+
+Changes since last release: 
+
+
+<!-- Major changes: --> 
+
+## Major changes 
+
+- none yet. 
+
+<!-- Minor changes: --> 
+
+## Minor changes 
+
+- none yet. 
+
+<!-- Details:  --> 
+
+## Details 
+
+- Update online documentation. 
+
+
+<!-- Development version:  --> 
+
+The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
+
+
+<!-- Previous versions: -->  
+
+---------- 
+
 # unikn 1.0.0
 
 This release of **unikn** (v1.0.0) mostly acknowledges the package's stable state. [2024-04-16] 
@@ -34,13 +73,6 @@ Changes since last release:
 - Update **[unicol](https://CRAN.R-project.org/package=unicol)** references [from GitHub](https://github.com/hneth/unicol/) [to CRAN](https://CRAN.R-project.org/package=unicol). 
 
 
-
-<!-- Development version:  --> 
-
-The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
-
-
-<!-- Previous versions: -->  
 
 ---------- 
 
@@ -354,6 +386,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-04-16.]
+[File `NEWS.md` updated on 2024-04-17.]
 
 <!-- eof. -->
