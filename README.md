@@ -27,11 +27,10 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 
 # unikn 1.0.0.9001 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "165px" />
 
-<!-- unikn pkg logo and link: -->
-<!-- <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "165px" style = "width: 165px; float: right; border:10;"/>
-</a> 
--->
+<!-- unikn pkg logo and link (to CRAN): -->
+<!-- <a href = "https://CRAN.R-project.org/package=unikn"> -->
+<!-- <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "165px" style = "width: 165px; float: right; border:20;"/> -->
+<!-- </a>  -->
 <!-- Slogan: -->
 
 ### Enabling corporate design elements in R
@@ -796,6 +795,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2024-04-16.\]
+\[File `README.md` updated on 2024-04-18.\]
 
 <!-- eof. -->
