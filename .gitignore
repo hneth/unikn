@@ -11,6 +11,7 @@
 # Output files:
 # *.html
 
+
 ## 2. R stuff: -----
 
 # History files
@@ -69,6 +70,7 @@ _logo
 # files:
 .PowerFolder
 desktop.ini
+
 
 ## eof.
 
