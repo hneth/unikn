@@ -16,17 +16,19 @@ Changes since last release:
 
 - none yet. 
 
+
 <!-- Minor changes: --> 
 
 ## Minor changes 
 
 - none yet. 
 
+
 <!-- Details:  --> 
 
 ## Details 
 
-- Update online documentation. 
+- Update **[unicol](https://CRAN.R-project.org/package=unicol)** information and online documentation. 
 
 
 <!-- Development version:  --> 
@@ -386,6 +388,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-04-17.]
+[File `NEWS.md` updated on 2024-05-01.]
 
 <!-- eof. -->
