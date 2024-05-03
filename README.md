@@ -25,11 +25,11 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 1.0.0.9001 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "165px" />
+# unikn 1.0.0.9001 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link (to CRAN): -->
 <!-- <a href = "https://CRAN.R-project.org/package=unikn"> -->
-<!-- <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "165px" style = "width: 165px; float: right; border:20;"/> -->
+<!-- <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:20;"/> -->
 <!-- </a>  -->
 <!-- Slogan: -->
 
@@ -222,7 +222,7 @@ pal_unikn["seeblau3"]  # color by name
 <!-- unicol pkg logo and link: -->
 
 <a href = "https://CRAN.R-project.org/package=unicol">
-<img src = "./inst/pix/logo_unicol.png" alt = "unicol::" align = "right" width = "165px" style = "width: 165px; float: right; border:0;"/>
+<img src = "./inst/pix/logo_unicol.png" alt = "unicol::" align = "right" width = "150px" style = "width: 150px; float: right; border:0;"/>
 </a>
 
 In addition to the 16 specific color palettes of the [University of
@@ -748,7 +748,7 @@ a work at
 <!-- unikn pkg logo and link: -->
 
 <a href = "https://CRAN.R-project.org/package=unikn">
-<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "165px" style = "width: 165px; float: right; border:10;"/>
+<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:10;"/>
 </a>
 
 To support our efforts, please cite the **unikn** package in derivations
@@ -795,6 +795,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2024-05-02.\]
+\[File `README.md` updated on 2024-05-03.\]
 
 <!-- eof. -->
