@@ -1,5 +1,5 @@
 ## _pkgdown.yml | unikn
-## spds, uni.kn | 2024 05 01
+## spds, uni.kn | 2024 05 03
 ## -------------------------
 
 ## site info: ----------
@@ -20,9 +20,10 @@ authors:
 development:
   mode: devel # devel OR release
 
-# template:
-#  bootstrap: 5
-#  bootswatch: lumen # lumen spacelab sandstone flatly 
+template:
+  bootstrap: 5
+  # bootswatch: litera # release
+  bootswatch: spacelab # devel
 
 toc:
   depth: 3
