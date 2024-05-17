@@ -583,7 +583,7 @@ plot_table <- function(pal, col_par = NULL, alpha = 1,
 
 
 
-# 5. plot_scatter(): A plot of dots / points ------ 
+# 5. plot_scatter(): A plot of scattered dots / points ------ 
 
 # Note: ... passed to plot().
 
@@ -761,6 +761,8 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
 # 3d-effect (with perspective_3d <- TRUE):
 # plot_scatter(pal_unikn, n = 1000, alpha = 1, cex = 3, col_par = "black")
 
+
+# + plot_shapes(): An array of shapes / icons ------ 
 
 plot_shapes <- function(pal, col_par = NULL, alpha = 2/3, 
                         n = 1,     # scaling: number of shapes (per color in pal)
