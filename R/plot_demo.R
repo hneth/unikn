@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2024 02 14
+## spds | uni.kn | 2024 05 17
 ## --------------------------
 
 ## Demo functions for color palettes.
@@ -702,13 +702,14 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
     # remove border:
     # col_par <- NA
     
-  } 
+  } # if (perspective_3d).
   
   
   # Main plot: ---- 
   
   plot(#0, 0, type = "n",  # (a) empty plot
-    x = df$x, y = df$y, type = "p", pch = 21, bg = col_pal, col = col_par, cex = cex, # (b) generic plot
+    x = df$x, y = df$y, type = "p", 
+    pch = 21, bg = col_pal, col = col_par, cex = cex, # (b) generic plot
     xlim = c(x_min, x_max), ylim = c(y_min, y_max),  
     axes = plot_axes(col_par), # col.axis = col_par,
     xlab = NA, ylab = NA,
@@ -757,9 +758,105 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
 # x <- plot_scatter(pal_unikn_pref, alpha = 2/3, seed = 101)
 # x
 
-# 3d-effect:
+# 3d-effect (with perspective_3d <- TRUE):
 # plot_scatter(pal_unikn, n = 1000, alpha = 1, cex = 3, col_par = "black")
 
+
+plot_shapes <- function(pal, col_par = NULL, alpha = 2/3, 
+                        n = 1,     # scaling: number of shapes (per color in pal)
+                        cex = NULL,  # type-specific parameter(s): point size
+                        # args with defaults:
+                        main = NULL,
+                        sub = NULL, 
+                        pal_name = NULL, 
+                        seed = NULL,
+                        ...
+){
+  
+  # Prepare: ---- 
+  
+  # Parameters currently fixed:
+  
+  # Defaults:
+  if (is.null(cex)){
+    # cex <- sample(c(2, 2.5, 3, 3.5, 4), size = n, replace = TRUE)  # (a) different sizes
+    cex <- 5  # (b) all same size
+  }
+  
+  # colors:
+  col_pal <- usecol(pal = pal, alpha = alpha)
+  n_col <- length(col_pal)
+  
+  # seed:
+  seed <- set_seed(seed)
+  # print(seed)  # replicability / 4debugging
+  
+  # par: ---- 
+  
+  opar <- par(no.readonly = TRUE)
+  
+  if (is.null(col_par)){ # set default:
+    col_par <- grDevices::grey(2/3, alpha = 1)  # NA hides border/subtitle
+  }
+  
+  if ((is.na(alpha) == FALSE) && (alpha < 1)){
+    col_par <- usecol(col_par, alpha = alpha)  # apply alpha
+  }
+  
+  par(col = col_par)
+  
+  par(mar = c(4, 3, 3, 2) + 0.1) # default: c(5, 4, 4, 2) + 0.1
+  
+  par(pty = "s") # generates a square plotting region
+  
+  
+  # Create data: ---- 
+  
+  # n <- 500
+  
+  i <- 1:n_col  # i colors
+  
+  x_min <- 1
+  x_max <- 5
+  y_min <- 1
+  y_max <- ((n_col - 1) %/% x_max) + 1
+  
+  
+  x <- ((i - 1) %%  x_max) + 1  # in left-right order
+  
+  y <- ((i - 1) %/% x_max) + 1
+  y <- (y_max - y) + 1  # in top-down order
+  
+  # Reduce/scale values:
+  x <- x
+  y <- y
+  
+  df <- data.frame(x = x, y = y)
+  
+  
+  # Main plot: ---- 
+  
+  plot(x = x, y = y, 
+       xlim = c(x_min, x_max), ylim = c(y_min, y_max), 
+       cex = cex, bg = col_pal, 
+       ...)  # pass pch
+  
+  
+  # +++ here now +++
+  
+  
+  # Output: ----
+  
+  on.exit(par(opar))
+  
+  print(df) # as side effect / 4debugging
+  
+  return(invisible(df))
+  
+} # plot_shapes().
+
+# Check:
+# plot_shapes(usecol(c("gold", "deepskyblue", "deeppink"), n = 13), pch = 23)
 
 
 # (C) Wrapper function: --------
