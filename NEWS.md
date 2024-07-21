@@ -388,6 +388,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-05-01.]
+[File `NEWS.md` updated on 2024-07-21.]
 
 <!-- eof. -->
