@@ -36,6 +36,7 @@ Changes since last release:
 The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
 
 
+
 <!-- Previous versions: -->  
 
 ---------- 
@@ -388,6 +389,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-07-21.]
+[File `NEWS.md` updated on 2024-10-20.]
 
 <!-- eof. -->
