@@ -57,11 +57,13 @@ allow emphasizing data points with color accents).
 
 }
 \seealso{
-\code{\link{theme_grau}} for an alternative theme.
+\code{\link{theme_grau}} for a grey theme; 
+\code{\link{theme_licht}} for a light theme.
 
 Other plot functions: 
 \code{\link{slide}()},
 \code{\link{theme_grau}()},
+\code{\link{theme_licht}()},
 \code{\link{xbox}()}
 }
 \concept{plot functions}
