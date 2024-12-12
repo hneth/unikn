@@ -79,7 +79,8 @@
 #' @family plot functions
 #' 
 #' @seealso 
-#' \code{\link{theme_grau}} for an alternative theme.  
+#' \code{\link{theme_grau}} for a grey theme; 
+#' \code{\link{theme_licht}} for a light theme.  
 #' 
 #' @import ggplot2 
 #'                          
@@ -140,7 +141,7 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 
 # - Documentation: ---- 
 
-#' Alternative theme (for ggplot2)
+#' A grey theme (for ggplot2)
 #' 
 #' \code{theme_grau} provides an alternative \bold{unikn} theme 
 #' to use in \bold{ggplot2} commands. 
@@ -190,7 +191,8 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 #' @family plot functions
 #' 
 #' @seealso 
-#' \code{\link{theme_unikn}} for default theme. 
+#' \code{\link{theme_unikn}} for default theme; 
+#' \code{\link{theme_licht}} for a light theme. 
 #' 
 #' @import ggplot2 
 #'                          
@@ -249,7 +251,6 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 
 
 
-
 # theme_licht: A light, but functional theme for ggplot2: ------ 
 
 # - Based on theme_minimal()
@@ -257,12 +258,66 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 
 # - Documentation: ---- 
 
-# ToDo:  +++ here now +++ 
-
+#' A light theme (for ggplot2)
+#' 
+#' \code{theme_licht} provides an alternative \bold{unikn} theme 
+#' to use in \bold{ggplot2} commands. 
+#' 
+#' \code{theme_licht} is light and no-nonsense, 
+#' and based on \code{theme_minimal}. 
+#' 
+#' This theme works well for dark colors and bright color accents, 
+#' but is of limited use with transparent colors. 
+#' 
+#' @param col_title Color of title (text) elements (optional, numeric).  
+#' Default: \code{col_title = grey(.10, 1)} (i.e., dark grey).  
+#' Consider using \code{col_title = unikn::pal_seeblau[[4]]}.  
+#' 
+#' @param base_size Base font size (optional, numeric). 
+#' Default: \code{base_size = 12}. 
+#' 
+#' @param base_family Base font family (optional, character). 
+#' Default: \code{base_family = "sans"}. 
+#' Options include \code{"mono"}, \code{"sans"} (default), and "serif". 
+#' 
+#' @param base_line_size Base line size (optional, numeric). 
+#' Default: \code{base_line_size = base_size/22}. 
+#' 
+#' @param base_rect_size Base rectangle size (optional, numeric). 
+#' Default: \code{base_rect_size = base_size/22}. 
+#' 
+#' @examples
+#' 
+#' \donttest{
+#' # Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):
+#'   
+#' library('ggplot2')  # theme_unikn requires ggplot2 
+#'    
+#' ggplot(datasets::iris) +
+#'   geom_jitter(aes(x = Sepal.Length, y = Sepal.Width, color = Species), size = 3, alpha = 2/3) +
+#'   facet_wrap(~Species) +
+#'   scale_color_manual(values = usecol(pal = c(Pinky, Seeblau, Seegruen))) +
+#'   labs(tag = "C",
+#'        title = "Iris sepals",
+#'        caption = "Data from datasets::iris") + 
+#'   coord_fixed(ratio = 3/2) + 
+#'   theme_licht()
+#' 
+#' }
+#' 
+#' @family plot functions
+#' 
+#' @seealso 
+#' \code{\link{theme_unikn}} for default theme;  
+#' \code{\link{theme_grau}} for a grey theme. 
+#' 
+#' @import ggplot2 
+#'                          
+#' @export 
 
 # - Definition: ---- 
 
-theme_licht <- function(col_title = grey(.10, 1), # dark grey 
+theme_licht <- function(col_title = grey(.10, 1), # dark grey, pal_seeblau[[4]] 
                         base_size = 12, 
                         base_family = "sans", 
                         base_line_size = base_size/22, 
@@ -302,7 +357,7 @@ theme_licht <- function(col_title = grey(.10, 1), # dark grey
       # panel.background = ggplot2::element_blank(), 
       # panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # light "grau" panel background
       # panel.grid = ggplot2::element_blank(), 
-      # panel.grid.major = ggplot2::element_line(color = grey(1, 1), linetype = "solid", size = ggplot2::rel(.90)), # "white" lines
+      # panel.grid.major = ggplot2::element_line(color = grey(.85, 1), linetype = "solid", size = ggplot2::rel(.50)), # light grey lines
       panel.grid.minor = ggplot2::element_blank(), 
       # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
       # background:  
