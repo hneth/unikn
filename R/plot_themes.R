@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2022 11 29
+## spds | uni.kn |  2024 12 12
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -245,6 +245,73 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       complete = TRUE)
   
 } # theme_grau().
+
+
+
+
+
+# theme_licht: A light, but functional theme for ggplot2: ------ 
+
+# - Based on theme_minimal()
+# - See <https://www.r-causal.org/#theming> for a similar theme and color options. 
+
+# - Documentation: ---- 
+
+# ToDo:  +++ here now +++ 
+
+
+# - Definition: ---- 
+
+theme_licht <- function(col_title = grey(.10, 1), # dark grey 
+                        base_size = 12, 
+                        base_family = "sans", 
+                        base_line_size = base_size/22, 
+                        base_rect_size = base_size/22
+) {ggplot2::theme_bw(base_size = base_size, 
+                     base_family = base_family, 
+                     base_line_size = base_line_size, 
+                     base_rect_size = base_rect_size) %+replace% 
+    ggplot2::theme(#
+      # titles: 
+      title = ggplot2::element_text(color = col_title, face = "bold",
+                                    margin = ggplot2::margin(t = 10, r = 4, b = 4, l = 4, unit = "pt")), 
+      plot.subtitle = ggplot2::element_text(color = grey(.15, 1), face = "plain", hjust = 0,
+                                            margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")), 
+      plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
+      ## axes:
+      # axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
+      # axis.ticks = ggplot2::element_line(color = "black", size = ggplot2::rel(.90)), 
+      # axis.title = ggplot2::element_text(color = grey(.10, 1)), 
+      axis.text =  ggplot2::element_text(color = grey(.10, 1), size = ggplot2::rel(.80)), 
+      ## legend: 
+      # legend.position = "bottom", 
+      # legend.title = ggplot2::element_text(color = pal_grau[[5]]), 
+      legend.text = ggplot2::element_text(color = grey(.10, 1), size = ggplot2::rel(.90)), 
+      # legend.background = ggplot2::element_blank(), 
+      # legend.key = ggplot2::element_blank(), 
+      ## strip: 
+      # strip.background = ggplot2::element_blank(),
+      # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
+      strip.background = ggplot2::element_rect(color = grey(.05, 1), fill = grey(.95, 1), size = ggplot2::rel(.90)), 
+      # strip.background = ggplot2::element_rect(fill = "transparent", color = NA, size = ggplot2::rel(1.0)),  # transparent strip 
+      # strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
+      #                                    margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), # larger than in theme_unikn() 
+      ## panel: 
+      # panel.border = ggplot2::element_blank(), 
+      # panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
+      # panel.background = ggplot2::element_blank(), 
+      # panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # light "grau" panel background
+      # panel.grid = ggplot2::element_blank(), 
+      # panel.grid.major = ggplot2::element_line(color = grey(1, 1), linetype = "solid", size = ggplot2::rel(.90)), # "white" lines
+      panel.grid.minor = ggplot2::element_blank(), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
+      # background:  
+      # plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
+      complete = TRUE)
+  
+} # theme_licht().
+
+
 
 
 
