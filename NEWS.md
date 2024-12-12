@@ -1,5 +1,5 @@
 
-# unikn 1.0.0.9001
+# unikn 1.0.0.9002
 
 This is the development version of **unikn**, available at <https://github.com/hneth/unikn/>. 
 
@@ -21,7 +21,7 @@ Changes since last release:
 
 ## Minor changes 
 
-- none yet. 
+- Add a light **ggplot2** theme `theme_licht()`. 
 
 
 <!-- Details:  --> 
@@ -389,6 +389,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-10-20.]
+[File `NEWS.md` updated on 2024-12-12.]
 
 <!-- eof. -->
