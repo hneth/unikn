@@ -37,22 +37,22 @@ Default: \code{base_line_size = base_size/22}.}
 Default: \code{base_rect_size = base_size/22}.}
 }
 \description{
-\code{theme_bwkn} provides an alternative bw-theme 
+\code{theme_bwkn} provides an alternative bw theme 
 for use in \bold{ggplot2} and \bold{unikn} contexts.
 }
 \details{
 \code{theme_bwkn} is light and no-nonsense, 
 and based on \code{theme_bw}. 
 
-This theme works well for dark colors and bright color accents, 
-but is of limited use with transparent colors.
+This theme works well for most visualizations 
+that require grid and plot panel boundaries.
 }
 \examples{
 
 \donttest{
 # Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):
   
-library('ggplot2')  # theme_unikn requires ggplot2 
+library('ggplot2')  # theme_bwkn requires ggplot2 
    
 ggplot(datasets::iris) +
   geom_jitter(aes(x = Sepal.Length, y = Sepal.Width, color = Species), size = 3, alpha = 2/3) +

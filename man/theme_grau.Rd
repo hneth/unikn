@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_themes.R
 \name{theme_grau}
 \alias{theme_grau}
-\title{A grey theme (for ggplot2)}
+\title{An alternative grey theme (for ggplot2)}
 \usage{
 theme_grau(
   col_title = grey(0, 1),
@@ -31,8 +31,8 @@ Default: \code{base_line_size = base_size/22}.}
 Default: \code{base_rect_size = base_size/22}.}
 }
 \description{
-\code{theme_grau} provides an alternative \bold{unikn} theme 
-to use in \bold{ggplot2} commands.
+\code{theme_grau} provides an alternative grey theme 
+for use in \bold{ggplot2} and \bold{unikn} contexts.
 }
 \details{
 \code{theme_grau} is no-nonsense, but fills  
@@ -46,7 +46,7 @@ but is of limited use with transparent colors.
 \donttest{
 # Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):
   
-library('ggplot2')  # theme_unikn requires ggplot2 
+library('ggplot2')  # theme_grau requires ggplot2 
    
 ggplot(datasets::iris) +
   geom_jitter(aes(x = Sepal.Length, y = Sepal.Width, color = Species), size = 3, alpha = 2/3) +

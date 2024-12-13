@@ -45,14 +45,14 @@ for use in \bold{ggplot2} and \bold{unikn} contexts.
 and based on \code{theme_minimal}. 
 
 This theme works well for most visualizations 
-that do not require grid lines.
+that do not require grid lines or panel boundaries.
 }
 \examples{
 
 \donttest{
 # Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):
   
-library('ggplot2')  # theme_unikn requires ggplot2 
+library('ggplot2')  # theme_minikn requires ggplot2 
    
 ggplot(datasets::iris) +
   geom_jitter(aes(x = Sepal.Length, y = Sepal.Width, color = Species), size = 3, alpha = 2/3) +
@@ -62,7 +62,7 @@ ggplot(datasets::iris) +
        title = "Iris sepals",
        caption = "Data from datasets::iris") + 
   coord_fixed(ratio = 3/2) + 
-  theme_minkn()
+  theme_minikn()
 
 }
 
