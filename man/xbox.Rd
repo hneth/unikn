@@ -37,8 +37,9 @@ xbox(dim = c(2, 1)) # 2:1 dimension (wider than high)
 
 Other plot functions: 
 \code{\link{slide}()},
+\code{\link{theme_bwkn}()},
 \code{\link{theme_grau}()},
-\code{\link{theme_licht}()},
+\code{\link{theme_minikn}()},
 \code{\link{theme_unikn}()}
 }
 \concept{plot functions}

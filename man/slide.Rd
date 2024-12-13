@@ -42,8 +42,9 @@ slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2)
 \code{\link{xbox}} to plot a box.
 
 Other plot functions: 
+\code{\link{theme_bwkn}()},
 \code{\link{theme_grau}()},
-\code{\link{theme_licht}()},
+\code{\link{theme_minikn}()},
 \code{\link{theme_unikn}()},
 \code{\link{xbox}()}
 }

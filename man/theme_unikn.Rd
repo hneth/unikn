@@ -58,12 +58,14 @@ allow emphasizing data points with color accents).
 }
 \seealso{
 \code{\link{theme_grau}} for a grey theme; 
-\code{\link{theme_licht}} for a light theme.
+\code{\link{theme_bwkn}} for a bw theme; 
+\code{\link{theme_minikn}} for a minimal theme.
 
 Other plot functions: 
 \code{\link{slide}()},
+\code{\link{theme_bwkn}()},
 \code{\link{theme_grau}()},
-\code{\link{theme_licht}()},
+\code{\link{theme_minikn}()},
 \code{\link{xbox}()}
 }
 \concept{plot functions}
