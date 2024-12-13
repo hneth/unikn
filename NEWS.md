@@ -21,8 +21,7 @@ Changes since last release:
 
 ## Minor changes 
 
-- Add a light **ggplot2** theme `theme_licht()`. 
-
+- Add `theme_bwkn()` and `theme_minikn()` as light, luminous, but functional **ggplot2** themes. 
 
 <!-- Details:  --> 
 
