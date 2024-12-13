@@ -142,10 +142,10 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 
 # - Documentation: ---- 
 
-#' A grey theme (for ggplot2)
+#' An alternative grey theme (for ggplot2)
 #' 
-#' \code{theme_grau} provides an alternative \bold{unikn} theme 
-#' to use in \bold{ggplot2} commands. 
+#' \code{theme_grau} provides an alternative grey theme 
+#' for use in \bold{ggplot2} and \bold{unikn} contexts. 
 #' 
 #' \code{theme_grau} is no-nonsense, but fills  
 #' panel backgrounds in "grau" (specifically, pal_seeggrau[[1]]). 
@@ -175,7 +175,7 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 #' \donttest{
 #' # Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):
 #'   
-#' library('ggplot2')  # theme_unikn requires ggplot2 
+#' library('ggplot2')  # theme_grau requires ggplot2 
 #'    
 #' ggplot(datasets::iris) +
 #'   geom_jitter(aes(x = Sepal.Length, y = Sepal.Width, color = Species), size = 3, alpha = 2/3) +
@@ -265,14 +265,14 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 
 #' An alternative bw-theme (for ggplot2)
 #' 
-#' \code{theme_bwkn} provides an alternative bw-theme 
+#' \code{theme_bwkn} provides an alternative bw theme 
 #' for use in \bold{ggplot2} and \bold{unikn} contexts. 
 #' 
 #' \code{theme_bwkn} is light and no-nonsense, 
 #' and based on \code{theme_bw}. 
 #' 
-#' This theme works well for dark colors and bright color accents, 
-#' but is of limited use with transparent colors. 
+#' This theme works well for most visualizations 
+#' that require grid and plot panel boundaries. 
 #' 
 #' @param col_title Color of text elements 
 #' used for plot title, axis titles, and legend (optional).
@@ -301,7 +301,7 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 #' \donttest{
 #' # Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):
 #'   
-#' library('ggplot2')  # theme_unikn requires ggplot2 
+#' library('ggplot2')  # theme_bwkn requires ggplot2 
 #'    
 #' ggplot(datasets::iris) +
 #'   geom_jitter(aes(x = Sepal.Length, y = Sepal.Width, color = Species), size = 3, alpha = 2/3) +
@@ -399,7 +399,7 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
 #' and based on \code{theme_minimal}. 
 #' 
 #' This theme works well for most visualizations 
-#' that do not require grid lines. 
+#' that do not require grid lines or panel boundaries. 
 #' 
 #' @param col_title Color of text elements 
 #' used for plot, axis and legend titles, as well as for strip titles. 
@@ -428,7 +428,7 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
 #' \donttest{
 #' # Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):
 #'   
-#' library('ggplot2')  # theme_unikn requires ggplot2 
+#' library('ggplot2')  # theme_minikn requires ggplot2 
 #'    
 #' ggplot(datasets::iris) +
 #'   geom_jitter(aes(x = Sepal.Length, y = Sepal.Width, color = Species), size = 3, alpha = 2/3) +
@@ -438,7 +438,7 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
 #'        title = "Iris sepals",
 #'        caption = "Data from datasets::iris") + 
 #'   coord_fixed(ratio = 3/2) + 
-#'   theme_minkn()
+#'   theme_minikn()
 #' 
 #' }
 #' 
