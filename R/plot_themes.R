@@ -435,7 +435,7 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
 #'   geom_jitter(aes(x = Sepal.Length, y = Sepal.Width, color = Species), size = 3, alpha = 2/3) +
 #'   facet_wrap(~Species) +
 #'   scale_color_manual(values = usecol(pal = c(Pinky, Seeblau, Seegruen))) +
-#'   labs(tag = "C",
+#'   labs(tag = "D",
 #'        title = "Iris sepals by species (using theme_minikn)",
 #'        caption = "Data from datasets::iris") + 
 #'   coord_fixed(ratio = 3/2) + 
