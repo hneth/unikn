@@ -49,8 +49,9 @@ allow emphasizing data points with color accents).
   
   ggplot(datasets::iris) +
     geom_jitter(aes(x = Petal.Length, y = Petal.Width, color = Species), size = 3, alpha = 2/3) +
+    facet_wrap(~Species) +
     scale_color_manual(values = usecol(pal = c(Pinky, Seeblau, Seegruen))) +
-    labs(tag = "A", title = "Iris petals",
+    labs(tag = "A", title = "Iris petals by species (using theme_unikn)",
          caption = "Data from datasets::iris") + 
     theme_unikn()
 }

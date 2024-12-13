@@ -53,7 +53,7 @@ ggplot(datasets::iris) +
   facet_wrap(~Species) +
   scale_color_manual(values = usecol(pal = c(Pinky, Seeblau, Seegruen))) +
   labs(tag = "B",
-       title = "Iris sepals",
+       title = "Iris sepals by species (using theme_grau)",
        caption = "Data from datasets::iris") + 
   coord_fixed(ratio = 3/2) + 
   theme_grau()
