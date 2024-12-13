@@ -107,20 +107,20 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
                                             margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")),  
       plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
-      axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
-      axis.ticks = ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
-      axis.title = ggplot2::element_text(color = grey(.10, 1)), 
-      axis.text =  ggplot2::element_text(color = grey(.20, 1), size = ggplot2::rel(.90)), 
+      axis.line =  ggplot2::element_line(color = grey(.05, 1), size = ggplot2::rel(1)), 
+      axis.ticks = ggplot2::element_line(color = grey(.05, 1), size = ggplot2::rel(1)), 
+      axis.title = ggplot2::element_text(color = grey(.10, 1), size = ggplot2::rel(1)), 
+      axis.text =  ggplot2::element_text(color = grey(.15, 1), size = ggplot2::rel(.95)), 
       # legend: 
-      legend.title = ggplot2::element_text(color = grey(.10, 1)), 
-      legend.text = ggplot2::element_text(color = grey(.20, 1), size = ggplot2::rel(.90)), 
+      legend.title = ggplot2::element_text(color = grey(.10, 1), size = ggplot2::rel(1)), 
+      legend.text = ggplot2::element_text(color  = grey(.15, 1), size = ggplot2::rel(.95)), 
       legend.background = ggplot2::element_blank(), 
       legend.key = ggplot2::element_blank(), 
       # strip: 
       # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
-      strip.background = ggplot2::element_rect(fill = grey(.95, 1), color = grey(.05, 1),  # light grey strip background 
+      strip.background = ggplot2::element_rect(color = grey(.05, 1), fill = grey(.95, 1),  # light grey strip background 
                                                size = ggplot2::rel(.90)), 
-      strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
+      strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(.95), 
                                          margin = ggplot2::margin(t = 4, r = 4, b = 4, l = 4, unit = "pt")), 
       # panel: 
       # panel.border = ggplot2::element_blank(), 
@@ -213,22 +213,22 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
                      base_line_size = base_line_size, 
                      base_rect_size = base_rect_size) %+replace% 
     ggplot2::theme(#
-      # titles: 
+      # titles:
       title = ggplot2::element_text(color = col_title, face = "bold",
                                     margin = ggplot2::margin(t = 10, r = 4, b = 4, l = 4, unit = "pt")), 
-      plot.subtitle = ggplot2::element_text(color = grey(.10, 1), face = "plain", hjust = 0,
+      plot.subtitle = ggplot2::element_text(color = pal_grau[[5]], face = "plain", hjust = 0,
                                             margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")), 
-      plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
+      plot.caption = ggplot2::element_text(color =  pal_grau[[4]], face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
-      axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
-      axis.ticks = ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
-      axis.title = ggplot2::element_text(color = grey(.10, 1)), 
-      axis.text =  ggplot2::element_text(color = grey(.20, 1), size = ggplot2::rel(.90)), 
-      # legend: 
+      axis.line =  ggplot2::element_line(color = pal_grau[[4]], size = ggplot2::rel(1)), 
+      axis.ticks = ggplot2::element_line(color = pal_grau[[4]], size = ggplot2::rel(1)), 
+      axis.title = ggplot2::element_text(color = pal_grau[[5]], size = ggplot2::rel(.95)), 
+      axis.text =  ggplot2::element_text(color = pal_grau[[5]], size = ggplot2::rel(.90)), 
+      # legend:
       legend.title = ggplot2::element_text(color = pal_grau[[5]]), 
-      legend.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(.90)), 
-      legend.background = ggplot2::element_blank(), 
-      legend.key = ggplot2::element_blank(), 
+      legend.text = ggplot2::element_text(color = pal_grau[[5]], size = ggplot2::rel(.90)), 
+      legend.background = ggplot2::element_blank(),
+      legend.key = ggplot2::element_blank(),
       # strip: 
       # strip.background = ggplot2::element_blank(),
       # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
@@ -242,9 +242,9 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       # panel.background = ggplot2::element_blank(), 
       panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # light "grau" panel background
       # panel.grid = ggplot2::element_blank(), 
-      panel.grid.major = ggplot2::element_line(color = grey(1, 1), linetype = "solid", size = ggplot2::rel(.90)), # "white" lines
+      panel.grid.major = ggplot2::element_line(color = grey(1.0, 1), linetype = "solid", size = ggplot2::rel(.90)), # "white" lines
       panel.grid.minor = ggplot2::element_blank(), 
-      # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(.80)), 
       # background:  
       plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
       complete = TRUE)
@@ -353,25 +353,25 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
       axis.text =  ggplot2::element_text(color = col_line,  size = ggplot2::rel(0.90)), 
       ## legend: 
       # legend.position = "bottom", 
-      legend.title = ggplot2::element_text(color = col_title), 
+      legend.title = ggplot2::element_text(color = col_title, size = ggplot2::rel(.95)), 
       legend.text = ggplot2::element_text(color = grey(.10, 1), size = ggplot2::rel(.90)), 
       # legend.background = ggplot2::element_blank(), 
       # legend.key = ggplot2::element_blank(), 
       ## strip: 
       # strip.background = ggplot2::element_blank(),
       # strip.background = ggplot2::element_rect(color = pal_seeblau[[5]], fill = pal_seeblau[[1]], size = ggplot2::rel(5/3)), 
-      strip.background = ggplot2::element_rect(color = col_line, fill = grey(.95, 1), size = ggplot2::rel(1.0)), 
+      strip.background = ggplot2::element_rect(color = col_line, fill = grey(.95, 1), size = ggplot2::rel(.90)), 
       # strip.background = ggplot2::element_rect(fill = "transparent", color = NA, size = ggplot2::rel(1.0)),  # transparent strip 
       # strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
       #                                    margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), # larger than in theme_unikn() 
       ## panel: 
-      # panel.border = ggplot2::element_blank(), 
-      panel.border = ggplot2::element_rect(fill = "transparent", color = col_line, linetype = "solid", size = ggplot2::rel(1.00)), 
+      panel.border = ggplot2::element_blank(),
+      # panel.border = ggplot2::element_rect(fill = "transparent", color = col_line, linetype = "solid", size = ggplot2::rel(.90)), 
       # panel.background = ggplot2::element_blank(), 
       # panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # light "grau" panel background
       # panel.grid = ggplot2::element_blank(), 
       # panel.grid.major = ggplot2::element_line(color = grey(.85, 1), linetype = "solid", size = ggplot2::rel(.50)), # light grey lines
-      panel.grid.minor = ggplot2::element_blank(), 
+      # panel.grid.minor = ggplot2::element_blank(), 
       # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
       # background:  
       # plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
