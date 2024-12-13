@@ -27,6 +27,7 @@ Changes since last release:
 
 ## Details 
 
+- Minor tweaks of `theme_unikn()` and `theme_grau()`. 
 - Update **[unicol](https://CRAN.R-project.org/package=unicol)** information and online documentation. 
 
 
@@ -388,6 +389,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-12-12.]
+[File `NEWS.md` updated on 2024-12-13.]
 
 <!-- eof. -->
