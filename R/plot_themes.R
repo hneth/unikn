@@ -70,8 +70,9 @@
 #'   
 #'   ggplot(datasets::iris) +
 #'     geom_jitter(aes(x = Petal.Length, y = Petal.Width, color = Species), size = 3, alpha = 2/3) +
+#'     facet_wrap(~Species) +
 #'     scale_color_manual(values = usecol(pal = c(Pinky, Seeblau, Seegruen))) +
-#'     labs(tag = "A", title = "Iris petals",
+#'     labs(tag = "A", title = "Iris petals by species (using theme_unikn)",
 #'          caption = "Data from datasets::iris") + 
 #'     theme_unikn()
 #' }
@@ -107,7 +108,7 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
       plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
       axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
-      axis.ticks = ggplot2::element_line(color = "black", size = ggplot2::rel(.90)), 
+      axis.ticks = ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
       axis.title = ggplot2::element_text(color = grey(.10, 1)), 
       axis.text =  ggplot2::element_text(color = grey(.20, 1), size = ggplot2::rel(.90)), 
       # legend: 
@@ -126,8 +127,8 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
       panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.05, 1), 
                                            linetype = "solid", size = ggplot2::rel(.80)), 
       # panel.grid = ggplot2::element_blank(), 
-      panel.grid.major = ggplot2::element_line(color = grey(.75, 1), linetype = "solid", size = ggplot2::rel(.50)), 
-      # panel.grid.minor = ggplot2::element_line(color = grey(.75, 1), linetype = "solid", size = ggplot2::rel(.40)), # "dotted"  
+      panel.grid.major = ggplot2::element_line(color = grey(.80, 1), linetype = "solid", size = ggplot2::rel(.50)), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.80, 1), linetype = "solid", size = ggplot2::rel(.40)), # "dotted"  
       panel.grid.minor = ggplot2::element_blank(), 
       panel.background = ggplot2::element_rect(fill = grey(1, 1), color = NA), # "white" panel background 
       # background:  
@@ -182,7 +183,7 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 #'   facet_wrap(~Species) +
 #'   scale_color_manual(values = usecol(pal = c(Pinky, Seeblau, Seegruen))) +
 #'   labs(tag = "B",
-#'        title = "Iris sepals",
+#'        title = "Iris sepals by species (using theme_grau)",
 #'        caption = "Data from datasets::iris") + 
 #'   coord_fixed(ratio = 3/2) + 
 #'   theme_grau()
@@ -220,7 +221,7 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
       axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
-      axis.ticks = ggplot2::element_line(color = "black", size = ggplot2::rel(.90)), 
+      axis.ticks = ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
       axis.title = ggplot2::element_text(color = grey(.10, 1)), 
       axis.text =  ggplot2::element_text(color = grey(.20, 1), size = ggplot2::rel(.90)), 
       # legend: 
@@ -308,7 +309,7 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 #'   facet_wrap(~Species) +
 #'   scale_color_manual(values = usecol(pal = c(Pinky, Seeblau, Seegruen))) +
 #'   labs(tag = "C",
-#'        title = "Iris sepals",
+#'        title = "Iris sepals by species (using theme_bwkn)",
 #'        caption = "Data from datasets::iris") + 
 #'   coord_fixed(ratio = 3/2) + 
 #'   theme_bwkn()
@@ -435,7 +436,7 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
 #'   facet_wrap(~Species) +
 #'   scale_color_manual(values = usecol(pal = c(Pinky, Seeblau, Seegruen))) +
 #'   labs(tag = "C",
-#'        title = "Iris sepals",
+#'        title = "Iris sepals by species (using theme_minikn)",
 #'        caption = "Data from datasets::iris") + 
 #'   coord_fixed(ratio = 3/2) + 
 #'   theme_minikn()
