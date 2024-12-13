@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2024 12 12
+## spds | uni.kn |  2024 12 13
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -80,7 +80,8 @@
 #' 
 #' @seealso 
 #' \code{\link{theme_grau}} for a grey theme; 
-#' \code{\link{theme_licht}} for a light theme.  
+#' \code{\link{theme_bwkn}} for a bw theme; 
+#' \code{\link{theme_minikn}} for a minimal theme. 
 #' 
 #' @import ggplot2 
 #'                          
@@ -192,7 +193,8 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 #' 
 #' @seealso 
 #' \code{\link{theme_unikn}} for default theme; 
-#' \code{\link{theme_licht}} for a light theme. 
+#' \code{\link{theme_bwkn}} for a bw theme; 
+#' \code{\link{theme_minikn}} for a minimal theme. 
 #' 
 #' @import ggplot2 
 #'                          
@@ -251,27 +253,35 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 
 
 
-# theme_licht: A light, but functional theme for ggplot2: ------ 
+# theme_bwkn: A light, but functional theme for ggplot2: ------ 
 
-# - Based on theme_minimal()
-# - See <https://www.r-causal.org/#theming> for a similar theme and color options. 
+# - Based on theme_bw()
+# - See <https://www.r-causal.org/#theming> and 
+#   the themes of <https://easystats.github.io/see/> 
+#   for a similar theme and color options. 
+
 
 # - Documentation: ---- 
 
-#' A light theme (for ggplot2)
+#' An alternative bw-theme (for ggplot2)
 #' 
-#' \code{theme_licht} provides an alternative \bold{unikn} theme 
-#' to use in \bold{ggplot2} commands. 
+#' \code{theme_bwkn} provides an alternative bw-theme 
+#' for use in \bold{ggplot2} and \bold{unikn} contexts. 
 #' 
-#' \code{theme_licht} is light and no-nonsense, 
-#' and based on \code{theme_minimal}. 
+#' \code{theme_bwkn} is light and no-nonsense, 
+#' and based on \code{theme_bw}. 
 #' 
 #' This theme works well for dark colors and bright color accents, 
 #' but is of limited use with transparent colors. 
 #' 
-#' @param col_title Color of title (text) elements (optional, numeric).  
+#' @param col_title Color of text elements 
+#' used for plot title, axis titles, and legend (optional).
 #' Default: \code{col_title = grey(.10, 1)} (i.e., dark grey).  
 #' Consider using \code{col_title = unikn::pal_seeblau[[4]]}.  
+#' 
+#' @param col_line Color of line elements 
+#' used for axis lines, text and ticks, plot caption and subtitle, and panel border.
+#' Default: \code{col_title = grey(.40, 1)} (i.e., medium grey).
 #' 
 #' @param base_size Base font size (optional, numeric). 
 #' Default: \code{base_size = 12}. 
@@ -301,7 +311,7 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 #'        title = "Iris sepals",
 #'        caption = "Data from datasets::iris") + 
 #'   coord_fixed(ratio = 3/2) + 
-#'   theme_licht()
+#'   theme_bwkn()
 #' 
 #' }
 #' 
@@ -309,7 +319,8 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 #' 
 #' @seealso 
 #' \code{\link{theme_unikn}} for default theme;  
-#' \code{\link{theme_grau}} for a grey theme. 
+#' \code{\link{theme_grau}} for a grey theme; 
+#' \code{\link{theme_minikn}} for a minimal theme. 
 #' 
 #' @import ggplot2 
 #'                          
@@ -317,11 +328,12 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 
 # - Definition: ---- 
 
-theme_licht <- function(col_title = grey(.10, 1), # dark grey, pal_seeblau[[4]] 
-                        base_size = 12, 
-                        base_family = "sans", 
-                        base_line_size = base_size/22, 
-                        base_rect_size = base_size/22
+theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]] 
+                       col_line =  grey(.40, 1),  # medium grey (used for axes and titles)
+                       base_size = 12, 
+                       base_family = "sans", 
+                       base_line_size = base_size/22, 
+                       base_rect_size = base_size/22
 ) {ggplot2::theme_bw(base_size = base_size, 
                      base_family = base_family, 
                      base_line_size = base_line_size, 
@@ -330,30 +342,30 @@ theme_licht <- function(col_title = grey(.10, 1), # dark grey, pal_seeblau[[4]]
       # titles: 
       title = ggplot2::element_text(color = col_title, face = "bold",
                                     margin = ggplot2::margin(t = 10, r = 4, b = 4, l = 4, unit = "pt")), 
-      plot.subtitle = ggplot2::element_text(color = grey(.15, 1), face = "plain", hjust = 0,
+      plot.subtitle = ggplot2::element_text(color = col_line, face = "plain", hjust = 0,
                                             margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")), 
-      plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
+      plot.caption = ggplot2::element_text(color = col_line, face = "plain", size = ggplot2::rel(.90), hjust = 1), 
       ## axes:
-      # axis.line =  ggplot2::element_line(color = "black", size = ggplot2::rel(1)), 
-      # axis.ticks = ggplot2::element_line(color = "black", size = ggplot2::rel(.90)), 
-      # axis.title = ggplot2::element_text(color = grey(.10, 1)), 
-      axis.text =  ggplot2::element_text(color = grey(.10, 1), size = ggplot2::rel(.80)), 
+      axis.line =  ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.25)),
+      axis.ticks = ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.25)),
+      axis.title = ggplot2::element_text(color = col_title, size = ggplot2::rel(0.95)), 
+      axis.text =  ggplot2::element_text(color = col_line,  size = ggplot2::rel(0.90)), 
       ## legend: 
       # legend.position = "bottom", 
-      # legend.title = ggplot2::element_text(color = pal_grau[[5]]), 
+      legend.title = ggplot2::element_text(color = col_title), 
       legend.text = ggplot2::element_text(color = grey(.10, 1), size = ggplot2::rel(.90)), 
       # legend.background = ggplot2::element_blank(), 
       # legend.key = ggplot2::element_blank(), 
       ## strip: 
       # strip.background = ggplot2::element_blank(),
-      # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
-      strip.background = ggplot2::element_rect(color = grey(.05, 1), fill = grey(.95, 1), size = ggplot2::rel(.90)), 
+      # strip.background = ggplot2::element_rect(color = pal_seeblau[[5]], fill = pal_seeblau[[1]], size = ggplot2::rel(5/3)), 
+      strip.background = ggplot2::element_rect(color = col_line, fill = grey(.95, 1), size = ggplot2::rel(1.0)), 
       # strip.background = ggplot2::element_rect(fill = "transparent", color = NA, size = ggplot2::rel(1.0)),  # transparent strip 
       # strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
       #                                    margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), # larger than in theme_unikn() 
       ## panel: 
       # panel.border = ggplot2::element_blank(), 
-      # panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
+      panel.border = ggplot2::element_rect(fill = "transparent", color = col_line, linetype = "solid", size = ggplot2::rel(1.00)), 
       # panel.background = ggplot2::element_blank(), 
       # panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # light "grau" panel background
       # panel.grid = ggplot2::element_blank(), 
@@ -364,8 +376,134 @@ theme_licht <- function(col_title = grey(.10, 1), # dark grey, pal_seeblau[[4]]
       # plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
       complete = TRUE)
   
-} # theme_licht().
+} # theme_bwkn().
 
+
+
+# theme_minikn: A minimal, but functional theme for ggplot2: ------ 
+
+# - Based on theme_minimal()
+# - See <https://www.r-causal.org/#theming> and 
+#   the themes of <https://easystats.github.io/see/> 
+#   for a similar theme and color options. 
+
+
+# - Documentation: ---- 
+
+#' An alternative minimal theme (for ggplot2)
+#' 
+#' \code{theme_minikn} provides an alternative minimal theme 
+#' for use in \bold{ggplot2} and \bold{unikn} contexts. 
+#' 
+#' \code{theme_minikn} is a minimal and no-nonsense, 
+#' and based on \code{theme_minimal}. 
+#' 
+#' This theme works well for most visualizations 
+#' that do not require grid lines. 
+#' 
+#' @param col_title Color of text elements 
+#' used for plot, axis and legend titles, as well as for strip titles. 
+#' Default: \code{col_title = grey(.10, 1)} (i.e., dark grey).  
+#' Consider using \code{col_title = unikn::pal_seeblau[[4]]}.  
+#' 
+#' @param col_line Color of line elements 
+#' used for axis lines, text and ticks, and for plot caption and subtitle.
+#' Default: \code{col_title = grey(.40, 1)} (i.e., medium grey).
+#' 
+#' @param base_size Base font size (optional, numeric). 
+#' Default: \code{base_size = 12}. 
+#' 
+#' @param base_family Base font family (optional, character). 
+#' Default: \code{base_family = "sans"}. 
+#' Options include \code{"mono"}, \code{"sans"} (default), and "serif". 
+#' 
+#' @param base_line_size Base line size (optional, numeric). 
+#' Default: \code{base_line_size = base_size/22}. 
+#' 
+#' @param base_rect_size Base rectangle size (optional, numeric). 
+#' Default: \code{base_rect_size = base_size/22}. 
+#' 
+#' @examples
+#' 
+#' \donttest{
+#' # Plotting iris dataset (using ggplot2, theme_grau, and unikn colors):
+#'   
+#' library('ggplot2')  # theme_unikn requires ggplot2 
+#'    
+#' ggplot(datasets::iris) +
+#'   geom_jitter(aes(x = Sepal.Length, y = Sepal.Width, color = Species), size = 3, alpha = 2/3) +
+#'   facet_wrap(~Species) +
+#'   scale_color_manual(values = usecol(pal = c(Pinky, Seeblau, Seegruen))) +
+#'   labs(tag = "C",
+#'        title = "Iris sepals",
+#'        caption = "Data from datasets::iris") + 
+#'   coord_fixed(ratio = 3/2) + 
+#'   theme_minkn()
+#' 
+#' }
+#' 
+#' @family plot functions
+#' 
+#' @seealso 
+#' \code{\link{theme_unikn}} for default theme;  
+#' \code{\link{theme_grau}} for a grey theme; 
+#' \code{\link{theme_bwkn}} for a bw theme. 
+#' 
+#' @import ggplot2 
+#'                          
+#' @export 
+
+# - Definition: ---- 
+
+theme_minikn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]] 
+                         col_line =  grey(.40, 1),  # medium grey (used for axes and titles)
+                         base_size = 12, 
+                         base_family = "sans", 
+                         base_line_size = base_size/22, 
+                         base_rect_size = base_size/22
+) {ggplot2::theme_minimal(base_size = base_size, 
+                          base_family = base_family, 
+                          base_line_size = base_line_size, 
+                          base_rect_size = base_rect_size) %+replace% 
+    ggplot2::theme(#
+      # titles: 
+      title = ggplot2::element_text(color = col_title, face = "bold",
+                                    margin = ggplot2::margin(t = 10, r = 4, b = 4, l = 4, unit = "pt")), 
+      plot.subtitle = ggplot2::element_text(color = col_line, face = "plain", hjust = 0,
+                                            margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")), 
+      plot.caption = ggplot2::element_text(color = col_line, face = "plain", size = ggplot2::rel(.90), hjust = 1), 
+      ## axes:
+      axis.line =  ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.20)),
+      axis.ticks = ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.20)),
+      axis.title = ggplot2::element_text(color = col_title, size = ggplot2::rel(0.95)), 
+      axis.text =  ggplot2::element_text(color = col_line,  size = ggplot2::rel(0.90)), 
+      ## legend: 
+      # legend.position = "bottom", 
+      legend.title = ggplot2::element_text(color = col_title), 
+      legend.text = ggplot2::element_text(color = grey(.10, 1), size = ggplot2::rel(.90)), 
+      # legend.background = ggplot2::element_blank(), 
+      # legend.key = ggplot2::element_blank(), 
+      ## strip: 
+      # strip.background = ggplot2::element_blank(),
+      # strip.background = ggplot2::element_rect(color = pal_seeblau[[5]], fill = pal_seeblau[[1]], size = ggplot2::rel(5/3)), 
+      strip.background = ggplot2::element_rect(color = NA, fill = grey(.90, 1), size = ggplot2::rel(1.0)), 
+      # strip.background = ggplot2::element_rect(color = col_line, fill = "transparent", size = ggplot2::rel(0.90)),  # fine strip 
+      strip.text = ggplot2::element_text(color = col_title, size = ggplot2::rel(.95), 
+                                         margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), 
+      ## panel: 
+      panel.border = ggplot2::element_blank(), 
+      # panel.border = ggplot2::element_rect(color = col_line, fill = "transparent", linetype = "solid", size = ggplot2::rel(.90)), 
+      # panel.background = ggplot2::element_blank(), 
+      # panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # light "grau" panel background
+      panel.grid = ggplot2::element_blank(), 
+      # panel.grid.major = ggplot2::element_line(color = grey(.85, 1), linetype = "solid", size = ggplot2::rel(.50)), # light grey lines
+      # panel.grid.minor = ggplot2::element_blank(), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
+      # background:  
+      # plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
+      complete = TRUE)
+  
+} # theme_minikn().
 
 
 
