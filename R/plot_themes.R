@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2024 12 13
+## spds | uni.kn |  2024 12 14
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -43,10 +43,14 @@
 #' opinionated (e.g., in using mostly grey scales to 
 #' allow emphasizing data points with color accents). 
 #' 
-#' @param col_title Color of title (text) elements (optional, numeric).  
+#' @param col_title Color of title elements (optional).  
 #' Default: \code{col_title = pal_seeblau[[4]]}. 
 #' Consider using \code{col_title = "black"} when data uses 
 #' \code{Seeblau} colors. 
+#' 
+#' @param col_line Color of line elements 
+#' used for axis lines and ticks and panel border.
+#' Default: \code{col_line = grey(.05, 1)} (i.e., dark grey).
 #' 
 #' @param base_size Base font size (optional, numeric). 
 #' Default: \code{base_size = 11}. 
@@ -60,6 +64,9 @@
 #' 
 #' @param base_rect_size Base rectangle size (optional, numeric). 
 #' Default: \code{base_rect_size = base_size/22}. 
+#' 
+#' @param axis_ticks_mm Length of axis ticks (in mm). 
+#' Default: \code{axis_ticks_mm = 2}.  
 #' 
 #' @examples
 #' 
@@ -91,10 +98,12 @@
 # - Definition: ---- 
 
 theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"  
+                        col_line = grey(.05, 1),      # dark grey
                         base_size = 11, 
                         base_family = "", 
                         base_line_size = base_size/22, 
-                        base_rect_size = base_size/22
+                        base_rect_size = base_size/22,
+                        axis_ticks_mm = 2
 ) {ggplot2::theme_bw(base_size = base_size, 
                      base_family = base_family, 
                      base_line_size = base_line_size, 
@@ -107,8 +116,9 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
                                             margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")),  
       plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
-      axis.line =  ggplot2::element_line(color = grey(.05, 1), size = ggplot2::rel(1)), 
-      axis.ticks = ggplot2::element_line(color = grey(.05, 1), size = ggplot2::rel(1)), 
+      # axis.line = ggplot2::element_blank(), 
+      axis.line =  ggplot2::element_line(color = col_line, size = ggplot2::rel(1)), 
+      axis.ticks = ggplot2::element_line(color = col_line, size = ggplot2::rel(1)), 
       axis.title = ggplot2::element_text(color = grey(.10, 1), size = ggplot2::rel(1)), 
       axis.text =  ggplot2::element_text(color = grey(.15, 1), size = ggplot2::rel(.95)), 
       # legend: 
@@ -118,7 +128,8 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
       legend.key = ggplot2::element_blank(), 
       # strip: 
       # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
-      strip.background = ggplot2::element_rect(color = grey(.05, 1), fill = grey(.95, 1),  # light grey strip background 
+      strip.background = ggplot2::element_rect(color = col_line, 
+                                               fill = grey(.95, 1),  # light grey strip background 
                                                size = ggplot2::rel(.90)), 
       strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(.95), 
                                          margin = ggplot2::margin(t = 4, r = 4, b = 4, l = 4, unit = "pt")), 
@@ -133,7 +144,9 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
       panel.background = ggplot2::element_rect(fill = grey(1, 1), color = NA), # "white" panel background 
       # background:  
       plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
-      complete = TRUE)
+      complete = TRUE) + 
+    # Axis tick length: 
+    theme(axis.ticks.length = unit(axis_ticks_mm, "mm"))
   
 } # theme_unikn().
 
@@ -154,9 +167,13 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 #' This theme works well for dark colors and bright color accents, 
 #' but is of limited use with transparent colors. 
 #' 
-#' @param col_title Color of title (text) elements (optional, numeric).  
+#' @param col_title Color of title elements (optional).  
 #' Default: \code{col_title = grey(0, 1)} (i.e., "black").  
 #' Consider using \code{col_title = unikn::pal_seeblau[[4]]}.  
+#' 
+#' @param col_line Color of line elements 
+#' used for axis ticks (optional).
+#' Default: \code{col_line = pal_grau[[3]]} (i.e., medium grau).
 #' 
 #' @param base_size Base font size (optional, numeric). 
 #' Default: \code{base_size = 11}. 
@@ -170,6 +187,9 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 #' 
 #' @param base_rect_size Base rectangle size (optional, numeric). 
 #' Default: \code{base_rect_size = base_size/22}. 
+#' 
+#' @param axis_ticks_mm Length of axis ticks (in mm). 
+#' Default: \code{axis_ticks_mm = 2}. 
 #' 
 #' @examples
 #' 
@@ -204,10 +224,12 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 # - Definition: ---- 
 
 theme_grau <- function(col_title = grey(0, 1), # OR: "black" 
+                       col_line  = pal_grau[[3]], 
                        base_size = 11, 
                        base_family = "", 
                        base_line_size = base_size/22, 
-                       base_rect_size = base_size/22
+                       base_rect_size = base_size/22,
+                       axis_ticks_mm = 2
 ) {ggplot2::theme_bw(base_size = base_size, 
                      base_family = base_family, 
                      base_line_size = base_line_size, 
@@ -220,8 +242,9 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
                                             margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")), 
       plot.caption = ggplot2::element_text(color =  pal_grau[[4]], face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
-      axis.line =  ggplot2::element_line(color = pal_grau[[4]], size = ggplot2::rel(1)), 
-      axis.ticks = ggplot2::element_line(color = pal_grau[[4]], size = ggplot2::rel(1)), 
+      axis.line = ggplot2::element_blank(), 
+      # axis.line = ggplot2::element_line(color = col_line, size = ggplot2::rel(1)), 
+      axis.ticks = ggplot2::element_line(color = col_line, size = ggplot2::rel(1)), 
       axis.title = ggplot2::element_text(color = pal_grau[[5]], size = ggplot2::rel(.95)), 
       axis.text =  ggplot2::element_text(color = pal_grau[[5]], size = ggplot2::rel(.90)), 
       # legend:
@@ -233,7 +256,8 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       # strip.background = ggplot2::element_blank(),
       # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
       # strip.background = ggplot2::element_rect(fill = grey(.90, 1), color = grey(.90, 1), size = ggplot2::rel(6/3)), 
-      strip.background = ggplot2::element_rect(fill = "transparent", color = NA, size = ggplot2::rel(1.0)),  # transparent strip 
+      strip.background = ggplot2::element_rect(color = NA, fill = "transparent", 
+                                               size = ggplot2::rel(1.0)),  # transparent strip 
       strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
                                          margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), # larger than in theme_unikn() 
       # panel: 
@@ -247,7 +271,9 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(.80)), 
       # background:  
       plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
-      complete = TRUE)
+      complete = TRUE) + 
+    # Axis tick length: 
+    theme(axis.ticks.length = unit(axis_ticks_mm, "mm")) 
   
 } # theme_grau().
 
@@ -264,7 +290,7 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 
 # - Documentation: ---- 
 
-#' An alternative bw-theme (for ggplot2)
+#' An alternative bw theme (for ggplot2)
 #' 
 #' \code{theme_bwkn} provides an alternative bw theme 
 #' for use in \bold{ggplot2} and \bold{unikn} contexts. 
@@ -282,7 +308,7 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 #' 
 #' @param col_line Color of line elements 
 #' used for axis lines, text and ticks, plot caption and subtitle, and panel border.
-#' Default: \code{col_title = grey(.40, 1)} (i.e., medium grey).
+#' Default: \code{col_line = grey(.40, 1)} (i.e., medium grey).
 #' 
 #' @param base_size Base font size (optional, numeric). 
 #' Default: \code{base_size = 12}. 
@@ -296,6 +322,9 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
 #' 
 #' @param base_rect_size Base rectangle size (optional, numeric). 
 #' Default: \code{base_rect_size = base_size/22}. 
+#' 
+#' @param axis_ticks_mm Length of axis ticks (in mm). 
+#' Default: \code{axis_ticks_mm = 2}. 
 #' 
 #' @examples
 #' 
@@ -334,7 +363,8 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
                        base_size = 12, 
                        base_family = "sans", 
                        base_line_size = base_size/22, 
-                       base_rect_size = base_size/22
+                       base_rect_size = base_size/22,
+                       axis_ticks_mm = 2
 ) {ggplot2::theme_bw(base_size = base_size, 
                      base_family = base_family, 
                      base_line_size = base_line_size, 
@@ -375,7 +405,9 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
       # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
       # background:  
       # plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
-      complete = TRUE)
+      complete = TRUE) + 
+    # Axis tick length: 
+    theme(axis.ticks.length = unit(axis_ticks_mm, "mm")) 
   
 } # theme_bwkn().
 
@@ -409,7 +441,7 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
 #' 
 #' @param col_line Color of line elements 
 #' used for axis lines, text and ticks, and for plot caption and subtitle.
-#' Default: \code{col_title = grey(.40, 1)} (i.e., medium grey).
+#' Default: \code{col_line = grey(.40, 1)} (i.e., medium grey).
 #' 
 #' @param base_size Base font size (optional, numeric). 
 #' Default: \code{base_size = 12}. 
@@ -423,6 +455,9 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
 #' 
 #' @param base_rect_size Base rectangle size (optional, numeric). 
 #' Default: \code{base_rect_size = base_size/22}. 
+#' 
+#' @param axis_ticks_mm Length of axis ticks (in mm). 
+#' Default: \code{axis_ticks_mm = 1}. 
 #' 
 #' @examples
 #' 
@@ -461,7 +496,8 @@ theme_minikn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[
                          base_size = 12, 
                          base_family = "sans", 
                          base_line_size = base_size/22, 
-                         base_rect_size = base_size/22
+                         base_rect_size = base_size/22, 
+                         axis_ticks_mm = 1 
 ) {ggplot2::theme_minimal(base_size = base_size, 
                           base_family = base_family, 
                           base_line_size = base_line_size, 
@@ -502,7 +538,9 @@ theme_minikn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[
       # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
       # background:  
       # plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
-      complete = TRUE)
+      complete = TRUE) + 
+    # Axis tick length: 
+    theme(axis.ticks.length = unit(axis_ticks_mm, "mm")) 
   
 } # theme_minikn().
 
