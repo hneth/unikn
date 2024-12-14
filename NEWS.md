@@ -14,20 +14,20 @@ Changes since last release:
 
 ## Major changes 
 
-- none yet. 
+- Add `theme_bwkn()` and `theme_minikn()` as light and luminous **ggplot2** themes. 
 
 
 <!-- Minor changes: --> 
 
 ## Minor changes 
 
-- Add `theme_bwkn()` and `theme_minikn()` as light, luminous, but functional **ggplot2** themes. 
+- Tweak `theme_unikn()` and `theme_grau()` for consistency with new **ggplot2** themes. 
+
 
 <!-- Details:  --> 
 
 ## Details 
 
-- Minor tweaks of `theme_unikn()` and `theme_grau()`. 
 - Update **[unicol](https://CRAN.R-project.org/package=unicol)** information and online documentation. 
 
 
@@ -389,6 +389,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-12-13.]
+[File `NEWS.md` updated on 2024-12-14.]
 
 <!-- eof. -->
