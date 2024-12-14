@@ -6,17 +6,23 @@
 \usage{
 theme_unikn(
   col_title = pal_seeblau[[4]],
+  col_line = grey(0.05, 1),
   base_size = 11,
   base_family = "",
   base_line_size = base_size/22,
-  base_rect_size = base_size/22
+  base_rect_size = base_size/22,
+  axis_ticks_mm = 2
 )
 }
 \arguments{
-\item{col_title}{Color of title (text) elements (optional, numeric).
+\item{col_title}{Color of title elements (optional).
 Default: \code{col_title = pal_seeblau[[4]]}. 
 Consider using \code{col_title = "black"} when data uses 
 \code{Seeblau} colors.}
+
+\item{col_line}{Color of line elements 
+used for axis lines and ticks and panel border.
+Default: \code{col_line = grey(.05, 1)} (i.e., dark grey).}
 
 \item{base_size}{Base font size (optional, numeric). 
 Default: \code{base_size = 11}.}
@@ -30,6 +36,9 @@ Default: \code{base_line_size = base_size/22}.}
 
 \item{base_rect_size}{Base rectangle size (optional, numeric). 
 Default: \code{base_rect_size = base_size/22}.}
+
+\item{axis_ticks_mm}{Length of axis ticks (in mm). 
+Default: \code{axis_ticks_mm = 2}.}
 }
 \description{
 \code{theme_unikn} provides a basic \bold{unikn} theme 

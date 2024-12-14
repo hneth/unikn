@@ -6,16 +6,22 @@
 \usage{
 theme_grau(
   col_title = grey(0, 1),
+  col_line = pal_grau[[3]],
   base_size = 11,
   base_family = "",
   base_line_size = base_size/22,
-  base_rect_size = base_size/22
+  base_rect_size = base_size/22,
+  axis_ticks_mm = 2
 )
 }
 \arguments{
-\item{col_title}{Color of title (text) elements (optional, numeric).
+\item{col_title}{Color of title elements (optional).
 Default: \code{col_title = grey(0, 1)} (i.e., "black").  
 Consider using \code{col_title = unikn::pal_seeblau[[4]]}.}
+
+\item{col_line}{Color of line elements 
+used for axis ticks (optional).
+Default: \code{col_line = pal_grau[[3]]} (i.e., medium grau).}
 
 \item{base_size}{Base font size (optional, numeric). 
 Default: \code{base_size = 11}.}
@@ -29,6 +35,9 @@ Default: \code{base_line_size = base_size/22}.}
 
 \item{base_rect_size}{Base rectangle size (optional, numeric). 
 Default: \code{base_rect_size = base_size/22}.}
+
+\item{axis_ticks_mm}{Length of axis ticks (in mm). 
+Default: \code{axis_ticks_mm = 2}.}
 }
 \description{
 \code{theme_grau} provides an alternative grey theme 

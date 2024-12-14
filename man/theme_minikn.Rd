@@ -10,7 +10,8 @@ theme_minikn(
   base_size = 12,
   base_family = "sans",
   base_line_size = base_size/22,
-  base_rect_size = base_size/22
+  base_rect_size = base_size/22,
+  axis_ticks_mm = 1
 )
 }
 \arguments{
@@ -21,7 +22,7 @@ Consider using \code{col_title = unikn::pal_seeblau[[4]]}.}
 
 \item{col_line}{Color of line elements 
 used for axis lines, text and ticks, and for plot caption and subtitle.
-Default: \code{col_title = grey(.40, 1)} (i.e., medium grey).}
+Default: \code{col_line = grey(.40, 1)} (i.e., medium grey).}
 
 \item{base_size}{Base font size (optional, numeric). 
 Default: \code{base_size = 12}.}
@@ -35,6 +36,9 @@ Default: \code{base_line_size = base_size/22}.}
 
 \item{base_rect_size}{Base rectangle size (optional, numeric). 
 Default: \code{base_rect_size = base_size/22}.}
+
+\item{axis_ticks_mm}{Length of axis ticks (in mm). 
+Default: \code{axis_ticks_mm = 1}.}
 }
 \description{
 \code{theme_minikn} provides an alternative minimal theme 
