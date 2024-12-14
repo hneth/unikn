@@ -43,13 +43,13 @@
 #' opinionated (e.g., in using mostly grey scales to 
 #' allow emphasizing data points with color accents). 
 #' 
-#' @param col_title Color of title elements (optional).  
+#' @param col_title Color of plot title (optional).  
 #' Default: \code{col_title = pal_seeblau[[4]]}. 
 #' Consider using \code{col_title = "black"} when data uses 
-#' \code{Seeblau} colors. 
+#' \code{Seeblau} colors.
 #' 
 #' @param col_line Color of line elements 
-#' used for axis lines and ticks and panel border.
+#' used for axis lines and ticks, strip and panel border.
 #' Default: \code{col_line = grey(.05, 1)} (i.e., dark grey).
 #' 
 #' @param base_size Base font size (optional, numeric). 
@@ -135,8 +135,10 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
                                          margin = ggplot2::margin(t = 4, r = 4, b = 4, l = 4, unit = "pt")), 
       # panel: 
       # panel.border = ggplot2::element_blank(), 
-      panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.05, 1), 
-                                           linetype = "solid", size = ggplot2::rel(.80)), 
+      panel.border = ggplot2::element_rect(color = col_line, 
+                                           fill = "transparent", 
+                                           linetype = "solid", 
+                                           size = ggplot2::rel(.80)), 
       # panel.grid = ggplot2::element_blank(), 
       panel.grid.major = ggplot2::element_line(color = grey(.80, 1), linetype = "solid", size = ggplot2::rel(.50)), 
       # panel.grid.minor = ggplot2::element_line(color = grey(.80, 1), linetype = "solid", size = ggplot2::rel(.40)), # "dotted"  
@@ -377,8 +379,8 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
                                             margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")), 
       plot.caption = ggplot2::element_text(color = col_line, face = "plain", size = ggplot2::rel(.90), hjust = 1), 
       ## axes:
-      axis.line =  ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.25)),
-      axis.ticks = ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.25)),
+      axis.line =  ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.10)),
+      axis.ticks = ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.10)),
       axis.title = ggplot2::element_text(color = col_title, size = ggplot2::rel(0.95)), 
       axis.text =  ggplot2::element_text(color = col_line,  size = ggplot2::rel(0.90)), 
       ## legend: 
