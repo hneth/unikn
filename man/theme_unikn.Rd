@@ -15,13 +15,13 @@ theme_unikn(
 )
 }
 \arguments{
-\item{col_title}{Color of title elements (optional).
+\item{col_title}{Color of plot title (optional).
 Default: \code{col_title = pal_seeblau[[4]]}. 
 Consider using \code{col_title = "black"} when data uses 
 \code{Seeblau} colors.}
 
 \item{col_line}{Color of line elements 
-used for axis lines and ticks and panel border.
+used for axis lines and ticks, strip and panel border.
 Default: \code{col_line = grey(.05, 1)} (i.e., dark grey).}
 
 \item{base_size}{Base font size (optional, numeric). 
