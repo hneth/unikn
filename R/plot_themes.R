@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2024 12 14
+## spds | uni.kn |  2024 12 15
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -43,10 +43,10 @@
 #' opinionated (e.g., in using mostly grey scales to 
 #' allow emphasizing data points with color accents). 
 #' 
-#' @param col_title Color of plot title (optional).  
+#' @param col_title Color of the plot title (optional).  
 #' Default: \code{col_title = pal_seeblau[[4]]}. 
-#' Consider using \code{col_title = "black"} when data uses 
-#' \code{Seeblau} colors.
+#' Consider using \code{col_title = "black"} when data   
+#' does not use \code{Seeblau} colors.
 #' 
 #' @param col_line Color of line elements 
 #' used for axis lines and ticks, strip and panel border.
@@ -56,17 +56,17 @@
 #' Default: \code{base_size = 11}. 
 #' 
 #' @param base_family Base font family (optional, character). 
-#' Default: \code{base_family = ""}. 
+#' Default: \code{base_family = "sans"}. 
 #' Options include \code{"mono"}, \code{"sans"} (default), and "serif". 
 #' 
 #' @param base_line_size Base line size (optional, numeric). 
 #' Default: \code{base_line_size = base_size/22}. 
 #' 
 #' @param base_rect_size Base rectangle size (optional, numeric). 
-#' Default: \code{base_rect_size = base_size/22}. 
+#' Default: \code{base_rect_size = base_size/22}.
 #' 
 #' @param axis_ticks_mm Length of axis ticks (in mm). 
-#' Default: \code{axis_ticks_mm = 2}.  
+#' Default: \code{axis_ticks_mm = 2}.
 #' 
 #' @examples
 #' 
@@ -97,10 +97,10 @@
 
 # - Definition: ---- 
 
-theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"  
+theme_unikn <- function(col_title = pal_seeblau[[4]], # OR "black"  
                         col_line = grey(.05, 1),      # dark grey
                         base_size = 11, 
-                        base_family = "", 
+                        base_family = "sans",
                         base_line_size = base_size/22, 
                         base_rect_size = base_size/22,
                         axis_ticks_mm = 2
@@ -181,7 +181,7 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 #' Default: \code{base_size = 11}. 
 #' 
 #' @param base_family Base font family (optional, character). 
-#' Default: \code{base_family = ""}. 
+#' Default: \code{base_family = "sans"}. 
 #' Options include \code{"mono"}, \code{"sans"} (default), and "serif". 
 #' 
 #' @param base_line_size Base line size (optional, numeric). 
@@ -228,7 +228,7 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # "black"
 theme_grau <- function(col_title = grey(0, 1), # OR: "black" 
                        col_line  = pal_grau[[3]], 
                        base_size = 11, 
-                       base_family = "", 
+                       base_family = "sans", 
                        base_line_size = base_size/22, 
                        base_rect_size = base_size/22,
                        axis_ticks_mm = 2
