@@ -8,17 +8,17 @@ theme_unikn(
   col_title = pal_seeblau[[4]],
   col_line = grey(0.05, 1),
   base_size = 11,
-  base_family = "",
+  base_family = "sans",
   base_line_size = base_size/22,
   base_rect_size = base_size/22,
   axis_ticks_mm = 2
 )
 }
 \arguments{
-\item{col_title}{Color of plot title (optional).
+\item{col_title}{Color of the plot title (optional).
 Default: \code{col_title = pal_seeblau[[4]]}. 
-Consider using \code{col_title = "black"} when data uses 
-\code{Seeblau} colors.}
+Consider using \code{col_title = "black"} when data   
+does not use \code{Seeblau} colors.}
 
 \item{col_line}{Color of line elements 
 used for axis lines and ticks, strip and panel border.
@@ -28,7 +28,7 @@ Default: \code{col_line = grey(.05, 1)} (i.e., dark grey).}
 Default: \code{base_size = 11}.}
 
 \item{base_family}{Base font family (optional, character). 
-Default: \code{base_family = ""}. 
+Default: \code{base_family = "sans"}. 
 Options include \code{"mono"}, \code{"sans"} (default), and "serif".}
 
 \item{base_line_size}{Base line size (optional, numeric). 

@@ -8,7 +8,7 @@ theme_grau(
   col_title = grey(0, 1),
   col_line = pal_grau[[3]],
   base_size = 11,
-  base_family = "",
+  base_family = "sans",
   base_line_size = base_size/22,
   base_rect_size = base_size/22,
   axis_ticks_mm = 2
@@ -27,7 +27,7 @@ Default: \code{col_line = pal_grau[[3]]} (i.e., medium grau).}
 Default: \code{base_size = 11}.}
 
 \item{base_family}{Base font family (optional, character). 
-Default: \code{base_family = ""}. 
+Default: \code{base_family = "sans"}. 
 Options include \code{"mono"}, \code{"sans"} (default), and "serif".}
 
 \item{base_line_size}{Base line size (optional, numeric). 
