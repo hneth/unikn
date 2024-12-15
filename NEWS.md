@@ -14,7 +14,7 @@ Changes since last release:
 
 ## Major changes 
 
-- Add `theme_bwkn()` and `theme_minikn()` as light and luminous **ggplot2** themes. 
+- Add `theme_bwkn()` and `theme_minikn()` as clean, light, and subtle **ggplot2** themes. 
 
 
 <!-- Minor changes: --> 
@@ -389,6 +389,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-12-14.]
+[File `NEWS.md` updated on 2024-12-15.]
 
 <!-- eof. -->
