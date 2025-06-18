@@ -1,7 +1,7 @@
 ---
 title: "Institutional colors"
 author: "SPDS, uni.kn"
-date: "2023 08 16"
+date: "2025 06 18"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -95,7 +95,7 @@ Creating new color palettes in R is simple and only requires two steps:
 In the following, we illustrate both steps. 
 As we will see, Step\ 1 can either be omitted (when the to-be-combined colors exist as R objects) or can be included in Step\ 2.
 
-As an example, we will re-create the color palette of the German [Max Planck Society](https://www.mpg.de/en) (that **unikn** exports as `mpg_pal`) from the color definitions in its Corporate Design manual (available [here](https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html)). 
+As an example, we will re-create the color palette of the German [Max Planck Society](https://www.mpg.de/en) (which **unikn** used to export as `mpg_pal`, but see `mpg` of the **unicol** package) from the color definitions in its Corporate Design manual (available [here](https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html)). 
 
 
 ### 1. Defining colors
