@@ -572,25 +572,29 @@ For example:
 x_pos <- .70
 
 # A. Using uni_freiburg_br and uni_freiburg_blue: 
+uni_freiburg_br <- unicol::uni_freiburg_br  # now part of unicol
 uline(labels = c("University of Freiburg"), 
       x = x_pos, y = .85, font = 2, cex = 1,
       col = uni_freiburg_br[1], col_bg = uni_freiburg_br[2], 
       new_plot = "slide")
 mark(labels = c("Die Wahrheit", "wird euch", "frei machen."), 
      x = 0, y = .90, y_layout = 0, cex = 1.2, 
-     col = c("white"), col_bg = rev(usecol(uni_freiburg_blue, 3)))
+     col = c("white"), col_bg = rev(usecol(uni_freiburg_br, 3)))
 
 # B. Using orange_white or uni_princeton_0:
+uni_princeton_2 <- unicol::princeton_2  # now part of unicol
 uline(labels = c("Princeton University"), 
-      x = x_pos, y = .55, font = 2, cex = 1, col_bg = uni_princeton_1[1])
+      x = x_pos, y = .55, font = 2, cex = 1, col_bg = uni_princeton_2[1])
 mark(#labels = c("In the nation’s", "service and the", "service of humanity."), 
      labels = c("Go", "tigers!"), 
      x = 0, y = .58, y_layout = 0, cex = 1.2,  
-     col = c("black", "white"), col_bg = uni_princeton_0)
+     col = c("black", "white"), col_bg = uni_princeton_2)
 
-# C. Using mpg_pal:
+# C. Using mpg_pal (no longer exported):
+mpg_pal <- unicol::mpg  # now part of unicol
 uline(labels = c("Max Planck Society"), 
       x = x_pos, y = .25, font = 2, cex = 1, col_bg = usecol(mpg_pal, 1), col = "black")
+
 mark(labels = c("Dem Anwenden", "muss das Erkennen", "vorausgehen."), 
      x = 0, y = .30, y_layout = 0, cex = 1.2, 
      col = c("white"), col_bg = usecol(mpg_pal, 7)[3:1])

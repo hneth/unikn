@@ -1,5 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit THIS (Rmd) file. -->
+
 <!-- Devel badges start: -->
 
 [![CRAN
@@ -12,10 +13,15 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 <!-- Devel badges end. -->
 
 <!-- Release badges start: -->
+
 <!-- [![CRAN status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) -->
+
 <!-- [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn) -->
+
 <!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191) -->
+
 <!-- Release badges end. -->
+
 <!-- ALL status badges: 
 [![CRAN status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml) 
@@ -28,9 +34,13 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 # unikn 1.0.0.9002 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
 
 <!-- unikn pkg logo and link (to CRAN): -->
+
 <!-- <a href = "https://CRAN.R-project.org/package=unikn"> -->
+
 <!-- <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:20;"/> -->
+
 <!-- </a>  -->
+
 <!-- Slogan: -->
 
 ### Enabling corporate design elements in R
@@ -167,15 +177,25 @@ design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-a
 specifications for details.)
 
 <!-- Details: Basic color palette -->
+
 <!-- The default color palette `pal_unikn` combines:   -->
+
 <!-- - 5\ shades of `pal_seeblau` (reversed, i.e., from darker to lighter);   -->
+
 <!-- - the base R color `"white"` (as the center color);   -->
+
 <!-- - 4\ shades of grey (`pal_grau[1:4]`);   -->
+
 <!-- - the base R color `"black"` (as the last color).    -->
+
 <!-- This yields a diverging, symmetrical default color palette `pal_unikn` consisting of 11\ colors:  -->
+
 <!-- <img src = "./inst/pix/README-pal_unikn-1.png" align = "center" alt = "pal_unikn" style = "border:10;"/> -->
+
 <!-- - A shorter version consisting of 10\ colors is provided as\ `pal_unikn_web`.  -->
+
 <!-- - An alternative color palette with 10\ more muted colors (intended for PowerPoint presentations) is provided as\ `pal_unikn_ppt`.  -->
+
 <!-- Evaluating `seecol(pal = "unikn_basic")` shows these three basic unikn color palettes.  -->
 
 #### Special color palettes
@@ -208,13 +228,21 @@ pal_unikn["seeblau3"]  # color by name
 ```
 
 <!-- #### Details {-} -->
+
 <!-- Overall, the colors of the [University of Konstanz](https://www.uni-konstanz.de/) make up 16\ dedicated palettes, plus nine individual colors of `pal_unikn_pref` (e.g., `Seeblau`, `Seegruen`, etc.) as named colors. For details on each named color hue, evaluate `seecol()` on the following color palettes:  -->
+
 <!-- Each color palette contains a preferred color.[^1]  -->
+
 <!-- [^1]: Whereas the official definition does not identify a preferred color for the Ampel color palette (`pal_signal`),  -->
+
 <!-- we provide its alert color (i.e., `pal_signal[2]`) as a designated color\ `Signal`.  -->
+
 <!-- - The color palettes `pal_unikn_web()` and `pal_unikn_ppt()` correspond to the official definitions of color palettes for electronic and print media, respectively.  -->
+
 <!-- - The default palette `pal_unikn` of **unikn** combines the five shades of blue in `pal_seeblau` with the six non-blue colors from `pal_unikn_web()` to create a symmetrical palette of 11\ colors.  -->
+
 <!-- - Additional pre-defined color palettes in **unikn** include: -->
+
 <!-- More flexible and complex color palettes can be created by using the `seecol()` and `usecol()` functions.  -->
 
 ### Additional color palettes
@@ -239,7 +267,9 @@ currently provides access to a diverse range of over **230 color
 palettes** from more than **100 institutions**.
 
 <!-- Note: Duplicate image in vignette color_inst.Rmd -->
+
 <!-- These 52\ palettes are exported (as named vectors), documented (to credit their contributors and sources), and can easily be used and modified by the R community (e.g., in visualizations). -->
+
 <!-- Collecting contributed color palettes (in unicol): -->
 
 #### Call for contributions
@@ -694,6 +724,7 @@ feedback, comments, or questions.
 ## Copyrights
 
 <!-- uni.kn logo and link: -->
+
 <!-- ![](./inst/pix/logo.svg) -->
 
 <a href = "https://www.uni-konstanz.de/">
@@ -728,6 +759,7 @@ by relaxing some restrictions. Examples include:
 ### License
 
 <!-- License: CC BY-SA 4.0 (also in Description) -->
+
 <!-- Image with link: -->
 
 <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
@@ -795,6 +827,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2024-12-13.\]
+\[File `README.md` updated on 2025-06-18.\]
 
 <!-- eof. -->
