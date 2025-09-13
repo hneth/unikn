@@ -3,12 +3,11 @@
 
 This is the development version of **unikn**, available at <https://github.com/hneth/unikn/>. 
 
-This version corresponds to the release of **unikn** (v1.0.0). [2024-04-16] 
+This version builds upon the release of **unikn** (v1.0.0). [2024-04-16] 
 
 <!-- Log of changes: --> 
 
 Changes since last release: 
-
 
 <!-- Major changes: --> 
 
@@ -389,6 +388,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2024-12-15.]
+[File `NEWS.md` updated on 2025-09-13.]
 
 <!-- eof. -->
