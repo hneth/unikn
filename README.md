@@ -6,7 +6,7 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
 [![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml)
-[![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn)](https://www.r-pkg.org/pkg/unikn)
+[![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn?color=%2200a9e0%22)](https://www.r-pkg.org/pkg/unikn)
 [![Total
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
@@ -26,8 +26,8 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 [![CRAN status](http://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) 
 [![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml) 
 [![Build status](https://travis-ci.org/hneth/unikn.svg?branch=master)](https://travis-ci.org/hneth/unikn/)
-[![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn?color=brightgreen)](https://www.r-pkg.org/pkg/unikn)
-[![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color='e0607e')](https://www.r-pkg.org/pkg/unikn)
+[![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn?color="00a9e0")](https://www.r-pkg.org/pkg/unikn)
+[![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn?color="e0607e")](https://www.r-pkg.org/pkg/unikn)
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
@@ -136,7 +136,7 @@ The colors of **unikn** belong to two categories of color palettes:
 - 16 palettes implementing the colors of the [University of
   Konstanz](https://www.uni-konstanz.de/)’s corporate design
 
-- over 230 color palettes of more than 100 additional institutions are
+- over 270 color palettes of more than 110 additional institutions are
   now provided by the
   **[unicol](https://CRAN.R-project.org/package=unicol)** package
 
@@ -263,8 +263,8 @@ collected in a separate R package
 **[unicol](https://CRAN.R-project.org/package=unicol)**.
 
 Installing **[unicol](https://CRAN.R-project.org/package=unicol)**
-currently provides access to a diverse range of over **230 color
-palettes** from more than **100 institutions**.
+currently provides access to a diverse range of over **270 color
+palettes** from more than **110 institutions**.
 
 <!-- Note: Duplicate image in vignette color_inst.Rmd -->
 
@@ -827,6 +827,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2025-06-18.\]
+\[File `README.md` updated on 2025-09-15.\]
 
 <!-- eof. -->
