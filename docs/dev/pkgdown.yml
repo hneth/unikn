@@ -1,13 +1,12 @@
-pandoc: 3.1.1
-pkgdown: 2.0.8
+pandoc: 3.6.3
+pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   color_functions: color_functions.html
   color_recipes: color_recipes.html
   inst_colors: inst_colors.html
   text_decorations: text_decorations.html
-last_built: 2024-04-16T19:43Z
+last_built: 2025-09-16T06:53Z
 urls:
   reference: https://hneth.github.io/unikn/reference
   article: https://hneth.github.io/unikn/articles
-
