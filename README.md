@@ -31,15 +31,7 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 1.0.0.9003 <img src = "./inst/pix/unikn.png" align = "right" alt = "unikn::" width = "150px" />
-
-<!-- unikn pkg logo and link (to CRAN): -->
-
-<!-- <a href = "https://CRAN.R-project.org/package=unikn"> -->
-
-<!-- <img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:20;"/> -->
-
-<!-- </a>  -->
+# unikn 1.0.0.9003
 
 <!-- Slogan: -->
 
@@ -81,10 +73,18 @@ specifications simple and straightforward, experienced users can apply
 the tools in a flexible and creative fashion (e.g., for designing new
 color palettes and using them in scientific visualizations).
 
-<!-- Overview: -->
+<!-- Functionality: -->
 
 The **unikn** package currently provides five types of objects and
 functions:
+
+<!-- unikn pkg logo and link (to CRAN): -->
+
+<a href = "https://CRAN.R-project.org/package=unikn">
+<img src = "./inst/pix/unikn.png" alt = "unikn::" align = "right" width = "150px" style = "width: 150px; float: right; border:20;"/>
+</a>
+
+<!-- List of features/functionality: -->
 
 1.  Pre-defined **colors** and **color palettes** (e.g., `Seeblau` and
     `pal_unikn`);
