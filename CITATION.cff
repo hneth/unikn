@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Neth"
+  given-names: "Hansjörg"
+  orcid: "https://orcid.org/0000-0001-5427-3141"
+- family-names: "Gradwohl"
+  given-names: "Nico"
+  orcid: "https://orcid.org/0000-0002-8703-905X"
+title: "unikn: Graphical elements of the University of Konstanz's corporate design"
+version: 1.0.0
+date-released: 2024-04-16
+doi: "10.5281/zenodo.7096191"
+url: "https://CRAN.R-project.org/package=unikn"

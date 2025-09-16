@@ -16,3 +16,4 @@
 ^CRAN-RELEASE$
 ^\.travis\.yml$
 ^CRAN-SUBMISSION$
+^CITATION.cff$
