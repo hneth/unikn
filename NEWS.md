@@ -1,9 +1,9 @@
 
-# unikn 1.0.0.9002
+# unikn 1.0.0.9003
 
 This is the development version of **unikn**, available at <https://github.com/hneth/unikn/>. 
 
-This version builds upon the release of **unikn** (v1.0.0). [2024-04-16] 
+This version adds functionality and fixes some bugs. 
 
 <!-- Log of changes: --> 
 
@@ -27,7 +27,9 @@ Changes since last release:
 
 ## Details 
 
-- Update **[unicol](https://CRAN.R-project.org/package=unicol)** information and references.  
+- Package maintenance:
+    - Add DOI [10.5281/zenodo.7096191](https://doi.org/10.5281/zenodo.7096191) to citation info  
+    - Update references to **[unicol](https://CRAN.R-project.org/package=unicol)** R package
 
 
 <!-- Development version:  --> 
@@ -388,6 +390,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2025-09-15.]
+[File `NEWS.md` updated on 2025-09-16.]
 
 <!-- eof. -->
