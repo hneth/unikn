@@ -38,7 +38,7 @@ The current development version of **unikn** is available at <https://github.com
 
 
 
-<!-- Previous versions: -->  
+<!-- Published versions: -->  
 
 ---------- 
 
