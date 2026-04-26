@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2024 12 15
+## spds | uni.kn |  2026 04 26
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -117,8 +117,8 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # OR "black"
       plot.caption = ggplot2::element_text(color =  grey(.20, 1), face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
       # axis.line = ggplot2::element_blank(), 
-      axis.line =  ggplot2::element_line(color = col_line, size = ggplot2::rel(1)), 
-      axis.ticks = ggplot2::element_line(color = col_line, size = ggplot2::rel(1)), 
+      axis.line =  ggplot2::element_line(color = col_line, linewidth = ggplot2::rel(1)), 
+      axis.ticks = ggplot2::element_line(color = col_line, linewidth = ggplot2::rel(1)), 
       axis.title = ggplot2::element_text(color = grey(.10, 1), size = ggplot2::rel(1)), 
       axis.text =  ggplot2::element_text(color = grey(.15, 1), size = ggplot2::rel(.95)), 
       # legend: 
@@ -130,7 +130,7 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # OR "black"
       # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
       strip.background = ggplot2::element_rect(color = col_line, 
                                                fill = grey(.95, 1),  # light grey strip background 
-                                               size = ggplot2::rel(.90)), 
+                                               linewidth = ggplot2::rel(.90)), 
       strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(.95), 
                                          margin = ggplot2::margin(t = 4, r = 4, b = 4, l = 4, unit = "pt")), 
       # panel: 
@@ -138,10 +138,10 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # OR "black"
       panel.border = ggplot2::element_rect(color = col_line, 
                                            fill = "transparent", 
                                            linetype = "solid", 
-                                           size = ggplot2::rel(.80)), 
+                                           linewidth = ggplot2::rel(.80)), 
       # panel.grid = ggplot2::element_blank(), 
-      panel.grid.major = ggplot2::element_line(color = grey(.80, 1), linetype = "solid", size = ggplot2::rel(.50)), 
-      # panel.grid.minor = ggplot2::element_line(color = grey(.80, 1), linetype = "solid", size = ggplot2::rel(.40)), # "dotted"  
+      panel.grid.major = ggplot2::element_line(color = grey(.80, 1), linetype = "solid", linewidth = ggplot2::rel(.50)), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.80, 1), linetype = "solid", linewidth = ggplot2::rel(.40)), # "dotted"  
       panel.grid.minor = ggplot2::element_blank(), 
       panel.background = ggplot2::element_rect(fill = grey(1, 1), color = NA), # "white" panel background 
       # background:  
@@ -245,8 +245,8 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       plot.caption = ggplot2::element_text(color =  pal_grau[[4]], face = "plain", size = ggplot2::rel(.80), hjust = 1), 
       # axes:
       axis.line = ggplot2::element_blank(), 
-      # axis.line = ggplot2::element_line(color = col_line, size = ggplot2::rel(1)), 
-      axis.ticks = ggplot2::element_line(color = col_line, size = ggplot2::rel(1)), 
+      # axis.line = ggplot2::element_line(color = col_line, linewidth = ggplot2::rel(1)), 
+      axis.ticks = ggplot2::element_line(color = col_line, linewidth = ggplot2::rel(1)), 
       axis.title = ggplot2::element_text(color = pal_grau[[5]], size = ggplot2::rel(.95)), 
       axis.text =  ggplot2::element_text(color = pal_grau[[5]], size = ggplot2::rel(.90)), 
       # legend:
@@ -256,21 +256,21 @@ theme_grau <- function(col_title = grey(0, 1), # OR: "black"
       legend.key = ggplot2::element_blank(),
       # strip: 
       # strip.background = ggplot2::element_blank(),
-      # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
-      # strip.background = ggplot2::element_rect(fill = grey(.90, 1), color = grey(.90, 1), size = ggplot2::rel(6/3)), 
+      # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], linewidth = ggplot2::rel(5/3)), 
+      # strip.background = ggplot2::element_rect(fill = grey(.90, 1), color = grey(.90, 1), linewidth = ggplot2::rel(6/3)), 
       strip.background = ggplot2::element_rect(color = NA, fill = "transparent", 
-                                               size = ggplot2::rel(1.0)),  # transparent strip 
+                                               linewidth = ggplot2::rel(1.0)),  # transparent strip 
       strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
                                          margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), # larger than in theme_unikn() 
       # panel: 
       panel.border = ggplot2::element_blank(), 
-      # panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
+      # panel.border = ggplot2::element_rect(fill = "transparent", color = grey(.10, 1), linetype = "solid", linewidth = ggplot2::rel(2/3)), 
       # panel.background = ggplot2::element_blank(), 
       panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # light "grau" panel background
       # panel.grid = ggplot2::element_blank(), 
-      panel.grid.major = ggplot2::element_line(color = grey(1.0, 1), linetype = "solid", size = ggplot2::rel(.90)), # "white" lines
+      panel.grid.major = ggplot2::element_line(color = grey(1.0, 1), linetype = "solid", linewidth = ggplot2::rel(.90)), # "white" lines
       panel.grid.minor = ggplot2::element_blank(), 
-      # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(.80)), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", linewidth = ggplot2::rel(.80)), 
       # background:  
       plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
       complete = TRUE) + 
@@ -379,8 +379,8 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
                                             margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")), 
       plot.caption = ggplot2::element_text(color = col_line, face = "plain", size = ggplot2::rel(.90), hjust = 1), 
       ## axes:
-      axis.line =  ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.10)),
-      axis.ticks = ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.10)),
+      axis.line =  ggplot2::element_line(color = col_line,  linewidth = ggplot2::rel(1.10)),
+      axis.ticks = ggplot2::element_line(color = col_line,  linewidth = ggplot2::rel(1.10)),
       axis.title = ggplot2::element_text(color = col_title, size = ggplot2::rel(0.95)), 
       axis.text =  ggplot2::element_text(color = col_line,  size = ggplot2::rel(0.90)), 
       ## legend: 
@@ -391,20 +391,20 @@ theme_bwkn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[4]
       # legend.key = ggplot2::element_blank(), 
       ## strip: 
       # strip.background = ggplot2::element_blank(),
-      # strip.background = ggplot2::element_rect(color = pal_seeblau[[5]], fill = pal_seeblau[[1]], size = ggplot2::rel(5/3)), 
-      strip.background = ggplot2::element_rect(color = col_line, fill = grey(.95, 1), size = ggplot2::rel(.90)), 
-      # strip.background = ggplot2::element_rect(fill = "transparent", color = NA, size = ggplot2::rel(1.0)),  # transparent strip 
+      # strip.background = ggplot2::element_rect(color = pal_seeblau[[5]], fill = pal_seeblau[[1]], linewidth = ggplot2::rel(5/3)), 
+      strip.background = ggplot2::element_rect(color = col_line, fill = grey(.95, 1), linewidth = ggplot2::rel(.90)), 
+      # strip.background = ggplot2::element_rect(fill = "transparent", color = NA, linewidth = ggplot2::rel(1.0)),  # transparent strip 
       # strip.text = ggplot2::element_text(color = grey(0, 1), size = ggplot2::rel(1.0), 
       #                                    margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), # larger than in theme_unikn() 
       ## panel: 
       panel.border = ggplot2::element_blank(),
-      # panel.border = ggplot2::element_rect(fill = "transparent", color = col_line, linetype = "solid", size = ggplot2::rel(.90)), 
+      # panel.border = ggplot2::element_rect(fill = "transparent", color = col_line, linetype = "solid", linewidth = ggplot2::rel(.90)), 
       # panel.background = ggplot2::element_blank(), 
       # panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # light "grau" panel background
       # panel.grid = ggplot2::element_blank(), 
-      # panel.grid.major = ggplot2::element_line(color = grey(.85, 1), linetype = "solid", size = ggplot2::rel(.50)), # light grey lines
+      # panel.grid.major = ggplot2::element_line(color = grey(.85, 1), linetype = "solid", linewidth = ggplot2::rel(.50)), # light grey lines
       # panel.grid.minor = ggplot2::element_blank(), 
-      # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", linewidth = ggplot2::rel(2/3)), 
       # background:  
       # plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
       complete = TRUE) + 
@@ -512,8 +512,8 @@ theme_minikn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[
                                             margin = ggplot2::margin(t = 2, r = 4, b = 8, l = 4, unit = "pt")), 
       plot.caption = ggplot2::element_text(color = col_line, face = "plain", size = ggplot2::rel(.90), hjust = 1), 
       ## axes:
-      axis.line =  ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.20)),
-      axis.ticks = ggplot2::element_line(color = col_line,  size = ggplot2::rel(1.20)),
+      axis.line =  ggplot2::element_line(color = col_line,  linewidth = ggplot2::rel(1.20)),
+      axis.ticks = ggplot2::element_line(color = col_line,  linewidth = ggplot2::rel(1.20)),
       axis.title = ggplot2::element_text(color = col_title, size = ggplot2::rel(0.95)), 
       axis.text =  ggplot2::element_text(color = col_line,  size = ggplot2::rel(0.90)), 
       ## legend: 
@@ -524,20 +524,20 @@ theme_minikn <- function(col_title = grey(.10, 1),  # darker grey, pal_seeblau[[
       # legend.key = ggplot2::element_blank(), 
       ## strip: 
       # strip.background = ggplot2::element_blank(),
-      # strip.background = ggplot2::element_rect(color = pal_seeblau[[5]], fill = pal_seeblau[[1]], size = ggplot2::rel(5/3)), 
-      strip.background = ggplot2::element_rect(color = NA, fill = grey(.90, 1), size = ggplot2::rel(1.0)), 
-      # strip.background = ggplot2::element_rect(color = col_line, fill = "transparent", size = ggplot2::rel(0.90)),  # fine strip 
+      # strip.background = ggplot2::element_rect(color = pal_seeblau[[5]], fill = pal_seeblau[[1]], linewidth = ggplot2::rel(5/3)), 
+      strip.background = ggplot2::element_rect(color = NA, fill = grey(.90, 1), linewidth = ggplot2::rel(1.0)), 
+      # strip.background = ggplot2::element_rect(color = col_line, fill = "transparent", linewidth = ggplot2::rel(0.90)),  # fine strip 
       strip.text = ggplot2::element_text(color = col_title, size = ggplot2::rel(.95), 
                                          margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 5, unit = "pt")), 
       ## panel: 
       panel.border = ggplot2::element_blank(), 
-      # panel.border = ggplot2::element_rect(color = col_line, fill = "transparent", linetype = "solid", size = ggplot2::rel(.90)), 
+      # panel.border = ggplot2::element_rect(color = col_line, fill = "transparent", linetype = "solid", linewidth = ggplot2::rel(.90)), 
       # panel.background = ggplot2::element_blank(), 
       # panel.background = ggplot2::element_rect(fill = pal_grau[[1]], color = pal_grau[[1]]), # light "grau" panel background
       panel.grid = ggplot2::element_blank(), 
-      # panel.grid.major = ggplot2::element_line(color = grey(.85, 1), linetype = "solid", size = ggplot2::rel(.50)), # light grey lines
+      # panel.grid.major = ggplot2::element_line(color = grey(.85, 1), linetype = "solid", linewidth = ggplot2::rel(.50)), # light grey lines
       # panel.grid.minor = ggplot2::element_blank(), 
-      # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", size = ggplot2::rel(2/3)), 
+      # panel.grid.minor = ggplot2::element_line(color = grey(.95, 1), linetype = "solid", linewidth = ggplot2::rel(2/3)), 
       # background:  
       # plot.background = ggplot2::element_rect(fill = "transparent", color = NA), 
       complete = TRUE) + 
