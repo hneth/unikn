@@ -21,7 +21,7 @@ Changes since last release:
 ## Minor changes 
 
 - Tweak `theme_unikn()` and `theme_grau()` for consistency with new **ggplot2** themes. 
-
+- Fix some bugs in themes for recent versions of **ggplot2** (e.g., replacing `size` by `linewidth` arguments). 
 
 <!-- Details:  --> 
 
@@ -390,6 +390,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2025-09-16.]
+[File `NEWS.md` updated on 2026-04-26.]
 
 <!-- eof. -->
