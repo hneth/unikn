@@ -1,5 +1,5 @@
 ## plot_themes.R | unikn
-## spds | uni.kn |  2026 04 26
+## spds | uni.kn |  2026 04 27
 ## ---------------------------
 
 ## Defining default themes for plotting. 
@@ -127,7 +127,7 @@ theme_unikn <- function(col_title = pal_seeblau[[4]], # OR "black"
       legend.background = ggplot2::element_blank(), 
       legend.key = ggplot2::element_blank(), 
       # strip: 
-      # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], size = ggplot2::rel(5/3)), 
+      # strip.background = ggplot2::element_rect(fill = pal_seeblau[[1]], color = pal_seeblau[[5]], linewidth = ggplot2::rel(5/3)), 
       strip.background = ggplot2::element_rect(color = col_line, 
                                                fill = grey(.95, 1),  # light grey strip background 
                                                linewidth = ggplot2::rel(.90)), 
