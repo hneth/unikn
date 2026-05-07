@@ -16,7 +16,7 @@ plot_kn <- function(back = TRUE,
   # axes <- FALSE # FALSE/TRUE
   grid <- axes    # FALSE/TRUE
   
-  use_colors <- FALSE # TRUE  # use colors (for lines)?
+  use_colors <- FALSE # FALSE # TRUE  # use colors (for lines)?
   use_areas  <- FALSE # TRUE  # draw rectangles and polygons (for colored areas)?
   rand_col   <- FALSE # TRUE  # randomize color palettes?
   
@@ -27,7 +27,7 @@ plot_kn <- function(back = TRUE,
   house <- TRUE # FALSE
   cath  <- TRUE # FALSE
   
-  # univ <- TRUE  # draw university?
+  # univ <- TRUE # FALSE # draw university?
   
   
   # Canvas settings: ------ 
