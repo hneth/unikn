@@ -1,5 +1,5 @@
 ## plot_kn.R | unikn
-## spds | uni.kn |  2023 08 24
+## spds | uni.kn |  2026 05 10
 ## ---------------------------
 
 ## plot_kn(): Plot the unikn logo ------ 
@@ -42,7 +42,7 @@ plot_kn <- function(back = TRUE,
     par(mar = c(0, 0, 0, 0) + 4.1)  # symmetrical margins
   }
   
-  par("lwd" = 2)
+  par("lwd" = 3)
   
   # Basic colors:
   par("fg" = "black") # "black" / "white"
