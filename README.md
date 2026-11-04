@@ -31,7 +31,7 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 1.0.0.9004 <img src = "./logo.png" align = "right" alt = "unikn" width = "160" />
+# unikn 1.0.0.9005 <img src = "./logo.png" align = "right" alt = "unikn" width = "160" />
 
 <!-- unikn pkg logo and link (to CRAN): -->
 
@@ -151,7 +151,7 @@ palettes of the [University of Konstanz](https://www.uni-konstanz.de/):
 seecol("all_unikn")
 ```
 
-<img src="inst/pix/README-pal-all-1.png" width="525px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-pal-all-1.png" alt="" width="525px" style="display: block; margin: auto;" />
 
 In 2014, the [University of Konstanz](https://www.uni-konstanz.de/)
 introduced a highly recognizable CD. Its key component is the ubiquitous
@@ -169,7 +169,7 @@ into a diverging, symmetrical palette (of 11 colors):
 seecol(pal_unikn)
 ```
 
-<img src="inst/pix/README-pal-unikn-1.png" width="525px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-pal-unikn-1.png" alt="" width="525px" style="display: block; margin: auto;" />
 
 A shorter version (with 10 colors) and an alternative (with more muted
 colors for PowerPoint presentations) are provided as `pal_unikn_web`
@@ -210,7 +210,7 @@ palette `pal_unikn_pref`:
 seecol(pal_unikn_pref)
 ```
 
-<img src="inst/pix/README-pal-unikn-pref-1.png" width="525px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-pal-unikn-pref-1.png" alt="" width="525px" style="display: block; margin: auto;" />
 
 Each distinct hue is exported as a named color (e.g., `Pinky`) and a
 corresponding gradient color palette (e.g., `pal_pinky`). (Inspect
@@ -335,7 +335,7 @@ seecol(pal = pal_pinky,                    # a color palette / list of palettes 
        main = "Pinky colors of the University of Konstanz")  # plot title 
 ```
 
-<img src="inst/pix/README-seecol-pref-1.png" width="525px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-seecol-pref-1.png" alt="" width="525px" style="display: block; margin: auto;" />
 
 #### Comparing color palettes
 
@@ -351,7 +351,7 @@ seecol(pal = "grad_all", n = 3,
        main = "Color gradient palettes (scaled to n = 3)")
 ```
 
-<img src="inst/pix/README-pal-n-1.png" width="450px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-pal-n-1.png" alt="" width="450px" style="display: block; margin: auto;" />
 
 ### Using color palettes with `usecol()`
 
@@ -372,7 +372,7 @@ my_pal <- usecol(c(Seeblau, "white", Pinky), n = 9)
 barplot(1/sqrt(1:9),  col = my_pal)
 ```
 
-<img src="inst/pix/README-usecol-1-1.png" width="500px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usecol-1-1.png" alt="" width="500px" style="display: block; margin: auto;" />
 
 - the `image()` function of the **graphics** package (for geometric
   transformations of a vector `r`):
@@ -390,7 +390,7 @@ image(z = cos(r^2) * exp(-r/10),
       col = my_col, axes = FALSE)
 ```
 
-<img src="inst/pix/README-usecol-2-1.png" width="250px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usecol-2-1.png" alt="" width="250px" style="display: block; margin: auto;" />
 
 - the `ggplot()` function of the **ggplot2** package (for a data
   frame `df`):
@@ -431,7 +431,7 @@ ggplot(df, aes(x = x, y = y, fill = group)) +
   theme(legend.position = "none")
 ```
 
-<img src="inst/pix/README-usecol-ggplot2-1.png" width="500px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-usecol-ggplot2-1.png" alt="" width="500px" style="display: block; margin: auto;" />
 
 #### Illustrating color palettes
 
@@ -443,7 +443,7 @@ demopal(usecol(pal_unikn_light, n = 7),  # use a modified color palette
         type = "curve", seed = 2)        # reproducible randomness
 ```
 
-<img src="inst/pix/README-demopal-1.png" width="500px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-demopal-1.png" alt="" width="500px" style="display: block; margin: auto;" />
 
 ### Creating color palettes with `newpal()`
 
@@ -483,7 +483,7 @@ seecol(pal_google,
        main = "Colors of Google")
 ```
 
-<img src="inst/pix/README-newpal-google-1.png" width="450px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-newpal-google-1.png" alt="" width="450px" style="display: block; margin: auto;" />
 
 See the vignette on [Institutional
 colors](https://hneth.github.io/unikn/articles/inst_colors.html) for
@@ -508,7 +508,7 @@ situations.
 simcol(col_target = Pinky, tol = 30)
 ```
 
-<img src="inst/pix/README-simcol-example-1.png" width="500px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-simcol-example-1.png" alt="" width="500px" style="display: block; margin: auto;" />
 
     #>            Pinky         hotpink3       indianred2    palevioletred 
     #>        "#E0607E"       "hotpink3"     "indianred2"  "palevioletred" 
@@ -543,7 +543,7 @@ seecol(deep_purple,
        main = "Finding 'deep' or 'purple' colors")
 ```
 
-<img src="inst/pix/README-grepal-example-1-1.png" width="525px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-grepal-example-1-1.png" alt="" width="525px" style="display: block; margin: auto;" />
 
 Providing a list of color palettes to the `pal` argument of `seecol()`
 allows comparing multiple color palettes:
@@ -559,7 +559,7 @@ seecol(pal = list(olives, oranges),
        main = "Comparing olives with oranges")
 ```
 
-<img src="inst/pix/README-grepal-example-2-1.png" width="525px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-grepal-example-2-1.png" alt="" width="525px" style="display: block; margin: auto;" />
 
 See the vignette on [Colors and color
 functions](https://hneth.github.io/unikn/articles/color_functions.html)
@@ -589,7 +589,7 @@ mark(labels = c("Markieren", "ist ein Bestandteil", "von Studieren."),
      x = 0, y = .8, y_layout = .03, cex = 1.5, new_plot = "slide")
 ```
 
-<img src="inst/pix/README-mark-new-plot-1.png" width="250px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-mark-new-plot-1.png" alt="" width="250px" style="display: block; margin: auto;" />
 
 ### Underline
 
@@ -601,7 +601,7 @@ uline(labels = c("Linear", "Authentic", "Flexible", "Open", "Practical"),
       x = .05, y = .9, y_layout = "even", cex = 1.1, font = 2, new_plot = "slide")
 ```
 
-<img src="inst/pix/README-uline-demo-1.png" width="250px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-uline-demo-1.png" alt="" width="250px" style="display: block; margin: auto;" />
 
 ### Post
 
@@ -613,7 +613,7 @@ xbox(col = usecol(pal_seeblau[[5]]), dim = c(2, 2))
 post(labels = c("Für eine", "Kultur der", "Kreativität"), x = .1, y = .8, cex = 1.4, font = 2)
 ```
 
-<img src="inst/pix/README-post-demo-1-1.png" width="200px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-post-demo-1-1.png" alt="" width="200px" style="display: block; margin: auto;" />
 
 The color and font parameters can be adjusted to obtain different looks:
 
@@ -623,7 +623,7 @@ post(labels = c("creative.", "together"), new_plot = "xbox",
      col_bg = pal_seegruen[[1]], col = c(Petrol, Pinky))
 ```
 
-<img src="inst/pix/README-post-demo-2-1.png" width="200px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-post-demo-2-1.png" alt="" width="200px" style="display: block; margin: auto;" />
 
 ### Headings
 
@@ -633,7 +633,7 @@ The `heading()` function is a convenient wrapper around `mark`:
 heading(labels = c("pa-", "ra-", "die-", "sisch"))
 ```
 
-<img src="inst/pix/README-heading-demo-1-1.png" width="200px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-heading-demo-1-1.png" alt="" width="200px" style="display: block; margin: auto;" />
 
 ### URLs
 
@@ -646,7 +646,7 @@ my_url <- url_unikn("https://www.uni-konstanz.de/")  # input URL as copied from 
 post(labels = my_url, x = .2, y = .1, font = 4, new_plot = "xbox")
 ```
 
-<img src="inst/pix/README-url-post-1.png" width="200px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-url-post-1.png" alt="" width="200px" style="display: block; margin: auto;" />
 
 ### Using custom color palettes
 
@@ -658,7 +658,7 @@ annotations. For example:
 
 - Using the color palette `pal_google` (defined above):
 
-<img src="inst/pix/README-others-google-1.png" width="350px" style="display: block; margin: auto;" />
+<img src="inst/pix/README-others-google-1.png" alt="" width="350px" style="display: block; margin: auto;" />
 
 See the vignette on [Text boxes and
 decorations](https://hneth.github.io/unikn/articles/text_decorations.html)
@@ -829,6 +829,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2025-09-16.\]
+\[File `README.md` updated on 2026-11-04.\]
 
 <!-- eof. -->
