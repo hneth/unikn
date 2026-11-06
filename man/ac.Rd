@@ -62,13 +62,14 @@ seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
 \code{\link{newpal}} for defining new color palettes; 
 \code{\link{grepal}} for finding named colors.
 
-Other color functions: 
-\code{\link{demopal}()},
-\code{\link{grepal}()},
-\code{\link{newpal}()},
-\code{\link{seecol}()},
-\code{\link{shades_of}()},
-\code{\link{simcol}()},
-\code{\link{usecol}()}
+Other color functions:
+\code{\link[=demopal]{demopal()}},
+\code{\link[=grepal]{grepal()}},
+\code{\link[=newpal]{newpal()}},
+\code{\link[=plot_col_3d]{plot_col_3d()}},
+\code{\link[=seecol]{seecol()}},
+\code{\link[=shades_of]{shades_of()}},
+\code{\link[=simcol]{simcol()}},
+\code{\link[=usecol]{usecol()}}
 }
 \concept{color functions}

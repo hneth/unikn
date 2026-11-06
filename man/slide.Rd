@@ -41,11 +41,11 @@ slide(col = pal_seeblau[[1]], border = pal_seeblau[[5]], lwd = 2)
 \code{\link{heading}}, \code{\link{line}}, or \code{\link{mark}} to add text to a slide;  
 \code{\link{xbox}} to plot a box.
 
-Other plot functions: 
-\code{\link{theme_bwkn}()},
-\code{\link{theme_grau}()},
-\code{\link{theme_minikn}()},
-\code{\link{theme_unikn}()},
-\code{\link{xbox}()}
+Other plot functions:
+\code{\link[=theme_bwkn]{theme_bwkn()}},
+\code{\link[=theme_grau]{theme_grau()}},
+\code{\link[=theme_minikn]{theme_minikn()}},
+\code{\link[=theme_unikn]{theme_unikn()}},
+\code{\link[=xbox]{xbox()}}
 }
 \concept{plot functions}

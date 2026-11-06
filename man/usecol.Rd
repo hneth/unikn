@@ -81,13 +81,14 @@ seecol(usecol(c(pal_unikn, pal_seeblau), distinct = TRUE), title = "Using distin
 \code{\link{ac}} for adjusting color transparency; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: 
-\code{\link{ac}()},
-\code{\link{demopal}()},
-\code{\link{grepal}()},
-\code{\link{newpal}()},
-\code{\link{seecol}()},
-\code{\link{shades_of}()},
-\code{\link{simcol}()}
+Other color functions:
+\code{\link[=ac]{ac()}},
+\code{\link[=demopal]{demopal()}},
+\code{\link[=grepal]{grepal()}},
+\code{\link[=newpal]{newpal()}},
+\code{\link[=plot_col_3d]{plot_col_3d()}},
+\code{\link[=seecol]{seecol()}},
+\code{\link[=shades_of]{shades_of()}},
+\code{\link[=simcol]{simcol()}}
 }
 \concept{color functions}

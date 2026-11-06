@@ -81,13 +81,14 @@ demopal(type = "scatter", col_par = "black", n = 200, cex = c(2, 4, 6), seed = 1
 \code{\link{ac}} for adjusting color transparency; 
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
-Other color functions: 
-\code{\link{ac}()},
-\code{\link{grepal}()},
-\code{\link{newpal}()},
-\code{\link{seecol}()},
-\code{\link{shades_of}()},
-\code{\link{simcol}()},
-\code{\link{usecol}()}
+Other color functions:
+\code{\link[=ac]{ac()}},
+\code{\link[=grepal]{grepal()}},
+\code{\link[=newpal]{newpal()}},
+\code{\link[=plot_col_3d]{plot_col_3d()}},
+\code{\link[=seecol]{seecol()}},
+\code{\link[=shades_of]{shades_of()}},
+\code{\link[=simcol]{simcol()}},
+\code{\link[=usecol]{usecol()}}
 }
 \concept{color functions}

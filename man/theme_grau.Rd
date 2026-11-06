@@ -75,11 +75,11 @@ ggplot(datasets::iris) +
 \code{\link{theme_bwkn}} for a bw theme; 
 \code{\link{theme_minikn}} for a minimal theme.
 
-Other plot functions: 
-\code{\link{slide}()},
-\code{\link{theme_bwkn}()},
-\code{\link{theme_minikn}()},
-\code{\link{theme_unikn}()},
-\code{\link{xbox}()}
+Other plot functions:
+\code{\link[=slide]{slide()}},
+\code{\link[=theme_bwkn]{theme_bwkn()}},
+\code{\link[=theme_minikn]{theme_minikn()}},
+\code{\link[=theme_unikn]{theme_unikn()}},
+\code{\link[=xbox]{xbox()}}
 }
 \concept{plot functions}

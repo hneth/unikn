@@ -35,11 +35,11 @@ xbox(dim = c(2, 1)) # 2:1 dimension (wider than high)
 \code{\link{post}} to add text to an xbox;   
 \code{\link{slide}} to plot a new slide (or frame).
 
-Other plot functions: 
-\code{\link{slide}()},
-\code{\link{theme_bwkn}()},
-\code{\link{theme_grau}()},
-\code{\link{theme_minikn}()},
-\code{\link{theme_unikn}()}
+Other plot functions:
+\code{\link[=slide]{slide()}},
+\code{\link[=theme_bwkn]{theme_bwkn()}},
+\code{\link[=theme_grau]{theme_grau()}},
+\code{\link[=theme_minikn]{theme_minikn()}},
+\code{\link[=theme_unikn]{theme_unikn()}}
 }
 \concept{plot functions}

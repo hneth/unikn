@@ -1,4 +1,4 @@
-## plot_cols_3d.R | unikn
+## plot_col_3d.R | unikn
 ## spds | uni.kn | 2026 11 06
 ## --------------------------
 
@@ -15,11 +15,11 @@
 ## given 3 points, span a plane (see ToDo at the end of this file).
 
 
-# plot_cols_3d: Documentation ------
+# plot_col_3d: Documentation ------
 
 #' Plot colors as points in a 3D RGB color cube
 #'
-#' \code{plot_cols_3d} plots one or more colors \code{x}
+#' \code{plot_col_3d} plots one or more colors \code{x}
 #' as points in a 3-dimensional cube whose axes correspond
 #' to the red, green, and blue values of the RGB color model
 #' (each ranging from 0 to 255).
@@ -32,7 +32,7 @@
 #' additive composition of its color from the three
 #' primary colors (Red, Green, and Blue).
 #'
-#' \code{plot_cols_3d} uses base graphics
+#' \code{plot_col_3d} uses base graphics
 #' (i.e., \code{\link{persp}} and \code{\link{trans3d}})
 #' and requires no additional package dependencies.
 #'
@@ -199,12 +199,12 @@
 #' # 1. The 6 color corners of the RGB cube (primaries + secondaries, with full labels):
 #' cube_corners <- c(red = "red", green = "green", blue = "blue",
 #'                   cyan = "cyan", magenta = "magenta", yellow = "yellow")
-#' plot_cols_3d(cube_corners, labels = c("names", "rgb", "hex"),
+#' plot_col_3d(cube_corners, labels = c("names", "rgb", "hex"),
 #'              theta = -30, phi = 30, main = "The 6 color corners of the RGB cube")
 #'
 #' # 2. The white-to-black diagonal of the cube (with all shades of grey):
 #' greys <- grey(seq(1, 0, length.out = 9))  # 9 shades of grey (from white to black)
-#' plot_cols_3d(greys, type = "b", line_connect = "path", lwd_line = 4, labels = "hex",
+#' plot_col_3d(greys, type = "b", line_connect = "path", lwd_line = 4, labels = "hex",
 #'              main = "The white-to-black diagonal (shades of grey)")
 #'
 #' # 3. Complementarity of the RGB and CMY color systems:
@@ -213,60 +213,60 @@
 #' #    and a color and its complement mix to grey (at the cube's center).
 #' rgb_cmy <- c(red = "red", cyan = "cyan", green = "green",
 #'              magenta = "magenta", blue = "blue", yellow = "yellow")
-#' plot_cols_3d(rgb_cmy, labels = c("names", "rgb"),
+#' plot_col_3d(rgb_cmy, labels = c("names", "rgb"),
 #'              main = "RGB vs CMY: complementary corners of the cube")
-#' plot_cols_3d(c(red = "red", cyan = "cyan"), type = "b", lwd_line = 4,
+#' plot_col_3d(c(red = "red", cyan = "cyan"), type = "b", lwd_line = 4,
 #'              main = "Complement pair: red + cyan mix to grey (cube center)")
 #'
 #' # Basics:
-#' plot_cols_3d("deepskyblue")                   # a single color
-#' plot_cols_3d(c("red", "green", "blue"))       # the 3 RGB primaries
-#' plot_cols_3d(c("black", "white", "grey"))     # the cube's grey diagonal
+#' plot_col_3d("deepskyblue")                   # a single color
+#' plot_col_3d(c("red", "green", "blue"))       # the 3 RGB primaries
+#' plot_col_3d(c("black", "white", "grey"))     # the cube's grey diagonal
 #'
 #' # Using unikn colors:
-#' plot_cols_3d(pal_unikn)                        # a color palette
-#' plot_cols_3d(pal_seeblau, main = "Seeblau in RGB space")
+#' plot_col_3d(pal_unikn)                        # a color palette
+#' plot_col_3d(pal_seeblau, main = "Seeblau in RGB space")
 #'
 #' # Labeling points (by names, RGB values, HEX values, or combinations):
-#' plot_cols_3d(c("red", "gold", "forestgreen"))                   # names (default)
-#' plot_cols_3d(c("red", "gold", "forestgreen"), labels = "rgb")   # RGB values
-#' plot_cols_3d(c("red", "gold", "forestgreen"), labels = "hex")   # HEX values
-#' plot_cols_3d(c("red", "gold", "forestgreen"),
+#' plot_col_3d(c("red", "gold", "forestgreen"))                   # names (default)
+#' plot_col_3d(c("red", "gold", "forestgreen"), labels = "rgb")   # RGB values
+#' plot_col_3d(c("red", "gold", "forestgreen"), labels = "hex")   # HEX values
+#' plot_col_3d(c("red", "gold", "forestgreen"),
 #'              labels = c("names", "rgb", "hex"))                  # all 3 at once
-#' plot_cols_3d(pal_seeblau, labels = "no")                        # no labels
+#' plot_col_3d(pal_seeblau, labels = "no")                        # no labels
 #'
 #' # Changing the viewing angle:
-#' plot_cols_3d(pal_unikn, theta = 30, phi = 25)
+#' plot_col_3d(pal_unikn, theta = 30, phi = 25)
 #'
 #' # Connecting colors by lines (type = "l" or "b"):
-#' plot_cols_3d(c("red", "blue"), type = "l")              # a line (RGB gradient)
-#' plot_cols_3d(c("black", "white"), type = "l")           # the grey diagonal
+#' plot_col_3d(c("red", "blue"), type = "l")              # a line (RGB gradient)
+#' plot_col_3d(c("black", "white"), type = "l")           # the grey diagonal
 #'
 #' # With >2 colors: all pairwise lines (default) vs. a connecting path:
-#' plot_cols_3d(c("red", "gold", "forestgreen"), type = "l")                      # all pairs
-#' plot_cols_3d(c("red", "gold", "forestgreen"), type = "b", lwd_line = 4)        # pairs + points
-#' plot_cols_3d(pal_unikn, type = "b", line_connect = "path")                     # path (palette order)
+#' plot_col_3d(c("red", "gold", "forestgreen"), type = "l")                      # all pairs
+#' plot_col_3d(c("red", "gold", "forestgreen"), type = "b", lwd_line = 4)        # pairs + points
+#' plot_col_3d(pal_unikn, type = "b", line_connect = "path")                     # path (palette order)
 #'
 #' # Spanning a plane through 3 colors (type = "plane"):
-#' plot_cols_3d(c("red", "green", "blue"), type = "plane")   # gamut of RGB primaries
-#' plot_cols_3d(c("gold", "deepskyblue", "magenta"),
+#' plot_col_3d(c("red", "green", "blue"), type = "plane")   # gamut of RGB primaries
+#' plot_col_3d(c("gold", "deepskyblue", "magenta"),
 #'              type = "plane", labels = "hex")              # gamut of 3 colors
 #'
 #' # Shadow points (projections onto cube faces):
-#' plot_cols_3d(c("gold", "deepskyblue"), shadows = "floor")       # onto the floor (B = 0)
-#' plot_cols_3d(pal_seeblau, shadows = "all")                      # onto all 3 faces
-#' plot_cols_3d(c("red", "green", "blue"), shadows = "all",
+#' plot_col_3d(c("gold", "deepskyblue"), shadows = "floor")       # onto the floor (B = 0)
+#' plot_col_3d(pal_seeblau, shadows = "all")                      # onto all 3 faces
+#' plot_col_3d(c("red", "green", "blue"), shadows = "all",
 #'              col_shadow = NA)                                   # shadows in projected colors
 #'
 #' # Axis options (titles and value ticks):
-#' plot_cols_3d(pal_unikn, axis_labels = "long")           # long axis titles
-#' plot_cols_3d(pal_unikn, n_ticks = 11)                   # finer axis scale (0, 25.5, ...)
-#' plot_cols_3d(pal_unikn, axis_ticks = c(0, 128, 255))    # custom tick positions
-#' plot_cols_3d(pal_unikn, axis_ticks = FALSE)             # no ticks (titles only)
-#' plot_cols_3d(pal_unikn, axis_labels = "no", axis_ticks = FALSE)  # bare cube
+#' plot_col_3d(pal_unikn, axis_labels = "long")           # long axis titles
+#' plot_col_3d(pal_unikn, n_ticks = 11)                   # finer axis scale (0, 25.5, ...)
+#' plot_col_3d(pal_unikn, axis_ticks = c(0, 128, 255))    # custom tick positions
+#' plot_col_3d(pal_unikn, axis_ticks = FALSE)             # no ticks (titles only)
+#' plot_col_3d(pal_unikn, axis_labels = "no", axis_ticks = FALSE)  # bare cube
 #'
 #' # Plotting all points in one color (rather than their own):
-#' plot_cols_3d(pal_unikn, col_points = "black")
+#' plot_col_3d(pal_unikn, col_points = "black")
 #'
 #' # Illustrating the unikn colors and palettes: ------
 #'
@@ -277,27 +277,27 @@
 #'                            "Bordeaux", "Pinky", "Karpfenblau", "Grau", "Signal"))
 #'
 #' # 1. The main unikn colors as (labeled) points:
-#' plot_cols_3d(mains, labels = "names", main = "The main unikn colors in RGB space")
+#' plot_col_3d(mains, labels = "names", main = "The main unikn colors in RGB space")
 #'
 #' # 2. A color palette's shade ramp as a connecting path:
-#' plot_cols_3d(pal_seeblau, type = "b", line_connect = "path", lwd_line = 5,
+#' plot_col_3d(pal_seeblau, type = "b", line_connect = "path", lwd_line = 5,
 #'              theta = 35, phi = 18, main = "pal_seeblau: shade ramp (light to dark)")
 #'
 #' # 3. The default unikn palette (black - Seeblau shades - white) as a path:
-#' plot_cols_3d(pal_unikn, type = "b", line_connect = "path", lwd_line = 4,
+#' plot_col_3d(pal_unikn, type = "b", line_connect = "path", lwd_line = 4,
 #'              main = "pal_unikn: the default palette path")
 #'
 #' # 4. Pairwise relations among 5 main colors:
-#' plot_cols_3d(mains[c("Seeblau", "Seegruen", "Peach", "Bordeaux", "Signal")],
+#' plot_col_3d(mains[c("Seeblau", "Seegruen", "Peach", "Bordeaux", "Signal")],
 #'              type = "b", lwd_line = 3, main = "Five main colors: pairwise relations")
 #'
 #' # 5. The gamut (plane) of mixtures spanned by 3 main colors:
-#' plot_cols_3d(mains[c("Seeblau", "Pinky", "Seegruen")], type = "plane",
+#' plot_col_3d(mains[c("Seeblau", "Pinky", "Seegruen")], type = "plane",
 #'              labels = "names", theta = 30, phi = 20,
 #'              main = "Gamut of Seeblau, Pinky, Seegruen")
 #'
 #' # 6. The main colors with shadows (projected onto all cube faces):
-#' plot_cols_3d(mains, shadows = "all", main = "Main unikn colors with shadows")
+#' plot_col_3d(mains, shadows = "all", main = "Main unikn colors with shadows")
 #'
 #' @family color functions
 #'
@@ -312,9 +312,9 @@
 #'
 #' @export
 
-# plot_cols_3d: Definition ------
+# plot_col_3d: Definition ------
 
-plot_cols_3d <- function(x,                      # vector of colors to plot
+plot_col_3d <- function(x,                      # vector of colors to plot
                          # What to draw:
                          type = "p",             # "p" (points), "l" (lines), "b" (both), or "plane"
                          # Point options:
@@ -358,7 +358,7 @@ plot_cols_3d <- function(x,                      # vector of colors to plot
   cols <- cols[!is.na(cols)]
 
   if (length(cols) < 1) {
-    stop("plot_cols_3d: 'x' must contain at least 1 (non-NA) color.")
+    stop("plot_col_3d: 'x' must contain at least 1 (non-NA) color.")
   }
 
   # Verify that all inputs are valid colors:
@@ -370,7 +370,7 @@ plot_cols_3d <- function(x,                      # vector of colors to plot
 
   ok <- is_col(cols)
   if (any(!ok)) {
-    stop(paste0("plot_cols_3d: Invalid color(s): ",
+    stop(paste0("plot_col_3d: Invalid color(s): ",
                 paste(cols[!ok], collapse = ", "), "."))
   }
 
@@ -573,7 +573,7 @@ plot_cols_3d <- function(x,                      # vector of colors to plot
   if (type %in% c("poly", "polygon", "plane", "fill", "tri", "triangle")) { type <- "plane" }
   if (type %in% c("point", "points"))                          { type <- "p" }
   if (!type %in% c("p", "l", "b", "plane")) {
-    message("plot_cols_3d: Invalid 'type'; using type = \"p\" (points).")
+    message("plot_col_3d: Invalid 'type'; using type = \"p\" (points).")
     type <- "p"
   }
 
@@ -611,7 +611,7 @@ plot_cols_3d <- function(x,                      # vector of colors to plot
   if (line_connect %in% c("all", "pairs", "complete", "pairwise")) { line_connect <- "pairwise" }
   if (line_connect %in% c("path", "seq", "sequential", "chain", "consecutive")) { line_connect <- "path" }
   if (!line_connect %in% c("pairwise", "path")) {
-    message("plot_cols_3d: Invalid 'line_connect'; using \"pairwise\".")
+    message("plot_col_3d: Invalid 'line_connect'; using \"pairwise\".")
     line_connect <- "pairwise"
   }
 
@@ -646,7 +646,7 @@ plot_cols_3d <- function(x,                      # vector of colors to plot
 
     if (n < 3) {  # a plane needs >= 3 points:
 
-      message("plot_cols_3d: type = \"plane\" needs >= 3 colors; drawing a line instead.")
+      message("plot_col_3d: type = \"plane\" needs >= 3 colors; drawing a line instead.")
       if (n == 2) { draw_line(P[1, ], P[2, ]) }
 
     } else {
@@ -654,7 +654,7 @@ plot_cols_3d <- function(x,                      # vector of colors to plot
       # Triangulate: a single triangle for 3 points, else a fan from point 1:
       tris <- if (n == 3) list(c(1, 2, 3)) else lapply(2:(n - 1), function(i) c(1, i, i + 1))
       if (n > 3) {
-        message("plot_cols_3d: >3 colors connected as a filled polygon (may be non-planar).")
+        message("plot_col_3d: >3 colors connected as a filled polygon (may be non-planar).")
       }
 
       # Barycentric position (and color) of weights (wb, wc) in a triangle A-B-C:
@@ -780,32 +780,32 @@ plot_cols_3d <- function(x,                      # vector of colors to plot
 
   invisible(pmat)
 
-} # plot_cols_3d().
+} # plot_col_3d().
 
 
 ## Check: ------
 
 # # Basics:
-# plot_cols_3d("deepskyblue")
-# plot_cols_3d(c("red", "green", "blue"))
-# plot_cols_3d(c("black", "white", "grey"))
+# plot_col_3d("deepskyblue")
+# plot_col_3d(c("red", "green", "blue"))
+# plot_col_3d(c("black", "white", "grey"))
 #
 # # unikn colors:
-# plot_cols_3d(pal_unikn)
-# plot_cols_3d(pal_seeblau, main = "Seeblau in RGB space")
+# plot_col_3d(pal_unikn)
+# plot_col_3d(pal_seeblau, main = "Seeblau in RGB space")
 #
 # # Labels (names / rgb / hex, or combinations):
-# plot_cols_3d(c("red", "gold", "forestgreen"))                        # names (default)
-# plot_cols_3d(c("red", "gold", "forestgreen"), labels = "rgb")
-# plot_cols_3d(c("red", "gold", "forestgreen"), labels = "hex")
-# plot_cols_3d(c("red", "gold", "forestgreen"), labels = c("names", "rgb", "hex"))
-# plot_cols_3d(pal_seeblau, labels = "no")                             # no labels
+# plot_col_3d(c("red", "gold", "forestgreen"))                        # names (default)
+# plot_col_3d(c("red", "gold", "forestgreen"), labels = "rgb")
+# plot_col_3d(c("red", "gold", "forestgreen"), labels = "hex")
+# plot_col_3d(c("red", "gold", "forestgreen"), labels = c("names", "rgb", "hex"))
+# plot_col_3d(pal_seeblau, labels = "no")                             # no labels
 #
 # # Lines (pairwise vs. path) and planes:
-# plot_cols_3d(c("red", "gold", "forestgreen"), type = "b", lwd_line = 4)           # all pairwise lines
-# plot_cols_3d(c("black","red","gold","deepskyblue"), type = "b", lwd_line = 4)     # 6 pairwise lines
-# plot_cols_3d(pal_unikn, type = "b", line_connect = "path")                        # connecting path
-# plot_cols_3d(c("red", "green", "blue"), type = "plane")                           # gamut plane
+# plot_col_3d(c("red", "gold", "forestgreen"), type = "b", lwd_line = 4)           # all pairwise lines
+# plot_col_3d(c("black","red","gold","deepskyblue"), type = "b", lwd_line = 4)     # 6 pairwise lines
+# plot_col_3d(pal_unikn, type = "b", line_connect = "path")                        # connecting path
+# plot_col_3d(c("red", "green", "blue"), type = "plane")                           # gamut plane
 
 
 ## (*) Done: ------

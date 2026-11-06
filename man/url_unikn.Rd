@@ -24,9 +24,9 @@ url_unikn("https://www.uni-konstanz.de/")
 \seealso{
 \code{\link{xbox}} to create a new xbox (without text).
 
-Other text functions: 
-\code{\link{mark}()},
-\code{\link{post}()},
-\code{\link{uline}()}
+Other text functions:
+\code{\link[=mark]{mark()}},
+\code{\link[=post]{post()}},
+\code{\link[=uline]{uline()}}
 }
 \concept{text functions}

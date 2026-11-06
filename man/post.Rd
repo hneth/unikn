@@ -109,9 +109,9 @@ post(labels = c("Hello world!", "Does this work?", "That's good!", "Please carry
 \seealso{
 \code{\link{xbox}} to create a new xbox (without text).
 
-Other text functions: 
-\code{\link{mark}()},
-\code{\link{uline}()},
-\code{\link{url_unikn}()}
+Other text functions:
+\code{\link[=mark]{mark()}},
+\code{\link[=uline]{uline()}},
+\code{\link[=url_unikn]{url_unikn()}}
 }
 \concept{text functions}

@@ -56,13 +56,14 @@ seecol(wine_white, col_brd = "black", lwd_brd = .5,
 \code{\link{grepal}} for finding named colors; 
 \code{\link{ac}} for adjusting color transparency.
 
-Other color functions: 
-\code{\link{ac}()},
-\code{\link{demopal}()},
-\code{\link{grepal}()},
-\code{\link{newpal}()},
-\code{\link{seecol}()},
-\code{\link{simcol}()},
-\code{\link{usecol}()}
+Other color functions:
+\code{\link[=ac]{ac()}},
+\code{\link[=demopal]{demopal()}},
+\code{\link[=grepal]{grepal()}},
+\code{\link[=newpal]{newpal()}},
+\code{\link[=plot_col_3d]{plot_col_3d()}},
+\code{\link[=seecol]{seecol()}},
+\code{\link[=simcol]{simcol()}},
+\code{\link[=usecol]{usecol()}}
 }
 \concept{color functions}

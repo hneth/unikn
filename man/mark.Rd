@@ -117,9 +117,9 @@ mark(labels = c("One, and", "two, and", "three and four is", "plenty and perhaps
 \seealso{
 \code{\link{slide}} and \code{\link{xbox}} to create simple plots (without text).
 
-Other text functions: 
-\code{\link{post}()},
-\code{\link{uline}()},
-\code{\link{url_unikn}()}
+Other text functions:
+\code{\link[=post]{post()}},
+\code{\link[=uline]{uline()}},
+\code{\link[=url_unikn]{url_unikn()}}
 }
 \concept{text functions}
