@@ -1,5 +1,5 @@
 
-# unikn 1.0.0.9005
+# unikn 1.0.0.9006
 
 This is the development version of **unikn**, available at <https://github.com/hneth/unikn/>. 
 
@@ -13,6 +13,7 @@ Changes since last release:
 
 ## Major changes 
 
+- Add `plot_col_3d()` for illustrating colors and color palettes as points, lines, and planes in a 3D RGB color cube. 
 - Add `theme_bwkn()` and `theme_minikn()` as clean, light, and subtle **ggplot2** themes. 
 
 
@@ -390,6 +391,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2026-11-04.]
+[File `NEWS.md` updated on 2026-11-06.]
 
 <!-- eof. -->
