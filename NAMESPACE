@@ -31,6 +31,7 @@ export(pal_unikn_pair)
 export(pal_unikn_ppt)
 export(pal_unikn_pref)
 export(pal_unikn_web)
+export(plot_col_3d)
 export(post)
 export(seecol)
 export(shades_of)
@@ -49,7 +50,26 @@ import(ggplot2)
 import(grDevices)
 import(graphics)
 import(utils)
-importFrom(stats,dnorm)
-importFrom(stats,runif)
-importFrom(utils,browseVignettes)
-importFrom(utils,vignette)
+importFrom(grDevices,
+  adjustcolor,
+  col2rgb,
+  grey,
+  rgb,
+  trans3d
+)
+importFrom(graphics,
+  lines,
+  persp,
+  points,
+  polygon,
+  text,
+  title
+)
+importFrom(stats,
+  dnorm,
+  runif
+)
+importFrom(utils,
+  browseVignettes,
+  vignette
+)
