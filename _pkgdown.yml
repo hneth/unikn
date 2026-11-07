@@ -86,7 +86,7 @@ reference:
   - grepal
   - newpal
   - demopal
-  - plot_col_3d
+  - plot_cube
   - shades_of 
   - ac
   - get_col_names

@@ -13,7 +13,7 @@ Changes since last release:
 
 ## Major changes 
 
-- Add `plot_col_3d()` for illustrating colors and color palettes as points, lines, and planes in a 3D RGB color cube. 
+- Add `plot_cube()` for illustrating colors and color palettes as points, lines, and planes in a 3D RGB color cube. 
 - Add `theme_bwkn()` and `theme_minikn()` as clean, light, and subtle **ggplot2** themes. 
 
 

@@ -30,7 +30,7 @@ Collate: 'color_def_1.R'
          'plot_themes.R'
          'plot_kn.R'
          'plot_demo.R'
-         'plot_col_3d.R'
+         'plot_cube.R'
          'start_unikn.R'
 Encoding: UTF-8
 LazyData: false
