@@ -198,7 +198,7 @@ Other color functions:
 \code{\link[=demopal]{demopal()}},
 \code{\link[=grepal]{grepal()}},
 \code{\link[=newpal]{newpal()}},
-\code{\link[=plot_col_3d]{plot_col_3d()}},
+\code{\link[=plot_cube]{plot_cube()}},
 \code{\link[=shades_of]{shades_of()}},
 \code{\link[=simcol]{simcol()}},
 \code{\link[=usecol]{usecol()}}
