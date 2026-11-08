@@ -1,5 +1,5 @@
 ## plot_cube.R | unikn
-## spds | uni.kn | 2026 11 06
+## spds | uni.kn | 2026 11 08
 ## --------------------------
 
 ## Plot R colors as points in a 3D RGB color cube.
@@ -86,13 +86,18 @@
 #' @param line_connect How to connect 3 or more colors by lines
 #' (for \code{type = "l"} or \code{"b"}):
 #'   \itemize{
-#'   \item \code{"pairwise"}: connect \emph{all pairs} of colors
+#'   \item \code{"all"}: Connect \emph{all pairs} of colors
 #'   (i.e., \code{n * (n - 1) / 2} lines, a complete graph);
-#'   \item \code{"path"}: connect only \emph{consecutive} colors
+#'   \item \code{"pairs"}: Connect only \emph{disjoint consecutive pairs}
+#'   of colors, i.e., (1st, 2nd), (3rd, 4th), etc.
+#'   (yielding \code{floor(n / 2)} lines; if \code{n} is odd, the final
+#'   color remains unpaired, but is still shown as a point);
+#'   \item \code{"path"}: Connect only \emph{consecutive} colors
 #'   (i.e., \code{n - 1} lines, tracing the palette in its given order).
 #'   }
-#' For 2 colors, both options yield the same single line.
-#' Default: \code{line_connect = "pairwise"}.
+#' For 2 colors, all 3 options yield the same single line.
+#' (The value \code{"pairwise"} is accepted as an alias for \code{"all"}.)
+#' Default: \code{line_connect = "all"}.
 #'
 #' @param col_fill Fill color for the plane (for \code{type = "plane"}).
 #' Default: \code{col_fill = NA} (i.e., fill the plane with a color gradient
@@ -124,8 +129,20 @@
 #'
 #' @param col_shadow Color of the shadow markers.
 #' Default: \code{col_shadow = grey(.70, .9)} (a neutral grey).
+#'
 #' Setting \code{col_shadow = NA} shows each shadow in its own
-#' \emph{projected} color (i.e., the color with 1 channel set to 0).
+#' \emph{projected} color. Projecting a point onto a face sets the
+#' one color channel perpendicular to that face (i.e., the RGB axis
+#' \emph{not} spanned by the face's plane) to zero:
+#' a \code{"floor"} shadow sets \code{B = 0},
+#' a \code{"back"} shadow sets \code{G = 0}, and
+#' a \code{"side"} shadow sets \code{R = 0} (see \code{shadows}).
+#' As one channel is dropped, a projected shadow color thus
+#' \emph{systematically differs} from its source color:
+#' e.g., \code{"violet"} (238, 130, 238) casts an
+#' orange (238, 130, 0) floor shadow, a
+#' magenta (238, 0, 238) back shadow, and a
+#' blue (0, 130, 238) side shadow.
 #'
 #' @param show_cube Boolean: Mark the 8 corners of the cube
 #' by points in their corresponding colors
@@ -190,31 +207,8 @@
 #' that maps 3D coordinates to the 2D plotting plane (returned invisibly).
 #'
 #' @examples
-#' # Basic demonstrations (of the RGB color cube): ------
-#'
-#' # 1. The 6 color corners of the RGB cube (primaries + secondaries, with full labels):
-#' cube_corners <- c(red = "red", green = "green", blue = "blue",
-#'                   cyan = "cyan", magenta = "magenta", yellow = "yellow")
-#' plot_cube(cube_corners, labels = c("names", "rgb", "hex"),
-#'              theta = -30, phi = 30, main = "The 6 color corners of the RGB cube")
-#'
-#' # 2. The white-to-black diagonal of the cube (with all shades of grey):
-#' greys <- grey(seq(1, 0, length.out = 9))  # 9 shades of grey (from white to black)
-#' plot_cube(greys, type = "b", line_connect = "path", lwd_line = 4, labels = "hex",
-#'              main = "The white-to-black diagonal (shades of grey)")
-#'
-#' # 3. Complementarity of the RGB and CMY color systems:
-#' #    Each CMY secondary (cyan, magenta, yellow) is the complement of an RGB
-#' #    primary (red, green, blue): it occupies the opposite corner of the cube,
-#' #    and a color and its complement mix to grey (at the cube's center).
-#' rgb_cmy <- c(red = "red", cyan = "cyan", green = "green",
-#'              magenta = "magenta", blue = "blue", yellow = "yellow")
-#' plot_cube(rgb_cmy, labels = c("names", "rgb"),
-#'              main = "RGB vs CMY: complementary corners of the cube")
-#' plot_cube(c(red = "red", cyan = "cyan"), type = "b", lwd_line = 4,
-#'              main = "Complement pair: red + cyan mix to grey (cube center)")
-#'
-#' # Basics:
+#' # A. Basics: ------ 
+#' 
 #' plot_cube("deepskyblue")                   # a single color
 #' plot_cube(c("red", "green", "blue"))       # the 3 RGB primaries
 #' plot_cube(c("black", "white", "grey50"))   # the cube's grey diagonal
@@ -238,10 +232,16 @@
 #' plot_cube(c("red", "blue"), type = "l")              # a line (RGB gradient)
 #' plot_cube(c("black", "white"), type = "l")           # the grey diagonal
 #'
-#' # With >2 colors: all pairwise lines (default) vs. a connecting path:
+#' # With >2 colors: all pairs (default), disjoint pairs, or a connecting path:
 #' plot_cube(c("red", "gold", "forestgreen"), type = "l")                # all pairs
-#' plot_cube(c("red", "gold", "forestgreen"), type = "b", lwd_line = 5)  # pairs + points
+#' plot_cube(c("red", "gold", "forestgreen"), type = "b", lwd_line = 5)  # all pairs + points
 #' plot_cube(pal_unikn, type = "b", line_connect = "path")               # path (palette order)
+#'
+#' # Using line_connect = "pairs" to link disjoint color pairs, e.g., to show
+#' # the 3 complementary RGB/CMY pairs (each line crosses the grey cube center):
+#' plot_cube(c("red", "cyan", "green", "magenta", "blue", "yellow"),
+#'           type = "b", line_connect = "pairs", lwd_line = 4,
+#'           main = "Complementary RGB/CMY pairs")
 #'
 #' # Spanning a plane through 3 colors (type = "plane"):
 #' plot_cube(c("red", "green", "blue"), type = "plane")  # gamut of RGB primaries
@@ -251,8 +251,9 @@
 #' # Shadow points (projections onto cube faces):
 #' plot_cube(c("gold", "deepskyblue"), shadows = "floor")  # onto the floor (B = 0)
 #' plot_cube(pal_seeblau, shadows = "all")                 # onto all 3 faces
-#' plot_cube(cols, shadows = "all", col_shadow = NA)       # ToDo: fix bug to show shadows in projected colors
-#'
+#' plot_cube(c("grey20", "grey50", "grey80"),              # show shadows in projected colors
+#'           shadows = "all", col_shadow = NA) 
+#'           
 #' # Axis options (titles and value ticks):
 #' plot_cube(pal_unikn, axis_labels = "long")           # long axis titles
 #' plot_cube(pal_unikn, n_ticks = 11)                   # finer axis scale (0, 25.5, ...)
@@ -263,32 +264,72 @@
 #' # Plotting all points in one color (rather than their own):
 #' plot_cube(pal_unikn, col_points = "black")
 #'
-#' # Illustrating the unikn colors and palettes: ------
+#'
+#' # B. Basic demonstrations of the RGB/CYK color cube: ------
+#'
+#' # 1. The 6 color corners of the RGB cube (primaries + secondaries, with full labels):
+#' col_corners <- c("red", "green", "blue", "cyan", "magenta", "yellow")
+#' plot_cube(col_corners, labels = c("names", "rgb", "hex"),
+#'           theta = -30, phi = 30, main = "The 6 color corners of the RGB cube")
+#'
+#' # 2. The main black-to-white diagonal of the cube (with all shades of grey):
+#' plot_cube(c("black", "white"), type = "l", lwd_line = 5, 
+#'           main = "Main b/w-diagonal (with all shades of grey)")
+#' greys <- paste("grey", seq(0, 100, length.out = 5))  # 5 shades of grey (white to black)
+#' plot_cube(greys, type = "b", line_connect = "path", 
+#'           lwd_line = 5, labels = c("names", "hex", "rgb"),
+#'           theta = -30, phi = 30, 
+#'           main = "5 shades of grey (on b/w diagonal)")
+#'
+#' # 3. Complementarity of the RGB and CMY color systems:
+#' #    Each CMY secondary (cyan, magenta, yellow) is the complement of an RGB
+#' #    primary (red, green, blue): it occupies the opposite corner of the cube,
+#' #    and a color and its complement mix to grey (at the cube's center).
+#' col_rgb_cmy <- c("red", "cyan", "green", "magenta", "blue", "yellow")
+#' plot_cube(col_rgb_cmy, labels = c("names", "rgb"),
+#'           main = "RGB vs CMY: complementary corners of the cube")
+#' plot_cube(c("red", "cyan"), type = "b", lwd_line = 4,
+#'              main = "Complement pair: red + cyan mix to grey (in center)")
+#'              
+#' # RGB vs. CYK planes:
+#' plot_cube(c("red", "blue", "green"), type = "plane", main = "The RGB plane")
+#' plot_cube(c("cyan", "yellow", "magenta"), type = "plane", main = "The CYK plane")
+#'
+#' # All 4 diagonals of the RGB/CYK cube:
+#' plot_cube(c("black", "white", "red", "cyan", "blue", "yellow", "green", "magenta"), 
+#'             type = "l", line_connect = "pairs", lwd_line = 4,
+#'             main = "The 4 main diagonals")
+#'
+#'
+#' # C. Illustrating the unikn colors and palettes: ------
 #'
 #' # Collect the main unikn colors (as a vector):
-#' main_col <- c(Seeblau, Seegruen, Pinky, Bordeaux, Karpfenblau)
+#' col_main <- c(Seeblau, Seegruen, Pinky, Bordeaux, Karpfenblau)
 #'
 #' # 1. Main unikn colors as (labeled) points:
-#' plot_cube(main_col, labels = "names", main = "The main unikn colors in RGB space")
+#' plot_cube(col_main, labels = "names", main = "The main unikn colors in RGB space")
 #'
 #' # 2. A color palette's shade ramp as a connecting path:
 #' plot_cube(pal_seeblau, type = "b", line_connect = "path", lwd_line = 5,
-#'           theta = 35, phi = 18, main = "pal_seeblau: shade ramp (light to dark)")
+#'           theta = 30, phi = 30, main = "pal_seeblau: shade ramp (light to dark)")
 #'
 #' # 3. The default unikn palette (black - Seeblau shades - white) as a path:
 #' plot_cube(pal_unikn, type = "b", line_connect = "path", lwd_line = 4,
 #'           main = "pal_unikn: the default palette path")
 #'
 #' # 4. Pairwise relations among main colors:
-#' plot_cube(main_col, type = "b", lwd_line = 3, main = "Pairwise relations of main colors")
+#' plot_cube(col_main, type = "b", lwd_line = 3, 
+#'           theta = -20, phi = 10, main = "Pairwise relations of main colors")
 #'
 #' # 5. The gamut (plane) of mixtures spanned by 3 main colors:
 #' plot_cube(c(Seeblau, Pinky, Seegruen), type = "plane",
-#'           labels = "names", theta = 30, phi = 20,
+#'           labels = "names", theta = 10, phi = 20,
 #'           main = "Gamut of Seeblau, Pinky, Seegruen")
 #'
-#' # 6. Main colors with shadows (projected onto all cube faces):
-#' plot_cube(main_col, shadows = "all", main = "Main unikn colors with shadows")
+#' # 6. Main colors with shadows (projected onto cube faces):
+#' plot_cube(col_main, shadows = "all", main = "Main unikn colors with shadows")
+#'
+#'
 #'
 #' @family color functions
 #'
@@ -317,7 +358,7 @@ plot_cube <- function(x,                      # vector of colors to plot
                       # Line options (type "l"/"b"):
                       col_line = NA,          # NA: gradient (color line by local mix); else a fixed color
                       lwd_line = 3,           # line thickness (lines + plane outline); raise for more visible lines
-                      line_connect = "pairwise", # for >2 points: "pairwise" (all pairs) or "path" (consecutive)
+                      line_connect = "all",   # for >2 points: "all" (all pairs), "pairs" (disjoint consecutive pairs), or "path" (consecutive)
                       # Plane options (type "plane"):
                       col_fill = NA,          # NA: gradient fill (gamut of mixtures); else a fixed fill color
                       fill_alpha = .80,       # opacity of the plane fill (in [0, 1])
@@ -612,26 +653,31 @@ plot_cube <- function(x,                      # vector of colors to plot
     }
   }
   
-  ## (5a) Lines (connect points pairwise or along a path): ------
+  ## (5a) Lines (connect points: all pairs, disjoint pairs, or along a path): ------
   
   # Normalize 'line_connect' (accepting several synonyms):
   line_connect <- tolower(line_connect)
   
-  if (line_connect %in% c("all", "pairs", "complete", "pairwise")) { line_connect <- "pairwise" }
+  if (line_connect %in% c("all", "complete", "pairwise")) { line_connect <- "all" }   # "pairwise" kept as alias
+  if (line_connect %in% c("pairs", "pair", "disjoint")) { line_connect <- "pairs" }
   if (line_connect %in% c("path", "seq", "sequential", "chain", "consecutive")) { line_connect <- "path" }
   
-  if (!line_connect %in% c("pairwise", "path")) {
-    message("plot_cube: Invalid 'line_connect'; using \"pairwise\".")
-    line_connect <- "pairwise"
+  if (!line_connect %in% c("all", "pairs", "path")) {
+    message("plot_cube: Invalid 'line_connect'; using \"all\".")
+    line_connect <- "all"
   }
   
   if (type %in% c("l", "b") && n >= 2) {
     
     # Enumerate the point-index pairs to connect:
-    if (line_connect == "path") {  # consecutive points (a path): n - 1 lines
+    if (line_connect == "path") {        # consecutive points (a path): n - 1 lines
       pairs <- lapply(1:(n - 1), function(k) c(k, k + 1))
       
-    } else {                       # all pairs (complete graph): n * (n - 1) / 2 lines
+    } else if (line_connect == "pairs") { # disjoint consecutive pairs: (1,2),(3,4),...: floor(n/2) lines
+      n_pairs <- n %/% 2                   # (if n is odd, the last color remains unpaired)
+      pairs <- if (n_pairs >= 1) lapply(1:n_pairs, function(k) c(2 * k - 1, 2 * k)) else list()
+      
+    } else {                             # "all" pairs (complete graph): n * (n - 1) / 2 lines
       pairs <- list()
       for (i in 1:(n - 1)) {
         for (j in (i + 1):n) { pairs[[length(pairs) + 1]] <- c(i, j) }
@@ -812,9 +858,10 @@ plot_cube <- function(x,                      # vector of colors to plot
 # plot_cube(c("red", "gold", "forestgreen"), labels = c("names", "rgb", "hex"))
 # plot_cube(pal_seeblau, labels = "no")                             # no labels
 #
-# # Lines (pairwise vs. path) and planes:
-# plot_cube(c("red", "gold", "forestgreen"), type = "b", lwd_line = 4)           # all pairwise lines
-# plot_cube(c("black","red","gold","deepskyblue"), type = "b", lwd_line = 4)     # 6 pairwise lines
+# # Lines (all pairs / disjoint pairs / path) and planes:
+# plot_cube(c("red", "gold", "forestgreen"), type = "b", lwd_line = 4)           # all pairs (default)
+# plot_cube(c("black","red","gold","deepskyblue"), type = "b", lwd_line = 4)     # all pairs (6 lines)
+# plot_cube(c("red","cyan","green","magenta"), type = "b", line_connect = "pairs")  # 2 disjoint pairs
 # plot_cube(pal_unikn, type = "b", line_connect = "path")                        # connecting path
 # plot_cube(c("red", "green", "blue"), type = "plane")                           # gamut plane
 
@@ -825,14 +872,13 @@ plot_cube <- function(x,                      # vector of colors to plot
 # - Labels: by names / RGB / HEX values (or combinations); only provided points labeled.
 # - Axes: customizable titles + numeric value ticks (0 to 255).
 # - Lines: connect colors by (gradient) lines (type = "l" / "b"), with adjustable
-#          thickness (lwd_line) and either "pairwise" (all pairs) or "path" connections.
+#          thickness (lwd_line) and "all" (all pairs) / "pairs" (disjoint pairs) / "path" connections.
 # - Planes: span a (gradient-filled) plane through >= 3 colors (type = "plane").
 # - Shadows: project points onto cube faces (shadows = "floor"/"back"/"side"/"all").
 
 
-## (+) ToDo: ------
+## ToDo in future: ------
 
-# - Fix bug for col_shadow = NA to show shadows in projected colors. 
 # - Allow other color models (e.g., HSV) as alternative axes.
 # - Gradient-fill planes using a finer (adaptive) tessellation near edges.
 
