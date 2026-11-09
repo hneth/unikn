@@ -35,7 +35,7 @@ Collate: 'color_def_1.R'
 Encoding: UTF-8
 LazyData: false
 License: CC BY-SA 4.0
-URL: https://CRAN.R-project.org/package=unikn, https://hneth.github.io/unikn, https://hneth.github.io/unikn/
+URL: https://CRAN.R-project.org/package=unikn, https://hneth.github.io/unikn/, https://hneth.github.io/unikn//
 BugReports: https://github.com/hneth/unikn/issues
 VignetteBuilder: knitr
 Language: en-US

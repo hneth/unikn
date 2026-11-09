@@ -644,7 +644,7 @@ The **unikn** and **[unicol](`r url_unicol_cran`)** packages are still under dev
 - Adding institutional color palettes to the **[unicol](`r url_unicol_cran`)** package 
 - Additional templates and themes (for plots and text decoration)   
    
-Please comment on [GitHub](https://github.com/hneth/unikn) or [contact us](https://www.spds.uni-konstanz.de/) 
+Please comment on [GitHub](https://github.com/hneth/unikn) or [contact us](https://spds.uni-konstanz.de/) 
 if you need additional features or want to help creating them.  
 
 
@@ -675,8 +675,8 @@ We are looking forward to your feedback, comments, or questions.
 <img src = "./inst/pix/logo_unikn.png" alt = "uni.kn" width = "280px" align = "right" style = "width: 280px; float: right; border:12;"/>
 </a>
 
-The [University of Konstanz's Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)\ (CD) was created by [Strichpunkt GmbH](https://www.strichpunkt-design.de/) and the [University of Konstanz](https://www.uni-konstanz.de/) in\ 2014. 
-The **unikn** package authors are members of the research group [Social Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/) (SPDS) at the [University of Konstanz](https://www.uni-konstanz.de/). We facilitate access to CD elements for fellow users of\ R (e.g., for creating scientific visualizations), but all copyrights on the design remain with the original copyright holders. 
+The [University of Konstanz's Corporate Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/)\ (CD) was created by [Strichpunkt GmbH](https://sp.design/) and the [University of Konstanz](https://www.uni-konstanz.de/) in\ 2014. 
+The **unikn** package authors are members of the research group [Social Psychology and Decision Sciences](https://spds.uni-konstanz.de/) (SPDS) at the [University of Konstanz](https://www.uni-konstanz.de/). We facilitate access to CD elements for fellow users of\ R (e.g., for creating scientific visualizations), but all copyrights on the design remain with the original copyright holders. 
 
 We aim for an authentic representation of a highly-specified corporate design. While rigid specifications help to maintain coherence and consistency, they also tend to cause frustration in expert users. As the design has been developed in a flexible way that allows for individual elements to be modified as needed, we allow for some liberties, mostly by relaxing some restrictions. Examples include: 
 
@@ -717,7 +717,6 @@ Computer software (R package version 1.1.0, November 11, 2026).
 Retrieved from <https://CRAN.R-project.org/package=unikn>.  
 <https://doi.org/10.5281/zenodo.7096191> 
 
-
 <!-- BibTeX:  -->
 
 A BibTeX entry for LaTeX users is: 
@@ -733,9 +732,9 @@ toBibtex(x)
 
 The copyrights to all [uni.kn](https://www.uni-konstanz.de/) designs remain with their original creators: 
 
-- [The University of Konstanz’s corporate design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/) (Version 1.6, September 2015) 
+- [The University of Konstanz’s corporate design](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/) (Version 1.6, September 2015) 
 - [Colours for complex graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/) 
-- Strichpunkt GmbH, [`r url_unikn("https://www.strichpunkt-design.de/")`](https://www.strichpunkt-design.de/) 
+- Strichpunkt GmbH, [`r url_unikn("https://sp.design/")`](https://sp.design/) 
 
 
 

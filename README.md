@@ -702,8 +702,8 @@ still under development. We are currently working on:
 - Additional templates and themes (for plots and text decoration)
 
 Please comment on [GitHub](https://github.com/hneth/unikn) or [contact
-us](https://www.spds.uni-konstanz.de/) if you need additional features
-or want to help creating them.
+us](https://spds.uni-konstanz.de/) if you need additional features or
+want to help creating them.
 
 ## Resources
 
@@ -735,11 +735,11 @@ feedback, comments, or questions.
 
 The [University of Konstanz’s Corporate
 Design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/) (CD)
-was created by [Strichpunkt GmbH](https://www.strichpunkt-design.de/)
-and the [University of Konstanz](https://www.uni-konstanz.de/) in 2014.
-The **unikn** package authors are members of the research group [Social
-Psychology and Decision Sciences](https://www.spds.uni-konstanz.de/)
-(SPDS) at the [University of Konstanz](https://www.uni-konstanz.de/). We
+was created by [Strichpunkt GmbH](https://sp.design/) and the
+[University of Konstanz](https://www.uni-konstanz.de/) in 2014. The
+**unikn** package authors are members of the research group [Social
+Psychology and Decision Sciences](https://spds.uni-konstanz.de/) (SPDS)
+at the [University of Konstanz](https://www.uni-konstanz.de/). We
 facilitate access to CD elements for fellow users of R (e.g., for
 creating scientific visualizations), but all copyrights on the design
 remain with the original copyright holders.
@@ -818,12 +818,11 @@ The copyrights to all [uni.kn](https://www.uni-konstanz.de/) designs
 remain with their original creators:
 
 - [The University of Konstanz’s corporate
-  design](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/the-university-of-konstanzs-corporate-design/)
+  design](https://www.uni-konstanz.de/universitaet/aktuelles-und-medien/online-und-print-medien-gestalten/corporate-design/)
   (Version 1.6, September 2015)
 - [Colours for complex
   graphics](https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/colours-for-complex-graphics/)
-- Strichpunkt GmbH, [–
-  strichpunkt-design.de](https://www.strichpunkt-design.de/)
+- Strichpunkt GmbH, [– sp.design](https://sp.design/)
 
 ------------------------------------------------------------------------
 
