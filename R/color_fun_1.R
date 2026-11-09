@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2023 09 21
+## spds | uni.kn | 2026 11 09
 ## --------------------------
 
 ## Define color-related functions 
@@ -1050,7 +1050,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
     } # otherwise: use the hex value provided.
     
     # Determine, whether to display RGB values:
-    cex_rgb <- 0.95
+    cex_rgb  <- .95
     wdth_rgb <- strwidth(" 999 ", cex = cex_rgb) * max_ncol
     
     while ((wdth_rgb > xlim[2]) & (cex_rgb > cex_min)) {
@@ -1327,11 +1327,21 @@ all_colors <- function(distinct = TRUE){
 
 ## ToDo: ------
 
+# ToDo next: ---- 
+
+# 1. Consider moving all_colors() to color_fun_2.R (to keep only 2 main functions in this file).
+#
+# 2. Add an option to seecol() to pass the current colors (if not providing multiple palettes) to plot_cube() 
+#   with appropriate parameters (e.g., labels).
+
+
+# Other issues: ---- 
+
 # - seecol(): Compare 
-# seecol(unicol::eth_3) # showing only 6-digit HEX values for transparent colors, with 
+# seecol(unicol::eth_3)      # showing only 6-digit HEX values for transparent colors, with 
 # seecol(unicol::eth_3[3:7]) # showing full HEX values (8 digits) for transparent colors
 
-# - usecol(): $comment attribute "custom" prevents output from being a vector
+# - usecol(): $comment attribute "custom" prevents output from being a vector!
 
 # - Consider creating more vivid versions of some
 #   `pal_unikn_pref` colors (e.g., "deepskyblue", "deeppink", etc.)
