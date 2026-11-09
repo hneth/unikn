@@ -21,6 +21,7 @@ seecol(
   title = NULL,
   mar_note = NA,
   pal_names = NA,
+  cube = FALSE,
   ...
 )
 }
@@ -100,11 +101,28 @@ Use \code{main} instead.}
 \item{mar_note}{Optional margin note (on bottom right). 
 Default: \code{mar_note = NA} (i.e., no margin note).}
 
-\item{pal_names}{Names of color palettes or colors 
-(as a character vector). 
+\item{pal_names}{Names of color palettes or colors
+(as a character vector).
 Default: \code{pal_names = NA} (for default names).}
 
-\item{...}{Other graphical parameters 
+\item{cube}{Render a \emph{single} color palette as points in a
+3D RGB color cube (via \code{\link{plot_cube}})?
+Either a logical value/Boolean, or a list of arguments passed to \code{\link{plot_cube}}:
+\itemize{
+  \item \code{cube = FALSE}: Show the standard (swatch) view (default);
+  \item \code{cube = TRUE}: Show the color cube, using \code{main} as its title
+  and deriving point labels from the current \code{hex} and \code{rgb} settings
+  (color names are always shown; \code{hex} and/or \code{rgb} values are
+  added when set to \code{TRUE});
+  \item \code{cube = list(...)}: show the color cube, passing the named list
+  entries on to \code{\link{plot_cube}} (overriding the derived defaults,
+  e.g., \code{cube = list(type = "b", shadows = "all")}).
+  }
+When multiple palettes are provided, the cube view is skipped
+(with a message) and the standard comparison view is shown.
+Default: \code{cube = FALSE}.}
+
+\item{...}{Other graphical parameters
 (passed to \code{plot}).}
 }
 \description{
@@ -176,6 +194,12 @@ seecol(list(pal_mpg, pal_bdg, pal_unikn), scale_x = TRUE,
        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
        main = "Comparing and labeling custom color palettes")
 
+# Viewing a single palette in a 3D RGB color cube (via plot_cube()):
+seecol(pal_unikn, cube = TRUE)                          # default cube view (with color names)
+seecol(pal_unikn_pref, cube = TRUE, hex = TRUE)         # add HEX labels to points
+seecol(pal_pinky, cube = list(type = "b", theta = -35,  # pass arguments to plot_cube()
+       line_connect = "path", shadows = "all"))  
+
 ## Viewing color palettes from other packages: 
 # library(RColorBrewer)
 # seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
@@ -183,14 +207,16 @@ seecol(list(pal_mpg, pal_bdg, pal_unikn), scale_x = TRUE,
 ## Extending color palettes:
 # seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
 
+
 }
 \seealso{
-\code{\link{usecol}} for using color palettes; 
-\code{\link{simcol}} for finding similar colors; 
-\code{\link{newpal}} for defining new color palettes; 
-\code{\link{grepal}} for finding named colors; 
-\code{\link{shades_of}} to defining shades of a given color; 
-\code{\link{ac}} for adjusting color transparency; 
+\code{\link{usecol}} for using color palettes;
+\code{\link{simcol}} for finding similar colors;
+\code{\link{newpal}} for defining new color palettes;
+\code{\link{grepal}} for finding named colors;
+\code{\link{shades_of}} to defining shades of a given color;
+\code{\link{ac}} for adjusting color transparency;
+\code{\link{plot_cube}} for viewing colors in a 3D RGB color cube;
 \code{\link{pal_unikn}} for the default uni.kn color palette.
 
 Other color functions:
