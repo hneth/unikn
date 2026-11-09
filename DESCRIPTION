@@ -6,7 +6,7 @@ Date: 2026-11-11
 Authors@R: c(person("Hansjoerg", "Neth", role = c("aut", "cre"), email = "h.neth@uni.kn", comment = c(ORCID = "0000-0001-5427-3141")), 
              person("Nico", "Gradwohl", role = "aut", comment = c(ORCID = "0000-0002-8703-905X")))
 Maintainer: Hansjoerg Neth <h.neth@uni.kn>
-Description: Define and use graphical elements of corporate design manuals in R. The 'unikn' package provides color functions (by defining dedicated colors and color palettes, and commands for finding, changing, viewing, and using them) and styled text elements (e.g., for marking, underlining, or plotting colored titles). The pre-defined range of colors and text decoration functions is based on the corporate design of the University of Konstanz <https://www.uni-konstanz.de/>, but can be adapted and extended for other purposes or institutions. 
+Description: Define and use graphical elements of corporate design manuals in R. The 'unikn' package <doi:10.5281/zenodo.7096191> provides color functions (by defining dedicated colors and color palettes, and commands for finding, changing, viewing, and using them) and styled text elements (e.g., for marking, underlining, or plotting colored titles). The pre-defined range of colors and text decoration functions is based on the corporate design of the University of Konstanz <https://www.uni-konstanz.de/>, but can be adapted and extended for other purposes or institutions. 
 Depends:
     R (>= 3.4.0)
 Imports:
@@ -35,7 +35,6 @@ Collate: 'color_def_1.R'
 Encoding: UTF-8
 LazyData: false
 License: CC BY-SA 4.0
-DOI: 10.5281/zenodo.7096191
 URL: https://CRAN.R-project.org/package=unikn, https://hneth.github.io/unikn, https://hneth.github.io/unikn/
 BugReports: https://github.com/hneth/unikn/issues
 VignetteBuilder: knitr
