@@ -1,9 +1,11 @@
 
-# unikn 1.0.0.9007
+<!-- Published versions: --> 
 
-This is the development version of **unikn**, available at <https://github.com/hneth/unikn/>. 
+# unikn 1.1.0
 
-This version adds functionality and fixes some bugs. 
+This release of **unikn** (v1.0.0) adds functionality and fixes some bugs. [2026-11-11] 
+
+<!-- This is the development version of **unikn**, available at <https://github.com/hneth/unikn/>. --> 
 
 <!-- Log of changes: --> 
 
@@ -25,6 +27,7 @@ Changes since last release:
 - Tweak `theme_unikn()` and `theme_grau()` for consistency with new **ggplot2** themes. 
 - Fix some bugs in themes for recent versions of **ggplot2** (e.g., replacing `size` by `linewidth` arguments). 
 
+
 <!-- Details:  --> 
 
 ## Details 
@@ -38,9 +41,8 @@ Changes since last release:
 
 The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. 
 
+<!-- Older versions: --> 
 
-
-<!-- Published versions: -->  
 
 ---------- 
 
@@ -392,6 +394,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2026-11-09.]
+[File `NEWS.md` updated on 2026-11-11.]
 
 <!-- eof. -->
