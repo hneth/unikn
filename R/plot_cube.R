@@ -477,7 +477,8 @@ plot_cube <- function(x,                      # vector of colors to plot
   ## (2) Set up plotting area: ------
   
   opar <- graphics::par(no.readonly = TRUE)  # store graphics settings
-  on.exit(graphics::par(opar))               # restore on exit
+  on.exit({opar[["new"]] <- FALSE; graphics::par(opar)})  # restore on exit (but never leave 'new = TRUE')
+  graphics::par(new = FALSE)                  # always start a fresh frame (so persp() never overplots a prior plot)
   graphics::par(mar = c(2.5, 2, 3, 2) + 0.1) # margins (room for title + axis labels)
   graphics::par(xpd = TRUE)                   # allow axis labels to extend beyond the box
   

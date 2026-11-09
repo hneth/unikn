@@ -550,10 +550,10 @@ usecol <- function(pal = pal_unikn,
 #'
 #' @param cube Render a \emph{single} color palette as points in a
 #' 3D RGB color cube (via \code{\link{plot_cube}})?
-#' Either a Boolean value, or a list of arguments passed to \code{\link{plot_cube}}:
+#' Either a logical value/Boolean, or a list of arguments passed to \code{\link{plot_cube}}:
 #' \itemize{
-#'   \item \code{cube = FALSE}: show the standard (swatch) view (default);
-#'   \item \code{cube = TRUE}: show the color cube, using \code{main} as its title
+#'   \item \code{cube = FALSE}: Show the standard (swatch) view (default);
+#'   \item \code{cube = TRUE}: Show the color cube, using \code{main} as its title
 #'   and deriving point labels from the current \code{hex} and \code{rgb} settings
 #'   (color names are always shown; \code{hex} and/or \code{rgb} values are
 #'   added when set to \code{TRUE});
@@ -610,6 +610,12 @@ usecol <- function(pal = pal_unikn,
 #'        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
 #'        main = "Comparing and labeling custom color palettes")
 #' 
+#' # Viewing a single palette in a 3D RGB color cube (via plot_cube()):
+#' seecol(pal_unikn, cube = TRUE)                          # default cube view (with color names)
+#' seecol(pal_unikn_pref, cube = TRUE, hex = TRUE)         # add HEX labels to points
+#' seecol(pal_pinky, cube = list(type = "b", theta = -35,  # pass arguments to plot_cube()
+#'        line_connect = "path", shadows = "all"))  
+#' 
 #' ## Viewing color palettes from other packages: 
 #' # library(RColorBrewer)
 #' # seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
@@ -617,11 +623,6 @@ usecol <- function(pal = pal_unikn,
 #' ## Extending color palettes:
 #' # seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
 #'
-#' # Viewing a single palette as a 3D RGB color cube (via plot_cube()):
-#' seecol(pal_unikn, cube = TRUE)                     # cube view (labeled by color names)
-#' seecol(pal_seeblau, cube = TRUE, hex = TRUE)       # add HEX values as point labels
-#' seecol(pal_pref <- usecol(pal_unikn_pref),
-#'        cube = list(type = "b", shadows = "all"))   # pass arguments on to plot_cube()
 #'
 #' @family color functions
 #' 
@@ -868,7 +869,8 @@ seecol <- function(pal = "unikn_all",  # which palette?
       if (is.null(cube_args[["labels"]])) { cube_args[["labels"]] <- cube_lbls }
       if (is.null(cube_args[["main"]]) && !is.na(main)) { cube_args[["main"]] <- main }
       
-      par(op)  # restore entry par settings (plot_cube() manages its own par)
+      # Note: No par(op) here, as it would set par("new") = TRUE (causing persp() to overplot);
+      #       plot_cube() manages (and resets) its own par settings.
       
       do.call(plot_cube, c(list(cube_pal), cube_args))  # Main: call plot_cube() with current pal and args
       
