@@ -1,0 +1,55 @@
+# uni.kn color Seegruen
+
+`Seegruen` provides the preferred color of
+[`pal_seegruen`](https://hneth.github.io/unikn/reference/pal_seegruen.md)
+(as an atomic HEX character value) and is defined as
+[`pal_seegruen`](https://hneth.github.io/unikn/reference/pal_seegruen.md)`[[4]]`.
+
+## Usage
+
+``` r
+Seegruen
+```
+
+## Details
+
+See
+<https://www.uni-konstanz.de/en/university/news-and-media/create-online-and-print-media/corporate-design/>
+for details.
+
+## See also
+
+[`pal_seegruen`](https://hneth.github.io/unikn/reference/pal_seegruen.md)
+for the corresponding color palette;
+[`pal_unikn`](https://hneth.github.io/unikn/reference/pal_unikn.md) for
+the unikn default color palette with all 5 colors of
+[`pal_seeblau`](https://hneth.github.io/unikn/reference/pal_seeblau.md);
+[`pal_unikn_pref`](https://hneth.github.io/unikn/reference/pal_unikn_pref.md)
+for a uni.kn color palette with all preferred colors;
+[`seecol`](https://hneth.github.io/unikn/reference/seecol.md) for
+viewing and comparing color palettes;
+[`usecol`](https://hneth.github.io/unikn/reference/usecol.md) for using
+color palettes.
+
+Other preferred colors:
+[`Bordeaux`](https://hneth.github.io/unikn/reference/Bordeaux.md),
+[`Grau`](https://hneth.github.io/unikn/reference/grau.md),
+[`Karpfenblau`](https://hneth.github.io/unikn/reference/karpfenblau.md),
+[`Peach`](https://hneth.github.io/unikn/reference/peach.md),
+[`Petrol`](https://hneth.github.io/unikn/reference/Petrol.md),
+[`Pinky`](https://hneth.github.io/unikn/reference/pinky.md),
+[`Seeblau`](https://hneth.github.io/unikn/reference/seeblau.md),
+[`Signal`](https://hneth.github.io/unikn/reference/Signal.md)
+
+## Examples
+
+``` r
+Seegruen  # HEX character "#0A9086" (as value)
+#>  Seegruen 
+#> "#0A9086" 
+all.equal(Seegruen, pal_seegruen[[4]])  # TRUE (same HEX values)
+#> [1] "names for target but not for current"
+
+seecol(Seegruen)  # view color and details
+
+```
