@@ -1,71 +1,47 @@
-## _pkgdown.yml | unikn
-## spds, uni.kn | 2026 11 11
-## -------------------------
-
-## site info: ----------
-
 title: unikn
-
-url: https://hneth.github.io/unikn/ 
-
+url: https://hneth.github.io/unikn/
 authors:
   Hansjoerg Neth:
     href: https://www.spds.uni-konstanz.de/hans-neth
   Nico Gradwohl:
-    # href: https://www.spds.uni-konstanz.de/nico-gradwohl 
     href: https://www.spds.uni-konstanz.de/en/node/1231
   SPDS:
     href: https://www.spds.uni-konstanz.de/
-
 development:
-  mode: devel # devel OR release
-
+  mode: devel
 template:
   bootstrap: 5
   bootswatch: lumen
-  # bootswatch: litera   # release
-  # bootswatch: spacelab # devel
-
 toc:
   depth: 3
-
-
-## navigation menu: ----------
-
 navbar:
-  title: "unikn"
-  type: default # inverse
+  title: unikn
+  type: default
   left:
-    - text: "Home"
-      icon: fa-home
-      href: index.html
-    - text: "All articles"
-      # icon: fa-info
-      menu:
-        - text: "Colors and color functions"
-          href: articles/color_functions.html
-        - text: "Color recipes"
-          href: articles/color_recipes.html 
-        - text: "Institutional colors" 
-          href: articles/inst_colors.html           
-        - text: "Text decoration"
-          href: articles/text_decorations.html
-    - text: "Reference"
-      # icon: fa-gear
-      href: reference/index.html
-    - text: "News"
-      href: news/index.html
+  - text: Home
+    icon: fa-home
+    href: index.html
+  - text: All articles
+    menu:
+    - text: Colors and color functions
+      href: articles/color_functions.html
+    - text: Color recipes
+      href: articles/color_recipes.html
+    - text: Institutional colors
+      href: articles/inst_colors.html
+    - text: Text decoration
+      href: articles/text_decorations.html
+  - text: Reference
+    href: reference/index.html
+  - text: News
+    href: news/index.html
   right:
-    - icon: fa-github
-      href: https://hneth.github.io/unikn/
-      aria-label: View source code on GitHub
-
-
-## reference: ----------
-
+  - icon: fa-github
+    href: https://hneth.github.io/unikn/
+    aria-label: View source code on GitHub
 reference:
-- title: Colors and color palettes 
-  desc: The colors and color palettes exported by **unikn**. 
+- title: Colors and color palettes
+  desc: The colors and color palettes exported by **unikn**.
   contents:
   - Bordeaux
   - Karpfenblau
@@ -78,7 +54,8 @@ reference:
   - Signal
   - starts_with("pal_")
 - title: Color manipulation functions
-  desc: Commands for viewing, creating, changing, finding and using colors and color palettes. 
+  desc: Commands for viewing, creating, changing, finding and using colors and color
+    palettes.
   contents:
   - seecol
   - usecol
@@ -87,17 +64,17 @@ reference:
   - newpal
   - demopal
   - plot_cube
-  - shades_of 
+  - shades_of
   - ac
   - get_col_names
-- title: Plotting functions 
-  desc: Functions for plotting objects and themes. 
+- title: Plotting functions
+  desc: Functions for plotting objects and themes.
   contents:
   - slide
   - xbox
   - starts_with("theme_")
-- title: Text decoration functions 
-  desc: Functions for decorating plotted text. 
+- title: Text decoration functions
+  desc: Functions for decorating plotted text.
   contents:
   - heading
   - mark
@@ -105,22 +82,15 @@ reference:
   - uline
   - url_unikn
 - title: Miscellaneous
-  desc: Other utility functions. 
-  contents:
-  - unikn.guide
-
-
-## figure settings: ----------
-
+  desc: Other utility functions.
+  contents: unikn.guide
 figures:
   dev: grDevices::png
   dpi: 96
   dev.args: []
   fig.ext: png
-  fig.width: 7  # default: 7.292
+  fig.width: 7
   fig.height: ~
   fig.asp: 0.85
   fig.retina: 2
 
-
-## eof. ----------
