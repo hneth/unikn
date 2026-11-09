@@ -43,7 +43,7 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 
 <!-- Slogan: -->
 
-### Enabling corporate design elements in R
+## Enabling corporate design elements in R
 
 <!-- The **unikn** package enables corporate design elements in\ R. It... -->
 

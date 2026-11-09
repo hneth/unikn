@@ -1,5 +1,6 @@
 title: unikn
 url: https://hneth.github.io/unikn/
+
 authors:
   Hansjoerg Neth:
     href: https://www.spds.uni-konstanz.de/hans-neth
@@ -7,13 +8,17 @@ authors:
     href: https://www.spds.uni-konstanz.de/en/node/1231
   SPDS:
     href: https://www.spds.uni-konstanz.de/
+
 development:
   mode: devel
+
 template:
   bootstrap: 5
   bootswatch: lumen
+
 toc:
   depth: 3
+
 navbar:
   title: unikn
   type: default
@@ -39,6 +44,7 @@ navbar:
   - icon: fa-github
     href: https://hneth.github.io/unikn/
     aria-label: View source code on GitHub
+
 reference:
 - title: Colors and color palettes
   desc: The colors and color palettes exported by **unikn**.
@@ -84,6 +90,7 @@ reference:
 - title: Miscellaneous
   desc: Other utility functions.
   contents: unikn.guide
+
 figures:
   dev: grDevices::png
   dpi: 96

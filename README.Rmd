@@ -65,7 +65,7 @@ url_unicol_github <- "https://github.com/hneth/unicol"
 
 <!-- Slogan: -->
 
-### Enabling corporate design elements in\ R {-}
+## Enabling corporate design elements in\ R {-}
 
 <!-- The **unikn** package enables corporate design elements in\ R. It... -->
 
