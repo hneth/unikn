@@ -544,12 +544,29 @@ usecol <- function(pal = pal_unikn,
 #' @param mar_note Optional margin note (on bottom right). 
 #' Default: \code{mar_note = NA} (i.e., no margin note). 
 #' 
-#' @param pal_names Names of color palettes or colors 
-#' (as a character vector). 
-#' Default: \code{pal_names = NA} (for default names). 
-#' 
-#' @param ... Other graphical parameters 
-#' (passed to \code{plot}). 
+#' @param pal_names Names of color palettes or colors
+#' (as a character vector).
+#' Default: \code{pal_names = NA} (for default names).
+#'
+#' @param cube Render a \emph{single} color palette as points in a
+#' 3D RGB color cube (via \code{\link{plot_cube}})?
+#' Either a Boolean value, or a list of arguments passed to \code{\link{plot_cube}}:
+#' \itemize{
+#'   \item \code{cube = FALSE}: show the standard (swatch) view (default);
+#'   \item \code{cube = TRUE}: show the color cube, using \code{main} as its title
+#'   and deriving point labels from the current \code{hex} and \code{rgb} settings
+#'   (color names are always shown; \code{hex} and/or \code{rgb} values are
+#'   added when set to \code{TRUE});
+#'   \item \code{cube = list(...)}: show the color cube, passing the named list
+#'   entries on to \code{\link{plot_cube}} (overriding the derived defaults,
+#'   e.g., \code{cube = list(type = "b", shadows = "all")}).
+#'   }
+#' When multiple palettes are provided, the cube view is skipped
+#' (with a message) and the standard comparison view is shown.
+#' Default: \code{cube = FALSE}.
+#'
+#' @param ... Other graphical parameters
+#' (passed to \code{plot}).
 #' 
 #' @examples
 #' # See multiple color palettes: 
@@ -599,19 +616,26 @@ usecol <- function(pal = pal_unikn,
 #' 
 #' ## Extending color palettes:
 #' # seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
-#' 
+#'
+#' # Viewing a single palette as a 3D RGB color cube (via plot_cube()):
+#' seecol(pal_unikn, cube = TRUE)                     # cube view (labeled by color names)
+#' seecol(pal_seeblau, cube = TRUE, hex = TRUE)       # add HEX values as point labels
+#' seecol(pal_pref <- usecol(pal_unikn_pref),
+#'        cube = list(type = "b", shadows = "all"))   # pass arguments on to plot_cube()
+#'
 #' @family color functions
 #' 
 #' @aliases seepal 
 #'
 #' @seealso 
-#' \code{\link{usecol}} for using color palettes; 
-#' \code{\link{simcol}} for finding similar colors; 
-#' \code{\link{newpal}} for defining new color palettes; 
-#' \code{\link{grepal}} for finding named colors; 
-#' \code{\link{shades_of}} to defining shades of a given color; 
-#' \code{\link{ac}} for adjusting color transparency; 
-#' \code{\link{pal_unikn}} for the default uni.kn color palette. 
+#' \code{\link{usecol}} for using color palettes;
+#' \code{\link{simcol}} for finding similar colors;
+#' \code{\link{newpal}} for defining new color palettes;
+#' \code{\link{grepal}} for finding named colors;
+#' \code{\link{shades_of}} to defining shades of a given color;
+#' \code{\link{ac}} for adjusting color transparency;
+#' \code{\link{plot_cube}} for viewing colors in a 3D RGB color cube;
+#' \code{\link{pal_unikn}} for the default uni.kn color palette.
 #'
 #' @import graphics 
 #' @import grDevices 
@@ -636,6 +660,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
                    title = NULL,       # Deprecated: plot title (replaced by main)
                    mar_note = NA,      # optional margin note (on bottom right)
                    pal_names = NA,     # names of color palettes or colors (as character vector)
+                   cube = FALSE,       # render a single palette in a 3D RGB cube (via plot_cube())? TRUE, or a list of plot_cube() arguments
                    ...                 # additional arguments to plot.default()
 ) {
   
@@ -820,7 +845,40 @@ seecol <- function(pal = "unikn_all",  # which palette?
   }
   
   
-  # 2. Plotting parameters: -------- 
+  # Optional: Render a single palette as a 3D RGB cube (via plot_cube()): ------
+  
+  if (!identical(cube, FALSE)) {  # 'cube' is TRUE or a list of plot_cube() arguments:
+    
+    if (length(pal_tmp) > 1) {  # cube view is intended for a single palette only:
+      
+      message('seecol: The "cube" view shows a single palette; using the standard comparison view instead.')
+      
+    } else {  # single palette: dispatch to plot_cube():
+      
+      cube_pal <- unlist(pal_tmp, use.names = TRUE)  # the resolved vector of colors
+      
+      # Derive point labels from seecol's label flags
+      # (names are always shown; add hex and/or rgb values only if explicitly set to TRUE):
+      cube_lbls <- "names"
+      if (isTRUE(hex)) { cube_lbls <- c(cube_lbls, "hex") }
+      if (isTRUE(rgb)) { cube_lbls <- c(cube_lbls, "rgb") }
+      
+      # Assemble plot_cube() arguments (a list passed as 'cube' overrides these defaults):
+      cube_args <- if (is.list(cube)) cube else list()
+      if (is.null(cube_args[["labels"]])) { cube_args[["labels"]] <- cube_lbls }
+      if (is.null(cube_args[["main"]]) && !is.na(main)) { cube_args[["main"]] <- main }
+      
+      par(op)  # restore entry par settings (plot_cube() manages its own par)
+      
+      do.call(plot_cube, c(list(cube_pal), cube_args))  # Main: call plot_cube() with current pal and args
+      
+      return(invisible(cube_pal))  # invisibly return the plotted colors (as seecol())
+      
+    }
+  }
+  
+  
+  # 2. Plotting parameters: --------
   
   distance <- 0   # distance of boxes
   xlen <- 1       # x length of color boxes
@@ -1232,97 +1290,6 @@ seecol <- function(pal = "unikn_all",  # which palette?
 # par("col.main" = "blue", "col.sub" = "red")
 # seecol(c("black", "white"), n = 5, mar_note = "This is a note.")
 # par(op)
-
-
-# all_colors(): Combine all colors from unikn palettes with default R colors() ------
-
-#' Provide all unikn colors and base R colors 
-#' 
-#' \code{all_colors} combines the \strong{unikn} color gradients with the 
-#' 657 named colors provided by \code{\link{colors}} of \strong{grDevices}. 
-#' 
-#' The color values returned (as a named character vector) 
-#' are either HEX/HTML codes or \strong{base} R color names.
-#' 
-#' The \code{distinct} option removes colors with duplicate color values or names.
-#' 
-#' @return A named vector of color values (of type character).
-#' 
-#' @param distinct Boolean: Return only colors with unique values and names? 
-#' Default: \code{distinct = TRUE} (i.e., remove duplicate values and names).
-#' 
-#' @keywords internal
-#' 
-
-all_colors <- function(distinct = TRUE){
-  
-  out <- NA  # initialize
-  
-  # 1. All colors (of unikn package): ---- 
-  
-  unikn_pkg_colors <- usecol(c("black", "white",
-                               # Local uni.kn colors:
-                               pal_grau, pal_bordeaux, pal_petrol, pal_peach, 
-                               pal_seeblau, pal_pinky, pal_seegruen, pal_karpfenblau, 
-                               pal_signal, 
-                               pal_unikn # contains 4 "seegrau" variants of "grey"
-  ), 
-  use_names = TRUE)
-  
-  # Sort colors (by name):
-  unikn_pkg_colors_s <- unikn_pkg_colors[sort(names(unikn_pkg_colors))]
-  
-  # 2. Add R colors() (from grDevices): ---- 
-  unikn_and_R_colors <- usecol(c(unikn_pkg_colors_s, grDevices::colors()), use_names = TRUE)
-  # unikn_and_R_colors[1:10]
-  
-  if (distinct){ # Remove duplicates (3 ways): ---- 
-    
-    # col_unique_name <- unikn_and_R_colors[duplicated(names(unikn_and_R_colors)) == FALSE]  # 1. unique names
-    # col_unique_value <- col_distinct(col_unique_name)  # 2. unique color values (visually distinct)
-    
-    # 3. Using col_distinct() helper function: 
-    all_unique_colors <- col_distinct(pal = unikn_and_R_colors, 
-                                      use_hex = TRUE, 
-                                      use_alpha = FALSE, 
-                                      use_names = TRUE)
-    
-    out <- all_unique_colors
-    
-  } else {
-    
-    out <- unikn_and_R_colors
-    
-  }
-  
-  # Output: ---- 
-  
-  return(out)
-  
-} # all_colors().
-
-## Check:
-# all_colors()[1:50]
-
-# length(all_colors(distinct = TRUE))   #  756 [on 2023-07-13]
-# length(all_colors(distinct = FALSE))  # 1031 [on 2023-07-13]
-
-# length(all_colors(distinct = TRUE))   #  545 [on 2023-08-20]
-# length(all_colors(distinct = FALSE))  #  713 [on 2023-08-20]
-
-# grepal("see", all_colors())     # finds unikn colors (and matching colors())
-# grepal("gruen", all_colors())   # finds unikn and added colors
-# grepal("purple", all_colors())  # finds added and base R colors
-# 
-# grepal("black", all_colors(), ignore_case = FALSE)  # only 1 "black"
-# grepal("black", all_colors(), ignore_case = TRUE)   # 2 variants of "black"
-# grepal("signal", all_colors())  # 3 signal colors
-# grepal("alice", all_colors())   # 1 base R color
-# grepal("red", all_colors())  # finds Caltech's JPL and RPI's primary colors
-# grepal("orange", all_colors())  # finds Caltech and Princeton orange colors
-# 
-# simcol(Petrol, all_colors())
-
 
 
 ## ToDo: ------

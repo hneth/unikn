@@ -1,5 +1,5 @@
 ## color_fun_2.R | unikn
-## spds | uni.kn | 2023 09 12
+## spds | uni.kn | 2026 11 09
 ## --------------------------
 
 ## Define color-related functions 
@@ -1018,6 +1018,96 @@ ac <- function(col,
 # seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = TRUE))
 # seecol(ac(col = pal_unikn_pref, alpha = c(1/5, 4/5), use_names = FALSE))
 
+
+
+# 6. all_colors(): Combine all colors from unikn palettes with default R colors() ------
+
+#' Provide all unikn colors and base R colors 
+#' 
+#' \code{all_colors} combines the \strong{unikn} color gradients with the 
+#' 657 named colors provided by \code{\link{colors}} of \strong{grDevices}. 
+#' 
+#' The color values returned (as a named character vector) 
+#' are either HEX/HTML codes or \strong{base} R color names.
+#' 
+#' The \code{distinct} option removes colors with duplicate color values or names.
+#' 
+#' @return A named vector of color values (of type character).
+#' 
+#' @param distinct Boolean: Return only colors with unique values and names? 
+#' Default: \code{distinct = TRUE} (i.e., remove duplicate values and names).
+#' 
+#' @keywords internal
+#' 
+
+all_colors <- function(distinct = TRUE){
+  
+  out <- NA  # initialize
+  
+  # 1. All colors (of unikn package): ---- 
+  
+  unikn_pkg_colors <- usecol(c("black", "white",
+                               # Local uni.kn colors:
+                               pal_grau, pal_bordeaux, pal_petrol, pal_peach, 
+                               pal_seeblau, pal_pinky, pal_seegruen, pal_karpfenblau, 
+                               pal_signal, 
+                               pal_unikn # contains 4 "seegrau" variants of "grey"
+  ), 
+  use_names = TRUE)
+  
+  # Sort colors (by name):
+  unikn_pkg_colors_s <- unikn_pkg_colors[sort(names(unikn_pkg_colors))]
+  
+  # 2. Add R colors() (from grDevices): ---- 
+  unikn_and_R_colors <- usecol(c(unikn_pkg_colors_s, grDevices::colors()), use_names = TRUE)
+  # unikn_and_R_colors[1:10]
+  
+  if (distinct){ # Remove duplicates (3 ways): ---- 
+    
+    # col_unique_name <- unikn_and_R_colors[duplicated(names(unikn_and_R_colors)) == FALSE]  # 1. unique names
+    # col_unique_value <- col_distinct(col_unique_name)  # 2. unique color values (visually distinct)
+    
+    # 3. Using col_distinct() helper function: 
+    all_unique_colors <- col_distinct(pal = unikn_and_R_colors, 
+                                      use_hex = TRUE, 
+                                      use_alpha = FALSE, 
+                                      use_names = TRUE)
+    
+    out <- all_unique_colors
+    
+  } else {
+    
+    out <- unikn_and_R_colors
+    
+  }
+  
+  # Output: ---- 
+  
+  return(out)
+  
+} # all_colors().
+
+## Check:
+# all_colors()[1:50]
+
+# length(all_colors(distinct = TRUE))   #  756 [on 2023-07-13]
+# length(all_colors(distinct = FALSE))  # 1031 [on 2023-07-13]
+
+# length(all_colors(distinct = TRUE))   #  545 [on 2023-08-20]
+# length(all_colors(distinct = FALSE))  #  713 [on 2023-08-20]
+
+# grepal("see", all_colors())     # finds unikn colors (and matching colors())
+# grepal("gruen", all_colors())   # finds unikn and added colors
+# grepal("purple", all_colors())  # finds added and base R colors
+# 
+# grepal("black", all_colors(), ignore_case = FALSE)  # only 1 "black"
+# grepal("black", all_colors(), ignore_case = TRUE)   # 2 variants of "black"
+# grepal("signal", all_colors())  # 3 signal colors
+# grepal("alice", all_colors())   # 1 base R color
+# grepal("red", all_colors())  # finds Caltech's JPL and RPI's primary colors
+# grepal("orange", all_colors())  # finds Caltech and Princeton orange colors
+# 
+# simcol(Petrol, all_colors())
 
 
 ## ToDo: ------
