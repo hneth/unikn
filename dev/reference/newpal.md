@@ -1,0 +1,156 @@
+# Define a new color palette
+
+`newpal` allows defining new color palettes (as data frames or vectors).
+
+## Usage
+
+``` r
+newpal(col, names = NULL, pattern = NULL, replacement = NULL, as_df = FALSE)
+```
+
+## Arguments
+
+- col:
+
+  A required vector of colors (specified as R color names, HEX codes, or
+  RGB values).
+
+- names:
+
+  An optional character vector of color names. Default: `names = NULL`,
+  using default color names. Setting `names = NA` removes all color
+  names.
+
+- pattern:
+
+  A pattern to be replaced in `names` (as REGEX). Default:
+  `pattern = NULL`.
+
+- replacement:
+
+  A replacement for `pattern` in `names` (as REGEX). Default:
+  `replacement = NULL`.
+
+- as_df:
+
+  Should the new color palette be returned as a data frame (rather than
+  as a vector)? Default: `as_df = FALSE`.
+
+## Value
+
+A (named) vector or data frame.
+
+## Details
+
+Specifying `pattern` and `replacment` allows modifying `names` by
+regular expressions (using `gsub(..., perl = TRUE)`).
+
+By default, new palette is returned as a (named) vector. Setting
+`as_df = TRUE` returns new palette as a data frame.
+
+## See also
+
+[`seecol`](https://hneth.github.io/unikn/dev/reference/seecol.md) for
+viewing and comparing color palettes;
+[`usecol`](https://hneth.github.io/unikn/dev/reference/usecol.md) for
+using color palettes;
+[`simcol`](https://hneth.github.io/unikn/dev/reference/simcol.md) for
+finding similar colors;
+[`grepal`](https://hneth.github.io/unikn/dev/reference/grepal.md) for
+finding named colors;
+[`shades_of`](https://hneth.github.io/unikn/dev/reference/shades_of.md)
+to defining shades of a given color;
+[`ac`](https://hneth.github.io/unikn/dev/reference/ac.md) for adjusting
+color transparency;
+[`pal_unikn`](https://hneth.github.io/unikn/dev/reference/pal_unikn.md)
+for the default uni.kn color palette.
+
+Other color functions:
+[`ac()`](https://hneth.github.io/unikn/dev/reference/ac.md),
+[`demopal()`](https://hneth.github.io/unikn/dev/reference/demopal.md),
+[`grepal()`](https://hneth.github.io/unikn/dev/reference/grepal.md),
+[`plot_cube()`](https://hneth.github.io/unikn/dev/reference/plot_cube.md),
+[`seecol()`](https://hneth.github.io/unikn/dev/reference/seecol.md),
+[`shades_of()`](https://hneth.github.io/unikn/dev/reference/shades_of.md),
+[`simcol()`](https://hneth.github.io/unikn/dev/reference/simcol.md),
+[`usecol()`](https://hneth.github.io/unikn/dev/reference/usecol.md)
+
+## Examples
+
+``` r
+newpal(col = c("black", "white"), names = c("dark", "bright"))
+#>    dark  bright 
+#> "black" "white" 
+
+# Example: 3 ways of defining a new color palette:
+
+# (1) From R color names: -----
+
+pal_flag_de <- newpal(col = c("black", "firebrick3", "gold"),
+                      names = c("Schwarz", "Rot", "Gold"))
+seecol(pal_flag_de, main = "Colors of the German flag")
+
+
+# (2) From HEX values: -----
+
+# (a) Google logo colors:
+# Source: https://www.schemecolor.com/google-logo-colors.php
+color_google <- c("#4285f4", "#34a853", "#fbbc05", "#ea4335")
+names_google <- c("blueberry", "sea green", "selective   yellow", "cinnabar")
+pal_google   <- newpal(color_google, names_google, pattern = "\\s+", replacement = "_")
+
+seecol(pal_google, main = "Colors of the Google logo", col_brd = "white", lwd_brd = 10)
+
+
+# (b) German flag (revised):
+# Based on a different source at
+# <https://www.schemecolor.com/germany-flag-colors.php>:
+pal_flag_de_2 <- newpal(col = c("#000000", "#dd0000", "#ffce00"),
+                        names = c("black", "red", "gold")
+                        )
+seecol(pal_flag_de_2, main = "Colors of the German flag (www.schemecolor.com)")
+
+
+# (c) Mixing HEX and R color names:
+pal_mpg <- newpal(col = c("#007367", "white", "#D0D3D4"),
+                  names = c("MPG green", "white", "MPG grey"),
+                  pattern = "([A-Z])", replacement = "\\L\\1"  # replace upper by lowercase
+                  )
+seecol(pal_mpg, main = "The colors of the Max Planck Society", col_bg = "grey")
+
+
+# (3) From RGB values: -----
+
+# A barrier-free color palette
+# Source: Okabe & Ito (2002): Color Universal Design (CUD):
+#         Fig. 16 of <https://jfly.uni-koeln.de/color/>:  
+
+# (a) Vector of colors (as RGB values):
+o_i_colors <- c(rgb(  0,   0,   0, maxColorValue = 255),  # black
+                rgb(230, 159,   0, maxColorValue = 255),  # orange
+                rgb( 86, 180, 233, maxColorValue = 255),  # skyblue
+                rgb(  0, 158, 115, maxColorValue = 255),  # green
+                rgb(240, 228,  66, maxColorValue = 255),  # yellow
+                rgb(  0, 114, 178, maxColorValue = 255),  # blue
+                rgb(213,  94,   0, maxColorValue = 255),  # vermillion
+                rgb(204, 121, 167, maxColorValue = 255)   # purple
+)
+
+# (b) Vector of color names:
+o_i_names <- c("black", "orange", "skyblue", "green", "yellow", "blue", "vermillion", "purple")
+
+# (c) Use newpal() to combine colors and names:
+pal_okabe_ito <- newpal(col = o_i_colors, names = o_i_names, 
+                        pattern = "(^[a-z])", replacement = "\\U\\1")  # capitalize initial
+
+seecol(pal_okabe_ito,
+       main = "Color-blind friendly color scale (Okabe & Ito, 2002)")
+
+
+# (+) Compare custom color palettes: ----- 
+
+my_pals <- list(pal_flag_de, pal_flag_de_2, pal_google, pal_mpg, pal_okabe_ito)
+seecol(my_pals, col_brd = "white", lwd_brd = 4,
+       main = "Comparing custom color palettes")
+
+```
