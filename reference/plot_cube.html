@@ -465,8 +465,8 @@ and requires no additional package dependencies.</p>
 <span class="r-in"><span><span class="co"># C. Illustrating colors and color palettes (unikn): ------</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 0. Collect main unikn colors (as a vector):</span></span></span>
-<span class="r-in"><span><span class="va">col_8</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">Seeblau</span>, <span class="va">Pinky</span>, <span class="va">Seegruen</span>, <span class="va">Peach</span>, <span class="va">Karpfenblau</span>, <span class="va">Bordeaux</span>, <span class="va">Petrol</span>, <span class="va">Grau</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">col_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">Seeblau</span>, <span class="va">Pinky</span>, <span class="va">Seegruen</span>, <span class="va">Bordeaux</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">col_8</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">col_4</span>, <span class="va">Petrol</span>, <span class="va">Karpfenblau</span>, <span class="va">Peach</span>, <span class="va">Grau</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 1. Main unikn colors as (labeled) points:</span></span></span>
 <span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">col_8</span>, labels <span class="op">=</span> <span class="st">"names"</span>, main <span class="op">=</span> <span class="st">"The main unikn colors in RGB space"</span><span class="op">)</span></span></span>
@@ -495,14 +495,9 @@ and requires no additional package dependencies.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 5. The gamut (plane) of mixtures spanned by 3 main colors:</span></span></span>
 <span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">Seeblau</span>, <span class="va">Pinky</span>, <span class="va">Seegruen</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"plane"</span>,</span></span>
-<span class="r-in"><span>          labels <span class="op">=</span> <span class="st">"names"</span>, theta <span class="op">=</span> <span class="op">-</span><span class="fl">10</span>, phi <span class="op">=</span> <span class="fl">20</span>,</span></span>
+<span class="r-in"><span>          labels <span class="op">=</span> <span class="st">"names"</span>, theta <span class="op">=</span> <span class="fl">10</span>, phi <span class="op">=</span> <span class="fl">20</span>,</span></span>
 <span class="r-in"><span>          main <span class="op">=</span> <span class="st">"Gamut of 3 key colors"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_cube-42.png" alt="" width="672" height="571"></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># 6. Key colors with shadows (projected on 3 cube faces):</span></span></span>
-<span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">col_4</span>, shadows <span class="op">=</span> <span class="st">"all"</span>, main <span class="op">=</span> <span class="st">"Key unikn colors with shadows"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="plot_cube-43.png" alt="" width="672" height="571"></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
