@@ -326,8 +326,8 @@ plot_cube(c("cyan", "yellow", "magenta"), type = "plane", main = "The CYK plane"
 # C. Illustrating colors and color palettes (unikn): ------
 
 # 0. Collect main unikn colors (as a vector):
-col_8 <- c(Seeblau, Pinky, Seegruen, Peach, Karpfenblau, Bordeaux, Petrol, Grau)
 col_4 <- c(Seeblau, Pinky, Seegruen, Bordeaux)
+col_8 <- c(col_4, Petrol, Karpfenblau, Peach, Grau)
 
 # 1. Main unikn colors as (labeled) points:
 plot_cube(col_8, labels = "names", main = "The main unikn colors in RGB space")
@@ -350,12 +350,8 @@ plot_cube(col_4, type = "b", lwd_line = 2, theta = -40, phi = 20,
 
 # 5. The gamut (plane) of mixtures spanned by 3 main colors:
 plot_cube(c(Seeblau, Pinky, Seegruen), type = "plane",
-          labels = "names", theta = -10, phi = 20,
+          labels = "names", theta = 10, phi = 20,
           main = "Gamut of 3 key colors")
-
-# 6. Key colors with shadows (projected on 3 cube faces):
-plot_cube(col_4, shadows = "all", main = "Key unikn colors with shadows")
-
 
 
 }
