@@ -391,6 +391,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2026-11-06.]
+[File `NEWS.md` updated on 2026-11-09.]
 
 <!-- eof. -->
