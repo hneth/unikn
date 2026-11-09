@@ -1,5 +1,5 @@
 
-# unikn 1.0.0.9006
+# unikn 1.0.0.9007
 
 This is the development version of **unikn**, available at <https://github.com/hneth/unikn/>. 
 
@@ -13,6 +13,7 @@ Changes since last release:
 
 ## Major changes 
 
+- Add `cube = TRUE` option to `seecol()` to view a color palette in a 3D RGB color cube (using `plot_cube()`).
 - Add `plot_cube()` for illustrating colors and color palettes as points, lines, and planes in a 3D RGB color cube. 
 - Add `theme_bwkn()` and `theme_minikn()` as clean, light, and subtle **ggplot2** themes. 
 
