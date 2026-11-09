@@ -208,6 +208,7 @@
 #'
 #' @examples
 #' # A. Basics: ------ 
+#' 
 #' plot_cube("tomato")                        # a single color
 #' plot_cube(c("red", "green", "blue"))       # the 3 primary RGB colors
 #' plot_cube(c("black", "grey50", "white"))   # the grey diagonal
@@ -264,7 +265,7 @@
 #' plot_cube(pal_unikn, axis_labels = "no", axis_ticks = FALSE)  # bare cube
 #'
 #'
-#' # B. Basic demonstrations of the RGB/CYK color cube: ------
+#' # B. Basic demonstrations of the 3D color cube (RGB/CMY): ------
 #'
 #' # 1. The 8 color corners of the RGB cube (b/w + RGB + CMY):
 #' col_8 <- c("black", "white", "red", "cyan", "blue", "yellow", "green", "magenta")
@@ -317,7 +318,9 @@
 #' # 2. A color palette's shade ramp as a connecting path:
 #' plot_cube(pal_pinky, type = "b", line_connect = "path", lwd_line = 5,
 #'           theta = 40, phi = 20, main = "The path of pal_pinky")
-#'
+#' plot_cube(usecol(c(rev(pal_seegruen), "white", pal_bordeaux)), type = "b", 
+#'           line_connect = "path", lwd_line = 5, main = "A custom color gradient")
+#'           
 #' # 4. Pairwise relations among main colors:
 #' plot_cube(col_4, type = "b", lwd_line = 2, theta = -40, phi = 20, 
 #'           main = "Pairwise relations of 4 key colors")
@@ -852,6 +855,8 @@ plot_cube <- function(x,                      # vector of colors to plot
 # # unikn colors:
 # plot_cube(pal_unikn)
 # plot_cube(pal_seeblau, main = "Seeblau in RGB space")
+# plot_cube(usecol(c(rev(pal_seeblau), "white", pal_pinky)), 
+#           type = "b", line_connect = "path", lwd_line = 5)
 #
 # # Labels (names / rgb / hex, or combinations):
 # plot_cube(c("red", "gold", "forestgreen"))                        # names (default)
