@@ -1,6 +1,6 @@
 # unikn 1.1.0
 
-### Enabling corporate design elements in R
+## Enabling corporate design elements in R
 
 The **unikn** package provides useful color functionality — by defining
 dedicated colors and color palettes, and functions for finding,
