@@ -878,6 +878,10 @@ plot_cube <- function(x,                      # vector of colors to plot
 # - Shadows: project points onto cube faces (shadows = "floor"/"back"/"side"/"all").
 
 
+## ToDo next: ------
+
+# - Provide an option to the seecol() function that passes current colors on to plot_cube() with selected labels.
+
 ## ToDo in future: ------
 
 # - Allow other color models (e.g., HSV) as alternative axes.
