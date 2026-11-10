@@ -72,8 +72,6 @@ color palettes.
   Define a new color palette
 - [`demopal()`](https://hneth.github.io/unikn/dev/reference/demopal.md)
   : Demonstrate a color palette (in a plot)
-- [`plot_cube()`](https://hneth.github.io/unikn/dev/reference/plot_cube.md)
-  : Plot colors as points in a 3D RGB color cube
 - [`shades_of()`](https://hneth.github.io/unikn/dev/reference/shades_of.md)
   : Get n shades of a color
 - [`ac()`](https://hneth.github.io/unikn/dev/reference/ac.md) : Adjust
@@ -81,7 +79,7 @@ color palettes.
 - [`get_col_names()`](https://hneth.github.io/unikn/dev/reference/get_col_names.md)
   : Get color names
 
-## Plotting functions
+## Other plotting functions
 
 Functions for plotting objects and themes.
 
@@ -89,6 +87,8 @@ Functions for plotting objects and themes.
   Plot a slide (or frame)
 - [`xbox()`](https://hneth.github.io/unikn/dev/reference/xbox.md) : Plot
   a box (with x)
+- [`plot_cube()`](https://hneth.github.io/unikn/dev/reference/plot_cube.md)
+  : Plot colors as points in a 3D RGB color cube
 - [`theme_bwkn()`](https://hneth.github.io/unikn/dev/reference/theme_bwkn.md)
   : An alternative bw theme (for ggplot2)
 - [`theme_grau()`](https://hneth.github.io/unikn/dev/reference/theme_grau.md)
