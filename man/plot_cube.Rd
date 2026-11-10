@@ -20,11 +20,17 @@ plot_cube(
   fill_res = 20,
   shadows = "none",
   col_shadow = grey(0.7, 0.9),
-  show_cube = TRUE,
+  show_corners = TRUE,
   col_cube = grey(0.5, 1),
+  grid = FALSE,
+  grid_faces = FALSE,
+  grid_inner = FALSE,
+  grid_at = 2,
+  col_grid = grey(0.6, 0.6),
+  col_grid_inner = grey(0.8, 0.5),
   axis_labels = c("R", "G", "B"),
   axis_ticks = TRUE,
-  n_ticks = 6,
+  n_ticks = 5,
   cex_axis = NA,
   labels = "names",
   theta = -30,
@@ -147,13 +153,63 @@ orange (238, 130, 0) floor shadow, a
 magenta (238, 0, 238) back shadow, and a
 blue (0, 130, 238) side shadow.}
 
-\item{show_cube}{Boolean: Mark the 8 corners of the cube
+\item{show_corners}{Boolean option to mark the 8 corners of the cube
 by points in their corresponding colors
-(i.e., black, white, and the 6 primary/secondary colors)?
-Default: \code{show_cube = TRUE}.}
+(i.e., black, white, and the 6 primary/secondary colors RGB/CMY). 
+Default: \code{show_corners = TRUE}.}
 
 \item{col_cube}{Color for the edges and axes of the cube.
 Default: \code{col_cube = grey(.50, 1)}.}
+
+\item{grid}{Boolean convenience switch to
+enable a default reference-grid combination 
+(akin to the \code{grid} of \code{\link{seecol}}).  
+\code{grid = TRUE} turns on the inner/volume grid (\code{grid_inner = TRUE}),
+which in turn draws the face grid on all 6 faces (\code{grid_faces = "all"},
+so the interior lines end on the faces), at the default spacing (\code{grid_at});
+\code{grid = FALSE} (default) shows no grid.
+For finer control, set \code{grid_faces}, \code{grid_inner}, and \code{grid_at}
+directly.
+Default: \code{grid = FALSE}.}
+
+\item{grid_faces}{Draw reference grid lines \emph{on the cube's faces},
+to ease judging a point's 3D location. Options are:
+  \itemize{
+  \item \code{FALSE}: Show no face grid (default);
+  \item \code{"base"}: Grid on the 3 faces meeting at the black corner
+  (floor + 2 near walls);
+  \item \code{"all"}: Grid on all 6 faces (a full box grid).
+  }
+Line positions are set by \code{grid_at}.
+When \code{grid_inner} is enabled, \code{grid_faces} defaults to \code{"all"}
+(so the interior lines terminate on the faces), unless set explicitly.
+Default: \code{grid_faces = FALSE}.}
+
+\item{grid_inner}{Boolean to draw reference grid lines \emph{across the cube's
+volume} (interior lines connecting opposite faces: front-to-back,
+top-to-bottom, and left-to-right), as a 3D orientation aid. 
+Line positions are set by \code{grid_at}; best used sparsely (small
+\code{grid_at}), as each position adds many interior lines.
+(Enabling this also sets \code{grid_faces = "all"} by default; see above.)
+Default: \code{grid_inner = FALSE}.}
+
+\item{grid_at}{Positioning of the grid lines (for \code{grid_faces} and
+\code{grid_inner}) along each axis. Options are:
+  \itemize{
+  \item an integer \code{k}: Dissect each axis into \code{k} equal sub-sections
+  (e.g., \code{2} = halves/mid-point (default), \code{3} = thirds, \code{4} = quarters);
+  \item \code{"ticks"}: At the current axis-tick positions (see \code{n_ticks});
+  \item a numeric vector: Use custom positions (in \code{0:255}).
+  }
+(The endpoints 0 and 255 are always omitted, as they are the cube's edges.)
+Default: \code{grid_at = 2} (sparse).}
+
+\item{col_grid}{Color of the \emph{face} grid lines (\code{grid_faces}).
+Default: \code{col_grid = grey(.60, .60)} (a thin, transparent, darker grey).}
+
+\item{col_grid_inner}{Color of the \emph{inner} (volume) grid lines (\code{grid_inner}).
+Default: \code{col_grid_inner = grey(.80, .50)} (a thin, transparent, lighter grey) ---
+lighter than \code{col_grid}, so the face grid reads as the stronger reference.}
 
 \item{axis_labels}{Titles for the 3 cube axes (R, G, and B). Options are:
   \itemize{
@@ -171,7 +227,7 @@ Default: \code{axis_ticks = TRUE}.}
 
 \item{n_ticks}{Number of (equally spaced) ticks per axis
 (only used when \code{axis_ticks = TRUE}).
-Default: \code{n_ticks = 6} (i.e., ticks at 0, 51, 102, 153, 204, 255).}
+Default: \code{n_ticks = 5} (i.e., ticks at 0, 64, 128, 191, 255).}
 
 \item{cex_axis}{Scaling factor for axis titles and tick values.
 Default: \code{cex_axis = NA} (i.e., use \code{cex_lbl}).}
@@ -233,15 +289,17 @@ and requires no additional package dependencies.
 # A. Basics: ------ 
 
 plot_cube("tomato")                        # a single color
-plot_cube(c("red", "green", "blue"))       # the 3 primary RGB colors
-plot_cube(c("black", "grey50", "white"))   # the grey diagonal
+plot_cube(c("red", "green", "blue"))       # primary RGB colors
+plot_cube(c("black", "grey50", "white"))   # grey diagonal
 
 # Using unikn colors:
 plot_cube(pal_unikn)       # a bi-polar color palette
 plot_cube(pal_unikn_pref)  # a categorical color palette
 
-# Plotting all points in one color (rather than their own):
-plot_cube(pal_unikn, col_points = "black")
+# Reduced color options:
+col_mix <- c("grey50", "deepskyblue", "forestgreen", "gold", "orchid", "tomato")
+plot_cube(col_mix, show_corners = FALSE)    # hide corner colors
+plot_cube(pal_unikn, col_points = "black")  # all points in 1 color
 
 # Labeling points (by names, RGB or HEX values, or combinations):
 col_4 <- c("red3", "green4", "gold", "violet")
@@ -286,6 +344,22 @@ plot_cube(pal_unikn, n_ticks = 11)                   # finer axis scale (0, 25.5
 plot_cube(pal_unikn, axis_ticks = c(0, 128, 255))    # custom tick positions
 plot_cube(pal_unikn, axis_ticks = FALSE)             # no ticks (titles only)
 plot_cube(pal_unikn, axis_labels = "no", axis_ticks = FALSE)  # bare cube
+
+# Grid options (to aid judging 3D locations): 
+# Both reference grids improve orientation, but only when used sparsely.
+
+# a. Default of grid = TRUE (splits cube into octants): 
+col_mix <- c("grey50", "deepskyblue", "forestgreen", "gold", "orchid", "tomato")
+plot_cube(col_mix, grid = TRUE)
+
+# b. Both grids at thirds (more structure, but quickly gets dense): 
+plot_cube(col_mix, grid = TRUE, grid_at = 3)
+
+# c. Both grids at rare axis ticks (to align grid with tick labels):
+plot_cube(col_mix, grid = TRUE, grid_at = "ticks", n_ticks = 4)
+
+# d. Face grid only (often suffices, as inner grid may not be needed):
+plot_cube(pal_unikn, grid_faces = "base", n_ticks = 5, grid_at = "ticks")
 
 
 # B. Basic demonstrations of the 3D color cube (RGB/CMY): ------
