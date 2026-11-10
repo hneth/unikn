@@ -60,7 +60,7 @@ As an example, we will re-create the color palette of the German [Max
 Planck Society](https://www.mpg.de/en) (which **unikn** used to export
 as `mpg_pal`, but see `mpg` of the **unicol** package) from the color
 definitions in its Corporate Design manual (available
-[here](https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html)).
+[here](https://ppbwiki.fhi.mpg.de/files/home/MPG_Corporate_Design_Manual.pdf)).
 
 ### 1. Defining colors
 
@@ -145,7 +145,7 @@ definitions.
 
 The [Max Planck Society](https://www.mpg.de/en) defines two main colors
 in its CD manual (available
-[here](https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html)):
+[here](https://ppbwiki.fhi.mpg.de/files/home/MPG_Corporate_Design_Manual.pdf)):
 
 - A dark shade of green is defined as Pantone 328, and approximated by
   CMYK 100/0/57/30 or RGB 17/102/86.

@@ -23,11 +23,17 @@ plot_cube(
   fill_res = 20,
   shadows = "none",
   col_shadow = grey(0.7, 0.9),
-  show_cube = TRUE,
+  show_corners = TRUE,
   col_cube = grey(0.5, 1),
+  grid = FALSE,
+  grid_faces = FALSE,
+  grid_inner = FALSE,
+  grid_at = 2,
+  col_grid = grey(0.6, 0.6),
+  col_grid_inner = grey(0.8, 0.5),
   axis_labels = c("R", "G", "B"),
   axis_ticks = TRUE,
-  n_ticks = 6,
+  n_ticks = 5,
   cex_axis = NA,
   labels = "names",
   theta = -30,
@@ -180,16 +186,81 @@ plot_cube(
   130, 238) casts an orange (238, 130, 0) floor shadow, a magenta (238,
   0, 238) back shadow, and a blue (0, 130, 238) side shadow.
 
-- show_cube:
+- show_corners:
 
-  Boolean: Mark the 8 corners of the cube by points in their
+  Boolean option to mark the 8 corners of the cube by points in their
   corresponding colors (i.e., black, white, and the 6 primary/secondary
-  colors)? Default: `show_cube = TRUE`.
+  colors RGB/CMY). Default: `show_corners = TRUE`.
 
 - col_cube:
 
   Color for the edges and axes of the cube. Default:
   `col_cube = grey(.50, 1)`.
+
+- grid:
+
+  Boolean convenience switch to enable a default reference-grid
+  combination (akin to the `grid` of
+  [`seecol`](https://hneth.github.io/unikn/dev/reference/seecol.md)).
+  `grid = TRUE` turns on the inner/volume grid (`grid_inner = TRUE`),
+  which in turn draws the face grid on all 6 faces
+  (`grid_faces = "all"`, so the interior lines end on the faces), at the
+  default spacing (`grid_at`); `grid = FALSE` (default) shows no grid.
+  For finer control, set `grid_faces`, `grid_inner`, and `grid_at`
+  directly. Default: `grid = FALSE`.
+
+- grid_faces:
+
+  Draw reference grid lines *on the cube's faces*, to ease judging a
+  point's 3D location. Options are:
+
+  - `FALSE`: Show no face grid (default);
+
+  - `"base"`: Grid on the 3 faces meeting at the black corner (floor + 2
+    near walls);
+
+  - `"all"`: Grid on all 6 faces (a full box grid).
+
+  Line positions are set by `grid_at`. When `grid_inner` is enabled,
+  `grid_faces` defaults to `"all"` (so the interior lines terminate on
+  the faces), unless set explicitly. Default: `grid_faces = FALSE`.
+
+- grid_inner:
+
+  Boolean to draw reference grid lines *across the cube's volume*
+  (interior lines connecting opposite faces: front-to-back,
+  top-to-bottom, and left-to-right), as a 3D orientation aid. Line
+  positions are set by `grid_at`; best used sparsely (small `grid_at`),
+  as each position adds many interior lines. (Enabling this also sets
+  `grid_faces = "all"` by default; see above.) Default:
+  `grid_inner = FALSE`.
+
+- grid_at:
+
+  Positioning of the grid lines (for `grid_faces` and `grid_inner`)
+  along each axis. Options are:
+
+  - an integer `k`: Dissect each axis into `k` equal sub-sections (e.g.,
+    `2` = halves/mid-point (default), `3` = thirds, `4` = quarters);
+
+  - `"ticks"`: At the current axis-tick positions (see `n_ticks`);
+
+  - a numeric vector: Use custom positions (in `0:255`).
+
+  (The endpoints 0 and 255 are always omitted, as they are the cube's
+  edges.) Default: `grid_at = 2` (sparse).
+
+- col_grid:
+
+  Color of the *face* grid lines (`grid_faces`). Default:
+  `col_grid = grey(.60, .60)` (a thin, transparent, darker grey).
+
+- col_grid_inner:
+
+  Color of the *inner* (volume) grid lines (`grid_inner`). Default:
+  `col_grid_inner = grey(.80, .50)` (a thin, transparent, lighter grey)
+  — lighter than `col_grid`, so the face grid reads as the stronger
+  reference.
 
 - axis_labels:
 
@@ -214,8 +285,8 @@ plot_cube(
 - n_ticks:
 
   Number of (equally spaced) ticks per axis (only used when
-  `axis_ticks = TRUE`). Default: `n_ticks = 6` (i.e., ticks at 0, 51,
-  102, 153, 204, 255).
+  `axis_ticks = TRUE`). Default: `n_ticks = 5` (i.e., ticks at 0, 64,
+  128, 191, 255).
 
 - cex_axis:
 
@@ -312,11 +383,12 @@ Other color functions:
 
 ``` r
 # A. Basics: ------ 
+
 plot_cube("tomato")                        # a single color
 
-plot_cube(c("red", "green", "blue"))       # the 3 primary RGB colors
+plot_cube(c("red", "green", "blue"))       # primary RGB colors
 
-plot_cube(c("black", "grey50", "white"))   # the grey diagonal
+plot_cube(c("black", "grey50", "white"))   # grey diagonal
 
 
 # Using unikn colors:
@@ -325,8 +397,11 @@ plot_cube(pal_unikn)       # a bi-polar color palette
 plot_cube(pal_unikn_pref)  # a categorical color palette
 
 
-# Plotting all points in one color (rather than their own):
-plot_cube(pal_unikn, col_points = "black")
+# Reduced color options:
+col_mix <- c("grey50", "deepskyblue", "forestgreen", "gold", "orchid", "tomato")
+plot_cube(col_mix, show_corners = FALSE)    # hide corner colors
+
+plot_cube(pal_unikn, col_points = "black")  # all points in 1 color
 
 
 # Labeling points (by names, RGB or HEX values, or combinations):
@@ -395,8 +470,28 @@ plot_cube(pal_unikn, axis_ticks = FALSE)             # no ticks (titles only)
 plot_cube(pal_unikn, axis_labels = "no", axis_ticks = FALSE)  # bare cube
 
 
+# Grid options (to aid judging 3D locations): 
+# Both reference grids improve orientation, but only when used sparsely.
 
-# B. Basic demonstrations of the RGB/CYK color cube: ------
+# a. Default of grid = TRUE (splits cube into octants): 
+col_mix <- c("grey50", "deepskyblue", "forestgreen", "gold", "orchid", "tomato")
+plot_cube(col_mix, grid = TRUE)
+
+
+# b. Both grids at thirds (more structure, but quickly gets dense): 
+plot_cube(col_mix, grid = TRUE, grid_at = 3)
+
+
+# c. Both grids at rare axis ticks (to align grid with tick labels):
+plot_cube(col_mix, grid = TRUE, grid_at = "ticks", n_ticks = 4)
+
+
+# d. Face grid only (often suffices, as inner grid may not be needed):
+plot_cube(pal_unikn, grid_faces = "base", n_ticks = 5, grid_at = "ticks")
+
+
+
+# B. Basic demonstrations of the 3D color cube (RGB/CMY): ------
 
 # 1. The 8 color corners of the RGB cube (b/w + RGB + CMY):
 col_8 <- c("black", "white", "red", "cyan", "blue", "yellow", "green", "magenta")
@@ -441,8 +536,8 @@ plot_cube(c("cyan", "yellow", "magenta"), type = "plane", main = "The CYK plane"
 # C. Illustrating colors and color palettes (unikn): ------
 
 # 0. Collect main unikn colors (as a vector):
-col_8 <- c(Seeblau, Pinky, Seegruen, Peach, Karpfenblau, Bordeaux, Petrol, Grau)
 col_4 <- c(Seeblau, Pinky, Seegruen, Bordeaux)
+col_8 <- c(col_4, Petrol, Karpfenblau, Peach, Grau)
 
 # 1. Main unikn colors as (labeled) points:
 plot_cube(col_8, labels = "names", main = "The main unikn colors in RGB space")
@@ -460,7 +555,10 @@ plot_cube(pal_unikn_pref, type = "b", line_connect = "path", lwd_line = 3,
 plot_cube(pal_pinky, type = "b", line_connect = "path", lwd_line = 5,
           theta = 40, phi = 20, main = "The path of pal_pinky")
 
+plot_cube(usecol(c(rev(pal_seegruen), "white", pal_bordeaux)), type = "b", 
+          line_connect = "path", lwd_line = 5, main = "A custom color gradient")
 
+          
 # 4. Pairwise relations among main colors:
 plot_cube(col_4, type = "b", lwd_line = 2, theta = -40, phi = 20, 
           main = "Pairwise relations of 4 key colors")
@@ -468,13 +566,8 @@ plot_cube(col_4, type = "b", lwd_line = 2, theta = -40, phi = 20,
 
 # 5. The gamut (plane) of mixtures spanned by 3 main colors:
 plot_cube(c(Seeblau, Pinky, Seegruen), type = "plane",
-          labels = "names", theta = -10, phi = 20,
+          labels = "names", theta = 10, phi = 20,
           main = "Gamut of 3 key colors")
-
-
-# 6. Key colors with shadows (projected on 3 cube faces):
-plot_cube(col_4, shadows = "all", main = "Key unikn colors with shadows")
-
 
 
 ```

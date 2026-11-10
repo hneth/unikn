@@ -97,7 +97,12 @@ seecol(
 
 - grid:
 
-  Show grid in the color plot? Default: `grid = TRUE`.
+  Show a reference grid in the color plot? In the standard (swatch)
+  view, this shows a background grid; in the cube view (see `cube`), it
+  is passed to
+  [`plot_cube`](https://hneth.github.io/unikn/dev/reference/plot_cube.md)
+  as its `grid` switch (so `grid = TRUE` shows both the face and inner
+  grids at their mid-points). Default: `grid = TRUE`.
 
 - scale_x:
 
@@ -148,9 +153,12 @@ seecol(
     (overriding the derived defaults, e.g.,
     `cube = list(type = "b", shadows = "all")`).
 
-  When multiple palettes are provided, the cube view is skipped (with a
-  message) and the standard comparison view is shown. Default:
-  `cube = FALSE`.
+  The cube also inherits the current `grid` setting (passed to
+  [`plot_cube`](https://hneth.github.io/unikn/dev/reference/plot_cube.md)),
+  unless the `cube` list specifies a grid (via `grid`, `grid_faces`, or
+  `grid_inner`). When multiple palettes are provided, the cube view is
+  skipped (with a message) and the standard comparison view is shown.
+  Default: `cube = FALSE`.
 
 - ...:
 
@@ -266,20 +274,19 @@ seecol(list(pal_mpg, pal_bdg, pal_unikn), scale_x = TRUE,
        main = "Comparing and labeling custom color palettes")
 
 
-# Viewing a single palette in a 3D RGB color cube (via plot_cube()):
-seecol(pal_unikn, cube = TRUE)                          # default cube view (with color names)
+# Viewing a single palette in a 3D RGB color cube (using plot_cube()):
+seecol(pal_unikn, cube = TRUE)                    # default cube view (with color names)
 
-seecol(pal_unikn_pref, cube = TRUE, hex = TRUE)         # add HEX labels to points
+seecol(pal_unikn_pref, cube = TRUE, hex = TRUE)   # add HEX labels to points
 
-seecol(pal_pinky, cube = list(type = "b", theta = -35,  # pass arguments to plot_cube()
-       line_connect = "path", shadows = "all"))  
+seecol(pal_pinky, grid = FALSE,                   # pass arguments to plot_cube()    
+       cube = list(type = "b", theta = -35, line_connect = "path", shadows = "all"))  
 
 
-## Viewing color palettes from other packages: 
+## Viewing palettes from other color packages:
 # library(RColorBrewer)
-# seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
-
-## Extending color palettes:
-# seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
+# seecol(brewer.pal(name = "RdBu", n = 9))               # view color palette
+# seecol(brewer.pal(name = "RdBu", n = 9), cube = TRUE)  # view in 3D color cube
+# seecol(brewer.pal(name = "RdBu", n = 9), n = 15)       # extend to 15 colors
 
 ```
