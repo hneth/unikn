@@ -362,7 +362,7 @@
 #'           
 #' # Show all 4 cube diagonals:
 #' plot_cube(col_8, type = "b", line_connect = "pairs", lwd_line = 4,
-#'           main = "The 4 main diagonals")
+#'           grid = TRUE, main = "The 4 main diagonals")
 #'             
 #' # Show 2 triangular planes:
 #' plot_cube(c("red", "blue", "green"), type = "plane", main = "The RGB plane")
@@ -376,7 +376,7 @@
 #' col_8 <- c(col_4, Petrol, Karpfenblau, Peach, Grau)
 #' 
 #' # 1. Main unikn colors as (labeled) points:
-#' plot_cube(col_8, labels = "names", main = "The main unikn colors in RGB space")
+#' plot_cube(col_8, grid = TRUE, main = "The main unikn colors in RGB space")
 #'
 #' # 2. The default unikn palette (black - Seeblau shades - white) as a path:
 #' plot_cube(pal_unikn, type = "b", line_connect = "path", lwd_line = 3,
@@ -386,7 +386,7 @@
 #'           
 #' # 2. A color palette's shade ramp as a connecting path:
 #' plot_cube(pal_pinky, type = "b", line_connect = "path", lwd_line = 5,
-#'           theta = 40, phi = 20, main = "The path of pal_pinky")
+#'           theta = -40, phi = 20, shadows = "all", main = "The path of pal_pinky")
 #' plot_cube(usecol(c(rev(pal_seegruen), "white", pal_bordeaux)), type = "b", 
 #'           line_connect = "path", lwd_line = 5, main = "A custom color gradient")
 #'           
@@ -396,8 +396,7 @@
 #'
 #' # 5. The gamut (plane) of mixtures spanned by 3 main colors:
 #' plot_cube(c(Seeblau, Pinky, Seegruen), type = "plane",
-#'           labels = "names", theta = 10, phi = 20,
-#'           main = "Gamut of 3 key colors")
+#'           theta = 10, phi = 20, main = "Gamut of 3 key colors")
 #'
 #'
 #' @family color functions
