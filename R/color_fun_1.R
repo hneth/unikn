@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2026 11 09
+## spds | uni.kn | 2026 11 10
 ## --------------------------
 
 ## Define color-related functions 
@@ -526,8 +526,12 @@ usecol <- function(pal = pal_unikn,
 #' @param lwd_brd Line width of shape borders (if shown). 
 #' Default: \code{lwd_brd = NULL}. 
 #' 
-#' @param grid Show grid in the color plot?  
-#' Default: \code{grid = TRUE}. 
+#' @param grid Show a reference grid in the color plot?
+#' In the standard (swatch) view, this shows a background grid;
+#' in the cube view (see \code{cube}), it is passed to \code{\link{plot_cube}}
+#' as its \code{grid} switch (so \code{grid = TRUE} shows both the face and
+#' inner grids at their mid-points).
+#' Default: \code{grid = TRUE}.
 #' 
 #' @param scale_x Scale color shapes (when comparing multiple palettes) to a fixed total width?
 #' Default: \code{scale_x = FALSE}.
@@ -561,6 +565,9 @@ usecol <- function(pal = pal_unikn,
 #'   entries on to \code{\link{plot_cube}} (overriding the derived defaults,
 #'   e.g., \code{cube = list(type = "b", shadows = "all")}).
 #'   }
+#' The cube also inherits the current \code{grid} setting (passed to
+#' \code{\link{plot_cube}}), unless the \code{cube} list specifies a grid
+#' (via \code{grid}, \code{grid_faces}, or \code{grid_inner}).
 #' When multiple palettes are provided, the cube view is skipped
 #' (with a message) and the standard comparison view is shown.
 #' Default: \code{cube = FALSE}.
@@ -610,18 +617,17 @@ usecol <- function(pal = pal_unikn,
 #'        pal_names = c("Max Planck", "Bordeaux-Gold", "Uni Konstanz"), 
 #'        main = "Comparing and labeling custom color palettes")
 #' 
-#' # Viewing a single palette in a 3D RGB color cube (via plot_cube()):
-#' seecol(pal_unikn, cube = TRUE)                          # default cube view (with color names)
-#' seecol(pal_unikn_pref, cube = TRUE, hex = TRUE)         # add HEX labels to points
-#' seecol(pal_pinky, cube = list(type = "b", theta = -35,  # pass arguments to plot_cube()
-#'        line_connect = "path", shadows = "all"))  
+#' # Viewing a single palette in a 3D RGB color cube (using plot_cube()):
+#' seecol(pal_unikn, cube = TRUE)                    # default cube view (with color names)
+#' seecol(pal_unikn_pref, cube = TRUE, hex = TRUE)   # add HEX labels to points
+#' seecol(pal_pinky, grid = FALSE,                   # pass arguments to plot_cube()    
+#'        cube = list(type = "b", theta = -35, line_connect = "path", shadows = "all"))  
 #' 
-#' ## Viewing color palettes from other packages: 
+#' ## Viewing palettes from other color packages:
 #' # library(RColorBrewer)
-#' # seecol(brewer.pal(name = "RdBu", n = 11))  # viewing "RdBu" palette from RColorBrewer
-#' 
-#' ## Extending color palettes:
-#' # seecol(brewer.pal(name = "RdBu", n = 11), n = 15)  # extending palette to 15 colors
+#' # seecol(brewer.pal(name = "RdBu", n = 9))               # view color palette
+#' # seecol(brewer.pal(name = "RdBu", n = 9), cube = TRUE)  # view in 3D color cube
+#' # seecol(brewer.pal(name = "RdBu", n = 9), n = 15)       # extend to 15 colors
 #'
 #'
 #' @family color functions
@@ -868,6 +874,12 @@ seecol <- function(pal = "unikn_all",  # which palette?
       cube_args <- if (is.list(cube)) cube else list()
       if (is.null(cube_args[["labels"]])) { cube_args[["labels"]] <- cube_lbls }
       if (is.null(cube_args[["main"]]) && !is.na(main)) { cube_args[["main"]] <- main }
+      
+      # Pass seecol's 'grid' through to plot_cube()'s grid switch (TRUE => both grids at mid-points),
+      # unless the cube list already specifies a grid (grid / grid_faces / grid_inner):
+      if (!any(c("grid", "grid_faces", "grid_inner") %in% names(cube_args))) {
+        cube_args[["grid"]] <- isTRUE(grid)
+      }
       
       # Note: No par(op) here, as it would set par("new") = TRUE (causing persp() to overplot);
       #       plot_cube() manages (and resets) its own par settings.
