@@ -297,7 +297,7 @@
 #' # Using line_connect = "pairs" to link disjoint color pairs, e.g., to show
 #' # the 3 complementary RGB/CMY pairs (each line crosses the grey cube center):
 #' plot_cube(c("red", "cyan", "green", "magenta", "blue", "yellow"), type = "b", 
-#'           line_connect = "pairs", lwd_line = 4, main = "Complementary RGB/CMY pairs")
+#'           line_connect = "pairs", lwd_line = 5, grid = TRUE, main = "Complementary colors")
 #'
 #' # Spanning a plane through 3 colors (type = "plane"):
 #' plot_cube(c("red", "green", "blue"), type = "plane")  # gamut of 3 primary RGB colors
