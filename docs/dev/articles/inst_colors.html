@@ -12,8 +12,8 @@
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Institutional colors">
 <meta name="robots" content="noindex">
@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">unikn</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9004</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -126,7 +126,7 @@ objects) or can be included in Step 2.</p>
 <p>As an example, we will re-create the color palette of the German <a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a> (which
 <strong>unikn</strong> used to export as <code>mpg_pal</code>, but see
 <code>mpg</code> of the <strong>unicol</strong> package) from the color
-definitions in its Corporate Design manual (available <a href="https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html" class="external-link">here</a>).</p>
+definitions in its Corporate Design manual (available <a href="https://ppbwiki.fhi.mpg.de/files/home/MPG_Corporate_Design_Manual.pdf" class="external-link">here</a>).</p>
 <div class="section level3">
 <h3 id="defining-colors">1. Defining colors<a class="anchor" aria-label="anchor" href="#defining-colors"></a>
 </h3>
@@ -189,7 +189,7 @@ existing color or color palette with the <code><a href="../reference/seecol.html
 of <strong>unikn</strong>, the name, HEX and RGB values of the
 individual colors are being shown. For instance, the following color
 palette <code>mpg_pal</code> provides the colors of the <a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a>:</p>
-<p><img src="inst_colors_files/figure-html/def-col-mpg-example-1.png" width="60%" style="display: block; margin: auto;"></p>
+<p><img src="inst_colors_files/figure-html/def-col-mpg-example-1.png" class="r-plt" alt="" width="60%" style="display: block; margin: auto;"></p>
 <p>As the middle color of <code>mpg_pal</code> is one of the 657 named
 colors of <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors()</a></code>, R will recognize it as a color when we
 type its name (as a character object <code>"white"</code>) in a context
@@ -211,7 +211,7 @@ definitions.</p>
 <p><a href="https://www.mpg.de/en" class="external-link">
 <img src="../inst/pix/logo_MPG.png" align="right" alt="MPG" width="150px" style="border:10;"></a></p>
 <p>The <a href="https://www.mpg.de/en" class="external-link">Max Planck Society</a> defines
-two main colors in its CD manual (available <a href="https://docplayer.org/2328711-Max-planck-institut-das-erscheinungsbild-der-max-planck-gesellschaft-4-ueberarbeitete-auflage.html" class="external-link">here</a>):</p>
+two main colors in its CD manual (available <a href="https://ppbwiki.fhi.mpg.de/files/home/MPG_Corporate_Design_Manual.pdf" class="external-link">here</a>):</p>
 <ul>
 <li><p>A dark shade of green is defined as Pantone 328, and approximated
 by CMYK 100/0/57/30 or RGB 17/102/86.</p></li>
@@ -342,7 +342,7 @@ colors of <code>mpg_pal</code> (shown above):</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">mpg_pal_3</span>, </span>
 <span>       main <span class="op">=</span> <span class="st">"My new color palette"</span>, col_brd <span class="op">=</span> <span class="st">"black"</span>, lwd_brd <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span></span></code></pre></div>
-<p><img src="inst_colors_files/figure-html/seecol-mpg-3-1.png" width="60%" style="display: block; margin: auto;"></p>
+<p><img src="inst_colors_files/figure-html/seecol-mpg-3-1.png" class="r-plt" alt="" width="60%" style="display: block; margin: auto;"></p>
 <p>The 5-color palette provided as <code>mpg_pal</code> includes two
 intermediate colors (at positions <code>mpg_pal[2]</code> and
 <code>mpg_pal[4]</code>) that are extrapolated by mixing the two main
@@ -358,7 +358,7 @@ colors of the <strong>unikn</strong> color palette <code>mpg_pal</code>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="va">my_mpg_pal</span>, main <span class="op">=</span> <span class="st">"My new MPG color palette"</span>, </span>
 <span>       col_brd <span class="op">=</span> <span class="st">"black"</span>, lwd_brd <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span></span></code></pre></div>
-<p><img src="inst_colors_files/figure-html/seecol-mpg-5-1.png" width="60%" style="display: block; margin: auto;"></p>
+<p><img src="inst_colors_files/figure-html/seecol-mpg-5-1.png" class="r-plt" alt="" width="60%" style="display: block; margin: auto;"></p>
 <p>Technically, the two color palettes differ in some names and the way
 in which its middle color (“white”) was specified (by its R color name
 or HEX values). However, when using <code><a href="https://rdrr.io/r/grDevices/col2rgb.html" class="external-link">col2rgb()</a></code> for
@@ -383,7 +383,7 @@ as the native <strong>unikn</strong> color palettes:</p>
 <span><span class="fu"><a href="../reference/seecol.html">seecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">mpg_pal</span>, <span class="va">pal_unikn</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">7</span>,</span>
 <span>       pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Max Planck"</span>, <span class="st">"Uni Konstanz"</span><span class="op">)</span>,</span>
 <span>       main <span class="op">=</span> <span class="st">"Comparing scaled color palettes"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="inst_colors_files/figure-html/compare-custom-pals-1.png" width="60%" style="display: block; margin: auto;"></p>
+<p><img src="inst_colors_files/figure-html/compare-custom-pals-1.png" class="r-plt" alt="" width="60%" style="display: block; margin: auto;"></p>
 <p>See the vignette on <a href="color_recipes.html">Color recipes</a>
 for additional examples of using <strong>unikn</strong> functions for
 solving color-related tasks.</p>
@@ -521,7 +521,7 @@ colors</a></td>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

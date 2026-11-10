@@ -14,7 +14,7 @@ development:
 
 template:
   bootstrap: 5
-  bootswatch: lumen
+  bootswatch: spacelab # lumen simplex spacelab
 
 toc:
   depth: 3
@@ -69,15 +69,15 @@ reference:
   - grepal
   - newpal
   - demopal
-  - plot_cube
   - shades_of
   - ac
   - get_col_names
-- title: Plotting functions
+- title: Other plotting functions
   desc: Functions for plotting objects and themes.
   contents:
   - slide
   - xbox
+  - plot_cube
   - starts_with("theme_")
 - title: Text decoration functions
   desc: Functions for decorating plotted text.
@@ -101,3 +101,4 @@ figures:
   fig.asp: 0.85
   fig.retina: 2
 
+# eof. 
