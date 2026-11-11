@@ -2,7 +2,7 @@
 
 ## unikn 1.1.0
 
-This release of **unikn** (v1.0.0) adds functionality and fixes some
+This release of **unikn** (v1.1.0) adds functionality and fixes some
 bugs. \[2026-11-11\]
 
 Changes since last release:
