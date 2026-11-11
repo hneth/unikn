@@ -11,7 +11,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/hneth/unikn/blob/master/inst/CITATION)
+[`inst/CITATION`](https://github.com/hneth/unikn/blob/v1.1.0/inst/CITATION)
 
 Neth, H., & Gradwohl, N., (2026). unikn: Graphical elements of the
 University of Konstanz's corporate design. Social Psychology and
