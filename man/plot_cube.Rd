@@ -125,11 +125,11 @@ Default: \code{fill_res = 20}.}
 (as "shadow" points, to aid judging its 3D location). Options
 (one or more of which may be combined) are:
   \itemize{
-  \item \code{"floor"}: project onto the R-by-G plane (i.e., set B = 0);
-  \item \code{"back"}: project onto the R-by-B plane (i.e., set G = 0);
-  \item \code{"side"}: project onto the G-by-B plane (i.e., set R = 0);
-  \item \code{"all"}: project onto all 3 faces;
-  \item \code{"none"}: show no shadows.
+  \item \code{"floor"}: Project onto the R-by-G plane (i.e., set B = 0);
+  \item \code{"back"}: Project onto the R-by-B plane (i.e., set G = 0);
+  \item \code{"side"}: Project onto the G-by-B plane (i.e., set R = 0);
+  \item \code{"all"}: Project onto all 3 faces;
+  \item \code{"none"}: Show no shadows.
   }
 Each shadow is a smaller marker on the corresponding face, linked to
 its point by a dotted connector. As a projection drops one color channel,
@@ -213,10 +213,10 @@ lighter than \code{col_grid}, so the face grid reads as the stronger reference.}
 
 \item{axis_labels}{Titles for the 3 cube axes (R, G, and B). Options are:
   \itemize{
-  \item a character vector of length\ 3: use these as axis titles;
-  \item \code{"short"} (or \code{"rgb"}): use \code{c("R", "G", "B")} (default);
-  \item \code{"long"}: use \code{c("Red", "Green", "Blue")};
-  \item \code{NA} (or \code{"no"}): show no axis titles.
+  \item a character vector of length\ 3: Use these as axis titles;
+  \item \code{"short"} (or \code{"rgb"}): Use \code{c("R", "G", "B")} (default);
+  \item \code{"long"}: Use \code{c("Red", "Green", "Blue")};
+  \item \code{NA} (or \code{"no"}): Show no axis titles.
   }
 Default: \code{axis_labels = c("R", "G", "B")}.}
 
@@ -236,10 +236,10 @@ Default: \code{cex_axis = NA} (i.e., use \code{cex_lbl}).}
 One or more of the following label types may be specified
 (and are shown on separate lines when combined):
   \itemize{
-  \item \code{"names"}: show the names of \code{x}
+  \item \code{"names"}: Show the names of \code{x}
   (or the color values, if no names are available);
-  \item \code{"rgb"}: show each point's RGB triplet (as \code{(R, G, B)});
-  \item \code{"hex"}: show each point's HEX value (e.g., \code{"#59C7EB"}).
+  \item \code{"rgb"}: Show each point's RGB triplet (as \code{(R, G, B)});
+  \item \code{"hex"}: Show each point's HEX value (e.g., \code{"#59C7EB"}).
   }
 Thus, \code{labels = c("names", "rgb", "hex")} shows all 3 representations
 of each color in the same cube.
@@ -316,7 +316,7 @@ plot_cube(c("red", "blue"), type = "b")            # line with points (red-blue 
 # Changing the viewing angle:
 plot_cube(pal_unikn, theta = 30, phi = 25)
 
-# With >2 colors: all pairs (default), disjoint pairs, or a connecting path:
+# With >2 colors: All pairs (default), disjoint pairs, or a connecting path:
 col_3 <- c("grey10", "orange", "steelblue")
 plot_cube(col_3, type = "l")                             # all pairs
 plot_cube(col_3, type = "b", lwd_line = 5)               # all pairs + points
@@ -380,7 +380,7 @@ plot_cube(greys, type = "b", line_connect = "path",
 
 # 3. Complementarity of the RGB and CMY color systems:
 #    Each CMY secondary (cyan, magenta, yellow) is the complement of an RGB
-#    primary (red, green, blue): it occupies the opposite corner of the cube,
+#    primary (red, green, blue): It occupies the opposite corner of the cube,
 #    and a color and its complement mix to grey (at the cube's center).
 
 # Show 6 color corners (RGB vs. CMY):
