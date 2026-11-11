@@ -13,7 +13,7 @@ to the red, green, and blue values of the RGB color model
 
     <a class="navbar-brand me-2" href="../index.html">unikn</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -197,11 +197,11 @@ Default: <code>fill_res = 20</code>.</p></dd>
 <dt id="arg-shadows">shadows<a class="anchor" aria-label="anchor" href="#arg-shadows"></a></dt>
 <dd><p>Project each point onto one or more faces of the cube
 (as "shadow" points, to aid judging its 3D location). Options
-(one or more of which may be combined) are:</p><ul><li><p><code>"floor"</code>: project onto the R-by-G plane (i.e., set B = 0);</p></li>
-<li><p><code>"back"</code>: project onto the R-by-B plane (i.e., set G = 0);</p></li>
-<li><p><code>"side"</code>: project onto the G-by-B plane (i.e., set R = 0);</p></li>
-<li><p><code>"all"</code>: project onto all 3 faces;</p></li>
-<li><p><code>"none"</code>: show no shadows.</p></li>
+(one or more of which may be combined) are:</p><ul><li><p><code>"floor"</code>: Project onto the R-by-G plane (i.e., set B = 0);</p></li>
+<li><p><code>"back"</code>: Project onto the R-by-B plane (i.e., set G = 0);</p></li>
+<li><p><code>"side"</code>: Project onto the G-by-B plane (i.e., set R = 0);</p></li>
+<li><p><code>"all"</code>: Project onto all 3 faces;</p></li>
+<li><p><code>"none"</code>: Show no shadows.</p></li>
 </ul><p>Each shadow is a smaller marker on the corresponding face, linked to
 its point by a dotted connector. As a projection drops one color channel,
 a shadow also shows the color with that primary removed.
@@ -295,10 +295,10 @@ lighter than <code>col_grid</code>, so the face grid reads as the stronger refer
 
 
 <dt id="arg-axis-labels">axis_labels<a class="anchor" aria-label="anchor" href="#arg-axis-labels"></a></dt>
-<dd><p>Titles for the 3 cube axes (R, G, and B). Options are:</p><ul><li><p>a character vector of length\ 3: use these as axis titles;</p></li>
-<li><p><code>"short"</code> (or <code>"rgb"</code>): use <code>c("R", "G", "B")</code> (default);</p></li>
-<li><p><code>"long"</code>: use <code>c("Red", "Green", "Blue")</code>;</p></li>
-<li><p><code>NA</code> (or <code>"no"</code>): show no axis titles.</p></li>
+<dd><p>Titles for the 3 cube axes (R, G, and B). Options are:</p><ul><li><p>a character vector of length\ 3: Use these as axis titles;</p></li>
+<li><p><code>"short"</code> (or <code>"rgb"</code>): Use <code>c("R", "G", "B")</code> (default);</p></li>
+<li><p><code>"long"</code>: Use <code>c("Red", "Green", "Blue")</code>;</p></li>
+<li><p><code>NA</code> (or <code>"no"</code>): Show no axis titles.</p></li>
 </ul><p>Default: <code>axis_labels = c("R", "G", "B")</code>.</p></dd>
 
 
@@ -323,10 +323,10 @@ Default: <code>cex_axis = NA</code> (i.e., use <code>cex_lbl</code>).</p></dd>
 <dt id="arg-labels">labels<a class="anchor" aria-label="anchor" href="#arg-labels"></a></dt>
 <dd><p>Type(s) of labels for the points.
 One or more of the following label types may be specified
-(and are shown on separate lines when combined):</p><ul><li><p><code>"names"</code>: show the names of <code>x</code>
+(and are shown on separate lines when combined):</p><ul><li><p><code>"names"</code>: Show the names of <code>x</code>
   (or the color values, if no names are available);</p></li>
-<li><p><code>"rgb"</code>: show each point's RGB triplet (as <code>(R, G, B)</code>);</p></li>
-<li><p><code>"hex"</code>: show each point's HEX value (e.g., <code>"#59C7EB"</code>).</p></li>
+<li><p><code>"rgb"</code>: Show each point's RGB triplet (as <code>(R, G, B)</code>);</p></li>
+<li><p><code>"hex"</code>: Show each point's HEX value (e.g., <code>"#59C7EB"</code>).</p></li>
 </ul><p>Thus, <code>labels = c("names", "rgb", "hex")</code> shows all 3 representations
 of each color in the same cube.
 Setting <code>labels = NA</code> (or <code>"no"</code>) shows no labels, and passing
@@ -441,7 +441,7 @@ and requires no additional package dependencies.</p>
 <span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">pal_unikn</span>, theta <span class="op">=</span> <span class="fl">30</span>, phi <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_cube-15.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># With &gt;2 colors: all pairs (default), disjoint pairs, or a connecting path:</span></span></span>
+<span class="r-in"><span><span class="co"># With &gt;2 colors: All pairs (default), disjoint pairs, or a connecting path:</span></span></span>
 <span class="r-in"><span><span class="va">col_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"grey10"</span>, <span class="st">"orange"</span>, <span class="st">"steelblue"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">col_3</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span>                             <span class="co"># all pairs</span></span></span>
 <span class="r-plt img"><img src="plot_cube-16.png" alt="" width="672" height="571"></span>
@@ -453,7 +453,7 @@ and requires no additional package dependencies.</p>
 <span class="r-in"><span><span class="co"># Using line_connect = "pairs" to link disjoint color pairs, e.g., to show</span></span></span>
 <span class="r-in"><span><span class="co"># the 3 complementary RGB/CMY pairs (each line crosses the grey cube center):</span></span></span>
 <span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"cyan"</span>, <span class="st">"green"</span>, <span class="st">"magenta"</span>, <span class="st">"blue"</span>, <span class="st">"yellow"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"b"</span>, </span></span>
-<span class="r-in"><span>          line_connect <span class="op">=</span> <span class="st">"pairs"</span>, lwd_line <span class="op">=</span> <span class="fl">4</span>, main <span class="op">=</span> <span class="st">"Complementary RGB/CMY pairs"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>          line_connect <span class="op">=</span> <span class="st">"pairs"</span>, lwd_line <span class="op">=</span> <span class="fl">5</span>, grid <span class="op">=</span> <span class="cn">TRUE</span>, main <span class="op">=</span> <span class="st">"Complementary colors"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_cube-19.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Spanning a plane through 3 colors (type = "plane"):</span></span></span>
@@ -526,7 +526,7 @@ and requires no additional package dependencies.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 3. Complementarity of the RGB and CMY color systems:</span></span></span>
 <span class="r-in"><span><span class="co">#    Each CMY secondary (cyan, magenta, yellow) is the complement of an RGB</span></span></span>
-<span class="r-in"><span><span class="co">#    primary (red, green, blue): it occupies the opposite corner of the cube,</span></span></span>
+<span class="r-in"><span><span class="co">#    primary (red, green, blue): It occupies the opposite corner of the cube,</span></span></span>
 <span class="r-in"><span><span class="co">#    and a color and its complement mix to grey (at the cube's center).</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Show 6 color corners (RGB vs. CMY):</span></span></span>
@@ -537,7 +537,7 @@ and requires no additional package dependencies.</p>
 <span class="r-in"><span>          </span></span>
 <span class="r-in"><span><span class="co"># Show all 4 cube diagonals:</span></span></span>
 <span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">col_8</span>, type <span class="op">=</span> <span class="st">"b"</span>, line_connect <span class="op">=</span> <span class="st">"pairs"</span>, lwd_line <span class="op">=</span> <span class="fl">4</span>,</span></span>
-<span class="r-in"><span>          main <span class="op">=</span> <span class="st">"The 4 main diagonals"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>          grid <span class="op">=</span> <span class="cn">TRUE</span>, main <span class="op">=</span> <span class="st">"The 4 main diagonals"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_cube-38.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span>            </span></span>
 <span class="r-in"><span><span class="co"># Show 2 triangular planes:</span></span></span>
@@ -554,7 +554,7 @@ and requires no additional package dependencies.</p>
 <span class="r-in"><span><span class="va">col_8</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">col_4</span>, <span class="va">Petrol</span>, <span class="va">Karpfenblau</span>, <span class="va">Peach</span>, <span class="va">Grau</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 1. Main unikn colors as (labeled) points:</span></span></span>
-<span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">col_8</span>, labels <span class="op">=</span> <span class="st">"names"</span>, main <span class="op">=</span> <span class="st">"The main unikn colors in RGB space"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">col_8</span>, grid <span class="op">=</span> <span class="cn">TRUE</span>, main <span class="op">=</span> <span class="st">"The main unikn colors in RGB space"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_cube-41.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 2. The default unikn palette (black - Seeblau shades - white) as a path:</span></span></span>
@@ -567,7 +567,7 @@ and requires no additional package dependencies.</p>
 <span class="r-in"><span>          </span></span>
 <span class="r-in"><span><span class="co"># 2. A color palette's shade ramp as a connecting path:</span></span></span>
 <span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">pal_pinky</span>, type <span class="op">=</span> <span class="st">"b"</span>, line_connect <span class="op">=</span> <span class="st">"path"</span>, lwd_line <span class="op">=</span> <span class="fl">5</span>,</span></span>
-<span class="r-in"><span>          theta <span class="op">=</span> <span class="fl">40</span>, phi <span class="op">=</span> <span class="fl">20</span>, main <span class="op">=</span> <span class="st">"The path of pal_pinky"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>          theta <span class="op">=</span> <span class="op">-</span><span class="fl">40</span>, phi <span class="op">=</span> <span class="fl">20</span>, shadows <span class="op">=</span> <span class="st">"all"</span>, main <span class="op">=</span> <span class="st">"The path of pal_pinky"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_cube-44.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="fu"><a href="usecol.html">usecol</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="va">pal_seegruen</span><span class="op">)</span>, <span class="st">"white"</span>, <span class="va">pal_bordeaux</span><span class="op">)</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"b"</span>, </span></span>
 <span class="r-in"><span>          line_connect <span class="op">=</span> <span class="st">"path"</span>, lwd_line <span class="op">=</span> <span class="fl">5</span>, main <span class="op">=</span> <span class="st">"A custom color gradient"</span><span class="op">)</span></span></span>
@@ -580,8 +580,7 @@ and requires no additional package dependencies.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 5. The gamut (plane) of mixtures spanned by 3 main colors:</span></span></span>
 <span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">Seeblau</span>, <span class="va">Pinky</span>, <span class="va">Seegruen</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"plane"</span>,</span></span>
-<span class="r-in"><span>          labels <span class="op">=</span> <span class="st">"names"</span>, theta <span class="op">=</span> <span class="fl">10</span>, phi <span class="op">=</span> <span class="fl">20</span>,</span></span>
-<span class="r-in"><span>          main <span class="op">=</span> <span class="st">"Gamut of 3 key colors"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>          theta <span class="op">=</span> <span class="fl">10</span>, phi <span class="op">=</span> <span class="fl">20</span>, main <span class="op">=</span> <span class="st">"Gamut of 3 key colors"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_cube-47.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>

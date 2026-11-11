@@ -174,6 +174,18 @@ but the following would both plot and assign the palette to `my_pal`:
 my_pal <- seecol(pal_bordeaux)
 ```
 
+Finally, setting `cube = TRUE` will locate the colors of a palette as
+points in a 3D RGB color space (see
+[`plot_cube()`](https://hneth.github.io/unikn/dev/reference/plot_cube.md)
+for details):
+
+``` r
+
+seecol(pal_unikn_pref, cube = TRUE, main = "A color palette in RGB space")
+```
+
+![](color_functions_files/figure-html/seecol-cube-1.png)
+
 ### B. Viewing and comparing multiple color palettes
 
 The second mode of

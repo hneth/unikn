@@ -1,8 +1,33 @@
 # Changelog
 
+## unikn 1.1.0.9001
+
+This is the development version of **unikn**, available at
+<https://github.com/hneth/unikn/>.
+
+Changes since last release:
+
+### Major changes
+
+- none yet
+
+### Minor changes
+
+- none yet
+
+### Details
+
+- Remove duplicate URL in DESCRIPTION
+- Reset to development version after release of **unikn** v.1.1.0 [on
+  CRAN](https://CRAN.R-project.org/package=unikn)
+
+------------------------------------------------------------------------
+
 ## unikn 1.1.0
 
-This release of **unikn** (v1.0.0) adds functionality and fixes some
+CRAN release: 2026-11-11
+
+This release of **unikn** (v1.1.0) adds functionality and fixes some
 bugs. \[2026-11-11\]
 
 Changes since last release:
