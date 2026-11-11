@@ -3,7 +3,7 @@
 
 # unikn 1.1.0
 
-This release of **unikn** (v1.0.0) adds functionality and fixes some bugs. [2026-11-11] 
+This release of **unikn** (v1.1.0) adds functionality and fixes some bugs. [2026-11-11] 
 
 <!-- This is the development version of **unikn**, available at <https://github.com/hneth/unikn/>. --> 
 
