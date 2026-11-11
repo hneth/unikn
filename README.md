@@ -3,25 +3,23 @@
 
 <!-- Devel badges start: -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
+[![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml)
+[![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn?color=%2200a9e0%22)](https://www.r-pkg.org/pkg/unikn)
+[![Total
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
+<!-- Devel badges end. -->
+
+<!-- Release badges start: -->
+
 <!-- [![CRAN status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn) -->
-
-<!-- [![R-CMD-check](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/hneth/unikn/actions/workflows/check-standard.yaml) -->
-
-<!-- [![Downloads/month](https://cranlogs.r-pkg.org/badges/unikn?color="00a9e0")](https://www.r-pkg.org/pkg/unikn) -->
 
 <!-- [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn) -->
 
 <!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191) -->
 
-<!-- Devel badges end. -->
-
-<!-- Release badges start: -->
-
-[![CRAN
-status](https://www.r-pkg.org/badges/version/unikn)](https://CRAN.R-project.org/package=unikn)
-[![Total
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-pkg.org/pkg/unikn)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7096191.svg)](https://doi.org/10.5281/zenodo.7096191)
 <!-- Release badges end. -->
 
 <!-- ALL status badges: 
@@ -33,7 +31,7 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 1.1.0 <img src = "./logo.png" align = "right" alt = "unikn" width = "160" />
+# unikn 1.1.0.9001 <img src = "./logo.png" align = "right" alt = "unikn" width = "160" />
 
 <!-- unikn pkg logo and link (to CRAN): -->
 
