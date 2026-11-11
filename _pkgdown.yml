@@ -14,7 +14,7 @@ development:
 
 template:
   bootstrap: 5
-  bootswatch: spacelab # lumen | simplex | spacelab
+  bootswatch: simplex # lumen | simplex | spacelab
 
 toc:
   depth: 3
