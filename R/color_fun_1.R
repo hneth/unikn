@@ -1,5 +1,5 @@
 ## color_fun_1.R | unikn
-## spds | uni.kn | 2026 11 10
+## spds | uni.kn | 2026 11 11
 ## --------------------------
 
 ## Define color-related functions 
@@ -91,8 +91,8 @@
 usecol <- function(pal = pal_unikn,
                    n = "all",
                    alpha = NA,  # regulate transparency
-                   distinct = FALSE,   # remove visual duplicates? 
-                   use_names = FALSE,  # should colors be returned as a named vector?
+                   distinct = FALSE,   # Keep all colors (TRUE removes visual duplicates). 
+                   use_names = FALSE,  # Return colors as an unnamed vector (TRUE names them).
                    use_col_ramp = FALSE) {
   
   ## Handle NA input: ----
@@ -660,8 +660,8 @@ seecol <- function(pal = "unikn_all",  # which palette?
                    col_bg = NULL,      # color of background
                    col_brd = NULL,     # border color of the boxes
                    lwd_brd = NULL,     # line width of box borders
-                   grid = TRUE,        # show grid? 
-                   scale_x = FALSE,    # scale color shapes (when comparing multiple palettes) to a fixed total width?
+                   grid = TRUE,        # Show a reference grid (also passed to plot_cube() in cube mode). 
+                   scale_x = FALSE,    # Do not scale color shapes to a fixed total width (TRUE does, when comparing palettes).
                    main = NA,          # main plot title (using the default 'main = NA' constructs a default title)
                    sub = NULL,         # plot subtitle (on bottom)
                    title = NULL,       # Deprecated: plot title (replaced by main)
@@ -860,7 +860,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
       
       message('seecol: The "cube" view shows a single palette; using the standard comparison view instead.')
       
-    } else {  # single palette: dispatch to plot_cube():
+    } else {  # single palette: Dispatch to plot_cube():
       
       cube_pal <- unlist(pal_tmp, use.names = TRUE)  # the resolved vector of colors
       
@@ -884,7 +884,7 @@ seecol <- function(pal = "unikn_all",  # which palette?
       # Note: No par(op) here, as it would set par("new") = TRUE (causing persp() to overplot);
       #       plot_cube() manages (and resets) its own par settings.
       
-      do.call(plot_cube, c(list(cube_pal), cube_args))  # Main: call plot_cube() with current pal and args
+      do.call(plot_cube, c(list(cube_pal), cube_args))  # Main: Call plot_cube() with current pal and args
       
       return(invisible(cube_pal))  # invisibly return the plotted colors (as seecol())
       

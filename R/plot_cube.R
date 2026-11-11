@@ -1,5 +1,5 @@
 ## plot_cube.R | unikn
-## spds | uni.kn | 2026 11 10
+## spds | uni.kn | 2026 11 11
 ## --------------------------
 
 ## Plot R colors as points in a 3D RGB color cube.
@@ -117,11 +117,11 @@
 #' (as "shadow" points, to aid judging its 3D location). Options
 #' (one or more of which may be combined) are:
 #'   \itemize{
-#'   \item \code{"floor"}: project onto the R-by-G plane (i.e., set B = 0);
-#'   \item \code{"back"}: project onto the R-by-B plane (i.e., set G = 0);
-#'   \item \code{"side"}: project onto the G-by-B plane (i.e., set R = 0);
-#'   \item \code{"all"}: project onto all 3 faces;
-#'   \item \code{"none"}: show no shadows.
+#'   \item \code{"floor"}: Project onto the R-by-G plane (i.e., set B = 0);
+#'   \item \code{"back"}: Project onto the R-by-B plane (i.e., set G = 0);
+#'   \item \code{"side"}: Project onto the G-by-B plane (i.e., set R = 0);
+#'   \item \code{"all"}: Project onto all 3 faces;
+#'   \item \code{"none"}: Show no shadows.
 #'   }
 #' Each shadow is a smaller marker on the corresponding face, linked to
 #' its point by a dotted connector. As a projection drops one color channel,
@@ -202,10 +202,10 @@
 #'
 #' @param axis_labels Titles for the 3 cube axes (R, G, and B). Options are:
 #'   \itemize{
-#'   \item a character vector of length\ 3: use these as axis titles;
-#'   \item \code{"short"} (or \code{"rgb"}): use \code{c("R", "G", "B")} (default);
-#'   \item \code{"long"}: use \code{c("Red", "Green", "Blue")};
-#'   \item \code{NA} (or \code{"no"}): show no axis titles.
+#'   \item a character vector of length\ 3: Use these as axis titles;
+#'   \item \code{"short"} (or \code{"rgb"}): Use \code{c("R", "G", "B")} (default);
+#'   \item \code{"long"}: Use \code{c("Red", "Green", "Blue")};
+#'   \item \code{NA} (or \code{"no"}): Show no axis titles.
 #'   }
 #' Default: \code{axis_labels = c("R", "G", "B")}.
 #'
@@ -225,10 +225,10 @@
 #' One or more of the following label types may be specified
 #' (and are shown on separate lines when combined):
 #'   \itemize{
-#'   \item \code{"names"}: show the names of \code{x}
+#'   \item \code{"names"}: Show the names of \code{x}
 #'   (or the color values, if no names are available);
-#'   \item \code{"rgb"}: show each point's RGB triplet (as \code{(R, G, B)});
-#'   \item \code{"hex"}: show each point's HEX value (e.g., \code{"#59C7EB"}).
+#'   \item \code{"rgb"}: Show each point's RGB triplet (as \code{(R, G, B)});
+#'   \item \code{"hex"}: Show each point's HEX value (e.g., \code{"#59C7EB"}).
 #'   }
 #' Thus, \code{labels = c("names", "rgb", "hex")} shows all 3 representations
 #' of each color in the same cube.
@@ -288,7 +288,7 @@
 #' # Changing the viewing angle:
 #' plot_cube(pal_unikn, theta = 30, phi = 25)
 #'
-#' # With >2 colors: all pairs (default), disjoint pairs, or a connecting path:
+#' # With >2 colors: All pairs (default), disjoint pairs, or a connecting path:
 #' col_3 <- c("grey10", "orange", "steelblue")
 #' plot_cube(col_3, type = "l")                             # all pairs
 #' plot_cube(col_3, type = "b", lwd_line = 5)               # all pairs + points
@@ -352,7 +352,7 @@
 #'
 #' # 3. Complementarity of the RGB and CMY color systems:
 #' #    Each CMY secondary (cyan, magenta, yellow) is the complement of an RGB
-#' #    primary (red, green, blue): it occupies the opposite corner of the cube,
+#' #    primary (red, green, blue): It occupies the opposite corner of the cube,
 #' #    and a color and its complement mix to grey (at the cube's center).
 #' 
 #' # Show 6 color corners (RGB vs. CMY):
@@ -418,37 +418,37 @@ plot_cube <- function(x,                      # vector of colors to plot
                       # What to draw:
                       type = "p",             # "p" (points), "l" (lines), "b" (both), or "plane"
                       # Point options:
-                      col_points = NA,        # NA: use each point's own color
+                      col_points = NA,        # NA: Use each point's own color
                       cex_points = 2,         # point size
                       pch = 21,               # point symbol (fillable)
                       col_brd = grey(.20, 1), # point border color
-                      ref_lines = TRUE,       # drop vertical lines to base plane?
+                      ref_lines = TRUE,       # Draw a vertical reference line from each point to the base plane.
                       # Line options (type "l"/"b"):
-                      col_line = NA,          # NA: gradient (color line by local mix); else a fixed color
+                      col_line = NA,          # NA: Gradient (color line by local mix); else a fixed color
                       lwd_line = 3,           # line thickness (lines + plane outline); raise for more visible lines
                       line_connect = "all",   # for >2 points: "all" (all pairs), "pairs" (disjoint consecutive pairs), or "path" (consecutive)
                       # Plane options (type "plane"):
-                      col_fill = NA,          # NA: gradient fill (gamut of mixtures); else a fixed fill color
+                      col_fill = NA,          # NA: Gradient fill (gamut of mixtures); else a fixed fill color
                       fill_alpha = .80,       # opacity of the plane fill (in [0, 1])
                       fill_res = 20,          # resolution of gradient (line segments / plane tessellation)
                       # Shadow (projection) options:
                       shadows = "none",       # project points onto cube faces: "floor", "back", "side", "all", or "none"
-                      col_shadow = grey(.70, .9), # shadow marker color (NA: use each point's projected color)
+                      col_shadow = grey(.70, .9), # shadow marker color (NA: Use each point's projected color)
                       # Cube options:
-                      show_corners = TRUE,       # mark the 8 cube corners?
+                      show_corners = TRUE,       # Mark the 8 cube corners (in their own colors).
                       col_cube = grey(.50, 1),# color of cube edges/axes
                       # Grid options: 
-                      grid = FALSE,           # convenience switch: enable a default grid_faces / grid_inner combination (TBD)
+                      grid = FALSE,           # Convenience switch: Enable a default grid_faces + grid_inner combination.
                       grid_faces = FALSE,     # grid lines ON the cube's FACES: FALSE, "base" (3 near faces), or "all" (6 faces)
                       grid_inner = FALSE,     # grid lines ACROSS the cube's volume (interior): TRUE / FALSE
-                      grid_at = 2,            # grid positioning: a sub-section count (2, 3, 4, ...), "ticks", or a numeric vector of positions
+                      grid_at = 2,            # Grid positioning: A sub-section count (2, 3, 4, ...), "ticks", or a numeric vector of positions
                       col_grid = grey(.60, .60),        # color of the FACE grid lines (thin, transparent; darker)
                       col_grid_inner = grey(.80, .50),  # color of the INNER grid lines (thin, transparent; lighter)
                       # Axis options:
                       axis_labels = c("R", "G", "B"),  # axis titles ("long"/"no"/custom 3-vector)
-                      axis_ticks = TRUE,      # draw tick marks + numeric values along axes?
+                      axis_ticks = TRUE,      # Draw tick marks and numeric values along the axes.
                       n_ticks = 5,            # number of ticks per axis (when axis_ticks = TRUE)
-                      cex_axis = NA,          # scaling of axis titles + tick values (NA: derive from cex_lbl)
+                      cex_axis = NA,          # scaling of axis titles + tick values (NA: Derive from cex_lbl)
                       # Labels:
                       labels = "names",       # "names"/"rgb"/"hex" (or combinations), NA/"no", or a vector
                       # Viewing angles and titles:
@@ -471,7 +471,7 @@ plot_cube <- function(x,                      # vector of colors to plot
   }
   
   # Verify that all inputs are valid colors:
-  is_col <- function(z) {  # local helper: is z a valid color?
+  is_col <- function(z) {  # Local helper: Is z a valid color?
     
     vapply(z, function(zi) {
       tryCatch({grDevices::col2rgb(zi); TRUE}, error = function(e) FALSE)
@@ -523,12 +523,12 @@ plot_cube <- function(x,                      # vector of colors to plot
   }
   
   # Labels: Resolve 'labels' into a per-point label vector (pt_lbls):
-  pt_lbls <- NULL  # default: no labels
+  pt_lbls <- NULL  # Default: No labels
   
   # Recognized label-TYPE keywords (names, RGB, or HEX values):
   known_types <- c("name", "names", "rgb", "hex")
   
-  # Treat NA / "no" / "none" / "off" as: show no labels:
+  # Treat NA / "no" / "none" / "off" as: Show no labels:
   no_labels <- (length(labels) == 1) &&
     (is.na(labels) || tolower(labels) %in% c("no", "none", "off"))
   
@@ -543,7 +543,7 @@ plot_cube <- function(x,                      # vector of colors to plot
       types[types == "name"] <- "names"
       types <- unique(types)
       
-      # Helper: build 1 label component (as a per-point vector):
+      # Helper: Build 1 label component (as a per-point vector):
       make_part <- function(type) {
         
         switch(type,
@@ -646,7 +646,7 @@ plot_cube <- function(x,                      # vector of colors to plot
   
   if (length(at_pos) > 0) {
     
-    # (a) grid_faces: grid lines ON the cube's faces ("base" = 3 near faces; "all" = all 6 faces):
+    # (a) grid_faces: Grid lines ON the cube's faces ("base" = 3 near faces; "all" = all 6 faces):
     if (!identical(grid_faces, FALSE)) {
       
       # Draw the grid on 1 face (the coordinate 'fix' in 1:3 (= R/G/B) is held at value 'fv'):
@@ -677,14 +677,14 @@ plot_cube <- function(x,                      # vector of colors to plot
         
       } else {
         
-        list(c(3, 0), c(2, 0), c(1, 0))  # "base": floor (B=0) + 2 walls (G=0, R=0)
+        list(c(3, 0), c(2, 0), c(1, 0))  # "base": Floor (B=0) + 2 walls (G=0, R=0)
       }
       
       for (f in faces) { face_grid(f[1], f[2]) }
       
     }
     
-    # (b) grid_inner: grid lines ACROSS the cube's volume (connecting opposite faces):
+    # (b) grid_inner: Grid lines ACROSS the cube's volume (connecting opposite faces):
     if (isTRUE(grid_inner)) {
       
       for (axis in 1:3) {         # each family of lines spans one axis (0 to 255) ...
@@ -766,14 +766,14 @@ plot_cube <- function(x,                      # vector of colors to plot
     
   }
   
-  # (c) Axis geometry: direction of each axis + outward normal (away from cube center):
+  # (c) Axis geometry: Direction of each axis + outward normal (away from cube center):
   s <- sqrt(0.5)  # unit-vector component (for 45-degree outward directions)
   
   axis_vec <- list(R = c(1, 0, 0), G = c(0, 1, 0), B = c(0, 0, 1))  # axis directions
   
-  out_dir  <- list(R = c(0, -s, -s),   # R axis: push labels toward front-bottom
-                   G = c(-s, 0, -s),   # G axis: push labels toward left-bottom
-                   B = c(-s, -s,  0))  # B axis: push labels toward left-front
+  out_dir  <- list(R = c(0, -s, -s),   # R axis: Push labels toward front-bottom
+                   G = c(-s, 0, -s),   # G axis: Push labels toward left-bottom
+                   B = c(-s, -s,  0))  # B axis: Push labels toward left-front
   
   cex_ax    <- if (is.na(cex_axis)) cex_lbl else cex_axis  # size of axis titles
   
@@ -860,11 +860,11 @@ plot_cube <- function(x,                      # vector of colors to plot
     
   }
   
-  # Helper: draw 1 (gradient or solid) line between 2 points p1 and p2:
+  # Helper: Draw 1 (gradient or solid) line between 2 points p1 and p2:
   # (uses round line ends (lend = 1) so that thick gradient lines join smoothly)
   draw_line <- function(p1, p2) {
     
-    if (is.na(col_line[1])) {  # gradient: subdivide + color each sub-segment by its local mix
+    if (is.na(col_line[1])) {  # gradient: Subdivide + color each sub-segment by its local mix
       
       tt <- seq(0, 1, length.out = max(2, round(fill_res)) + 1)
       
@@ -885,7 +885,7 @@ plot_cube <- function(x,                      # vector of colors to plot
     }
   }
   
-  ## (5a) Lines (connect points: all pairs, disjoint pairs, or along a path): ------
+  ## (5a) Lines (connect points: All pairs, disjoint pairs, or along a path): ------
   
   # Normalize 'line_connect' (accepting several synonyms):
   line_connect <- tolower(line_connect)
@@ -947,7 +947,7 @@ plot_cube <- function(x,                      # vector of colors to plot
       
     } else {
       
-      # Triangulate: a single triangle for 3 points, else a fan from point 1:
+      # Triangulate: A single triangle for 3 points, else a fan from point 1:
       tris <- if (n == 3) list(c(1, 2, 3)) else lapply(2:(n - 1), function(i) c(1, i, i + 1))
       if (n > 3) {
         message("plot_cube: >3 colors connected as a filled polygon (may be non-planar).")
@@ -1069,13 +1069,13 @@ plot_cube <- function(x,                      # vector of colors to plot
   
   if (draw_pts) {
     
-    if (pch %in% 21:25) {  # fillable symbols: use bg for fill, col for border
+    if (pch %in% 21:25) {  # fillable symbols: Use bg for fill, col for border
       
       graphics::points(pts$x[ord], pts$y[ord], pch = pch,
                        bg = pt_cols[ord], col = col_brd,
                        cex = cex_points, lwd = 1)
       
-    } else {               # non-fillable symbols: use col for the color
+    } else {               # non-fillable symbols: Use col for the color
       
       graphics::points(pts$x[ord], pts$y[ord], pch = pch,
                        col = pt_cols[ord], cex = cex_points, lwd = 2)
@@ -1139,16 +1139,16 @@ plot_cube <- function(x,                      # vector of colors to plot
 
 ## (*) Done: ------
 
-# - Points: plot colors as points in the RGB cube (type = "p").
-# - Labels: by names / RGB / HEX values (or combinations); only provided points labeled.
-# - Axes: customizable titles + numeric value ticks (0 to 255).
-# - Grid: optional reference grid on the cube's faces (grid_faces: "base"/"all")
+# - Points: Plot colors as points in the RGB cube (type = "p").
+# - Labels: By names / RGB / HEX values (or combinations); only provided points labeled.
+# - Axes: Customizable titles + numeric value ticks (0 to 255).
+# - Grid: Optional reference grid on the cube's faces (grid_faces: "base"/"all")
 #         and/or across its volume (grid_inner); positioned by grid_at ("ticks" / k / vector).
 #         The 'grid' switch enables a default combination.
-# - Lines: connect colors by (gradient) lines (type = "l" / "b"), with adjustable
+# - Lines: Connect colors by (gradient) lines (type = "l" / "b"), with adjustable
 #          thickness (lwd_line) and "all" (all pairs) / "pairs" (disjoint pairs) / "path" connections.
-# - Planes: span a (gradient-filled) plane through >= 3 colors (type = "plane").
-# - Shadows: project points onto cube faces (shadows = "floor"/"back"/"side"/"all").
+# - Planes: Span a (gradient-filled) plane through >= 3 colors (type = "plane").
+# - Shadows: Project points onto cube faces (shadows = "floor"/"back"/"side"/"all").
 
 
 ## ToDo next: ------
