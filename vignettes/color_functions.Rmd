@@ -1,7 +1,7 @@
 ---
 title: "Colors and color functions"
 author: "SPDS, uni.kn"
-date: "2023 07 28"
+date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette: 
     fig_caption: yes
@@ -154,6 +154,12 @@ but the following would both plot and assign the palette to `my_pal`:
 
 ```{r invisible-seecol-assign, eval = FALSE}
 my_pal <- seecol(pal_bordeaux)
+```
+
+Finally, setting `cube = TRUE` will locate the colors of a palette as points in a 3D RGB color space (see `plot_cube()` for details):
+
+```{r seecol-cube, fig.width = 5, fig.asp = 1, fig.align = 'center'}
+seecol(pal_unikn_pref, cube = TRUE, main = "A color palette in RGB space")
 ```
 
 
