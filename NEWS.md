@@ -1,5 +1,4 @@
 
-
 # unikn 1.1.0.9001 
 
 <!-- This release of **unikn** (v1.1.0) adds functionality and fixes some bugs. [2026-11-11] --> 
@@ -29,8 +28,8 @@ Changes since last release:
 
 ## Details 
 
-
-- Update to devel version after release of v.1.1.0 [on CRAN](https://CRAN.R-project.org/package=unikn) [2026-11-11] 
+- Remove duplicate URL in DESCRIPTION
+- Reset to development version after release of **unikn** v.1.1.0 [on CRAN](https://CRAN.R-project.org/package=unikn)
 
 
 <!-- Development version:  --> 
