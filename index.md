@@ -766,4 +766,4 @@ remain with their original creators:
 
 ------------------------------------------------------------------------
 
-\[File `README.md` updated on 2026-11-09.\]
+\[File `README.md` updated on 2026-11-11.\]
