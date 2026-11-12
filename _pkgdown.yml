@@ -10,11 +10,11 @@ authors:
     href: https://www.spds.uni-konstanz.de/
 
 development:
-  mode: devel # devel | release
+  mode: devel #  release | devel
 
 template:
   bootstrap: 5
-  bootswatch: simplex # lumen | simplex | spacelab
+  bootswatch: spacelab  # lumen | spacelab
 
 toc:
   depth: 3

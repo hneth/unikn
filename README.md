@@ -828,6 +828,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2026-11-11.\]
+\[File `README.md` updated on 2026-11-12.\]
 
 <!-- eof. -->

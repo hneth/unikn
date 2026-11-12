@@ -29,7 +29,6 @@ Changes since last release:
 ## Details 
 
 - Remove duplicate URL in DESCRIPTION
-- Reset to development version after release of **unikn** v.1.1.0 [on CRAN](https://CRAN.R-project.org/package=unikn)
 
 
 <!-- Development version:  --> 
@@ -435,6 +434,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2026-11-11.]
+[File `NEWS.md` updated on 2026-11-12.]
 
 <!-- eof. -->
