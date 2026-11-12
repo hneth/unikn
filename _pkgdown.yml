@@ -10,7 +10,7 @@ authors:
     href: https://www.spds.uni-konstanz.de/
 
 development:
-  mode: devel #  release | devel
+  mode: devel  # release | devel
 
 template:
   bootstrap: 5
