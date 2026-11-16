@@ -7,24 +7,41 @@
 \alias{demoplot}
 \title{Demonstrate a color palette (in a plot)}
 \usage{
-demopal(pal = pal_unikn, type = NA, pal_name = NULL, ...)
+demopal(pal = pal_unikn, type = NA, pal_name = NULL, seed = NULL, ...)
 }
 \arguments{
-\item{pal}{A color palette (to be illustrated).
+\item{pal}{A color palette (to be illustrated),
+provided as a color vector, a palette (data frame), or
+the \emph{name} of a palette object (as a character string,
+e.g., \code{"pal_petrol"}, which is then resolved to the palette).
 Default: \code{pal = pal_unikn}.}
 
-\item{type}{The type of plot to be used (as character string or integer value). 
-Permissible types are 
-\code{"bar"}, \code{"curve"}, \code{"mosaic"}, \code{"polygon"}, or \code{"scatter"} 
-(or an integer value from 1 to 5, respectively).}
+\item{type}{The type of plot to be used (as a character string or integer value).
+Permissible types are
+\code{"bar"}, \code{"curve"}, \code{"mosaic"}, \code{"polygon"}, \code{"scatter"},
+or \code{"shapes"} (or an integer value from 1 to 6, respectively).
 
-\item{pal_name}{A name for the input color palette \code{pal} (shown on bottom-right margin). 
+\code{type} may also be a \emph{vector} of several types
+(or \code{type = "all"}, for every type), in which case the corresponding
+demo plots are arranged in a grid (via \code{\link{par}(mfrow)}),
+to compare a palette across plot types.
+An invalid or missing \code{type} (\code{NA}) selects a random type
+(reproducible when \code{seed} is set).
+Default: \code{type = NA}.}
+
+\item{pal_name}{A name for the input color palette \code{pal} (shown on bottom-right margin).
 Default: \code{pal_name = NULL} (deparsing to input name).}
+
+\item{seed}{A random seed value (for reproducible randomness),
+passed to the \code{type}-specific plots. Setting \code{seed}
+also renders a random \code{type} choice reproducible.
+Default: \code{seed = NULL} (using \emph{and returning} a random seed).}
 
 \item{...}{Auxiliary arguments passed to \code{type}-specific plots (see details).}
 }
 \value{
-The random data that was plotted (as an invisible R object).
+The random data that was plotted (as an invisible R object);
+for several \code{type}s, a named list of the data of each plot.
 }
 \description{
 \code{demopal} provides an example plot of some \code{type} 
@@ -69,6 +86,14 @@ my_pal <- c(rev(pal_pinky), pal_seeblau)
 # Selecting plot type:
 demopal(my_pal, type = 2)          # by numeric index
 demopal(my_pal, type = "polygon")  # by name
+demopal(my_pal, type = "shapes")   # colored shapes
+
+# Passing a palette by its name (as a character string):
+demopal("pal_seeblau", type = "bar")
+
+# Several plot types at once (arranged in a grid):
+demopal(pal_petrol, type = c("bar", "scatter", "shapes"))
+demopal(pal_unikn, type = "all", seed = 101)  # every type (reproducible)
 
 # Passing type-specific arguments:
 demopal(type = "scatter", col_par = "black", n = 200, cex = c(2, 4, 6), seed = 101)
