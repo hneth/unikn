@@ -53,6 +53,28 @@ plot_cube(
   any mixture thereof. Color palettes (e.g., `pal_unikn`) are also
   accepted.
 
+  Alternatively, `x` may be a **list** of color groups, which gives
+  direct control over *which* colors are linked as lines or planes (the
+  [`c()`](https://rdrr.io/r/base/c.html) "parentheses" of each list
+  element define a group). Each group is then drawn by its *size*:
+
+  - a group of 1 color is shown as an (unlinked) **point**;
+
+  - a group of 2 colors is connected by a **line**;
+
+  - a group of 3 or more colors spans a filled **plane**.
+
+  For example,
+  `plot_cube(list(Seeblau, c(Pinky, Seegruen), c("red", "green", "blue")))`
+  shows 1 point, 1 line, and 1 plane in the same cube. In this *grouped*
+  mode, all defining colors are also marked as points (as for
+  `type = "b"`), and the `type` and `line_connect` arguments are ignored
+  (as the geometry follows from each group's size). A single data frame
+  palette (e.g., `pal_unikn`) is *not* treated as a list of groups, but
+  as one flat vector of colors. To connect 3 or more colors by lines
+  (rather than a plane), use a (flat) vector `x` with `type = "l"`/`"b"`
+  instead.
+
 - type:
 
   Type of geometric element to draw from the colors `x`:
@@ -446,7 +468,27 @@ plot_cube(c("red", "cyan", "green", "magenta", "blue", "yellow"), type = "b",
 plot_cube(c("red", "green", "blue"), type = "plane")  # gamut of 3 primary RGB colors
 
 plot_cube(c("cyan", "yellow", "magenta"),             # gamut of 3 opposite RGB colors
-             type = "plane", labels = c("names", "rgb"))          
+             type = "plane", labels = c("names", "rgb"))
+
+
+# Grouped colors: Passing a list combines colors (by group size):
+# Each c() group becomes a point (1 color), line (2), or plane (3+):
+plot_cube(list(Seeblau, c(Pinky, Seegruen),          # 1 point, 1 line, and 
+               c("red", "green", "blue")))           # 1 plane
+
+
+# A lone point, a line, and a plane (with the defining points marked):
+plot_cube(list("gold",                                # unlinked point
+               c("black", "white"),                   # b/w diagonal (line)
+               c("cyan", "magenta", "yellow")))       # CMY gamut (plane)
+
+
+# Two separate lines (e.g., 2 complementary RGB/CMY pairs):
+plot_cube(list(c("red", "cyan"), c("green", "magenta")), lwd_line = 5, grid = TRUE)
+
+
+# Groups may themselves be palettes (data frames are flattened per group):
+plot_cube(list(pal_seeblau, pal_pinky))              # 2 palette planes
 
 
 # Shadow points (projections onto cube faces):

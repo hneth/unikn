@@ -6,25 +6,43 @@ palette `pal`.
 ## Usage
 
 ``` r
-demopal(pal = pal_unikn, type = NA, pal_name = NULL, ...)
+demopal(pal = pal_unikn, type = NA, pal_name = NULL, seed = NULL, ...)
 ```
 
 ## Arguments
 
 - pal:
 
-  A color palette (to be illustrated). Default: `pal = pal_unikn`.
+  A color palette (to be illustrated), provided as a color vector, a
+  palette (data frame), or the *name* of a palette object (as a
+  character string, e.g., `"pal_petrol"`, which is then resolved to the
+  palette). Default: `pal = pal_unikn`.
 
 - type:
 
-  The type of plot to be used (as character string or integer value).
-  Permissible types are `"bar"`, `"curve"`, `"mosaic"`, `"polygon"`, or
-  `"scatter"` (or an integer value from 1 to 5, respectively).
+  The type of plot to be used (as a character string or integer value).
+  Permissible types are `"bar"`, `"curve"`, `"mosaic"`, `"polygon"`,
+  `"scatter"`, or `"shapes"` (or an integer value from 1 to 6,
+  respectively).
+
+  `type` may also be a *vector* of several types (or `type = "all"`, for
+  every type), in which case the corresponding demo plots are arranged
+  in a grid (via [`par`](https://rdrr.io/r/graphics/par.html)`(mfrow)`),
+  to compare a palette across plot types. An invalid or missing `type`
+  (`NA`) selects a random type (reproducible when `seed` is set).
+  Default: `type = NA`.
 
 - pal_name:
 
   A name for the input color palette `pal` (shown on bottom-right
   margin). Default: `pal_name = NULL` (deparsing to input name).
+
+- seed:
+
+  A random seed value (for reproducible randomness), passed to the
+  `type`-specific plots. Setting `seed` also renders a random `type`
+  choice reproducible. Default: `seed = NULL` (using *and returning* a
+  random seed).
 
 - ...:
 
@@ -32,7 +50,8 @@ demopal(pal = pal_unikn, type = NA, pal_name = NULL, ...)
 
 ## Value
 
-The random data that was plotted (as an invisible R object).
+The random data that was plotted (as an invisible R object); for several
+`type`s, a named list of the data of each plot.
 
 ## Details
 
@@ -98,6 +117,16 @@ my_pal <- c(rev(pal_pinky), pal_seeblau)
 demopal(my_pal, type = 2)          # by numeric index
 
 demopal(my_pal, type = "polygon")  # by name
+
+demopal(my_pal, type = "shapes")   # colored shapes
+
+
+# Passing a palette by its name (as a character string):
+demopal("pal_seeblau", type = "bar")
+
+# Several plot types at once (arranged in a grid):
+demopal(pal_petrol, type = c("bar", "scatter", "shapes"))
+demopal(pal_unikn, type = "all", seed = 101)  # every type (reproducible)
 
 
 # Passing type-specific arguments:

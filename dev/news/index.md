@@ -1,6 +1,6 @@
 # Changelog
 
-## unikn 1.1.0.9001
+## unikn 1.1.0.9002
 
 This is the development version of **unikn**, available at
 <https://github.com/hneth/unikn/>.
@@ -13,10 +13,34 @@ Changes since last release:
 
 ### Minor changes
 
-- none yet
+- Extend
+  [`plot_cube()`](https://hneth.github.io/unikn/dev/reference/plot_cube.md)
+  to accept a *list* of color groups (via `x`): Each group is drawn by
+  its size, as a point (1 color), line (2 colors), or plane (3+ colors),
+  for direct control over which colors are linked. \[2026-11-16\]
+- Extend
+  [`demopal()`](https://hneth.github.io/unikn/dev/reference/demopal.md)
+  by a `"shapes"` plot type, support for several types at once (a
+  vector, or `type = "all"`, arranged in a grid), passing a palette by
+  its name (as a string), a `seed` argument (for reproducible random
+  types), and returning the plotted data invisibly. \[2026-11-16\]
+- Improve the `"shapes"` plot of
+  [`demopal()`](https://hneth.github.io/unikn/dev/reference/demopal.md)
+  (via `plot_shapes()`): Arrange colors as auto-sized shapes on a
+  near-square grid, choose the shape symbol (`pch`) and border color
+  (`col_par`), set the color order (`order`:
+  `"keep"`/`"shuffle"`/`"rev"`/custom), and label colors by names, HEX,
+  or RGB values (`labels`), placed below or in each shape (`label_pos`).
+  \[2026-11-16\]
 
 ### Details
 
+- Bug fixes to
+  [`demopal()`](https://hneth.github.io/unikn/dev/reference/demopal.md):
+  Bound the number of bar categories (in `plot_bar()`) so that a large
+  shared `n` (e.g., from `type = "all"`) no longer overwhelms the bar
+  plot, and truncate an over-long auto-generated `pal_name` so that it
+  no longer overflows the plot subtitle. \[2026-11-16\]
 - Remove duplicate URL in DESCRIPTION
 
 ------------------------------------------------------------------------
@@ -452,4 +476,4 @@ CRAN release: 2019-06-15
 
 ------------------------------------------------------------------------
 
-\[File `NEWS.md` updated on 2026-11-12.\]
+\[File `NEWS.md` updated on 2026-11-16.\]
