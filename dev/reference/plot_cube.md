@@ -13,12 +13,13 @@ plot_cube(
   col_points = NA,
   cex_points = 2,
   pch = 21,
-  col_brd = grey(0.2, 1),
+  col_brd = grey(0.25, 1),
   ref_lines = TRUE,
   col_line = NA,
   lwd_line = 3,
   line_connect = "all",
   col_fill = NA,
+  lwd_outline = 1,
   fill_alpha = 0.75,
   fill_res = 20,
   shadows = "none",
@@ -115,7 +116,7 @@ plot_cube(
 - col_brd:
 
   Border color of points (only used for fillable symbols, i.e., `pch` in
-  `21:25`). Default: `col_brd = grey(.20, 1)` (dark grey).
+  `21:25`). Default: `col_brd = grey(.25, 1)` (dark grey).
 
 - ref_lines:
 
@@ -127,13 +128,13 @@ plot_cube(
 
   Color of connecting lines (for `type = "l"` or `"b"`) and of the plane
   outline (for `type = "plane"`). Default: `col_line = NA` (i.e., show
-  lines as a color gradient of the mixtures between consecutive colors).
+  lines and plane outlines as a color gradient of the mixtures between
+  consecutive colors).
 
 - lwd_line:
 
-  Line width of connecting lines (for `type = "l"` or `"b"`) and of
-  plane outlines (for `type = "plane"`). Raise value for thicker, more
-  visible lines. Default: `lwd_line = 3`.
+  Line width of connecting lines (for `type = "l"` or `"b"`). Raise
+  value for thicker, more visible lines. Default: `lwd_line = 3`.
 
 - line_connect:
 
@@ -159,6 +160,12 @@ plot_cube(
   Fill color for the plane (for `type = "plane"`). Default:
   `col_fill = NA` (i.e., fill the plane with a color gradient showing
   the gamut of all mixtures of the defining colors).
+
+- lwd_outline:
+
+  Line width of plane outlines (for `type = "plane"` and planes of
+  grouped input), drawn along the outer edges of a plane only. Use
+  `lwd_outline = 0` to draw no outline. Default: `lwd_outline = 1`.
 
 - fill_alpha:
 
@@ -602,8 +609,9 @@ plot_cube(usecol(c(rev(pal_seegruen), "white", pal_bordeaux)), type = "b",
 
           
 # 4. Pairwise relations among main colors:
-plot_cube(col_4, type = "b", theta = -40, phi = 20, 
+plot_cube(col_4, type = "plane", shadows = "floor", theta = 0, phi = 0, 
           main = "Pairwise relations of 4 key colors")
+#> plot_cube: >3 colors connected as a filled polygon (may be non-planar).
 
 
 # 5. The gamut (plane) of mixtures spanned by 3 main colors:

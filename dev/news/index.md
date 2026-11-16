@@ -1,6 +1,6 @@
 # Changelog
 
-## unikn 1.1.0.9002
+## unikn 1.1.0.9003
 
 This is the development version of **unikn**, available at
 <https://github.com/hneth/unikn/>.
@@ -18,13 +18,20 @@ Changes since last release:
   to accept a *list* of color groups (via `x`): Each group is drawn by
   its size, as a point (1 color), line (2 colors), or plane (3+ colors),
   for direct control over which colors are linked. \[2026-11-16\]
+- Revise plane outlines in
+  [`plot_cube()`](https://hneth.github.io/unikn/dev/reference/plot_cube.md):
+  Draw only the outer edges of a plane (no longer the inner diagonals of
+  polygons with 4+ colors), as thin color gradients (or in a solid
+  `col_line`), with a new `lwd_outline` argument (default: 1; 0: no
+  outline), so that `lwd_line` only affects connecting lines.
+  \[2026-11-16\]
 - Extend
   [`demopal()`](https://hneth.github.io/unikn/dev/reference/demopal.md)
   by a `"shapes"` plot type, support for several types at once (a
   vector, or `type = "all"`, arranged in a grid), passing a palette by
   its name (as a string), a `seed` argument (for reproducible random
   types), and returning the plotted data invisibly. \[2026-11-16\]
-- Improve the `"shapes"` plot of
+- Revise the `"shapes"` plot of
   [`demopal()`](https://hneth.github.io/unikn/dev/reference/demopal.md)
   (via `plot_shapes()`): Arrange colors as auto-sized shapes on a
   near-square grid, choose the shape symbol (`pch`) and border color
@@ -35,6 +42,13 @@ Changes since last release:
 
 ### Details
 
+- Bug fix to
+  [`demopal()`](https://hneth.github.io/unikn/dev/reference/demopal.md):
+  Several plot types (e.g., `type = "all"`) now start a new page, rather
+  than drawing over the current plot. \[2026-11-16\]
+- Refactor the mapping of `type` aliases in
+  [`demopal()`](https://hneth.github.io/unikn/dev/reference/demopal.md)
+  into a single named lookup vector. \[2026-11-16\]
 - Bug fixes to
   [`demopal()`](https://hneth.github.io/unikn/dev/reference/demopal.md):
   Bound the number of bar categories (in `plot_bar()`) so that a large

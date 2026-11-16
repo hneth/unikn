@@ -38,25 +38,28 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.1.0.9002" id="unikn-1109002">unikn 1.1.0.9002<a class="anchor" aria-label="anchor" href="#unikn-1109002"></a></h2>
-<!-- This release of **unikn** (v1.1.0) adds functionality and fixes some bugs. [2026-11-11] -->
+<h2 class="pkg-version" data-toc-text="1.1.0.9003" id="unikn-1109003">unikn 1.1.0.9003<a class="anchor" aria-label="anchor" href="#unikn-1109003"></a></h2>
+<!-- This release of **unikn** (v1.x.0) adds functionality and fixes some bugs. [2026-11-xx] -->
 <p>This is the development version of <strong>unikn</strong>, available at <a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a>.</p>
 <!-- Log of changes: -->
 <p>Changes since last release:</p>
 <!-- Major changes: -->
 <div class="section level3">
-<h3 id="major-changes-1-1-0-9002">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-1-1-0-9002"></a></h3>
+<h3 id="major-changes-1-1-0-9003">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-1-1-0-9003"></a></h3>
 <ul><li>none yet</li>
 </ul><!-- Minor changes: --></div>
 <div class="section level3">
-<h3 id="minor-changes-1-1-0-9002">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-1-1-0-9002"></a></h3>
+<h3 id="minor-changes-1-1-0-9003">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-1-1-0-9003"></a></h3>
 <ul><li>Extend <code><a href="../reference/plot_cube.html">plot_cube()</a></code> to accept a <em>list</em> of color groups (via <code>x</code>): Each group is drawn by its size, as a point (1 color), line (2 colors), or plane (3+ colors), for direct control over which colors are linked. [2026-11-16]</li>
+<li>Revise plane outlines in <code><a href="../reference/plot_cube.html">plot_cube()</a></code>: Draw only the outer edges of a plane (no longer the inner diagonals of polygons with 4+ colors), as thin color gradients (or in a solid <code>col_line</code>), with a new <code>lwd_outline</code> argument (default: 1; 0: no outline), so that <code>lwd_line</code> only affects connecting lines. [2026-11-16]</li>
 <li>Extend <code><a href="../reference/demopal.html">demopal()</a></code> by a <code>"shapes"</code> plot type, support for several types at once (a vector, or <code>type = "all"</code>, arranged in a grid), passing a palette by its name (as a string), a <code>seed</code> argument (for reproducible random types), and returning the plotted data invisibly. [2026-11-16]</li>
-<li>Improve the <code>"shapes"</code> plot of <code><a href="../reference/demopal.html">demopal()</a></code> (via <code>plot_shapes()</code>): Arrange colors as auto-sized shapes on a near-square grid, choose the shape symbol (<code>pch</code>) and border color (<code>col_par</code>), set the color order (<code>order</code>: <code>"keep"</code>/<code>"shuffle"</code>/<code>"rev"</code>/custom), and label colors by names, HEX, or RGB values (<code>labels</code>), placed below or in each shape (<code>label_pos</code>). [2026-11-16]</li>
+<li>Revise the <code>"shapes"</code> plot of <code><a href="../reference/demopal.html">demopal()</a></code> (via <code>plot_shapes()</code>): Arrange colors as auto-sized shapes on a near-square grid, choose the shape symbol (<code>pch</code>) and border color (<code>col_par</code>), set the color order (<code>order</code>: <code>"keep"</code>/<code>"shuffle"</code>/<code>"rev"</code>/custom), and label colors by names, HEX, or RGB values (<code>labels</code>), placed below or in each shape (<code>label_pos</code>). [2026-11-16]</li>
 </ul><!-- Details:  --></div>
 <div class="section level3">
-<h3 id="details-1-1-0-9002">Details<a class="anchor" aria-label="anchor" href="#details-1-1-0-9002"></a></h3>
-<ul><li>Bug fixes to <code><a href="../reference/demopal.html">demopal()</a></code>: Bound the number of bar categories (in <code>plot_bar()</code>) so that a large shared <code>n</code> (e.g., from <code>type = "all"</code>) no longer overwhelms the bar plot, and truncate an over-long auto-generated <code>pal_name</code> so that it no longer overflows the plot subtitle. [2026-11-16]</li>
+<h3 id="details-1-1-0-9003">Details<a class="anchor" aria-label="anchor" href="#details-1-1-0-9003"></a></h3>
+<ul><li>Bug fix to <code><a href="../reference/demopal.html">demopal()</a></code>: Several plot types (e.g., <code>type = "all"</code>) now start a new page, rather than drawing over the current plot. [2026-11-16]</li>
+<li>Refactor the mapping of <code>type</code> aliases in <code><a href="../reference/demopal.html">demopal()</a></code> into a single named lookup vector. [2026-11-16]</li>
+<li>Bug fixes to <code><a href="../reference/demopal.html">demopal()</a></code>: Bound the number of bar categories (in <code>plot_bar()</code>) so that a large shared <code>n</code> (e.g., from <code>type = "all"</code>) no longer overwhelms the bar plot, and truncate an over-long auto-generated <code>pal_name</code> so that it no longer overflows the plot subtitle. [2026-11-16]</li>
 <li>Remove duplicate URL in DESCRIPTION</li>
 </ul><!-- Development version:  --><!-- The current development version of **unikn** is available at <https://github.com/hneth/unikn/>. --><!-- Published versions: --><hr></div>
 </div>

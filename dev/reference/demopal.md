@@ -124,8 +124,10 @@ demopal(my_pal, type = "shapes")   # colored shapes
 # Passing a palette by its name (as a character string):
 demopal("pal_seeblau", type = "bar")
 
+
 # Several plot types at once (arranged in a grid):
 demopal(pal_petrol, type = c("bar", "scatter", "shapes"))
+
 demopal(pal_unikn, type = "all", seed = 101)  # every type (reproducible)
 
 
