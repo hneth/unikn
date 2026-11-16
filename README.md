@@ -31,7 +31,7 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/unikn)](https://www.r-p
 [![Rdoc](https://www.rdocumentation.org/badges/version/unikn/)](https://www.rdocumentation.org/packages/unikn/)
 -->
 
-# unikn 1.1.0.9001 <img src = "./logo.png" align = "right" alt = "unikn" width = "160" />
+# unikn 1.1.0.9003 <img src = "./logo.png" align = "right" alt = "unikn" width = "160" />
 
 <!-- unikn pkg logo and link (to CRAN): -->
 
@@ -828,6 +828,6 @@ remain with their original creators:
 
 <!-- Footer: -->
 
-\[File `README.md` updated on 2026-11-12.\]
+\[File `README.md` updated on 2026-11-16.\]
 
 <!-- eof. -->

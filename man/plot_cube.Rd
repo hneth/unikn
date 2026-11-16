@@ -16,7 +16,7 @@ plot_cube(
   lwd_line = 3,
   line_connect = "all",
   col_fill = NA,
-  fill_alpha = 0.8,
+  fill_alpha = 0.75,
   fill_res = 20,
   shadows = "none",
   col_shadow = grey(0.7, 0.9),
@@ -47,13 +47,13 @@ HEX values (e.g., \code{"#59C7EBFF"}), or any mixture thereof.
 Color palettes (e.g., \code{pal_unikn}) are also accepted.
 
 Alternatively, \code{x} may be a \strong{list} of color groups,
-which gives direct control over \emph{which} colors are linked
-as lines or planes (the \code{c()} "parentheses" of each list element
-define a group). Each group is then drawn by its \emph{size}:
+which provides control over \emph{which} colors are linked
+as lines or planes (\code{c()} structures list elements
+into groups). Each group is drawn according to its \emph{size}:
   \itemize{
-  \item a group of 1 color is shown as an (unlinked) \strong{point};
-  \item a group of 2 colors is connected by a \strong{line};
-  \item a group of 3 or more colors spans a filled \strong{plane}.
+  \item a group of 1 color is shown as an (unlinked) \emph{point};
+  \item a group of 2 colors is connected by a \emph{line};
+  \item a group of 3 or more colors spans a filled \emph{plane}.
   }
 For example, \code{plot_cube(list(Seeblau, c(Pinky, Seegruen),
 c("red", "green", "blue")))} shows 1 point, 1 line, and 1 plane
@@ -109,7 +109,7 @@ of the mixtures between consecutive colors).}
 
 \item{lwd_line}{Line width of connecting lines
 (for \code{type = "l"} or \code{"b"}) and of plane outlines
-(for \code{type = "plane"}). Raise this value for thicker, more visible lines.
+(for \code{type = "plane"}). Raise value for thicker, more visible lines.
 Default: \code{lwd_line = 3}.}
 
 \item{line_connect}{How to connect 3 or more colors by lines
@@ -133,7 +133,7 @@ Default: \code{col_fill = NA} (i.e., fill the plane with a color gradient
 showing the gamut of all mixtures of the defining colors).}
 
 \item{fill_alpha}{Opacity of the plane fill (in range \code{[0, 1]}).
-Default: \code{fill_alpha = .80}.}
+Default: \code{fill_alpha = .75}.}
 
 \item{fill_res}{Resolution of color gradients
 (i.e., the number of line segments per connection, and the
@@ -443,9 +443,9 @@ col_8 <- c(col_4, Petrol, Karpfenblau, Peach, Grau)
 plot_cube(col_8, grid = TRUE, main = "The main unikn colors in RGB space")
 
 # 2. The default unikn palette (black - Seeblau shades - white) as a path:
-plot_cube(pal_unikn, type = "b", line_connect = "path", lwd_line = 3,
+plot_cube(pal_unikn, type = "b", line_connect = "path", lwd_line = 4,
           main = "A bi-polar palette (pal_unikn)")
-plot_cube(pal_unikn_pref, type = "b", line_connect = "path", lwd_line = 3,
+plot_cube(pal_unikn_pref, type = "b", line_connect = "path", lwd_line = 4,
           main = "A categorical color palette (pal_unikn_pref)")
           
 # 2. A color palette's shade ramp as a connecting path:
@@ -455,7 +455,7 @@ plot_cube(usecol(c(rev(pal_seegruen), "white", pal_bordeaux)), type = "b",
           line_connect = "path", lwd_line = 5, main = "A custom color gradient")
           
 # 4. Pairwise relations among main colors:
-plot_cube(col_4, type = "b", lwd_line = 2, theta = -40, phi = 20, 
+plot_cube(col_4, type = "b", theta = -40, phi = 20, 
           main = "Pairwise relations of 4 key colors")
 
 # 5. The gamut (plane) of mixtures spanned by 3 main colors:
