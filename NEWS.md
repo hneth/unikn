@@ -1,5 +1,5 @@
 
-# unikn 1.1.0.9001 
+# unikn 1.1.0.9002 
 
 <!-- This release of **unikn** (v1.1.0) adds functionality and fixes some bugs. [2026-11-11] --> 
 
@@ -21,13 +21,16 @@ Changes since last release:
 
 ## Minor changes 
 
-- none yet
+- Extend `plot_cube()` to accept a _list_ of color groups (via `x`): Each group is drawn by its size, as a point (1 color), line (2 colors), or plane (3+ colors), for direct control over which colors are linked. [2026-11-16]
+- Extend `demopal()` by a `"shapes"` plot type, support for several types at once (a vector, or `type = "all"`, arranged in a grid), passing a palette by its name (as a string), a `seed` argument (for reproducible random types), and returning the plotted data invisibly. [2026-11-16]
+- Improve the `"shapes"` plot of `demopal()` (via `plot_shapes()`): Arrange colors as auto-sized shapes on a near-square grid, choose the shape symbol (`pch`) and border color (`col_par`), set the color order (`order`: `"keep"`/`"shuffle"`/`"rev"`/custom), and label colors by names, HEX, or RGB values (`labels`), placed below or in each shape (`label_pos`). [2026-11-16]
 
 
 <!-- Details:  --> 
 
 ## Details 
 
+- Bug fixes to `demopal()`: Bound the number of bar categories (in `plot_bar()`) so that a large shared `n` (e.g., from `type = "all"`) no longer overwhelms the bar plot, and truncate an over-long auto-generated `pal_name` so that it no longer overflows the plot subtitle. [2026-11-16]
 - Remove duplicate URL in DESCRIPTION
 
 
@@ -434,6 +437,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2026-11-12.]
+[File `NEWS.md` updated on 2026-11-16.]
 
 <!-- eof. -->
