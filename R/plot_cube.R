@@ -39,13 +39,13 @@
 #' Color palettes (e.g., \code{pal_unikn}) are also accepted.
 #'
 #' Alternatively, \code{x} may be a \strong{list} of color groups,
-#' which gives direct control over \emph{which} colors are linked
-#' as lines or planes (the \code{c()} "parentheses" of each list element
-#' define a group). Each group is then drawn by its \emph{size}:
+#' which provides control over \emph{which} colors are linked
+#' as lines or planes (\code{c()} structures list elements
+#' into groups). Each group is drawn according to its \emph{size}:
 #'   \itemize{
-#'   \item a group of 1 color is shown as an (unlinked) \strong{point};
-#'   \item a group of 2 colors is connected by a \strong{line};
-#'   \item a group of 3 or more colors spans a filled \strong{plane}.
+#'   \item a group of 1 color is shown as an (unlinked) \emph{point};
+#'   \item a group of 2 colors is connected by a \emph{line};
+#'   \item a group of 3 or more colors spans a filled \emph{plane}.
 #'   }
 #' For example, \code{plot_cube(list(Seeblau, c(Pinky, Seegruen),
 #' c("red", "green", "blue")))} shows 1 point, 1 line, and 1 plane
@@ -415,9 +415,9 @@
 #' plot_cube(col_8, grid = TRUE, main = "The main unikn colors in RGB space")
 #'
 #' # 2. The default unikn palette (black - Seeblau shades - white) as a path:
-#' plot_cube(pal_unikn, type = "b", line_connect = "path", lwd_line = 3,
+#' plot_cube(pal_unikn, type = "b", line_connect = "path", lwd_line = 4,
 #'           main = "A bi-polar palette (pal_unikn)")
-#' plot_cube(pal_unikn_pref, type = "b", line_connect = "path", lwd_line = 3,
+#' plot_cube(pal_unikn_pref, type = "b", line_connect = "path", lwd_line = 4,
 #'           main = "A categorical color palette (pal_unikn_pref)")
 #'           
 #' # 2. A color palette's shade ramp as a connecting path:
@@ -427,7 +427,7 @@
 #'           line_connect = "path", lwd_line = 5, main = "A custom color gradient")
 #'           
 #' # 4. Pairwise relations among main colors:
-#' plot_cube(col_4, type = "b", lwd_line = 2, theta = -40, phi = 20, 
+#' plot_cube(col_4, type = "b", theta = -40, phi = 20, 
 #'           main = "Pairwise relations of 4 key colors")
 #'
 #' # 5. The gamut (plane) of mixtures spanned by 3 main colors:
