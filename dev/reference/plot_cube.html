@@ -13,7 +13,7 @@ to the red, green, and blue values of the RGB color model
 
     <a class="navbar-brand me-2" href="../index.html">unikn</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9002</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,7 @@ to the red, green, and blue values of the RGB color model
 <span>  lwd_line <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>  line_connect <span class="op">=</span> <span class="st">"all"</span>,</span>
 <span>  col_fill <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  fill_alpha <span class="op">=</span> <span class="fl">0.8</span>,</span>
+<span>  fill_alpha <span class="op">=</span> <span class="fl">0.75</span>,</span>
 <span>  fill_res <span class="op">=</span> <span class="fl">20</span>,</span>
 <span>  shadows <span class="op">=</span> <span class="st">"none"</span>,</span>
 <span>  col_shadow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">grey</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">0.9</span><span class="op">)</span>,</span>
@@ -100,11 +100,11 @@ specified as R color names (e.g., <code>"deepskyblue"</code>),
 HEX values (e.g., <code>"#59C7EBFF"</code>), or any mixture thereof.
 Color palettes (e.g., <code>pal_unikn</code>) are also accepted.</p>
 <p>Alternatively, <code>x</code> may be a <strong>list</strong> of color groups,
-which gives direct control over <em>which</em> colors are linked
-as lines or planes (the <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code> "parentheses" of each list element
-define a group). Each group is then drawn by its <em>size</em>:</p><ul><li><p>a group of 1 color is shown as an (unlinked) <strong>point</strong>;</p></li>
-<li><p>a group of 2 colors is connected by a <strong>line</strong>;</p></li>
-<li><p>a group of 3 or more colors spans a filled <strong>plane</strong>.</p></li>
+which provides control over <em>which</em> colors are linked
+as lines or planes (<code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code> structures list elements
+into groups). Each group is drawn according to its <em>size</em>:</p><ul><li><p>a group of 1 color is shown as an (unlinked) <em>point</em>;</p></li>
+<li><p>a group of 2 colors is connected by a <em>line</em>;</p></li>
+<li><p>a group of 3 or more colors spans a filled <em>plane</em>.</p></li>
 </ul><p>For example, <code>plot_cube(list(Seeblau, c(Pinky, Seegruen),
 c("red", "green", "blue")))</code> shows 1 point, 1 line, and 1 plane
 in the same cube. In this <em>grouped</em> mode, all defining colors
@@ -172,7 +172,7 @@ of the mixtures between consecutive colors).</p></dd>
 <dt id="arg-lwd-line">lwd_line<a class="anchor" aria-label="anchor" href="#arg-lwd-line"></a></dt>
 <dd><p>Line width of connecting lines
 (for <code>type = "l"</code> or <code>"b"</code>) and of plane outlines
-(for <code>type = "plane"</code>). Raise this value for thicker, more visible lines.
+(for <code>type = "plane"</code>). Raise value for thicker, more visible lines.
 Default: <code>lwd_line = 3</code>.</p></dd>
 
 
@@ -199,7 +199,7 @@ showing the gamut of all mixtures of the defining colors).</p></dd>
 
 <dt id="arg-fill-alpha">fill_alpha<a class="anchor" aria-label="anchor" href="#arg-fill-alpha"></a></dt>
 <dd><p>Opacity of the plane fill (in range <code>[0, 1]</code>).
-Default: <code>fill_alpha = .80</code>.</p></dd>
+Default: <code>fill_alpha = .75</code>.</p></dd>
 
 
 <dt id="arg-fill-res">fill_res<a class="anchor" aria-label="anchor" href="#arg-fill-res"></a></dt>
@@ -594,10 +594,10 @@ and requires no additional package dependencies.</p>
 <span class="r-plt img"><img src="plot_cube-45.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 2. The default unikn palette (black - Seeblau shades - white) as a path:</span></span></span>
-<span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">pal_unikn</span>, type <span class="op">=</span> <span class="st">"b"</span>, line_connect <span class="op">=</span> <span class="st">"path"</span>, lwd_line <span class="op">=</span> <span class="fl">3</span>,</span></span>
+<span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">pal_unikn</span>, type <span class="op">=</span> <span class="st">"b"</span>, line_connect <span class="op">=</span> <span class="st">"path"</span>, lwd_line <span class="op">=</span> <span class="fl">4</span>,</span></span>
 <span class="r-in"><span>          main <span class="op">=</span> <span class="st">"A bi-polar palette (pal_unikn)"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_cube-46.png" alt="" width="672" height="571"></span>
-<span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">pal_unikn_pref</span>, type <span class="op">=</span> <span class="st">"b"</span>, line_connect <span class="op">=</span> <span class="st">"path"</span>, lwd_line <span class="op">=</span> <span class="fl">3</span>,</span></span>
+<span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">pal_unikn_pref</span>, type <span class="op">=</span> <span class="st">"b"</span>, line_connect <span class="op">=</span> <span class="st">"path"</span>, lwd_line <span class="op">=</span> <span class="fl">4</span>,</span></span>
 <span class="r-in"><span>          main <span class="op">=</span> <span class="st">"A categorical color palette (pal_unikn_pref)"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_cube-47.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span>          </span></span>
@@ -610,7 +610,7 @@ and requires no additional package dependencies.</p>
 <span class="r-plt img"><img src="plot_cube-49.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span>          </span></span>
 <span class="r-in"><span><span class="co"># 4. Pairwise relations among main colors:</span></span></span>
-<span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">col_4</span>, type <span class="op">=</span> <span class="st">"b"</span>, lwd_line <span class="op">=</span> <span class="fl">2</span>, theta <span class="op">=</span> <span class="op">-</span><span class="fl">40</span>, phi <span class="op">=</span> <span class="fl">20</span>, </span></span>
+<span class="r-in"><span><span class="fu">plot_cube</span><span class="op">(</span><span class="va">col_4</span>, type <span class="op">=</span> <span class="st">"b"</span>, theta <span class="op">=</span> <span class="op">-</span><span class="fl">40</span>, phi <span class="op">=</span> <span class="fl">20</span>, </span></span>
 <span class="r-in"><span>          main <span class="op">=</span> <span class="st">"Pairwise relations of 4 key colors"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_cube-50.png" alt="" width="672" height="571"></span>
 <span class="r-in"><span></span></span>

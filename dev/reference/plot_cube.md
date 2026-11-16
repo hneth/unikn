@@ -19,7 +19,7 @@ plot_cube(
   lwd_line = 3,
   line_connect = "all",
   col_fill = NA,
-  fill_alpha = 0.8,
+  fill_alpha = 0.75,
   fill_res = 20,
   shadows = "none",
   col_shadow = grey(0.7, 0.9),
@@ -53,16 +53,16 @@ plot_cube(
   any mixture thereof. Color palettes (e.g., `pal_unikn`) are also
   accepted.
 
-  Alternatively, `x` may be a **list** of color groups, which gives
-  direct control over *which* colors are linked as lines or planes (the
-  [`c()`](https://rdrr.io/r/base/c.html) "parentheses" of each list
-  element define a group). Each group is then drawn by its *size*:
+  Alternatively, `x` may be a **list** of color groups, which provides
+  control over *which* colors are linked as lines or planes
+  ([`c()`](https://rdrr.io/r/base/c.html) structures list elements into
+  groups). Each group is drawn according to its *size*:
 
-  - a group of 1 color is shown as an (unlinked) **point**;
+  - a group of 1 color is shown as an (unlinked) *point*;
 
-  - a group of 2 colors is connected by a **line**;
+  - a group of 2 colors is connected by a *line*;
 
-  - a group of 3 or more colors spans a filled **plane**.
+  - a group of 3 or more colors spans a filled *plane*.
 
   For example,
   `plot_cube(list(Seeblau, c(Pinky, Seegruen), c("red", "green", "blue")))`
@@ -132,8 +132,8 @@ plot_cube(
 - lwd_line:
 
   Line width of connecting lines (for `type = "l"` or `"b"`) and of
-  plane outlines (for `type = "plane"`). Raise this value for thicker,
-  more visible lines. Default: `lwd_line = 3`.
+  plane outlines (for `type = "plane"`). Raise value for thicker, more
+  visible lines. Default: `lwd_line = 3`.
 
 - line_connect:
 
@@ -163,7 +163,7 @@ plot_cube(
 - fill_alpha:
 
   Opacity of the plane fill (in range `[0, 1]`). Default:
-  `fill_alpha = .80`.
+  `fill_alpha = .75`.
 
 - fill_res:
 
@@ -586,10 +586,10 @@ plot_cube(col_8, grid = TRUE, main = "The main unikn colors in RGB space")
 
 
 # 2. The default unikn palette (black - Seeblau shades - white) as a path:
-plot_cube(pal_unikn, type = "b", line_connect = "path", lwd_line = 3,
+plot_cube(pal_unikn, type = "b", line_connect = "path", lwd_line = 4,
           main = "A bi-polar palette (pal_unikn)")
 
-plot_cube(pal_unikn_pref, type = "b", line_connect = "path", lwd_line = 3,
+plot_cube(pal_unikn_pref, type = "b", line_connect = "path", lwd_line = 4,
           main = "A categorical color palette (pal_unikn_pref)")
 
           
@@ -602,7 +602,7 @@ plot_cube(usecol(c(rev(pal_seegruen), "white", pal_bordeaux)), type = "b",
 
           
 # 4. Pairwise relations among main colors:
-plot_cube(col_4, type = "b", lwd_line = 2, theta = -40, phi = 20, 
+plot_cube(col_4, type = "b", theta = -40, phi = 20, 
           main = "Pairwise relations of 4 key colors")
 
 
