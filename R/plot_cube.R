@@ -1,5 +1,5 @@
 ## plot_cube.R | unikn
-## spds | uni.kn | 2026 11 11
+## spds | uni.kn | 2026 11 16
 ## --------------------------
 
 ## Plot R colors as points in a 3D RGB color cube.
@@ -37,6 +37,26 @@
 #' specified as R color names (e.g., \code{"deepskyblue"}),
 #' HEX values (e.g., \code{"#59C7EBFF"}), or any mixture thereof.
 #' Color palettes (e.g., \code{pal_unikn}) are also accepted.
+#'
+#' Alternatively, \code{x} may be a \strong{list} of color groups,
+#' which gives direct control over \emph{which} colors are linked
+#' as lines or planes (the \code{c()} "parentheses" of each list element
+#' define a group). Each group is then drawn by its \emph{size}:
+#'   \itemize{
+#'   \item a group of 1 color is shown as an (unlinked) \strong{point};
+#'   \item a group of 2 colors is connected by a \strong{line};
+#'   \item a group of 3 or more colors spans a filled \strong{plane}.
+#'   }
+#' For example, \code{plot_cube(list(Seeblau, c(Pinky, Seegruen),
+#' c("red", "green", "blue")))} shows 1 point, 1 line, and 1 plane
+#' in the same cube. In this \emph{grouped} mode, all defining colors
+#' are also marked as points (as for \code{type = "b"}), and the
+#' \code{type} and \code{line_connect} arguments are ignored
+#' (as the geometry follows from each group's size).
+#' A single data frame palette (e.g., \code{pal_unikn}) is \emph{not}
+#' treated as a list of groups, but as one flat vector of colors.
+#' To connect 3 or more colors by lines (rather than a plane),
+#' use a (flat) vector \code{x} with \code{type = "l"}/\code{"b"} instead.
 #'
 #' @param type Type of geometric element to draw from the colors \code{x}:
 #'   \itemize{
@@ -302,7 +322,23 @@
 #' # Spanning a plane through 3 colors (type = "plane"):
 #' plot_cube(c("red", "green", "blue"), type = "plane")  # gamut of 3 primary RGB colors
 #' plot_cube(c("cyan", "yellow", "magenta"),             # gamut of 3 opposite RGB colors
-#'              type = "plane", labels = c("names", "rgb"))          
+#'              type = "plane", labels = c("names", "rgb"))
+#'
+#' # Grouped input: Pass a list to control which colors link (by group size):
+#' # Each c() group becomes a point (1 color), line (2), or plane (3+):
+#' plot_cube(list(Seeblau, c(Pinky, Seegruen),          # 1 point, 1 line,
+#'                c("red", "green", "blue")))           # and 1 plane
+#'
+#' # A lone point, a line, and a plane (with the defining points marked):
+#' plot_cube(list("gold",                                # unlinked point
+#'                c("black", "white"),                   # b/w diagonal (line)
+#'                c("cyan", "magenta", "yellow")))       # CMY gamut (plane)
+#'
+#' # Two separate lines (e.g., 2 complementary RGB/CMY pairs):
+#' plot_cube(list(c("red", "cyan"), c("green", "magenta")), lwd_line = 5, grid = TRUE)
+#'
+#' # Groups may themselves be palettes (data frames are flattened per group):
+#' plot_cube(list(pal_seeblau, pal_pinky))              # 2 palette planes
 #'
 #' # Shadow points (projections onto cube faces):
 #' plot_cube(c("tomato", "deepskyblue"), shadows = "floor")  # on the floor (B = 0)
@@ -459,15 +495,34 @@ plot_cube <- function(x,                      # vector of colors to plot
 ) {
   
   ## (0) Handle and verify inputs: ------
-  
-  # Flatten and drop any NA colors:
-  cols <- unlist(x, use.names = TRUE)
-  cols <- cols[!is.na(cols)]
-  
+
+  # Detect GROUPED input: A plain list of color groups (but NOT a data frame
+  # palette, like pal_unikn, which is list-like but denotes 1 flat palette):
+  grouped <- is.list(x) && !is.data.frame(x)
+
+  if (grouped) {  # x is a list of groups: Flatten each group (dropping NA / empty groups):
+
+    groups <- lapply(x, function(g) { g <- unlist(g, use.names = TRUE); g[!is.na(g)] })
+    groups <- groups[vapply(groups, length, integer(1)) > 0]  # drop empty groups
+
+    cols <- unlist(groups, use.names = TRUE)                   # all colors (in group order)
+
+    # Note a conflicting (explicit) 'type' (ignored in grouped mode):
+    if (!missing(type) && tolower(type) != "p") {
+      message("plot_cube: 'x' is a list of groups; ignoring 'type' (geometry follows group size).")
+    }
+
+  } else {  # x is a (flat) vector or data frame palette:
+
+    cols <- unlist(x, use.names = TRUE)
+    cols <- cols[!is.na(cols)]
+
+  }
+
   if (length(cols) < 1) {
-    
+
     stop("plot_cube: 'x' must contain at least 1 (non-NA) color.")
-    
+
   }
   
   # Verify that all inputs are valid colors:
@@ -849,7 +904,17 @@ plot_cube <- function(x,                      # vector of colors to plot
   }
   
   P <- cbind(R, G, B)  # n x 3 matrix of point coordinates (in RGB space)
-  
+
+  # For grouped input: Map each group to its row indices in P (in group order):
+  if (grouped) {
+
+    grp_len   <- vapply(groups, length, integer(1))
+    grp_end   <- cumsum(grp_len)
+    grp_start <- grp_end - grp_len + 1L
+    group_idx <- Map(function(s, e) s:e, grp_start, grp_end)  # list of index vectors into P
+
+  }
+
   # Helper: RGB coordinate -> color string (clamped to [0, 255]; optional alpha in [0, 1]):
   coord_col <- function(r, g, b, alpha = NA) {
     
@@ -879,12 +944,99 @@ plot_cube <- function(x,                      # vector of colors to plot
       }
       
     } else {  # solid line color:
-      
+
       graphics::lines(tr(c(p1[1], p2[1]), c(p1[2], p2[2]), c(p1[3], p2[3])),
                       col = col_line[1], lwd = lwd_line, lend = 1)
     }
   }
-  
+
+  # Helper: Draw a (gradient or solid) plane/polygon through the points in matrix 'Pg'
+  # (>= 3 rows; triangulated as a single triangle for 3 points, else a fan from point 1):
+  draw_plane <- function(Pg) {
+
+    ng   <- nrow(Pg)
+    tris <- if (ng == 3) list(c(1, 2, 3)) else lapply(2:(ng - 1), function(i) c(1, i, i + 1))
+
+    # Barycentric position of weights (i/m, j/m) in a triangle A-B-C:
+    bary <- function(A, B, C, i, j, m) {
+      wb <- i / m; wc <- j / m; wa <- 1 - wb - wc
+      wa * A + wb * B + wc * C
+    }
+
+    # Fill 1 sub-triangle with the color at its centroid:
+    fill_tri <- function(v1, v2, v3) {
+      cen <- (v1 + v2 + v3) / 3
+      graphics::polygon(tr(c(v1[1], v2[1], v3[1]), c(v1[2], v2[2], v3[2]), c(v1[3], v2[3], v3[3])),
+                        col = coord_col(cen[1], cen[2], cen[3], alpha = fill_alpha), border = NA)
+    }
+
+    m <- max(1, round(fill_res))  # tessellation resolution
+
+    for (tri in tris) {
+      # Triangle corners (named pa/pb/pc to avoid clobbering the R/G/B channels):
+      pa <- Pg[tri[1], ]; pb <- Pg[tri[2], ]; pc <- Pg[tri[3], ]
+
+      if (is.na(col_fill[1])) {  # gradient fill (via barycentric tessellation):
+
+        for (i in 0:(m - 1)) {
+          for (j in 0:(m - 1 - i)) {
+            fill_tri(bary(pa, pb, pc, i, j, m), bary(pa, pb, pc, i + 1, j, m), bary(pa, pb, pc, i, j + 1, m))
+            if (i + j < m - 1) {  # inverted sub-triangle:
+              fill_tri(bary(pa, pb, pc, i + 1, j, m), bary(pa, pb, pc, i, j + 1, m), bary(pa, pb, pc, i + 1, j + 1, m))
+            }
+          }
+        }
+
+      } else {  # solid fill color:
+
+        graphics::polygon(tr(c(pa[1], pb[1], pc[1]), c(pa[2], pb[2], pc[2]), c(pa[3], pb[3], pc[3])),
+                          col = grDevices::adjustcolor(col_fill[1], alpha.f = fill_alpha), border = NA)
+      }
+    }
+
+    # Draw the plane outline (edges between the defining points):
+    ocol <- if (is.na(col_line[1])) grey(.30, 1) else col_line[1]
+    for (tri in tris) {
+      graphics::polygon(tr(Pg[tri, 1], Pg[tri, 2], Pg[tri, 3]), col = NA, border = ocol, lwd = lwd_line)
+    }
+
+  } # draw_plane().
+
+
+  ## (5*) Grouped input: Draw each group by its size (point / line / plane): ------
+
+  if (grouped) {
+
+    # Order groups back-to-front (by centroid depth) for cleaner overplotting:
+    if (length(group_idx) > 1) {
+
+      grp_depth <- vapply(group_idx, function(g) {
+        cen <- colMeans(P[g, , drop = FALSE])
+        depth(cen[1], cen[2], cen[3])
+      }, numeric(1))
+
+      group_idx <- group_idx[order(grp_depth, decreasing = TRUE)]
+
+    }
+
+    for (g in group_idx) {
+
+      if (length(g) == 2) {              # 2 colors: A line
+
+        draw_line(P[g[1], ], P[g[2], ])
+
+      } else if (length(g) >= 3) {       # 3+ colors: A plane
+
+        draw_plane(P[g, , drop = FALSE])
+
+      }
+      # (length 1: An unlinked point, drawn in step (6) below.)
+
+    }
+
+  } # if (grouped)
+
+
   ## (5a) Lines (connect points: All pairs, disjoint pairs, or along a path): ------
   
   # Normalize 'line_connect' (accepting several synonyms):
@@ -899,8 +1051,8 @@ plot_cube <- function(x,                      # vector of colors to plot
     line_connect <- "all"
   }
   
-  if (type %in% c("l", "b") && n >= 2) {
-    
+  if (!grouped && type %in% c("l", "b") && n >= 2) {
+
     # Enumerate the point-index pairs to connect:
     if (line_connect == "path") {        # consecutive points (a path): n - 1 lines
       
@@ -938,73 +1090,23 @@ plot_cube <- function(x,                      # vector of colors to plot
   
   ## (5b) Plane / polygon (span the points): ------
   
-  if (type == "plane") {
-    
+  if (!grouped && type == "plane") {
+
     if (n < 3) {  # a plane needs >= 3 points:
-      
+
       message("plot_cube: type = \"plane\" needs >= 3 colors; drawing a line instead.")
       if (n == 2) { draw_line(P[1, ], P[2, ]) }
-      
+
     } else {
-      
-      # Triangulate: A single triangle for 3 points, else a fan from point 1:
-      tris <- if (n == 3) list(c(1, 2, 3)) else lapply(2:(n - 1), function(i) c(1, i, i + 1))
+
       if (n > 3) {
         message("plot_cube: >3 colors connected as a filled polygon (may be non-planar).")
       }
-      
-      # Barycentric position (and color) of weights (wb, wc) in a triangle A-B-C:
-      bary <- function(A, B, C, i, j, m) {
-        wb <- i / m; wc <- j / m; wa <- 1 - wb - wc
-        wa * A + wb * B + wc * C
-      }
-      
-      # Fill 1 sub-triangle with the color at its centroid:
-      fill_tri <- function(v1, v2, v3) {
-        cen <- (v1 + v2 + v3) / 3
-        graphics::polygon(tr(c(v1[1], v2[1], v3[1]), c(v1[2], v2[2], v3[2]), c(v1[3], v2[3], v3[3])),
-                          col = coord_col(cen[1], cen[2], cen[3], alpha = fill_alpha), border = NA)
-      }
-      
-      m <- max(1, round(fill_res))  # tessellation resolution
-      
-      for (tri in tris) {
-        # Triangle corners (named pa/pb/pc to avoid clobbering the R/G/B channels):
-        pa <- P[tri[1], ]; pb <- P[tri[2], ]; pc <- P[tri[3], ]
-        
-        if (is.na(col_fill[1])) {  # gradient fill (via barycentric tessellation):
-          
-          for (i in 0:(m - 1)) {
-            
-            for (j in 0:(m - 1 - i)) {
-              
-              fill_tri(bary(pa, pb, pc, i, j, m), bary(pa, pb, pc, i + 1, j, m), bary(pa, pb, pc, i, j + 1, m))
-              
-              if (i + j < m - 1) {  # inverted sub-triangle:
-                fill_tri(bary(pa, pb, pc, i + 1, j, m), bary(pa, pb, pc, i, j + 1, m), bary(pa, pb, pc, i + 1, j + 1, m))
-              }
-              
-            }
-            
-          }
-          
-        } else {  # solid fill color:
-          
-          graphics::polygon(tr(c(pa[1], pb[1], pc[1]), c(pa[2], pb[2], pc[2]), c(pa[3], pb[3], pc[3])),
-                            col = grDevices::adjustcolor(col_fill[1], alpha.f = fill_alpha), border = NA)
-        }
-        
-      }
-      
-      # Draw the plane outline (edges between the defining points):
-      ocol <- if (is.na(col_line[1])) grey(.30, 1) else col_line[1]
-      
-      for (tri in tris) {
-        graphics::polygon(tr(P[tri, 1], P[tri, 2], P[tri, 3]), col = NA, border = ocol, lwd = lwd_line)
-      }
-      
+
+      draw_plane(P[1:n, , drop = FALSE])  # span 1 plane through all n points
+
     } # if (n ...)
-    
+
   } # if (type == "plane")
   
   
@@ -1049,7 +1151,7 @@ plot_cube <- function(x,                      # vector of colors to plot
   
   ## (6) Add colors as points (sorted back-to-front for correct overplotting): ------
   
-  draw_pts <- (type != "l")  # draw points for "p", "b", and "plane" (not for lines-only)
+  draw_pts <- if (grouped) TRUE else (type != "l")  # grouped: always show defining points; else draw for "p"/"b"/"plane" (not lines-only)
   ord <- order(depth(R, G, B), decreasing = TRUE)  # far points first
   
   # Optional reference lines (from each point down to the base plane z = 0):
@@ -1148,6 +1250,8 @@ plot_cube <- function(x,                      # vector of colors to plot
 # - Lines: Connect colors by (gradient) lines (type = "l" / "b"), with adjustable
 #          thickness (lwd_line) and "all" (all pairs) / "pairs" (disjoint pairs) / "path" connections.
 # - Planes: Span a (gradient-filled) plane through >= 3 colors (type = "plane").
+# - Grouped: Pass x as a list of groups to control WHICH colors link: Each group
+#            is drawn by size (1 = point, 2 = line, 3+ = plane); defining points shown.
 # - Shadows: Project points onto cube faces (shadows = "floor"/"back"/"side"/"all").
 
 
