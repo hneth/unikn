@@ -87,7 +87,7 @@
 #'
 #' @param col_brd Border color of points
 #' (only used for fillable symbols, i.e., \code{pch} in \code{21:25}).
-#' Default: \code{col_brd = grey(.20, 1)} (dark grey).
+#' Default: \code{col_brd = grey(.25, 1)} (dark grey).
 #'
 #' @param ref_lines Boolean: Draw a vertical reference line
 #' from each point down to the base (R-by-G) plane of the cube
@@ -96,13 +96,19 @@
 #'
 #' @param col_line Color of connecting lines (for \code{type = "l"} or \code{"b"})
 #' and of the plane outline (for \code{type = "plane"}).
-#' Default: \code{col_line = NA} (i.e., show lines as a color gradient
+#' Default: \code{col_line = NA} (i.e., show lines and plane outlines as a color gradient
 #' of the mixtures between consecutive colors).
 #'
 #' @param lwd_line Line width of connecting lines
-#' (for \code{type = "l"} or \code{"b"}) and of plane outlines
-#' (for \code{type = "plane"}). Raise value for thicker, more visible lines.
+#' (for \code{type = "l"} or \code{"b"}).
+#' Raise value for thicker, more visible lines.
 #' Default: \code{lwd_line = 3}.
+#'
+#' @param lwd_outline Line width of plane outlines
+#' (for \code{type = "plane"} and planes of grouped input),
+#' drawn along the outer edges of a plane only.
+#' Use \code{lwd_outline = 0} to draw no outline.
+#' Default: \code{lwd_outline = 1}.
 #'
 #' @param line_connect How to connect 3 or more colors by lines
 #' (for \code{type = "l"} or \code{"b"}):
@@ -427,7 +433,7 @@
 #'           line_connect = "path", lwd_line = 5, main = "A custom color gradient")
 #'           
 #' # 4. Pairwise relations among main colors:
-#' plot_cube(col_4, type = "b", theta = -40, phi = 20, 
+#' plot_cube(col_4, type = "plane", shadows = "floor", theta = 0, phi = 0, 
 #'           main = "Pairwise relations of 4 key colors")
 #'
 #' # 5. The gamut (plane) of mixtures spanned by 3 main colors:
@@ -450,48 +456,49 @@
 
 # plot_cube: Definition ------
 
-plot_cube <- function(x,                      # vector of colors to plot
+plot_cube <- function(x,                       # vector of colors to plot
                       # What to draw:
-                      type = "p",             # "p" (points), "l" (lines), "b" (both), or "plane"
+                      type = "p",              # "p" (points), "l" (lines), "b" (both), or "plane"
                       # Point options:
-                      col_points = NA,        # NA: Use each point's own color
-                      cex_points = 2,         # point size
-                      pch = 21,               # point symbol (fillable)
-                      col_brd = grey(.20, 1), # point border color
-                      ref_lines = TRUE,       # Draw a vertical reference line from each point to the base plane.
+                      col_points = NA,         # NA: Use each point's own color
+                      cex_points = 2,          # point size
+                      pch = 21,                # point symbol (fillable)
+                      col_brd = grey(.25, 1),  # point border color
+                      ref_lines = TRUE,        # Draw a vertical reference line from each point to the base plane.
                       # Line options (type "l"/"b"):
-                      col_line = NA,          # NA: Gradient (color line by local mix); else a fixed color
-                      lwd_line = 3,           # line thickness (lines + plane outline); raise for more visible lines
-                      line_connect = "all",   # for >2 points: "all" (all pairs), "pairs" (disjoint consecutive pairs), or "path" (consecutive)
+                      col_line = NA,           # NA: Gradient (color line by local mix); else a fixed color
+                      lwd_line = 3,            # line thickness (connecting lines); raise for more visible lines
+                      line_connect = "all",    # for >2 points: "all" (all pairs), "pairs" (disjoint consecutive pairs), or "path" (consecutive)
                       # Plane options (type "plane"):
-                      col_fill = NA,          # NA: Gradient fill (gamut of mixtures); else a fixed fill color
-                      fill_alpha = .75,       # opacity of the plane fill (in [0, 1])
-                      fill_res = 20,          # resolution of gradient (line segments / plane tessellation)
+                      col_fill = NA,           # NA: Gradient fill (gamut of mixtures); else a fixed fill color
+                      lwd_outline = 1,         # thickness of the plane outline (outer edges only; 0: no outline)
+                      fill_alpha = .75,        # opacity of the plane fill (in [0, 1])
+                      fill_res = 20,           # resolution of gradient (line segments / plane tessellation)
                       # Shadow (projection) options:
-                      shadows = "none",       # project points onto cube faces: "floor", "back", "side", "all", or "none"
+                      shadows = "none",        # project points onto cube faces: "floor", "back", "side", "all", or "none"
                       col_shadow = grey(.70, .9), # shadow marker color (NA: Use each point's projected color)
                       # Cube options:
-                      show_corners = TRUE,       # Mark the 8 cube corners (in their own colors).
-                      col_cube = grey(.50, 1),# color of cube edges/axes
+                      show_corners = TRUE,     # Mark the 8 cube corners (in their own colors).
+                      col_cube = grey(.50, 1), # color of cube edges/axes
                       # Grid options: 
-                      grid = FALSE,           # Convenience switch: Enable a default grid_faces + grid_inner combination.
-                      grid_faces = FALSE,     # grid lines ON the cube's FACES: FALSE, "base" (3 near faces), or "all" (6 faces)
-                      grid_inner = FALSE,     # grid lines ACROSS the cube's volume (interior): TRUE / FALSE
-                      grid_at = 2,            # Grid positioning: A sub-section count (2, 3, 4, ...), "ticks", or a numeric vector of positions
+                      grid = FALSE,            # Convenience switch: Enable a default grid_faces + grid_inner combination.
+                      grid_faces = FALSE,      # grid lines ON the cube's FACES: FALSE, "base" (3 near faces), or "all" (6 faces)
+                      grid_inner = FALSE,      # grid lines ACROSS the cube's volume (interior): TRUE / FALSE
+                      grid_at = 2,             # Grid positioning: A sub-section count (2, 3, 4, ...), "ticks", or a numeric vector of positions
                       col_grid = grey(.60, .60),        # color of the FACE grid lines (thin, transparent; darker)
                       col_grid_inner = grey(.80, .50),  # color of the INNER grid lines (thin, transparent; lighter)
                       # Axis options:
                       axis_labels = c("R", "G", "B"),  # axis titles ("long"/"no"/custom 3-vector)
-                      axis_ticks = TRUE,      # Draw tick marks and numeric values along the axes.
-                      n_ticks = 5,            # number of ticks per axis (when axis_ticks = TRUE)
-                      cex_axis = NA,          # scaling of axis titles + tick values (NA: Derive from cex_lbl)
+                      axis_ticks = TRUE,       # Draw tick marks and numeric values along the axes.
+                      n_ticks = 5,             # number of ticks per axis (when axis_ticks = TRUE)
+                      cex_axis = NA,           # scaling of axis titles + tick values (NA: Derive from cex_lbl)
                       # Labels:
-                      labels = "names",       # "names"/"rgb"/"hex" (or combinations), NA/"no", or a vector
+                      labels = "names",        # "names"/"rgb"/"hex" (or combinations), NA/"no", or a vector
                       # Viewing angles and titles:
-                      theta = -30, phi = 15,  # persp rotation angles
+                      theta = -30, phi = 15,   # persp rotation angles
                       main = "Colors in 3D RGB space",
-                      cex_lbl = .85,          # scaling of text labels
-                      ...                     # other persp() parameters
+                      cex_lbl = .85,           # scaling of text labels
+                      ...                      # other persp() parameters
 ) {
   
   ## (0) Handle and verify inputs: ------
@@ -927,7 +934,7 @@ plot_cube <- function(x,                      # vector of colors to plot
   
   # Helper: Draw 1 (gradient or solid) line between 2 points p1 and p2:
   # (uses round line ends (lend = 1) so that thick gradient lines join smoothly)
-  draw_line <- function(p1, p2) {
+  draw_line <- function(p1, p2, lwd = lwd_line) {
     
     if (is.na(col_line[1])) {  # gradient: Subdivide + color each sub-segment by its local mix
       
@@ -940,13 +947,13 @@ plot_cube <- function(x,                      # vector of colors to plot
         mid <- (a0 + a1) / 2
         
         graphics::lines(tr(c(a0[1], a1[1]), c(a0[2], a1[2]), c(a0[3], a1[3])),
-                        col = coord_col(mid[1], mid[2], mid[3]), lwd = lwd_line, lend = 1)
+                        col = coord_col(mid[1], mid[2], mid[3]), lwd = lwd, lend = 1)
       }
       
     } else {  # solid line color:
 
       graphics::lines(tr(c(p1[1], p2[1]), c(p1[2], p2[2]), c(p1[3], p2[3])),
-                      col = col_line[1], lwd = lwd_line, lend = 1)
+                      col = col_line[1], lwd = lwd, lend = 1)
     }
   }
 
@@ -994,10 +1001,12 @@ plot_cube <- function(x,                      # vector of colors to plot
       }
     }
 
-    # Draw the plane outline (edges between the defining points):
-    ocol <- if (is.na(col_line[1])) grey(.30, 1) else col_line[1]
-    for (tri in tris) {
-      graphics::polygon(tr(Pg[tri, 1], Pg[tri, 2], Pg[tri, 3]), col = NA, border = ocol, lwd = lwd_line)
+    # Draw the plane outline: Only the outer edges (1 -> 2 -> ... -> ng -> 1), not the
+    # inner diagonals of the fan; as gradient (or solid col_line) lines of width lwd_outline:
+    if (!is.na(lwd_outline) && lwd_outline > 0) {
+      for (k in seq_len(ng)) {
+        draw_line(Pg[k, ], Pg[(k %% ng) + 1, ], lwd = lwd_outline)
+      }
     }
 
   } # draw_plane().
@@ -1256,9 +1265,13 @@ plot_cube <- function(x,                      # vector of colors to plot
 # - Shadows: Project points onto cube faces (shadows = "floor"/"back"/"side"/"all").
 
 
+# - Plane outline: Drawn along the outer edges only (no inner fan diagonals), as gradient
+#   (or solid col_line) lines of a separate, thin width (lwd_outline; 0: no outline).
+
+
 ## ToDo next: ------
 
-# - Outline of plane needs no thick lines (or lines showing the color gradient, as when connecting to points).
+# - none
 
 
 ## ToDo in future: ------
