@@ -1243,19 +1243,28 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, seed = NULL, ..
 } # demopal().
 
 
-## ToDo: --------
+## Done: ------
 
-# Done:
-# - Expose plot_shapes() as type "shapes" (6th type, with aliases "icon"/"symbol").
-# - Validate numeric 'type' (out-of-range values now message + fall back to random).
-# - Make a random 'type' choice reproducible (resolve 'seed' once, up front).
-# - Allow 'type' to be a vector (or "all"): Arrange several demos in a grid.
-# - Allow 'pal' to be the NAME of a palette object (as a character string).
-# - Return the plotted data invisibly (a named list for several types).
+# - Exposed plot_shapes() as type "shapes" (6th type, with aliases "icon"/"symbol").
+# - Validated numeric 'type' (out-of-range values now message + fall back to random).
+# - Made a random 'type' choice reproducible (resolve 'seed' once, up front).
+# - Allowed 'type' to be a vector (or "all"): Arrange several demos in a grid.
+# - Allowed 'pal' to be the NAME of a palette object (as a character string).
+# - Returned the plotted data invisibly (a named list for several types).
 
-# Next:
+
+
+## ToDo next: ------
+
+# - Fix bug: demoplot(type = "all") shoud initialize a new plot. 
+# - Refactor the alias mapping into a single named lookup vector.
+
+
+
+## ToDo in future: ------
+
 # - Add 3d-perspective effects (e.g., to scatterplot).
 # - Add more plot types.
-# - Refactor the alias mapping into a single named lookup vector.
+
 
 ## eof. ----------

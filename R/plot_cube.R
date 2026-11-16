@@ -101,7 +101,7 @@
 #'
 #' @param lwd_line Line width of connecting lines
 #' (for \code{type = "l"} or \code{"b"}) and of plane outlines
-#' (for \code{type = "plane"}). Raise this value for thicker, more visible lines.
+#' (for \code{type = "plane"}). Raise value for thicker, more visible lines.
 #' Default: \code{lwd_line = 3}.
 #'
 #' @param line_connect How to connect 3 or more colors by lines
@@ -125,7 +125,7 @@
 #' showing the gamut of all mixtures of the defining colors).
 #'
 #' @param fill_alpha Opacity of the plane fill (in range \code{[0, 1]}).
-#' Default: \code{fill_alpha = .80}.
+#' Default: \code{fill_alpha = .75}.
 #'
 #' @param fill_res Resolution of color gradients
 #' (i.e., the number of line segments per connection, and the
@@ -465,7 +465,7 @@ plot_cube <- function(x,                      # vector of colors to plot
                       line_connect = "all",   # for >2 points: "all" (all pairs), "pairs" (disjoint consecutive pairs), or "path" (consecutive)
                       # Plane options (type "plane"):
                       col_fill = NA,          # NA: Gradient fill (gamut of mixtures); else a fixed fill color
-                      fill_alpha = .80,       # opacity of the plane fill (in [0, 1])
+                      fill_alpha = .75,       # opacity of the plane fill (in [0, 1])
                       fill_res = 20,          # resolution of gradient (line segments / plane tessellation)
                       # Shadow (projection) options:
                       shadows = "none",       # project points onto cube faces: "floor", "back", "side", "all", or "none"
@@ -1239,8 +1239,9 @@ plot_cube <- function(x,                      # vector of colors to plot
 # plot_cube(c("red", "green", "blue"), type = "plane")                           # gamut plane
 
 
-## (*) Done: ------
+## Done: ------
 
+# - Option cube of seecol() passes current colors on to plot_cube() with labels.
 # - Points: Plot colors as points in the RGB cube (type = "p").
 # - Labels: By names / RGB / HEX values (or combinations); only provided points labeled.
 # - Axes: Customizable titles + numeric value ticks (0 to 255).
@@ -1257,7 +1258,8 @@ plot_cube <- function(x,                      # vector of colors to plot
 
 ## ToDo next: ------
 
-# - Provide an option to the seecol() function that passes current colors on to plot_cube() with selected labels.
+# - Outline of plane needs no thick lines (or lines showing the color gradient, as when connecting to points).
+
 
 ## ToDo in future: ------
 
