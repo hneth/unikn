@@ -1,5 +1,5 @@
 ## plot_demo.R | unikn
-## spds | uni.kn | 2024 05 17
+## spds | uni.kn | 2026 11 16
 ## --------------------------
 
 ## Demo functions for color palettes.
@@ -55,7 +55,9 @@ plot_bar <- function(pal, col_par = NULL, alpha = 1,
   
   # Create data: ---- 
   
-  n_cat <- n  # n of categories for each col
+  # Number of categories per color (bounded to a readable range, so a large shared 'n'
+  # — e.g., from demopal() — does not explode the bar plot or exceed LETTERS):
+  n_cat <- max(1L, min(as.integer(round(n)), 10L))
   N <- n_col * n_cat  # N of cells/bars
   mx <- matrix(sample(1:10, size = N, replace = TRUE), ncol = n_cat, nrow = n_col, dimnames = list(1:n_col, LETTERS[1:n_cat]))
   
@@ -764,9 +766,13 @@ plot_scatter <- function(pal, col_par = NULL, alpha = 2/3,
 
 # + plot_shapes(): An array of shapes / icons ------ 
 
-plot_shapes <- function(pal, col_par = NULL, alpha = 2/3, 
-                        n = 1,     # scaling: number of shapes (per color in pal)
-                        cex = NULL,  # type-specific parameter(s): point size
+plot_shapes <- function(pal, col_par = NULL, alpha = 2/3,
+                        n = 1,       # scaling: number of shapes (per color in pal)
+                        cex = NULL,  # type-specific parameter(s): shape size
+                        pch = 21,    # type-specific parameter(s): shape symbol (21:25 are fillable)
+                        order = "keep",  # color order: "keep"/"shuffle"/"rev", a logical, or a custom index vector
+                        labels = NA,         # color labels: NA/"no", "names"/"hex"/"rgb" (or combos), or a custom vector
+                        label_pos = "below", # label position: "below" each shape, or in its "center"
                         # args with defaults:
                         main = NULL,
                         sub = NULL, 
@@ -780,20 +786,85 @@ plot_shapes <- function(pal, col_par = NULL, alpha = 2/3,
   # Parameters currently fixed:
   
   # Defaults:
-  if (is.null(cex)){
-    # cex <- sample(c(2, 2.5, 3, 3.5, 4), size = n, replace = TRUE)  # (a) different sizes
-    cex <- 5  # (b) all same size
-  }
-  
+  auto_cex <- is.null(cex)  # auto-scale shape size to the grid cell (below), unless cex is given
+
   # colors:
   col_pal <- usecol(pal = pal, alpha = alpha)
   n_col <- length(col_pal)
-  
+
+  # color names (for labels): taken from the INPUT palette (usecol() drops names):
+  pal_names <- names(unlist(pal, use.names = TRUE))
+  if (is.null(pal_names) || length(pal_names) != n_col) { pal_names <- NULL }
+
   # seed:
   seed <- set_seed(seed)
   # print(seed)  # replicability / 4debugging
-  
-  # par: ---- 
+
+  # Color order (applied to col_pal; "shuffle" is reproducible via 'seed', set above):
+  if (is.logical(order)){
+
+    idx <- if (isTRUE(order)) sample.int(n_col) else seq_len(n_col)  # TRUE: shuffle; FALSE: keep
+
+  } else if (is.numeric(order)){
+
+    idx <- as.integer(order)  # a custom index vector (into the palette)
+
+  } else {  # a character keyword:
+
+    idx <- switch(tolower(as.character(order)),
+                  "keep" = , "original" = , "none" = seq_len(n_col),  # palette order (default)
+                  "shuffle" = , "random" = sample.int(n_col),         # randomized (reproducible via seed)
+                  "rev" = , "reverse" = rev(seq_len(n_col)),          # reversed
+                  { message(paste0("plot_shapes: Unknown 'order' ", add_quotes(order), "; keeping palette order."))
+                    seq_len(n_col) })
+  }
+
+  idx <- idx[!is.na(idx) & idx >= 1 & idx <= n_col]  # keep only valid indices
+  if (length(idx) < 1) { idx <- seq_len(n_col) }     # fall back to palette order
+
+  col_pal <- col_pal[idx]
+  n_col   <- length(col_pal)
+  if (!is.null(pal_names)) { pal_names <- pal_names[idx] }  # keep names aligned with colors
+
+  # Resolve color labels (per shape), as in seecol() / plot_cube():
+  sh_lbls   <- NULL
+  known_lbl <- c("name", "names", "rgb", "hex")
+  no_lbls   <- (length(labels) == 1) && (is.na(labels) || tolower(labels) %in% c("no", "none", "off"))
+
+  if (!no_lbls){
+
+    lab <- tolower(labels)
+
+    if (all(lab %in% known_lbl)){  # one or more label TYPES (names/rgb/hex):
+
+      types <- unique(ifelse(lab == "name", "names", lab))  # keep order; normalize "name"
+
+      rgb_m <- grDevices::col2rgb(col_pal)
+      Rv <- rgb_m["red", ]; Gv <- rgb_m["green", ]; Bv <- rgb_m["blue", ]
+      hexv <- toupper(grDevices::rgb(Rv, Gv, Bv, maxColorValue = 255))
+      nmv  <- pal_names
+      if (is.null(nmv)) { nmv <- hexv } else { nmv[is.na(nmv) | nmv == ""] <- hexv[is.na(nmv) | nmv == ""] }
+
+      make_part <- function(ty) switch(ty,
+                                       "names" = nmv,                                   # color names (else HEX)
+                                       "rgb"   = paste0("(", Rv, ", ", Gv, ", ", Bv, ")"),  # RGB triplet
+                                       "hex"   = hexv)                                  # HEX value
+
+      parts   <- lapply(types, make_part)
+      sh_lbls <- do.call(paste, c(parts, sep = "\n"))  # stack types on separate lines
+
+    } else {  # a custom label vector (recycled):
+
+      sh_lbls <- rep(as.character(labels), length.out = n_col)
+
+    }
+  }
+
+  show_lbls  <- !is.null(sh_lbls)
+  pos_below  <- show_lbls && (tolower(label_pos)[1] %in% c("below", "under", "bottom", "down", "b"))
+  pos_center <- show_lbls && !pos_below  # "center"/"centre"/"mid"/"in" (anything not "below")
+
+  # par: ----
   
   opar <- par(no.readonly = TRUE)
   
@@ -808,53 +879,108 @@ plot_shapes <- function(pal, col_par = NULL, alpha = 2/3,
   par(col = col_par)
   
   par(mar = c(4, 3, 3, 2) + 0.1) # default: c(5, 4, 4, 2) + 0.1
-  
-  par(pty = "s") # generates a square plotting region
-  
-  
-  # Create data: ---- 
-  
-  # n <- 500
-  
+
+  # (Square cells are achieved via asp = 1 in the plot call below, not pty = "s".)
+
+
+  # Create data: ----
+
   i <- 1:n_col  # i colors
-  
-  x_min <- 1
-  x_max <- 5
-  y_min <- 1
-  y_max <- ((n_col - 1) %/% x_max) + 1
-  
-  
-  x <- ((i - 1) %%  x_max) + 1  # in left-right order
-  
-  y <- ((i - 1) %/% x_max) + 1
-  y <- (y_max - y) + 1  # in top-down order
-  
-  # Reduce/scale values:
-  x <- x
-  y <- y
-  
+
+  # Arrange the n_col shapes on a near-square grid (filled left-to-right, top-down;
+  # a ragged final row is left-aligned):
+  ncol_g <- ceiling(sqrt(n_col))        # number of columns (near-square)
+  nrow_g <- ceiling(n_col / ncol_g)     # number of rows
+
+  x <- ((i - 1) %%  ncol_g) + 1         # column (1 ... ncol_g), in left-right order
+  y <- ((i - 1) %/% ncol_g) + 1         # row from top
+  y <- (nrow_g - y) + 1                 # flip to top-down order (row 1 on top)
+
+  # Plot limits (with 1/2-cell padding, so shapes never touch the border):
+  x_min <- 0.5;  x_max <- ncol_g + 0.5
+  y_min <- 0.5;  y_max <- nrow_g + 0.5
+
   df <- data.frame(x = x, y = y)
   
   
-  # Main plot: ---- 
-  
-  plot(x = x, y = y, 
-       xlim = c(x_min, x_max), ylim = c(y_min, y_max), 
-       cex = cex, bg = col_pal, 
-       ...)  # pass pch
-  
-  
-  # +++ here now +++
-  
-  
+  # Main plot: ----
+
+  # (a) Empty plot (no axes; asp = 1 gives square, uniformly spaced cells):
+  plot(x = x, y = y, type = "n", asp = 1,
+       xlim = c(x_min, x_max), ylim = c(y_min, y_max),
+       axes = FALSE, xlab = NA, ylab = NA, main = NA,
+       ...)
+
+  # (b) Cell size (inches) + auto-scale shape size (unless 'cex' was provided):
+  cell_in <- min(abs(grconvertX(1, "user", "inches") - grconvertX(0, "user", "inches")),
+                 abs(grconvertY(1, "user", "inches") - grconvertY(0, "user", "inches")))
+  if (auto_cex){
+    fill <- if (pos_below) 0.60 else 0.92  # "below" labels need room, so shapes are smaller
+    # A pch symbol at cex = 1 spans about 0.685 * par("cin")[2] inches (empirical, for pch 21:25):
+    cex <- (fill * cell_in) / (0.685 * par("cin")[2])
+  }
+
+  # (c) Draw the shapes (filled for pch 21:25):
+  points(x = x, y = y, pch = pch, bg = col_pal, col = col_par, cex = cex)
+
+  # (d) Color labels (optional): "center" = inside each shape; "below" = beneath it:
+  if (show_lbls){
+
+    lab_lines <- unlist(strsplit(sh_lbls, "\n"))
+    max_w  <- max(graphics::strwidth(lab_lines, units = "inches", cex = 1), na.rm = TRUE)
+    n_line <- max(vapply(strsplit(sh_lbls, "\n"), length, integer(1)))
+    cex_w  <- (0.90 * cell_in) / max_w  # scale label to fit a cell's width
+
+    if (pos_center){  # label inside each shape (auto-contrast text color):
+
+      # Actual shape diameter in USER units (a pch 21:25 symbol spans ~0.375 * cex * cin inches):
+      d_user  <- (0.375 * cex * par("cin")[2]) / cell_in
+      w_i     <- vapply(strsplit(sh_lbls, "\n"), function(ls) max(graphics::strwidth(ls, units = "user", cex = 1)), numeric(1))
+      nl_i    <- vapply(strsplit(sh_lbls, "\n"), length, integer(1))
+      h1_u    <- graphics::strheight("Mg", units = "user", cex = 1)  # 1-line height (user units)
+      cex_wi  <- (0.72 * d_user) / w_i                               # fit each label's width in its shape
+      cex_hi  <- (0.80 * d_user) / (nl_i * h1_u)                     # fit its line(s) in the shape height
+      cex_lbl <- pmin(cex_wi, cex_hi, 1.3)                           # per-label size (short names stay larger)
+
+      rgb_lum <- grDevices::col2rgb(col_pal)  # per-shape luminance (to pick text color):
+      lum     <- 0.299 * rgb_lum["red", ] + 0.587 * rgb_lum["green", ] + 0.114 * rgb_lum["blue", ]
+      lbl_col <- ifelse(lum > 140, grDevices::grey(.10), "white")  # dark on light fills, light on dark
+
+      text(x, y, labels = sh_lbls, col = lbl_col, cex = cex_lbl, xpd = TRUE)
+
+    } else {  # label beneath each shape:
+
+      cex_lbl <- min(cex_w, 1.0)
+      text(x, y - 0.42, labels = sh_lbls, col = grDevices::grey(.10), cex = cex_lbl, xpd = TRUE)
+
+    }
+
+  }
+
+  # Titles:
+  if (is.null(main)){ # default title:
+    plot_type <- "shapes"
+    main <- paste("A", plot_type, "plot")
+  }
+  title(main = main)
+
+  if (is.null(sub)){ # default subtitle:
+    if (is.null(pal_name)){
+      pal_name <- deparse(substitute(pal))  # get object name (of input pal)
+    }
+    sub <- paste("Illustrating color palette", pal_name)
+  }
+  mtext(sub, side = 1, line = 2, adj = 1, cex = .95)
+
+
   # Output: ----
-  
+
   on.exit(par(opar))
-  
-  print(df) # as side effect / 4debugging
-  
+
+  # print(df) # as side effect / 4debugging
+
   return(invisible(df))
-  
+
 } # plot_shapes().
 
 # Check:
@@ -901,20 +1027,37 @@ plot_shapes <- function(pal, col_par = NULL, alpha = 2/3,
 #' This data is returned (as an invisible R object)  
 #' to enable a plot's reconstruction. 
 #' 
-#' @param pal A color palette (to be illustrated).
-#' Default: \code{pal = pal_unikn}. 
-#' 
-#' @param type The type of plot to be used (as character string or integer value). 
-#' Permissible types are 
-#' \code{"bar"}, \code{"curve"}, \code{"mosaic"}, \code{"polygon"}, or \code{"scatter"} 
-#' (or an integer value from 1 to 5, respectively).
-#' 
-#' @param pal_name A name for the input color palette \code{pal} (shown on bottom-right margin). 
+#' @param pal A color palette (to be illustrated),
+#' provided as a color vector, a palette (data frame), or
+#' the \emph{name} of a palette object (as a character string,
+#' e.g., \code{"pal_petrol"}, which is then resolved to the palette).
+#' Default: \code{pal = pal_unikn}.
+#'
+#' @param type The type of plot to be used (as a character string or integer value).
+#' Permissible types are
+#' \code{"bar"}, \code{"curve"}, \code{"mosaic"}, \code{"polygon"}, \code{"scatter"},
+#' or \code{"shapes"} (or an integer value from 1 to 6, respectively).
+#'
+#' \code{type} may also be a \emph{vector} of several types
+#' (or \code{type = "all"}, for every type), in which case the corresponding
+#' demo plots are arranged in a grid (via \code{\link{par}(mfrow)}),
+#' to compare a palette across plot types.
+#' An invalid or missing \code{type} (\code{NA}) selects a random type
+#' (reproducible when \code{seed} is set).
+#' Default: \code{type = NA}.
+#'
+#' @param pal_name A name for the input color palette \code{pal} (shown on bottom-right margin).
 #' Default: \code{pal_name = NULL} (deparsing to input name).
-#' 
-#' @param ... Auxiliary arguments passed to \code{type}-specific plots (see details). 
-#' 
-#' @return The random data that was plotted (as an invisible R object). 
+#'
+#' @param seed A random seed value (for reproducible randomness),
+#' passed to the \code{type}-specific plots. Setting \code{seed}
+#' also renders a random \code{type} choice reproducible.
+#' Default: \code{seed = NULL} (using \emph{and returning} a random seed).
+#'
+#' @param ... Auxiliary arguments passed to \code{type}-specific plots (see details).
+#'
+#' @return The random data that was plotted (as an invisible R object);
+#' for several \code{type}s, a named list of the data of each plot.
 #' 
 #' @examples
 #' demopal(pal = pal_petrol, type = 1)
@@ -923,10 +1066,18 @@ plot_shapes <- function(pal, col_par = NULL, alpha = 2/3,
 #' # Selecting plot type:
 #' demopal(my_pal, type = 2)          # by numeric index
 #' demopal(my_pal, type = "polygon")  # by name
-#' 
+#' demopal(my_pal, type = "shapes")   # colored shapes
+#'
+#' # Passing a palette by its name (as a character string):
+#' demopal("pal_seeblau", type = "bar")
+#'
+#' # Several plot types at once (arranged in a grid):
+#' demopal(pal_petrol, type = c("bar", "scatter", "shapes"))
+#' demopal(pal_unikn, type = "all", seed = 101)  # every type (reproducible)
+#'
 #' # Passing type-specific arguments:
 #' demopal(type = "scatter", col_par = "black", n = 200, cex = c(2, 4, 6), seed = 101)
-#' 
+#'
 #' @family color functions
 #' 
 #' @aliases democol
@@ -945,83 +1096,166 @@ plot_shapes <- function(pal, col_par = NULL, alpha = 2/3,
 #' 
 #' @export 
 
-demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, ...){
-  
-  # Prepare: ---- 
-  
-  if (all(is.na(pal))) { return(NA) }  # handle pal = NA case
-  
-  plot_types <- c("bar", "curve", "mosaic", "polygon", "scatter")  # as constant
-  
-  # type:
-  if (is.character(type)){
-    
-    # Increase robustness:
-    type_1_3 <- substr(tolower(type), 1, 3)
-    ptyp_1_3 <- substr(plot_types, 1, 3)
-    
-    # Alternative names: 
-    
-    # "mosaic":
-    if (type_1_3 == "are") { type_1_3 <- "mos" }  # "area"  
-    if (type_1_3 == "tab") { type_1_3 <- "mos" }  # "table"
-    
-    # "polygon":
-    if (type_1_3 == "mou") { type_1_3 <- "pol" }  # "mountain"
-    if (type_1_3 == "rid") { type_1_3 <- "pol" }  # "ridge"
-    
-    # "curve":
-    if (type_1_3 == "dis") { type_1_3 <- "cur" }  # "distribution"
-    if (type_1_3 == "his") { type_1_3 <- "cur" }  # "histogram"
-    if (type_1_3 == "ncu") { type_1_3 <- "cur" }  # "ncurve"
-    if (type_1_3 == "nor") { type_1_3 <- "cur" }  # "normal"
-    if (type_1_3 == "wav") { type_1_3 <- "cur" }  # "wave"
-    
-    # "scatter":
-    if (type_1_3 == "poi") { type_1_3 <- "sca" }  # "point"
-    
-    if (type_1_3 %in% ptyp_1_3){
-      type <- which(type_1_3 == ptyp_1_3)  # numeric
-    } else {
-      plot_types_q <- add_quotes(plot_types)
-      message(paste("The plot type", add_quotes(type), "is not in", plot_types_q))
-      type <- NA
+demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, seed = NULL, ...){
+
+  # Prepare: ----
+
+  # (a) pal_name: Note whether a name was provided (before deriving a default):
+  user_pal_name <- !is.null(pal_name)
+
+  # Derive a default pal_name from the input expression (before 'pal' is reassigned):
+  if (!user_pal_name){
+    pal_name <- paste(deparse(substitute(pal)), collapse = "")  # object name (of input pal)
+  }
+
+  # (b) pal: Allow 'pal' to be the NAME of a palette object (as a character string),
+  #     e.g., demopal("pal_petrol"). A single string that is itself a valid color
+  #     (e.g., "red") or an unknown name is kept as a (1-color) palette:
+  if (is.character(pal) && length(pal) == 1L &&
+      !(pal %in% grDevices::colors()) && exists(pal, inherits = TRUE)){
+
+    cand <- get(pal, inherits = TRUE)
+
+    if (is.data.frame(cand) || is.atomic(cand) || is.list(cand)){
+      if (!user_pal_name) { pal_name <- pal }  # use the clean object name as label
+      pal <- cand
     }
   }
-  
-  if (is.na(type) | is.numeric(type) == FALSE){
-    type <- sample(1:length(plot_types), size = 1)  # random type
+
+  # Keep an auto-derived pal_name (e.g., from a long inline expression) from
+  # overflowing the subtitle; a user-supplied pal_name is left as given:
+  if (!user_pal_name && nchar(pal_name) > 24){
+    pal_name <- paste0(substr(pal_name, 1, 21), "...")
   }
-  
-  if (is.null(pal_name)){
-    pal_name <- deparse(substitute(pal))  # get object name (of input pal)
+
+  if (all(is.na(pal))) { return(NA) }  # handle pal = NA case
+
+  # (c) seed: Fix the random seed ONCE, so that BOTH a random 'type' choice and
+  #     the plotted data are reproducible; the resolved seed is passed to each helper:
+  seed <- set_seed(seed)
+
+  plot_types <- c("bar", "curve", "mosaic", "polygon", "scatter", "shapes")  # as constant
+
+  # (d) type: Helper to resolve 1 'type' (character or numeric) into a valid
+  #     integer index (or NA, after a message, if invalid):
+  resolve_type <- function(t){
+
+    if (length(t) == 1 && is.na(t)) { return(NA_real_) }  # NA: Choose randomly (below)
+
+    if (is.character(t)){  # a (possibly abbreviated or alternative) type name:
+
+      key <- substr(tolower(t), 1, 3)
+
+      # Map alternative names to canonical 3-letter keys:
+      key <- switch(key,
+                    "are" = , "tab" = "mos",                                # mosaic:  "area", "table"
+                    "mou" = , "rid" = "pol",                                # polygon: "mountain", "ridge"
+                    "dis" = , "his" = , "ncu" = , "nor" = , "wav" = "cur",  # curve:   several aliases
+                    "poi" = "sca",                                          # scatter: "point"
+                    "ico" = , "sym" = "sha",                                # shapes:  "icon", "symbol"
+                    key)                                                    # else:    keep key
+
+      idx <- match(key, substr(plot_types, 1, 3))
+
+      if (is.na(idx)){
+        message(paste("The plot type", add_quotes(t), "is not in", add_quotes(plot_types)))
+        return(NA_real_)
+      }
+
+      return(idx)
+    }
+
+    # a numeric type (index):
+    t <- as.integer(round(t))
+
+    if (length(t) == 1 && !is.na(t) && t %in% seq_along(plot_types)){
+      return(t)
+    } else {
+      message(paste0("The plot type ", t, " is not in 1:", length(plot_types)))
+      return(NA_real_)
+    }
+
+  } # resolve_type().
+
+  # Resolve the requested type(s) into a vector of valid integer indices:
+  if (length(type) == 1 && is.character(type) &&
+      tolower(type) %in% c("all", "every", "grid")){
+
+    type_idx <- seq_along(plot_types)  # "all": Every available type (in a grid)
+
+  } else {
+
+    type_idx <- vapply(type, resolve_type, numeric(1), USE.NAMES = FALSE)  # 1 or more types
+
   }
-  
-  # Main: ---- 
-  
-  switch(type,
-         # 1: bar: 
-         plot_bar(pal = pal, pal_name = pal_name, ...), 
-         # 2. curve/ncurve:
-         plot_ncurve(pal = pal, pal_name = pal_name, ...), 
-         # 3: mosaic/table:
-         plot_table(pal = pal, pal_name = pal_name, ...), 
-         # 4: polygon:
-         plot_polygon(pal = pal, pal_name = pal_name, ...), 
-         # 5: scatter/point:
-         plot_scatter(pal = pal, pal_name = pal_name, ...), 
-         # else:
-         plot_polygon(pal = pal, pal_name = pal_name, ...)
-  )
-  
-  # Output: None ----
-  
-} # demopal(). 
+
+  # Replace any invalid/NA type(s) by a random valid type (reproducible, as seed is set):
+  na_t <- is.na(type_idx)
+  if (any(na_t)){
+    type_idx[na_t] <- sample(seq_along(plot_types), size = sum(na_t), replace = TRUE)
+  }
+
+  # Main: ----
+
+  # Helper to draw 1 demo plot (of type index 'ti') and return its (invisible) data:
+  draw_one <- function(ti){
+    switch(ti,
+           plot_bar(pal = pal, pal_name = pal_name, seed = seed, ...),      # 1: bar
+           plot_ncurve(pal = pal, pal_name = pal_name, seed = seed, ...),   # 2: curve/ncurve
+           plot_table(pal = pal, pal_name = pal_name, seed = seed, ...),    # 3: mosaic/table
+           plot_polygon(pal = pal, pal_name = pal_name, seed = seed, ...),  # 4: polygon
+           plot_scatter(pal = pal, pal_name = pal_name, seed = seed, ...),  # 5: scatter/point
+           plot_shapes(pal = pal, pal_name = pal_name, seed = seed, ...)    # 6: shapes
+    )
+  }
+
+  n_type <- length(type_idx)
+
+  if (n_type == 1){  # (a) a single demo plot:
+
+    out <- draw_one(type_idx)
+
+  } else {  # (b) several demo plots (arranged in a grid):
+
+    opar <- par(no.readonly = TRUE)
+    on.exit(par(opar))
+
+    nr <- floor(sqrt(n_type))
+    nc <- ceiling(n_type / nr)
+    par(mfrow = c(nr, nc))
+
+    out <- vector("list", n_type)
+
+    for (k in seq_len(n_type)){
+      # Point to the k-th panel explicitly (as each helper restores 'par' on exit):
+      par(mfg = c(((k - 1) %/% nc) + 1, ((k - 1) %% nc) + 1, nr, nc))
+      out[[k]] <- draw_one(type_idx[k])
+    }
+
+    names(out) <- plot_types[type_idx]
+
+  }
+
+  # Output: The plotted (random) data, returned invisibly ----
+
+  return(invisible(out))
+
+} # demopal().
 
 
 ## ToDo: --------
 
+# Done:
+# - Expose plot_shapes() as type "shapes" (6th type, with aliases "icon"/"symbol").
+# - Validate numeric 'type' (out-of-range values now message + fall back to random).
+# - Make a random 'type' choice reproducible (resolve 'seed' once, up front).
+# - Allow 'type' to be a vector (or "all"): Arrange several demos in a grid.
+# - Allow 'pal' to be the NAME of a palette object (as a character string).
+# - Return the plotted data invisibly (a named list for several types).
+
+# Next:
 # - Add 3d-perspective effects (e.g., to scatterplot).
 # - Add more plot types.
+# - Refactor the alias mapping into a single named lookup vector.
 
 ## eof. ----------
