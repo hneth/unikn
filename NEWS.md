@@ -1,7 +1,7 @@
 
-# unikn 1.1.0.9002 
+# unikn 1.1.0.9003
 
-<!-- This release of **unikn** (v1.1.0) adds functionality and fixes some bugs. [2026-11-11] --> 
+<!-- This release of **unikn** (v1.x.0) adds functionality and fixes some bugs. [2026-11-xx] --> 
 
 This is the development version of **unikn**, available at <https://github.com/hneth/unikn/>. 
 
@@ -22,14 +22,17 @@ Changes since last release:
 ## Minor changes 
 
 - Extend `plot_cube()` to accept a _list_ of color groups (via `x`): Each group is drawn by its size, as a point (1 color), line (2 colors), or plane (3+ colors), for direct control over which colors are linked. [2026-11-16]
+- Revise plane outlines in `plot_cube()`: Draw only the outer edges of a plane (no longer the inner diagonals of polygons with 4+ colors), as thin color gradients (or in a solid `col_line`), with a new `lwd_outline` argument (default: 1; 0: no outline), so that `lwd_line` only affects connecting lines. [2026-11-16]
 - Extend `demopal()` by a `"shapes"` plot type, support for several types at once (a vector, or `type = "all"`, arranged in a grid), passing a palette by its name (as a string), a `seed` argument (for reproducible random types), and returning the plotted data invisibly. [2026-11-16]
-- Improve the `"shapes"` plot of `demopal()` (via `plot_shapes()`): Arrange colors as auto-sized shapes on a near-square grid, choose the shape symbol (`pch`) and border color (`col_par`), set the color order (`order`: `"keep"`/`"shuffle"`/`"rev"`/custom), and label colors by names, HEX, or RGB values (`labels`), placed below or in each shape (`label_pos`). [2026-11-16]
+- Revise the `"shapes"` plot of `demopal()` (via `plot_shapes()`): Arrange colors as auto-sized shapes on a near-square grid, choose the shape symbol (`pch`) and border color (`col_par`), set the color order (`order`: `"keep"`/`"shuffle"`/`"rev"`/custom), and label colors by names, HEX, or RGB values (`labels`), placed below or in each shape (`label_pos`). [2026-11-16]
 
 
 <!-- Details:  --> 
 
 ## Details 
 
+- Bug fix to `demopal()`: Several plot types (e.g., `type = "all"`) now start a new page, rather than drawing over the current plot. [2026-11-16]
+- Refactor the mapping of `type` aliases in `demopal()` into a single named lookup vector. [2026-11-16]
 - Bug fixes to `demopal()`: Bound the number of bar categories (in `plot_bar()`) so that a large shared `n` (e.g., from `type = "all"`) no longer overwhelms the bar plot, and truncate an over-long auto-generated `pal_name` so that it no longer overflows the plot subtitle. [2026-11-16]
 - Remove duplicate URL in DESCRIPTION
 
