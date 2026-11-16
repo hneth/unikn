@@ -324,10 +324,10 @@
 #' plot_cube(c("cyan", "yellow", "magenta"),             # gamut of 3 opposite RGB colors
 #'              type = "plane", labels = c("names", "rgb"))
 #'
-#' # Grouped input: Pass a list to control which colors link (by group size):
+#' # Grouped colors: Passing a list combines colors (by group size):
 #' # Each c() group becomes a point (1 color), line (2), or plane (3+):
-#' plot_cube(list(Seeblau, c(Pinky, Seegruen),          # 1 point, 1 line,
-#'                c("red", "green", "blue")))           # and 1 plane
+#' plot_cube(list(Seeblau, c(Pinky, Seegruen),          # 1 point, 1 line, and 
+#'                c("red", "green", "blue")))           # 1 plane
 #'
 #' # A lone point, a line, and a plane (with the defining points marked):
 #' plot_cube(list("gold",                                # unlinked point
