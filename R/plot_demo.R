@@ -1136,6 +1136,15 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, seed = NULL, ..
 
   plot_types <- c("bar", "curve", "mosaic", "polygon", "scatter", "shapes")  # as constant
 
+  # Lookup vector: Map the first 3 letters of each type name (or an alias) to its canonical type:
+  type_alias <- c("bar" = "bar",                                          # bar
+                  "cur" = "curve",   "ncu" = "curve",   "dis" = "curve",  # curve: "ncurve", "distribution",
+                  "his" = "curve",   "nor" = "curve",   "wav" = "curve",  #        "histogram", "normal", "wave"
+                  "mos" = "mosaic",  "are" = "mosaic",  "tab" = "mosaic", # mosaic: "area", "table"
+                  "pol" = "polygon", "mou" = "polygon", "rid" = "polygon",# polygon: "mountain", "ridge"
+                  "sca" = "scatter", "poi" = "scatter",                   # scatter: "point"
+                  "sha" = "shapes",  "ico" = "shapes",  "sym" = "shapes") # shapes: "icon", "symbol"
+
   # (d) type: Helper to resolve 1 'type' (character or numeric) into a valid
   #     integer index (or NA, after a message, if invalid):
   resolve_type <- function(t){
@@ -1145,17 +1154,7 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, seed = NULL, ..
     if (is.character(t)){  # a (possibly abbreviated or alternative) type name:
 
       key <- substr(tolower(t), 1, 3)
-
-      # Map alternative names to canonical 3-letter keys:
-      key <- switch(key,
-                    "are" = , "tab" = "mos",                                # mosaic:  "area", "table"
-                    "mou" = , "rid" = "pol",                                # polygon: "mountain", "ridge"
-                    "dis" = , "his" = , "ncu" = , "nor" = , "wav" = "cur",  # curve:   several aliases
-                    "poi" = "sca",                                          # scatter: "point"
-                    "ico" = , "sym" = "sha",                                # shapes:  "icon", "symbol"
-                    key)                                                    # else:    keep key
-
-      idx <- match(key, substr(plot_types, 1, 3))
+      idx <- match(type_alias[key], plot_types)  # NA for unknown keys
 
       if (is.na(idx)){
         message(paste("The plot type", add_quotes(t), "is not in", add_quotes(plot_types)))
@@ -1223,6 +1222,7 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, seed = NULL, ..
     nr <- floor(sqrt(n_type))
     nc <- ceiling(n_type / nr)
     par(mfrow = c(nr, nc))
+    plot.new()  # start a new page (as pointing to panel 1 via 'mfg' would draw over the current one)
 
     out <- vector("list", n_type)
 
@@ -1254,11 +1254,13 @@ demopal <- function(pal = pal_unikn, type = NA, pal_name = NULL, seed = NULL, ..
 
 
 
+# - Fixed bug: Several types (e.g., type = "all") now start a new page (rather than drawing over the current plot).
+# - Refactored the type alias mapping into a single named lookup vector (type_alias).
+
+
 ## ToDo next: ------
 
-# - Fix bug: demoplot(type = "all") shoud initialize a new plot. 
-# - Refactor the alias mapping into a single named lookup vector.
-
+# - none
 
 
 ## ToDo in future: ------
