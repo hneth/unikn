@@ -10,12 +10,13 @@ plot_cube(
   col_points = NA,
   cex_points = 2,
   pch = 21,
-  col_brd = grey(0.2, 1),
+  col_brd = grey(0.25, 1),
   ref_lines = TRUE,
   col_line = NA,
   lwd_line = 3,
   line_connect = "all",
   col_fill = NA,
+  lwd_outline = 1,
   fill_alpha = 0.75,
   fill_res = 20,
   shadows = "none",
@@ -95,7 +96,7 @@ Default: \code{pch = 21} (a fillable circle).}
 
 \item{col_brd}{Border color of points
 (only used for fillable symbols, i.e., \code{pch} in \code{21:25}).
-Default: \code{col_brd = grey(.20, 1)} (dark grey).}
+Default: \code{col_brd = grey(.25, 1)} (dark grey).}
 
 \item{ref_lines}{Boolean: Draw a vertical reference line
 from each point down to the base (R-by-G) plane of the cube
@@ -104,12 +105,12 @@ Default: \code{ref_lines = TRUE}.}
 
 \item{col_line}{Color of connecting lines (for \code{type = "l"} or \code{"b"})
 and of the plane outline (for \code{type = "plane"}).
-Default: \code{col_line = NA} (i.e., show lines as a color gradient
+Default: \code{col_line = NA} (i.e., show lines and plane outlines as a color gradient
 of the mixtures between consecutive colors).}
 
 \item{lwd_line}{Line width of connecting lines
-(for \code{type = "l"} or \code{"b"}) and of plane outlines
-(for \code{type = "plane"}). Raise value for thicker, more visible lines.
+(for \code{type = "l"} or \code{"b"}).
+Raise value for thicker, more visible lines.
 Default: \code{lwd_line = 3}.}
 
 \item{line_connect}{How to connect 3 or more colors by lines
@@ -131,6 +132,12 @@ Default: \code{line_connect = "all"}.}
 \item{col_fill}{Fill color for the plane (for \code{type = "plane"}).
 Default: \code{col_fill = NA} (i.e., fill the plane with a color gradient
 showing the gamut of all mixtures of the defining colors).}
+
+\item{lwd_outline}{Line width of plane outlines
+(for \code{type = "plane"} and planes of grouped input),
+drawn along the outer edges of a plane only.
+Use \code{lwd_outline = 0} to draw no outline.
+Default: \code{lwd_outline = 1}.}
 
 \item{fill_alpha}{Opacity of the plane fill (in range \code{[0, 1]}).
 Default: \code{fill_alpha = .75}.}
@@ -455,7 +462,7 @@ plot_cube(usecol(c(rev(pal_seegruen), "white", pal_bordeaux)), type = "b",
           line_connect = "path", lwd_line = 5, main = "A custom color gradient")
           
 # 4. Pairwise relations among main colors:
-plot_cube(col_4, type = "b", theta = -40, phi = 20, 
+plot_cube(col_4, type = "plane", shadows = "floor", theta = 0, phi = 0, 
           main = "Pairwise relations of 4 key colors")
 
 # 5. The gamut (plane) of mixtures spanned by 3 main colors:
