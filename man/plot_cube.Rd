@@ -11,7 +11,7 @@ plot_cube(
   cex_points = 2,
   pch = 21,
   col_brd = grey(0.25, 1),
-  ref_lines = TRUE,
+  ref_lines = FALSE,
   col_line = NA,
   lwd_line = 3,
   line_connect = "all",
@@ -99,9 +99,9 @@ Default: \code{pch = 21} (a fillable circle).}
 Default: \code{col_brd = grey(.25, 1)} (dark grey).}
 
 \item{ref_lines}{Boolean: Draw a vertical reference line
-from each point down to the base (R-by-G) plane of the cube
+from each point down to the floor (R-by-G base plane) of the cube
 (to ease judging a point's height on the B/blue axis)?
-Default: \code{ref_lines = TRUE}.}
+Default: \code{ref_lines = FALSE}.}
 
 \item{col_line}{Color of connecting lines (for \code{type = "l"} or \code{"b"})
 and of the plane outline (for \code{type = "plane"}).
