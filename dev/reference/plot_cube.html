@@ -60,7 +60,7 @@ to the red, green, and blue values of the RGB color model
 <span>  cex_points <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  pch <span class="op">=</span> <span class="fl">21</span>,</span>
 <span>  col_brd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">grey</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">1</span><span class="op">)</span>,</span>
-<span>  ref_lines <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  ref_lines <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  col_line <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  lwd_line <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>  line_connect <span class="op">=</span> <span class="st">"all"</span>,</span>
@@ -158,9 +158,9 @@ Default: <code>col_brd = grey(.25, 1)</code> (dark grey).</p></dd>
 
 <dt id="arg-ref-lines">ref_lines<a class="anchor" aria-label="anchor" href="#arg-ref-lines"></a></dt>
 <dd><p>Boolean: Draw a vertical reference line
-from each point down to the base (R-by-G) plane of the cube
+from each point down to the floor (R-by-G base plane) of the cube
 (to ease judging a point's height on the B/blue axis)?
-Default: <code>ref_lines = TRUE</code>.</p></dd>
+Default: <code>ref_lines = FALSE</code>.</p></dd>
 
 
 <dt id="arg-col-line">col_line<a class="anchor" aria-label="anchor" href="#arg-col-line"></a></dt>

@@ -14,7 +14,7 @@ plot_cube(
   cex_points = 2,
   pch = 21,
   col_brd = grey(0.25, 1),
-  ref_lines = TRUE,
+  ref_lines = FALSE,
   col_line = NA,
   lwd_line = 3,
   line_connect = "all",
@@ -121,8 +121,8 @@ plot_cube(
 - ref_lines:
 
   Boolean: Draw a vertical reference line from each point down to the
-  base (R-by-G) plane of the cube (to ease judging a point's height on
-  the B/blue axis)? Default: `ref_lines = TRUE`.
+  floor (R-by-G base plane) of the cube (to ease judging a point's
+  height on the B/blue axis)? Default: `ref_lines = FALSE`.
 
 - col_line:
 
