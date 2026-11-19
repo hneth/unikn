@@ -1,5 +1,5 @@
 ## plot_cube.R | unikn
-## spds | uni.kn | 2026 11 16
+## spds | uni.kn | 2026 11 19
 ## --------------------------
 
 ## Plot R colors as points in a 3D RGB color cube.
@@ -90,9 +90,9 @@
 #' Default: \code{col_brd = grey(.25, 1)} (dark grey).
 #'
 #' @param ref_lines Boolean: Draw a vertical reference line
-#' from each point down to the base (R-by-G) plane of the cube
+#' from each point down to the floor (R-by-G base plane) of the cube
 #' (to ease judging a point's height on the B/blue axis)?
-#' Default: \code{ref_lines = TRUE}.
+#' Default: \code{ref_lines = FALSE}.
 #'
 #' @param col_line Color of connecting lines (for \code{type = "l"} or \code{"b"})
 #' and of the plane outline (for \code{type = "plane"}).
@@ -464,7 +464,7 @@ plot_cube <- function(x,                       # vector of colors to plot
                       cex_points = 2,          # point size
                       pch = 21,                # point symbol (fillable)
                       col_brd = grey(.25, 1),  # point border color
-                      ref_lines = TRUE,        # Draw a vertical reference line from each point to the base plane.
+                      ref_lines = FALSE,       # Draw a vertical reference line from each point to the floor (RG base plane)? 
                       # Line options (type "l"/"b"):
                       col_line = NA,           # NA: Gradient (color line by local mix); else a fixed color
                       lwd_line = 3,            # line thickness (connecting lines); raise for more visible lines
@@ -478,10 +478,10 @@ plot_cube <- function(x,                       # vector of colors to plot
                       shadows = "none",        # project points onto cube faces: "floor", "back", "side", "all", or "none"
                       col_shadow = grey(.70, .9), # shadow marker color (NA: Use each point's projected color)
                       # Cube options:
-                      show_corners = TRUE,     # Mark the 8 cube corners (in their own colors).
+                      show_corners = TRUE,     # Mark the 8 cube corners (in their own colors)? 
                       col_cube = grey(.50, 1), # color of cube edges/axes
                       # Grid options: 
-                      grid = FALSE,            # Convenience switch: Enable a default grid_faces + grid_inner combination.
+                      grid = FALSE,            # Convenience switch: Enable a default grid_faces + grid_inner combination? 
                       grid_faces = FALSE,      # grid lines ON the cube's FACES: FALSE, "base" (3 near faces), or "all" (6 faces)
                       grid_inner = FALSE,      # grid lines ACROSS the cube's volume (interior): TRUE / FALSE
                       grid_at = 2,             # Grid positioning: A sub-section count (2, 3, 4, ...), "ticks", or a numeric vector of positions
