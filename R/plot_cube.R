@@ -1,5 +1,5 @@
 ## plot_cube.R | unikn
-## spds | uni.kn | 2026 11 19
+## spds | uni.kn | 2026 11 25
 ## --------------------------
 
 ## Plot R colors as points in a 3D RGB color cube.
@@ -64,7 +64,9 @@
 #'   \item \code{"l"}: Connect colors by \strong{lines} (a path through RGB space);
 #'   \item \code{"b"}: Draw \strong{both} points and lines;
 #'   \item \code{"plane"}: Span a \strong{plane} (filled polygon) through the colors
-#'   (requires 3 or more colors; 3 colors yield a triangle).
+#'   (requires 3 or more colors; 3 colors yield a triangle);
+#'   \item \code{"box"}: Plot colors as 3D \strong{boxes} (one box per color),
+#'   centered on each color's RGB coordinate (see \code{n_boxes} for size).
 #'   }
 #' By default, connecting lines and plane fills are shown as color \emph{gradients}
 #' (i.e., each location is shown in the color of the corresponding RGB mixture),
@@ -86,8 +88,39 @@
 #' Default: \code{pch = 21} (a fillable circle).
 #'
 #' @param col_brd Border color of points
-#' (only used for fillable symbols, i.e., \code{pch} in \code{21:25}).
+#' (for fillable symbols, i.e., \code{pch} in \code{21:25})
+#' and of box edges (for \code{type = "box"}).
 #' Default: \code{col_brd = grey(.25, 1)} (dark grey).
+#' For \code{type = "box"}, if \code{col_brd} is \emph{not} specified, each box's
+#' edge grey is chosen automatically to \emph{contrast} with its own color
+#' (dark colors get a light grey edge, bright colors a dark grey edge);
+#' specifying \code{col_brd} uses that one color for all box edges.
+#'
+#' @param n_boxes Number of boxes per axis (for \code{type = "box"}):
+#' Each box has a side length of \code{255 / n_boxes} (in RGB units),
+#' so larger values yield smaller boxes (that overlap less often).
+#' Default: \code{n_boxes = 20} (i.e., box side \code{= 12.75}).
+#'
+#' Note: Boxes are \emph{axis-aligned} (their edges run parallel to the RGB axes). 
+#' Under the default \emph{perspective} projection of \code{\link{persp}}
+#' (\code{d = 1}), however, parallel 3D lines converge toward vanishing points, so a
+#' given axis direction projects to a slightly different 2D angle at different
+#' locations within the cube. As a result, boxes in the \emph{interior} may appear
+#' \emph{rotated} relative to the enclosing cube's outer edges (a projection effect). 
+#' To reduce it, pass a larger \code{d} (e.g., \code{d = 8}, via \code{...}) 
+#' for a (near-)\emph{orthographic} view, in which
+#' each box's edges run parallel to the enclosing cube (see \code{d} in \code{\link{persp}}).
+#'
+#' @param shade Boolean: Shade the faces of each box (for \code{type = "box"})
+#' to enhance the 3D effect? When \code{shade = TRUE}, the most \emph{viewer-facing}
+#' face (i.e., the one actually seen) shows the color's \emph{true} RGB value, while
+#' faces turned away from the viewer are only \emph{gently} darkened (to at most ~15\%),
+#' so a box's visible color stays faithful while gaining some depth. (The shading is
+#' thus based on the \emph{viewing direction}, not a fixed "top" face, so it works at
+#' any \code{theta}/\code{phi}.) The default \code{shade = FALSE} draws \emph{every}
+#' face in the true color, relying on the box's edges (\code{col_brd}) to convey its
+#' 3D shape.
+#' Default: \code{shade = FALSE}.
 #'
 #' @param ref_lines Boolean: Draw a vertical reference line
 #' from each point down to the floor (R-by-G base plane) of the cube
@@ -278,7 +311,11 @@
 #' Default: \code{col_cube = grey(.50, 1)}.
 #'
 #' @param ... Other (graphical) parameters passed to \code{\link{persp}}
-#' (e.g., \code{d}, \code{expand}, \code{shade}).
+#' (e.g., \code{d}, \code{expand}).
+#' In particular, \code{d} controls the strength of the perspective projection:
+#' the default (\code{d = 1}) shows clear perspective, whereas larger values
+#' (e.g., \code{d = 8}) approach an \emph{orthographic} view (relevant for
+#' \code{type = "box"}; see \code{n_boxes}).
 #'
 #' @return A projection matrix (of class returned by \code{\link{persp}})
 #' that maps 3D coordinates to the 2D plotting plane (returned invisibly).
@@ -330,6 +367,13 @@
 #' plot_cube(c("cyan", "yellow", "magenta"),             # gamut of 3 opposite RGB colors
 #'              type = "plane", labels = c("names", "rgb"))
 #'
+#' # Colors as 3D boxes (type = "box"): Box faces show each color's RGB value
+#' plot_cube(c("red", "green", "blue"), type = "box")    # primaries as boxes
+#' plot_cube(pal_unikn, type = "box", labels = "names")  # a palette as boxes
+#' plot_cube(pal_unikn, type = "box", n_boxes = 10)      # fewer, larger boxes
+#' plot_cube(pal_unikn, type = "box", shade = TRUE)      # shaded faces (subtle 3D effect)
+#' plot_cube(pal_unikn, type = "box", d = 8)             # near-orthographic (edges parallel)
+#' 
 #' # Grouped colors: Passing a list combines colors (by group size):
 #' # Each c() group becomes a point (1 color), line (2), or plane (3+):
 #' plot_cube(list(Seeblau, c(Pinky, Seegruen),          # 1 point, 1 line, and 
@@ -458,13 +502,16 @@
 
 plot_cube <- function(x,                       # vector of colors to plot
                       # What to draw:
-                      type = "p",              # "p" (points), "l" (lines), "b" (both), or "plane"
+                      type = "p",              # "p" (points), "l" (lines), "b" (both), "plane", or "box" (3D cubes)
                       # Point options:
                       col_points = NA,         # NA: Use each point's own color
                       cex_points = 2,          # point size
                       pch = 21,                # point symbol (fillable)
-                      col_brd = grey(.25, 1),  # point border color
-                      ref_lines = FALSE,       # Draw a vertical reference line from each point to the floor (RG base plane)? 
+                      col_brd = grey(.25, 1),  # point (and box-edge) border color
+                      # Box options (type "box"):
+                      n_boxes = 20,            # number of boxes per axis: Box side = 255 / n_boxes
+                      shade = FALSE,           # shade cube faces for a 3D effect? FALSE: Flat (true point color on every face)
+                      ref_lines = FALSE,       # Draw a vertical reference line from each point to the floor (RG base plane)?
                       # Line options (type "l"/"b"):
                       col_line = NA,           # NA: Gradient (color line by local mix); else a fixed color
                       lwd_line = 3,            # line thickness (connecting lines); raise for more visible lines
@@ -502,34 +549,34 @@ plot_cube <- function(x,                       # vector of colors to plot
 ) {
   
   ## (0) Handle and verify inputs: ------
-
+  
   # Detect GROUPED input: A plain list of color groups (but NOT a data frame
   # palette, like pal_unikn, which is list-like but denotes 1 flat palette):
   grouped <- is.list(x) && !is.data.frame(x)
-
+  
   if (grouped) {  # x is a list of groups: Flatten each group (dropping NA / empty groups):
-
+    
     groups <- lapply(x, function(g) { g <- unlist(g, use.names = TRUE); g[!is.na(g)] })
     groups <- groups[vapply(groups, length, integer(1)) > 0]  # drop empty groups
-
+    
     cols <- unlist(groups, use.names = TRUE)                   # all colors (in group order)
-
+    
     # Note a conflicting (explicit) 'type' (ignored in grouped mode):
     if (!missing(type) && tolower(type) != "p") {
       message("plot_cube: 'x' is a list of groups; ignoring 'type' (geometry follows group size).")
     }
-
+    
   } else {  # x is a (flat) vector or data frame palette:
-
+    
     cols <- unlist(x, use.names = TRUE)
     cols <- cols[!is.na(cols)]
-
+    
   }
-
+  
   if (length(cols) < 1) {
-
+    
     stop("plot_cube: 'x' must contain at least 1 (non-NA) color.")
-
+    
   }
   
   # Verify that all inputs are valid colors:
@@ -902,8 +949,9 @@ plot_cube <- function(x,                       # vector of colors to plot
   if (type %in% c("both"))                                     { type <- "b" }
   if (type %in% c("poly", "polygon", "plane", "fill", "tri", "triangle")) { type <- "plane" }
   if (type %in% c("point", "points"))                          { type <- "p" }
+  if (type %in% c("box", "boxes", "voxel", "voxels"))          { type <- "box" }  # 3D cubes (note: NOT "cube", to avoid clash with seecol(cube=))
   
-  if (!type %in% c("p", "l", "b", "plane")) {
+  if (!type %in% c("p", "l", "b", "plane", "box")) {
     
     message("plot_cube: Invalid 'type'; using type = \"p\" (points).")
     type <- "p"
@@ -911,17 +959,17 @@ plot_cube <- function(x,                       # vector of colors to plot
   }
   
   P <- cbind(R, G, B)  # n x 3 matrix of point coordinates (in RGB space)
-
+  
   # For grouped input: Map each group to its row indices in P (in group order):
   if (grouped) {
-
+    
     grp_len   <- vapply(groups, length, integer(1))
     grp_end   <- cumsum(grp_len)
     grp_start <- grp_end - grp_len + 1L
     group_idx <- Map(function(s, e) s:e, grp_start, grp_end)  # list of index vectors into P
-
+    
   }
-
+  
   # Helper: RGB coordinate -> color string (clamped to [0, 255]; optional alpha in [0, 1]):
   coord_col <- function(r, g, b, alpha = NA) {
     
@@ -951,40 +999,40 @@ plot_cube <- function(x,                       # vector of colors to plot
       }
       
     } else {  # solid line color:
-
+      
       graphics::lines(tr(c(p1[1], p2[1]), c(p1[2], p2[2]), c(p1[3], p2[3])),
                       col = col_line[1], lwd = lwd, lend = 1)
     }
   }
-
+  
   # Helper: Draw a (gradient or solid) plane/polygon through the points in matrix 'Pg'
   # (>= 3 rows; triangulated as a single triangle for 3 points, else a fan from point 1):
   draw_plane <- function(Pg) {
-
+    
     ng   <- nrow(Pg)
     tris <- if (ng == 3) list(c(1, 2, 3)) else lapply(2:(ng - 1), function(i) c(1, i, i + 1))
-
+    
     # Barycentric position of weights (i/m, j/m) in a triangle A-B-C:
     bary <- function(A, B, C, i, j, m) {
       wb <- i / m; wc <- j / m; wa <- 1 - wb - wc
       wa * A + wb * B + wc * C
     }
-
+    
     # Fill 1 sub-triangle with the color at its centroid:
     fill_tri <- function(v1, v2, v3) {
       cen <- (v1 + v2 + v3) / 3
       graphics::polygon(tr(c(v1[1], v2[1], v3[1]), c(v1[2], v2[2], v3[2]), c(v1[3], v2[3], v3[3])),
                         col = coord_col(cen[1], cen[2], cen[3], alpha = fill_alpha), border = NA)
     }
-
+    
     m <- max(1, round(fill_res))  # tessellation resolution
-
+    
     for (tri in tris) {
       # Triangle corners (named pa/pb/pc to avoid clobbering the R/G/B channels):
       pa <- Pg[tri[1], ]; pb <- Pg[tri[2], ]; pc <- Pg[tri[3], ]
-
+      
       if (is.na(col_fill[1])) {  # gradient fill (via barycentric tessellation):
-
+        
         for (i in 0:(m - 1)) {
           for (j in 0:(m - 1 - i)) {
             fill_tri(bary(pa, pb, pc, i, j, m), bary(pa, pb, pc, i + 1, j, m), bary(pa, pb, pc, i, j + 1, m))
@@ -993,14 +1041,14 @@ plot_cube <- function(x,                       # vector of colors to plot
             }
           }
         }
-
+        
       } else {  # solid fill color:
-
+        
         graphics::polygon(tr(c(pa[1], pb[1], pc[1]), c(pa[2], pb[2], pc[2]), c(pa[3], pb[3], pc[3])),
                           col = grDevices::adjustcolor(col_fill[1], alpha.f = fill_alpha), border = NA)
       }
     }
-
+    
     # Draw the plane outline: Only the outer edges (1 -> 2 -> ... -> ng -> 1), not the
     # inner diagonals of the fan; as gradient (or solid col_line) lines of width lwd_outline:
     if (!is.na(lwd_outline) && lwd_outline > 0) {
@@ -1008,44 +1056,44 @@ plot_cube <- function(x,                       # vector of colors to plot
         draw_line(Pg[k, ], Pg[(k %% ng) + 1, ], lwd = lwd_outline)
       }
     }
-
+    
   } # draw_plane().
-
-
+  
+  
   ## (5*) Grouped input: Draw each group by its size (point / line / plane): ------
-
+  
   if (grouped) {
-
+    
     # Order groups back-to-front (by centroid depth) for cleaner overplotting:
     if (length(group_idx) > 1) {
-
+      
       grp_depth <- vapply(group_idx, function(g) {
         cen <- colMeans(P[g, , drop = FALSE])
         depth(cen[1], cen[2], cen[3])
       }, numeric(1))
-
+      
       group_idx <- group_idx[order(grp_depth, decreasing = TRUE)]
-
+      
     }
-
+    
     for (g in group_idx) {
-
+      
       if (length(g) == 2) {              # 2 colors: A line
-
+        
         draw_line(P[g[1], ], P[g[2], ])
-
+        
       } else if (length(g) >= 3) {       # 3+ colors: A plane
-
+        
         draw_plane(P[g, , drop = FALSE])
-
+        
       }
       # (length 1: An unlinked point, drawn in step (6) below.)
-
+      
     }
-
+    
   } # if (grouped)
-
-
+  
+  
   ## (5a) Lines (connect points: All pairs, disjoint pairs, or along a path): ------
   
   # Normalize 'line_connect' (accepting several synonyms):
@@ -1061,7 +1109,7 @@ plot_cube <- function(x,                       # vector of colors to plot
   }
   
   if (!grouped && type %in% c("l", "b") && n >= 2) {
-
+    
     # Enumerate the point-index pairs to connect:
     if (line_connect == "path") {        # consecutive points (a path): n - 1 lines
       
@@ -1100,22 +1148,22 @@ plot_cube <- function(x,                       # vector of colors to plot
   ## (5b) Plane / polygon (span the points): ------
   
   if (!grouped && type == "plane") {
-
+    
     if (n < 3) {  # a plane needs >= 3 points:
-
+      
       message("plot_cube: type = \"plane\" needs >= 3 colors; drawing a line instead.")
       if (n == 2) { draw_line(P[1, ], P[2, ]) }
-
+      
     } else {
-
+      
       if (n > 3) {
         message("plot_cube: >3 colors connected as a filled polygon (may be non-planar).")
       }
-
+      
       draw_plane(P[1:n, , drop = FALSE])  # span 1 plane through all n points
-
+      
     } # if (n ...)
-
+    
   } # if (type == "plane")
   
   
@@ -1158,13 +1206,14 @@ plot_cube <- function(x,                       # vector of colors to plot
   } # if (length(sh) ...)
   
   
-  ## (6) Add colors as points (sorted back-to-front for correct overplotting): ------
+  ## (6) Add colors as points or boxes (sorted back-to-front for correct overplotting): ------
   
-  draw_pts <- if (grouped) TRUE else (type != "l")  # grouped: always show defining points; else draw for "p"/"b"/"plane" (not lines-only)
+  draw_boxes <- (!grouped && type == "box")                             # draw 3D boxes instead of points
+  draw_pts   <- if (grouped) TRUE else (type %in% c("p", "b", "plane")) # points for p/b/plane (not "l", not "box")
   ord <- order(depth(R, G, B), decreasing = TRUE)  # far points first
   
   # Optional reference lines (from each point down to the base plane z = 0):
-  if (ref_lines && draw_pts) {
+  if (ref_lines && (draw_pts || draw_boxes)) {
     
     for (i in ord) {
       
@@ -1175,7 +1224,84 @@ plot_cube <- function(x,                       # vector of colors to plot
     
   }
   
-  # The points themselves:
+  # (6a) Boxes: Draw each color as a 3D box (side = 255 / n_boxes): ------
+  if (draw_boxes) {
+    
+    s_box <- 255 / max(1, n_boxes)   # box side (in RGB units)
+    hs    <- s_box / 2               # half-side
+    
+    # Box-edge color: If 'col_brd' was not set, auto-pick a grey that CONTRASTS with
+    # each box's own color (dark colors get a light grey edge, bright colors a dark grey):
+    auto_brd <- missing(col_brd)
+    
+    edge_col <- function(bcol) {
+      if (!auto_brd) { return(col_brd) }                       # honor an explicit col_brd
+      lum <- sum(c(0.299, 0.587, 0.114) * grDevices::col2rgb(bcol)[, 1])  # luminance (0..255)
+      g   <- 0.5 + 5.0 * (0.5 - lum / 255)                     # steep: dark box -> toward white, bright box -> toward black (near-binary at mid-luminance)
+      grDevices::grey(min(1, max(0, g)), 1)                    # (clamped to [0, 1])
+    }
+    
+    # (Shading, if enabled, is view-based: see draw_box() below.)
+    
+    # The 6 box faces: outward normal 'n' + 4 corner sign-triples (in loop order):
+    face_defs <- list(
+      list(n = c( 0,  0,  1), v = list(c(-1,-1, 1), c( 1,-1, 1), c( 1, 1, 1), c(-1, 1, 1))),  # +B (top)
+      list(n = c( 0,  0, -1), v = list(c(-1,-1,-1), c(-1, 1,-1), c( 1, 1,-1), c( 1,-1,-1))),  # -B (bottom)
+      list(n = c( 1,  0,  0), v = list(c( 1,-1,-1), c( 1, 1,-1), c( 1, 1, 1), c( 1,-1, 1))),  # +R
+      list(n = c(-1,  0,  0), v = list(c(-1,-1,-1), c(-1,-1, 1), c(-1, 1, 1), c(-1, 1,-1))),  # -R
+      list(n = c( 0,  1,  0), v = list(c(-1, 1,-1), c(-1, 1, 1), c( 1, 1, 1), c( 1, 1,-1))),  # +G
+      list(n = c( 0, -1,  0), v = list(c(-1,-1,-1), c( 1,-1,-1), c( 1,-1, 1), c(-1,-1, 1)))   # -G
+    )
+    
+    # Scale a color's RGB brightness by factor f (keeping its alpha):
+    shade_col <- function(col, f) {
+      cc <- grDevices::col2rgb(col, alpha = TRUE)
+      grDevices::rgb(cc[1] * f, cc[2] * f, cc[3] * f, cc[4], maxColorValue = 255)
+    }
+    
+    # Draw 1 box (centered at cen = c(R, G, B), in base color 'bcol'):
+    draw_box <- function(cen, bcol) {
+      
+      cen_d <- depth(cen[1], cen[2], cen[3])  # depth of the box centre (larger = nearer)
+      
+      # Per face: projected 2D polygon, centroid depth, and how much it faces the viewer:
+      polys <- lapply(face_defs, function(fd) {
+        vc  <- do.call(rbind, lapply(fd$v, function(sgn) cen + hs * sgn))  # 4 x 3 corners
+        cn  <- colMeans(vc)
+        fdp <- depth(cn[1], cn[2], cn[3])
+        list(xy = tr(vc[, 1], vc[, 2], vc[, 3]), d = fdp, vis = fdp - cen_d)  # vis > 0: face nearer than centre (faces viewer); note: larger depth = nearer
+      })
+      
+      # Face colors. Flat (default): true color on every face. shade = TRUE: the most
+      # VIEWER-FACING face (the one actually seen) keeps the true color; faces turned away
+      # are only gently darker (floor 0.85), so the visible color stays faithful:
+      if (shade) {
+        max_vis <- max(vapply(polys, function(p) p$vis, numeric(1)))
+        if (max_vis <= 0) { max_vis <- 1 }  # safety (degenerate view)
+        for (k in seq_along(polys)) {
+          polys[[k]]$col <- shade_col(bcol, 0.85 + 0.15 * (max(0, polys[[k]]$vis) / max_vis))
+        }
+      } else {
+        for (k in seq_along(polys)) { polys[[k]]$col <- bcol }
+      }
+      
+      brd <- edge_col(bcol)  # per-box edge color (auto-contrast grey, or explicit col_brd)
+      
+      # Draw faces back-to-front (painter's algorithm). Here LARGER depth = NEARER,
+      # so we draw in increasing depth (farthest faces first, nearest last on top):
+      polys <- polys[order(vapply(polys, function(p) p$d, numeric(1)), decreasing = FALSE)]
+      for (p in polys) {
+        graphics::polygon(p$xy$x, p$xy$y, col = p$col, border = brd, lwd = 0.5)
+      }
+      
+    }
+    
+    # Draw boxes farthest-first (ord is nearest-first, so reverse it) for correct overlap:
+    for (i in rev(ord)) { draw_box(c(R[i], G[i], B[i]), pt_cols[i]) }
+    
+  }
+  
+  # (6b) Points: The points themselves:
   pts <- tr(R, G, B)
   
   if (draw_pts) {
@@ -1195,11 +1321,12 @@ plot_cube <- function(x,                       # vector of colors to plot
     
   }
   
-  # Optional point labels (slightly above each point):
+  # Optional point labels (slightly above each point / box):
   if (!is.null(pt_lbls)) {
     
+    lbl_off <- if (draw_boxes) 1.2 else .70  # lift labels clear of the cube
     graphics::text(pts$x, pts$y, labels = pt_lbls,
-                   pos = 3, offset = .70, cex = cex_lbl, col = grey(.10, 1))
+                   pos = 3, offset = lbl_off, cex = cex_lbl, col = grey(.10, 1))
     
   }
   
@@ -1263,6 +1390,8 @@ plot_cube <- function(x,                       # vector of colors to plot
 # - Grouped: Pass x as a list of groups to control WHICH colors link: Each group
 #            is drawn by size (1 = point, 2 = line, 3+ = plane); defining points shown.
 # - Shadows: Project points onto cube faces (shadows = "floor"/"back"/"side"/"all").
+# - Boxes: Plot colors as 3D boxes (type = "box"); box side = 255 / n_boxes.
+#          Faces show the true color (flat) by default; shade = TRUE adds a 3D light effect.
 
 
 # - Plane outline: Drawn along the outer edges only (no inner fan diagonals), as gradient
@@ -1271,7 +1400,7 @@ plot_cube <- function(x,                       # vector of colors to plot
 
 ## ToDo next: ------
 
-# - none
+# (none)
 
 
 ## ToDo in future: ------
