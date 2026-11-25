@@ -1,5 +1,5 @@
 
-# unikn 1.1.0.9003
+# unikn 1.1.0.9004
 
 <!-- This release of **unikn** (v1.x.0) adds functionality and fixes some bugs. [2026-11-xx] --> 
 
@@ -22,9 +22,10 @@ Changes since last release:
 ## Minor changes 
 
 - Extend `plot_cube()` function: 
-    - Accept a _list_ of color groups (via `x`): Each group is drawn as a point (1 color), line (2 colors), or plane (3+ colors), for direct control over which colors are linked. 
-    - Revise plane outlines: Draw only the outer edges of a plane (no longer the inner diagonals of polygons with 4+ colors), as thin color gradients (or in a solid `col_line`), with a new `lwd_outline` argument (default: 1; 0: no outline), so that `lwd_line` only affects connecting lines. 
-
+   - Accept a _list_ of color groups (via `x`): Each group is drawn as a point (1 color), line (2 colors), or plane (3+ colors), for direct control over which colors are linked. 
+   - Add a `type = "box"` option to plot colors as 3D boxes in RGB space, sized via `n_boxes` (cube side = 255 / `n_boxes`). Faces show each color's true value by default; `shade = TRUE` adds a subtle 3D effect (keeping the visible face's color faithful). 
+   - Revise plane outlines: Draw only the outer edges of a plane (no longer the inner diagonals of polygons with 4+ colors), as thin color gradients (or in a solid `col_line`), with a new `lwd_outline` argument (default: 1; 0: no outline), so that `lwd_line` only affects connecting lines.
+    
 - Extend `demopal()` function: 
    - Add a `"shapes"` plot type, support for several types at once (a vector, or `type = "all"`, arranged in a grid), passing a palette by its name (as a string), a `seed` argument (for reproducible random types), and returning the plotted data invisibly. 
    - Revise `plot_shapes()`: Arrange colors as auto-sized shapes on a near-square grid, choose the shape symbol (`pch`) and border color (`col_par`), set the color order (`order`: `"keep"`/`"shuffle"`/`"rev"`/custom), and label colors by names, HEX, or RGB values (`labels`), placed below or in each shape (`label_pos`). 
@@ -441,6 +442,6 @@ Changes in existing functionality:
 
 ---------- 
 
-[File `NEWS.md` updated on 2026-11-16.]
+[File `NEWS.md` updated on 2026-11-25.]
 
 <!-- eof. -->

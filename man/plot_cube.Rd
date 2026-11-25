@@ -11,6 +11,8 @@ plot_cube(
   cex_points = 2,
   pch = 21,
   col_brd = grey(0.25, 1),
+  n_boxes = 20,
+  shade = FALSE,
   ref_lines = FALSE,
   col_line = NA,
   lwd_line = 3,
@@ -73,7 +75,9 @@ use a (flat) vector \code{x} with \code{type = "l"}/\code{"b"} instead.}
   \item \code{"l"}: Connect colors by \strong{lines} (a path through RGB space);
   \item \code{"b"}: Draw \strong{both} points and lines;
   \item \code{"plane"}: Span a \strong{plane} (filled polygon) through the colors
-  (requires 3 or more colors; 3 colors yield a triangle).
+  (requires 3 or more colors; 3 colors yield a triangle);
+  \item \code{"box"}: Plot colors as 3D \strong{boxes} (one box per color),
+  centered on each color's RGB coordinate (see \code{n_boxes} for size).
   }
 By default, connecting lines and plane fills are shown as color \emph{gradients}
 (i.e., each location is shown in the color of the corresponding RGB mixture),
@@ -95,8 +99,39 @@ Default: \code{cex_points = 2}.}
 Default: \code{pch = 21} (a fillable circle).}
 
 \item{col_brd}{Border color of points
-(only used for fillable symbols, i.e., \code{pch} in \code{21:25}).
-Default: \code{col_brd = grey(.25, 1)} (dark grey).}
+(for fillable symbols, i.e., \code{pch} in \code{21:25})
+and of box edges (for \code{type = "box"}).
+Default: \code{col_brd = grey(.25, 1)} (dark grey).
+For \code{type = "box"}, if \code{col_brd} is \emph{not} specified, each box's
+edge grey is chosen automatically to \emph{contrast} with its own color
+(dark colors get a light grey edge, bright colors a dark grey edge);
+specifying \code{col_brd} uses that one color for all box edges.}
+
+\item{n_boxes}{Number of boxes per axis (for \code{type = "box"}):
+Each box has a side length of \code{255 / n_boxes} (in RGB units),
+so larger values yield smaller boxes (that overlap less often).
+Default: \code{n_boxes = 20} (i.e., box side \code{= 12.75}).
+
+Note: Boxes are \emph{axis-aligned} (their edges run parallel to the RGB axes). 
+Under the default \emph{perspective} projection of \code{\link{persp}}
+(\code{d = 1}), however, parallel 3D lines converge toward vanishing points, so a
+given axis direction projects to a slightly different 2D angle at different
+locations within the cube. As a result, boxes in the \emph{interior} may appear
+\emph{rotated} relative to the enclosing cube's outer edges (a projection effect). 
+To reduce it, pass a larger \code{d} (e.g., \code{d = 8}, via \code{...}) 
+for a (near-)\emph{orthographic} view, in which
+each box's edges run parallel to the enclosing cube (see \code{d} in \code{\link{persp}}).}
+
+\item{shade}{Boolean: Shade the faces of each box (for \code{type = "box"})
+to enhance the 3D effect? When \code{shade = TRUE}, the most \emph{viewer-facing}
+face (i.e., the one actually seen) shows the color's \emph{true} RGB value, while
+faces turned away from the viewer are only \emph{gently} darkened (to at most ~15\%),
+so a box's visible color stays faithful while gaining some depth. (The shading is
+thus based on the \emph{viewing direction}, not a fixed "top" face, so it works at
+any \code{theta}/\code{phi}.) The default \code{shade = FALSE} draws \emph{every}
+face in the true color, relying on the box's edges (\code{col_brd}) to convey its
+3D shape.
+Default: \code{shade = FALSE}.}
 
 \item{ref_lines}{Boolean: Draw a vertical reference line
 from each point down to the floor (R-by-G base plane) of the cube
@@ -287,7 +322,11 @@ Default: \code{main = "Colors in 3D RGB space"}.}
 Default: \code{cex_lbl = .85}.}
 
 \item{...}{Other (graphical) parameters passed to \code{\link{persp}}
-(e.g., \code{d}, \code{expand}, \code{shade}).}
+(e.g., \code{d}, \code{expand}).
+In particular, \code{d} controls the strength of the perspective projection:
+the default (\code{d = 1}) shows clear perspective, whereas larger values
+(e.g., \code{d = 8}) approach an \emph{orthographic} view (relevant for
+\code{type = "box"}; see \code{n_boxes}).}
 }
 \value{
 A projection matrix (of class returned by \code{\link{persp}})
@@ -358,6 +397,13 @@ plot_cube(c("red", "cyan", "green", "magenta", "blue", "yellow"), type = "b",
 plot_cube(c("red", "green", "blue"), type = "plane")  # gamut of 3 primary RGB colors
 plot_cube(c("cyan", "yellow", "magenta"),             # gamut of 3 opposite RGB colors
              type = "plane", labels = c("names", "rgb"))
+
+# Colors as 3D boxes (type = "box"): Box faces show each color's RGB value
+plot_cube(c("red", "green", "blue"), type = "box")    # primaries as boxes
+plot_cube(pal_unikn, type = "box", labels = "names")  # a palette as boxes
+plot_cube(pal_unikn, type = "box", n_boxes = 10)      # fewer, larger boxes
+plot_cube(pal_unikn, type = "box", shade = TRUE)      # shaded faces (subtle 3D effect)
+plot_cube(pal_unikn, type = "box", d = 8)             # near-orthographic (edges parallel)
 
 # Grouped colors: Passing a list combines colors (by group size):
 # Each c() group becomes a point (1 color), line (2), or plane (3+):
