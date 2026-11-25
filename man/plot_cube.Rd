@@ -399,16 +399,16 @@ plot_cube(c("cyan", "yellow", "magenta"),             # gamut of 3 opposite RGB 
              type = "plane", labels = c("names", "rgb"))
 
 # Colors as 3D boxes (type = "box"): Box faces show each color's RGB value
-plot_cube(c("red", "green", "blue"), type = "box")    # primaries as boxes
-plot_cube(pal_unikn, type = "box", labels = "names")  # a palette as boxes
+plot_cube(c("cyan3", "gold", "grey80", "grey20", "skyblue", "tomato"), type = "box") # point boxes
+plot_cube(pal_unikn, type = "box", grid = TRUE)       # a palette as boxes
 # plot_cube(pal_unikn, type = "box", n_boxes = 10)    # fewer, larger boxes
 # plot_cube(pal_unikn, type = "box", shade = TRUE)    # shaded faces (subtle 3D effect)
-# plot_cube(pal_unikn, type = "box", d = 8)           # near-orthographic (edges parallel)
+# plot_cube(pal_unikn, type = "box", d = 10)          # near-orthographic (edges parallel)
 
 # Grouped colors: Passing a list combines colors (by group size):
 # Each c() group becomes a point (1 color), line (2), or plane (3+):
-plot_cube(list(Seeblau, c(Pinky, Seegruen),          # 1 point, 1 line, and 
-               c("red", "green", "blue")))           # 1 plane
+plot_cube(list(Seeblau, c(Pinky, Seegruen),   # 1 point, 1 line, and 
+               c("red", "green", "blue")))    # 1 plane
 
 # A lone point, a line, and a plane (with the defining points marked):
 plot_cube(list("gold",                                # unlinked point
