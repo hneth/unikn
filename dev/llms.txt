@@ -1,4 +1,4 @@
-# unikn 1.1.0.9003
+# unikn 1.1.0.9004
 
 ## Enabling corporate design elements in R
 
@@ -772,7 +772,7 @@ remain with their original creators:
 
 ------------------------------------------------------------------------
 
-\[File `README.md` updated on 2026-11-16.\]
+\[File `README.md` updated on 2026-11-25.\]
 
 # Package index
 

@@ -14,6 +14,8 @@ plot_cube(
   cex_points = 2,
   pch = 21,
   col_brd = grey(0.25, 1),
+  n_boxes = 20,
+  shade = FALSE,
   ref_lines = FALSE,
   col_line = NA,
   lwd_line = 3,
@@ -87,7 +89,10 @@ plot_cube(
   - `"b"`: Draw **both** points and lines;
 
   - `"plane"`: Span a **plane** (filled polygon) through the colors
-    (requires 3 or more colors; 3 colors yield a triangle).
+    (requires 3 or more colors; 3 colors yield a triangle);
+
+  - `"box"`: Plot colors as 3D **boxes** (one box per color), centered
+    on each color's RGB coordinate (see `n_boxes` for size).
 
   By default, connecting lines and plane fills are shown as color
   *gradients* (i.e., each location is shown in the color of the
@@ -115,8 +120,45 @@ plot_cube(
 
 - col_brd:
 
-  Border color of points (only used for fillable symbols, i.e., `pch` in
-  `21:25`). Default: `col_brd = grey(.25, 1)` (dark grey).
+  Border color of points (for fillable symbols, i.e., `pch` in `21:25`)
+  and of box edges (for `type = "box"`). Default:
+  `col_brd = grey(.25, 1)` (dark grey). For `type = "box"`, if `col_brd`
+  is *not* specified, each box's edge grey is chosen automatically to
+  *contrast* with its own color (dark colors get a light grey edge,
+  bright colors a dark grey edge); specifying `col_brd` uses that one
+  color for all box edges.
+
+- n_boxes:
+
+  Number of boxes per axis (for `type = "box"`): Each box has a side
+  length of `255 / n_boxes` (in RGB units), so larger values yield
+  smaller boxes (that overlap less often). Default: `n_boxes = 20`
+  (i.e., box side `= 12.75`).
+
+  Note: Boxes are *axis-aligned* (their edges run parallel to the RGB
+  axes). Under the default *perspective* projection of
+  [`persp`](https://rdrr.io/r/graphics/persp.html) (`d = 1`), however,
+  parallel 3D lines converge toward vanishing points, so a given axis
+  direction projects to a slightly different 2D angle at different
+  locations within the cube. As a result, boxes in the *interior* may
+  appear *rotated* relative to the enclosing cube's outer edges (a
+  projection effect). To reduce it, pass a larger `d` (e.g., `d = 8`,
+  via `...`) for a (near-)*orthographic* view, in which each box's edges
+  run parallel to the enclosing cube (see `d` in
+  [`persp`](https://rdrr.io/r/graphics/persp.html)).
+
+- shade:
+
+  Boolean: Shade the faces of each box (for `type = "box"`) to enhance
+  the 3D effect? When `shade = TRUE`, the most *viewer-facing* face
+  (i.e., the one actually seen) shows the color's *true* RGB value,
+  while faces turned away from the viewer are only *gently* darkened (to
+  at most ~15%), so a box's visible color stays faithful while gaining
+  some depth. (The shading is thus based on the *viewing direction*, not
+  a fixed "top" face, so it works at any `theta`/`phi`.) The default
+  `shade = FALSE` draws *every* face in the true color, relying on the
+  box's edges (`col_brd`) to convey its 3D shape. Default:
+  `shade = FALSE`.
 
 - ref_lines:
 
@@ -364,8 +406,11 @@ plot_cube(
 - ...:
 
   Other (graphical) parameters passed to
-  [`persp`](https://rdrr.io/r/graphics/persp.html) (e.g., `d`, `expand`,
-  `shade`).
+  [`persp`](https://rdrr.io/r/graphics/persp.html) (e.g., `d`,
+  `expand`). In particular, `d` controls the strength of the perspective
+  projection: the default (`d = 1`) shows clear perspective, whereas
+  larger values (e.g., `d = 8`) approach an *orthographic* view
+  (relevant for `type = "box"`; see `n_boxes`).
 
 ## Value
 
@@ -476,6 +521,18 @@ plot_cube(c("red", "green", "blue"), type = "plane")  # gamut of 3 primary RGB c
 
 plot_cube(c("cyan", "yellow", "magenta"),             # gamut of 3 opposite RGB colors
              type = "plane", labels = c("names", "rgb"))
+
+
+# Colors as 3D boxes (type = "box"): Box faces show each color's RGB value
+plot_cube(c("red", "green", "blue"), type = "box")    # primaries as boxes
+
+plot_cube(pal_unikn, type = "box", labels = "names")  # a palette as boxes
+
+plot_cube(pal_unikn, type = "box", n_boxes = 10)      # fewer, larger boxes
+
+plot_cube(pal_unikn, type = "box", shade = TRUE)      # shaded faces (subtle 3D effect)
+
+plot_cube(pal_unikn, type = "box", d = 8)             # near-orthographic (edges parallel)
 
 
 # Grouped colors: Passing a list combines colors (by group size):

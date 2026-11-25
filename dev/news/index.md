@@ -1,6 +1,6 @@
 # Changelog
 
-## unikn 1.1.0.9003
+## unikn 1.1.0.9004
 
 This is the development version of **unikn**, available at
 <https://github.com/hneth/unikn/>.
@@ -19,6 +19,10 @@ Changes since last release:
   - Accept a *list* of color groups (via `x`): Each group is drawn as a
     point (1 color), line (2 colors), or plane (3+ colors), for direct
     control over which colors are linked.
+  - Add a `type = "box"` option to plot colors as 3D boxes in RGB space,
+    sized via `n_boxes` (cube side = 255 / `n_boxes`). Faces show each
+    color’s true value by default; `shade = TRUE` adds a subtle 3D
+    effect (keeping the visible face’s color faithful).
   - Revise plane outlines: Draw only the outer edges of a plane (no
     longer the inner diagonals of polygons with 4+ colors), as thin
     color gradients (or in a solid `col_line`), with a new `lwd_outline`
@@ -483,4 +487,4 @@ CRAN release: 2019-06-15
 
 ------------------------------------------------------------------------
 
-\[File `NEWS.md` updated on 2026-11-16.\]
+\[File `NEWS.md` updated on 2026-11-25.\]

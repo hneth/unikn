@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">unikn</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9003</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9004</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,20 +38,21 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.1.0.9003" id="unikn-1109003">unikn 1.1.0.9003<a class="anchor" aria-label="anchor" href="#unikn-1109003"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.1.0.9004" id="unikn-1109004">unikn 1.1.0.9004<a class="anchor" aria-label="anchor" href="#unikn-1109004"></a></h2>
 <!-- This release of **unikn** (v1.x.0) adds functionality and fixes some bugs. [2026-11-xx] -->
 <p>This is the development version of <strong>unikn</strong>, available at <a href="https://github.com/hneth/unikn/" class="external-link uri">https://github.com/hneth/unikn/</a>.</p>
 <!-- Log of changes: -->
 <p>Changes since last release:</p>
 <!-- Major changes: -->
 <div class="section level3">
-<h3 id="major-changes-1-1-0-9003">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-1-1-0-9003"></a></h3>
+<h3 id="major-changes-1-1-0-9004">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-1-1-0-9004"></a></h3>
 <ul><li>none yet</li>
 </ul><!-- Minor changes: --></div>
 <div class="section level3">
-<h3 id="minor-changes-1-1-0-9003">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-1-1-0-9003"></a></h3>
+<h3 id="minor-changes-1-1-0-9004">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-1-1-0-9004"></a></h3>
 <ul><li>Extend <code><a href="../reference/plot_cube.html">plot_cube()</a></code> function:
 <ul><li>Accept a <em>list</em> of color groups (via <code>x</code>): Each group is drawn as a point (1 color), line (2 colors), or plane (3+ colors), for direct control over which colors are linked.</li>
+<li>Add a <code>type = "box"</code> option to plot colors as 3D boxes in RGB space, sized via <code>n_boxes</code> (cube side = 255 / <code>n_boxes</code>). Faces show each color’s true value by default; <code>shade = TRUE</code> adds a subtle 3D effect (keeping the visible face’s color faithful).</li>
 <li>Revise plane outlines: Draw only the outer edges of a plane (no longer the inner diagonals of polygons with 4+ colors), as thin color gradients (or in a solid <code>col_line</code>), with a new <code>lwd_outline</code> argument (default: 1; 0: no outline), so that <code>lwd_line</code> only affects connecting lines.</li>
 </ul></li>
 <li>Extend <code><a href="../reference/demopal.html">demopal()</a></code> function:
@@ -60,7 +61,7 @@
 </ul></li>
 </ul><!-- Details:  --></div>
 <div class="section level3">
-<h3 id="details-1-1-0-9003">Details<a class="anchor" aria-label="anchor" href="#details-1-1-0-9003"></a></h3>
+<h3 id="details-1-1-0-9004">Details<a class="anchor" aria-label="anchor" href="#details-1-1-0-9004"></a></h3>
 <ul><li>Bug fixes to <code><a href="../reference/demopal.html">demopal()</a></code>:
 <ul><li>Bound the number of bar categories (in <code>plot_bar()</code>) so that a large <code>n</code> (e.g., from <code>type = "all"</code>) no longer overwhelms a bar plot</li>
 <li>Truncate an over-long auto-generated <code>pal_name</code> so that it no longer overflows the plot subtitle.</li>
@@ -326,7 +327,7 @@ Show HEX codes on two alternating lines (or with diagonal labels) when length of
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="unikn-010">unikn 0.1.0<a class="anchor" aria-label="anchor" href="#unikn-010"></a></h2><p class="text-muted">CRAN release: 2019-06-15</p>
 <ul><li>Initial release of <strong>unikn</strong> (v0.1.0) on CRAN: <a href="https://CRAN.R-project.org/package=unikn" class="external-link uri">https://CRAN.R-project.org/package=unikn</a>. [2019-06-15]</li>
-</ul><!-- Footer:  --><hr><p>[File <code>NEWS.md</code> updated on 2026-11-16.]</p>
+</ul><!-- Footer:  --><hr><p>[File <code>NEWS.md</code> updated on 2026-11-25.]</p>
 <!-- eof. -->
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
