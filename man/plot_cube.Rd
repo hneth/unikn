@@ -151,15 +151,12 @@ Default: \code{lwd_line = 3}.}
 \item{line_connect}{How to connect 3 or more colors by lines
 (for \code{type = "l"} or \code{"b"}):
   \itemize{
-  
   \item \code{"all"}: Connect \emph{all pairs} of colors
   (i.e., \code{n * (n - 1) / 2} lines, a complete graph);
-  
   \item \code{"pairs"}: Connect only \emph{disjoint consecutive pairs}
   of colors, i.e., (1st, 2nd), (3rd, 4th), etc.
   (yielding \code{floor(n / 2)} lines; if \code{n} is odd, the final
   color remains unpaired, but is still shown as a point);
-  
   \item \code{"path"}: Connect only \emph{consecutive} colors
   (i.e., \code{n - 1} lines, tracing the palette in its given order).
   }

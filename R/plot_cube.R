@@ -146,15 +146,12 @@
 #' @param line_connect How to connect 3 or more colors by lines
 #' (for \code{type = "l"} or \code{"b"}):
 #'   \itemize{
-#'   
 #'   \item \code{"all"}: Connect \emph{all pairs} of colors
 #'   (i.e., \code{n * (n - 1) / 2} lines, a complete graph);
-#'   
 #'   \item \code{"pairs"}: Connect only \emph{disjoint consecutive pairs}
 #'   of colors, i.e., (1st, 2nd), (3rd, 4th), etc.
 #'   (yielding \code{floor(n / 2)} lines; if \code{n} is odd, the final
 #'   color remains unpaired, but is still shown as a point);
-#'   
 #'   \item \code{"path"}: Connect only \emph{consecutive} colors
 #'   (i.e., \code{n - 1} lines, tracing the palette in its given order).
 #'   }
@@ -1254,19 +1251,48 @@ plot_cube <- function(x,                       # vector of colors to plot
     
     hs    <- s_box / 2               # half-side
     
+    # Box line width: Box edge width (internal; not a user argument): 
+    # Use 'lwd_box' if set to a fixed value, else scale to box size via n_boxes: 
+    # Thin (e.g., .50) for many small boxes (n_boxes > 15),
+    # thick (e.g., 1.0) for few large boxes (n_boxes < 5), interpolated linearly in between.
+    # The current range [.50, 1.0] can be adjusted later (e.g., raise the upper bound to
+    # 1.50 for bolder edges) by changing the two "1.0" constants (and the slope) below:
+    
+    lwd_box <- NULL  # set to a numeric value to override the n_boxes-based scaling below
+    
+    if (is.null(lwd_box)) {
+      
+      lwd_box <- max(.50, min(1.0, 1.0 - .05 * (n_boxes - 5)))  # fit lwd_box to n_boxes
+      
+    }
+    
     # Box-edge color: If 'col_brd' was not set, auto-pick a grey that CONTRASTS with
     # each box's own color (dark colors get a light grey edge, bright colors a dark grey):
     auto_brd <- missing(col_brd)
     
     edge_col <- function(bcol) {
       
-      if (!auto_brd) { return(col_brd) }                       # honor an explicit col_brd
+      if (!auto_brd) { return(col_brd) }  # honor an explicit col_brd
       
-      lum <- sum(c(0.299, 0.587, 0.114) * grDevices::col2rgb(bcol)[, 1])  # compute luminance (0..255)
+      lum <- sum(c(.299, .587, .114) * grDevices::col2rgb(bcol)[, 1])  # compute luminance (0...255)
+      rlu <- lum / 255  # relative luminance (0...1)
       
-      grd <- .50 + 5.0 * (.50 - lum / 255) # steep gradient: dark box -> toward white, bright box -> toward black (near-binary at mid-luminance)
+      # Map 'lum' to a CONTRASTING grey, but into a band that skips mid-grey, so that
+      # intermediate (mid-luminance) boxes also get a clearly visible edge:
+      # dark boxes (t < .50) -> a LIGHT edge in [.85, 1]; bright boxes (t >= .50) -> a DARK edge in [0, .15].
+      gap <- .35  # half-width of the skipped mid band (edges avoid the range (.15, .85))
       
-      grDevices::grey(min(1, max(0, grd)), 1) # (clamped to [0, 1])
+      if (rlu < .50) {
+        
+        grd <- (.50 + gap) + (.50 - gap) * (.50 - rlu) / .50  # rlu = 0 -> 1 ; rlu -> .50 -> .85 (light edge)
+        
+      } else {
+        
+        grd <- (.50 - gap) - (.50 - gap) * (rlu - .50) / .50  # rlu = .50 -> .15 ; rlu = 1 -> 0 (dark edge)
+        
+      }
+      
+      grDevices::grey(min(1, max(0, grd)), 1) # (restrict to [0, 1])
       
     }
     
@@ -1277,8 +1303,10 @@ plot_cube <- function(x,                       # vector of colors to plot
       
       list(n = c( 0,  0,  1), v = list(c(-1,-1, 1), c( 1,-1, 1), c( 1, 1, 1), c(-1, 1, 1))),  # +B (top)
       list(n = c( 0,  0, -1), v = list(c(-1,-1,-1), c(-1, 1,-1), c( 1, 1,-1), c( 1,-1,-1))),  # -B (bottom)
+      
       list(n = c( 1,  0,  0), v = list(c( 1,-1,-1), c( 1, 1,-1), c( 1, 1, 1), c( 1,-1, 1))),  # +R
       list(n = c(-1,  0,  0), v = list(c(-1,-1,-1), c(-1,-1, 1), c(-1, 1, 1), c(-1, 1,-1))),  # -R
+      
       list(n = c( 0,  1,  0), v = list(c(-1, 1,-1), c(-1, 1, 1), c( 1, 1, 1), c( 1, 1,-1))),  # +G
       list(n = c( 0, -1,  0), v = list(c(-1,-1,-1), c( 1,-1,-1), c( 1,-1, 1), c(-1,-1, 1)))   # -G
       
@@ -1305,11 +1333,13 @@ plot_cube <- function(x,                       # vector of colors to plot
         cn  <- colMeans(vc)
         fdp <- depth(cn[1], cn[2], cn[3])
         
-        list(xy = tr(vc[, 1], vc[, 2], vc[, 3]), d = fdp, vis = fdp - cen_d)  # vis > 0: face nearer than centre (faces viewer); note: larger depth = nearer
+        list(xy = tr(vc[, 1], vc[, 2], vc[, 3]), 
+             d = fdp, 
+             vis = (fdp - cen_d))  # vis > 0: face nearer than centre (faces viewer); note: larger depth = nearer
         
       })
       
-      # Face colors. Flat (default): true color on every face. shade = TRUE: the most
+      # Face colors: Flat (default): true color on every face. shade = TRUE: the most
       # VIEWER-FACING face (the one actually seen) keeps the true color; faces turned away
       # are only gently darker (floor 0.85), so the visible color stays faithful:
       if (shade) {
@@ -1338,7 +1368,7 @@ plot_cube <- function(x,                       # vector of colors to plot
       
       for (p in polys) {
         
-        graphics::polygon(p$xy$x, p$xy$y, col = p$col, border = brd, lwd = .50)
+        graphics::polygon(p$xy$x, p$xy$y, col = p$col, border = brd, lwd = lwd_box)
         
       }
       
