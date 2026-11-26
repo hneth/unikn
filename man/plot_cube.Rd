@@ -16,7 +16,7 @@ plot_cube(
   ref_lines = FALSE,
   col_line = NA,
   lwd_line = 3,
-  line_connect = "all",
+  line_connect = "path",
   col_fill = NA,
   lwd_outline = 1,
   fill_alpha = 0.75,
@@ -151,18 +151,21 @@ Default: \code{lwd_line = 3}.}
 \item{line_connect}{How to connect 3 or more colors by lines
 (for \code{type = "l"} or \code{"b"}):
   \itemize{
+  
   \item \code{"all"}: Connect \emph{all pairs} of colors
   (i.e., \code{n * (n - 1) / 2} lines, a complete graph);
+  
   \item \code{"pairs"}: Connect only \emph{disjoint consecutive pairs}
   of colors, i.e., (1st, 2nd), (3rd, 4th), etc.
   (yielding \code{floor(n / 2)} lines; if \code{n} is odd, the final
   color remains unpaired, but is still shown as a point);
+  
   \item \code{"path"}: Connect only \emph{consecutive} colors
   (i.e., \code{n - 1} lines, tracing the palette in its given order).
   }
 For 2 colors, all 3 options yield the same single line.
 (The value \code{"pairwise"} is accepted as an alias for \code{"all"}.)
-Default: \code{line_connect = "all"}.}
+Default: \code{line_connect = "path"}.}
 
 \item{col_fill}{Fill color for the plane (for \code{type = "plane"}).
 Default: \code{col_fill = NA} (i.e., fill the plane with a color gradient
@@ -382,16 +385,15 @@ plot_cube(c("red", "blue"), type = "b")            # line with points (red-blue 
 # Changing the viewing angle:
 plot_cube(pal_unikn, theta = 30, phi = 25)
 
-# With >2 colors: All pairs (default), disjoint pairs, or a connecting path:
-col_3 <- c("grey10", "orange", "steelblue")
-plot_cube(col_3, type = "l")                             # all pairs
-plot_cube(col_3, type = "b", lwd_line = 5)               # all pairs + points
-plot_cube(pal_unikn, type = "b", line_connect = "path")  # path (palette order)
+# With >2 colors: All pairs, disjoint pairs, or a connecting path (default):
+plot_cube(col_4, type = "l", line_connect = "all")       # all pairs
+plot_cube(col_4, type = "b", line_connect = "pairs")     # disjoint pairs (and points)
+plot_cube(pal_unikn, type = "b", line_connect = "path")  # connecting path (in palette order)
 
 # Using line_connect = "pairs" to link disjoint color pairs, e.g., to show
 # the 3 complementary RGB/CMY pairs (each line crosses the grey cube center):
 plot_cube(c("red", "cyan", "green", "magenta", "blue", "yellow"), type = "b", 
-          line_connect = "pairs", lwd_line = 5, grid = TRUE, main = "Complementary colors")
+          line_connect = "pairs", grid = TRUE, main = "Complementary colors")
 
 # Spanning a plane through 3 colors (type = "plane"):
 plot_cube(c("red", "green", "blue"), type = "plane")  # gamut of 3 primary RGB colors
