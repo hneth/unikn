@@ -19,7 +19,7 @@ plot_cube(
   ref_lines = FALSE,
   col_line = NA,
   lwd_line = 3,
-  line_connect = "all",
+  line_connect = "path",
   col_fill = NA,
   lwd_outline = 1,
   fill_alpha = 0.75,
@@ -195,7 +195,7 @@ plot_cube(
 
   For 2 colors, all 3 options yield the same single line. (The value
   `"pairwise"` is accepted as an alias for `"all"`.) Default:
-  `line_connect = "all"`.
+  `line_connect = "path"`.
 
 - col_fill:
 
@@ -501,19 +501,18 @@ plot_cube(c("red", "blue"), type = "b")            # line with points (red-blue 
 plot_cube(pal_unikn, theta = 30, phi = 25)
 
 
-# With >2 colors: All pairs (default), disjoint pairs, or a connecting path:
-col_3 <- c("grey10", "orange", "steelblue")
-plot_cube(col_3, type = "l")                             # all pairs
+# With >2 colors: All pairs, disjoint pairs, or a connecting path (default):
+plot_cube(col_4, type = "l", line_connect = "all")       # all pairs
 
-plot_cube(col_3, type = "b", lwd_line = 5)               # all pairs + points
+plot_cube(col_4, type = "b", line_connect = "pairs")     # disjoint pairs (and points)
 
-plot_cube(pal_unikn, type = "b", line_connect = "path")  # path (palette order)
+plot_cube(pal_unikn, type = "b", line_connect = "path")  # connecting path (in palette order)
 
 
 # Using line_connect = "pairs" to link disjoint color pairs, e.g., to show
 # the 3 complementary RGB/CMY pairs (each line crosses the grey cube center):
 plot_cube(c("red", "cyan", "green", "magenta", "blue", "yellow"), type = "b", 
-          line_connect = "pairs", lwd_line = 5, grid = TRUE, main = "Complementary colors")
+          line_connect = "pairs", grid = TRUE, main = "Complementary colors")
 
 
 # Spanning a plane through 3 colors (type = "plane"):
@@ -524,21 +523,18 @@ plot_cube(c("cyan", "yellow", "magenta"),             # gamut of 3 opposite RGB 
 
 
 # Colors as 3D boxes (type = "box"): Box faces show each color's RGB value
-plot_cube(c("red", "green", "blue"), type = "box")    # primaries as boxes
+plot_cube(c("cyan3", "gold", "grey80", "grey20", "skyblue", "tomato"), type = "box") # point boxes
 
-plot_cube(pal_unikn, type = "box", labels = "names")  # a palette as boxes
+plot_cube(pal_unikn, type = "box", grid = TRUE)       # a palette as boxes
 
-plot_cube(pal_unikn, type = "box", n_boxes = 10)      # fewer, larger boxes
-
-plot_cube(pal_unikn, type = "box", shade = TRUE)      # shaded faces (subtle 3D effect)
-
-plot_cube(pal_unikn, type = "box", d = 8)             # near-orthographic (edges parallel)
-
+# plot_cube(pal_unikn, type = "box", n_boxes = 10)    # fewer, larger boxes
+# plot_cube(pal_unikn, type = "box", shade = TRUE)    # shaded faces (subtle 3D effect)
+# plot_cube(pal_unikn, type = "box", d = 10)          # near-orthographic (edges parallel)
 
 # Grouped colors: Passing a list combines colors (by group size):
 # Each c() group becomes a point (1 color), line (2), or plane (3+):
-plot_cube(list(Seeblau, c(Pinky, Seegruen),          # 1 point, 1 line, and 
-               c("red", "green", "blue")))           # 1 plane
+plot_cube(list(Seeblau, c(Pinky, Seegruen),   # 1 point, 1 line, and 
+               c("red", "green", "blue")))    # 1 plane
 
 
 # A lone point, a line, and a plane (with the defining points marked):
@@ -606,14 +602,10 @@ plot_cube(col_8, theta = -30, phi = 30, labels = c("names", "rgb", "hex"),
 
 
 # 2. The main black-grey-white diagonal of the cube (with all shades of grey):
-plot_cube(c("black", "white"), type = "l", lwd_line = 5, 
-          main = "Main b/w-diagonal (with all shades of grey)")
-
-greys <- paste("grey", seq(0, 100, length.out = 5))  # 5 shades of grey (white to black)
+greys <- paste("grey", seq(0, 100, length.out = 5))  # 5 shades of grey (black to white)
 plot_cube(greys, type = "b", line_connect = "path", 
           lwd_line = 5, labels = c("names", "hex", "rgb"),
-          theta = -30, phi = 30, 
-          main = "5 shades of grey (on b/w diagonal)")
+          phi = 20, theta = -30, main = "5 shades of grey (on b/w diagonal)")
 
 
 # 3. Complementarity of the RGB and CMY color systems:
@@ -628,8 +620,8 @@ plot_cube(col_6, labels = c("names", "rgb"),
 
           
 # Show all 4 cube diagonals:
-plot_cube(col_8, type = "b", line_connect = "pairs", lwd_line = 4,
-          grid = TRUE, main = "The 4 main diagonals")
+plot_cube(col_8, type = "b", line_connect = "pairs", lwd_line = 5,
+          grid = TRUE, phi = 30, theta = 0, main = "The 4 main diagonals")
 
             
 # Show 2 triangular planes:
